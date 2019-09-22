@@ -1,0 +1,35 @@
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+      <h1 class="brand">{{ .Site.Title }}</h1>
+      <p class="lead">
+	Stuff by  <a href="{{.Site.BaseURL}}">Ashish Tiwari</a>
+      </p>
+	<div class="author-image">
+          <img src="https://s.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=100" alt="Author Image" class="img--circle img--headshot element--center">
+        </div>
+
+      <p class="lead">
+	Developer Evangelist @ <a href="https://pepipost.com">Pepipost</a>
+      </p>
+
+    </div> 
+
+
+    <nav>
+      <ul class="sidebar-nav">
+        {{ range .Site.Menus.main -}}
+          <li><a href="{{.URL}}"> {{ .Name }} </a></li>
+        {{- end }}
+      </ul>
+    </nav>
+
+      {{ with .Site.Params.twitter }}<a href="{{.}}"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;{{end}}
+      {{ with .Site.Params.linkedin }}<a href="{{.}}"><i class="fa fa-linkedin-square"></i></a>&nbsp;&nbsp;{{end}}
+      {{ with .Site.Params.facebook }}<a href="{{.}}"><i class="fa fa-facebook-square"></i></a>&nbsp;&nbsp;{{end}}
+      {{ with .Site.Params.github }}<a href="{{.}}"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;{{end}}
+      {{ with .Site.Params.stackoverflow }}<a href="{{.}}"><i class="fa fa-stack-overflow"></i></a>{{end}}
+
+    <p class="footnote">{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}} Ashish Tiwari. All rights reserved. {{end}}</p>
+  </div>
+</aside>

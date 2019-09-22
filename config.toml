@@ -1,0 +1,41 @@
+baseurl = "http://marcio.io"
+languageCode = "en-us"
+title = "ashish.one"
+theme = "hyde"
+copyright = "Ashish Tiwari"
+
+[Author]
+	name = "Ashish Tiwari"
+
+[Permalinks]
+	blog = "/:year/:month/:filename/"
+	code = "/:filename/"
+
+[Taxonomies]
+	tag = "tags"
+	series = "series"
+	series-desc = "series-desc"
+
+[params]
+	description = "stuff by Ashish Tiwari"
+	linkedin = "https://in.linkedin.com/in/ashish-tiwari-a40a012b"
+	twitter = "https://twitter.com/_ashish_tiwari"
+	github = "https://github.com/ashishtiwari1993"
+	stackoverflow = "https://stackoverflow.com/users/6438430/ashish-tiwari"
+
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About me"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/about/"
+    weight = -110
+
+  [[menu.main]]
+    name = "Blogs"
+    post = "<span class='alert'>New!</span>"
+    pre = "<i class='fa fa-road'></i>"
+    url = "/blogs/"
+    weight = -100
