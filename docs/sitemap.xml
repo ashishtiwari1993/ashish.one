@@ -3,7 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ashishtiwari1993.github.io/ashish.one/tags/alertmanager/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashishtiwari1993.github.io/ashish.one/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashishtiwari1993.github.io/ashish.one/blogs/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashishtiwari1993.github.io/ashish.one/blogs/monitoring-and-alerting-with-prometheus/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashishtiwari1993.github.io/ashish.one/tags/prometheus/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashishtiwari1993.github.io/ashish.one/tags/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
   </url>
   
   <url>
@@ -12,10 +38,6 @@
   
   <url>
     <loc>https://ashishtiwari1993.github.io/ashish.one/series-desc/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ashishtiwari1993.github.io/ashish.one/tags/</loc>
   </url>
   
 </urlset>
