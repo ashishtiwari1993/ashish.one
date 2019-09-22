@@ -18,4 +18,15 @@ That's exactly the purpose of writing this tutorial series around monitoring and
 ## What is Prometheus?
 
 Prometheus is an open-source system for monitoring and alerting. It developed in the GO language. It is currently a standalone open source project and maintained independently by any organization. You can check more details [here](https://prometheus.io/docs/introduction/overview/#what-is-prometheus). 
+
+## Why Prometheus?
+
+1. Open-source and of course freely available :)
+2. It is constantly contributed by the community. It is stable and used by many good brands.  Check [Stackshare](https://stackshare.io/prometheus).
+3. Good community support and well documented. 
+4. You do not need any big infrastructure to get started. It can be started with 1 GB RAM.
+5. It has its own UI to check any metrics. But, many prefer Grafana with Prometheus which gives you better visualization on your Prometheus metrics. 
+6. Lots of pre-build Grafana dashboard and exporters already written. You have to just reuse those exporters.
+You can check the list of Prometheus features [here](https://prometheus.io/docs/introduction/overview/#features).
+
 [continue reading](https://pepipost.com/tutorials/setup-prometheus-and-exporters/)

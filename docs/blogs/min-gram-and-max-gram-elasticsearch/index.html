@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>What should be the value of max_gram and min_gram in Elasticsearch? &middot; ashish.one</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://ashish.one/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://ashish.one/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://ashish.one/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://ashish.one/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+
+
+  
+  
+
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Raleway']
+      }
+    });
+  </script>
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+      <h1 class="brand">ashish.one</h1>
+      <p class="lead">
+	Stuff by  <a href="http://ashish.one/">Ashish Tiwari</a>
+      </p>
+	<div class="author-image">
+          <img src="https://s.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=100" alt="Author Image" class="author-image">
+        </div>
+      <p class="lead">
+	Developer Evangelist @ <a href="https://pepipost.com">Pepipost</a>
+      </p>
+
+    </div> 
+
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> About me </a></li><li><a href="/blogs/"> Blogs </a></li>
+      </ul>
+    </nav>
+
+      <a href="https://twitter.com/_ashish_tiwari"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+      <a href="https://in.linkedin.com/in/ashish-tiwari-a40a012b"><i class="fa fa-linkedin-square"></i></a>&nbsp;&nbsp;
+      
+      <a href="https://github.com/ashishtiwari1993"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
+      <a href="https://stackoverflow.com/users/6438430/ashish-tiwari"><i class="fa fa-stack-overflow"></i></a>
+
+    <p class="footnote">&copy; 2019 Ashish Tiwari. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>What should be the value of max_gram and min_gram in Elasticsearch?</h1>
+  <time datetime=2019-09-22T15:20:39&#43;0530 class="post-date">Sun, Sep 22, 2019</time>
+  
+
+<p>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html">ngram token filter</a> for like query. It was quickly implemented on local and works exactly i want.</p>
+
+<h2 id="the-problem">The problem</h2>
+
+<p>To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</p>
+
+<ol>
+<li><p>Storage size was directly increase by 8x, Which was too risky. In my previous index the string type was “keyword”. Its took approx 43 gb to store the same data. I implemented a new schema for “like query” with ngram filter which took below storage to store same data.</p>
+
+<pre><code>curl -XGET http://localhost:9200/_cat/indices?v
+
+index       docs.count  pri.store.size
+ngram-test  459483245   329.5gb
+
+</code></pre></li>
+
+<li><p>Sometime like query was not behaving properly. Not getting exact output.</p></li>
+</ol>
+
+<h2 id="schema">Schema</h2>
+
+<pre><code>curl -XPUT &quot;localhost:9200/ngram-test?pretty&quot; -H 'Content-Type: application/json' -d'
+{
+  &quot;settings&quot;:{
+    &quot;index&quot;:{
+      &quot;number_of_shards&quot;:5,
+      &quot;number_of_replicas&quot;:0,
+      &quot;codec&quot;: &quot;best_compression&quot;
+    },
+    &quot;analysis&quot;:{
+      &quot;filter&quot;:{
+        &quot;like_filter&quot;:{
+          &quot;type&quot;:&quot;ngram&quot;,
+          &quot;min_gram&quot;:3,
+          &quot;max_gram&quot;:10,
+          &quot;token_chars&quot;:[
+            &quot;letter&quot;,
+            &quot;digit&quot;,
+            &quot;symbol&quot;
+          ]
+        }
+      },
+      &quot;analyzer&quot;:{
+        &quot;like_analyzer&quot;:{
+          &quot;type&quot;:&quot;custom&quot;,
+          &quot;tokenizer&quot;:&quot;keyword&quot;,
+          &quot;filter&quot;:[
+            &quot;lowercase&quot;,
+            &quot;like_filter&quot;
+          ]
+        }
+      }
+    }
+  },
+  &quot;mappings&quot;:{
+    &quot;logs&quot;:{
+      &quot;properties&quot;:{
+        &quot;email&quot;:{
+          &quot;type&quot;:&quot;keyword&quot;,
+          &quot;fields&quot;:{
+            &quot;text&quot;:{
+              &quot;analyzer&quot;:&quot;like_analyzer&quot;,
+              &quot;search_analyzer&quot;:&quot;like_analyzer&quot;,
+              &quot;type&quot;:&quot;text&quot;
+            }
+          }
+        }
+      }
+    }
+  }
+}'
+</code></pre>
+
+<h2 id="analyzing-the-behavior-of-ngram-filter">Analyzing the behavior of ngram filter</h2>
+
+<p>We made one test index and start monitoring by inserting doc one by one.</p>
+
+<p><a href="https://medium.com/@ashishstiwari/what-should-be-the-value-of-max-gram-and-min-gram-in-elasticsearch-f091404c9a14">Continue Reading</a></p>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

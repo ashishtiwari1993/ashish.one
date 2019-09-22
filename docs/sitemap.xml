@@ -18,6 +18,21 @@
   </url>
   
   <url>
+    <loc>http://ashish.one/tags/elasticsearach/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ashish.one/tags/max_gram/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ashish.one/tags/min_gram/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>http://ashish.one/blogs/monitoring-and-alerting-with-prometheus/</loc>
     <lastmod>2019-09-22T15:20:39+05:30</lastmod>
   </url>
@@ -29,6 +44,16 @@
   
   <url>
     <loc>http://ashish.one/tags/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ashish.one/tags/tokenizer/</loc>
+    <lastmod>2019-09-22T15:20:39+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</loc>
     <lastmod>2019-09-22T15:20:39+05:30</lastmod>
   </url>
   

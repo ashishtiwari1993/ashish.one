@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ashish.one</title>
-    <link>http://ashish.one/</link>
-    <description>Recent content on ashish.one</description>
+    <title>elasticsearach on ashish.one</title>
+    <link>http://ashish.one/tags/elasticsearach/</link>
+    <description>Recent content in elasticsearach on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
     <lastBuildDate>Sun, 22 Sep 2019 15:20:39 +0530</lastBuildDate>
     
-	<atom:link href="http://ashish.one/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ashish.one/tags/elasticsearach/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Monitoring and Alerting With Prometheus - 1</title>
-      <link>http://ashish.one/blogs/monitoring-and-alerting-with-prometheus/</link>
-      <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
-      
-      <guid>http://ashish.one/blogs/monitoring-and-alerting-with-prometheus/</guid>
-      <description>As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday&amp;rsquo;s life.</description>
-    </item>
     
     <item>
       <title>What should be the value of max_gram and min_gram in Elasticsearch?</title>
