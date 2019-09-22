@@ -3,41 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>ashish.one/tags/alertmanager/</loc>
+    <loc>/tags/alertmanager/</loc>
     <lastmod>2019-09-22T15:20:39+05:30</lastmod>
   </url>
   
   <url>
-    <loc>ashish.one/</loc>
+    <loc>/</loc>
     <lastmod>2019-09-22T15:20:39+05:30</lastmod>
   </url>
   
   <url>
-    <loc>ashish.one/blogs/</loc>
+    <loc>/blogs/</loc>
     <lastmod>2019-09-22T15:20:39+05:30</lastmod>
   </url>
   
   <url>
-    <loc>ashish.one/blogs/monitoring-and-alerting-with-prometheus/</loc>
+    <loc>/blogs/monitoring-and-alerting-with-prometheus/</loc>
     <lastmod>2019-09-22T15:20:39+05:30</lastmod>
   </url>
   
   <url>
-    <loc>ashish.one/tags/prometheus/</loc>
+    <loc>/tags/prometheus/</loc>
     <lastmod>2019-09-22T15:20:39+05:30</lastmod>
   </url>
   
   <url>
-    <loc>ashish.one/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2019-09-22T15:20:39+05:30</lastmod>
   </url>
   
   <url>
-    <loc>ashish.one/series/</loc>
+    <loc>/series/</loc>
   </url>
   
   <url>
-    <loc>ashish.one/series-desc/</loc>
+    <loc>/series-desc/</loc>
   </url>
   
 </urlset>

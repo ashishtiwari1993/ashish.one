@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>prometheus on ashish.one</title>
-    <link>ashish.one/tags/prometheus/</link>
+    <link>/tags/prometheus/</link>
     <description>Recent content in prometheus on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
     <lastBuildDate>Sun, 22 Sep 2019 15:20:39 +0530</lastBuildDate>
     
-	<atom:link href="ashish.one/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Monitoring and Alerting With Prometheus - 1</title>
-      <link>ashish.one/blogs/monitoring-and-alerting-with-prometheus/</link>
+      <link>/blogs/monitoring-and-alerting-with-prometheus/</link>
       <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
       
-      <guid>ashish.one/blogs/monitoring-and-alerting-with-prometheus/</guid>
+      <guid>/blogs/monitoring-and-alerting-with-prometheus/</guid>
       <description>As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday&amp;rsquo;s life.</description>
     </item>
     
