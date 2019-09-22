@@ -70,7 +70,7 @@ pre {
     left: 0;
     bottom: 0;
     width: 18rem;
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -281,4 +281,10 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
+}
+
+.author-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
