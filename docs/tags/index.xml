@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on ashish.one</title>
-    <link>http://marcio.io/tags/</link>
+    <link>https://ashishtiwari1993.github.io/ashish.one/tags/</link>
     <description>Recent content in Tags on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
     
-	<atom:link href="http://marcio.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ashishtiwari1993.github.io/ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
