@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "ashish.one"
 theme = "hyde"
 copyright = "Ashish Tiwari"
-
+publishDir = "docs"
 
 [Author]
 	name = "Ashish Tiwari"
