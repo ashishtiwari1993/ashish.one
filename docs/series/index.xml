@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on ashish.one</title>
-    <link>http://ashish.one/series/</link>
+    <link>https://ashish.one/series/</link>
     <description>Recent content in Series on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
     
-	<atom:link href="http://ashish.one/series/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ashish.one/series/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

@@ -1,4 +1,4 @@
-baseurl = "http://ashish.one/"
+baseurl = "https://ashish.one/"
 languageCode = "en-us"
 title = "ashish.one"
 theme = "hyde"

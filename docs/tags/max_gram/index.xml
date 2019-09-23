@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>max_gram on ashish.one</title>
-    <link>http://ashish.one/tags/max_gram/</link>
+    <link>https://ashish.one/tags/max_gram/</link>
     <description>Recent content in max_gram on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
     <lastBuildDate>Sun, 22 Sep 2019 15:20:39 +0530</lastBuildDate>
     
-	<atom:link href="http://ashish.one/tags/max_gram/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ashish.one/tags/max_gram/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What should be the value of max_gram and min_gram in Elasticsearch?</title>
-      <link>http://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</link>
+      <link>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</link>
       <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
       
-      <guid>http://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
+      <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
       <description>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use ngram token filter for like query. It was quickly implemented on local and works exactly i want.
 The problem To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</description>
     </item>
