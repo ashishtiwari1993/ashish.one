@@ -30,3 +30,12 @@ Prometheus is an open-source system for monitoring and alerting. It developed in
 You can check the list of Prometheus features [here](https://prometheus.io/docs/introduction/overview/#features).
 
 [continue reading](https://pepipost.com/tutorials/setup-prometheus-and-exporters/)
+
+<script src="https://utteranc.es/client.js"
+        repo="ashishtiwari1993/ashish.one"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
