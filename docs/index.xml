@@ -31,5 +31,15 @@
 The problem To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</description>
     </item>
     
+    <item>
+      <title>About me</title>
+      <link>https://ashish.one/about/</link>
+      <pubDate>Tue, 03 Sep 2019 15:11:45 +0530</pubDate>
+      
+      <guid>https://ashish.one/about/</guid>
+      <description>Having 4+ Year experience in Software &amp;amp; Email Industry. Started as software engineer, Now i am Developer evangelist @ Pepipost, Where i am responsible for Reports management, database management &amp;amp; application development. I also working on platform architecture to handling heavy traffic of events which is combination of queues stack, Daemons and various services.
+As a Developer evangelist got opportunity to work with end users. I have been fortunate to work with various technology like Elasticserach, go, perl, Java etc.</description>
+    </item>
+    
   </channel>
 </rss>
