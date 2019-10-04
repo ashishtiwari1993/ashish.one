@@ -4,6 +4,7 @@ title = "ashish.one"
 theme = "hyde"
 copyright = "Ashish Tiwari"
 publishDir = "docs"
+googleAnalytics = "UA-149424518-1"
 
 [Author]
 	name = "Ashish Tiwari"
