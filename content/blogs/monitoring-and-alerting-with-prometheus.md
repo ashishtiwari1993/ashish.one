@@ -302,7 +302,7 @@ There are already lots of exporters is available on the internet like Nginx expo
 
 **You have now successfully installed Prometheus and node exporters.** 
 
-If you see this official architecture diagram, we have successfully set up the **Prometheus**, **Pushgateway/Exporters**, and **Prometheus UI**.
+If you see this [official architecture diagram](https://prometheus.io/docs/introduction/overview/#architecture), we have successfully set up the **Prometheus**, **Pushgateway/Exporters**, and **Prometheus UI**.
 
 In the next part, we will see how we can set up an alert manager and how to setup alert over the metrics. 
 
