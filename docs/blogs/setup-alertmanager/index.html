@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>[Part - 2] How to setup alertmanager and send alerts ? &middot; ashish.one</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/png" href="/ashish_one_favicon.png">
+
+  
+  
+
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Raleway']
+      }
+    });
+  </script>
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+      <h1 class="brand">ashish.one</h1>
+      <p class="lead">
+	Stuff by  <a href="https://ashish.one/">Ashish Tiwari</a>
+      </p>
+	<div class="author-image">
+          <img src="https://s.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=100" alt="Author Image" class="author-image">
+        </div>
+      <p class="lead">
+	Developer Evangelist @ <a href="https://pepipost.com">Pepipost</a>
+      </p>
+
+    </div> 
+
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> About me </a></li><li><a href="/blogs/"> Blogs </a></li>
+      </ul>
+    </nav>
+
+      <a href="https://twitter.com/_ashish_tiwari"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+      <a href="https://in.linkedin.com/in/ashish-tiwari-a40a012b"><i class="fa fa-linkedin-square"></i></a>&nbsp;&nbsp;
+      
+      <a href="https://github.com/ashishtiwari1993"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
+      <a href="https://stackoverflow.com/users/6438430/ashish-tiwari"><i class="fa fa-stack-overflow"></i></a>
+
+    <p class="footnote">&copy; 2019 Ashish Tiwari. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>[Part - 2] How to setup alertmanager and send alerts ?</h1>
+  <time datetime=2019-10-23T15:24:26&#43;0530 class="post-date">Wed, Oct 23, 2019</time>
+  
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART - 1</a> ,We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.</p>
+
+<p>Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.</p>
+
+<p>Let&rsquo;s setup alertmanage: )</p>
+
+<h1 id="setup-alertmanager">Setup Alertmanager</h1>
+
+<h2 id="installation">Installation:</h2>
+
+<p>Prerequisites will be the same as <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART - 1</a> . We will download the precompiled binary of alertmanager. Although there is a docker image also available which you can use.</p>
+
+<h3 id="step-1-download-alertmanager">Step 1: Download alertmanager</h3>
+
+<pre><code>$ wget https://github.com/prometheus/prometheus/releases/download/v2.13.1/prometheus-2.13.1.linux-amd64.tar.gz
+</code></pre>
+
+<p><img src="/img/alertmanager-setup/download_alertmanager.png" alt="alertmanager binary download" /></p>
+
+<h3 id="step-2-extract-tar">Step 2: Extract tar</h3>
+
+<pre><code>$ tar -xvzf alertmanager-0.19.0.linux-amd64.tar.gz
+</code></pre>
+
+<h3 id="step-3-folder-structure">Step 3: Folder structure</h3>
+
+<pre><code>$ mv alertmanager-0.19.0.linux-amd64 alertmanager
+$ cd alertmanager/
+$ ll
+</code></pre>
+
+<p>Folder contains below files:</p>
+
+<p><img src="/img/alertmanager-setup/folder_structure.png" alt="alertmanager folder structure" /></p>
+
+<ul>
+<li><code>alertmanager</code>: It is a binary file that is core Daemon of alertmanager.</li>
+<li><code>alertmanager.yml</code>: This is config file for alertmanager service.</li>
+<li><code>amtool</code>: It is another binary that can be used as a command line utility to manager or silence the alerts on alertmanager.</li>
+</ul>
+
+<h3 id="step-4-run-alertmanager">Step  4: Run alertmanager</h3>
+
+<p>Execute binary:</p>
+
+<pre><code>./alertmanager
+</code></pre>
+
+<p><img src="/img/alertmanager-setup/execute_alertmanager.png" alt="alertmanager folder structure" /></p>
+
+<p>Visit to <code>localhost:9093</code> on your browser:</p>
+
+<p><img src="/img/alertmanager-setup/alertmanager_web.png" alt="alertmanager web" /></p>
+
+<p>Your alertmanager is up :) Like prometheus it is creating folder with the name <code>data</code>. Alertmanager starts storing data in <code>/data</code> folder.</p>
+
+<p>To check alertmanager metrics just visit localhost:9093/metrics</p>
+
+<p>My production execution command is</p>
+
+<pre><code>~/alertmanager/alertmanager --config.file=~/alertmanager/alertmanager.yml --storage.path=/var/lib/alertmanager --web.external-url=http://myurl.com:9093
+</code></pre>
+
+<ul>
+<li><code>--storage.tsdb.path</code> : Specify the path where you want to save prometheus data.</li>
+<li><code>--web.external-url</code> : You can use this option if you want to bind your address with your URL.</li>
+</ul>
+
+<h3 id="step-5-run-alertmanager-as-service">Step 5: Run alertmanager as service</h3>
+
+<ol>
+<li><p>Create file</p>
+
+<pre><code>vim /etc/systemd/system/alertmanager.service
+</code></pre></li>
+
+<li><p>Paste Below code</p>
+
+<pre><code>[Unit]
+Description=AlertManager Server Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Type=Simple
+
+ExecStart=~/alertmanager/alertmanager --config.file=~/alertmanager/alertmanager.yml --storage.path=/var/lib/alertmanager --web.external-url=http://myurl.com:9093
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></li>
+</ol>
+
+<p>Save and exit.</p>
+
+<p>It won’t run because <code>alertmanager.yml</code> is not defined yet. <code>alertmanager.yml</code> file is defined below.</p>
+
+<ol>
+<li><p>Reload the Systemctl Daemon:</p>
+
+<pre><code>$ sudo systemctl daemon-reload
+</code></pre></li>
+
+<li><p>To start alertmanager service</p>
+
+<pre><code>$ sudo systemctl start alertmanager
+</code></pre></li>
+</ol>
+
+<h2 id="setup-alerts">Setup Alerts</h2>
+
+<h3 id="step-1-add-settings-in-prometheus-yml">Step 1: Add settings in <code>prometheus.yml</code></h3>
+
+<p>Open <code>prometheus.yml</code> file</p>
+
+<pre><code>$ vim ~/prometheus/prometheus.yml
+</code></pre>
+
+<p>Add below code</p>
+
+<pre><code>scrape_configs:
+  # The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+    - targets: ['localhost:9090']
+
+    # Add below block for node_exporter
+  - job_name: node_exporter
+    scrape_interval: 1m
+    scrape_timeout:  1m
+    metrics_path: &quot;/metrics&quot;
+    static_configs:
+    - targets: ['localhost:9100']
+
+
+#Alertmanager settings
+
+rule_files:
+  - '~/prometheus/alert.rules.yml'
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - 'myurl.com:9093'
+</code></pre>
+
+<ul>
+<li><p><code>rule_files</code>: These are the files that contain all kinds of rules. Prometheus has own syntax to define rules. We will see this below.</p></li>
+
+<li><p><code>alerting</code>: This is an option where we have to define alertmanager configuration. In target, we have defined myurl.com:9093 this is the exact port where our alertmanager is running.</p></li>
+</ul>
+
+<h3 id="step-2-how-prometheus-service-will-work">Step 2: How prometheus service will work?</h3>
+
+<p>In above <code>scrape_config</code> we have defined scrape configurations. In the above example, prometheus will scrape <code>node_exporter</code> job at every 1 minute (scrape_interval is 1m. it will scrape all information which is available on localhost:9100/metrics (It will scrape all targets which is defined in the <code>targets</code> array).</p>
+
+<p>It will store the data in the Internal database.</p>
+
+<p>At every scraping, it will keep evaluating alert rules which defined in <code>alert.rules.yml</code>. As soon as any alert rules get true it will send an event to alertmanager on myurl.com:9093</p>
+
+<p>Once alertmanager received events, It will check by which channel alert needs to be trigger like via slack, email pagerduty, etc which defined in <code>alertmanager.yml</code> &amp; it will trigger an alert via appropriate channel. Now let’s define two files :</p>
+
+<ol>
+<li><code>alert.rules.yml</code></li>
+<li><code>alertmanager.yml</code></li>
+</ol>
+
+<h3 id="step-3-create-alert-rules-yml">Step 3: Create <code>alert.rules.yml</code></h3>
+
+<p>Create <code>~/prometheus/alert.rules.yml</code> file and paste below sample rule:</p>
+
+<pre><code>groups:
+
+- name: Disk-usage
+  rules:
+  - alert: 'Low data disk space'
+    expr: ceil(((node_filesystem_size_bytes{mountpoint!=&quot;/boot&quot;} - node_filesystem_free_bytes{mountpoint!=&quot;/boot&quot;}) / node_filesystem_size_bytes{mountpoint!=&quot;/boot&quot;} * 100)) &gt; 95
+    labels:
+      severity: 'critical'
+    annotations:
+      title: &quot;Disk Usage&quot;
+      description: 'Partition : {{$labels.mountpoint}}'
+      summary: &quot;Disk usage is `{{humanize $value}}%`&quot;
+      host: &quot;{{$labels.instance}}&quot;
+
+
+- name: Memory-usage
+  rules:
+  - alert: 'High memory usage'
+    expr: ceil((((node_memory_MemTotal_bytes - node_memory_MemFree_bytes - node_memory_Buffers_bytes - node_memory_Cached_bytes) / node_memory_MemTotal_bytes) * 100)) &gt; 80
+    labels:
+      severity: 'critical'
+    annotations:
+      title: &quot;Memory Usage&quot;
+      description: 'Memory usage threshold set to `80%`.'
+      summary: &quot;Memory usage is `{{humanize $value}}%`&quot;
+      host: &quot;{{$labels.instance}}&quot;
+</code></pre>
+
+<p>Here we have defined two rules.</p>
+
+<ol>
+<li>If memory utilization is exceeded then 80% then it will trigger an email.</li>
+<li>If any disk partition usage exceeded then 95% then it will trigger an email.</li>
+</ol>
+
+<p>You will get more insights on defining alerting rules <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/">here</a>.</p>
+
+<p>Now you might be wondering what is <code>node_filesystem_size_bytes</code> or <code>node_memory_MemTotal_bytes</code> ?</p>
+
+<p>If we recall part - 1 when we set up the node exporter and visited on <code>localhost:9100/metrics</code>, It has shown some metric. In that will get the above variable name. If you want to put any alert rules irrespective of any exporters, You have to make <code>expr</code> using these variables.</p>
+
+<p>You can compile your alert rule file :</p>
+
+<pre><code>promtool check rules alert.rules.yml
+</code></pre>
+
+<p><code>promtool</code> is binary which we got in prometheus folder when we extracted it.</p>
+
+<p>You can explore some sample rules <a href="https://awesome-prometheus-alerts.grep.to/rules.html">here</a>.</p>
+
+<h3 id="step-4-create-alertmanager-yml">Step 4: Create alertmanager.yml</h3>
+
+<p>Create <code>~/alertmanager/alertmanager.yml</code> file and paste below code:</p>
+
+<pre><code>global:
+  slack_api_url: &quot;https://hooks.slack.com/services/XXXXXXXXXXXXXXX&quot;
+
+route:
+
+  receiver: &quot;default&quot;
+  routes:
+   - match:
+      severity: info
+     receiver: slack
+
+   - match:
+      severity: critical
+     receiver: email
+     group_wait: 30s
+     group_interval: 5m
+     repeat_interval: 5m
+
+receivers:
+  - name: default
+    email_configs:
+     - to: 'to@youremail.com'
+       from: 'default-alerts@yourdomain.com'
+       smarthost: 'smtp.host.com:2525'
+       auth_username: &quot;smtpusername&quot;
+       auth_password: &quot;smtppassword&quot;
+       html: '{{ template &quot;email&quot; .}}'
+
+  - name: slack
+    slack_configs:
+      - send_resolved: true
+        username: '{{ template &quot;slack.default.username&quot; . }}'
+        color: '{{ if eq .Status &quot;firing&quot; }}good{{ else }}good{{ end }}'
+        title: '{{ template &quot;slack.default.title&quot; . }}'
+        title_link: '{{ template &quot;slack.default.titlelink&quot; . }}'
+        pretext: '{{ .CommonAnnotations.summary }}'
+        text:
+         &gt;-
+          {{ range .Alerts }}
+           *Alert:* {{ .Annotations.summary }} - `{{ .Labels.severity }}`:bar_chart:
+           *Description:* {{ .Annotations.description }}
+           *Details:*
+           {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+           {{ end }}
+          {{ end }}
+
+
+  - name: email
+    email_configs:
+     - to: 'to@youremail.com'
+       from: 'default-alerts@yourdomain.com'
+       smarthost: 'smtp.host.com:2525'
+       auth_username: &quot;smtpusername&quot;
+       auth_password: &quot;smtppassword&quot;
+       html: '{{ template &quot;email&quot; .}}'
+
+templates:
+- '~/prometheus/alert.tmpl'
+</code></pre>
+
+<p>Here we have setup two channel email and slack for alert. if you see <code>alertmanager.yml</code> file, There are four main components I defined.</p>
+
+<ul>
+<li><code>global</code>: Here we can define any global variable like we defined <code>slack_api_url</code>.</li>
+<li><code>route</code>: It is a routing block. I am playing routing on <code>severity</code>. Similarly, it is your choice on which variable you want to route your alerts. So here if severity == ‘info’, Alert will go from slack or if severity == ‘critical’, Alert will go via an email.</li>
+<li><code>receivers</code>: Here we can define the channel by which alert will go. For now, I have defined only email &amp; slack. You can explore more receivers <a href="https://prometheus.io/docs/alerting/configuration/#receiver">here</a>.</li>
+<li><code>templates</code>: It is an alert template where I have defined the HTML template for an email alert. It is not restricted to email. You can define a template for any channel. Explore more details about templates <a href="https://prometheus.io/docs/alerting/notification_examples/">here</a>.</li>
+</ul>
+
+<h3 id="step-5-sample-template">Step 5: Sample template</h3>
+
+<p>Create and Paste below code in <code>~/prometheus/alert.tmpl</code></p>
+
+<pre><code>{{ define &quot;email&quot; }}
+
+&lt;html&gt;
+   &lt;head&gt;
+      &lt;style type=&quot;text/css&quot;&gt;
+         table {
+         font-family: verdana,arial,sans-serif;
+         font-size:11px;
+         color:#333333;
+         border-width: 1px;
+         border-color: #999999;
+         border-collapse: collapse;
+         }
+         table th {
+         background-color:#ff6961;
+         border-width: 1px;
+         padding: 8px;
+         border-style: solid;
+         border-color: #F54C44;
+         }
+         table td {
+         border-width: 1px;
+         padding: 8px;
+         border-style: solid;
+         border-color: #F54C44;
+         text-align: right;
+         }
+      &lt;/style&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;table border=1&gt;
+         &lt;thead&gt;    
+           &lt;tr&gt;
+        &lt;th&gt;Alert name&lt;/th&gt;
+        &lt;th&gt;Host&lt;/th&gt;
+            &lt;th&gt;Summary&lt;/th&gt;
+            &lt;th&gt;Description&lt;/th&gt;
+           &lt;/tr&gt;
+         &lt;/thead&gt;
+
+         &lt;tbody&gt;
+       {{ range .Alerts }}
+            &lt;tr&gt;
+         &lt;td&gt;{{ .Labels.alertname }}&lt;/td&gt;
+         &lt;td&gt;{{ .Annotations.host }}&lt;/td&gt;
+         &lt;td&gt;{{ .Annotations.summary }}&lt;/td&gt;
+         &lt;td&gt;{{ .Annotations.description }}&lt;/td&gt;
+           &lt;/tr&gt;
+          {{ end }}
+         &lt;/tbody&gt;
+
+      &lt;/table&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+{{end}}
+</code></pre>
+
+<h3 id="step-6-start-alertmanager-service-restart-prometheus">Step 6: Start alertmanager service &amp; restart prometheus</h3>
+
+<pre><code>$ sudo systemctl start alertmanager
+$ sudo systemctl restart prometheus
+</code></pre>
+
+<h2 id="test-complete-integration">Test complete Integration:</h2>
+
+<p>If everything is set up correctly and alert rule getting true then it will trigger an alert. You can enable the log of alertmanager for debugging purposes.</p>
+
+<p>If you want to test alert, Then simply make threshold to very less 0% or 1% after 30s it should trigger the alert.</p>
+
+<p>Visit <code>localhost:9093</code>. If there is some alert you will get the list on the dashboard.</p>
+
+<p>So we successfully setup alert using alertmanager. In part - 3 we will see how we can prometheus with grafana to visualize our data.</p>
+
+</div>
+
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149424518-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>

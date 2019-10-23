@@ -304,7 +304,7 @@ There are already lots of exporters is available on the internet like Nginx expo
 
 If you see this official architecture diagram, we have successfully set up the **Prometheus**, **Pushgateway/Exporters**, and **Prometheus UI**.
 
-In the next part, we will see how we can set up an alert manager and how to setup alert over the metrics. 
+In the [Part 2](https://ashish.one/blogs/setup-alertmanager/), we will see how we can set up an alert manager and how to setup alert over the metrics. 
 
 Stay tuned for the new updates.
 

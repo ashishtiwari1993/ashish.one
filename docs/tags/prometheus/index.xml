@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
-    <lastBuildDate>Sun, 22 Sep 2019 15:20:39 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2019 15:24:26 +0530</lastBuildDate>
     
 	<atom:link href="https://ashish.one/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Part - 2] How to setup alertmanager and send alerts ?</title>
+      <link>https://ashish.one/blogs/setup-alertmanager/</link>
+      <pubDate>Wed, 23 Oct 2019 15:24:26 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/setup-alertmanager/</guid>
+      <description>Introduction In PART - 1 ,We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.
+Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.</description>
+    </item>
     
     <item>
       <title>[Part 1] How To Setup Prometheus And Exporters For Alerts And Monitoring?</title>
