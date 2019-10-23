@@ -1,5 +1,5 @@
 ---
-title: "[Part - 2] How to setup alertmanager and send alerts ?"
+title: "[Part 2] How to setup alertmanager and send alerts ?"
 date: 2019-10-23T15:24:26+05:30
 type: "post"
 ogtype: "article"
