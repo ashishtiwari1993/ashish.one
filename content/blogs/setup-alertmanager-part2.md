@@ -390,3 +390,11 @@ Visit `localhost:9093`. If there is some alert you will get the list on the dash
 
 So we successfully setup alert using alertmanager. In part - 3 we will see how we can prometheus with grafana to visualize our data. 
 
+<script src="https://utteranc.es/client.js"
+        repo="ashishtiwari1993/ashish.one"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
