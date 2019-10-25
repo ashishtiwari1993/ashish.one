@@ -10,7 +10,7 @@ slug: "setup-alertmanager"
 
 # Introduction
 
-In [PART - 1](https://ashish.one/blogs/setup-prometheus-and-exporters/) ,We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert. 
+In [PART - 1](https://ashish.one/blogs/setup-prometheus-and-exporters/), We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert. 
 
 Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.
 
@@ -68,7 +68,7 @@ Visit to `localhost:9093` on your browser:
 
 Your alertmanager is up :) Like prometheus it is creating folder with the name `data`. Alertmanager starts storing data in `/data` folder.
 
-To check alertmanager metrics just visit localhost:9093/metrics
+To check alertmanager metrics just visit `localhost:9093/metrics`
 
 My production execution command is
 
@@ -168,15 +168,15 @@ alerting:
 
 * `rule_files`: These are the files that contain all kinds of rules. Prometheus has own syntax to define rules. We will see this below.
 
-* `alerting`: This is an option where we have to define alertmanager configuration. In target, we have defined myurl.com:9093 this is the exact port where our alertmanager is running.
+* `alerting`: This is an option where we have to define alertmanager configuration. In target, we have defined `myurl.com:9093` this is the exact port where our alertmanager is running.
 
 ### Step 2: How prometheus service will work?
 
-In above `scrape_config` we have defined scrape configurations. In the above example, prometheus will scrape `node_exporter` job at every 1 minute (scrape_interval is 1m. it will scrape all information which is available on localhost:9100/metrics (It will scrape all targets which is defined in the `targets` array).
+In above `scrape_config` we have defined scrape configurations. In the above example, prometheus will scrape `node_exporter` job at every 1 minute (scrape_interval is 1m. it will scrape all information which is available on `localhost:9100/metrics` (It will scrape all targets which is defined in the `targets` array).
 
 It will store the data in the Internal database. 
 
-At every scraping, it will keep evaluating alert rules which defined in `alert.rules.yml`. As soon as any alert rules get true it will send an event to alertmanager on myurl.com:9093
+At every scraping, it will keep evaluating alert rules which defined in `alert.rules.yml`. As soon as any alert rules get true it will send an event to alertmanager on `myurl.com:9093`
 
 Once alertmanager received events, It will check by which channel alert needs to be trigger like via slack, email pagerduty, etc which defined in `alertmanager.yml` & it will trigger an alert via appropriate channel. Now let’s define two files :
 
@@ -218,8 +218,8 @@ groups:
 
 Here we have defined two rules. 
 
-1. If memory utilization is exceeded then 80% then it will trigger an email. 
-2. If any disk partition usage exceeded then 95% then it will trigger an email.
+1. If memory utilization is exceeded than 80% then it will trigger an email. 
+2. If any disk partition usage exceeded than 95% then it will trigger an email.
 
 You will get more insights on defining alerting rules [here](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/).
 
@@ -230,7 +230,7 @@ If we recall part - 1 when we set up the node exporter and visited on `localhost
 You can compile your alert rule file :
 
 ```
-promtool check rules alert.rules.yml
+$ promtool check rules alert.rules.yml
 ```
 
 `promtool` is binary which we got in prometheus folder when we extracted it.
@@ -305,7 +305,7 @@ templates:
 Here we have setup two channel email and slack for alert. if you see `alertmanager.yml` file, There are four main components I defined.
 
 * `global`: Here we can define any global variable like we defined `slack_api_url`.
-* `route`: It is a routing block. I am playing routing on `severity`. Similarly, it is your choice on which variable you want to route your alerts. So here if severity == ‘info’, Alert will go from slack or if severity == ‘critical’, Alert will go via an email. 
+* `route`: It is a routing block. I am playing routing on `severity`. Similarly, it is your choice on which variable you want to route your alerts. So here if `severity == ‘info’`, Alert will go from slack or if `severity == ‘critical’`, Alert will go via an email. 
 * `receivers`: Here we can define the channel by which alert will go. For now, I have defined only email & slack. You can explore more receivers [here](https://prometheus.io/docs/alerting/configuration/#receiver).
 * `templates`: It is an alert template where I have defined the HTML template for an email alert. It is not restricted to email. You can define a template for any channel. Explore more details about templates [here](https://prometheus.io/docs/alerting/notification_examples/). 
 

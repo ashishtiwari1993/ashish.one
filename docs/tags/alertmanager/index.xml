@@ -18,7 +18,7 @@
       <pubDate>Wed, 23 Oct 2019 15:24:26 +0530</pubDate>
       
       <guid>https://ashish.one/blogs/setup-alertmanager/</guid>
-      <description>Introduction In PART - 1 ,We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.
+      <description>Introduction In PART - 1, We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.
 Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.</description>
     </item>
     
