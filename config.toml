@@ -9,9 +9,6 @@ googleAnalytics = "UA-149424518-1"
 [Author]
 	name = "Ashish Tiwari"
 
-[Permalinks]
-	post = "/blogs/:title/"
-
 [Taxonomies]
 	tag = "tags"
 	series = "series"
@@ -32,11 +29,18 @@ googleAnalytics = "UA-149424518-1"
     name = "About me"
     pre = "<i class='fa fa-heart'></i>"
     url = "/about/"
-    weight = -110
+    weight = -100
 
   [[menu.main]]
     name = "Blogs"
     post = "<span class='alert'>New!</span>"
     pre = "<i class='fa fa-road'></i>"
     url = "/blogs/"
-    weight = -100
+    weight = -99
+
+  [[menu.main]]
+    name = "Gist"
+    post = "<span class='alert'>New!</span>"
+    pre = "<i class='fa fa-road'></i>"
+    url = "/gist/"
+    weight = -98
