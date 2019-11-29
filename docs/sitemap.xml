@@ -3,32 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ashish.one/blogs/setup-alertmanager/</loc>
-    <lastmod>2019-10-23T15:24:26+05:30</lastmod>
+    <loc>https://ashish.one/blogs/write-custom-exporters-prometheus/</loc>
+    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://ashish.one/tags/alertmanager/</loc>
-    <lastmod>2019-10-23T15:24:26+05:30</lastmod>
+    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2019-10-23T15:24:26+05:30</lastmod>
+    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://ashish.one/blogs/</loc>
-    <lastmod>2019-10-23T15:24:26+05:30</lastmod>
+    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/custom/</loc>
+    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/custom-exporter/</loc>
+    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/exporter/</loc>
+    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://ashish.one/tags/prometheus/</loc>
-    <lastmod>2019-10-23T15:24:26+05:30</lastmod>
+    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://ashish.one/tags/</loc>
+    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/blogs/setup-alertmanager/</loc>
     <lastmod>2019-10-23T15:24:26+05:30</lastmod>
   </url>
   

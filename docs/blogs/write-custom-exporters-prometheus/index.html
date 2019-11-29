@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>[Part 3] How to write custom prometheus exporter? &middot; ashish.one</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/png" href="/ashish_one_favicon.png">
+
+  
+  
+
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Raleway']
+      }
+    });
+  </script>
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+          <h1 class="brand"><a href="https://ashish.one/">ashish.one</a></h1>
+      <p class="lead">
+      Stuff by  <a href="/about">Ashish Tiwari</a>
+      </p>
+	<div class="author-image">
+          <img src="https://s.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=100" alt="Author Image" class="author-image">
+        </div>
+      <p class="lead">
+	Developer Evangelist @ <a href="https://pepipost.com">Pepipost</a>
+      </p>
+
+    </div> 
+
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> About me </a></li><li><a href="/blogs/"> Blogs </a></li><li><a href="/gist/"> Gist </a></li>
+      </ul>
+    </nav>
+
+      <a href="https://twitter.com/_ashish_tiwari"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+      <a href="https://in.linkedin.com/in/ashish-tiwari-a40a012b"><i class="fa fa-linkedin-square"></i></a>&nbsp;&nbsp;
+      
+      <a href="https://github.com/ashishtiwari1993"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
+      <a href="https://stackoverflow.com/users/6438430/ashish-tiwari"><i class="fa fa-stack-overflow"></i></a>
+
+    <p class="footnote">&copy; 2019 Ashish Tiwari. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>[Part 3] How to write custom prometheus exporter?</h1>
+  <time datetime=2019-11-29T22:51:27&#43;0530 class="post-date">Fri, Nov 29, 2019</time>
+  
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART-1</a> and <a href="https://ashish.one/blogs/setup-alertmanager/">PART-2</a>, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.</p>
+
+<p>But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.</p>
+
+<h1 id="there-is-two-way-to-exporting-the-data-on-prometheus">There is two way to exporting the data on prometheus:</h1>
+
+<h2 id="1-exporting-to-a-pushgateway">1. Exporting to a Pushgateway</h2>
+
+<p>Here we metrics are getting the push to prometheus server. It not exposed over any URL or port. Internally it directly calls to Prometheus host and pushes the metrics to that.</p>
+
+<h2 id="2-exposing-over-http-on-specific-port">2. Exposing over HTTP (on specific port)</h2>
+
+<p>In this option, Exporter will expose all data over HTTP in prometheus data format. Like below:</p>
+
+<p><img src="/img/prometheus-setup/node_exporter_metrics.png" alt="Node exporter metrics" /></p>
+
+<p>It exposes the data on a specific port e.g <code>http://myurl:8000</code>.</p>
+
+<h1 id="basic-example">Basic Example</h1>
+
+<p>Let&rsquo;s take a very basic example, Suppose there is one script (Daemon service) is running with the name <code>myprocess.go</code>. What do we do in real life to check if some script is running or not? We just hit <code>ps</code> command like below:</p>
+
+<p><code>ps -ef | grep 'myprocess'</code></p>
+
+<p>Now we are going to do the same in our exporter. It will hit the same command and if script is running we will set value <code>1</code> else <code>0</code>.</p>
+
+<h1 id="writing-exporter">Writing Exporter</h1>
+
+<p>We are going to use the Second option (Exposing over HTTP).</p>
+
+<h2 id="step-1">Step 1</h2>
+
+<p>We going to use <a href="https://github.com/prometheus/client_python">python_client</a>. Just install it with below <code>pip</code> command:</p>
+
+<p><code>pip install prometheus_client</code></p>
+
+<h2 id="step-2">Step 2</h2>
+
+<p>We need webserver gateway, For which we are going to use <a href="https://www.python.org/dev/peps/pep-0333/">WSGI</a>.</p>
+
+<h2 id="step-3">Step 3</h2>
+
+<p>Whenever we are writing exporters, We need to take care of metric type storage. Prometheus offered four types of metrics: Counter, Gauge, Summary, and Histogram. You can explore more <a href="https://github.com/prometheus/client_python#instrumenting">here</a>. Decide your metric type before pushing data.</p>
+
+<h2 id="step-4">Step 4</h2>
+
+<p>We are going to run a webserver on <code>8000</code> port and exposing the result on <code>/metrics</code> path. So to access metrics just hit <code>http://myurl.com:8000/metrics</code>.</p>
+
+<h2 id="step-5">Step 5</h2>
+
+<p>Complet sample code from my gist:</p>
+
+<script src="https://gist.github.com/ashishtiwari1993/7fca576c55cce93b8b980cdfcc420744.js"></script>
+
+<h2 id="step-6">Step 6</h2>
+
+<p>Add config in <code>prometheus.yml</code></p>
+
+<pre><code>  - job_name: service_up_exporter
+    scrape_interval: 2m
+    scrape_timeout:  2m
+    metrics_path: &quot;/metrics&quot;
+    static_configs:
+    - targets: ['exporterurl.com:8000/metrics']
+</code></pre>
+
+<h2 id="step-7">Step 7</h2>
+
+<p>Restart prometheus service:</p>
+
+<p><code>sudo service prometheus restart</code></p>
+
+<blockquote>
+<p>This is just a very basic example. It is a simple script to understand the way of writing exporters. You can write your custom exporters according to your use case.</p>
+</blockquote>
+
+<p>Here we have successfully write exporter which will expose the metrics. To know more about pushgateway or HTTP expoorter visit <a href="https://github.com/prometheus/client_python#instrumenting">here</a></p>
+
+<p>Share you comments below :)</p>
+
+<script src="https://utteranc.es/client.js"
+        repo="ashishtiwari1993/ashish.one"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</div>
+
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149424518-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>

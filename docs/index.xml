@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
-    <lastBuildDate>Wed, 23 Oct 2019 15:24:26 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2019 22:51:27 +0530</lastBuildDate>
     
 	<atom:link href="https://ashish.one/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Part 3] How to write custom prometheus exporter?</title>
+      <link>https://ashish.one/blogs/write-custom-exporters-prometheus/</link>
+      <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/write-custom-exporters-prometheus/</guid>
+      <description>Introduction In PART-1 and PART-2, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
+But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.
+There is two way to exporting the data on prometheus: 1.</description>
+    </item>
     
     <item>
       <title>[Part 2] How to setup alertmanager and send alerts ?</title>

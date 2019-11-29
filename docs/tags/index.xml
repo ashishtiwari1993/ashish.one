@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
-    <lastBuildDate>Wed, 23 Oct 2019 15:24:26 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2019 22:51:27 +0530</lastBuildDate>
     
 	<atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,16 +15,43 @@
     <item>
       <title>alertmanager</title>
       <link>https://ashish.one/tags/alertmanager/</link>
-      <pubDate>Wed, 23 Oct 2019 15:24:26 +0530</pubDate>
+      <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
       
       <guid>https://ashish.one/tags/alertmanager/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>custom</title>
+      <link>https://ashish.one/tags/custom/</link>
+      <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/custom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>custom-exporter</title>
+      <link>https://ashish.one/tags/custom-exporter/</link>
+      <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/custom-exporter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exporter</title>
+      <link>https://ashish.one/tags/exporter/</link>
+      <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/exporter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>prometheus</title>
       <link>https://ashish.one/tags/prometheus/</link>
-      <pubDate>Wed, 23 Oct 2019 15:24:26 +0530</pubDate>
+      <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
       
       <guid>https://ashish.one/tags/prometheus/</guid>
       <description></description>
