@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How to reset 1-Click Installed WordPress on DigitalOcean? &middot; ashish.one</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/png" href="/ashish_one_favicon.png">
+
+  
+  
+
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Raleway']
+      }
+    });
+  </script>
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+          <h1 class="brand"><a href="https://ashish.one/">ashish.one</a></h1>
+      <p class="lead">
+      Stuff by  <a href="/about">Ashish Tiwari</a>
+      </p>
+	<div class="author-image">
+          <img src="https://s.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=100" alt="Author Image" class="author-image">
+        </div>
+      <p class="lead">
+	Developer Evangelist @ <a href="https://pepipost.com">Pepipost</a>
+      </p>
+
+    </div> 
+
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> About me </a></li><li><a href="/blogs/"> Blogs </a></li><li><a href="/gist/"> Gist </a></li>
+      </ul>
+    </nav>
+
+      <a href="https://twitter.com/_ashish_tiwari"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+      <a href="https://in.linkedin.com/in/ashish-tiwari-a40a012b"><i class="fa fa-linkedin-square"></i></a>&nbsp;&nbsp;
+      
+      <a href="https://github.com/ashishtiwari1993"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
+      <a href="https://stackoverflow.com/users/6438430/ashish-tiwari"><i class="fa fa-stack-overflow"></i></a>
+
+    <p class="footnote">&copy; 2019 Ashish Tiwari. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>How to reset 1-Click Installed WordPress on DigitalOcean?</h1>
+  <time datetime=2019-12-03T00:49:07&#43;0530 class="post-date">Tue, Dec 3, 2019</time>
+  
+
+<h1 id="the-requirement">The Requirement</h1>
+
+<p>Need to install fresh wordpress with same version on wordpress droplet of digitalocean.</p>
+
+<h1 id="the-problem">The Problem</h1>
+
+<p>My setup (wordpress droplet) was suddenly stop working. I started debugging.</p>
+
+<h1 id="debug">Debug</h1>
+
+<p>Checked <code>apache2</code> and <code>mysql</code> service:</p>
+
+<pre><code>service mysql status
+
+service apache2 status
+</code></pre>
+
+<p>Both services was active. Then I checked the <code>apache2</code> processes with below command:</p>
+
+<pre><code>$ ps -ef | grep apache2 | wc -l
+151
+</code></pre>
+
+<p>Lots of apache child process has been forked. Which was not good.</p>
+
+<p>checked apache&rsquo;s error log (<code>tail /var/log/apache2/error.log</code>), But not found anything.</p>
+
+<p>I took decision to setup new wordpress of same version. I was little sure that some plugin was causing this problem But i don&rsquo;t have so much time to go through all plugins.</p>
+
+<h1 id="droplet-configuration">Droplet configuration</h1>
+
+<pre><code>OS : Ubuntu 18.04.3 LTS
+Memory : 1GB
+Disk : 25GB
+Cost : $5/Monthly
+</code></pre>
+
+<h1 id="process-to-install-wordpress">Process to install WordPress</h1>
+
+<h3 id="step-1-source-directory-backup">Step 1: Source directory backup</h3>
+
+<p>Take backup with <code>cp</code> command.</p>
+
+<pre><code>$ cd
+$ mkdir ~/backup_wp
+$ cp -R /var/www/html ~/backup_wp/
+</code></pre>
+
+<p>Digitalocean installs the wordpress in <code>/var/www/html/</code> path.</p>
+
+<h3 id="step-2-database-backup">Step 2: Database backup</h3>
+
+<pre><code>$ mysqldump -uroot -p wordpress &gt; ~/backup_wp/wp.sql
+</code></pre>
+
+<p>Here <code>wordpress</code> is the Database name.</p>
+
+<p>If you don&rsquo;t remember the password for MySQL, Get it from <code>wp-config.php</code>:</p>
+
+<p><code>vim /var/www/html/wp-config.php</code></p>
+
+<p>Check for the line<br />
+<code>define( 'DB_PASSWORD', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' );</code></p>
+
+<h3 id="step-3-check-version-of-the-existing-wordpress">Step 3: Check version of the existing WordPress</h3>
+
+<p><code>vim /var/www/html/wp-includes/version.php</code></p>
+
+<p>Look for the line<br />
+<code>$wp_version = '5.2.4';</code></p>
+
+<p>Version can be different.</p>
+
+<h3 id="step-4-download-wordpress-zip-file">Step 4: Download WordPress zip file</h3>
+
+<p>Go to <a href="https://wordpress.org/download/releases/">Wordpress Releases page</a>. Check for your version and download with below command:</p>
+
+<p><code>wget https://wordpress.org/wordpress-5.2.4.zip</code></p>
+
+<p>Unzip it:</p>
+
+<p><code>unzip wordpress-5.2.4.zip</code></p>
+
+<p>It will extract all files in <code>wordpress</code> folder.</p>
+
+<p>If <code>unzip</code> is not already installed, Please install it with below command:</p>
+
+<p><code>apt install unzip</code></p>
+
+<h3 id="step-5-replace-source-of-html-with-wordpress">Step 5: Replace source of <code>/html</code> with <code>/wordpress</code></h3>
+
+<pre><code>rm -rf /var/www/html
+mv wordpress /var/www/html
+</code></pre>
+
+<h3 id="step-6-change-configuration">Step 6: Change configuration</h3>
+
+<ol>
+<li><p>Go to your website URL, It will show you below page:</p>
+
+<p><img src="/img/wordpress-digitalocean-reset/lets_go.png" alt="Lets_go" /></p>
+
+<p>Just click on the <code>Let's go!</code> Button.</p></li>
+
+<li><p>Put you DB conf as shown in below image</p>
+
+<p><img src="/img/wordpress-digitalocean-reset/db_conf.png" alt="db_conf" /></p>
+
+<p>Click on the <code>Submit</code> Button.</p></li>
+
+<li><p>Create <code>wp-config.php</code> file</p>
+
+<p><img src="/img/wordpress-digitalocean-reset/wp-config.png" alt="wp-config" /></p>
+
+<p>Create manually (<code>vim /var/www/html/wp-config.php</code>) if it is not created automatically and click on the <code>Run the installation</code> Button.</p></li>
+
+<li><p>You will see <code>Already Installed</code> page</p>
+
+<p><img src="/img/wordpress-digitalocean-reset/already_installed.png" alt="already_installed" /></p>
+
+<p>Just click on the <code>Log In</code> button. It will redirect you on the admin panel login page.</p></li>
+</ol>
+
+<p>Now you can log in into your admin panel.</p>
+
+<h3 id="step-7-copy-important-files-from-backup">Step 7: Copy important files from backup</h3>
+
+<pre><code>cp -R ~/backup_wp/html/wp-content/plugins/ /var/www/html/wp-content/
+cp -R ~/backup_wp/html/wp-content/themes/ /var/www/html/wp-content/
+cp -R ~/backup_wp/html/wp-content/uploads/ /var/www/html/wp-content/
+</code></pre>
+
+<p>This will copy all existing plugins, themes &amp; all media files. But be careful while copying it, Becuase if it is the cause of your bug it can bring your site down again.</p>
+
+<p><strong>Important Configuration</strong></p>
+
+<p><code>cp ~/backup_wp/html/.htaccess /var/www/html/</code></p>
+
+<p>Otherwise, your URL routing won&rsquo;t work.</p>
+
+<h1 id="test-complete-website">Test complete website</h1>
+
+<p>If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.</p>
+
+<script src="https://utteranc.es/client.js"
+        repo="ashishtiwari1993/ashish.one"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</div>
+
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149424518-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>

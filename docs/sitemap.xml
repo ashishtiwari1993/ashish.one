@@ -3,22 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ashish.one/tags/1-click/</loc>
+    <lastmod>2019-12-03T00:49:07+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/</loc>
+    <lastmod>2019-12-03T00:49:07+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/blogs/</loc>
+    <lastmod>2019-12-03T00:49:07+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/digitalocean/</loc>
+    <lastmod>2019-12-03T00:49:07+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</loc>
+    <lastmod>2019-12-03T00:49:07+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/installation/</loc>
+    <lastmod>2019-12-03T00:49:07+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2019-12-03T00:49:07+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/wordpress/</loc>
+    <lastmod>2019-12-03T00:49:07+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/blogs/write-custom-exporters-prometheus/</loc>
     <lastmod>2019-11-29T22:51:27+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://ashish.one/tags/alertmanager/</loc>
-    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/</loc>
-    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/blogs/</loc>
     <lastmod>2019-11-29T22:51:27+05:30</lastmod>
   </url>
   
@@ -39,11 +69,6 @@
   
   <url>
     <loc>https://ashish.one/tags/prometheus/</loc>
-    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/</loc>
     <lastmod>2019-11-29T22:51:27+05:30</lastmod>
   </url>
   

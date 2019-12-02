@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Installation on ashish.one</title>
+    <link>https://ashish.one/tags/installation/</link>
+    <description>Recent content in Installation on ashish.one</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ashish Tiwari</copyright>
+    <lastBuildDate>Tue, 03 Dec 2019 00:49:07 +0530</lastBuildDate>
+    
+	<atom:link href="https://ashish.one/tags/installation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to reset 1-Click Installed WordPress on DigitalOcean?</title>
+      <link>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
+      <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
+      <description>The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
+The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
+Debug Checked apache2 and mysql service:
+service mysql status service apache2 status  Both services was active. Then I checked the apache2 processes with below command:
+$ ps -ef | grep apache2 | wc -l 151  Lots of apache child process has been forked.</description>
+    </item>
+    
+  </channel>
+</rss>
