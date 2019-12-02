@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>exceptions on ashish.one</title>
+    <link>https://ashish.one/tags/exceptions/</link>
+    <description>Recent content in exceptions on ashish.one</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ashish Tiwari</copyright>
+    <lastBuildDate>Tue, 03 Dec 2019 02:47:28 +0530</lastBuildDate>
+    
+	<atom:link href="https://ashish.one/tags/exceptions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Elasticsearch Exceptions &amp; Challenges</title>
+      <link>https://ashish.one/gist/elasticsearch-exceptions-and-challenges/</link>
+      <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
+      
+      <guid>https://ashish.one/gist/elasticsearch-exceptions-and-challenges/</guid>
+      <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
+ </description>
+    </item>
+    
+  </channel>
+</rss>
