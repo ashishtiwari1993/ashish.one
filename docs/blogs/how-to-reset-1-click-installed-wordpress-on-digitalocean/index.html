@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.58.2" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -220,6 +220,15 @@ cp -R ~/backup_wp/html/wp-content/uploads/ /var/www/html/wp-content/
 <p><code>cp ~/backup_wp/html/.htaccess /var/www/html/</code></p>
 
 <p>Otherwise, your URL routing won&rsquo;t work.</p>
+
+<h3 id="step-8-wordpress-asking-for-ftp-details">Step 8: WordPress asking for FTP details</h3>
+
+<p>If WordPress asking for FTP details on the each option like Adding themes, Installing plugins etc. Then add below line in your <code>wp-config.php</code> file.</p>
+
+<p><code>vim /var/www/html/wp-config.php</code></p>
+
+<p>Add<br />
+<code>define('FS_METHOD','direct');</code></p>
 
 <h1 id="test-complete-website">Test complete website</h1>
 

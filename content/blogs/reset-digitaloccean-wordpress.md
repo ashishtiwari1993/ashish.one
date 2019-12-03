@@ -150,6 +150,16 @@ This will copy all existing plugins, themes & all media files. But be careful wh
 
 Otherwise, your URL routing won't work.
 
+### Step 8: WordPress asking for FTP details
+
+If WordPress asking for FTP details on the each option like Adding themes, Installing plugins etc. Then add below line in your `wp-config.php` file.
+
+`vim /var/www/html/wp-config.php`
+
+Add  
+`define('FS_METHOD','direct');`
+
+
 # Test complete website
 
 If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.
