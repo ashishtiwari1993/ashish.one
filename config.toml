@@ -44,3 +44,10 @@ googleAnalytics = "UA-149424518-1"
     pre = "<i class='fa fa-road'></i>"
     url = "/gist/"
     weight = -98
+
+  [[menu.main]]
+    name = "Talks"
+    post = "<span class='alert'>New!</span>"
+    pre = "<i class='fa fa-road'></i>"
+    url = "/talks/"
+    weight = -98
