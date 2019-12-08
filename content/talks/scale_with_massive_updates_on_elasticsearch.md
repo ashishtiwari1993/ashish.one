@@ -1,7 +1,10 @@
 ---
 title: "How to scale with massive update queries in Elasticsearch?"
 date: 2019-12-08T20:26:06+05:30
-draft: true
+draft: false
+type: "talk"
+tags: ["elasticsearch","update","scale","mysql"]
+slug: "scale-with-massive-updates-queries-in-elasticsearch"
 ---
 # Introduction
 

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
-    <lastBuildDate>Tue, 03 Dec 2019 02:47:28 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 08 Dec 2019 20:26:06 +0530</lastBuildDate>
     
 	<atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,36 @@
     <item>
       <title>elasticsearch</title>
       <link>https://ashish.one/tags/elasticsearch/</link>
-      <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
+      <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
       
       <guid>https://ashish.one/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://ashish.one/tags/mysql/</link>
+      <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scale</title>
+      <link>https://ashish.one/tags/scale/</link>
+      <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/scale/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>update</title>
+      <link>https://ashish.one/tags/update/</link>
+      <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/update/</guid>
       <description></description>
     </item>
     
