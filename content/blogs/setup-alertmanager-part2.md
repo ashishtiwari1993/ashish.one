@@ -388,7 +388,7 @@ If you want to test alert, Then simply make threshold to very less 0% or 1% afte
 Visit `localhost:9093`. If there is some alert you will get the list on the dashboard. 
 
 
-So we successfully setup alert using alertmanager. In part - 3 we will see how we can prometheus with grafana to visualize our data. 
+So we successfully setup alert using alertmanager. In part - 3 we will see how you can write your own custom exporters. 
 
 <script src="https://utteranc.es/client.js"
         repo="ashishtiwari1993/ashish.one"
