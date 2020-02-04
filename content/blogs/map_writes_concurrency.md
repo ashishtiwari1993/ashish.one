@@ -1,7 +1,9 @@
 ---
-title: "Fix fatal error: concurrent map writes"
-date: 2020-01-10T01:14:03+05:30
-draft: true
+title: "[SOLVED] Golang fatal error: concurrent map writes"
+date: 2020-02-04T01:14:03+05:30
+ogtype: article
+tags: ["golang","map","fatal","error","concurrent map writes","concurrent"]
+draft: false
 ---
 
 ![concurrent_map_writes](/img/golang/concurrent_map_writes.jpg)
@@ -51,6 +53,18 @@ webhook/handler.HandleRequest()
 
 ```
 
+## Expected behaviour
+
+In starting for a few seconds it was working smoothly. 
+
+![goroutine_race_condition](/img/golang/Go-Routines_race_condition.png)
+
+## Actual behaviour
+
+After few seconds my service got kill with above mentioned error.
+
+![goroutine_race_condition_error](/img/golang/Go-Routines_race_condition_error.png)
+
 # Code Overview:
 
 Initialized one global variable with the type 'map'. Where the key is `int` and value is `channel`.
@@ -70,7 +84,7 @@ Having two functions
 ActiveInstances[id] = make(chan string, 5)
 ```  
 
-### In `DeleteValue()`
+## In `DeleteValue()`
 
 ```
 delete(ActiveInstances, id)
@@ -114,6 +128,12 @@ mutex.Unlock()
 ```
 
 This is how we successfully fix this problem. 
+
+# Code to Reproduce
+
+To reproduce, Comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.
+
+<script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
 # References:
 

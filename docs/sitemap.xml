@@ -3,8 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ashish.one/blogs/map_writes_concurrency/</loc>
+    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2019-12-08T20:26:06+05:30</lastmod>
+    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/blogs/</loc>
+    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/concurrent/</loc>
+    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/concurrent-map-writes/</loc>
+    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/error/</loc>
+    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/fatal/</loc>
+    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/golang/</loc>
+    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/map/</loc>
+    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
   </url>
   
   <url>
@@ -24,11 +69,6 @@
   
   <url>
     <loc>https://ashish.one/tags/scale/</loc>
-    <lastmod>2019-12-08T20:26:06+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/</loc>
     <lastmod>2019-12-08T20:26:06+05:30</lastmod>
   </url>
   
@@ -59,11 +99,6 @@
   
   <url>
     <loc>https://ashish.one/tags/1-click/</loc>
-    <lastmod>2019-12-03T00:49:07+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/blogs/</loc>
     <lastmod>2019-12-03T00:49:07+05:30</lastmod>
   </url>
   
