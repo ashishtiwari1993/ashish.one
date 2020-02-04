@@ -1,9 +1,11 @@
 ---
 title: "[SOLVED] Golang fatal error: concurrent map writes"
 date: 2020-02-04T01:14:03+05:30
+type: "post"
 ogtype: article
 tags: ["golang","map","fatal","error","concurrent map writes","concurrent"]
 draft: false
+slug: "fatal-error-concurrent-map-writes"
 ---
 
 ![concurrent_map_writes](/img/golang/concurrent_map_writes.jpg)
