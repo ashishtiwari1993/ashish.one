@@ -110,6 +110,8 @@ We can define a block of code to be executed in mutual exclusion by surrounding 
 It is as simple as below:
 
 ```
+var mutex = &sync.Mutex{}
+
 mutex.Lock()
 //my block of code
 mutex.Unlock()
@@ -118,6 +120,8 @@ mutex.Unlock()
 # Code Modifications:
 
 ```
+var mutex = &sync.Mutex{}
+
 mutex.Lock()
 ActiveInstances[i_id] = make(chan string, 5)
 mutex.Unlock()

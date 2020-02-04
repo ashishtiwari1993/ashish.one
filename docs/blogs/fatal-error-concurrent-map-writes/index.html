@@ -181,14 +181,18 @@ webhook/handler.HandleRequest()
 <p>We can define a block of code to be executed in mutual exclusion by surrounding it with a call to <code>Lock</code> and <code>Unlock</code>
 It is as simple as below:</p>
 
-<pre><code>mutex.Lock()
+<pre><code>var mutex = &amp;sync.Mutex{}
+
+mutex.Lock()
 //my block of code
 mutex.Unlock()
 </code></pre>
 
 <h1 id="code-modifications">Code Modifications:</h1>
 
-<pre><code>mutex.Lock()
+<pre><code>var mutex = &amp;sync.Mutex{}
+
+mutex.Lock()
 ActiveInstances[i_id] = make(chan string, 5)
 mutex.Unlock()
 </code></pre>
