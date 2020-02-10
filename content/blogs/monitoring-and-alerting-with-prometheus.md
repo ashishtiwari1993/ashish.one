@@ -251,16 +251,16 @@ scrape_configs:
  - job_name: 'prometheus'
 
 # metrics_path defaults to '/metrics'
-# scheme defaults to 'http'. static_configs:
-
- - targets: ['localhost:9090'] 
+# scheme defaults to 'http'. 
+   static_configs:
+   - targets: ['localhost:9090'] 
 # Add below block for node_exporter
  - job_name: node_exporter
- scrape_interval: 1m
- scrape_timeout:  1m
- metrics_path: "/metrics" 
- static_configs: 
- - targets: ['localhost:9100']
+   scrape_interval: 1m
+   scrape_timeout:  1m
+   metrics_path: "/metrics" 
+   static_configs: 
+   - targets: ['localhost:9100']
 ```
 
 Save and exit.
