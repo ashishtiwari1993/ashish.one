@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</loc>
-    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
+    <loc>https://ashish.one/</loc>
+    <lastmod>2020-03-11T00:12:30+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://ashish.one/</loc>
+    <loc>https://ashish.one/tags/concurrency/</loc>
+    <lastmod>2020-03-11T00:12:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/golang/</loc>
+    <lastmod>2020-03-11T00:12:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</loc>
+    <lastmod>2020-03-11T00:12:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2020-03-11T00:12:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/talk/</loc>
+    <lastmod>2020-03-11T00:12:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/talks/</loc>
+    <lastmod>2020-03-11T00:12:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</loc>
     <lastmod>2020-02-04T01:14:03+05:30</lastmod>
   </url>
   
@@ -38,17 +68,7 @@
   </url>
   
   <url>
-    <loc>https://ashish.one/tags/golang/</loc>
-    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ashish.one/tags/map/</loc>
-    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/</loc>
     <lastmod>2020-02-04T01:14:03+05:30</lastmod>
   </url>
   
@@ -69,11 +89,6 @@
   
   <url>
     <loc>https://ashish.one/tags/scale/</loc>
-    <lastmod>2019-12-08T20:26:06+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/talks/</loc>
     <lastmod>2019-12-08T20:26:06+05:30</lastmod>
   </url>
   

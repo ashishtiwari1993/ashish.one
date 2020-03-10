@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
-    <lastBuildDate>Tue, 04 Feb 2020 01:14:03 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2020 00:12:30 +0530</lastBuildDate>
     
 	<atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>concurrency</title>
+      <link>https://ashish.one/tags/concurrency/</link>
+      <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/concurrency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://ashish.one/tags/golang/</link>
+      <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>talk</title>
+      <link>https://ashish.one/tags/talk/</link>
+      <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/talk/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>concurrent</title>
@@ -45,15 +72,6 @@
       <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
       
       <guid>https://ashish.one/tags/fatal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://ashish.one/tags/golang/</link>
-      <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/golang/</guid>
       <description></description>
     </item>
     

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Talks on ashish.one</title>
-    <link>https://ashish.one/talks/</link>
-    <description>Recent content in Talks on ashish.one</description>
+    <title>talk on ashish.one</title>
+    <link>https://ashish.one/tags/talk/</link>
+    <description>Recent content in talk on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
     <lastBuildDate>Wed, 11 Mar 2020 00:12:30 +0530</lastBuildDate>
     
-	<atom:link href="https://ashish.one/talks/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ashish.one/tags/talk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,16 +21,6 @@
       <description>What this talk about? I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.
 Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?
 I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).</description>
-    </item>
-    
-    <item>
-      <title>How to scale with massive update queries in Elasticsearch?</title>
-      <link>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
-      <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
-      
-      <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
-      <description>Introduction What this talk is all about? We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.
-We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.</description>
     </item>
     
   </channel>
