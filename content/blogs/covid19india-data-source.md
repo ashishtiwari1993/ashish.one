@@ -1,5 +1,5 @@
 ---
-title: "Covid19 Data Source & EndPoints for India & Global"
+title: "Covid19 Data Source for India & Global"
 date: 2020-03-27T20:04:13+05:30
 draft: false
 type: "post"
