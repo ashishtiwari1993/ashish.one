@@ -4,7 +4,32 @@
   
   <url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2020-03-11T00:12:30+05:30</lastmod>
+    <lastmod>2020-03-27T20:04:13+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/blogs/</loc>
+    <lastmod>2020-03-27T20:04:13+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/covid19/</loc>
+    <lastmod>2020-03-27T20:04:13+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/covid19india/</loc>
+    <lastmod>2020-03-27T20:04:13+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/blogs/covid19india-data-source-and-endpoints/</loc>
+    <lastmod>2020-03-27T20:04:13+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2020-03-27T20:04:13+05:30</lastmod>
   </url>
   
   <url>
@@ -23,11 +48,6 @@
   </url>
   
   <url>
-    <loc>https://ashish.one/tags/</loc>
-    <lastmod>2020-03-11T00:12:30+05:30</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ashish.one/tags/talk/</loc>
     <lastmod>2020-03-11T00:12:30+05:30</lastmod>
   </url>
@@ -39,11 +59,6 @@
   
   <url>
     <loc>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</loc>
-    <lastmod>2020-02-04T01:14:03+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/blogs/</loc>
     <lastmod>2020-02-04T01:14:03+05:30</lastmod>
   </url>
   

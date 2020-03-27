@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
-    <lastBuildDate>Tue, 04 Feb 2020 01:14:03 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2020 20:04:13 +0530</lastBuildDate>
     
 	<atom:link href="https://ashish.one/blogs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Covid19India Data Source &amp; EndPoints</title>
+      <link>https://ashish.one/blogs/covid19india-data-source-and-endpoints/</link>
+      <pubDate>Fri, 27 Mar 2020 20:04:13 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/covid19india-data-source-and-endpoints/</guid>
+      <description>Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.
+APIs 1. Github: amodm/api-covid19-in Repo: https://github.com/amodm/api-covid19-in  APIs available: Statewise Date  StateWise StateWise History  Medica  Hospital Stats Bed Stats  Contacts  HelpLines Contacts  Patient  Tracing History  Source The source is both types of official &amp;amp; Unofficial.</description>
+    </item>
     
     <item>
       <title>[SOLVED] Golang fatal error: concurrent map writes</title>
