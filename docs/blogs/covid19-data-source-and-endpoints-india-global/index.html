@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Covid19 Data Source &amp; EndPoints for India &amp; Global &middot; ashish.one</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/png" href="/ashish_one_favicon.png">
+
+  
+  
+
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Raleway']
+      }
+    });
+  </script>
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+          <h1 class="brand"><a href="https://ashish.one/">ashish.one</a></h1>
+      <p class="lead">
+      Stuff by  <a href="/about">Ashish Tiwari</a>
+      </p>
+	<div class="author-image">
+          <img src="https://s.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=100" alt="Author Image" class="author-image">
+        </div>
+      <p class="lead">
+		Co-Founder @ <a href="https://mimepost.com">MimePost</a>
+      </p>
+
+    </div> 
+
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> About me </a></li><li><a href="/blogs/"> Blogs </a></li><li><a href="/gist/"> Gist </a></li><li><a href="/talks/"> Talks </a></li>
+      </ul>
+    </nav>
+
+      <a href="https://twitter.com/_ashish_tiwari"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+      <a href="https://in.linkedin.com/in/ashish-tiwari-a40a012b"><i class="fa fa-linkedin-square"></i></a>&nbsp;&nbsp;
+      
+      <a href="https://github.com/ashishtiwari1993"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
+      <a href="https://stackoverflow.com/users/6438430/ashish-tiwari"><i class="fa fa-stack-overflow"></i></a>
+
+    <p class="footnote">&copy; 2020 Ashish Tiwari. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Covid19 Data Source &amp; EndPoints for India &amp; Global</h1>
+  <time datetime=2020-03-27T20:04:13&#43;0530 class="post-date">Fri, Mar 27, 2020</time>
+  
+
+<p>Hi Guys, I am trying to listing all data source &amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.</p>
+
+<h1 id="apis">APIs</h1>
+
+<h2 id="1-github-amodm-api-covid19-in-india">1. Github: amodm/api-covid19-in (India)</h2>
+
+<h3 id="repo">Repo:</h3>
+
+<pre><code class="language-sh">https://github.com/amodm/api-covid19-in
+</code></pre>
+
+<h3 id="apis-available">APIs available:</h3>
+
+<h4 id="statewise-date">Statewise Date</h4>
+
+<ul>
+<li>StateWise</li>
+<li>StateWise History</li>
+</ul>
+
+<h4 id="medica">Medica</h4>
+
+<ul>
+<li>Hospital Stats</li>
+<li>Bed Stats</li>
+</ul>
+
+<h4 id="contacts">Contacts</h4>
+
+<ul>
+<li>HelpLines</li>
+<li>Contacts</li>
+</ul>
+
+<h4 id="patient">Patient</h4>
+
+<ul>
+<li>Tracing</li>
+<li>History</li>
+</ul>
+
+<h3 id="sources">Sources</h3>
+
+<p>The source is both types of official &amp; Unofficial.</p>
+
+<h4 id="official">Official</h4>
+
+<ul>
+<li>Post Mar 15, data is from <a href="https://www.mohfw.gov.in/">The Ministry of Health &amp; Family Welfare</a></li>
+<li>Pre  Mar 15, data is sourced from <a href="https://github.com/datameet/covid19/tree/eb1cc65657929abe12ca59f0e754bef4bc562d7a/mohfw-backup">datameet/covid19</a></li>
+<li>Hospital &amp; bed data: <a href="https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity">https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity</a></li>
+<li>ICMR testing stats API: <a href="https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData">https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData</a></li>
+</ul>
+
+<h4 id="unofficial">Unofficial</h4>
+
+<ul>
+<li>The awesome volunteer driven patient tracing data <a href="https://www.covid19india.org/">covid19india.org</a></li>
+<li>API (NLP): <a href="http://coronatravelhistory.pythonanywhere.com/">http://coronatravelhistory.pythonanywhere.com/</a></li>
+<li>API (Travel history): <a href="https://api.covid19india.org/travel_history.json">https://api.covid19india.org/travel_history.json</a></li>
+</ul>
+
+<h2 id="2-github-ashishtiwari1993-india-mohfw-gov-in-scrape-covid19-statewise-status-india">2. Github: ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status (India)</h2>
+
+<p>Scraping <a href="https://mohfw.gov.in">https://mohfw.gov.in</a> to extract the statewise data.</p>
+
+<h3 id="repo-1">Repo:</h3>
+
+<pre><code class="language-sh">https://github.com/ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status
+</code></pre>
+
+<h3 id="apis-available-1">APIs available:</h3>
+
+<h4 id="statewise-status">Statewise status</h4>
+
+<ul>
+<li>Total confirmed case</li>
+<li>Counts</li>
+<li>Deaths</li>
+</ul>
+
+<h3 id="sources-1">Sources</h3>
+
+<p>Scraping from offical site of The Ministry of Health and Family Welfare.</p>
+
+<h2 id="3-github-novelcovid-api-global">3. Github: NovelCOVID/API (Global)</h2>
+
+<h3 id="repo-2">Repo:</h3>
+
+<pre><code class="language-sh">https://github.com/NovelCOVID/API
+</code></pre>
+
+<h3 id="apis-available-2">APIs available:</h3>
+
+<p>It is global data source. You will get all information for any country.</p>
+
+<h3 id="sources-2">Sources</h3>
+
+<ul>
+<li><a href="https://www.worldometers.info/coronavirus/">Worldometers</a></li>
+</ul>
+
+<h2 id="4-github-cssegisanddata-covid-19-global">4. Github: CSSEGISandData/COVID-19 (Global)</h2>
+
+<p>This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).</p>
+
+<h3 id="repo-3">Repo:</h3>
+
+<pre><code class="language-sh">https://github.com/CSSEGISandData/COVID-19
+</code></pre>
+
+<h3 id="data-available">Data Available</h3>
+
+<p>CSVs are available in time series manner. Information is available about all country.</p>
+
+<h1 id="sources-3">Sources</h1>
+
+<ul>
+<li>World Health Organization (WHO): <a href="https://www.who.int/">https://www.who.int/</a></li>
+<li>DXY.cn. Pneumonia. 2020. <a href="http://3g.dxy.cn/newh5/view/pneumonia">http://3g.dxy.cn/newh5/view/pneumonia</a>.</li>
+<li>BNO News: <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/">https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/</a></li>
+<li>National Health Commission of the People’s Republic of China (NHC):
+<a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml</a></li>
+<li>China CDC (CCDC): <a href="http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm">http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm</a></li>
+<li>Hong Kong Department of Health: <a href="https://www.chp.gov.hk/en/features/102465.html">https://www.chp.gov.hk/en/features/102465.html</a></li>
+<li>Macau Government: <a href="https://www.ssm.gov.mo/portal/">https://www.ssm.gov.mo/portal/</a></li>
+<li>Taiwan CDC: <a href="https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0">https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0</a></li>
+<li>US CDC: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">https://www.cdc.gov/coronavirus/2019-ncov/index.html</a></li>
+<li>Government of Canada: <a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus.html">https://www.canada.ca/en/public-health/services/diseases/coronavirus.html</a></li>
+<li>Australia Government Department of Health: <a href="https://www.health.gov.au/news/coronavirus-update-at-a-glance">https://www.health.gov.au/news/coronavirus-update-at-a-glance</a></li>
+<li>European Centre for Disease Prevention and Control (ECDC): <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases</a></li>
+<li>Ministry of Health Singapore (MOH): <a href="https://www.moh.gov.sg/covid-19">https://www.moh.gov.sg/covid-19</a></li>
+<li>Italy Ministry of Health: <a href="http://www.salute.gov.it/nuovocoronavirus">http://www.salute.gov.it/nuovocoronavirus</a></li>
+<li>1Point3Arces: <a href="https://coronavirus.1point3acres.com/en">https://coronavirus.1point3acres.com/en</a></li>
+<li>WorldoMeters: <a href="https://www.worldometers.info/coronavirus/">https://www.worldometers.info/coronavirus/</a></li>
+</ul>
+
+</div>
+
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149424518-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>
