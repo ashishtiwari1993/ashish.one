@@ -102,7 +102,7 @@ $ sudo ./configure --enable-optimizations
 <pre><code class="language-sh">$ python3.6 --version
 </code></pre>
 
-<h1 id="2-install-pip3-6">2. Install pip3.6</h1>
+<h1 id="2-install-pip3-6">2. Install <code>pip3.6</code></h1>
 
 <h2 id="step-2-1-download-pip">Step 2.1: Download pip</h2>
 
@@ -114,7 +114,7 @@ $ sudo ./configure --enable-optimizations
 <pre><code class="language-sh">$ sudo python3.6 get-pip.py
 </code></pre>
 
-<h2 id="step-2-3-if-got-below-error">Step 2.3: If Got below error</h2>
+<h2 id="step-2-3-if-you-got-below-error">Step 2.3: If you Got below error</h2>
 
 <h3 id="error-zlib-not-available">Error  <code>zlib not available</code></h3>
 
@@ -137,7 +137,7 @@ zipimport.ZipImportError: can't decompress data; zlib not available
 
 <p>OR</p>
 
-<p>You can install just <code>zlib1g-dev</code></p>
+<h4 id="you-can-install-just-zlib1g-dev">You can install just <code>zlib1g-dev</code></h4>
 
 <pre><code class="language-sh">$ sudo apt-get install zlib1g-dev
 </code></pre>
@@ -157,29 +157,25 @@ zipimport.ZipImportError: can't decompress data; zlib not available
 <pre><code class="language-sh">$ sudo python3.6 get-pip.py
 </code></pre>
 
-<ul>
-<li>If you get same error again, Then go for below steps:</li>
-</ul>
+<h4 id="if-you-get-same-error-again-then-go-for-below-steps">If you get same error again, Then go for below steps:</h4>
 
 <p>Open <code>Modules/Setup</code> from folder &lsquo;Python-3.6.3&rsquo; which we extracted on Step 1.1</p>
 
 <pre><code class="language-sh">$ sudo vim Modules/Setup
 </code></pre>
 
-<ul>
-<li><p>Uncomment the below line or jump on line no. 366</p>
+<h4 id="uncomment-the-below-line-or-jump-on-line-no-366">Uncomment the below line or jump on line no. 366</h4>
 
 <pre><code class="language-sh">zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz
-</code></pre></li>
+</code></pre>
 
-<li><p>Now we need to again perform few operation from <strong>steps 1.1</strong></p>
+<h4 id="now-we-need-to-again-perform-few-operation-from-steps-1-1">Now we need to again perform few operation from <strong>steps 1.1</strong></h4>
 
 <pre><code class="language-sh">$ sudo ./configure
 $ sudo make install
-</code></pre></li>
-</ul>
+</code></pre>
 
-<p>Now run again &amp; It should be work now.</p>
+<h4 id="now-run-again-it-should-be-work">Now run again &amp; It should be work</h4>
 
 <pre><code class="language-sh">$ sudo python3.6 get-pip.py
 </code></pre>

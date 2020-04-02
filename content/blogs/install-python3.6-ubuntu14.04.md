@@ -31,7 +31,7 @@ $ sudo ./configure --enable-optimizations
 $ python3.6 --version
 ```
 
-# 2. Install pip3.6
+# 2. Install `pip3.6`
 
 ## Step 2.1: Download pip
 
@@ -45,7 +45,7 @@ $ wget https://bootstrap.pypa.io/get-pip.py
 $ sudo python3.6 get-pip.py
 ```
 
-## Step 2.3: If Got below error
+## Step 2.3: If you Got below error
 
 ### Error  `zlib not available`
 
@@ -70,7 +70,7 @@ $ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev 
 
 OR
 
-You can install just `zlib1g-dev`
+#### You can install just `zlib1g-dev`
 
 ```sh
 $ sudo apt-get install zlib1g-dev
@@ -94,7 +94,7 @@ $ sudo apt-get upgrade zlib1g-dev
 $ sudo python3.6 get-pip.py
 ```
 
-* If you get same error again, Then go for below steps:
+#### If you get same error again, Then go for below steps:
 
 Open `Modules/Setup` from folder 'Python-3.6.3' which we extracted on Step 1.1 
 
@@ -102,19 +102,19 @@ Open `Modules/Setup` from folder 'Python-3.6.3' which we extracted on Step 1.1
 $ sudo vim Modules/Setup
 ```
 
-* Uncomment the below line or jump on line no. 366
+#### Uncomment the below line or jump on line no. 366
 ```sh
 zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz
 ```
 
-* Now we need to again perform few operation from __steps 1.1__
+#### Now we need to again perform few operation from __steps 1.1__
 
 ```sh
 $ sudo ./configure
 $ sudo make install
 ```
 
-Now run again & It should be work now.
+#### Now run again & It should be work
 ```sh
 $ sudo python3.6 get-pip.py
 ```
