@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
-    <lastBuildDate>Fri, 27 Mar 2020 20:04:13 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2020 17:52:19 +0530</lastBuildDate>
     
 	<atom:link href="https://ashish.one/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</title>
+      <link>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
+      <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
+      <description>Prerequisite OS: Ubuntu 14.04 LTS
+Processor: 64 Bit
+RAM: 2 GB
+1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations  Step 1.2: Check $ python3.6 --version  2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py  Step 2.2: Execute $ sudo python3.6 get-pip.py  Step 2.3: If Got below error Error zlib not available Traceback (most recent call last): File &amp;quot;get-pip.</description>
+    </item>
     
     <item>
       <title>Covid19 Data Source for India &amp; Global</title>
