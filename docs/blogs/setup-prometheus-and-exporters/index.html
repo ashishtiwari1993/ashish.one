@@ -366,6 +366,30 @@ WantedBy=multi-user.target
 
 <p><img src="/img/prometheus-setup/disk_utilization_graph.png" alt="Disk utilization graph on node Exporter" /></p>
 
+<h2 id="installation-with-docker">Installation with Docker</h2>
+
+<h3 id="prometheus">Prometheus</h3>
+
+<pre><code class="language-sh">docker run \
+    -p 9090:9090 \
+    -v ~/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+    prom/prometheus
+</code></pre>
+
+<h3 id="node-exporter">Node Exporter</h3>
+
+<pre><code class="language-sh">docker run -d \
+  --net=&quot;host&quot; \
+  --pid=&quot;host&quot; \
+  -v &quot;/:/host:ro,rslave&quot; \
+  quay.io/prometheus/node-exporter \
+  --path.rootfs=/host
+</code></pre>
+
+<p>The rest of option will remain same as i explained in above parts.</p>
+
+<h1 id="at-the-end">At the end</h1>
+
 <p>Like this, you can explore each metrics like memory, CPU, etc.</p>
 
 <p>There are already lots of exporters is available on the internet like Nginx exporter, MongoDB exporter, MySQL server exporter, etc. Just download them and start using it. You can check more info about exporter <a href="https://prometheus.io/docs/instrumenting/exporters/">here</a>.</p>
@@ -384,7 +408,7 @@ WantedBy=multi-user.target
 
 <p><strong>In case of any confusion or issues leave comments below :)</strong></p>
 
-<p>Article orignally posted on <a href="https://pepipost.com/tutorials/setup-prometheus-and-exporters/">Pepipost tutorial</a></p>
+<p>Article partially posted on <a href="https://pepipost.com/tutorials/setup-prometheus-and-exporters/">Pepipost tutorial</a> by me.</p>
 
 <script src="https://utteranc.es/client.js"
         repo="ashishtiwari1993/ashish.one"

@@ -296,6 +296,32 @@ After clicking on the `graph`:
 
 ![Disk utilization graph on node Exporter](/img/prometheus-setup/disk_utilization_graph.png)
 
+## Installation with Docker
+
+### Prometheus
+
+```sh
+docker run \
+    -p 9090:9090 \
+    -v ~/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+    prom/prometheus
+```
+
+### Node Exporter
+
+```sh
+docker run -d \
+  --net="host" \
+  --pid="host" \
+  -v "/:/host:ro,rslave" \
+  quay.io/prometheus/node-exporter \
+  --path.rootfs=/host
+```
+
+The rest of option will remain same as i explained in above parts.
+
+# At the end
+
 Like this, you can explore each metrics like memory, CPU, etc.
 
 There are already lots of exporters is available on the internet like Nginx exporter, MongoDB exporter, MySQL server exporter, etc. Just download them and start using it. You can check more info about exporter [here](https://prometheus.io/docs/instrumenting/exporters/).
@@ -313,7 +339,7 @@ Stay tuned for the new updates.
 
 **In case of any confusion or issues leave comments below :)**
 
-Article orignally posted on [Pepipost tutorial](https://pepipost.com/tutorials/setup-prometheus-and-exporters/)
+Article partially posted on [Pepipost tutorial](https://pepipost.com/tutorials/setup-prometheus-and-exporters/) by me.
 
 <script src="https://utteranc.es/client.js"
         repo="ashishtiwari1993/ashish.one"
