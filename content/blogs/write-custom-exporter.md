@@ -90,6 +90,8 @@ Restart prometheus service:
 
 Here we have successfully write exporter which will expose the metrics. To know more about pushgateway or HTTP expoorter visit [here](https://github.com/prometheus/client_python#instrumenting)
 
+In [part - 4], I have explained how you can integrate Grafana with Prometheus.
+
 Share you comments below :) 
 
 <script src="https://utteranc.es/client.js"
