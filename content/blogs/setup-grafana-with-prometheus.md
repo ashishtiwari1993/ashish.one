@@ -196,7 +196,7 @@ Your Dashboard will be ready.
 
 Here we have successfully integrated the Grafana with Prometheus. You can explore more features of Grafana like Alerts, Users, etc. 
 
-For the alerting system, I prefer Prometheus Alertmanager only. You can check more details on the Alertmanager in part 2. It gives you more control and advanced feature. 
+For the alerting system, I prefer Prometheus Alertmanager only. You can check more details on the Alertmanager in [part 2](https://ashish.one/blogs/setup-alertmanager/). It gives you more control and advanced feature. 
 
 But every tool has use cases and built for special purposes. You can choose according to your requirements. 
 
