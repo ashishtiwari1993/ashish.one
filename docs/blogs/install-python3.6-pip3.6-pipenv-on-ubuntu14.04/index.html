@@ -81,15 +81,15 @@
   <time datetime=2020-04-02T17:52:19&#43;0530 class="post-date">Thu, Apr 2, 2020</time>
   
 
-<h1 id="prerequisite">Prerequisite</h1>
+<h2 id="prerequisite">Prerequisite</h2>
 
 <p><strong>OS:</strong> Ubuntu 14.04 LTS<br />
 <strong>Processor:</strong> 64 Bit<br />
 <strong>RAM:</strong> 2 GB</p>
 
-<h1 id="1-install-python3-6-from-source">1. Install python3.6 From source</h1>
+<h2 id="1-install-python3-6-from-source">1. Install python3.6 From source</h2>
 
-<h2 id="step-1-1-compile">Step 1.1: Compile</h2>
+<h3 id="step-1-1-compile">Step 1.1: Compile</h3>
 
 <pre><code class="language-sh">$ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
 $ tar -xvf Python-3.6.3.tgz
@@ -97,26 +97,26 @@ $ cd Python-3.6.3
 $ sudo ./configure --enable-optimizations
 </code></pre>
 
-<h2 id="step-1-2-check">Step 1.2: Check</h2>
+<h3 id="step-1-2-check">Step 1.2: Check</h3>
 
 <pre><code class="language-sh">$ python3.6 --version
 </code></pre>
 
-<h1 id="2-install-pip3-6">2. Install <code>pip3.6</code></h1>
+<h2 id="2-install-pip3-6">2. Install <code>pip3.6</code></h2>
 
-<h2 id="step-2-1-download-pip">Step 2.1: Download pip</h2>
+<h3 id="step-2-1-download-pip">Step 2.1: Download pip</h3>
 
 <pre><code class="language-sh">$ wget https://bootstrap.pypa.io/get-pip.py
 </code></pre>
 
-<h2 id="step-2-2-execute">Step 2.2: Execute</h2>
+<h3 id="step-2-2-execute">Step 2.2: Execute</h3>
 
 <pre><code class="language-sh">$ sudo python3.6 get-pip.py
 </code></pre>
 
-<h2 id="step-2-3-if-you-got-below-error">Step 2.3: If you Got below error</h2>
+<h3 id="step-2-3-if-you-got-below-error">Step 2.3: If you Got below error</h3>
 
-<h3 id="error-zlib-not-available">Error  <code>zlib not available</code></h3>
+<h4 id="error-zlib-not-available">Error  <code>zlib not available</code></h4>
 
 <pre><code class="language-sh">Traceback (most recent call last):
   File &quot;get-pip.py&quot;, line 22711, in &lt;module&gt;
@@ -128,7 +128,7 @@ $ sudo ./configure --enable-optimizations
 zipimport.ZipImportError: can't decompress data; zlib not available
 </code></pre>
 
-<h3 id="step-2-3-1-install-zlib">Step 2.3.1: Install <code>zlib</code>:</h3>
+<h4 id="step-2-3-1-install-zlib">Step 2.3.1: Install <code>zlib</code>:</h4>
 
 <h4 id="install-with-some-other-dependency">Install with some other dependency</h4>
 
@@ -180,7 +180,7 @@ $ sudo make install
 <pre><code class="language-sh">$ sudo python3.6 get-pip.py
 </code></pre>
 
-<h2 id="step-2-4-let-s-install-pipenv-for-testing-purpose">Step 2.4: Let&rsquo;s Install <code>pipenv</code> for testing purpose:</h2>
+<h3 id="step-2-4-let-s-install-pipenv-for-testing-purpose">Step 2.4: Let&rsquo;s Install <code>pipenv</code> for testing purpose:</h3>
 
 <pre><code class="language-sh">$ sudo pip3.6 install pipenv
 </code></pre>

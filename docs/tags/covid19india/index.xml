@@ -19,7 +19,7 @@
       
       <guid>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</guid>
       <description>Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.
-APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in  APIs available: Statewise Date  StateWise StateWise History  Medica  Hospital Stats Bed Stats  Contacts  HelpLines Contacts  Patient  Tracing History  Sources The source is both types of official &amp;amp; Unofficial.</description>
+APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in  APIs available: Statewise Data  StateWise StateWise History  Medica  Hospital Stats Bed Stats  Contacts  HelpLines Contacts  Patient  Tracing History  Sources The source is both types of official &amp;amp; Unofficial.</description>
     </item>
     
   </channel>

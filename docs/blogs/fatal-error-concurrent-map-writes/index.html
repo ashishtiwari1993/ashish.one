@@ -83,7 +83,7 @@
 
 <p><img src="/img/golang/concurrent_map_writes.jpg" alt="concurrent_map_writes" /></p>
 
-<h1 id="the-problem">The Problem:</h1>
+<h2 id="the-problem">The Problem:</h2>
 
 <p>Suddenly got below errors which killed my daemon:</p>
 
@@ -126,19 +126,19 @@ webhook/handler.HandleRequest()
 
 </code></pre>
 
-<h2 id="expected-behaviour">Expected behaviour</h2>
+<h3 id="expected-behaviour">Expected behaviour</h3>
 
 <p>In starting for a few seconds it was working smoothly.</p>
 
 <p><img src="/img/golang/Go-Routines_race_condition.png" alt="goroutine_race_condition" /></p>
 
-<h2 id="actual-behaviour">Actual behaviour</h2>
+<h3 id="actual-behaviour">Actual behaviour</h3>
 
 <p>After few seconds my service got kill with above mentioned error.</p>
 
 <p><img src="/img/golang/Go-Routines_race_condition_error.png" alt="goroutine_race_condition_error" /></p>
 
-<h1 id="code-overview">Code Overview:</h1>
+<h2 id="code-overview">Code Overview:</h2>
 
 <p>Initialized one global variable with the type &lsquo;map&rsquo;. Where the key is <code>int</code> and value is <code>channel</code>.</p>
 
@@ -152,19 +152,19 @@ webhook/handler.HandleRequest()
 <li><code>go DeleteValue()</code></li>
 </ol>
 
-<h2 id="in-setvalue">In <code>SetValue()</code></h2>
+<h3 id="in-setvalue">In <code>SetValue()</code></h3>
 
 <pre><code>ActiveInstances[id] = make(chan string, 5)
 </code></pre>
 
-<h2 id="in-deletevalue">In <code>DeleteValue()</code></h2>
+<h3 id="in-deletevalue">In <code>DeleteValue()</code></h3>
 
 <pre><code>delete(ActiveInstances, id)
 </code></pre>
 
 <p>Both functions running in multiple goroutines.</p>
 
-<h1 id="observation">Observation:</h1>
+<h2 id="observation">Observation:</h2>
 
 <p>The error itself says <code>concurrent map writes</code>, By which I got the idea that something is wrong with my map variable <code>ActiveInstances</code>. Both functions in multiple goroutines are trying to access the same variable(<code>ActiveInstances</code>) at the same time. Which created race condition. After exploring a few blogs &amp; documentation, I become to know that <strong><em>&ldquo;Maps are not safe for concurrent use&rdquo;</em></strong>.</p>
 
@@ -174,7 +174,7 @@ webhook/handler.HandleRequest()
 <p>Map access is unsafe only when updates are occurring. As long as all goroutines are only reading—looking up elements in the map, including iterating through it using a for range loop—and not changing the map by assigning to elements or doing deletions, it is safe for them to access the map concurrently without synchronization.</p>
 </blockquote>
 
-<h1 id="solution">Solution:</h1>
+<h2 id="solution">Solution:</h2>
 
 <p>Here we need to access <code>ActiveInstances</code> synchronously. We want to make sure only one goroutine can access a variable at a time to avoid conflicts, This can be easily achieved by <code>sync.Mutex</code>. This concept is called mutual exclusion which provides methods <code>Lock</code> and <code>Unlock</code>.</p>
 
@@ -188,7 +188,7 @@ mutex.Lock()
 mutex.Unlock()
 </code></pre>
 
-<h1 id="code-modifications">Code Modifications:</h1>
+<h2 id="code-modifications">Code Modifications:</h2>
 
 <pre><code>var mutex = &amp;sync.Mutex{}
 
@@ -204,13 +204,13 @@ mutex.Unlock()
 
 <p>This is how we successfully fix this problem.</p>
 
-<h1 id="code-to-reproduce">Code to Reproduce</h1>
+<h2 id="code-to-reproduce">Code to Reproduce</h2>
 
 <p>To reproduce, Comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
 
 <script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
-<h1 id="references">References:</h1>
+<h2 id="references">References:</h2>
 
 <p><a href="https://blog.golang.org/go-maps-in-action">https://blog.golang.org/go-maps-in-action</a><br />
 <a href="https://golang.org/doc/faq#atomic_maps">https://golang.org/doc/faq#atomic_maps</a><br />

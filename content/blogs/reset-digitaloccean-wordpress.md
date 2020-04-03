@@ -7,15 +7,15 @@ tags: ["Digitalocean","WordPress","1-Click","Installation"]
 slug: "How-to-reset-1-Click-Installed-WordPress-on-DigitalOcean"
 ---
 
-# The Requirement
+## The Requirement
 
 Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
 
-# The Problem
+## The Problem
 
 My setup (wordpress droplet) was suddenly stop working. I started debugging.
 
-# Debug
+## Debug
 
 Checked `apache2` and `mysql` service:
 
@@ -38,7 +38,7 @@ checked apache's error log (`tail /var/log/apache2/error.log`), But not found an
 
 I took decision to setup new wordpress of same version. I was little sure that some plugin was causing this problem But i don't have so much time to go through all plugins.
 
-# Droplet configuration
+## Droplet configuration
 
 ```
 OS : Ubuntu 18.04.3 LTS
@@ -47,7 +47,7 @@ Disk : 25GB
 Cost : $5/Monthly
 ```
 
-# Process to install WordPress
+## Process to install WordPress
 
 ### Step 1: Source directory backup 
 Take backup with `cp` command.
@@ -160,7 +160,7 @@ Add
 `define('FS_METHOD','direct');`
 
 
-# Test complete website
+## Test complete website
 
 If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.
 

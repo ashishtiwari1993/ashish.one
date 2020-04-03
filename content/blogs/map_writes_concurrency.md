@@ -11,7 +11,7 @@ slug: "fatal-error-concurrent-map-writes"
 ![concurrent_map_writes](/img/golang/concurrent_map_writes.jpg)
 
 
-# The Problem: 
+## The Problem: 
 
 Suddenly got below errors which killed my daemon:
 
@@ -55,19 +55,19 @@ webhook/handler.HandleRequest()
 
 ```
 
-## Expected behaviour
+### Expected behaviour
 
 In starting for a few seconds it was working smoothly. 
 
 ![goroutine_race_condition](/img/golang/Go-Routines_race_condition.png)
 
-## Actual behaviour
+### Actual behaviour
 
 After few seconds my service got kill with above mentioned error.
 
 ![goroutine_race_condition_error](/img/golang/Go-Routines_race_condition_error.png)
 
-# Code Overview:
+## Code Overview:
 
 Initialized one global variable with the type 'map'. Where the key is `int` and value is `channel`.
 
@@ -80,13 +80,13 @@ Having two functions
 1. `go SetValue()`
 2. `go DeleteValue()`
 
-## In `SetValue()`
+### In `SetValue()`
 
 ```
 ActiveInstances[id] = make(chan string, 5)
 ```  
 
-## In `DeleteValue()`
+### In `DeleteValue()`
 
 ```
 delete(ActiveInstances, id)
@@ -94,7 +94,7 @@ delete(ActiveInstances, id)
 
 Both functions running in multiple goroutines.
 
-# Observation:
+## Observation:
 
 The error itself says `concurrent map writes`, By which I got the idea that something is wrong with my map variable `ActiveInstances`. Both functions in multiple goroutines are trying to access the same variable(`ActiveInstances`) at the same time. Which created race condition. After exploring a few blogs & documentation, I become to know that **_"Maps are not safe for concurrent use"_**. 
 
@@ -102,7 +102,7 @@ As per golang doc
 
 > Map access is unsafe only when updates are occurring. As long as all goroutines are only reading—looking up elements in the map, including iterating through it using a for range loop—and not changing the map by assigning to elements or doing deletions, it is safe for them to access the map concurrently without synchronization.
 
-# Solution:
+## Solution:
 
 Here we need to access `ActiveInstances` synchronously. We want to make sure only one goroutine can access a variable at a time to avoid conflicts, This can be easily achieved by `sync.Mutex`. This concept is called mutual exclusion which provides methods `Lock` and `Unlock`. 
 
@@ -117,7 +117,7 @@ mutex.Lock()
 mutex.Unlock()
 ```
 
-# Code Modifications:
+## Code Modifications:
 
 ```
 var mutex = &sync.Mutex{}
@@ -135,13 +135,13 @@ mutex.Unlock()
 
 This is how we successfully fix this problem. 
 
-# Code to Reproduce
+## Code to Reproduce
 
 To reproduce, Comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.
 
 <script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
-# References:
+## References:
 
 https://blog.golang.org/go-maps-in-action  
 https://golang.org/doc/faq#atomic_maps  

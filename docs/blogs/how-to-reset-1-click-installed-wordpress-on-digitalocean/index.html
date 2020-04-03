@@ -81,15 +81,15 @@
   <time datetime=2019-12-03T00:49:07&#43;0530 class="post-date">Tue, Dec 3, 2019</time>
   
 
-<h1 id="the-requirement">The Requirement</h1>
+<h2 id="the-requirement">The Requirement</h2>
 
 <p>Need to install fresh wordpress with same version on wordpress droplet of digitalocean.</p>
 
-<h1 id="the-problem">The Problem</h1>
+<h2 id="the-problem">The Problem</h2>
 
 <p>My setup (wordpress droplet) was suddenly stop working. I started debugging.</p>
 
-<h1 id="debug">Debug</h1>
+<h2 id="debug">Debug</h2>
 
 <p>Checked <code>apache2</code> and <code>mysql</code> service:</p>
 
@@ -110,7 +110,7 @@ service apache2 status
 
 <p>I took decision to setup new wordpress of same version. I was little sure that some plugin was causing this problem But i don&rsquo;t have so much time to go through all plugins.</p>
 
-<h1 id="droplet-configuration">Droplet configuration</h1>
+<h2 id="droplet-configuration">Droplet configuration</h2>
 
 <pre><code>OS : Ubuntu 18.04.3 LTS
 Memory : 1GB
@@ -118,7 +118,7 @@ Disk : 25GB
 Cost : $5/Monthly
 </code></pre>
 
-<h1 id="process-to-install-wordpress">Process to install WordPress</h1>
+<h2 id="process-to-install-wordpress">Process to install WordPress</h2>
 
 <h3 id="step-1-source-directory-backup">Step 1: Source directory backup</h3>
 
@@ -230,7 +230,7 @@ cp -R ~/backup_wp/html/wp-content/uploads/ /var/www/html/wp-content/
 <p>Add<br />
 <code>define('FS_METHOD','direct');</code></p>
 
-<h1 id="test-complete-website">Test complete website</h1>
+<h2 id="test-complete-website">Test complete website</h2>
 
 <p>If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.</p>
 

@@ -3,13 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ashish.one/blogs/setup-grafana-with-prometheus/</loc>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/alertmanager/</loc>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2020-04-02T17:52:19+05:30</lastmod>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://ashish.one/blogs/</loc>
-    <lastmod>2020-04-02T17:52:19+05:30</lastmod>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/dashboard/</loc>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/grafana/</loc>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/grafana-dashboard/</loc>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/node-exporter/</loc>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/prometheus/</loc>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
   </url>
   
   <url>
@@ -34,11 +74,6 @@
   
   <url>
     <loc>https://ashish.one/tags/python3.6-install/</loc>
-    <lastmod>2020-04-02T17:52:19+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/</loc>
     <lastmod>2020-04-02T17:52:19+05:30</lastmod>
   </url>
   
@@ -193,11 +228,6 @@
   </url>
   
   <url>
-    <loc>https://ashish.one/tags/alertmanager/</loc>
-    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ashish.one/tags/custom/</loc>
     <lastmod>2019-11-29T22:51:27+05:30</lastmod>
   </url>
@@ -209,11 +239,6 @@
   
   <url>
     <loc>https://ashish.one/tags/exporter/</loc>
-    <lastmod>2019-11-29T22:51:27+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/prometheus/</loc>
     <lastmod>2019-11-29T22:51:27+05:30</lastmod>
   </url>
   

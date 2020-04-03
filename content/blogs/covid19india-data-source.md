@@ -10,108 +10,108 @@ slug: "Covid19-data-source-and-endpoints-india-global"
 
 Hi Guys, I am trying to listing all data source & endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources. 
 
-# APIs
+## APIs
 
-## 1. Github: amodm/api-covid19-in (India)
+### 1. Github: amodm/api-covid19-in (India)
 
 
-### Repo:
+#### Repo:
 ```sh
 https://github.com/amodm/api-covid19-in
 ```
 
-### APIs available:
+#### APIs available:
 
-#### Statewise Date
+##### Statewise Data
 
 * StateWise
 * StateWise History
 
-#### Medica
+##### Medica
 
 * Hospital Stats
 * Bed Stats
 
-#### Contacts
+##### Contacts
 
 * HelpLines
 * Contacts
 
-#### Patient
+##### Patient
 
 * Tracing
 * History
 
-### Sources
+#### Sources
 
 The source is both types of official & Unofficial.
 
-#### Official
+##### Official
 
 * Post Mar 15, data is from [The Ministry of Health & Family Welfare](https://www.mohfw.gov.in/)
 * Pre  Mar 15, data is sourced from [datameet/covid19](https://github.com/datameet/covid19/tree/eb1cc65657929abe12ca59f0e754bef4bc562d7a/mohfw-backup)
 * Hospital & bed data: https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity
 * ICMR testing stats API: https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData
 
-#### Unofficial
+##### Unofficial
 
 * The awesome volunteer driven patient tracing data [covid19india.org](https://www.covid19india.org/)
 * API (NLP): http://coronatravelhistory.pythonanywhere.com/
 * API (Travel history): https://api.covid19india.org/travel_history.json
 
-## 2. Github: ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status (India)
+### 2. Github: ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status (India)
 
 Scraping [https://mohfw.gov.in](https://mohfw.gov.in) to extract the statewise data.
 
-### Repo:
+#### Repo:
 
 ```sh
 https://github.com/ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status
 ```
 
-### APIs available:
+#### APIs available:
 
-#### Statewise status
+##### Statewise status
 
 * Total confirmed case
 * Counts 
 * Deaths
 
-### Sources
+#### Sources
 
 Scraping from offical site of The Ministry of Health and Family Welfare.
 
-## 3. Github: NovelCOVID/API (Global)
+### 3. Github: NovelCOVID/API (Global)
 
-### Repo:
+#### Repo:
 ```sh
 https://github.com/NovelCOVID/API
 ```
 
-### APIs available:
+#### APIs available:
 
 It is global data source. You will get all information for any country.
 
-### Sources
+#### Sources
 
 * [Worldometers](https://www.worldometers.info/coronavirus/)
 
 
-## 4. Github: CSSEGISandData/COVID-19 (Global)
+### 4. Github: CSSEGISandData/COVID-19 (Global)
 
 This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).
 
-### Repo:
+#### Repo:
 
 ```sh
 https://github.com/CSSEGISandData/COVID-19
 ``` 
 
-### Data Available
+#### Data Available
 
 CSVs are available in time series manner. Information is available about all country.
 
-# Sources
+## Sources
 
 * World Health Organization (WHO): https://www.who.int/
 * DXY.cn. Pneumonia. 2020. http://3g.dxy.cn/newh5/view/pneumonia.

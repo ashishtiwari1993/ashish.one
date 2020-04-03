@@ -8,15 +8,15 @@ slug: "install-python3.6-pip3.6-pipenv-on-ubuntu14.04"
 tags: ["ubuntu","ubuntu14.04","python3.6","pip3.6","python3.6 install","pipenv"]
 ---
 
-# Prerequisite
+## Prerequisite
 
 __OS:__ Ubuntu 14.04 LTS  
 __Processor:__ 64 Bit  
 __RAM:__ 2 GB  
 
-# 1. Install python3.6 From source
+## 1. Install python3.6 From source
 
-## Step 1.1: Compile
+### Step 1.1: Compile
 
 ```sh
 $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
@@ -25,29 +25,29 @@ $ cd Python-3.6.3
 $ sudo ./configure --enable-optimizations
 ```
 
-## Step 1.2: Check
+### Step 1.2: Check
 
 ```sh
 $ python3.6 --version
 ```
 
-# 2. Install `pip3.6`
+## 2. Install `pip3.6`
 
-## Step 2.1: Download pip
+### Step 2.1: Download pip
 
 ```sh
 $ wget https://bootstrap.pypa.io/get-pip.py
 ```
 
-## Step 2.2: Execute
+### Step 2.2: Execute
 
 ```sh
 $ sudo python3.6 get-pip.py
 ```
 
-## Step 2.3: If you Got below error
+### Step 2.3: If you Got below error
 
-### Error  `zlib not available`
+#### Error  `zlib not available`
 
 ```sh
 Traceback (most recent call last):
@@ -60,7 +60,7 @@ Traceback (most recent call last):
 zipimport.ZipImportError: can't decompress data; zlib not available
 ```
 
-### Step 2.3.1: Install `zlib`:
+#### Step 2.3.1: Install `zlib`:
 
 #### Install with some other dependency
 
@@ -119,7 +119,7 @@ $ sudo make install
 $ sudo python3.6 get-pip.py
 ```
 
-## Step 2.4: Let's Install `pipenv` for testing purpose:
+### Step 2.4: Let's Install `pipenv` for testing purpose:
 
 ```sh
 $ sudo pip3.6 install pipenv
