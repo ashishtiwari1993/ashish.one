@@ -269,7 +269,7 @@ $ ../configure --prefix=/tools          \
 
 ```
 
-## TO Be Continued
+## To Be Continued
 
 <script src="https://utteranc.es/client.js"
         repo="ashishtiwari1993/ashish.one"

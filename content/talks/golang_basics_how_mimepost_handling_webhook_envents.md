@@ -27,19 +27,20 @@ Shared one of our error and it's solutions related to How you can avoid race con
 
 ## Talk Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZjOcwoCkkog" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{< youtube ZjOcwoCkkog >}}
+
 
 ## Demo - 1 
 
 This code will make 100% CPU utilization and `forever()` function not going to share any single CPU time with `anotherGoroutine()`
 
-<script src="https://gist.github.com/ashishtiwari1993/00b2a56ac8f5b39d3229d723e58815bc.js"></script>
+{{< gist ashishtiwari1993 00b2a56ac8f5b39d3229d723e58815bc >}}
 
 ## Demo - 2 
 
 Reproduce Golang "fatal error: concurrent map writes" & Solution. To reproduce comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.
 
-<script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
+{{< gist ashishtiwari1993 d494b71ac264184ba46ced1bf2114c30 >}}
 
 Find more details on this [blog](https://ashish.one/blogs/fatal-error-concurrent-map-writes/).
 
