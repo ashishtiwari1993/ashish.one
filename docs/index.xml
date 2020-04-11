@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Challenges in linuxfromscratch</title>
+      <link>https://ashish.one/blogs/challenges-in-linuxfromscratch/</link>
+      <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/challenges-in-linuxfromscratch/</guid>
+      <description>I have started with www.linuxfromscratch.org, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.
+Before we get start You need some basic linux command knowledge to use linuxfromscratch guide. I am going to build LFS on my local machine. If your machine has a different OS or different configuration, Then some solution will not work.</description>
+    </item>
+    
+    <item>
       <title>[Part 4] Setup Grafana With Prometheus</title>
       <link>https://ashish.one/blogs/setup-grafana-with-prometheus/</link>
       <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>

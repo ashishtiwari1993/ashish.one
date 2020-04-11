@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.68.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Challenges in linuxfromscratch &middot; ashish.one</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ashish.one/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/png" href="/ashish_one_favicon.png">
+
+  
+  
+
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Raleway']
+      }
+    });
+  </script>
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+          <h1 class="brand"><a href="https://ashish.one/">ashish.one</a></h1>
+      <p class="lead">
+      Stuff by  <a href="/about">Ashish Tiwari</a>
+      </p>
+	<div class="author-image">
+          <img src="https://s.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=100" alt="Author Image" class="author-image">
+        </div>
+      <p class="lead">
+		Co-Founder @ <a href="https://mimepost.com">MimePost</a>
+      </p>
+
+    </div> 
+
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> About me </a></li><li><a href="/blogs/"> Blogs </a></li><li><a href="/gist/"> Gist </a></li><li><a href="/talks/"> Talks </a></li>
+      </ul>
+    </nav>
+
+      <a href="https://twitter.com/_ashish_tiwari"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+      <a href="https://in.linkedin.com/in/ashish-tiwari-a40a012b"><i class="fa fa-linkedin-square"></i></a>&nbsp;&nbsp;
+      
+      <a href="https://github.com/ashishtiwari1993"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
+      <a href="https://stackoverflow.com/users/6438430/ashish-tiwari"><i class="fa fa-stack-overflow"></i></a>
+
+    <p class="footnote">&copy; 2020 Ashish Tiwari. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Challenges in linuxfromscratch</h1>
+  <time datetime=2020-04-11T13:55:52&#43;0530 class="post-date">Sat, Apr 11, 2020</time>
+  <p>I have started with <a href="www.linuxfromscratch.org">www.linuxfromscratch.org</a>, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.</p>
+<h2 id="before-we-get-start">Before we get start</h2>
+<p>You need some basic linux command knowledge to use linuxfromscratch guide. I am going to build LFS on my local machine. If your machine has a different OS or different configuration, Then some solution will not work.</p>
+<p>I am going to use the same chapter title as mentioned in linuxfromscratch. I will skip those sections where I haven&rsquo;t faced any difficulties.</p>
+<h2 id="my-machine-configuration">My Machine Configuration</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">OS: Ubuntu 14.04
+RAM: 2GB
+Disk: <span style="color:#ae81ff">500</span> GB
+</code></pre></div><h2 id="going-to-build">Going to build</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">LFS version: 9.1
+Published: March 1st, <span style="color:#ae81ff">2020</span>
+LFS doc:http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html
+</code></pre></div><h2 id="challenges">Challenges</h2>
+<h2 id="22-host-system-requirements">2.2. Host System Requirements</h2>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs</a></p>
+<h3 id="version-check">Version check</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat &gt; version-check.sh &lt;&lt; <span style="color:#e6db74">&#34;EOF&#34;</span>
+<span style="color:#75715e">#!/bin/bash</span>
+<span style="color:#75715e"># Simple script to list version numbers of critical development tools</span>
+export LC_ALL<span style="color:#f92672">=</span>C
+bash --version | head -n1 | cut -d<span style="color:#e6db74">&#34; &#34;</span> -f2-4
+MYSH<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>readlink -f /bin/sh<span style="color:#66d9ef">)</span>
+echo <span style="color:#e6db74">&#34;/bin/sh -&gt; </span>$MYSH<span style="color:#e6db74">&#34;</span>
+echo $MYSH | grep -q bash <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;ERROR: /bin/sh does not point to bash&#34;</span>
+unset MYSH
+
+echo -n <span style="color:#e6db74">&#34;Binutils: &#34;</span>; ld --version | head -n1 | cut -d<span style="color:#e6db74">&#34; &#34;</span> -f3-
+bison --version | head -n1
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -h /usr/bin/yacc <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+  echo <span style="color:#e6db74">&#34;/usr/bin/yacc -&gt; `readlink -f /usr/bin/yacc`&#34;</span>;
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -x /usr/bin/yacc <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+  echo yacc is <span style="color:#e6db74">`</span>/usr/bin/yacc --version | head -n1<span style="color:#e6db74">`</span>
+<span style="color:#66d9ef">else</span>
+  echo <span style="color:#e6db74">&#34;yacc not found&#34;</span> 
+<span style="color:#66d9ef">fi</span>
+
+bzip2 --version 2&gt;&amp;<span style="color:#ae81ff">1</span> &lt; /dev/null | head -n1 | cut -d<span style="color:#e6db74">&#34; &#34;</span> -f1,6-
+echo -n <span style="color:#e6db74">&#34;Coreutils: &#34;</span>; chown --version | head -n1 | cut -d<span style="color:#e6db74">&#34;)&#34;</span> -f2
+diff --version | head -n1
+find --version | head -n1
+gawk --version | head -n1
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -h /usr/bin/awk <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+  echo <span style="color:#e6db74">&#34;/usr/bin/awk -&gt; `readlink -f /usr/bin/awk`&#34;</span>;
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -x /usr/bin/awk <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+  echo awk is <span style="color:#e6db74">`</span>/usr/bin/awk --version | head -n1<span style="color:#e6db74">`</span>
+<span style="color:#66d9ef">else</span> 
+  echo <span style="color:#e6db74">&#34;awk not found&#34;</span> 
+<span style="color:#66d9ef">fi</span>
+
+gcc --version | head -n1
+g++ --version | head -n1
+ldd --version | head -n1 | cut -d<span style="color:#e6db74">&#34; &#34;</span> -f2-  <span style="color:#75715e"># glibc version</span>
+grep --version | head -n1
+gzip --version | head -n1
+cat /proc/version
+m4 --version | head -n1
+make --version | head -n1
+patch --version | head -n1
+echo Perl <span style="color:#e6db74">`</span>perl -V:version<span style="color:#e6db74">`</span>
+python3 --version
+sed --version | head -n1
+tar --version | head -n1
+makeinfo --version | head -n1  <span style="color:#75715e"># texinfo version</span>
+xz --version | head -n1
+
+echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c <span style="color:#f92672">&amp;&amp;</span> g++ -o dummy dummy.c
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -x dummy <span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;g++ compilation OK&#34;</span>;
+  <span style="color:#66d9ef">else</span> echo <span style="color:#e6db74">&#34;g++ compilation failed&#34;</span>; <span style="color:#66d9ef">fi</span>
+rm -f dummy.c dummy
+EOF
+
+
+bash version-check.sh
+</code></pre></div><h3 id="error-1">Error 1:</h3>
+<p><code>/bin/sh does not point to bash</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo ln -sf bash /bin/sh
+</code></pre></div><h3 id="error-2">Error 2:</h3>
+<p><code>version-check.sh: line 11: bison: command not found</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install bison
+</code></pre></div><h3 id="error-3">Error 3:</h3>
+<p><code>version-check.sh: line 25: gawk: command not found</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install gawk
+</code></pre></div><h3 id="error-4">Error 4:</h3>
+<p><code>version-check.sh: line 36: g++: command not found</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install g++
+</code></pre></div><h3 id="error-5">Error 5:</h3>
+<p><code>version-check.sh: line 48: makeinfo: command not found</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update -y
+sudo apt-get install -y texinfo
+</code></pre></div><h3 id="final-success-output">Final success output:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ bash version-check.sh
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">bash, version 4.3.11<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>-release
+/bin/sh -&gt; /bin/bash
+Binutils: <span style="color:#f92672">(</span>GNU Binutils <span style="color:#66d9ef">for</span> Ubuntu<span style="color:#f92672">)</span> 2.24
+bison <span style="color:#f92672">(</span>GNU Bison<span style="color:#f92672">)</span> 3.0.2
+/usr/bin/yacc -&gt; /usr/bin/bison.yacc
+bzip2,  Version 1.0.6, 6-Sept-2010.
+Coreutils:  8.21
+diff <span style="color:#f92672">(</span>GNU diffutils<span style="color:#f92672">)</span> 3.3
+find <span style="color:#f92672">(</span>GNU findutils<span style="color:#f92672">)</span> 4.4.2
+GNU Awk 4.0.1
+/usr/bin/awk -&gt; /usr/bin/gawk
+gcc <span style="color:#f92672">(</span>Ubuntu 4.8.4-2ubuntu1~14.04.4<span style="color:#f92672">)</span> 4.8.4
+g++ <span style="color:#f92672">(</span>Ubuntu 4.8.4-2ubuntu1~14.04.4<span style="color:#f92672">)</span> 4.8.4
+<span style="color:#f92672">(</span>Ubuntu EGLIBC 2.19-0ubuntu6.15<span style="color:#f92672">)</span> 2.19
+grep <span style="color:#f92672">(</span>GNU grep<span style="color:#f92672">)</span> 2.16
+gzip 1.6
+Linux version 4.4.0-142-generic <span style="color:#f92672">(</span>buildd@lcy01-amd64-006<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>gcc version 4.8.4 <span style="color:#f92672">(</span>Ubuntu 4.8.4-2ubuntu1~14.04.4<span style="color:#f92672">)</span> <span style="color:#f92672">)</span> <span style="color:#75715e">#168~14.04.1-Ubuntu SMP Sat Jan 19 11:26:28 UTC 2019</span>
+m4 <span style="color:#f92672">(</span>GNU M4<span style="color:#f92672">)</span> 1.4.17
+GNU Make 3.81
+GNU patch 2.7.1
+Perl version<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;5.18.2&#39;</span>;
+Python 3.4.3
+sed <span style="color:#f92672">(</span>GNU sed<span style="color:#f92672">)</span> 4.2.2
+tar <span style="color:#f92672">(</span>GNU tar<span style="color:#f92672">)</span> 1.27.1
+makeinfo <span style="color:#f92672">(</span>GNU texinfo<span style="color:#f92672">)</span> 5.2
+xz <span style="color:#f92672">(</span>XZ Utils<span style="color:#f92672">)</span> 5.1.0alpha
+g++ compilation OK
+</code></pre></div><h2 id="25-creating-a-file-system-on-the-partition">2.5. Creating a File System on the Partition</h2>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem</a></p>
+<p>I had only one partition. I need to create new <strong>physical</strong> partition for LFS.</p>
+<blockquote>
+<p>It is recommended to use Physical partition only not logical.</p>
+</blockquote>
+<p>I have reinstall my OS with new partition which is long way. You can use <a href="https://www.howtogeek.com/114503/how-to-resize-your-ubuntu-partitions/">GParted</a> to make partitions. Remember you can create only 4 Physical partition. Give 1 physical partition dedicated to LFS. Below is my partition view.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ lsblk
+
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    <span style="color:#ae81ff">0</span> 465.8G  <span style="color:#ae81ff">0</span> disk 
+|-sda1   8:1    <span style="color:#ae81ff">0</span>   476M  <span style="color:#ae81ff">0</span> part /boot/efi
+|-sda2   8:2    <span style="color:#ae81ff">0</span>   1.9G  <span style="color:#ae81ff">0</span> part <span style="color:#f92672">[</span>SWAP<span style="color:#f92672">]</span>
+|-sda3   8:3    <span style="color:#ae81ff">0</span> 190.8G  <span style="color:#ae81ff">0</span> part /
+<span style="color:#e6db74">`</span>-sda4   8:4    <span style="color:#ae81ff">0</span> 272.7G  <span style="color:#ae81ff">0</span> part /lfs
+</code></pre></div><h3 id="challenge-my-partition-wipe-out-after-restart-my-system">Challenge: My Partition wipe out after restart my system</h3>
+<p>After restart I again hit the same command <code>lsblk</code>. <code>/lfs</code> partition was not there.</p>
+<p>In Ubuntu, You need to make entry in <code>/etc/fstab</code> in order to mount the partition on restart.</p>
+<p>You have to find first volumeId or UUID to make entry in <code>/etc/fstab</code>. You can use <code>blkid</code> command to get all UUID:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ blkid
+
+/dev/sda1: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1FBD-F51A&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vfat&#34;</span> 
+/dev/sda2: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;9f41c453-3b5c-4537-81b0-2fb33f19ded8&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;swap&#34;</span> 
+/dev/sda3: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1a16afba-cabb-40c7-b704-1129b7004ffb&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ext4&#34;</span> 
+/dev/sda4: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;b3b2eb8c-2a43-405d-97da-af8b46c743e2&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ext4&#34;</span> 
+</code></pre></div><p>Above my Partition is <code>/dev/sda4</code> which is mounted on <code>/lfs</code>, So my UUID is <code>b3b2eb8c-2a43-405d-97da-af8b46c743e2</code>. Now I have added below line in <code>/etc/fstab</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">UUID<span style="color:#f92672">=</span>b3b2eb8c-2a43-405d-97da-af8b46c743e2 /lfs            ext4    rw,user,exec,errors<span style="color:#f92672">=</span>remount-ro              <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+</code></pre></div><p>Here</p>
+<ul>
+<li><code>rw</code>: Read, Write</li>
+<li><code>exec</code>: Execute</li>
+<li><code>errors=remount-ro</code>: It will mount as Read-Only, If you get any error on mounting.</li>
+</ul>
+<blockquote>
+<p>Make sure you have added <code>exec</code>, Otherwise you cannot execute any binaries from chapter <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1">5.4. Binutils-2.34 - Pass 1</a></p>
+</blockquote>
+<h2 id="54-binutils-234---pass-1">5.4. Binutils-2.34 - Pass 1</h2>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1</a></p>
+<h3 id="error-1-1">Error 1:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">bash: ../configure: No such file or directory
+</code></pre></div><p>As I mentioned on above Section, Make sure you have added <code>exec</code> in your <code>/etc/fstab</code> entry OR Make sure your partition <code>/lfs</code> has Read, Write &amp; Execute permission. Below <code>/etc/fstab</code> entry worked for me:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">UUID<span style="color:#f92672">=</span>b3b2eb8c-2a43-405d-97da-af8b46c743e2 /lfs            ext4    rw,user,exec,errors<span style="color:#f92672">=</span>remount-ro              <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+</code></pre></div><p>This setting can be different for different OS.</p>
+<h3 id="error-2-1">Error 2:</h3>
+<p>I had no idea where to create <code>build</code> folder.</p>
+<p>Below steps worked for me:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd $LFS/source
+$ tar xvf binutils-2.34.tar.xz
+$ cd binutils-2.34
+$ mkdir -v build
+$ cd build
+$ ../configure --prefix<span style="color:#f92672">=</span>/tools          <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>             --with-sysroot<span style="color:#f92672">=</span>$LFS        <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>             --with-lib-path<span style="color:#f92672">=</span>/tools/lib <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>             --target<span style="color:#f92672">=</span>$LFS_TGT          <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>             --disable-nls              <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>             --disable-werror
+
+</code></pre></div>
+</div>
+
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149424518-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>
