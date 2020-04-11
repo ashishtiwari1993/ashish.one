@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.68.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,24 +79,15 @@
     <div class="post">
   <h1>[Part 1] How To Setup Prometheus And Exporters For Alerts And Monitoring?</h1>
   <time datetime=2019-09-22T15:20:39&#43;0530 class="post-date">Sun, Sep 22, 2019</time>
-  
-
-<p>As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday&rsquo;s life.</p>
-
+  <p>As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday&rsquo;s life.</p>
 <blockquote>
 <p><strong>“Never send a human to do a machine&rsquo;s job”</strong></p>
 </blockquote>
-
 <p>At some time, deploying humans to check all these and that too for 24 * 7 can be a real pain.</p>
-
 <p>That&rsquo;s exactly the purpose of writing this tutorial series around monitoring and alerting. In this tutorial, you will learn how to setup Prometheus as a universal monitoring system and how to use its exporter to define and fetch the metrics which are really important to track.</p>
-
 <h2 id="what-is-prometheus">What is Prometheus?</h2>
-
 <p>Prometheus is an open-source system for monitoring and alerting. It developed in the GO language. It is currently a standalone open source project and maintained independently by any organization. You can check more details <a href="https://prometheus.io/docs/introduction/overview/#what-is-prometheus">here</a>.</p>
-
 <h2 id="why-prometheus">Why Prometheus?</h2>
-
 <ol>
 <li>Open-source and of course freely available :)</li>
 <li>It is constantly contributed by the community. It is stable and used by many good brands.  Check <a href="https://stackshare.io/prometheus">Stackshare</a>.</li>
@@ -107,317 +98,204 @@
 You can check the list of Prometheus features <a href="https://prometheus.io/docs/introduction/overview/#features">here</a>.</li>
 <li>You can check the list of Prometheus features <a href="https://prometheus.io/docs/introduction/overview/#features">here</a>.</li>
 </ol>
-
 <h2 id="prerequisites-for-setting-up-prometheus">Prerequisites for setting up Prometheus</h2>
-
 <p>Here Is This Tutorial, Prometheus Is Installed And Tested On A Test Server With Minimum Configuration:</p>
-
 <ul>
 <li>2 GB RAM</li>
 <li>10 GB Avg local disk storage.</li>
 <li>GOLANG (go1.11.5 linux/amd64)</li>
 <li>Centos7 RHEL</li>
 </ul>
-
 <h2 id="setup-prometheus">Setup Prometheus</h2>
-
 <h3 id="installation">Installation</h3>
-
 <p>There are multiple ways to install Prometheus. You can use docker image or use any of the available configuration management systems like Ansible, chef, puppet and salt stack. For more information on installation, visit the official installation guide here.</p>
-
 <p>It also has pre-compiled binaries available. I am going to use this binary for installation because it is easy to set up and easy to understand because of we already familiar with the utilization of binary files.</p>
-
 <h4 id="step-1-download-the-prometheus-binary">Step 1: Download the Prometheus binary</h4>
-
 <p>Visit <a href="https://prometheus.io/download/">Prometheus</a> download page. It will give you a list of pre-compiled binaries for drawins, linux, and windows. You can download according to your OS. Below, the installation is explained for Linux OS.</p>
-
 <p>OR</p>
-
 <p>You can simply fire below command in your Linux terminal:</p>
-
-<pre><code>$ wget https://github.com/prometheus/prometheus/releases/download/v2.11.1/prometheus-2.11.1.linux-amd64.tar.gz
-</code></pre>
-
-<p><img src="/img/prometheus-setup/download_prometheus_binary.png" alt="prometheus binary download" /></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://github.com/prometheus/prometheus/releases/download/v2.11.1/prometheus-2.11.1.linux-amd64.tar.gz
+</code></pre></div><p><img src="/img/prometheus-setup/download_prometheus_binary.png" alt="prometheus binary download"></p>
 <h4 id="step-2-extract-the-tar">Step 2: Extract The Tar</h4>
-
-<pre><code>$ tar -xvzf prometheus-2.11.1.linux-amd64.tar.gz
-</code></pre>
-
-<h4 id="step-3-after-extraction-steps">Step 3: After Extraction Steps</h4>
-
-<pre><code>$ mv prometheus-2.11.1.linux-amd64 prometheus 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ tar -xvzf prometheus-2.11.1.linux-amd64.tar.gz
+</code></pre></div><h4 id="step-3-after-extraction-steps">Step 3: After Extraction Steps</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mv prometheus-2.11.1.linux-amd64 prometheus 
 $ cd prometheus/$ ll
-</code></pre>
-
-<p>Folder contains below file:</p>
-
-<p><img src="/img/prometheus-setup/folder_structure.png" alt="Folder structure" /></p>
-
+</code></pre></div><p>Folder contains below file:</p>
+<p><img src="/img/prometheus-setup/folder_structure.png" alt="Folder structure"></p>
 <ul>
 <li><code>prometheus</code>: It&rsquo;s a binary file which is the core daemon.</li>
 <li><code>prometheus.yml</code>: This is the config file for Prometheus service.</li>
 <li><code>promtool</code>: This is another binary file which is used to compile the alert rules file. This will be explained in detail in the next series to this tutorial.</li>
 </ul>
-
 <h4 id="step-4-execute-the-binary-file-using-the-below-command">Step 4: Execute The Binary File Using The Below Command:</h4>
-
-<pre><code>$ ./prometheus
-</code></pre>
-
-<p><img src="/img/prometheus-setup/start_prometheus.png" alt="Start Prometheus" /></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ./prometheus
+</code></pre></div><p><img src="/img/prometheus-setup/start_prometheus.png" alt="Start Prometheus"></p>
 <p>Visit <code>localhost:9090</code> on your web browser:</p>
-
-<p><img src="/img/prometheus-setup/prometheus_ui.png" alt="Prometheus UI" /></p>
-
+<p><img src="/img/prometheus-setup/prometheus_ui.png" alt="Prometheus UI"></p>
 <p>Your Prometheus is up and running!</p>
-
 <p>If you notice in <code>prometheus/</code> folder, It created a folder with the name <code>data</code>. Prometheus starts storing metrics in this <code>/data</code> folder only.</p>
-
 <p>Now get all metric list by hitting the URL to <code>localhost:9090/metrics</code></p>
-
-<p><img src="/img/prometheus-setup/metrics.png" alt="Prometheus metrics" /></p>
-
+<p><img src="/img/prometheus-setup/metrics.png" alt="Prometheus metrics"></p>
 <p>Prometheus stores data on disk in time series, with its custom format.  Behind the scenes, it uses <a href="https://github.com/google/leveldb">leveldb</a>. You can check more <a href="https://prometheus.io/docs/prometheus/latest/storage/">details</a> on storage.</p>
-
 <p>Here is a sample production command:</p>
-
-<pre><code>$ ~/prometheus/prometheus --storage.tsdb.path=/var/lib/prometheus/data/ --web.external-url=http://myurl.com:9090
-</code></pre>
-
-<p><code>--storage.tsdb.path</code>: Specify the path where you want to save Prometheus data.<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ~/prometheus/prometheus --storage.tsdb.path<span style="color:#f92672">=</span>/var/lib/prometheus/data/ --web.external-url<span style="color:#f92672">=</span>http://myurl.com:9090
+</code></pre></div><p><code>--storage.tsdb.path</code>: Specify the path where you want to save Prometheus data.<br>
 <code>--web.external-url</code>: You can use this option if you want to bind your address with your URL.</p>
-
 <p>You can get below error in case of your folder don’t have appropriate permission:</p>
-
-<p><code>
-level=error ts=2019-08-06T14:25:19.791Z caller=main.go:731 err=&quot;opening storage failed: lock DB directory: open /var/lib/lock: permission denied&quot;
-</code></p>
-
+<p><code>level=error ts=2019-08-06T14:25:19.791Z caller=main.go:731 err=&quot;opening storage failed: lock DB directory: open /var/lib/lock: permission denied&quot;</code></p>
 <p>You can try appending <code>sudo</code>  to your command  OR you can give appropriate permission to your folder.</p>
-
 <h4 id="step-5-run-prometheus-as-service">Step 5: Run Prometheus As Service.</h4>
-
 <ol>
-<li><p>Create File</p>
+<li>Create File</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim /etc/systemd/system/prometheus.service
+</code></pre></div><ol start="2">
+<li>Just paste below code:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+Description<span style="color:#f92672">=</span>Prometheus Server
+Documentation<span style="color:#f92672">=</span>https://prometheus.io/docs/introduction/overview/
+After<span style="color:#f92672">=</span>network-online.target
 
-<pre><code>$ vim /etc/systemd/system/prometheus.service
-</code></pre></li>
+<span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
+User<span style="color:#f92672">=</span>root
+Restart<span style="color:#f92672">=</span>on-failure
 
-<li><p>Just paste below code:</p>
+<span style="color:#75715e">#Change this line if you download the</span> 
+<span style="color:#75715e">#Prometheus on different path user</span>
 
-<pre><code>[Unit]
-Description=Prometheus Server
-Documentation=https://prometheus.io/docs/introduction/overview/
-After=network-online.target
+ExecStart<span style="color:#f92672">=</span>~/prometheus/prometheus --storage.tsdb.path<span style="color:#f92672">=</span>/var/lib/prometheus/data/ --web.external-url<span style="color:#f92672">=</span>http://myurl.com:9090
 
-[Service]
-User=root
-Restart=on-failure
-
-#Change this line if you download the 
-#Prometheus on different path user
-
-ExecStart=~/prometheus/prometheus --storage.tsdb.path=/var/lib/prometheus/data/ --web.external-url=http://myurl.com:9090
-
-[Install]
-WantedBy=multi-user.target
+<span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
+WantedBy<span style="color:#f92672">=</span>multi-user.target
+</code></pre></div><pre><code>Save and exit.
 </code></pre>
-
-<p>Save and exit.</p></li>
-
-<li><p>Reload the Systemctl Daemon:</p>
-
-<pre><code>$ sudo systemctl daemon-reload
-</code></pre></li>
-
-<li><p>Start the Prometheus service:</p>
-
-<pre><code>sudo systemctl start prometheus
-</code></pre></li>
+<ol start="3">
+<li>Reload the Systemctl Daemon:</li>
 </ol>
-
-<p>Till now you learned how to do basic Prometheus setup. Now, you will learn, how to set up Prometheus exporter.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl daemon-reload
+</code></pre></div><ol start="4">
+<li>Start the Prometheus service:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo systemctl start prometheus
+</code></pre></div><p>Till now you learned how to do basic Prometheus setup. Now, you will learn, how to set up Prometheus exporter.</p>
 <h2 id="prometheus-exporter-setup">Prometheus Exporter Setup</h2>
-
 <h3 id="what-is-exporter">What Is Exporter?</h3>
-
 <p>Exporters can be any scripts or services which will fetch specific metrics from your system and gives data in Prometheus format. There are primarily two ways by which you can fetch metrics and store into Prometheus:</p>
-
 <ol>
-<li><p>Via exporter, In which one service will run on a specific port. So whenever Prometheus service will hit exporter URL with the specific port it will give output in Prometheus format. We will see sample response in the below example during setting up the node exporter.</p></li>
-
-<li><p>The second approach is you can write a script which will push data in time series to the Prometheus server. Any metric which cannot be scrape by the exporter, It can be pushed using the push method. You will get more info here on this.</p></li>
+<li>
+<p>Via exporter, In which one service will run on a specific port. So whenever Prometheus service will hit exporter URL with the specific port it will give output in Prometheus format. We will see sample response in the below example during setting up the node exporter.</p>
+</li>
+<li>
+<p>The second approach is you can write a script which will push data in time series to the Prometheus server. Any metric which cannot be scrape by the exporter, It can be pushed using the push method. You will get more info here on this.</p>
+</li>
 </ol>
-
 <p>You can use both methods but usually, people prefer the first one to fetch metrics.</p>
-
 <p>So now we are going to setup <a href="https://github.com/prometheus/node_exporter">node exporter</a>. It will fetch your server metrics which will be RAM/DISK/CPU utilization, network, io etc.</p>
-
 <h3 id="node-exporter-setup">Node Exporter Setup</h3>
-
 <h4 id="step-1-download-the-binary-file-and-start-node-exporter">Step 1: Download The Binary File And Start Node Exporter:</h4>
-
-<pre><code>$ wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
 $ tar -xvzf node_exporter-0.18.1.linux-amd64.tar.gz
 $ mv node_exporter-0.18.1.linux-amd64 node_exporter
 $ cd node_exporter
 $ ./node_exporter
-</code></pre>
-
-<p>You should see below output once the node exporter is started:</p>
-
-<p><img src="/img/prometheus-setup/node_exporter_start.png" alt="Start node exporter" /></p>
-
+</code></pre></div><p>You should see below output once the node exporter is started:</p>
+<p><img src="/img/prometheus-setup/node_exporter_start.png" alt="Start node exporter"></p>
 <p>Just visit to <code>localhost:9100/metrics</code></p>
-
-<p><img src="/img/prometheus-setup/node_exporter_metrics.png" alt="Node exporter metrics" /></p>
-
-<h4 id="step-2-let-s-run-node-exporter-as-service">Step 2: Let&rsquo;s Run Node Exporter As Service:</h4>
-
+<p><img src="/img/prometheus-setup/node_exporter_metrics.png" alt="Node exporter metrics"></p>
+<h4 id="step-2-lets-run-node-exporter-as-service">Step 2: Let&rsquo;s Run Node Exporter As Service:</h4>
 <ol>
-<li><p>Create a file in below path:</p>
-
-<pre><code>/etc/systemd/system/node-exporter.service
-</code></pre></li>
-
-<li><p>Just paste below code:</p>
-
-<pre><code>[Unit]
-Description=Node exporter
-After=network-online.target
-
-[Service]
-User=root
-Restart=on-failure
-
-#Change this line if you download the 
-#Prometheus on different path user
-ExecStart=~/node_exporter/node_exporter
-
-[Install]
-WantedBy=multi-user.target
-</code></pre></li>
-
-<li><p>Reload the systemctl daemon:</p>
-
-<pre><code>sudo systemctl daemon-reload
-</code></pre></li>
-
-<li><p>Start the Prometheus service:</p>
-
-<pre><code>sudo systemctl start node-exporter
-</code></pre></li>
+<li>Create a file in below path:</li>
 </ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/etc/systemd/system/node-exporter.service
+</code></pre></div><ol start="2">
+<li>Just paste below code:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+Description<span style="color:#f92672">=</span>Node exporter
+After<span style="color:#f92672">=</span>network-online.target
 
-<h4 id="step-3-prometheus-yml">Step 3: <code>prometheus.yml</code></h4>
+<span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
+User<span style="color:#f92672">=</span>root
+Restart<span style="color:#f92672">=</span>on-failure
 
+<span style="color:#75715e">#Change this line if you download the</span> 
+<span style="color:#75715e">#Prometheus on different path user</span>
+ExecStart<span style="color:#f92672">=</span>~/node_exporter/node_exporter
+
+<span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
+WantedBy<span style="color:#f92672">=</span>multi-user.target
+</code></pre></div><ol start="3">
+<li>Reload the systemctl daemon:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo systemctl daemon-reload
+</code></pre></div><ol start="4">
+<li>Start the Prometheus service:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo systemctl start node-exporter
+</code></pre></div><h4 id="step-3-prometheusyml">Step 3: <code>prometheus.yml</code></h4>
 <p>You Are Set With Node Exporter. Now In Prometheus, We Need To Configure This Node Exporter Reference So That Prometheus Can Collect Metrics From This Exporter.</p>
-
 <p>Open file <code>~/prometheus/prometheus.yml</code> add below configuration:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scrape_configs:
+ <span style="color:#75715e"># The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.</span>
+ - job_name: <span style="color:#e6db74">&#39;prometheus&#39;</span>
 
-<pre><code>scrape_configs:
- # The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.
- - job_name: 'prometheus'
-
-# metrics_path defaults to '/metrics'
-# scheme defaults to 'http'. 
+<span style="color:#75715e"># metrics_path defaults to &#39;/metrics&#39;</span>
+<span style="color:#75715e"># scheme defaults to &#39;http&#39;.</span> 
    static_configs:
-   - targets: ['localhost:9090'] 
-# Add below block for node_exporter
+   - targets: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;localhost:9090&#39;</span><span style="color:#f92672">]</span> 
+<span style="color:#75715e"># Add below block for node_exporter</span>
  - job_name: node_exporter
    scrape_interval: 1m
    scrape_timeout:  1m
-   metrics_path: &quot;/metrics&quot; 
+   metrics_path: <span style="color:#e6db74">&#34;/metrics&#34;</span> 
    static_configs: 
-   - targets: ['localhost:9100']
-</code></pre>
-
-<p>Save and exit.</p>
-
-<p><code>job_name</code>: You can give any name to your scrape job.<br />
-<code>scrape_interval</code>: Interval in which Prometheus will scrape the metrics from the specified URL.<br />
-<code>scrape_timeout</code>: If your exporter has taken more than 1m to scrape the metrics it will be a timeout.<br />
-<code>metric_path</code>: This is what your endpoint’s path should be (i.e localhost:9100/metrics)<br />
+   - targets: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;localhost:9100&#39;</span><span style="color:#f92672">]</span>
+</code></pre></div><p>Save and exit.</p>
+<p><code>job_name</code>: You can give any name to your scrape job.<br>
+<code>scrape_interval</code>: Interval in which Prometheus will scrape the metrics from the specified URL.<br>
+<code>scrape_timeout</code>: If your exporter has taken more than 1m to scrape the metrics it will be a timeout.<br>
+<code>metric_path</code>: This is what your endpoint’s path should be (i.e localhost:9100/metrics)<br>
 <code>targets</code>: Here you can specify the number of servers on which node exporter is running with the same configuration.</p>
-
-<h4 id="step-4-here-s-the-command-to-execute-prometheus">Step 4: Here&rsquo;s The Command To Execute Prometheus:</h4>
-
-<pre><code>~/prometheus/prometheus --storage.tsdb.path=/var/lib/prometheus/data/ --config.file=~/prometheus/prometheus.yml --web.external-url=http://myurl.com:9090
-</code></pre>
-
-<p>Also, don’t forget to make the same changes in your service <code>file:/etc/systemd/system/prometheus.service</code></p>
-
+<h4 id="step-4-heres-the-command-to-execute-prometheus">Step 4: Here&rsquo;s The Command To Execute Prometheus:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/prometheus/prometheus --storage.tsdb.path<span style="color:#f92672">=</span>/var/lib/prometheus/data/ --config.file<span style="color:#f92672">=</span>~/prometheus/prometheus.yml --web.external-url<span style="color:#f92672">=</span>http://myurl.com:9090
+</code></pre></div><p>Also, don’t forget to make the same changes in your service <code>file:/etc/systemd/system/prometheus.service</code></p>
 <h4 id="step-5-restart-prometheus-service">Step 5: Restart prometheus service</h4>
-
-<pre><code>sudo systemctl restart prometheus
-</code></pre>
-
-<h4 id="step-6-visiting-localhost-9090-again">Step 6: Visiting Localhost:9090 Again</h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo systemctl restart prometheus
+</code></pre></div><h4 id="step-6-visiting-localhost9090-again">Step 6: Visiting Localhost:9090 Again</h4>
 <p>Now visit the URL <code>localhost:9090</code>. In Expression field you can search for <code>node_filesystem_size_bytes</code> by clicking on the <code>Execute</code> button. You will get the below stats:</p>
-
-<p><img src="/img/prometheus-setup/disk_utilization.png" alt="Disk utilization graph on node Exporter" /></p>
-
+<p><img src="/img/prometheus-setup/disk_utilization.png" alt="Disk utilization graph on node Exporter"></p>
 <p>After clicking on the <code>graph</code>:</p>
-
-<p><img src="/img/prometheus-setup/disk_utilization_graph.png" alt="Disk utilization graph on node Exporter" /></p>
-
+<p><img src="/img/prometheus-setup/disk_utilization_graph.png" alt="Disk utilization graph on node Exporter"></p>
 <h2 id="installation-with-docker">Installation with Docker</h2>
-
 <h3 id="prometheus">Prometheus</h3>
-
-<pre><code class="language-sh">docker run \
-    -p 9090:9090 \
-    -v ~/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
-    prom/prometheus
-</code></pre>
-
-<h3 id="node-exporter">Node Exporter</h3>
-
-<pre><code class="language-sh">docker run -d \
-  --net=&quot;host&quot; \
-  --pid=&quot;host&quot; \
-  -v &quot;/:/host:ro,rslave&quot; \
-  quay.io/prometheus/node-exporter \
-  --path.rootfs=/host
-</code></pre>
-
-<p>The rest of option will remain same as i explained in above parts.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -p 9090:9090 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -v ~/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    prom/prometheus
+</code></pre></div><h3 id="node-exporter">Node Exporter</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run -d <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --net<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;host&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --pid<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;host&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v <span style="color:#e6db74">&#34;/:/host:ro,rslave&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  quay.io/prometheus/node-exporter <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --path.rootfs<span style="color:#f92672">=</span>/host
+</code></pre></div><p>The rest of option will remain same as i explained in above parts.</p>
 <h1 id="at-the-end">At the end</h1>
-
 <p>Like this, you can explore each metrics like memory, CPU, etc.</p>
-
 <p>There are already lots of exporters is available on the internet like Nginx exporter, MongoDB exporter, MySQL server exporter, etc. Just download them and start using it. You can check more info about exporter <a href="https://prometheus.io/docs/instrumenting/exporters/">here</a>.</p>
-
 <p><strong>You have now successfully installed Prometheus and node exporters.</strong></p>
-
 <p>If you see this <a href="https://prometheus.io/docs/introduction/overview/#architecture">official architecture diagram</a>, we have successfully set up the <strong>Prometheus</strong>, <strong>Pushgateway/Exporters</strong>, and <strong>Prometheus UI</strong>.</p>
-
 <p>In the <a href="https://ashish.one/blogs/setup-alertmanager/">Part 2</a>, we will see how we can set up an alert manager and how to setup alert over the metrics.</p>
-
 <p>Stay tuned for the new updates.</p>
-
 <blockquote>
 <p><strong>“NOTE: PROMETHEUS IS METRIC STORAGE SYSTEM. DON’T TRY TO STORE ANY KIND OF LOGS. IT IS NOT RECOMMENDED.”</strong></p>
 </blockquote>
-
 <p><strong>In case of any confusion or issues leave comments below :)</strong></p>
-
 <p>Article partially posted on <a href="https://pepipost.com/tutorials/setup-prometheus-and-exporters/">Pepipost tutorial</a> by me.</p>
-
-<script src="https://utteranc.es/client.js"
-        repo="ashishtiwari1993/ashish.one"
-        issue-term="title"
-        label="Comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
 </div>
 

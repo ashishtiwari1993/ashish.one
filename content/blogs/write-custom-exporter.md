@@ -70,7 +70,7 @@ Complet sample code from my gist:
 
 Add config in `prometheus.yml`
 
-```
+```sh
   - job_name: service_up_exporter
     scrape_interval: 2m
     scrape_timeout:  2m

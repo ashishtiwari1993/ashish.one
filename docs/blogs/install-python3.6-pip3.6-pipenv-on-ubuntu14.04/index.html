@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.68.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,112 +79,58 @@
     <div class="post">
   <h1>Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</h1>
   <time datetime=2020-04-02T17:52:19&#43;0530 class="post-date">Thu, Apr 2, 2020</time>
-  
-
-<h2 id="prerequisite">Prerequisite</h2>
-
-<p><strong>OS:</strong> Ubuntu 14.04 LTS<br />
-<strong>Processor:</strong> 64 Bit<br />
+  <h2 id="prerequisite">Prerequisite</h2>
+<p><strong>OS:</strong> Ubuntu 14.04 LTS<br>
+<strong>Processor:</strong> 64 Bit<br>
 <strong>RAM:</strong> 2 GB</p>
-
-<h2 id="1-install-python3-6-from-source">1. Install python3.6 From source</h2>
-
-<h3 id="step-1-1-compile">Step 1.1: Compile</h3>
-
-<pre><code class="language-sh">$ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+<h2 id="1-install-python36-from-source">1. Install python3.6 From source</h2>
+<h3 id="step-11-compile">Step 1.1: Compile</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
 $ tar -xvf Python-3.6.3.tgz
 $ cd Python-3.6.3
 $ sudo ./configure --enable-optimizations
-</code></pre>
-
-<h3 id="step-1-2-check">Step 1.2: Check</h3>
-
-<pre><code class="language-sh">$ python3.6 --version
-</code></pre>
-
-<h2 id="2-install-pip3-6">2. Install <code>pip3.6</code></h2>
-
-<h3 id="step-2-1-download-pip">Step 2.1: Download pip</h3>
-
-<pre><code class="language-sh">$ wget https://bootstrap.pypa.io/get-pip.py
-</code></pre>
-
-<h3 id="step-2-2-execute">Step 2.2: Execute</h3>
-
-<pre><code class="language-sh">$ sudo python3.6 get-pip.py
-</code></pre>
-
-<h3 id="step-2-3-if-you-got-below-error">Step 2.3: If you Got below error</h3>
-
-<h4 id="error-zlib-not-available">Error  <code>zlib not available</code></h4>
-
-<pre><code class="language-sh">Traceback (most recent call last):
-  File &quot;get-pip.py&quot;, line 22711, in &lt;module&gt;
-    main()
-  File &quot;get-pip.py&quot;, line 198, in main
-    bootstrap(tmpdir=tmpdir)
-  File &quot;get-pip.py&quot;, line 82, in bootstrap
+</code></pre></div><h3 id="step-12-check">Step 1.2: Check</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ python3.6 --version
+</code></pre></div><h2 id="2-install-pip36">2. Install <code>pip3.6</code></h2>
+<h3 id="step-21-download-pip">Step 2.1: Download pip</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://bootstrap.pypa.io/get-pip.py
+</code></pre></div><h3 id="step-22-execute">Step 2.2: Execute</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo python3.6 get-pip.py
+</code></pre></div><h3 id="step-23-if-you-got-below-error">Step 2.3: If you Got below error</h3>
+<h4 id="error--zlib-not-available">Error  <code>zlib not available</code></h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Traceback <span style="color:#f92672">(</span>most recent call last<span style="color:#f92672">)</span>:
+  File <span style="color:#e6db74">&#34;get-pip.py&#34;</span>, line 22711, in &lt;module&gt;
+    main<span style="color:#f92672">()</span>
+  File <span style="color:#e6db74">&#34;get-pip.py&#34;</span>, line 198, in main
+    bootstrap<span style="color:#f92672">(</span>tmpdir<span style="color:#f92672">=</span>tmpdir<span style="color:#f92672">)</span>
+  File <span style="color:#e6db74">&#34;get-pip.py&#34;</span>, line 82, in bootstrap
     from pip._internal.cli.main import main as pip_entry_point
-zipimport.ZipImportError: can't decompress data; zlib not available
-</code></pre>
-
-<h4 id="step-2-3-1-install-zlib">Step 2.3.1: Install <code>zlib</code>:</h4>
-
+zipimport.ZipImportError: can<span style="color:#960050;background-color:#1e0010">&#39;</span>t decompress data; zlib not available
+</code></pre></div><h4 id="step-231-install-zlib">Step 2.3.1: Install <code>zlib</code>:</h4>
 <h4 id="install-with-some-other-dependency">Install with some other dependency</h4>
-
-<pre><code class="language-sh">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
-</code></pre>
-
-<p>OR</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
+</code></pre></div><p>OR</p>
 <h4 id="you-can-install-just-zlib1g-dev">You can install just <code>zlib1g-dev</code></h4>
-
-<pre><code class="language-sh">$ sudo apt-get install zlib1g-dev
-</code></pre>
-
-<h4 id="chances-to-get-error">Chances to get error</h4>
-
-<pre><code class="language-sh">$ zlib1g-dev is already the newest version.
-</code></pre>
-
-<h4 id="just-upgrade-it-if-not-new">Just upgrade it if not new</h4>
-
-<pre><code class="language-sh">$ sudo apt-get upgrade zlib1g-dev
-</code></pre>
-
-<h3 id="step-2-3-2-now-again-try">Step 2.3.2: Now again try</h3>
-
-<pre><code class="language-sh">$ sudo python3.6 get-pip.py
-</code></pre>
-
-<h4 id="if-you-get-same-error-again-then-go-for-below-steps">If you get same error again, Then go for below steps:</h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get install zlib1g-dev
+</code></pre></div><h4 id="chances-to-get-error">Chances to get error</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ zlib1g-dev is already the newest version.
+</code></pre></div><h4 id="just-upgrade-it-if-not-new">Just upgrade it if not new</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get upgrade zlib1g-dev
+</code></pre></div><h3 id="step-232-now-again-try">Step 2.3.2: Now again try</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo python3.6 get-pip.py
+</code></pre></div><h4 id="if-you-get-same-error-again-then-go-for-below-steps">If you get same error again, Then go for below steps:</h4>
 <p>Open <code>Modules/Setup</code> from folder &lsquo;Python-3.6.3&rsquo; which we extracted on Step 1.1</p>
-
-<pre><code class="language-sh">$ sudo vim Modules/Setup
-</code></pre>
-
-<h4 id="uncomment-the-below-line-or-jump-on-line-no-366">Uncomment the below line or jump on line no. 366</h4>
-
-<pre><code class="language-sh">zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz
-</code></pre>
-
-<h4 id="now-we-need-to-again-perform-few-operation-from-steps-1-1">Now we need to again perform few operation from <strong>steps 1.1</strong></h4>
-
-<pre><code class="language-sh">$ sudo ./configure
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo vim Modules/Setup
+</code></pre></div><h4 id="uncomment-the-below-line-or-jump-on-line-no-366">Uncomment the below line or jump on line no. 366</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">zlib zlibmodule.c -I<span style="color:#66d9ef">$(</span>prefix<span style="color:#66d9ef">)</span>/include -L<span style="color:#66d9ef">$(</span>exec_prefix<span style="color:#66d9ef">)</span>/lib -lz
+</code></pre></div><h4 id="now-we-need-to-again-perform-few-operation-from-__steps-11__">Now we need to again perform few operation from <strong>steps 1.1</strong></h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo ./configure
 $ sudo make install
-</code></pre>
-
-<h4 id="now-run-again-it-should-be-work">Now run again &amp; It should be work</h4>
-
-<pre><code class="language-sh">$ sudo python3.6 get-pip.py
-</code></pre>
-
-<h3 id="step-2-4-let-s-install-pipenv-for-testing-purpose">Step 2.4: Let&rsquo;s Install <code>pipenv</code> for testing purpose:</h3>
-
-<pre><code class="language-sh">$ sudo pip3.6 install pipenv
-</code></pre>
-
+</code></pre></div><h4 id="now-run-again--it-should-be-work">Now run again &amp; It should be work</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo python3.6 get-pip.py
+</code></pre></div><h3 id="step-24-lets-install-pipenv-for-testing-purpose">Step 2.4: Let&rsquo;s Install <code>pipenv</code> for testing purpose:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pip3.6 install pipenv
+</code></pre></div>
 </div>
 
 

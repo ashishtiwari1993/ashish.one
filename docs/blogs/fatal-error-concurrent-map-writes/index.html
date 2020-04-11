@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.68.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,141 +79,96 @@
     <div class="post">
   <h1>[SOLVED] Golang fatal error: concurrent map writes</h1>
   <time datetime=2020-02-04T01:14:03&#43;0530 class="post-date">Tue, Feb 4, 2020</time>
-  
-
-<p><img src="/img/golang/concurrent_map_writes.jpg" alt="concurrent_map_writes" /></p>
-
+  <p><img src="/img/golang/concurrent_map_writes.jpg" alt="concurrent_map_writes"></p>
 <h2 id="the-problem">The Problem:</h2>
-
 <p>Suddenly got below errors which killed my daemon:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">fatal error: concurrent map writes
 
-<pre><code>fatal error: concurrent map writes
+goroutine <span style="color:#ae81ff">646</span> <span style="color:#f92672">[</span>running<span style="color:#f92672">]</span>:
+runtime.throw<span style="color:#f92672">(</span>0x75fd38, 0x15<span style="color:#f92672">)</span>
+        /usr/local/go/src/runtime/panic.go:774 +0x72 fp<span style="color:#f92672">=</span>0xc000315e60 sp<span style="color:#f92672">=</span>0xc000315e30 pc<span style="color:#f92672">=</span>0x42ecf2
+runtime.mapdelete_fast64<span style="color:#f92672">(</span>0x6f0800, 0xc00008ad50, 0x2b3e<span style="color:#f92672">)</span>
 
-goroutine 646 [running]:
-runtime.throw(0x75fd38, 0x15)
-        /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2
-runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e)
-
-goroutine 1 [sleep]:
-runtime.goparkunlock(...)
+goroutine <span style="color:#ae81ff">1</span> <span style="color:#f92672">[</span>sleep<span style="color:#f92672">]</span>:
+runtime.goparkunlock<span style="color:#f92672">(</span>...<span style="color:#f92672">)</span>
         /usr/local/go/src/runtime/proc.go:310
-time.Sleep(0x12a05f200)
+time.Sleep<span style="color:#f92672">(</span>0x12a05f200<span style="color:#f92672">)</span>
         /usr/local/go/src/runtime/time.go:105 +0x157
-webhook/worker.Manager()
+webhook/worker.Manager<span style="color:#f92672">()</span>
 
-goroutine 6 [IO wait]:
-internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0)
+goroutine <span style="color:#ae81ff">6</span> <span style="color:#f92672">[</span>IO wait<span style="color:#f92672">]</span>:
+internal/poll.runtime_pollWait<span style="color:#f92672">(</span>0x7fc308de6f08, 0x72, 0x0<span style="color:#f92672">)</span>
         /usr/local/go/src/runtime/netpoll.go:184 +0x55
-internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b)
+internal/poll.<span style="color:#f92672">(</span>*pollDesc<span style="color:#f92672">)</span>.wait<span style="color:#f92672">(</span>0xc000110018, 0x72, 0x0, 0x0, 0x75b00b<span style="color:#f92672">)</span>
         /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
-internal/poll.(*pollDesc).waitRead(...)
+internal/poll.<span style="color:#f92672">(</span>*pollDesc<span style="color:#f92672">)</span>.waitRead<span style="color:#f92672">(</span>...<span style="color:#f92672">)</span>
         /usr/local/go/src/internal/poll/fd_poll_runtime.go:92
-internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+internal/poll.<span style="color:#f92672">(</span>*FD<span style="color:#f92672">)</span>.Accept<span style="color:#f92672">(</span>0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0<span style="color:#f92672">)</span>
         /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8
-net.(*netFD).accept(0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0)
+net.<span style="color:#f92672">(</span>*netFD<span style="color:#f92672">)</span>.accept<span style="color:#f92672">(</span>0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0<span style="color:#f92672">)</span>
         /usr/local/go/src/net/fd_unix.go:238 +0x42
-net.(*TCPListener).accept(0xc000126000, 0xc000050d80, 0x40dd08, 0x30)
+net.<span style="color:#f92672">(</span>*TCPListener<span style="color:#f92672">)</span>.accept<span style="color:#f92672">(</span>0xc000126000, 0xc000050d80, 0x40dd08, 0x30<span style="color:#f92672">)</span>
         /usr/local/go/src/net/tcpsock_posix.go:139 +0x32
-net.(*TCPListener).Accept(0xc000126000, 0x72f560, 0xc0000f0180, 0x6f4f20, 0x9c00c0)
+net.<span style="color:#f92672">(</span>*TCPListener<span style="color:#f92672">)</span>.Accept<span style="color:#f92672">(</span>0xc000126000, 0x72f560, 0xc0000f0180, 0x6f4f20, 0x9c00c0<span style="color:#f92672">)</span>
         /usr/local/go/src/net/tcpsock.go:261 +0x47
-net/http.(*Server).Serve(0xc0000f4000, 0x7ccbe0, 0xc000126000, 0x0, 0x0)
+net/http.<span style="color:#f92672">(</span>*Server<span style="color:#f92672">)</span>.Serve<span style="color:#f92672">(</span>0xc0000f4000, 0x7ccbe0, 0xc000126000, 0x0, 0x0<span style="color:#f92672">)</span>
         /usr/local/go/src/net/http/server.go:2896 +0x286
-net/http.(*Server).ListenAndServe(0xc0000f4000, 0xc0000f4000, 0x8)
+net/http.<span style="color:#f92672">(</span>*Server<span style="color:#f92672">)</span>.ListenAndServe<span style="color:#f92672">(</span>0xc0000f4000, 0xc0000f4000, 0x8<span style="color:#f92672">)</span>
         /usr/local/go/src/net/http/server.go:2825 +0xb7
-net/http.ListenAndServe(...)
+net/http.ListenAndServe<span style="color:#f92672">(</span>...<span style="color:#f92672">)</span>
         /usr/local/go/src/net/http/server.go:3080
-webhook/handler.HandleRequest()
+webhook/handler.HandleRequest<span style="color:#f92672">()</span>
 
-</code></pre>
-
-<h3 id="expected-behaviour">Expected behaviour</h3>
-
+</code></pre></div><h3 id="expected-behaviour">Expected behaviour</h3>
 <p>In starting for a few seconds it was working smoothly.</p>
-
-<p><img src="/img/golang/Go-Routines_race_condition.png" alt="goroutine_race_condition" /></p>
-
+<p><img src="/img/golang/Go-Routines_race_condition.png" alt="goroutine_race_condition"></p>
 <h3 id="actual-behaviour">Actual behaviour</h3>
-
 <p>After few seconds my service got kill with above mentioned error.</p>
-
-<p><img src="/img/golang/Go-Routines_race_condition_error.png" alt="goroutine_race_condition_error" /></p>
-
+<p><img src="/img/golang/Go-Routines_race_condition_error.png" alt="goroutine_race_condition_error"></p>
 <h2 id="code-overview">Code Overview:</h2>
-
 <p>Initialized one global variable with the type &lsquo;map&rsquo;. Where the key is <code>int</code> and value is <code>channel</code>.</p>
-
-<pre><code>var ActiveInstances = make(map[int](chan string))
-</code></pre>
-
-<p>Having two functions</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">var ActiveInstances <span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>map<span style="color:#f92672">[</span>int<span style="color:#f92672">](</span>chan string<span style="color:#f92672">))</span>
+</code></pre></div><p>Having two functions</p>
 <ol>
 <li><code>go SetValue()</code></li>
 <li><code>go DeleteValue()</code></li>
 </ol>
-
 <h3 id="in-setvalue">In <code>SetValue()</code></h3>
-
-<pre><code>ActiveInstances[id] = make(chan string, 5)
-</code></pre>
-
-<h3 id="in-deletevalue">In <code>DeleteValue()</code></h3>
-
-<pre><code>delete(ActiveInstances, id)
-</code></pre>
-
-<p>Both functions running in multiple goroutines.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ActiveInstances<span style="color:#f92672">[</span>id<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>chan string, 5<span style="color:#f92672">)</span>
+</code></pre></div><h3 id="in-deletevalue">In <code>DeleteValue()</code></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">delete<span style="color:#f92672">(</span>ActiveInstances, id<span style="color:#f92672">)</span>
+</code></pre></div><p>Both functions running in multiple goroutines.</p>
 <h2 id="observation">Observation:</h2>
-
 <p>The error itself says <code>concurrent map writes</code>, By which I got the idea that something is wrong with my map variable <code>ActiveInstances</code>. Both functions in multiple goroutines are trying to access the same variable(<code>ActiveInstances</code>) at the same time. Which created race condition. After exploring a few blogs &amp; documentation, I become to know that <strong><em>&ldquo;Maps are not safe for concurrent use&rdquo;</em></strong>.</p>
-
 <p>As per golang doc</p>
-
 <blockquote>
 <p>Map access is unsafe only when updates are occurring. As long as all goroutines are only reading—looking up elements in the map, including iterating through it using a for range loop—and not changing the map by assigning to elements or doing deletions, it is safe for them to access the map concurrently without synchronization.</p>
 </blockquote>
-
 <h2 id="solution">Solution:</h2>
-
 <p>Here we need to access <code>ActiveInstances</code> synchronously. We want to make sure only one goroutine can access a variable at a time to avoid conflicts, This can be easily achieved by <code>sync.Mutex</code>. This concept is called mutual exclusion which provides methods <code>Lock</code> and <code>Unlock</code>.</p>
-
 <p>We can define a block of code to be executed in mutual exclusion by surrounding it with a call to <code>Lock</code> and <code>Unlock</code>
 It is as simple as below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">var mutex <span style="color:#f92672">=</span> &amp;sync.Mutex<span style="color:#f92672">{}</span>
 
-<pre><code>var mutex = &amp;sync.Mutex{}
-
-mutex.Lock()
+mutex.Lock<span style="color:#f92672">()</span>
 //my block of code
-mutex.Unlock()
-</code></pre>
+mutex.Unlock<span style="color:#f92672">()</span>
+</code></pre></div><h2 id="code-modifications">Code Modifications:</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">var mutex <span style="color:#f92672">=</span> &amp;sync.Mutex<span style="color:#f92672">{}</span>
 
-<h2 id="code-modifications">Code Modifications:</h2>
-
-<pre><code>var mutex = &amp;sync.Mutex{}
-
-mutex.Lock()
-ActiveInstances[i_id] = make(chan string, 5)
-mutex.Unlock()
-</code></pre>
-
-<pre><code>mutex.Lock()
-delete(ActiveInstances, id)
-mutex.Unlock()
-</code></pre>
-
-<p>This is how we successfully fix this problem.</p>
-
+mutex.Lock<span style="color:#f92672">()</span>
+ActiveInstances<span style="color:#f92672">[</span>i_id<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>chan string, 5<span style="color:#f92672">)</span>
+mutex.Unlock<span style="color:#f92672">()</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mutex.Lock<span style="color:#f92672">()</span>
+delete<span style="color:#f92672">(</span>ActiveInstances, id<span style="color:#f92672">)</span>
+mutex.Unlock<span style="color:#f92672">()</span>
+</code></pre></div><p>This is how we successfully fix this problem.</p>
 <h2 id="code-to-reproduce">Code to Reproduce</h2>
-
 <p>To reproduce, Comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
-
-<script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
-
+<!-- raw HTML omitted -->
 <h2 id="references">References:</h2>
-
-<p><a href="https://blog.golang.org/go-maps-in-action">https://blog.golang.org/go-maps-in-action</a><br />
-<a href="https://golang.org/doc/faq#atomic_maps">https://golang.org/doc/faq#atomic_maps</a><br />
+<p><a href="https://blog.golang.org/go-maps-in-action">https://blog.golang.org/go-maps-in-action</a><br>
+<a href="https://golang.org/doc/faq#atomic_maps">https://golang.org/doc/faq#atomic_maps</a><br>
 <a href="https://gobyexample.com/mutexes">https://gobyexample.com/mutexes</a></p>
 
 </div>

@@ -24,7 +24,7 @@ Prerequisites will be the same as [PART - 1](https://ashish.one/blogs/setup-prom
 
 ### Step 1: Download alertmanager
 
-```
+```sh
 $ wget https://github.com/prometheus/prometheus/releases/download/v2.13.1/prometheus-2.13.1.linux-amd64.tar.gz
 ```
 
@@ -32,13 +32,13 @@ $ wget https://github.com/prometheus/prometheus/releases/download/v2.13.1/promet
 
 ### Step 2: Extract tar
 
-```
+```sh
 $ tar -xvzf alertmanager-0.19.0.linux-amd64.tar.gz
 ```
 
 ### Step 3: Folder structure
 
-```
+```sh
 $ mv alertmanager-0.19.0.linux-amd64 alertmanager
 $ cd alertmanager/
 $ ll
@@ -56,7 +56,7 @@ Folder contains below files:
 
 Execute binary:
 
-```
+```sh
 ./alertmanager
 ```
 
@@ -72,7 +72,7 @@ To check alertmanager metrics just visit `localhost:9093/metrics`
 
 My production execution command is
 
-```
+```sh
 ~/alertmanager/alertmanager --config.file=~/alertmanager/alertmanager.yml --storage.path=/var/lib/alertmanager --web.external-url=http://myurl.com:9093
 ```
 
@@ -83,13 +83,13 @@ My production execution command is
 
 1. Create file
 
-```
+```sh
 vim /etc/systemd/system/alertmanager.service
 ```
 
 2. Paste Below code
 
-```
+```sh
 [Unit]
 Description=AlertManager Server Service
 Wants=network-online.target
@@ -111,13 +111,13 @@ It won’t run because `alertmanager.yml` is not defined yet. `alertmanager.yml`
 
 3. Reload the Systemctl Daemon:
 
-```
+```sh
 $ sudo systemctl daemon-reload
 ```
 
 4. To start alertmanager service
 
-```
+```sh
 $ sudo systemctl start alertmanager
 ```
 
@@ -128,13 +128,13 @@ $ sudo systemctl start alertmanager
 
 Open `prometheus.yml` file
 
-```
+```sh
 $ vim ~/prometheus/prometheus.yml
 ```
 
 Add below code
 
-```
+```sh
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
@@ -187,7 +187,7 @@ Once alertmanager received events, It will check by which channel alert needs to
 
 Create `~/prometheus/alert.rules.yml` file and paste below sample rule:
 
-```
+```sh
 groups:
 
 - name: Disk-usage
@@ -229,7 +229,7 @@ If we recall part - 1 when we set up the node exporter and visited on `localhost
 
 You can compile your alert rule file :
 
-```
+```sh
 $ promtool check rules alert.rules.yml
 ```
 
@@ -241,7 +241,7 @@ You can explore some sample rules [here](https://awesome-prometheus-alerts.grep.
 
 Create `~/alertmanager/alertmanager.yml` file and paste below code:
 
-```
+```sh
 global:
   slack_api_url: "https://hooks.slack.com/services/XXXXXXXXXXXXXXX"
 
@@ -313,7 +313,7 @@ Here we have setup two channel email and slack for alert. if you see `alertmanag
 
 Create and Paste below code in `~/prometheus/alert.tmpl`
 
-```
+```sh
 {{ define "email" }}
 
 <html>
@@ -374,7 +374,7 @@ Create and Paste below code in `~/prometheus/alert.tmpl`
 
 ### Step 6: Start alertmanager service & restart prometheus
 
-```
+```sh
 $ sudo systemctl start alertmanager
 $ sudo systemctl restart prometheus
 ```

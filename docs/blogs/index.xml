@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on ashish.one</title>
@@ -33,7 +33,7 @@ What is Grafana? As grafana.com says
       <description>Prerequisite OS: Ubuntu 14.04 LTS
 Processor: 64 Bit
 RAM: 2 GB
-1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations  Step 1.2: Check $ python3.6 --version  2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py  Step 2.2: Execute $ sudo python3.6 get-pip.py  Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last): File &amp;quot;get-pip.</description>
+1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last): File &amp;#34;get-pip.</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@ RAM: 2 GB
       
       <guid>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</guid>
       <description>Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.
-APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in  APIs available: Statewise Data  StateWise StateWise History  Medica  Hospital Stats Bed Stats  Contacts  HelpLines Contacts  Patient  Tracing History  Sources The source is both types of official &amp;amp; Unofficial.</description>
+APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in APIs available: Statewise Data  StateWise StateWise History  Medica  Hospital Stats Bed Stats  Contacts  HelpLines Contacts  Patient  Tracing History  Sources The source is both types of official &amp;amp; Unofficial.</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
       
       <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
       <description>The Problem: Suddenly got below errors which killed my daemon:
-fatal error: concurrent map writes goroutine 646 [running]: runtime.throw(0x75fd38, 0x15) /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e) goroutine 1 [sleep]: runtime.goparkunlock(...) /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200) /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager() goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0) /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b) /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...) /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0) /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8 net.(*netFD).accept(0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0) /usr/local/go/src/net/fd_unix.</description>
+fatal error: concurrent map writes goroutine 646 [running]: runtime.throw(0x75fd38, 0x15) /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e) goroutine 1 [sleep]: runtime.goparkunlock(...) /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200) /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager() goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0) /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b) /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...) /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0) /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8 net.(*netFD).accept(0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0) /usr/local/go/src/net/fd_unix.go:238 +0x42 net.</description>
     </item>
     
     <item>
@@ -65,8 +65,8 @@ fatal error: concurrent map writes goroutine 646 [running]: runtime.throw(0x75fd
       <description>The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
 The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
 Debug Checked apache2 and mysql service:
-service mysql status service apache2 status  Both services was active. Then I checked the apache2 processes with below command:
-$ ps -ef | grep apache2 | wc -l 151  Lots of apache child process has been forked.</description>
+service mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:
+$ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.</description>
     </item>
     
     <item>
@@ -77,7 +77,7 @@ $ ps -ef | grep apache2 | wc -l 151  Lots of apache child process has been forke
       <guid>https://ashish.one/blogs/write-custom-exporters-prometheus/</guid>
       <description>Introduction In PART-1 and PART-2, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
 But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.
-There is two way to exporting the data on prometheus: 1.</description>
+There is two way to exporting the data on prometheus: 1. Exporting to a Pushgateway Here we metrics are getting the push to prometheus server.</description>
     </item>
     
     <item>

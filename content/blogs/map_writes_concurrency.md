@@ -15,7 +15,7 @@ slug: "fatal-error-concurrent-map-writes"
 
 Suddenly got below errors which killed my daemon:
 
-```
+```sh
 fatal error: concurrent map writes
 
 goroutine 646 [running]:
@@ -71,7 +71,7 @@ After few seconds my service got kill with above mentioned error.
 
 Initialized one global variable with the type 'map'. Where the key is `int` and value is `channel`.
 
-```
+```sh
 var ActiveInstances = make(map[int](chan string))
 ```
 
@@ -82,13 +82,13 @@ Having two functions
 
 ### In `SetValue()`
 
-```
+```sh
 ActiveInstances[id] = make(chan string, 5)
 ```  
 
 ### In `DeleteValue()`
 
-```
+```sh
 delete(ActiveInstances, id)
 ```
 
@@ -109,7 +109,7 @@ Here we need to access `ActiveInstances` synchronously. We want to make sure onl
 We can define a block of code to be executed in mutual exclusion by surrounding it with a call to `Lock` and `Unlock`
 It is as simple as below:
 
-```
+```sh
 var mutex = &sync.Mutex{}
 
 mutex.Lock()
@@ -119,7 +119,7 @@ mutex.Unlock()
 
 ## Code Modifications:
 
-```
+```sh
 var mutex = &sync.Mutex{}
 
 mutex.Lock()
@@ -127,7 +127,7 @@ ActiveInstances[i_id] = make(chan string, 5)
 mutex.Unlock()
 ```
 
-```
+```sh
 mutex.Lock()
 delete(ActiveInstances, id)
 mutex.Unlock()

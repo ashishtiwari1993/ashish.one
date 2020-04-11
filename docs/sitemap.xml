@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -9,11 +9,6 @@
   
   <url>
     <loc>https://ashish.one/tags/alertmanager/</loc>
-    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/</loc>
     <lastmod>2020-04-03T21:32:48+05:30</lastmod>
   </url>
   
@@ -279,6 +274,11 @@
   
   <url>
     <loc>https://ashish.one/about/</loc>
+    <lastmod>2019-09-03T15:11:45+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/</loc>
     <lastmod>2019-09-03T15:11:45+05:30</lastmod>
   </url>
   

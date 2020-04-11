@@ -56,7 +56,7 @@ OR
 
 You can simply fire below command in your Linux terminal:
 
-```
+```sh
 $ wget https://github.com/prometheus/prometheus/releases/download/v2.11.1/prometheus-2.11.1.linux-amd64.tar.gz
 ```
 
@@ -65,13 +65,13 @@ $ wget https://github.com/prometheus/prometheus/releases/download/v2.11.1/promet
 
 #### Step 2: Extract The Tar
 
-```
+```sh
 $ tar -xvzf prometheus-2.11.1.linux-amd64.tar.gz
 ```
 
 #### Step 3: After Extraction Steps
 
-```
+```sh
 $ mv prometheus-2.11.1.linux-amd64 prometheus 
 $ cd prometheus/$ ll
 ```
@@ -86,7 +86,7 @@ Folder contains below file:
 
 #### Step 4: Execute The Binary File Using The Below Command:
 
-```
+```sh
 $ ./prometheus
 ```
 
@@ -109,7 +109,7 @@ Prometheus stores data on disk in time series, with its custom format.  Behind t
 
 Here is a sample production command:
 
-```
+```sh
 $ ~/prometheus/prometheus --storage.tsdb.path=/var/lib/prometheus/data/ --web.external-url=http://myurl.com:9090
 ```
 `--storage.tsdb.path`: Specify the path where you want to save Prometheus data.  
@@ -126,13 +126,13 @@ You can try appending `sudo`  to your command  OR you can give appropriate permi
 #### Step 5: Run Prometheus As Service.
 
 1. Create File
-```
+```sh
 $ vim /etc/systemd/system/prometheus.service
 ```
 
 2. Just paste below code:
 
-```
+```sh
 [Unit]
 Description=Prometheus Server
 Documentation=https://prometheus.io/docs/introduction/overview/
@@ -154,12 +154,12 @@ WantedBy=multi-user.target
 
 3. Reload the Systemctl Daemon:
 
-```
+```sh
 $ sudo systemctl daemon-reload
 ```
 
 4. Start the Prometheus service:
-```
+```sh
 sudo systemctl start prometheus
 ```
 
@@ -183,7 +183,7 @@ So now we are going to setup [node exporter](https://github.com/prometheus/node_
 
 #### Step 1: Download The Binary File And Start Node Exporter:
 
-```
+```sh
 $ wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
 $ tar -xvzf node_exporter-0.18.1.linux-amd64.tar.gz
 $ mv node_exporter-0.18.1.linux-amd64 node_exporter
@@ -204,13 +204,13 @@ Just visit to `localhost:9100/metrics`
 
 1. Create a file in below path:
 
-```
+```sh
 /etc/systemd/system/node-exporter.service
 ```
 
 2. Just paste below code:
 
-```
+```sh
 [Unit]
 Description=Node exporter
 After=network-online.target
@@ -229,13 +229,13 @@ WantedBy=multi-user.target
 
 3. Reload the systemctl daemon:
 
-```
+```sh
 sudo systemctl daemon-reload
 ```
 
 4. Start the Prometheus service:
 
-```
+```sh
 sudo systemctl start node-exporter
 ```
 
@@ -245,7 +245,7 @@ You Are Set With Node Exporter. Now In Prometheus, We Need To Configure This Nod
 
 Open file `~/prometheus/prometheus.yml` add below configuration:
 
-```
+```sh
 scrape_configs:
  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
  - job_name: 'prometheus'
@@ -273,7 +273,7 @@ Save and exit.
 
 #### Step 4: Here's The Command To Execute Prometheus:
 
-```
+```sh
 ~/prometheus/prometheus --storage.tsdb.path=/var/lib/prometheus/data/ --config.file=~/prometheus/prometheus.yml --web.external-url=http://myurl.com:9090
 ```
 
@@ -281,7 +281,7 @@ Also, don’t forget to make the same changes in your service `file:/etc/systemd
 
 #### Step 5: Restart prometheus service
 
-```
+```sh
 sudo systemctl restart prometheus
 ```
 

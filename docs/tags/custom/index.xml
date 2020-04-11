@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>custom on ashish.one</title>
@@ -20,7 +20,7 @@
       <guid>https://ashish.one/blogs/write-custom-exporters-prometheus/</guid>
       <description>Introduction In PART-1 and PART-2, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
 But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.
-There is two way to exporting the data on prometheus: 1.</description>
+There is two way to exporting the data on prometheus: 1. Exporting to a Pushgateway Here we metrics are getting the push to prometheus server.</description>
     </item>
     
   </channel>

@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.68.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,54 +79,28 @@
     <div class="post">
   <h1>Golang basics &amp; Handling 100k hourly webhooks with golang @MimePost</h1>
   <time datetime=2020-03-11T00:12:30&#43;0530 class="post-date">Wed, Mar 11, 2020</time>
-  
-
-<h2 id="what-this-talk-about">What this talk about?</h2>
-
+  <h2 id="what-this-talk-about">What this talk about?</h2>
 <p>I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.</p>
-
 <p>Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?</p>
-
 <p>I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).</p>
-
 <p>Shown some immature code which given me a better understanding of 100% CPU utilization and How I waste my major time to debug on silly things.</p>
-
 <p>Shared one of our error and it&rsquo;s solutions related to How you can avoid race conditions on &ldquo;map&rdquo; type variables.</p>
-
 <h2 id="slides">Slides</h2>
-
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQExSl-gRPoA9hC6qXuqrjwiQVHAanDieZN_5GpV2Lw9cuxjsVFEN_wkTThqpQwZ36vJz4zwmTvV7cC/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-
+<!-- raw HTML omitted -->
 <h2 id="talk-video">Talk Video</h2>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZjOcwoCkkog" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<h2 id="demo-1">Demo - 1</h2>
-
+<!-- raw HTML omitted -->
+<h2 id="demo---1">Demo - 1</h2>
 <p>This code will make 100% CPU utilization and <code>forever()</code> function not going to share any single CPU time with <code>anotherGoroutine()</code></p>
-
-<script src="https://gist.github.com/ashishtiwari1993/00b2a56ac8f5b39d3229d723e58815bc.js"></script>
-
-<h2 id="demo-2">Demo - 2</h2>
-
+<!-- raw HTML omitted -->
+<h2 id="demo---2">Demo - 2</h2>
 <p>Reproduce Golang &ldquo;fatal error: concurrent map writes&rdquo; &amp; Solution. To reproduce comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
-
-<script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
-
+<!-- raw HTML omitted -->
 <p>Find more details on this <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/">blog</a>.</p>
-
 <blockquote>
 <p>Feel free to comment below, If you have any doubts or suggestion about this talk.</p>
 </blockquote>
-
-<script src="https://utteranc.es/client.js"
-        repo="ashishtiwari1993/ashish.one"
-        issue-term="title"
-        label="Comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
 </div>
 

@@ -19,7 +19,7 @@ My setup (wordpress droplet) was suddenly stop working. I started debugging.
 
 Checked `apache2` and `mysql` service:
 
-```
+```sh
 service mysql status
 
 service apache2 status
@@ -27,7 +27,7 @@ service apache2 status
 
 Both services was active. Then I checked the `apache2` processes with below command:
 
-```
+```sh
 $ ps -ef | grep apache2 | wc -l
 151
 ```
@@ -40,7 +40,7 @@ I took decision to setup new wordpress of same version. I was little sure that s
 
 ## Droplet configuration
 
-```
+```sh
 OS : Ubuntu 18.04.3 LTS
 Memory : 1GB
 Disk : 25GB
@@ -51,7 +51,7 @@ Cost : $5/Monthly
 
 ### Step 1: Source directory backup 
 Take backup with `cp` command.
-```
+```sh
 $ cd
 $ mkdir ~/backup_wp
 $ cp -R /var/www/html ~/backup_wp/
@@ -61,7 +61,7 @@ Digitalocean installs the wordpress in `/var/www/html/` path.
 
 ### Step 2: Database backup
 
-```
+```sh
 $ mysqldump -uroot -p wordpress > ~/backup_wp/wp.sql
 ```
 
@@ -87,21 +87,27 @@ Version can be different.
 
 Go to [Wordpress Releases page](https://wordpress.org/download/releases/). Check for your version and download with below command:
 
-`wget https://wordpress.org/wordpress-5.2.4.zip`
+```sh
+wget https://wordpress.org/wordpress-5.2.4.zip
+```
 
 Unzip it:
 
-`unzip wordpress-5.2.4.zip`
+```sh
+unzip wordpress-5.2.4.zip
+```
 
 It will extract all files in `wordpress` folder.
 
 If `unzip` is not already installed, Please install it with below command:
 
-`apt install unzip`
+```sh
+apt install unzip
+```
 
 ### Step 5: Replace source of `/html` with `/wordpress`
 
-```
+```sh
 rm -rf /var/www/html
 mv wordpress /var/www/html
 ```
@@ -136,7 +142,7 @@ Now you can log in into your admin panel.
 
 ### Step 7: Copy important files from backup
 
-```
+```sh
 cp -R ~/backup_wp/html/wp-content/plugins/ /var/www/html/wp-content/
 cp -R ~/backup_wp/html/wp-content/themes/ /var/www/html/wp-content/
 cp -R ~/backup_wp/html/wp-content/uploads/ /var/www/html/wp-content/
@@ -146,7 +152,9 @@ This will copy all existing plugins, themes & all media files. But be careful wh
 
 **Important Configuration**
 
-`cp ~/backup_wp/html/.htaccess /var/www/html/`
+```sh
+cp ~/backup_wp/html/.htaccess /var/www/html/
+```
 
 Otherwise, your URL routing won't work.
 
@@ -157,7 +165,9 @@ If WordPress asking for FTP details on the each option like Adding themes, Insta
 `vim /var/www/html/wp-config.php`
 
 Add  
-`define('FS_METHOD','direct');`
+```sh
+define('FS_METHOD','direct');
+```
 
 
 ## Test complete website
