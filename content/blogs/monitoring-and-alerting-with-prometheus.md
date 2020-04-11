@@ -341,11 +341,4 @@ Stay tuned for the new updates.
 
 Article partially posted on [Pepipost tutorial](https://pepipost.com/tutorials/setup-prometheus-and-exporters/) by me.
 
-<script src="https://utteranc.es/client.js"
-        repo="ashishtiwari1993/ashish.one"
-        issue-term="title"
-        label="Comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+

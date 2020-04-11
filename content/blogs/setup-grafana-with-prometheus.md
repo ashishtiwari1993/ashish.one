@@ -203,12 +203,4 @@ But every tool has use cases and built for special purposes. You can choose acco
 
 **In case of any confusion or issues leave comments below :)**
 
-<script src="https://utteranc.es/client.js"
-        repo="ashishtiwari1993/ashish.one"
-        issue-term="title"
-        label="Comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
 
