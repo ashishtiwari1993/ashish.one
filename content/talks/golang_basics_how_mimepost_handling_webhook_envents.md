@@ -21,6 +21,7 @@ Shared one of our error and it's solutions related to How you can avoid race con
 
 ## Slides
 
+
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQExSl-gRPoA9hC6qXuqrjwiQVHAanDieZN_5GpV2Lw9cuxjsVFEN_wkTThqpQwZ36vJz4zwmTvV7cC/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
@@ -44,14 +45,5 @@ Reproduce Golang "fatal error: concurrent map writes" & Solution. To reproduce c
 
 Find more details on this [blog](https://ashish.one/blogs/fatal-error-concurrent-map-writes/).
 
+#### Feel free to comment below, If you have any doubts or suggestion about this talk.
 
-> Feel free to comment below, If you have any doubts or suggestion about this talk.
-
-<script src="https://utteranc.es/client.js"
-        repo="ashishtiwari1993/ashish.one"
-        issue-term="title"
-        label="Comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
