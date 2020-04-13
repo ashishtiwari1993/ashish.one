@@ -3,6 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ashish.one/gist/add-responsive-google-slides-on-hugo/</loc>
+    <lastmod>2020-04-13T14:11:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/gist/</loc>
+    <lastmod>2020-04-13T14:11:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/google-slides/</loc>
+    <lastmod>2020-04-13T14:11:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/gslides/</loc>
+    <lastmod>2020-04-13T14:11:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/hugo/</loc>
+    <lastmod>2020-04-13T14:11:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/responsive/</loc>
+    <lastmod>2020-04-13T14:11:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/shortcode/</loc>
+    <lastmod>2020-04-13T14:11:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2020-04-13T14:11:53+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/blogs/</loc>
     <lastmod>2020-04-11T13:55:52+05:30</lastmod>
   </url>
@@ -29,11 +69,6 @@
   
   <url>
     <loc>https://ashish.one/tags/linuxfromscratch.org/</loc>
-    <lastmod>2020-04-11T13:55:52+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/</loc>
     <lastmod>2020-04-11T13:55:52+05:30</lastmod>
   </url>
   
@@ -209,11 +244,6 @@
   
   <url>
     <loc>https://ashish.one/tags/exceptions/</loc>
-    <lastmod>2019-12-03T02:47:28+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/gist/</loc>
     <lastmod>2019-12-03T02:47:28+05:30</lastmod>
   </url>
   

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gists on ashish.one</title>
-    <link>https://ashish.one/gist/</link>
-    <description>Recent content in Gists on ashish.one</description>
+    <title>shortcode on ashish.one</title>
+    <link>https://ashish.one/tags/shortcode/</link>
+    <description>Recent content in shortcode on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
     <lastBuildDate>Mon, 13 Apr 2020 14:11:53 +0530</lastBuildDate>
     
-	<atom:link href="https://ashish.one/gist/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ashish.one/tags/shortcode/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,16 +21,6 @@
       <description>Steps to add Responsive google slides iframe with Hugo:
 Hugo version:
 $ hugo version Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &amp;lt;div id=&amp;#34;Container&amp;#34; style=&amp;#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&amp;#34;&amp;gt; &amp;lt;iframe id=&amp;#34;googleSlideIframe&amp;#34; width=&amp;#34;100%&amp;#34; height=&amp;#34;100%&amp;#34; src=&amp;#34;{{ .Get &amp;#34;src&amp;#34; }}&amp;#34; frameborder=&amp;#34;0&amp;#34; allowfullscreen=&amp;#34;&amp;#34; style=&amp;#34;position:absolute; top:0; left: 0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;/div&amp;gt; Step 3: Use shortcode &amp;lsquo;gslides&amp;rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.</description>
-    </item>
-    
-    <item>
-      <title>Elasticsearch Exceptions &amp; Challenges</title>
-      <link>https://ashish.one/gist/elasticsearch-exceptions-and-challenges/</link>
-      <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
-      
-      <guid>https://ashish.one/gist/elasticsearch-exceptions-and-challenges/</guid>
-      <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
- </description>
     </item>
     
   </channel>

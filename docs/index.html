@@ -80,6 +80,19 @@
     <div class="posts">
 <article class="post">
   <h1 class="post-title">
+    <a href="https://ashish.one/gist/add-responsive-google-slides-on-hugo/">Add Responsive Google Slides on Hugo</a>
+  </h1>
+  <time datetime="2020-04-13T14:11:53&#43;0530" class="post-date">Mon, Apr 13, 2020</time>
+  Steps to add Responsive google slides iframe with Hugo:
+Hugo version:
+$ hugo version Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &lt;div id=&#34;Container&#34; style=&#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&#34;&gt; &lt;iframe id=&#34;googleSlideIframe&#34; width=&#34;100%&#34; height=&#34;100%&#34; src=&#34;{{ .Get &#34;src&#34; }}&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;&#34; style=&#34;position:absolute; top:0; left: 0&#34;&gt;&lt;/iframe&gt; &lt;/div&gt; Step 3: Use shortcode &lsquo;gslides&rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.
+  
+  <div class="read-more-link">
+    <a href="/gist/add-responsive-google-slides-on-hugo/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
     <a href="https://ashish.one/blogs/challenges-in-linuxfromscratch/">Challenges in linuxfromscratch</a>
   </h1>
   <time datetime="2020-04-11T13:55:52&#43;0530" class="post-date">Sat, Apr 11, 2020</time>

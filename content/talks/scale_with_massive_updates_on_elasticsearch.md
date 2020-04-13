@@ -19,7 +19,7 @@ We also worked on Disk optimization by believing in the principle of "Know your 
 ## Slides 
 
 
-{{< gdocs src="https://docs.google.com/presentation/d/e/2PACX-1vRiOzGgkrN1dO7fD4MDUKzr8WIhHqIhS5Iw1N27_mxYVdtPYcK17ib6ZTdg3bgExVuccJ35vxUSNP3X/embed?start=false&loop=false&delayms=3000" >}}
+{{< gslides src="https://docs.google.com/presentation/d/e/2PACX-1vRiOzGgkrN1dO7fD4MDUKzr8WIhHqIhS5Iw1N27_mxYVdtPYcK17ib6ZTdg3bgExVuccJ35vxUSNP3X/embed?start=false&loop=false&delayms=3000" >}}
 
 
 ## Talk Video
