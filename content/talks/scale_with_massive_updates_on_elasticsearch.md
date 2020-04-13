@@ -17,19 +17,16 @@ Our READ request is 1 million/day which contains Scroll, simple search & Aggrega
 We also worked on Disk optimization by believing in the principle of "Know your query". Currently having 6TB + of the cluster with 80 GB ingestion per day.  
  
 ## Slides 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRiOzGgkrN1dO7fD4MDUKzr8WIhHqIhS5Iw1N27_mxYVdtPYcK17ib6ZTdg3bgExVuccJ35vxUSNP3X/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+
+{{< gdocs src="https://docs.google.com/presentation/d/e/2PACX-1vRiOzGgkrN1dO7fD4MDUKzr8WIhHqIhS5Iw1N27_mxYVdtPYcK17ib6ZTdg3bgExVuccJ35vxUSNP3X/embed?start=false&loop=false&delayms=3000" >}}
+
 
 ## Talk Video
+
+{{< youtube NSZXMv0va74 >}}
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NSZXMv0va74?start=000&end=2574" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-> Feel free to comment below, If you have any doubts or suggestion about this talk.
-
-<script src="https://utteranc.es/client.js"
-        repo="ashishtiwari1993/ashish.one"
-        issue-term="title"
-        label="Comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+####  Feel free to comment below, If you have any doubts or suggestion about this talk.
 

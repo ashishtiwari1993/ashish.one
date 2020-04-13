@@ -21,9 +21,7 @@ Shared one of our error and it's solutions related to How you can avoid race con
 
 ## Slides
 
-
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQExSl-gRPoA9hC6qXuqrjwiQVHAanDieZN_5GpV2Lw9cuxjsVFEN_wkTThqpQwZ36vJz4zwmTvV7cC/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-
+{{< gdocs src="https://docs.google.com/presentation/d/e/2PACX-1vQExSl-gRPoA9hC6qXuqrjwiQVHAanDieZN_5GpV2Lw9cuxjsVFEN_wkTThqpQwZ36vJz4zwmTvV7cC/embed?start=false&loop=false&delayms=3000" >}}
 
 
 ## Talk Video
