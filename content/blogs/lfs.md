@@ -269,6 +269,107 @@ $ ../configure --prefix=/tools          \
 
 ```
 
+## 5.5. GCC-9.2.0 - Pass 1
+
+```sh
+cd $LFS/sources
+tar -xvf gcc-9.2.0.tar.xz
+cd gcc-9.2.0
+```
+
+After this you can continue with document flow.
+
+```sh
+tar -xf ../mpfr-4.0.2.tar.xz
+mv -v mpfr-4.0.2 mpfr
+tar -xf ../gmp-6.2.0.tar.xz
+mv -v gmp-6.2.0 gmp
+tar -xf ../mpc-1.1.0.tar.gz
+mv -v mpc-1.1.0 mpc
+```
+
+### Error 1:
+
+On `make` command, I got below error:
+
+#### error: 'for' loop initial declarations are only allowed in C99 mode
+
+```
+compute_powtab.c: In function 'mpn_compute_powtab_mul':
+compute_powtab.c:142:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (long pi = start_idx; pi >= 0; pi--)
+   ^
+compute_powtab.c:142:3: note: use option -std=c99 or -std=gnu99 to compile your code
+compute_powtab.c: In function 'mpn_compute_powtab_div':
+compute_powtab.c:226:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (long pi = n_pows - 1; pi >= 0; pi--)
+   ^
+compute_powtab.c:274:13: error: redefinition of 'pi'
+   for (long pi = n_pows; pi >= 0; pi--)
+             ^
+compute_powtab.c:226:13: note: previous definition of 'pi' was here
+   for (long pi = n_pows - 1; pi >= 0; pi--)
+             ^
+compute_powtab.c:274:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (long pi = n_pows; pi >= 0; pi--)
+   ^
+compute_powtab.c: In function 'powtab_decide':
+compute_powtab.c:296:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (size_t pn = (un + 1) >> 1; pn != 1; pn = (pn + 1) >> 1)
+   ^
+compute_powtab.c:304:10: error: redefinition of 'pn'
+   size_t pn = un - 1;
+          ^
+compute_powtab.c:296:15: note: previous definition of 'pn' was here
+   for (size_t pn = (un + 1) >> 1; pn != 1; pn = (pn + 1) >> 1)
+               ^
+compute_powtab.c:308:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (long i = n_pows - 2; i >= 0; i--)
+
+```
+
+As per (https://stackoverflow.com/a/29338269)[https://stackoverflow.com/a/29338269],
+
+> **This happens because declaring variables inside a for loop wasn't valid C until C99(which is the standard of C published in 1999).**
+
+#### How I sovled this?
+
+Open file:
+
+```sh
+vim $LFS/sources/gcc-9.2.0/build/gmp/mpn/compute_powtab.c
+```
+
+**We will solve first error:**
+
+```sh
+compute_powtab.c:226:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (long pi = n_pows - 1; pi >= 0; pi--)
+```
+
+Changes on line number 226:
+
+```sh
+  long pi;
+
+  for (pi = n_pows - 1; pi >= 0; pi--)
+    {
+```
+
+Just declare `long pi;` outside the loop. Similarly you can solve above all errors. 
+
+**OR**
+
+You can download my edited version of [compute_powtab.c](/download/compute_powtab.c), Place in `$LFS/sources/gcc-9.2.0/build/gmp/mpn/`. 
+
+Hit 
+
+```sh
+make
+```
+
+Now it should works :)
+
 ## To Be Continued
 
 
