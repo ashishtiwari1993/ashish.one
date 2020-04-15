@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.68.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -258,7 +258,73 @@ $ ../configure --prefix<span style="color:#f92672">=</span>/tools          <span
 </span><span style="color:#ae81ff"></span>             --disable-nls              <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>             --disable-werror
 
-</code></pre></div><h2 id="to-be-continued">To Be Continued</h2>
+</code></pre></div><h2 id="55-gcc-920---pass-1">5.5. GCC-9.2.0 - Pass 1</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd $LFS/sources
+tar -xvf gcc-9.2.0.tar.xz
+cd gcc-9.2.0
+</code></pre></div><p>After this you can continue with document flow.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tar -xf ../mpfr-4.0.2.tar.xz
+mv -v mpfr-4.0.2 mpfr
+tar -xf ../gmp-6.2.0.tar.xz
+mv -v gmp-6.2.0 gmp
+tar -xf ../mpc-1.1.0.tar.gz
+mv -v mpc-1.1.0 mpc
+</code></pre></div><h3 id="error-1-2">Error 1:</h3>
+<p>On <code>make</code> command, I got below error:</p>
+<h4 id="error-for-loop-initial-declarations-are-only-allowed-in-c99-mode">error: &lsquo;for&rsquo; loop initial declarations are only allowed in C99 mode</h4>
+<pre><code>compute_powtab.c: In function 'mpn_compute_powtab_mul':
+compute_powtab.c:142:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (long pi = start_idx; pi &gt;= 0; pi--)
+   ^
+compute_powtab.c:142:3: note: use option -std=c99 or -std=gnu99 to compile your code
+compute_powtab.c: In function 'mpn_compute_powtab_div':
+compute_powtab.c:226:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (long pi = n_pows - 1; pi &gt;= 0; pi--)
+   ^
+compute_powtab.c:274:13: error: redefinition of 'pi'
+   for (long pi = n_pows; pi &gt;= 0; pi--)
+             ^
+compute_powtab.c:226:13: note: previous definition of 'pi' was here
+   for (long pi = n_pows - 1; pi &gt;= 0; pi--)
+             ^
+compute_powtab.c:274:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (long pi = n_pows; pi &gt;= 0; pi--)
+   ^
+compute_powtab.c: In function 'powtab_decide':
+compute_powtab.c:296:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (size_t pn = (un + 1) &gt;&gt; 1; pn != 1; pn = (pn + 1) &gt;&gt; 1)
+   ^
+compute_powtab.c:304:10: error: redefinition of 'pn'
+   size_t pn = un - 1;
+          ^
+compute_powtab.c:296:15: note: previous definition of 'pn' was here
+   for (size_t pn = (un + 1) &gt;&gt; 1; pn != 1; pn = (pn + 1) &gt;&gt; 1)
+               ^
+compute_powtab.c:308:3: error: 'for' loop initial declarations are only allowed in C99 mode
+   for (long i = n_pows - 2; i &gt;= 0; i--)
+
+</code></pre><p>As per (<a href="https://stackoverflow.com/a/29338269)%5Bhttps://stackoverflow.com/a/29338269%5D,">https://stackoverflow.com/a/29338269)[https://stackoverflow.com/a/29338269],</a></p>
+<blockquote>
+<p><strong>This happens because declaring variables inside a for loop wasn&rsquo;t valid C until C99(which is the standard of C published in 1999).</strong></p>
+</blockquote>
+<h4 id="how-i-sovled-this">How I sovled this?</h4>
+<p>Open file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim $LFS/sources/gcc-9.2.0/build/gmp/mpn/compute_powtab.c
+</code></pre></div><p><strong>We will solve first error:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">compute_powtab.c:226:3: error: <span style="color:#e6db74">&#39;for&#39;</span> loop initial declarations are only allowed in C99 mode
+   <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>long pi <span style="color:#f92672">=</span> n_pows - 1; pi &gt;<span style="color:#f92672">=</span> 0; pi--<span style="color:#f92672">)</span>
+</code></pre></div><p>Changes on line number 226:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">  long pi;
+
+  <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>pi <span style="color:#f92672">=</span> n_pows - 1; pi &gt;<span style="color:#f92672">=</span> 0; pi--<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+</code></pre></div><p>Just declare <code>long pi;</code> outside the loop. Similarly you can solve above all errors.</p>
+<p><strong>OR</strong></p>
+<p>You can download my edited version of <a href="/download/compute_powtab.c">compute_powtab.c</a>, Place in <code>$LFS/sources/gcc-9.2.0/build/gmp/mpn/</code>.</p>
+<p>Hit</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">make
+</code></pre></div><p>Now it should works :)</p>
+<h2 id="to-be-continued">To Be Continued</h2>
 
 </div>
 
