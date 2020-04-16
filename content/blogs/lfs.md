@@ -370,6 +370,59 @@ make
 
 Now it should works :)
 
+## 5.7. Glibc-2.31
+
+On below command:
+
+```sh
+../configure                             \
+      --prefix=/tools                    \
+      --host=$LFS_TGT                    \
+      --build=$(../scripts/config.guess) \
+      --enable-kernel=3.2                \
+
+```
+
+### Error: These critical programs are missing or too old: make
+
+```sh
+configure: error:
+*** These critical programs are missing or too old: make
+*** Check the INSTALL file for required versions.
+```
+
+I checked my current `make` version:
+
+```sh
+$ make --version
+GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built for x86_64-pc-linux-gnu
+```
+
+As per (https://stackoverflow.com/a/31915313)[https://stackoverflow.com/a/31915313]
+
+> **Due to a long-standing unresolved Debian bug report, GNU Make remained the age-old 3.81 in Debian for a very long time, and as a consequence, in Debian-based distributions such as Ubuntu and Mint.**
+
+So we need to upgrade our make version. Below steps worked for me.
+
+```sh
+cd /tmp
+wget http://ftp.gnu.org/gnu/make/make-4.1.tar.gz
+tar xvf make-4.1.tar.gz
+cd make-4.1/
+./configure
+make
+sudo make install
+sudo mv /usr/local/bin/make /usr/bin/make
+```
+
+Now again hit `../configure ..` command, Now it should work :)
+
 ## To Be Continued
 
 

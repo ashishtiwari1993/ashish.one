@@ -324,6 +324,41 @@ compute_powtab.c:308:3: error: 'for' loop initial declarations are only allowed 
 <p>Hit</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">make
 </code></pre></div><p>Now it should works :)</p>
+<h2 id="57-glibc-231">5.7. Glibc-2.31</h2>
+<p>On below command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">../configure                             <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>      --prefix<span style="color:#f92672">=</span>/tools                    <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>      --host<span style="color:#f92672">=</span>$LFS_TGT                    <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>      --build<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>../scripts/config.guess<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>      --enable-kernel<span style="color:#f92672">=</span>3.2                <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>
+</code></pre></div><h3 id="error-these-critical-programs-are-missing-or-too-old-make">Error: These critical programs are missing or too old: make</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">configure: error:
+*** These critical programs are missing or too old: make
+*** Check the INSTALL file <span style="color:#66d9ef">for</span> required versions.
+</code></pre></div><p>I checked my current <code>make</code> version:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make --version
+GNU Make 3.81
+Copyright <span style="color:#f92672">(</span>C<span style="color:#f92672">)</span> <span style="color:#ae81ff">2006</span>  Free Software Foundation, Inc.
+This is free software; see the source <span style="color:#66d9ef">for</span> copying conditions.
+There is NO warranty; not even <span style="color:#66d9ef">for</span> MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built <span style="color:#66d9ef">for</span> x86_64-pc-linux-gnu
+</code></pre></div><p>As per (<a href="https://stackoverflow.com/a/31915313)%5Bhttps://stackoverflow.com/a/31915313%5D">https://stackoverflow.com/a/31915313)[https://stackoverflow.com/a/31915313]</a></p>
+<blockquote>
+<p><strong>Due to a long-standing unresolved Debian bug report, GNU Make remained the age-old 3.81 in Debian for a very long time, and as a consequence, in Debian-based distributions such as Ubuntu and Mint.</strong></p>
+</blockquote>
+<p>So we need to upgrade our make version. Below steps worked for me.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /tmp
+wget http://ftp.gnu.org/gnu/make/make-4.1.tar.gz
+tar xvf make-4.1.tar.gz
+cd make-4.1/
+./configure
+make
+sudo make install
+sudo mv /usr/local/bin/make /usr/bin/make
+</code></pre></div><p>Now again hit <code>../configure ..</code> command, Now it should work :)</p>
 <h2 id="to-be-continued">To Be Continued</h2>
 
 </div>
