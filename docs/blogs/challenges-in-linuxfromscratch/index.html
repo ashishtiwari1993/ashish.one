@@ -359,6 +359,37 @@ make
 sudo make install
 sudo mv /usr/local/bin/make /usr/bin/make
 </code></pre></div><p>Now again hit <code>../configure ..</code> command, Now it should work :)</p>
+<h2 id="67-linux-553-api-headers">6.7. Linux-5.5.3 API Headers</h2>
+<h3 id="error">Error</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">(</span>lfs chroot<span style="color:#f92672">)</span> root:/sources/linux-5.5.3# make mrproper
+
+/bin/sh: sed: command not found
+Makefile:653: arch//Makefile: No such file or directory
+make: *** No rule to make target <span style="color:#e6db74">&#39;arch//Makefile&#39;</span>.  Stop.
+</code></pre></div><p>Because of my silly mistake. I had not installed the sed package. I just reinstall the package.</p>
+<h2 id="612-bzip2-108">6.12. Bzip2-1.0.8</h2>
+<h3 id="error-6">Error:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
+make: *** <span style="color:#f92672">[</span>Makefile-libbz2_so:38: all<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><p>Just hit <code>make clean</code>.<br>
+Again run <code>make -f Makefile-libbz2_so</code>.</p>
+<h2 id="618-binutils-234">6.18. Binutils-2.34</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make -k check
+
+
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:2565: check-DEJAGNU<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/sources/binutils-2.34/build_6.18/ld&#39;</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:1902: check-am<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/sources/binutils-2.34/build_6.18/ld&#39;</span>
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:1771: check-recursive<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/sources/binutils-2.34/build_6.18/ld&#39;</span>
+make<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:1904: check<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+make<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/sources/binutils-2.34/build_6.18/ld&#39;</span>
+make<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:7568: check-ld<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+make<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/sources/binutils-2.34/build_6.18&#39;</span>
+make: *** <span style="color:#f92672">[</span>Makefile:2222: <span style="color:#66d9ef">do</span>-check<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+</code></pre></div><p>As I research these are few common errors But as I have not found any solution So I jump on to the next step as suggested in various places.</p>
+<p><code>make tooldir=/usr install</code></p>
 <h2 id="to-be-continued">To Be Continued</h2>
 
 </div>

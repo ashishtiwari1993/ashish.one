@@ -423,6 +423,55 @@ sudo mv /usr/local/bin/make /usr/bin/make
 
 Now again hit `../configure ..` command, Now it should work :)
 
+## 6.7. Linux-5.5.3 API Headers
+
+### Error
+
+```sh
+(lfs chroot) root:/sources/linux-5.5.3# make mrproper
+
+/bin/sh: sed: command not found
+Makefile:653: arch//Makefile: No such file or directory
+make: *** No rule to make target 'arch//Makefile'.  Stop.
+```
+
+Because of my silly mistake. I had not installed the sed package. I just reinstall the package.
+
+## 6.12. Bzip2-1.0.8
+
+### Error:
+
+```sh
+collect2: error: ld returned 1 exit status
+make: *** [Makefile-libbz2_so:38: all] Error 1
+```
+
+Just hit `make clean`.   
+Again run `make -f Makefile-libbz2_so`.
+
+## 6.18. Binutils-2.34
+
+```sh
+$ make -k check
+
+
+make[5]: *** [Makefile:2565: check-DEJAGNU] Error 1
+make[5]: Leaving directory '/sources/binutils-2.34/build_6.18/ld'
+make[4]: *** [Makefile:1902: check-am] Error 2
+make[4]: Leaving directory '/sources/binutils-2.34/build_6.18/ld'
+make[3]: *** [Makefile:1771: check-recursive] Error 1
+make[3]: Leaving directory '/sources/binutils-2.34/build_6.18/ld'
+make[2]: *** [Makefile:1904: check] Error 2
+make[2]: Leaving directory '/sources/binutils-2.34/build_6.18/ld'
+make[1]: *** [Makefile:7568: check-ld] Error 2
+make[1]: Leaving directory '/sources/binutils-2.34/build_6.18'
+make: *** [Makefile:2222: do-check] Error 2
+```
+
+As I research these are few common errors But as I have not found any solution So I jump on to the next step as suggested in various places.
+
+`make tooldir=/usr install`
+
 ## To Be Continued
 
 
