@@ -472,6 +472,8 @@ As I research these are few common errors But as I have not found any solution S
 
 `make tooldir=/usr install`
 
+If you get any solution of above error, Feel free to comment below.
+
 ## To Be Continued
 
 
