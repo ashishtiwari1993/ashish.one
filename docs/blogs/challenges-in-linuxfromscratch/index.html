@@ -391,6 +391,30 @@ make: *** <span style="color:#f92672">[</span>Makefile:2222: <span style="color:
 </code></pre></div><p>As I research these are few common errors But as I have not found any solution So I jump on to the next step as suggested in various places.</p>
 <p><code>make tooldir=/usr install</code></p>
 <p>If you get any solution of above error, Feel free to comment below.</p>
+<h2 id="625-gcc-920">6.25. GCC-9.2.0</h2>
+<h3 id="error-1-3">Error 1:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">make: *** <span style="color:#f92672">[</span>Makefile:2295: <span style="color:#66d9ef">do</span>-check<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+</code></pre></div><p>I ignored this and move to next steps.</p>
+<h3 id="error-2-got-no-output-with-below-command">Error 2: Got no output with below command:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
+cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
+readelf -l a.out | grep <span style="color:#e6db74">&#39;: /lib&#39;</span>
+</code></pre></div><p>Performed below steps as mentioned on this link <a href="https://stackoverflow.com/a/48289145">https://stackoverflow.com/a/48289145</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">gcc -dumpspecs | sed -e <span style="color:#e6db74">&#39;s@/tools@@g&#39;</span> &gt; <span style="color:#e6db74">`</span>dirname <span style="color:#66d9ef">$(</span>gcc --print-libgcc-file-name<span style="color:#66d9ef">)</span><span style="color:#e6db74">`</span>/specs
+</code></pre></div><p>Again perform above command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
+$ cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
+readelf -l a.out | grep <span style="color:#e6db74">&#39;: /lib&#39;</span>
+
+     <span style="color:#f92672">[</span>Requesting program interpreter: /lib64/ld-linux-x86-64.so.2<span style="color:#f92672">]</span>
+</code></pre></div><h2 id="641-perl-5301">6.41. Perl-5.30.1</h2>
+<h3 id="error-7">Error:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">erlio.c:<span style="color:#f92672">(</span>.text+0x91b<span style="color:#f92672">)</span>: undefined reference to <span style="color:#e6db74">`</span>pthread_getspecific<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">/usr/bin/ld: perlio.o:perlio.c:(.text+0x44e4): more undefined references to `pthread_getspecific&#39;</span> follow
+collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
+make: *** <span style="color:#f92672">[</span>makefile:364: lib/buildcustomize.pl<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><p>Solution which suggested here <a href="https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/">https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/</a> It worked for me.</p>
+<p>it&rsquo;s due to not having deleted the extracted Perl-5.28.0 directory after Chapter 5. I deleted the folder. Again untar the file.</p>
 <h2 id="to-be-continued">To Be Continued</h2>
 
 </div>

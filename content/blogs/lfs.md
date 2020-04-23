@@ -474,6 +474,55 @@ As I research these are few common errors But as I have not found any solution S
 
 If you get any solution of above error, Feel free to comment below.
 
+## 6.25. GCC-9.2.0
+
+### Error 1:
+
+```sh
+make: *** [Makefile:2295: do-check] Error 2
+```
+
+I ignored this and move to next steps.
+
+### Error 2: Got no output with below command:
+
+```sh
+echo 'int main(){}' > dummy.c
+cc dummy.c -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib'
+```
+
+Performed below steps as mentioned on this link [https://stackoverflow.com/a/48289145](https://stackoverflow.com/a/48289145):
+
+```sh
+gcc -dumpspecs | sed -e 's@/tools@@g' > `dirname $(gcc --print-libgcc-file-name)`/specs
+```
+
+Again perform above command:
+
+```sh
+echo 'int main(){}' > dummy.c
+$ cc dummy.c -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib'
+
+     [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+```
+
+## 6.41. Perl-5.30.1
+
+### Error:
+
+```sh
+erlio.c:(.text+0x91b): undefined reference to `pthread_getspecific'
+/usr/bin/ld: perlio.o:perlio.c:(.text+0x44e4): more undefined references to `pthread_getspecific' follow
+collect2: error: ld returned 1 exit status
+make: *** [makefile:364: lib/buildcustomize.pl] Error 1
+```
+
+Solution which suggested here [https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/](https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/) It worked for me.
+
+it's due to not having deleted the extracted Perl-5.28.0 directory after Chapter 5. I deleted the folder. Again untar the file. 
+
 ## To Be Continued
 
 
