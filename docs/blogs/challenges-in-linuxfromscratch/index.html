@@ -415,7 +415,12 @@ collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
 make: *** <span style="color:#f92672">[</span>makefile:364: lib/buildcustomize.pl<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
 </code></pre></div><p>Solution which suggested here <a href="https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/">https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/</a> It worked for me.</p>
 <p>it&rsquo;s due to not having deleted the extracted Perl-5.28.0 directory after Chapter 5. I deleted the folder. Again untar the file.</p>
-<h2 id="to-be-continued">To Be Continued</h2>
+<h2 id="84-using-grub-to-set-up-the-boot-process">8.4. Using GRUB to Set Up the Boot Process</h2>
+<p><strong>NOTE</strong>: I have not performed this section, Becuase I am going to use my host system&rsquo;s (Ubuntu 14.04) GRUB bootloader. Just go to another terminal of host system and hit below command.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo update-grub2
+</code></pre></div><p>After this again go to old terminal(LFS) and proceed with next step (The End).</p>
+<p>Please comment below if you facing any issue.</p>
+<p>Thanks</p>
 
 </div>
 

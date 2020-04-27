@@ -523,6 +523,17 @@ Solution which suggested here [https://www.linuxquestions.org/questions/linux-fr
 
 it's due to not having deleted the extracted Perl-5.28.0 directory after Chapter 5. I deleted the folder. Again untar the file. 
 
-## To Be Continued
+## 8.4. Using GRUB to Set Up the Boot Process 
+
+**NOTE**: I have not performed this section, Becuase I am going to use my host system's (Ubuntu 14.04) GRUB bootloader. Just go to another terminal of host system and hit below command.
+
+```sh
+sudo update-grub2
+``` 
+
+After this again go to old terminal(LFS) and proceed with next step (The End).
 
 
+Please comment below if you facing any issue.
+
+Thanks
