@@ -7,10 +7,73 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
-    <lastBuildDate>Mon, 13 Apr 2020 14:11:53 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 17:01:47 +0530</lastBuildDate>
     
 	<atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker</title>
+      <link>https://ashish.one/tags/docker/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-compose</title>
+      <link>https://ashish.one/tags/docker-compose/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LEMP</title>
+      <link>https://ashish.one/tags/lemp/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/lemp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://ashish.one/tags/linux/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>https://ashish.one/tags/mysql/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://ashish.one/tags/nginx/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://ashish.one/tags/php/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/php/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>google slides</title>
@@ -63,15 +126,6 @@
       <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
       
       <guid>https://ashish.one/tags/lfs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://ashish.one/tags/linux/</link>
-      <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -297,15 +351,6 @@
       <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
       
       <guid>https://ashish.one/tags/elasticsearch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mysql</title>
-      <link>https://ashish.one/tags/mysql/</link>
-      <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/mysql/</guid>
       <description></description>
     </item>
     

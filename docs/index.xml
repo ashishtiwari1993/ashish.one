@@ -13,6 +13,18 @@
     
     
     <item>
+      <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
+      <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
+      <description>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.
+In this blog, We are going to setup PHP and Nginx.
+Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
+Docker makes the installation process very smooth and it gives your isolated environment as the container.</description>
+    </item>
+    
+    <item>
       <title>Add Responsive Google Slides on Hugo</title>
       <link>https://ashish.one/gist/add-responsive-google-slides-on-hugo/</link>
       <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>

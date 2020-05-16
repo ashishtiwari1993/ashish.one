@@ -1,7 +1,11 @@
 ---
 title: "[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP"
 date: 2020-05-16T17:01:47+05:30
-draft: true
+draft: false
+type: "post"
+ogtype: "article"
+tags: ["LEMP","PHP","MySQL","Nginx","Linux","docker-compose","docker"]
+slug: "part-1-setup-lemp-environment-with-docker-setup-nginx-and-php"
 ---
 
 Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker & How it works. 

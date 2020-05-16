@@ -3,6 +3,56 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/blogs/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/docker/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/docker-compose/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/lemp/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/linux/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/mysql/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/nginx/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/php/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/gist/add-responsive-google-slides-on-hugo/</loc>
     <lastmod>2020-04-13T14:11:53+05:30</lastmod>
   </url>
@@ -38,27 +88,12 @@
   </url>
   
   <url>
-    <loc>https://ashish.one/tags/</loc>
-    <lastmod>2020-04-13T14:11:53+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/blogs/</loc>
-    <lastmod>2020-04-11T13:55:52+05:30</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ashish.one/blogs/challenges-in-linuxfromscratch/</loc>
     <lastmod>2020-04-11T13:55:52+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://ashish.one/tags/lfs/</loc>
-    <lastmod>2020-04-11T13:55:52+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/linux/</loc>
     <lastmod>2020-04-11T13:55:52+05:30</lastmod>
   </url>
   
@@ -219,11 +254,6 @@
   
   <url>
     <loc>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</loc>
-    <lastmod>2019-12-08T20:26:06+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/mysql/</loc>
     <lastmod>2019-12-08T20:26:06+05:30</lastmod>
   </url>
   

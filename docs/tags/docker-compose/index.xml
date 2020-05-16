@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>MySQL on ashish.one</title>
-    <link>https://ashish.one/tags/mysql/</link>
-    <description>Recent content in MySQL on ashish.one</description>
+    <title>docker-compose on ashish.one</title>
+    <link>https://ashish.one/tags/docker-compose/</link>
+    <description>Recent content in docker-compose on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Ashish Tiwari</copyright>
     <lastBuildDate>Sat, 16 May 2020 17:01:47 +0530</lastBuildDate>
     
-	<atom:link href="https://ashish.one/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ashish.one/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,16 +22,6 @@
 In this blog, We are going to setup PHP and Nginx.
 Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
 Docker makes the installation process very smooth and it gives your isolated environment as the container.</description>
-    </item>
-    
-    <item>
-      <title>How to scale with massive update queries in Elasticsearch?</title>
-      <link>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
-      <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
-      
-      <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
-      <description>Introduction What this talk is all about? We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.
-We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.</description>
     </item>
     
   </channel>
