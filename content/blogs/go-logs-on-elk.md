@@ -1,16 +1,16 @@
 ---
-title: "Shift Golang logs with ELKB stack"
+title: "Shipping Golang logs with ELKB stack"
 date: 2020-06-06T23:31:33+05:30
 draft: false
 type: "post"
 ogtype: "article"
 tags: ["ELK","ELKB","Elasticsearch","Kibana","Logstash","Go","Golang","Logrus","Logs","JSON"]
-slug: "Shift-Golang-logs-with-ELKB-stack"
+slug: "Shipping-Golang-logs-with-ELKB-stack"
 ---
 
 ## Goal of this blog 
 
-In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to shift all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats). 
+In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats). 
 
 ## Why ELKB stack ?
 
@@ -18,7 +18,7 @@ Logs are very important for debugging, reporting, insights etc. In today's tech 
 
 In my case I used to go to every server and perform `grep`  on log files. 
 
-ELKB Gives you an easy setup to shift all yours logs into one central Place which is Elasticsearch & With a beautiful kibana interface, You can visualize all your logs. You can also make various types of dashboards.
+ELKB Gives you an easy setup to move all yours logs into one central Place which is Elasticsearch & With a beautiful kibana interface, You can visualize all your logs. You can also make various types of dashboards.
 
 This is a very small use case I am going to convert but you can find lots of big problem solving use cases on the internet about ELKB.
 
@@ -124,7 +124,7 @@ Here I have used the log format `JSON`. Every log will be written in JSON format
 
 ## 2. Shift All JSON logs on Elasticsearch
 
-This part has no dependency on the above part. You can shift any `JSON` log file on Elasticsearch irrespective of any language. 
+This part has no dependency on the above part. You can use any `JSON` log file irrespective of any language. 
 
 Before start I am assuming you have installed Elasticsearch, Filebeat & Kibana on your machine. If not then refer below link:
 
@@ -198,7 +198,7 @@ You can check on below link to know more about filebeat log input & JSON decodin
 $ service filebeat restart
 ```
 
-## Verify If Data shifted on Elasticsearch
+## Verify If Data Indexed on Elasticsearch
 
 ### Check Logs
 
@@ -290,6 +290,6 @@ You can query on your logs. You can apply filters & create various types of dash
 
 ## In the end
 
-We have successfully shifted our logs on Elasticsearch. This is only a small use case of ELKB Stack. It provides much more than this. You can explore more on the internet. 
+We have successfully shipped our logs on Elasticsearch. This is only a small use case of ELKB Stack. It provides much more than this. You can explore more on the internet. 
 
 Put your comments if you have any doubts.
