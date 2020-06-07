@@ -184,6 +184,10 @@ filebeat.inputs:
   paths:
     - /tmp/go_logs/*.log
   json.add_error_key: true
+
+output.elasticsearch:
+  # Array of hosts to connect to.
+  hosts: ["localhost:9200"]
 ```
 
 You can check on below link to know more about filebeat log input & JSON decoding

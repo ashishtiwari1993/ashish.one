@@ -197,6 +197,10 @@ Kibana version: 7.7.1
   <span style="color:#66d9ef">paths</span>:
     - /tmp/go_logs/<span style="color:#75715e">*.log</span>
   <span style="color:#66d9ef">json.add_error_key</span>: <span style="color:#66d9ef">true</span>
+
+<span style="color:#66d9ef">output.elasticsearch</span>:
+  <span style="color:#75715e"># Array of hosts to connect to.</span>
+  <span style="color:#66d9ef">hosts</span>: [<span style="color:#e6db74">&#34;localhost:9200&#34;</span>]
 </code></pre></div><p>You can check on below link to know more about filebeat log input &amp; JSON decoding</p>
 <p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a></p>
 <p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a></p>
