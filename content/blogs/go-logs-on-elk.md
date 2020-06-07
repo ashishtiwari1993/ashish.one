@@ -8,6 +8,8 @@ tags: ["ELK","ELKB","Elasticsearch","Kibana","Logstash","Go","Golang","Logrus","
 slug: "Shipping-Golang-logs-with-ELKB-stack"
 ---
 
+![Go ship logs with ELK Banner](/img/go-elk-logs/banner.png)
+
 ## Goal of this blog 
 
 In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats). 
