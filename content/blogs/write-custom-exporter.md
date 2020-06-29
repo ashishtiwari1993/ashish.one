@@ -64,7 +64,7 @@ We are going to run a webserver on `8000` port and exposing the result on `/metr
 
 Complet sample code from my gist:
 
-<script src="https://gist.github.com/ashishtiwari1993/7fca576c55cce93b8b980cdfcc420744.js"></script>
+{{< gist ashishtiwari1993 7fca576c55cce93b8b980cdfcc420744 >}}
 
 ### Step 6 
 
