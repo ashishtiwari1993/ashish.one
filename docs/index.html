@@ -80,6 +80,20 @@
     <div class="posts">
 <article class="post">
   <h1 class="post-title">
+    <a href="https://ashish.one/gist/spf-lookup-in-go/">SPF Lookup in Go</a>
+  </h1>
+  <time datetime="2020-08-03T00:38:53&#43;0530" class="post-date">Mon, Aug 3, 2020</time>
+  In this gist, We will check how we can extract SPF records in Go.
+Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns)
+Install dependency $ go get github.com/miekg/dns spfLookup.go  Here you can change nameserver according to your requirement. I have specified here google&rsquo;s name server (8.8.8.8). You can also use cloudflare&rsquo;s nameserver (1.1.1.1)
+Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1.
+  
+  <div class="read-more-link">
+    <a href="/gist/spf-lookup-in-go/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
     <a href="https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/">Shipping Golang logs with ELKB stack</a>
   </h1>
   <time datetime="2020-06-06T23:31:33&#43;0530" class="post-date">Sat, Jun 6, 2020</time>

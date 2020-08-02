@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ashish.one/gist/</loc>
+    <lastmod>2020-08-03T00:38:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/go/</loc>
+    <lastmod>2020-08-03T00:38:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/golang/</loc>
+    <lastmod>2020-08-03T00:38:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/spf/</loc>
+    <lastmod>2020-08-03T00:38:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/gist/spf-lookup-in-go/</loc>
+    <lastmod>2020-08-03T00:38:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/spflookup/</loc>
+    <lastmod>2020-08-03T00:38:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2020-08-03T00:38:53+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/blogs/</loc>
     <lastmod>2020-06-06T23:31:33+05:30</lastmod>
   </url>
@@ -19,16 +54,6 @@
   
   <url>
     <loc>https://ashish.one/tags/elkb/</loc>
-    <lastmod>2020-06-06T23:31:33+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/go/</loc>
-    <lastmod>2020-06-06T23:31:33+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/golang/</loc>
     <lastmod>2020-06-06T23:31:33+05:30</lastmod>
   </url>
   
@@ -59,11 +84,6 @@
   
   <url>
     <loc>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</loc>
-    <lastmod>2020-06-06T23:31:33+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/tags/</loc>
     <lastmod>2020-06-06T23:31:33+05:30</lastmod>
   </url>
   
@@ -109,11 +129,6 @@
   
   <url>
     <loc>https://ashish.one/gist/add-responsive-google-slides-on-hugo/</loc>
-    <lastmod>2020-04-13T14:11:53+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/gist/</loc>
     <lastmod>2020-04-13T14:11:53+05:30</lastmod>
   </url>
   
