@@ -11,8 +11,7 @@ googleAnalytics = "UA-149424518-1"
 
 [Taxonomies]
 	tag = "tags"
-	series = "series"
-	series-desc = "series-desc"
+	topics = "topics"
 
 [params]
 	description = "stuff by Ashish Tiwari"
@@ -25,17 +24,17 @@ googleAnalytics = "UA-149424518-1"
 [menu]
 
   [[menu.main]]
-    identifier = "about"
+    identifier = "About"
     name = "About me"
     pre = "<i class='fa fa-heart'></i>"
     url = "/about/"
     weight = -100
 
   [[menu.main]]
-    name = "Blogs"
+    name = "Topics"
     post = "<span class='alert'>New!</span>"
     pre = "<i class='fa fa-road'></i>"
-    url = "/blogs/"
+    url = "/topics/"
     weight = -99
 
   [[menu.main]]
@@ -43,11 +42,11 @@ googleAnalytics = "UA-149424518-1"
     post = "<span class='alert'>New!</span>"
     pre = "<i class='fa fa-road'></i>"
     url = "/gist/"
-    weight = -98
+    weight = -97
 
   [[menu.main]]
     name = "Talks"
     post = "<span class='alert'>New!</span>"
     pre = "<i class='fa fa-road'></i>"
     url = "/talks/"
-    weight = -98
+    weight = -96

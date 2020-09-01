@@ -6,6 +6,7 @@ type: "post"
 ogtype: "article"
 tags: ["ELK","ELKB","Elasticsearch","Kibana","Logstash","Go","Golang","Logrus","Logs","JSON"]
 slug: "Shipping-Golang-logs-with-ELKB-stack"
+topics: ["Elasticsearch","Golang"]
 ---
 
 ![Go ship logs with ELK Banner](/img/go-elk-logs/banner.png)

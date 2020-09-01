@@ -6,6 +6,7 @@ type: "post"
 tags: ["linux","linuxfromscratch","lfs","LFS","linuxfromscratch.org","ubuntu"]
 ogtype: "article"
 slug: "challenges-in-linuxfromscratch"
+topics: "Linux"
 ---
 
 I have started with [www.linuxfromscratch.org](www.linuxfromscratch.org), I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward. 

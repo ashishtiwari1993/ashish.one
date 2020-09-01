@@ -6,6 +6,7 @@ ogtype: "article"
 tags: ["prometheus","alertmanager"]
 draft: false
 slug: "setup-prometheus-and-exporters"
+topics: "Prometheus"
 ---
 
 As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday's life.

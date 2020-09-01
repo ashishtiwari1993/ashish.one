@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on ashish.one</title>
+    <link>https://ashish.one/topics/docker/</link>
+    <description>Recent content in Docker on ashish.one</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ashish Tiwari</copyright>
+    <lastBuildDate>Sat, 16 May 2020 17:01:47 +0530</lastBuildDate>
+    
+	<atom:link href="https://ashish.one/topics/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
+      <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
+      <description>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.
+In this blog, We are going to setup PHP and Nginx.
+Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
+Docker makes the installation process very smooth and it gives your isolated environment as the container.</description>
+    </item>
+    
+  </channel>
+</rss>

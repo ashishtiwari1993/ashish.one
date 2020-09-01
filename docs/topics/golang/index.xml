@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on ashish.one</title>
+    <link>https://ashish.one/topics/golang/</link>
+    <description>Recent content in Golang on ashish.one</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ashish Tiwari</copyright>
+    <lastBuildDate>Sat, 06 Jun 2020 23:31:33 +0530</lastBuildDate>
+    
+	<atom:link href="https://ashish.one/topics/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Shipping Golang logs with ELKB stack</title>
+      <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
+      <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
+      <description>Goal of this blog In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).
+Why ELKB stack ? Logs are very important for debugging, reporting, insights etc. In today&amp;rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too.</description>
+    </item>
+    
+    <item>
+      <title>[SOLVED] Golang fatal error: concurrent map writes</title>
+      <link>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</link>
+      <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
+      <description>The Problem: Suddenly got below errors which killed my daemon:
+fatal error: concurrent map writes goroutine 646 [running]: runtime.throw(0x75fd38, 0x15) /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e) goroutine 1 [sleep]: runtime.goparkunlock(...) /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200) /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager() goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0) /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b) /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...) /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0) /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8 net.(*netFD).accept(0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0) /usr/local/go/src/net/fd_unix.go:238 +0x42 net.</description>
+    </item>
+    
+  </channel>
+</rss>

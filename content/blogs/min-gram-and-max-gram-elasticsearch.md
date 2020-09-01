@@ -5,6 +5,7 @@ type: "post"
 ogtype: "article"
 tags: ["min_gram","max_gram","tokenizer","elasticsearach"]
 draft: false
+topics: "Elasticsearch"
 ---
 
 I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use [ngram token filter](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html) for like query. It was quickly implemented on local and works exactly i want.

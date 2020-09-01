@@ -43,6 +43,11 @@
   </url>
   
   <url>
+    <loc>https://ashish.one/topics/elasticsearch/</loc>
+    <lastmod>2020-06-06T23:31:33+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/tags/elasticsearch/</loc>
     <lastmod>2020-06-06T23:31:33+05:30</lastmod>
   </url>
@@ -54,6 +59,11 @@
   
   <url>
     <loc>https://ashish.one/tags/elkb/</loc>
+    <lastmod>2020-06-06T23:31:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/topics/golang/</loc>
     <lastmod>2020-06-06T23:31:33+05:30</lastmod>
   </url>
   
@@ -88,7 +98,17 @@
   </url>
   
   <url>
+    <loc>https://ashish.one/topics/</loc>
+    <lastmod>2020-06-06T23:31:33+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</loc>
+    <lastmod>2020-05-16T17:01:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/topics/docker/</loc>
     <lastmod>2020-05-16T17:01:47+05:30</lastmod>
   </url>
   
@@ -168,6 +188,11 @@
   </url>
   
   <url>
+    <loc>https://ashish.one/topics/linux/</loc>
+    <lastmod>2020-04-11T13:55:52+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/tags/linuxfromscratch/</loc>
     <lastmod>2020-04-11T13:55:52+05:30</lastmod>
   </url>
@@ -213,12 +238,22 @@
   </url>
   
   <url>
+    <loc>https://ashish.one/topics/prometheus/</loc>
+    <lastmod>2020-04-03T21:32:48+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/tags/prometheus/</loc>
     <lastmod>2020-04-03T21:32:48+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</loc>
+    <lastmod>2020-04-02T17:52:19+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ashish.one/topics/miscellaneous/</loc>
     <lastmod>2020-04-02T17:52:19+05:30</lastmod>
   </url>
   
@@ -425,14 +460,6 @@
   <url>
     <loc>https://ashish.one/</loc>
     <lastmod>2019-09-03T15:11:45+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/series/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/series-desc/</loc>
   </url>
   
 </urlset>

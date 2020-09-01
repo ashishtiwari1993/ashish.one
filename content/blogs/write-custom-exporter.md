@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["prometheus","alertmanager","exporter","custom","custom-exporter"]
 draft: false
 slug: "write-custom-exporters-prometheus"
+topics: "Prometheus"
 ---
 
 ## Introduction
@@ -90,7 +91,7 @@ Restart prometheus service:
 
 Here we have successfully write exporter which will expose the metrics. To know more about pushgateway or HTTP expoorter visit [here](https://github.com/prometheus/client_python#instrumenting)
 
-In [part - 4], I have explained how you can integrate Grafana with Prometheus.
+In [part - 4](https://ashish.one/blogs/setup-grafana-with-prometheus/), I have explained how you can integrate Grafana with Prometheus.
 
 Share you comments below :) 
 

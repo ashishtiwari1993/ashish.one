@@ -6,6 +6,7 @@ type: "post"
 ogtype: "article"
 tags: ["covid19","covid19India"]
 slug: "Covid19-data-source-and-endpoints-india-global"
+topics: "Miscellaneous"
 ---
 
 Hi Guys, I am trying to listing all data source & endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources. 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prometheus on ashish.one</title>
+    <link>https://ashish.one/topics/prometheus/</link>
+    <description>Recent content in Prometheus on ashish.one</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ashish Tiwari</copyright>
+    <lastBuildDate>Fri, 03 Apr 2020 21:32:48 +0530</lastBuildDate>
+    
+	<atom:link href="https://ashish.one/topics/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Part 4] Setup Grafana With Prometheus</title>
+      <link>https://ashish.one/blogs/setup-grafana-with-prometheus/</link>
+      <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/setup-grafana-with-prometheus/</guid>
+      <description>As you know Prometheus already having UI (localhost:9090). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.
+What is Grafana? As grafana.com says
+ ”Grafana is the open-source analytics and monitoring solution for every database.”
+ This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs.</description>
+    </item>
+    
+    <item>
+      <title>[Part 3] How to write custom prometheus exporter?</title>
+      <link>https://ashish.one/blogs/write-custom-exporters-prometheus/</link>
+      <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/write-custom-exporters-prometheus/</guid>
+      <description>Introduction In PART-1 and PART-2, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
+But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.
+There is two way to exporting the data on prometheus: 1. Exporting to a Pushgateway Here we metrics are getting the push to prometheus server.</description>
+    </item>
+    
+    <item>
+      <title>[Part 2] How to setup alertmanager and send alerts ?</title>
+      <link>https://ashish.one/blogs/setup-alertmanager/</link>
+      <pubDate>Wed, 23 Oct 2019 15:24:26 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/setup-alertmanager/</guid>
+      <description>Introduction In PART - 1, We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.
+Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.</description>
+    </item>
+    
+    <item>
+      <title>[Part 1] How To Setup Prometheus And Exporters For Alerts And Monitoring?</title>
+      <link>https://ashish.one/blogs/setup-prometheus-and-exporters/</link>
+      <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/setup-prometheus-and-exporters/</guid>
+      <description>As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday&amp;rsquo;s life.</description>
+    </item>
+    
+  </channel>
+</rss>
