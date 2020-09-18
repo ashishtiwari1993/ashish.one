@@ -1,52 +1,61 @@
 baseurl = "https://ashish.one/"
 languageCode = "en-us"
 title = "ashish.one"
-theme = "hyde"
-copyright = "Ashish Tiwari"
-publishDir = "docs"
-googleAnalytics = "UA-149424518-1"
+theme = "hyde-hyde"
 
-[Author]
-	name = "Ashish Tiwari"
+googleAnalytics = "UA-149424518-1"
+enableRobotsTXT = true
+
+paginate = 5
 
 [Taxonomies]
 	tag = "tags"
 	topics = "topics"
 
 [params]
-	description = "stuff by Ashish Tiwari"
-	linkedin = "https://in.linkedin.com/in/ashish-tiwari-a40a012b"
-	twitter = "https://twitter.com/_ashish_tiwari"
-	github = "https://github.com/ashishtiwari1993"
-	stackoverflow = "https://stackoverflow.com/users/6438430/ashish-tiwari"
+	mainSections = ["post"]
+	author = "Ashish Tiwari"
+	title = "ashish.one"
 
+	copyright = "ashish"
+	since = "2019"
+
+    highlightjs = true
+    highlightjsstyle = "github"	
+
+	UtterancesRepo = "ashishtiwari1993/ashish.one"
+	UtterancesIssueTerm = "title"
+	UtterancesTheme = "github-light"		
+
+
+[params.social]
+	gravatar = "atashish171@gmail.com"
+	twitter = "_ashish_tiwari"
+	github = "ashishtiwari1993"
+	linkedin = "ashish-tiwari-a40a012b"
 
 [menu]
 
   [[menu.main]]
     identifier = "About"
     name = "About me"
-    pre = "<i class='fa fa-heart'></i>"
     url = "/about/"
     weight = -100
 
   [[menu.main]]
     name = "Topics"
     post = "<span class='alert'>New!</span>"
-    pre = "<i class='fa fa-road'></i>"
     url = "/topics/"
     weight = -99
 
   [[menu.main]]
     name = "Gist"
     post = "<span class='alert'>New!</span>"
-    pre = "<i class='fa fa-road'></i>"
     url = "/gist/"
     weight = -97
 
   [[menu.main]]
     name = "Talks"
     post = "<span class='alert'>New!</span>"
-    pre = "<i class='fa fa-road'></i>"
     url = "/talks/"
     weight = -96
