@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "ashish.one"
 theme = "hyde-hyde"
 
+publishDir = "docs"
+
 googleAnalytics = "UA-149424518-1"
 enableRobotsTXT = true
 
