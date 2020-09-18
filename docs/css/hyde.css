@@ -32,22 +32,19 @@
  */
 
 html {
-  font-family: "Raleway", sans-serif;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   html {
     font-size: 16px;
   }
 }
-@media (min-width: 58rem) {
+@media (min-width: 58em) {
   html {
     font-size: 20px;
   }
 }
 
-pre {
-  tab-size:4;
-}
 
 /*
  * Sidebar
@@ -60,17 +57,16 @@ pre {
   text-align: center;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
-  /*background-color: #300030;*/
-  background-color: #000000;
+  background-color: #202020;
 }
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     width: 18rem;
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -83,24 +79,17 @@ pre {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-weight:300;
+  font-family: "Abril Fatface", serif;
+  font-size: 3.25rem;
 }
 
 /* Sidebar nav */
 .sidebar-nav {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding-left: 0;
-  list-style: none;
+  margin-bottom: 1rem;
 }
-
-.subnav {
- list-style: none;
-  padding-left: 0;
-}
-
 .sidebar-nav-item {
   display: block;
+  line-height: 1.75;
 }
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
@@ -116,11 +105,11 @@ a.sidebar-nav-item:focus {
  * contents to the bottom of the sidebar in tablets and up.
  */
 
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .sidebar-sticky {
     position: absolute;
     right:  1rem;
-    top: 1rem;
+    bottom: 1rem;
     left:   1rem;
   }
 }
@@ -133,11 +122,11 @@ a.sidebar-nav-item:focus {
  */
 
 .content {
-  padding-top:    2rem;
-  padding-bottom: 2rem;
+  padding-top:    4rem;
+  padding-bottom: 4rem;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .content {
     max-width: 38rem;
     margin-left: 20rem;
@@ -145,36 +134,13 @@ a.sidebar-nav-item:focus {
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 64em) {
   .content {
-    max-width: 44rem;
-    margin-left: 20rem;
-    margin-right: 2rem;
+    margin-left: 22rem;
+    margin-right: 4rem;
   }
 }
 
-.footnote {
-  font-size: 0.7em;
-  margin-top: 0.5rem;
-}
-
-.go {
-  color: #444444;
-}
-
-.badge {
-  display:inline;
-  vertical-align: bottom;
-}
-
-.badges {
-  float: right;
-}
-
-.brand {
-  font-size: 2.9em;
-  margin-bottom: 0;
-}
 
 /*
  * Reverse layout
@@ -182,7 +148,7 @@ a.sidebar-nav-item:focus {
  * Flip the orientation of the page by placing the `.sidebar` on the right.
  */
 
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .layout-reverse .sidebar {
     left: auto;
     right: 0;
@@ -193,7 +159,7 @@ a.sidebar-nav-item:focus {
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 64em) {
   .layout-reverse .content {
     margin-left: 4rem;
     margin-right: 22rem;
@@ -281,10 +247,4 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
-}
-
-.author-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
