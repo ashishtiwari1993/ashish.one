@@ -6,11 +6,7 @@
     <description>Recent content in error on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Feb 2020 01:14:03 +0530</lastBuildDate>
-    
-	<atom:link href="https://ashish.one/tags/error/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 04 Feb 2020 01:14:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/error/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[SOLVED] Golang fatal error: concurrent map writes</title>
       <link>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</link>

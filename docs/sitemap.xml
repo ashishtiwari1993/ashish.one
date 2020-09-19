@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ashish.one/</loc>
+    <lastmod>2020-08-03T00:38:53+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ashish.one/gist/</loc>
     <lastmod>2020-08-03T00:38:53+05:30</lastmod>
   </url>
@@ -454,11 +459,6 @@
   
   <url>
     <loc>https://ashish.one/about/</loc>
-    <lastmod>2019-09-03T15:11:45+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ashish.one/</loc>
     <lastmod>2019-09-03T15:11:45+05:30</lastmod>
   </url>
   

@@ -6,11 +6,7 @@
     <description>Recent content in tokenizer on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Sep 2019 15:20:39 +0530</lastBuildDate>
-    
-	<atom:link href="https://ashish.one/tags/tokenizer/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 22 Sep 2019 15:20:39 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/tokenizer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What should be the value of max_gram and min_gram in Elasticsearch?</title>
       <link>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</link>

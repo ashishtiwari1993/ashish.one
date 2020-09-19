@@ -6,11 +6,7 @@
     <description>Recent content in ubuntu14.04 on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Apr 2020 17:52:19 +0530</lastBuildDate>
-    
-	<atom:link href="https://ashish.one/tags/ubuntu14.04/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 02 Apr 2020 17:52:19 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/ubuntu14.04/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</title>
       <link>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>

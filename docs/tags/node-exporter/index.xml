@@ -6,11 +6,7 @@
     <description>Recent content in node-exporter on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Apr 2020 21:32:48 +0530</lastBuildDate>
-    
-	<atom:link href="https://ashish.one/tags/node-exporter/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 03 Apr 2020 21:32:48 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/node-exporter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Part 4] Setup Grafana With Prometheus</title>
       <link>https://ashish.one/blogs/setup-grafana-with-prometheus/</link>

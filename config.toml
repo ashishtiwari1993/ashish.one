@@ -29,6 +29,7 @@ paginate = 5
 	UtterancesIssueTerm = "title"
 	UtterancesTheme = "github-light"		
 
+	toc = "tocbot"
 
 [params.social]
 	gravatar = "atashish171@gmail.com"
