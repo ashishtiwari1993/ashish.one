@@ -6,8 +6,10 @@ theme = "hyde-hyde"
 publishDir = "docs"
 
 googleAnalytics = "UA-149424518-1"
+enableEmoji = true
+enableGitInfo = true
 enableRobotsTXT = true
-
+canonifyURLs = true
 paginate = 5
 
 [Taxonomies]
@@ -18,6 +20,7 @@ paginate = 5
 	mainSections = ["post"]
 	author = "Ashish Tiwari"
 	title = "ashish.one"
+	og_image = "https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200"
 
 	copyright = "ashish"
 	since = "2019"

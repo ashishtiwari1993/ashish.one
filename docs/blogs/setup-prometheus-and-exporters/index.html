@@ -29,7 +29,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ashish.one/blogs/setup-prometheus-and-exporters/" />
 <meta property="article:published_time" content="2019-09-22T15:20:39+05:30" />
-<meta property="article:modified_time" content="2019-09-22T15:20:39+05:30" /><meta property="og:site_name" content="ashish.one" />
+<meta property="article:modified_time" content="2020-09-02T01:51:55+05:30" /><meta property="og:site_name" content="ashish.one" />
 
 
     
@@ -44,15 +44,15 @@
 
 
 
-<link rel="stylesheet" href="/scss/hyde-hyde.4a2700e99df4fd999848994a7ceaf465d846f20a6f60022584754dffe91a943e.css" integrity="sha256-SicA6Z30/ZmYSJlKfOr0ZdhG8gpvYAIlhHVN/&#43;kalD4=">
+<link rel="stylesheet" href="https://ashish.one/scss/hyde-hyde.4a2700e99df4fd999848994a7ceaf465d846f20a6f60022584754dffe91a943e.css" integrity="sha256-SicA6Z30/ZmYSJlKfOr0ZdhG8gpvYAIlhHVN/&#43;kalD4=">
 
 
-<link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+<link rel="stylesheet" href="https://ashish.one/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
 
 
 
 
-<link rel="stylesheet" href="/scss/tocbot.5ef07cebc3c477b54270456f149ee02922479bb7555fd344b2c69f953b0e7e5e.css" integrity="sha256-XvB868PEd7VCcEVvFJ7gKSJHm7dVX9NEssaflTsOfl4=">
+<link rel="stylesheet" href="https://ashish.one/scss/tocbot.5ef07cebc3c477b54270456f149ee02922479bb7555fd344b2c69f953b0e7e5e.css" integrity="sha256-XvB868PEd7VCcEVvFJ7gKSJHm7dVX9NEssaflTsOfl4=">
 
 
 
@@ -62,8 +62,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ashish.one/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ashish.one/favicon.png">
     
     
 
@@ -98,7 +98,7 @@
 		 
 			 
 				<li>
-					<a href="/about/">
+					<a href="https://ashish.one/about/">
 						<span>About Me</span>
 					</a>
 				</li>
@@ -106,7 +106,7 @@
 		 
 			 
 				<li>
-					<a href="/topics/">
+					<a href="https://ashish.one/topics/">
 						<span>Topics</span>
 					</a>
 				</li>
@@ -114,7 +114,7 @@
 		 
 			 
 				<li>
-					<a href="/gist/">
+					<a href="https://ashish.one/gist/">
 						<span>Gist</span>
 					</a>
 				</li>
@@ -122,7 +122,7 @@
 		 
 			 
 				<li>
-					<a href="/talks/">
+					<a href="https://ashish.one/talks/">
 						<span>Talks</span>
 					</a>
 				</li>
@@ -195,10 +195,10 @@
           <br/>
            <i class="fas fa-tags"></i>
           
-          <a class="badge badge-tag" href="/tags/prometheus">prometheus</a>
+          <a class="badge badge-tag" href="https://ashish.one/tags/prometheus">prometheus</a>
            
       
-          <a class="badge badge-tag" href="/tags/alertmanager">alertmanager</a>
+          <a class="badge badge-tag" href="https://ashish.one/tags/alertmanager">alertmanager</a>
           
       
     
@@ -258,14 +258,14 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
 <p>OR</p>
 <p>You can simply fire below command in your Linux terminal:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://github.com/prometheus/prometheus/releases/download/v2.11.1/prometheus-2.11.1.linux-amd64.tar.gz
-</code></pre></div><p><img src="/img/prometheus-setup/download_prometheus_binary.png" alt="prometheus binary download"></p>
+</code></pre></div><p><img src="https://ashish.one/img/prometheus-setup/download_prometheus_binary.png" alt="prometheus binary download"></p>
 <h4 id="step-2-extract-the-tar">Step 2: Extract The Tar</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ tar -xvzf prometheus-2.11.1.linux-amd64.tar.gz
 </code></pre></div><h4 id="step-3-after-extraction-steps">Step 3: After Extraction Steps</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mv prometheus-2.11.1.linux-amd64 prometheus 
 $ cd prometheus/$ ll
 </code></pre></div><p>Folder contains below file:</p>
-<p><img src="/img/prometheus-setup/folder_structure.png" alt="Folder structure"></p>
+<p><img src="https://ashish.one/img/prometheus-setup/folder_structure.png" alt="Folder structure"></p>
 <ul>
 <li><code>prometheus</code>: It&rsquo;s a binary file which is the core daemon.</li>
 <li><code>prometheus.yml</code>: This is the config file for Prometheus service.</li>
@@ -273,13 +273,13 @@ $ cd prometheus/$ ll
 </ul>
 <h4 id="step-4-execute-the-binary-file-using-the-below-command">Step 4: Execute The Binary File Using The Below Command:</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ./prometheus
-</code></pre></div><p><img src="/img/prometheus-setup/start_prometheus.png" alt="Start Prometheus"></p>
+</code></pre></div><p><img src="https://ashish.one/img/prometheus-setup/start_prometheus.png" alt="Start Prometheus"></p>
 <p>Visit <code>localhost:9090</code> on your web browser:</p>
-<p><img src="/img/prometheus-setup/prometheus_ui.png" alt="Prometheus UI"></p>
+<p><img src="https://ashish.one/img/prometheus-setup/prometheus_ui.png" alt="Prometheus UI"></p>
 <p>Your Prometheus is up and running!</p>
 <p>If you notice in <code>prometheus/</code> folder, It created a folder with the name <code>data</code>. Prometheus starts storing metrics in this <code>/data</code> folder only.</p>
 <p>Now get all metric list by hitting the URL to <code>localhost:9090/metrics</code></p>
-<p><img src="/img/prometheus-setup/metrics.png" alt="Prometheus metrics"></p>
+<p><img src="https://ashish.one/img/prometheus-setup/metrics.png" alt="Prometheus metrics"></p>
 <p>Prometheus stores data on disk in time series, with its custom format.  Behind the scenes, it uses <a href="https://github.com/google/leveldb">leveldb</a>. You can check more <a href="https://prometheus.io/docs/prometheus/latest/storage/">details</a> on storage.</p>
 <p>Here is a sample production command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ~/prometheus/prometheus --storage.tsdb.path<span style="color:#f92672">=</span>/var/lib/prometheus/data/ --web.external-url<span style="color:#f92672">=</span>http://myurl.com:9090
@@ -344,9 +344,9 @@ $ mv node_exporter-0.18.1.linux-amd64 node_exporter
 $ cd node_exporter
 $ ./node_exporter
 </code></pre></div><p>You should see below output once the node exporter is started:</p>
-<p><img src="/img/prometheus-setup/node_exporter_start.png" alt="Start node exporter"></p>
+<p><img src="https://ashish.one/img/prometheus-setup/node_exporter_start.png" alt="Start node exporter"></p>
 <p>Just visit to <code>localhost:9100/metrics</code></p>
-<p><img src="/img/prometheus-setup/node_exporter_metrics.png" alt="Node exporter metrics"></p>
+<p><img src="https://ashish.one/img/prometheus-setup/node_exporter_metrics.png" alt="Node exporter metrics"></p>
 <h4 id="step-2-lets-run-node-exporter-as-service">Step 2: Let&rsquo;s Run Node Exporter As Service:</h4>
 <ol>
 <li>Create a file in below path:</li>
@@ -408,9 +408,9 @@ WantedBy<span style="color:#f92672">=</span>multi-user.target
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo systemctl restart prometheus
 </code></pre></div><h4 id="step-6-visiting-localhost9090-again">Step 6: Visiting Localhost:9090 Again</h4>
 <p>Now visit the URL <code>localhost:9090</code>. In Expression field you can search for <code>node_filesystem_size_bytes</code> by clicking on the <code>Execute</code> button. You will get the below stats:</p>
-<p><img src="/img/prometheus-setup/disk_utilization.png" alt="Disk utilization graph on node Exporter"></p>
+<p><img src="https://ashish.one/img/prometheus-setup/disk_utilization.png" alt="Disk utilization graph on node Exporter"></p>
 <p>After clicking on the <code>graph</code>:</p>
-<p><img src="/img/prometheus-setup/disk_utilization_graph.png" alt="Disk utilization graph on node Exporter"></p>
+<p><img src="https://ashish.one/img/prometheus-setup/disk_utilization_graph.png" alt="Disk utilization graph on node Exporter"></p>
 <h2 id="installation-with-docker">Installation with Docker</h2>
 <h3 id="prometheus">Prometheus</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run <span style="color:#ae81ff">\
@@ -443,13 +443,13 @@ WantedBy<span style="color:#f92672">=</span>multi-user.target
 
 <div class="navigation navigation-single">
     
-    <a href="/blogs/min-gram-and-max-gram-elasticsearch/" class="navigation-prev">
+    <a href="https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/" class="navigation-prev">
       <i aria-hidden="true" class="fa fa-chevron-left"></i>
       <span class="navigation-tittle">What should be the value of max_gram and min_gram in Elasticsearch?</span>
     </a>
     
     
-    <a href="/blogs/setup-alertmanager/" class="navigation-next">
+    <a href="https://ashish.one/blogs/setup-alertmanager/" class="navigation-next">
       <span class="navigation-tittle">[Part 2] How to setup alertmanager and send alerts ?</span>
       <i aria-hidden="true" class="fa fa-chevron-right"></i>
     </a>
