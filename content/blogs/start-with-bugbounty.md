@@ -6,7 +6,7 @@ type: "post"
 ogtype: "article"
 tags: ["bugbounty","pentest","security"]
 slug: "get-start-with-bugbounty-pentest-security-researcher"
-topics: ["security"]
+topics: ["Security"]
 ---
 
 I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.
