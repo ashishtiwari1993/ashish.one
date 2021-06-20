@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on ashish.one</title>
+    <link>https://ashish.one/topics/security/</link>
+    <description>Recent content in security on ashish.one</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 13:53:50 +0530</lastBuildDate><atom:link href="https://ashish.one/topics/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Get start with BugBounty, Pentest and Security Researcher</title>
+      <link>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</link>
+      <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</guid>
+      <description>I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.
+The Fact The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.
+ There is no defined way to become a security researcher.</description>
+    </item>
+    
+  </channel>
+</rss>

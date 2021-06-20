@@ -6,7 +6,34 @@
     <description>Recent content in Tags on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Aug 2020 00:38:53 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Jun 2021 13:53:50 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bugbounty</title>
+      <link>https://ashish.one/tags/bugbounty/</link>
+      <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/bugbounty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pentest</title>
+      <link>https://ashish.one/tags/pentest/</link>
+      <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/pentest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://ashish.one/tags/security/</link>
+      <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/security/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Go</title>
       <link>https://ashish.one/tags/go/</link>

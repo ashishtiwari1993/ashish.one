@@ -1,7 +1,7 @@
 ---
 title: "Get start with BugBounty, Pentest and Security Researcher"
 date: 2021-06-20T13:53:50+05:30
-draft: true
+draft: false
 type: "post"
 ogtype: "article"
 tags: ["bugbounty","pentest","security"]

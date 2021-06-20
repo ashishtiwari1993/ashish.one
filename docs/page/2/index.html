@@ -8,7 +8,7 @@
 <meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.75.1" />
+<meta name="generator" content="Hugo 0.83.1" />
 
     
 
@@ -22,8 +22,8 @@
 <meta property="og:title" content="ashish.one" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://ashish.one/" />
-<meta property="og:updated_time" content="2020-09-02T01:51:55+05:30" /><meta property="og:site_name" content="ashish.one" />
+<meta property="og:url" content="https://ashish.one/" /><meta property="og:site_name" content="ashish.one" />
+
 
 
     
@@ -178,110 +178,19 @@
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/" >Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</a>
+          <a href="https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/" >What should be the value of max_gram and min_gram in Elasticsearch?</a>
         </span>
         <span class="item__date">
-          Apr 02, 2020
+          Sep 22, 2019
         </span>
         <span >
         
-        Prerequisite OS: Ubuntu 14.04 LTS
-Processor: 64 Bit
-RAM: 2 GB
-1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last): File &#34;get-pip.
+        I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use ngram token filter for like query. It was quickly implemented on local and works exactly i want.
+The problem To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.
         
         </span>
         
-          ... <a class="read-more-symbol" href="https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/" >Covid19 Data Source for India &amp; Global</a>
-        </span>
-        <span class="item__date">
-          Mar 27, 2020
-        </span>
-        <span >
-        
-        Hi Guys, I am trying to listing all data source &amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.
-APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in APIs available: Statewise Data  StateWise StateWise History  Medica  Hospital Stats Bed Stats  Contacts  HelpLines Contacts  Patient  Tracing History  Sources The source is both types of official &amp; Unofficial.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/" >[SOLVED] Golang fatal error: concurrent map writes</a>
-        </span>
-        <span class="item__date">
-          Feb 04, 2020
-        </span>
-        <span >
-        
-        The Problem: Suddenly got below errors which killed my daemon:
-fatal error: concurrent map writes goroutine 646 [running]: runtime.throw(0x75fd38, 0x15) /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e) goroutine 1 [sleep]: runtime.goparkunlock(...) /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200) /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager() goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0) /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b) /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...) /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0) /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8 net.(*netFD).accept(0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0) /usr/local/go/src/net/fd_unix.go:238 +0x42 net.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="https://ashish.one/blogs/write-custom-exporters-prometheus/" >[Part 3] How to write custom prometheus exporter?</a>
-        </span>
-        <span class="item__date">
-          Nov 29, 2019
-        </span>
-        <span >
-        
-        Introduction In PART-1 and PART-2, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
-But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.
-There is two way to exporting the data on prometheus: 1. Exporting to a Pushgateway Here we metrics are getting the push to prometheus server.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="https://ashish.one/blogs/write-custom-exporters-prometheus/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="https://ashish.one/blogs/setup-alertmanager/" >[Part 2] How to setup alertmanager and send alerts ?</a>
-        </span>
-        <span class="item__date">
-          Oct 23, 2019
-        </span>
-        <span >
-        
-        Introduction In PART - 1, We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.
-Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="https://ashish.one/blogs/setup-alertmanager/">➦</a>
+          ... <a class="read-more-symbol" href="https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/">➦</a>
         
         </div>
         
@@ -322,23 +231,12 @@ Alertmanager is software that is maintained by the prometheus and it is written 
     <li class="page-item active"><a class="page-link" href="https://ashish.one/page/2/">2</a></li>
     
     
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://ashish.one/page/3/">3</a></li>
-    
-    
-    <li class="page-item">
-    <a href="https://ashish.one/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    <li class="page-item disabled">
+    <a href="" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
     <li class="page-item">
-        <a href="https://ashish.one/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="https://ashish.one/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>
