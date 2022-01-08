@@ -1,6 +1,6 @@
 ---
 title: "Arch Linux Installation Challenges"
-date: 2022-01-07T07:20:29Z
+date: 2022-01-07T07:20:29+05:30
 draft: false
 type: "post"
 tags: ["linux","arch","arch-installation"]
