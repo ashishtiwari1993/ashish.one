@@ -7,6 +7,9 @@ tags: ["linux","arch","arch-installation"]
 ogtype: "article"
 slug: "arch-linux-installation-challenges"
 topics: "Linux"
+header:
+    image: "/img/arch-linux-installation/arch-linux.jpeg"
+    caption: "Arch linux login screen"
 ---
 
 ![arch linux login screen](/img/arch-linux-installation/arch-linux.jpeg)
