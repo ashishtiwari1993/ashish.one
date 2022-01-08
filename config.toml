@@ -1,7 +1,7 @@
 baseurl = "https://ashish.one/"
 languageCode = "en-us"
 title = "ashish.one"
-theme = "hyde-hyde"
+theme = "ananke"
 
 publishDir = "docs"
 

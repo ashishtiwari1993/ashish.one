@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    
-    
-
-
-    <head>
-    <link href="https://gmpg.org/xfn/11" rel="profile">
-    
-    <link rel="canonical" href="https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/">
-    
+  <head>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- Enable responsiveness on mobile devices -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.91.2" />
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    
-    
-
-<title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP • ashish.one</title>
-
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP"/>
-<meta name="twitter:description" content="Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.
+    <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP | ashish.one</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.
 In this blog, We are going to setup PHP and Nginx.
 Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
-Docker makes the installation process very smooth and it gives your isolated environment as the container."/>
+Docker makes the installation process very smooth and it gives your isolated environment as the container.">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
 
-<meta property="og:title" content="[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP" />
+    
+<link rel="stylesheet" href="https://ashish.one/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP" />
 <meta property="og:description" content="Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.
 In this blog, We are going to setup PHP and Nginx.
 Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
@@ -39,220 +40,127 @@ Docker makes the installation process very smooth and it gives your isolated env
 <meta property="article:published_time" content="2020-05-16T17:01:47+05:30" />
 <meta property="article:modified_time" content="2020-09-02T01:51:55+05:30" /><meta property="og:site_name" content="ashish.one" />
 
+<meta itemprop="name" content="[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP">
+<meta itemprop="description" content="Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.
+In this blog, We are going to setup PHP and Nginx.
+Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
+Docker makes the installation process very smooth and it gives your isolated environment as the container."><meta itemprop="datePublished" content="2020-05-16T17:01:47+05:30" />
+<meta itemprop="dateModified" content="2020-09-02T01:51:55+05:30" />
+<meta itemprop="wordCount" content="474">
+<meta itemprop="keywords" content="LEMP,PHP,MySQL,Nginx,Linux,docker-compose,docker," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP"/>
+<meta name="twitter:description" content="Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.
+In this blog, We are going to setup PHP and Nginx.
+Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
+Docker makes the installation process very smooth and it gives your isolated environment as the container."/>
 
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
 
     
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://ashish.one/scss/hyde-hyde.4a2700e99df4fd999848994a7ceaf465d846f20a6f60022584754dffe91a943e.css" integrity="sha256-SicA6Z30/ZmYSJlKfOr0ZdhG8gpvYAIlhHVN/&#43;kalD4=">
-
-
-<link rel="stylesheet" href="https://ashish.one/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
-
-
-
-
-<link rel="stylesheet" href="https://ashish.one/scss/tocbot.5ef07cebc3c477b54270456f149ee02922479bb7555fd344b2c69f953b0e7e5e.css" integrity="sha256-XvB868PEd7VCcEVvFJ7gKSJHm7dVX9NEssaflTsOfl4=">
-
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ashish.one/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="https://ashish.one/favicon.png">
-    
-    
-
-</head>
-
-
-    <body class=" ">
-    
-<div class="sidebar">
-  <div class="container ">
-    <div class="sidebar-about">
-      <span class="site__title">
-        <a href="https://ashish.one/">
-        
-          ashish.one
-        
-        </a>
-      </span>
-      
-      
-        <div class="author-image">
-          <img src="https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=240&d=mp" class="img--circle img--headshot element--center" alt="gravatar">
-        </div>
-      
-      <p class="site__description">
-        
-      </p>
-    </div>
-    <div class="collapsible-menu">
-      <input type="checkbox" id="menuToggle">
-      <label for="menuToggle">ashish.one</label>
-      <div class="menu-content">
-        <div>
-	<ul class="sidebar-nav">
-		 
-		 
-			 
-				<li>
-					<a href="https://ashish.one/about/">
-						<span>About Me</span>
-					</a>
-				</li>
-			 
-		 
-			 
-				<li>
-					<a href="https://ashish.one/topics/">
-						<span>Topics</span>
-					</a>
-				</li>
-			 
-		 
-			 
-				<li>
-					<a href="https://ashish.one/gist/">
-						<span>Gist</span>
-					</a>
-				</li>
-			 
-		 
-			 
-				<li>
-					<a href="https://ashish.one/talks/">
-						<span>Talks</span>
-					</a>
-				</li>
-			 
-		
-	</ul>
-</div>
-
-        <section class="social">
-	
-	<a href="https://twitter.com/_ashish_tiwari" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
-	
-	
-	
-	
-	<a href="https://github.com/ashishtiwari1993" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
-	
-	
-	
-	
-	
-	
-	
-	<a href="https://linkedin.com/in/ashish-tiwari-a40a012b" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-</section>
-
-      </div>
-    </div>
-    
-<div class="copyright">
-  &copy; 2019 - 2022 ashish
+   
   
-</div>
 
-
-
-  </div>
-</div>
-
-        <div class="content container">
-            
-    
-<article>
   <header>
-    <h1>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</h1>
-    
-    
-<div class="post__meta">
-    
-    
-      <i class="fas fa-calendar-alt"></i> May 16, 2020
-    
-    
-    
-    
-    
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://ashish.one/" class="f3 fw2 hover-white no-underline white-90 dib">
       
+        ashish.one
       
-          <br/>
-           <i class="fas fa-tags"></i>
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
           
-          <a class="badge badge-tag" href="https://ashish.one/tags/lemp">lemp</a>
-           
-      
-          <a class="badge badge-tag" href="https://ashish.one/tags/php">php</a>
-           
-      
-          <a class="badge badge-tag" href="https://ashish.one/tags/mysql">mysql</a>
-           
-      
-          <a class="badge badge-tag" href="https://ashish.one/tags/nginx">nginx</a>
-           
-      
-          <a class="badge badge-tag" href="https://ashish.one/tags/linux">linux</a>
-           
-      
-          <a class="badge badge-tag" href="https://ashish.one/tags/docker-compose">docker-compose</a>
-           
-      
-          <a class="badge badge-tag" href="https://ashish.one/tags/docker">docker</a>
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://ashish.one/about/" title="About me page">
+              About me
+            </a>
+          </li>
           
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://ashish.one/topics/" title="Topics page">
+              Topics
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://ashish.one/gist/" title="Gist page">
+              Gist
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://ashish.one/talks/" title="Talks page">
+              Talks
+            </a>
+          </li>
+          
+        </ul>
       
-    
-    
-    <br/>
-    <i class="fas fa-clock"></i> 3 min read
+      
+<div class="ananke-socials">
+  
 </div>
-
-
-  </header>
-  
-  
-  
-    <div class="toc-wrapper">
-      <input type="checkbox" id="tocToggle">
-      <label for="tocToggle">Table of Content</label>
-      
-        <div class="toc" id="TableOfContents"></div>
-      
     </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
   
-  
-  <div class="post">
-    <p>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.</p>
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Ashish Tiwari
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-05-16T17:01:47+05:30">May 16, 2020</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.</p>
 <p>In this blog, We are going to setup PHP and Nginx.</p>
 <h3 id="why-docker">Why Docker?</h3>
 <p>I will not go too much deep, You can find more resources over the internet about the docker.</p>
@@ -358,95 +266,64 @@ docker-compose up
 <p><img src="https://ashish.one/img/lemp-docker/phpinfo.png" alt="phpinfo"></p>
 <h3 id="at-the-end">At the End</h3>
 <p>We have successfully created Nginx and PHP Environment. In Part 2, We will check, How we can add MySQL to this environment.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://ashish.one/tags/lemp" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">LEMP</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://ashish.one/tags/php" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">PHP</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://ashish.one/tags/mysql" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">MySQL</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://ashish.one/tags/nginx" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Nginx</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://ashish.one/tags/linux" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Linux</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://ashish.one/tags/docker-compose" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">docker-compose</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://ashish.one/tags/docker" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">docker</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
 
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://ashish.one/" >
+    &copy;  ashish.one 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div></div>
   </div>
-  
+</footer>
 
-<div class="navigation navigation-single">
-    
-    <a href="https://ashish.one/blogs/challenges-in-linuxfromscratch/" class="navigation-prev">
-      <i aria-hidden="true" class="fa fa-chevron-left"></i>
-      <span class="navigation-tittle">Challenges in linuxfromscratch</span>
-    </a>
-    
-    
-    <a href="https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/" class="navigation-next">
-      <span class="navigation-tittle">Shipping Golang logs with ELKB stack</span>
-      <i aria-hidden="true" class="fa fa-chevron-right"></i>
-    </a>
-    
-</div>
-
-
-  
-
-  
-    
-        <script src="https://utteranc.es/client.js"
-        repo="ashishtiwari1993/ashish.one"
-        issue-term="title"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-    
-
-
-</article>
-
-
-        </div>
-        
-    
-
-  
-  
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-149424518-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
-
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
-        
-    <script type="text/javascript">
-        
-        hljs.initHighlightingOnLoad();
-    </script>
-    
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
-<script type="text/javascript">
-  if (tocbot) {
-    tocbot.init({
-      
-      tocSelector: '.toc',
-      
-      contentSelector: '.post',
-      
-      headingSelector: 'h2, h3, h4',
-      collapseDepth: 4
-    });
-  }
-</script>
-
-
-
-    
-
-
-
-    </body>
+  </body>
 </html>
