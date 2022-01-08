@@ -6,12 +6,14 @@
 
     <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
+    
+    <link rel="canonical" href="https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/">
+    
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.91.2" />
 
     
     
@@ -34,8 +36,8 @@ RAM: 2 GB
 1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last): File &#34;get-pip." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/" /><meta property="article:section" content="blogs" />
-<meta property="article:published_time" content="2020-04-02T17:52:19&#43;05:30" />
-<meta property="article:modified_time" content="2020-09-02T01:51:55&#43;05:30" /><meta property="og:site_name" content="ashish.one" />
+<meta property="article:published_time" content="2020-04-02T17:52:19+05:30" />
+<meta property="article:modified_time" content="2020-09-02T01:51:55+05:30" /><meta property="og:site_name" content="ashish.one" />
 
 
 
@@ -83,7 +85,11 @@ RAM: 2 GB
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="https://ashish.one/">ashish.one</a>
+        <a href="https://ashish.one/">
+        
+          ashish.one
+        
+        </a>
       </span>
       
       
@@ -144,6 +150,7 @@ RAM: 2 GB
 	
 	
 	
+	
 	<a href="https://github.com/ashishtiwari1993" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
 	
 	
@@ -162,21 +169,22 @@ RAM: 2 GB
 	
 	
 	
+	
+	
+	
+	
 </section>
 
       </div>
     </div>
     
 <div class="copyright">
-  &copy; 2019 - 2021 ashish
+  &copy; 2019 - 2022 ashish
   
 </div>
 
 
 
-	<div class="social">
-		<a href="https://www.buymeacoffee.com/ashishtiwari" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;margin-left: auto;margin-right: auto;" ></a>
-	</div>
   </div>
 </div>
 
@@ -247,20 +255,20 @@ RAM: 2 GB
 <strong>RAM:</strong> 2 GB</p>
 <h2 id="1-install-python36-from-source">1. Install python3.6 From source</h2>
 <h3 id="step-11-compile">Step 1.1: Compile</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
 $ tar -xvf Python-3.6.3.tgz
 $ cd Python-3.6.3
 $ sudo ./configure --enable-optimizations
 </code></pre></div><h3 id="step-12-check">Step 1.2: Check</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ python3.6 --version
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ python3.6 --version
 </code></pre></div><h2 id="2-install-pip36">2. Install <code>pip3.6</code></h2>
 <h3 id="step-21-download-pip">Step 2.1: Download pip</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://bootstrap.pypa.io/get-pip.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://bootstrap.pypa.io/get-pip.py
 </code></pre></div><h3 id="step-22-execute">Step 2.2: Execute</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo python3.6 get-pip.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo python3.6 get-pip.py
 </code></pre></div><h3 id="step-23-if-you-got-below-error">Step 2.3: If you Got below error</h3>
 <h4 id="error--zlib-not-available">Error  <code>zlib not available</code></h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Traceback <span style="color:#f92672">(</span>most recent call last<span style="color:#f92672">)</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Traceback <span style="color:#f92672">(</span>most recent call last<span style="color:#f92672">)</span>:
   File <span style="color:#e6db74">&#34;get-pip.py&#34;</span>, line 22711, in &lt;module&gt;
     main<span style="color:#f92672">()</span>
   File <span style="color:#e6db74">&#34;get-pip.py&#34;</span>, line 198, in main
@@ -270,28 +278,28 @@ $ sudo ./configure --enable-optimizations
 zipimport.ZipImportError: can<span style="color:#960050;background-color:#1e0010">&#39;</span>t decompress data; zlib not available
 </code></pre></div><h4 id="step-231-install-zlib">Step 2.3.1: Install <code>zlib</code>:</h4>
 <h4 id="install-with-some-other-dependency">Install with some other dependency</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
 </code></pre></div><p>OR</p>
 <h4 id="you-can-install-just-zlib1g-dev">You can install just <code>zlib1g-dev</code></h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get install zlib1g-dev
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get install zlib1g-dev
 </code></pre></div><h4 id="chances-to-get-error">Chances to get error</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ zlib1g-dev is already the newest version.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ zlib1g-dev is already the newest version.
 </code></pre></div><h4 id="just-upgrade-it-if-not-new">Just upgrade it if not new</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get upgrade zlib1g-dev
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get upgrade zlib1g-dev
 </code></pre></div><h3 id="step-232-now-again-try">Step 2.3.2: Now again try</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo python3.6 get-pip.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo python3.6 get-pip.py
 </code></pre></div><h4 id="if-you-get-same-error-again-then-go-for-below-steps">If you get same error again, Then go for below steps:</h4>
 <p>Open <code>Modules/Setup</code> from folder &lsquo;Python-3.6.3&rsquo; which we extracted on Step 1.1</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo vim Modules/Setup
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo vim Modules/Setup
 </code></pre></div><h4 id="uncomment-the-below-line-or-jump-on-line-no-366">Uncomment the below line or jump on line no. 366</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">zlib zlibmodule.c -I<span style="color:#66d9ef">$(</span>prefix<span style="color:#66d9ef">)</span>/include -L<span style="color:#66d9ef">$(</span>exec_prefix<span style="color:#66d9ef">)</span>/lib -lz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">zlib zlibmodule.c -I<span style="color:#66d9ef">$(</span>prefix<span style="color:#66d9ef">)</span>/include -L<span style="color:#66d9ef">$(</span>exec_prefix<span style="color:#66d9ef">)</span>/lib -lz
 </code></pre></div><h4 id="now-we-need-to-again-perform-few-operation-from-__steps-11__">Now we need to again perform few operation from <strong>steps 1.1</strong></h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo ./configure
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo ./configure
 $ sudo make install
 </code></pre></div><h4 id="now-run-again--it-should-be-work">Now run again &amp; It should be work</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo python3.6 get-pip.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo python3.6 get-pip.py
 </code></pre></div><h3 id="step-24-lets-install-pipenv-for-testing-purpose">Step 2.4: Let&rsquo;s Install <code>pipenv</code> for testing purpose:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pip3.6 install pipenv
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pip3.6 install pipenv
 </code></pre></div>
   </div>
   
@@ -347,7 +355,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     

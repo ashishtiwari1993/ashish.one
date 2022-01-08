@@ -6,12 +6,14 @@
 
     <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
+    
+    <link rel="canonical" href="https://ashish.one/blogs/challenges-in-linuxfromscratch/">
+    
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.91.2" />
 
     
     
@@ -30,8 +32,8 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 Before we get start You need some basic linux command knowledge to use linuxfromscratch guide. I am going to build LFS on my local machine. If your machine has a different OS or different configuration, Then some solution will not work." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ashish.one/blogs/challenges-in-linuxfromscratch/" /><meta property="article:section" content="blogs" />
-<meta property="article:published_time" content="2020-04-11T13:55:52&#43;05:30" />
-<meta property="article:modified_time" content="2020-09-02T01:51:55&#43;05:30" /><meta property="og:site_name" content="ashish.one" />
+<meta property="article:published_time" content="2020-04-11T13:55:52+05:30" />
+<meta property="article:modified_time" content="2020-09-02T01:51:55+05:30" /><meta property="og:site_name" content="ashish.one" />
 
 
 
@@ -79,7 +81,11 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="https://ashish.one/">ashish.one</a>
+        <a href="https://ashish.one/">
+        
+          ashish.one
+        
+        </a>
       </span>
       
       
@@ -140,6 +146,7 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 	
 	
 	
+	
 	<a href="https://github.com/ashishtiwari1993" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
 	
 	
@@ -158,21 +165,22 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 	
 	
 	
+	
+	
+	
+	
 </section>
 
       </div>
     </div>
     
 <div class="copyright">
-  &copy; 2019 - 2021 ashish
+  &copy; 2019 - 2022 ashish
   
 </div>
 
 
 
-	<div class="social">
-		<a href="https://www.buymeacoffee.com/ashishtiwari" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;margin-left: auto;margin-right: auto;" ></a>
-	</div>
   </div>
 </div>
 
@@ -242,18 +250,18 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 <p>You need some basic linux command knowledge to use linuxfromscratch guide. I am going to build LFS on my local machine. If your machine has a different OS or different configuration, Then some solution will not work.</p>
 <p>I am going to use the same chapter title as mentioned in linuxfromscratch. I will skip those sections where I haven&rsquo;t faced any difficulties.</p>
 <h2 id="my-machine-configuration">My Machine Configuration</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">OS: Ubuntu 14.04
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">OS: Ubuntu 14.04
 RAM: 2GB
 Disk: <span style="color:#ae81ff">500</span> GB
 </code></pre></div><h2 id="going-to-build">Going to build</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">LFS version: 9.1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">LFS version: 9.1
 Published: March 1st, <span style="color:#ae81ff">2020</span>
 LFS doc:http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html
 </code></pre></div><h2 id="challenges">Challenges</h2>
 <h2 id="22-host-system-requirements">2.2. Host System Requirements</h2>
 <p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs</a></p>
 <h3 id="version-check">Version check</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat &gt; version-check.sh &lt;&lt; <span style="color:#e6db74">&#34;EOF&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat &gt; version-check.sh &lt;&lt; <span style="color:#e6db74">&#34;EOF&#34;</span>
 <span style="color:#75715e">#!/bin/bash</span>
 <span style="color:#75715e"># Simple script to list version numbers of critical development tools</span>
 export LC_ALL<span style="color:#f92672">=</span>C
@@ -315,23 +323,23 @@ EOF
 bash version-check.sh
 </code></pre></div><h3 id="error-1">Error 1:</h3>
 <p><code>/bin/sh does not point to bash</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo ln -sf bash /bin/sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo ln -sf bash /bin/sh
 </code></pre></div><h3 id="error-2">Error 2:</h3>
 <p><code>version-check.sh: line 11: bison: command not found</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install bison
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install bison
 </code></pre></div><h3 id="error-3">Error 3:</h3>
 <p><code>version-check.sh: line 25: gawk: command not found</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install gawk
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install gawk
 </code></pre></div><h3 id="error-4">Error 4:</h3>
 <p><code>version-check.sh: line 36: g++: command not found</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install g++
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install g++
 </code></pre></div><h3 id="error-5">Error 5:</h3>
 <p><code>version-check.sh: line 48: makeinfo: command not found</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update -y
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update -y
 sudo apt-get install -y texinfo
 </code></pre></div><h3 id="final-success-output">Final success output:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ bash version-check.sh
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">bash, version 4.3.11<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>-release
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ bash version-check.sh
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">bash, version 4.3.11<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>-release
 /bin/sh -&gt; /bin/bash
 Binutils: <span style="color:#f92672">(</span>GNU Binutils <span style="color:#66d9ef">for</span> Ubuntu<span style="color:#f92672">)</span> 2.24
 bison <span style="color:#f92672">(</span>GNU Bison<span style="color:#f92672">)</span> 3.0.2
@@ -365,7 +373,7 @@ g++ compilation OK
 <p>It is recommended to use Physical partition only not logical.</p>
 </blockquote>
 <p>I have reinstall my OS with new partition which is long way. You can use <a href="https://www.howtogeek.com/114503/how-to-resize-your-ubuntu-partitions/">GParted</a> to make partitions. Remember you can create only 4 Physical partition. Give 1 physical partition dedicated to LFS. Below is my partition view.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ lsblk
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ lsblk
 
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda      8:0    <span style="color:#ae81ff">0</span> 465.8G  <span style="color:#ae81ff">0</span> disk 
@@ -377,14 +385,14 @@ sda      8:0    <span style="color:#ae81ff">0</span> 465.8G  <span style="color:
 <p>After restart I again hit the same command <code>lsblk</code>. <code>/lfs</code> partition was not there.</p>
 <p>In Ubuntu, You need to make entry in <code>/etc/fstab</code> in order to mount the partition on restart.</p>
 <p>You have to find first volumeId or UUID to make entry in <code>/etc/fstab</code>. You can use <code>blkid</code> command to get all UUID:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ blkid
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ blkid
 
 /dev/sda1: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1FBD-F51A&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vfat&#34;</span> 
 /dev/sda2: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;9f41c453-3b5c-4537-81b0-2fb33f19ded8&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;swap&#34;</span> 
 /dev/sda3: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1a16afba-cabb-40c7-b704-1129b7004ffb&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ext4&#34;</span> 
 /dev/sda4: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;b3b2eb8c-2a43-405d-97da-af8b46c743e2&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ext4&#34;</span> 
 </code></pre></div><p>Above my Partition is <code>/dev/sda4</code> which is mounted on <code>/lfs</code>, So my UUID is <code>b3b2eb8c-2a43-405d-97da-af8b46c743e2</code>. Now I have added below line in <code>/etc/fstab</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">UUID<span style="color:#f92672">=</span>b3b2eb8c-2a43-405d-97da-af8b46c743e2 /lfs            ext4    rw,user,exec,errors<span style="color:#f92672">=</span>remount-ro              <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">UUID<span style="color:#f92672">=</span>b3b2eb8c-2a43-405d-97da-af8b46c743e2 /lfs            ext4    rw,user,exec,errors<span style="color:#f92672">=</span>remount-ro              <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
 </code></pre></div><p>Here</p>
 <ul>
 <li><code>rw</code>: Read, Write</li>
@@ -397,14 +405,14 @@ sda      8:0    <span style="color:#ae81ff">0</span> 465.8G  <span style="color:
 <h2 id="54-binutils-234---pass-1">5.4. Binutils-2.34 - Pass 1</h2>
 <p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1</a></p>
 <h3 id="error-1-1">Error 1:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">bash: ../configure: No such file or directory
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">bash: ../configure: No such file or directory
 </code></pre></div><p>As I mentioned on above Section, Make sure you have added <code>exec</code> in your <code>/etc/fstab</code> entry OR Make sure your partition <code>/lfs</code> has Read, Write &amp; Execute permission. Below <code>/etc/fstab</code> entry worked for me:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">UUID<span style="color:#f92672">=</span>b3b2eb8c-2a43-405d-97da-af8b46c743e2 /lfs            ext4    rw,user,exec,errors<span style="color:#f92672">=</span>remount-ro              <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">UUID<span style="color:#f92672">=</span>b3b2eb8c-2a43-405d-97da-af8b46c743e2 /lfs            ext4    rw,user,exec,errors<span style="color:#f92672">=</span>remount-ro              <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
 </code></pre></div><p>This setting can be different for different OS.</p>
 <h3 id="error-2-1">Error 2:</h3>
 <p>I had no idea where to create <code>build</code> folder.</p>
 <p>Below steps worked for me:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd $LFS/source
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd $LFS/source
 $ tar xvf binutils-2.34.tar.xz
 $ cd binutils-2.34
 $ mkdir -v build
@@ -417,11 +425,11 @@ $ ../configure --prefix<span style="color:#f92672">=</span>/tools          <span
 </span><span style="color:#ae81ff"></span>             --disable-werror
 
 </code></pre></div><h2 id="55-gcc-920---pass-1">5.5. GCC-9.2.0 - Pass 1</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd $LFS/sources
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd $LFS/sources
 tar -xvf gcc-9.2.0.tar.xz
 cd gcc-9.2.0
 </code></pre></div><p>After this you can continue with document flow.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tar -xf ../mpfr-4.0.2.tar.xz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tar -xf ../mpfr-4.0.2.tar.xz
 mv -v mpfr-4.0.2 mpfr
 tar -xf ../gmp-6.2.0.tar.xz
 mv -v gmp-6.2.0 gmp
@@ -430,7 +438,7 @@ mv -v mpc-1.1.0 mpc
 </code></pre></div><h3 id="error-1-2">Error 1:</h3>
 <p>On <code>make</code> command, I got below error:</p>
 <h4 id="error-for-loop-initial-declarations-are-only-allowed-in-c99-mode">error: &lsquo;for&rsquo; loop initial declarations are only allowed in C99 mode</h4>
-<pre><code>compute_powtab.c: In function 'mpn_compute_powtab_mul':
+<pre tabindex="0"><code>compute_powtab.c: In function 'mpn_compute_powtab_mul':
 compute_powtab.c:142:3: error: 'for' loop initial declarations are only allowed in C99 mode
    for (long pi = start_idx; pi &gt;= 0; pi--)
    ^
@@ -461,18 +469,18 @@ compute_powtab.c:296:15: note: previous definition of 'pn' was here
 compute_powtab.c:308:3: error: 'for' loop initial declarations are only allowed in C99 mode
    for (long i = n_pows - 2; i &gt;= 0; i--)
 
-</code></pre><p>As per (<a href="https://stackoverflow.com/a/29338269)%5Bhttps://stackoverflow.com/a/29338269%5D,">https://stackoverflow.com/a/29338269)[https://stackoverflow.com/a/29338269],</a></p>
+</code></pre><p>As per (<a href="https://stackoverflow.com/a/29338269)%5Bhttps://stackoverflow.com/a/29338269%5D">https://stackoverflow.com/a/29338269)[https://stackoverflow.com/a/29338269]</a>,</p>
 <blockquote>
 <p><strong>This happens because declaring variables inside a for loop wasn&rsquo;t valid C until C99(which is the standard of C published in 1999).</strong></p>
 </blockquote>
 <h4 id="how-i-sovled-this">How I sovled this?</h4>
 <p>Open file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim $LFS/sources/gcc-9.2.0/build/gmp/mpn/compute_powtab.c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim $LFS/sources/gcc-9.2.0/build/gmp/mpn/compute_powtab.c
 </code></pre></div><p><strong>We will solve first error:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">compute_powtab.c:226:3: error: <span style="color:#e6db74">&#39;for&#39;</span> loop initial declarations are only allowed in C99 mode
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">compute_powtab.c:226:3: error: <span style="color:#e6db74">&#39;for&#39;</span> loop initial declarations are only allowed in C99 mode
    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>long pi <span style="color:#f92672">=</span> n_pows - 1; pi &gt;<span style="color:#f92672">=</span> 0; pi--<span style="color:#f92672">)</span>
 </code></pre></div><p>Changes on line number 226:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">  long pi;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">  long pi;
 
   <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>pi <span style="color:#f92672">=</span> n_pows - 1; pi &gt;<span style="color:#f92672">=</span> 0; pi--<span style="color:#f92672">)</span>
     <span style="color:#f92672">{</span>
@@ -480,22 +488,22 @@ compute_powtab.c:308:3: error: 'for' loop initial declarations are only allowed 
 <p><strong>OR</strong></p>
 <p>You can download my edited version of <a href="https://ashish.one/download/compute_powtab.c">compute_powtab.c</a>, Place in <code>$LFS/sources/gcc-9.2.0/build/gmp/mpn/</code>.</p>
 <p>Hit</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">make
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">make
 </code></pre></div><p>Now it should works :)</p>
 <h2 id="57-glibc-231">5.7. Glibc-2.31</h2>
 <p>On below command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">../configure                             <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">../configure                             <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>      --prefix<span style="color:#f92672">=</span>/tools                    <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>      --host<span style="color:#f92672">=</span>$LFS_TGT                    <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>      --build<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>../scripts/config.guess<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>      --enable-kernel<span style="color:#f92672">=</span>3.2                <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>
 </code></pre></div><h3 id="error-these-critical-programs-are-missing-or-too-old-make">Error: These critical programs are missing or too old: make</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">configure: error:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">configure: error:
 *** These critical programs are missing or too old: make
 *** Check the INSTALL file <span style="color:#66d9ef">for</span> required versions.
 </code></pre></div><p>I checked my current <code>make</code> version:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make --version
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make --version
 GNU Make 3.81
 Copyright <span style="color:#f92672">(</span>C<span style="color:#f92672">)</span> <span style="color:#ae81ff">2006</span>  Free Software Foundation, Inc.
 This is free software; see the source <span style="color:#66d9ef">for</span> copying conditions.
@@ -508,7 +516,7 @@ This program built <span style="color:#66d9ef">for</span> x86_64-pc-linux-gnu
 <p><strong>Due to a long-standing unresolved Debian bug report, GNU Make remained the age-old 3.81 in Debian for a very long time, and as a consequence, in Debian-based distributions such as Ubuntu and Mint.</strong></p>
 </blockquote>
 <p>So we need to upgrade our make version. Below steps worked for me.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /tmp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /tmp
 wget http://ftp.gnu.org/gnu/make/make-4.1.tar.gz
 tar xvf make-4.1.tar.gz
 cd make-4.1/
@@ -519,7 +527,7 @@ sudo mv /usr/local/bin/make /usr/bin/make
 </code></pre></div><p>Now again hit <code>../configure ..</code> command, Now it should work :)</p>
 <h2 id="67-linux-553-api-headers">6.7. Linux-5.5.3 API Headers</h2>
 <h3 id="error">Error</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">(</span>lfs chroot<span style="color:#f92672">)</span> root:/sources/linux-5.5.3# make mrproper
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">(</span>lfs chroot<span style="color:#f92672">)</span> root:/sources/linux-5.5.3# make mrproper
 
 /bin/sh: sed: command not found
 Makefile:653: arch//Makefile: No such file or directory
@@ -527,12 +535,12 @@ make: *** No rule to make target <span style="color:#e6db74">&#39;arch//Makefile
 </code></pre></div><p>Because of my silly mistake. I had not installed the sed package. I just reinstall the package.</p>
 <h2 id="612-bzip2-108">6.12. Bzip2-1.0.8</h2>
 <h3 id="error-6">Error:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
 make: *** <span style="color:#f92672">[</span>Makefile-libbz2_so:38: all<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
 </code></pre></div><p>Just hit <code>make clean</code>.<br>
 Again run <code>make -f Makefile-libbz2_so</code>.</p>
 <h2 id="618-binutils-234">6.18. Binutils-2.34</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make -k check
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make -k check
 
 
 make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:2565: check-DEJAGNU<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
@@ -551,23 +559,23 @@ make: *** <span style="color:#f92672">[</span>Makefile:2222: <span style="color:
 <p>If you get any solution of above error, Feel free to comment below.</p>
 <h2 id="625-gcc-920">6.25. GCC-9.2.0</h2>
 <h3 id="error-1-3">Error 1:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">make: *** <span style="color:#f92672">[</span>Makefile:2295: <span style="color:#66d9ef">do</span>-check<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">make: *** <span style="color:#f92672">[</span>Makefile:2295: <span style="color:#66d9ef">do</span>-check<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
 </code></pre></div><p>I ignored this and move to next steps.</p>
 <h3 id="error-2-got-no-output-with-below-command">Error 2: Got no output with below command:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
 cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep <span style="color:#e6db74">&#39;: /lib&#39;</span>
 </code></pre></div><p>Performed below steps as mentioned on this link <a href="https://stackoverflow.com/a/48289145">https://stackoverflow.com/a/48289145</a>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">gcc -dumpspecs | sed -e <span style="color:#e6db74">&#39;s@/tools@@g&#39;</span> &gt; <span style="color:#e6db74">`</span>dirname <span style="color:#66d9ef">$(</span>gcc --print-libgcc-file-name<span style="color:#66d9ef">)</span><span style="color:#e6db74">`</span>/specs
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">gcc -dumpspecs | sed -e <span style="color:#e6db74">&#39;s@/tools@@g&#39;</span> &gt; <span style="color:#e6db74">`</span>dirname <span style="color:#66d9ef">$(</span>gcc --print-libgcc-file-name<span style="color:#66d9ef">)</span><span style="color:#e6db74">`</span>/specs
 </code></pre></div><p>Again perform above command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
 $ cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep <span style="color:#e6db74">&#39;: /lib&#39;</span>
 
      <span style="color:#f92672">[</span>Requesting program interpreter: /lib64/ld-linux-x86-64.so.2<span style="color:#f92672">]</span>
 </code></pre></div><h2 id="641-perl-5301">6.41. Perl-5.30.1</h2>
 <h3 id="error-7">Error:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">erlio.c:<span style="color:#f92672">(</span>.text+0x91b<span style="color:#f92672">)</span>: undefined reference to <span style="color:#e6db74">`</span>pthread_getspecific<span style="color:#e6db74">&#39;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">erlio.c:<span style="color:#f92672">(</span>.text+0x91b<span style="color:#f92672">)</span>: undefined reference to <span style="color:#e6db74">`</span>pthread_getspecific<span style="color:#e6db74">&#39;
 </span><span style="color:#e6db74">/usr/bin/ld: perlio.o:perlio.c:(.text+0x44e4): more undefined references to `pthread_getspecific&#39;</span> follow
 collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
 make: *** <span style="color:#f92672">[</span>makefile:364: lib/buildcustomize.pl<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
@@ -575,7 +583,7 @@ make: *** <span style="color:#f92672">[</span>makefile:364: lib/buildcustomize.p
 <p>it&rsquo;s due to not having deleted the extracted Perl-5.28.0 directory after Chapter 5. I deleted the folder. Again untar the file.</p>
 <h2 id="84-using-grub-to-set-up-the-boot-process">8.4. Using GRUB to Set Up the Boot Process</h2>
 <p><strong>NOTE</strong>: I have not performed this section, Becuase I am going to use my host system&rsquo;s (Ubuntu 14.04) GRUB bootloader. Just go to another terminal of host system and hit below command.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo update-grub2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo update-grub2
 </code></pre></div><p>After this again go to old terminal(LFS) and proceed with next step (The End).</p>
 <p>Please comment below if you facing any issue.</p>
 <p>Thanks</p>
@@ -634,7 +642,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     

@@ -6,12 +6,14 @@
 
     <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
+    
+    <link rel="canonical" href="https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/">
+    
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.91.2" />
 
     
     
@@ -34,8 +36,8 @@ Why Docker? I will not go too much deep, You can find more resources over the in
 Docker makes the installation process very smooth and it gives your isolated environment as the container." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/" /><meta property="article:section" content="blogs" />
-<meta property="article:published_time" content="2020-05-16T17:01:47&#43;05:30" />
-<meta property="article:modified_time" content="2020-09-02T01:51:55&#43;05:30" /><meta property="og:site_name" content="ashish.one" />
+<meta property="article:published_time" content="2020-05-16T17:01:47+05:30" />
+<meta property="article:modified_time" content="2020-09-02T01:51:55+05:30" /><meta property="og:site_name" content="ashish.one" />
 
 
 
@@ -83,7 +85,11 @@ Docker makes the installation process very smooth and it gives your isolated env
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="https://ashish.one/">ashish.one</a>
+        <a href="https://ashish.one/">
+        
+          ashish.one
+        
+        </a>
       </span>
       
       
@@ -144,6 +150,7 @@ Docker makes the installation process very smooth and it gives your isolated env
 	
 	
 	
+	
 	<a href="https://github.com/ashishtiwari1993" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
 	
 	
@@ -162,21 +169,22 @@ Docker makes the installation process very smooth and it gives your isolated env
 	
 	
 	
+	
+	
+	
+	
 </section>
 
       </div>
     </div>
     
 <div class="copyright">
-  &copy; 2019 - 2021 ashish
+  &copy; 2019 - 2022 ashish
   
 </div>
 
 
 
-	<div class="social">
-		<a href="https://www.buymeacoffee.com/ashishtiwari" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;margin-left: auto;margin-right: auto;" ></a>
-	</div>
   </div>
 </div>
 
@@ -259,22 +267,22 @@ Docker makes the installation process very smooth and it gives your isolated env
 </blockquote>
 <p>In Short, Docker makes tech person&rsquo;s life easy like the developer, tester, etc.</p>
 <h3 id="my-machine-configuration">My Machine configuration:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Docker Version: 18.09.7
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Docker Version: 18.09.7
 Docker Compose Version: 1.24.1
 RAM: 8GB
 OS: Ubuntu 18.04
 </code></pre></div><p>Make sure docker and docker-compose is installed on your machine.</p>
 <h3 id="step-1-create-folders">Step 1: Create folders:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir LEMP
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir LEMP
 cd LEMP
 mkdir <span style="color:#f92672">{</span>public_html,nginxi_conf<span style="color:#f92672">}</span>
 </code></pre></div><p><code>public_html</code>: It will contains your PHP code.<br>
 <code>nginx_conf</code>: It will contains your Nginx configuration file.</p>
 <h3 id="step-2-create-nginx-conf-file">Step 2: Create Nginx conf file</h3>
 <p>Go to <code>nginx_conf</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd nginx_conf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd nginx_conf
 </code></pre></div><p>Create file <code>lemp-docker.conf</code> (You can give any name according to your requirement) &amp; Paste below configuration block.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">server <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">server <span style="color:#f92672">{</span>
 		listen 80;
 		server_name _;
 		root /public_html;
@@ -294,7 +302,7 @@ mkdir <span style="color:#f92672">{</span>public_html,nginxi_conf<span style="co
 </code></pre></div><p>Save and Exit from folder.</p>
 <h3 id="step-3-create-file-docker-composeyml">Step 3: Create file <code>docker-compose.yml</code></h3>
 <p>Create file <code>docker-compose.yml</code> in <code>LEMP</code> folder &amp; paste the below lines:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">version: <span style="color:#e6db74">&#39;3&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">version: <span style="color:#e6db74">&#39;3&#39;</span>
 
 services:
  web:
@@ -323,25 +331,25 @@ networks:
 <p>You can set <code>volumes</code> path according to your requirement.</p>
 <h3 id="step-4-lets-up-the-containers">Step 4: Let&rsquo;s Up the containers</h3>
 <p>Create container:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd LEMP/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd LEMP/
 docker-compose up
 </code></pre></div><p><strong>Note:</strong> Make sure no other service is running on port 80.</p>
 <p>Output:</p>
 <p><img src="https://ashish.one/img/lemp-docker/docker-compose-up.png" alt="docker compose up"></p>
 <p>You can hit the <code>localhost</code> on your browser.</p>
 <p>Once you hit the <code>localhost</code> check nginx logs:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat /tmp/nginx_logs/access.log 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat /tmp/nginx_logs/access.log 
 
 172.25.0.1 - - <span style="color:#f92672">[</span>16/May/2020:12:51:04 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET / HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">556</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36&#34;</span> <span style="color:#e6db74">&#34;-&#34;</span>
 </code></pre></div><p>Now stop the containers by simply hitting <code>Ctrl + c</code>. Now run docker-compose in detached mode. It will run in the background.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker-compose up -d
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker-compose up -d
 </code></pre></div><p>Lists containers</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker-compose ps
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker-compose ps
 </code></pre></div><h3 id="step-5-lets-create-testphp">Step 5: Let&rsquo;s Create <code>test.php</code></h3>
 <p>Go to <code>LEMP/public_html</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd LEMP/public_html
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd LEMP/public_html
 </code></pre></div><p>Create file <code>test.php</code> &amp; paste below code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 <span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">phpinfo</span>();
 </code></pre></div><h3 id="step-6-run-testphp">Step 6: Run <code>test.php</code></h3>
@@ -405,7 +413,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    
+    <link rel="canonical" href="https://ashish.one/blogs/arch-linux-installation-challenges/">
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.91.2" />
+
+    
+    
+    
+
+<title>Arch Linux Installation Challenges • ashish.one</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Arch Linux Installation Challenges"/>
+<meta name="twitter:description" content="Introduction This article is not containing the detailed procedure for installation but listed some challenges which you can face while installing the arch Linux. Arch Linux is one of the Linux distributions, Which gives you full control over your application and OS. You have complete freedom to install or what to keep. Unlike the other distribution like Ubuntu, Centos, etc. It doesn&rsquo;t come with pre-loaded applications or software.
+Though Arch wiki has a detailed explanation of the installation process I faced some challenges whose solution was not easily available."/>
+
+<meta property="og:title" content="Arch Linux Installation Challenges" />
+<meta property="og:description" content="Introduction This article is not containing the detailed procedure for installation but listed some challenges which you can face while installing the arch Linux. Arch Linux is one of the Linux distributions, Which gives you full control over your application and OS. You have complete freedom to install or what to keep. Unlike the other distribution like Ubuntu, Centos, etc. It doesn&rsquo;t come with pre-loaded applications or software.
+Though Arch wiki has a detailed explanation of the installation process I faced some challenges whose solution was not easily available." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ashish.one/blogs/arch-linux-installation-challenges/" /><meta property="article:section" content="blogs" />
+<meta property="article:published_time" content="2022-01-07T07:20:29+00:00" />
+<meta property="article:modified_time" content="2022-01-07T19:59:47+00:00" /><meta property="og:site_name" content="ashish.one" />
+
+
+
+    
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://ashish.one/scss/hyde-hyde.4a2700e99df4fd999848994a7ceaf465d846f20a6f60022584754dffe91a943e.css" integrity="sha256-SicA6Z30/ZmYSJlKfOr0ZdhG8gpvYAIlhHVN/&#43;kalD4=">
+
+
+<link rel="stylesheet" href="https://ashish.one/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+
+<link rel="stylesheet" href="https://ashish.one/scss/tocbot.5ef07cebc3c477b54270456f149ee02922479bb7555fd344b2c69f953b0e7e5e.css" integrity="sha256-XvB868PEd7VCcEVvFJ7gKSJHm7dVX9NEssaflTsOfl4=">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ashish.one/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ashish.one/favicon.png">
+    
+    
+
+</head>
+
+
+    <body class=" ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="https://ashish.one/">
+        
+          ashish.one
+        
+        </a>
+      </span>
+      
+      
+        <div class="author-image">
+          <img src="https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=240&d=mp" class="img--circle img--headshot element--center" alt="gravatar">
+        </div>
+      
+      <p class="site__description">
+        
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">ashish.one</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="https://ashish.one/about/">
+						<span>About Me</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="https://ashish.one/topics/">
+						<span>Topics</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="https://ashish.one/gist/">
+						<span>Gist</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="https://ashish.one/talks/">
+						<span>Talks</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	<a href="https://twitter.com/_ashish_tiwari" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	<a href="https://github.com/ashishtiwari1993" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	<a href="https://linkedin.com/in/ashish-tiwari-a40a012b" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</section>
+
+      </div>
+    </div>
+    
+<div class="copyright">
+  &copy; 2019 - 2022 ashish
+  
+</div>
+
+
+
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>Arch Linux Installation Challenges</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Jan 07, 2022
+    
+    
+    
+    
+    
+      
+      
+          <br/>
+           <i class="fas fa-tags"></i>
+          
+          <a class="badge badge-tag" href="https://ashish.one/tags/linux">linux</a>
+           
+      
+          <a class="badge badge-tag" href="https://ashish.one/tags/arch">arch</a>
+           
+      
+          <a class="badge badge-tag" href="https://ashish.one/tags/arch-installation">arch-installation</a>
+          
+      
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 4 min read
+</div>
+
+
+  </header>
+  
+  
+  
+    <div class="toc-wrapper">
+      <input type="checkbox" id="tocToggle">
+      <label for="tocToggle">Table of Content</label>
+      
+        <div class="toc" id="TableOfContents"></div>
+      
+    </div>
+  
+  
+  <div class="post">
+    <p><img src="https://ashish.one/img/arch-linux-installation/arch-linux.jpeg" alt="arch linux login screen"></p>
+<h1 id="introduction">Introduction</h1>
+<p>This article is not containing the detailed procedure for installation but listed some challenges which you can face while installing the arch Linux. Arch Linux is one of the Linux distributions, Which gives you full control over your application and OS. You have complete freedom to install or what to keep. Unlike the other distribution like Ubuntu, Centos, etc. It doesn&rsquo;t come with pre-loaded applications or software.</p>
+<p>Though Arch wiki has a detailed explanation of the installation process I faced some challenges whose solution was not easily available. I am listing a few here and will keep updating this post as I move forward.</p>
+<p>In this post I am not going to cover the installation steps, You will get a better explanation on the arch wiki.</p>
+<h1 id="machine-configuration">Machine Configuration</h1>
+<h2 id="hardware">Hardware</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">RAM: 2GB
+Disk: <span style="color:#ae81ff">500</span>
+</code></pre></div><h2 id="bios-configuration">BIOS configuration</h2>
+<p>Secure boot: <code>disabled</code><br>
+Legacy boot: <code>enabled</code><br>
+Boot Mode: <code>UEFI</code></p>
+<h1 id="challenges">Challenges</h1>
+<h2 id="1-what-should-be-my-disk-partition-">1. What should be my disk partition ?</h2>
+<h3 id="11-check-boot-mode">1.1 Check Boot mode</h3>
+<p>You need to check <a href="https://wiki.archlinux.org/title/Installation_guide">installation guide</a>, Refer step <strong>Verify the boot mode</strong>.</p>
+<p>In a live environment, you need to check first what is your boot mode.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ls /sys/firmware/efi/efivars
+</code></pre></div><p>If the command shows the directory without error, then the system is booted in UEFI mode. If the directory does not exist, the system may be booted in BIOS (or CSM) mode.</p>
+<p>So my machine&rsquo;s boot mode is UEFI.</p>
+<h3 id="12-how-to-create-partitions">1.2 How to create partitions?</h3>
+<p>I would recommend using <code>cfdisk</code> command to create the partition. Which gives you good visualization.</p>
+<p>My SCSI Disk is <code>dev/sda</code>.</p>
+<h3 id="13-types-of-partition">1.3 Types of Partition</h3>
+<p>You need to create 3 types of partition as shown below:</p>
+<table>
+<thead>
+<tr>
+<th>Mount Point</th>
+<th>Partition</th>
+<th>Partition Type</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/mnt/boot</td>
+<td>/dev/sda1</td>
+<td>EFI System</td>
+<td>1G</td>
+</tr>
+<tr>
+<td>[SWAP]</td>
+<td>/dev/sda2</td>
+<td>LINUX Swap</td>
+<td>4G</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>/dev/sda3</td>
+<td>LINUX Filesystem</td>
+<td>460G</td>
+</tr>
+</tbody>
+</table>
+<p>Here on my machine i have created 3 partition name <code>dev/sda1</code>, <code>dev/sda2</code>, <code>dev/sda3</code>. This name can be different.</p>
+<p>This is how you need to create the partition with the help of the <code>cfdisk</code> command.</p>
+<h3 id="14-mount-the-partition">1.4 Mount the partition</h3>
+<h4 id="format-the-partition">Format the partition</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkfs.ext4 /dev/sda3
+mkswap /dev/sda2
+mkfs.fat -F <span style="color:#ae81ff">32</span> /dev/sda1
+</code></pre></div><h4 id="mount-the-partition">Mount the partition</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mount /dev/sda3 /mnt
+mount /dev/sda1 /mnt/boot
+swapon /dev/sda2
+</code></pre></div><h2 id="2-install-bootloader">2. Install Bootloader</h2>
+<p>I have decided to install a grub bootloader on my machine. You can decide on this <a href="https://wiki.archlinux.org/title/Arch_boot_process">wiki page</a>.</p>
+<h3 id="21-install-grub">2.1 Install GRUB</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacman -S grub
+</code></pre></div><h3 id="22-generate-grub-config">2.2 Generate Grub config</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre></div><h3 id="23-reboot-the-system">2.3 Reboot the system</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">exit
+umount /dev/sda3
+reboot
+</code></pre></div><h2 id="3-how-to-login-again-with-live-bootable-arch-device-usbcd-etc">3. How to login again with Live bootable Arch device (USB/CD etc.)</h2>
+<p>Sometimes we need to install some package with a live environment only. In such a case, you can prefer these steps.</p>
+<p>Attach the live bootable device and choose the specific device in the boot order. Once you are logged in, Just perform the below commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mount /dev/sda3 /mnt
+mkswap /dev/sda2
+swapon /dev/sda2
+
+arch-chroot /mnt
+</code></pre></div><p>Once you are in Than you can perform any operation on your installed Arch OS.</p>
+<h2 id="4-install-networkmanager">4. Install NetworkManager</h2>
+<p>Please refer to challenge #3 to log in with the live environment. Once you successfully log in, Perform the below commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacman -S NetworkManager
+systemctl start NetworkManager
+systemclt enable NetworkManager
+</code></pre></div><p>Simply check with ping if you connected with a LAN connection.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ping google.com
+</code></pre></div><blockquote>
+<p>Note: Please start and enable the Network Manager after reboot. It will not start on first time login.</p>
+</blockquote>
+<h2 id="5-install-broadcom-wireless">5. Install Broadcom Wireless</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacman -S linux-headers
+pacman -S broadcom-wl-dkms
+</code></pre></div><p>Reboot the system.</p>
+<h2 id="6-desktop-environment-arch">6. Desktop Environment Arch</h2>
+<p>To run any desktop environment, Need to install Display Manager. First, we will install LXDM (display manager).</p>
+<h3 id="61-lxdm">6.1 LXDM</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacman -S lxdm
+systemctl start lxdm
+systemctl enable lxdm
+</code></pre></div><h3 id="62-lxde">6.2 LXDE</h3>
+<p>LXDE is a lightweight desktop. As my system has 2GB RAM, I have tried this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacman -S lxde
+</code></pre></div><p>Reboot the system.</p>
+<h3 id="63-xfce4">6.3 XFCE4</h3>
+<p>Xfce is a lightweight and modular desktop environment currently based on GTK 3. To provide a complete user experience, it includes a window manager, a file manager, desktop and panel.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacman -S xfce4 xfce4-goodies
+</code></pre></div><p>Edit <code>lxdm.conf</code></p>
+<p>Edit below line</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">session<span style="color:#f92672">=</span>/usr/bin/startlxfce4
+</code></pre></div><p>Reboot the system.</p>
+<h2 id="7-connect-to-wifi">7. Connect to WIFI</h2>
+<p>You need to install Network Manager and wireless driver first. You can refer step 4 &amp; 5.</p>
+<p>Once done with proper installation you can connect to wifi using:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">nmtui
+</code></pre></div><h2 id="8-stuck-on-grub-window-while-booting-on-arch-linux">8. Stuck on GRUB window while booting on arch linux</h2>
+<p><img src="https://ashish.one/img/arch-linux-installation/grub-window.jpeg" alt="arch linux login screen"></p>
+<p>It seems my bootloader was not configured properly. Re Attached the live bootable device and perform steps 3 and then 2.</p>
+<p>Reboot the system.</p>
+<h2 id="9-error--time--timed-out-waiting-for-device-devdiskby-uuid">9. Error: [ TIME ] Timed out waiting for device /dev/disk/by-uuid/</h2>
+<p><img src="https://ashish.one/img/arch-linux-installation/partition-fail.jpeg" alt="arch linux login screen"></p>
+<p>Please perform step 3.</p>
+<p>Check UUID of partitions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">lsblk -l
+</code></pre></div><p>Cross-check whether the above UUIDs and mentioned UUIDs in <code>/etc/fstab</code> should be the same.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim /etc/fstab
+</code></pre></div><p>Update UUID accordingly on the above file. Save and exit.</p>
+<p>Reboot the system.</p>
+
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">Get start with BugBounty, Pentest and Security Researcher</span>
+    </a>
+    
+    
+</div>
+
+
+  
+
+  
+    
+        <script src="https://utteranc.es/client.js"
+        repo="ashishtiwari1993/ashish.one"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+    
+
+
+</article>
+
+
+        </div>
+        
+    
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-149424518-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
+<script type="text/javascript">
+  if (tocbot) {
+    tocbot.init({
+      
+      tocSelector: '.toc',
+      
+      contentSelector: '.post',
+      
+      headingSelector: 'h2, h3, h4',
+      collapseDepth: 4
+    });
+  }
+</script>
+
+
+
+    
+
+
+
+    </body>
+</html>

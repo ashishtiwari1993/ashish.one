@@ -6,12 +6,14 @@
 
     <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
+    
+    <link rel="canonical" href="https://ashish.one/blogs/setup-alertmanager/">
+    
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.91.2" />
 
     
     
@@ -30,8 +32,8 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ashish.one/blogs/setup-alertmanager/" /><meta property="article:section" content="blogs" />
-<meta property="article:published_time" content="2019-10-23T15:24:26&#43;05:30" />
-<meta property="article:modified_time" content="2020-09-02T01:51:55&#43;05:30" /><meta property="og:site_name" content="ashish.one" />
+<meta property="article:published_time" content="2019-10-23T15:24:26+05:30" />
+<meta property="article:modified_time" content="2020-09-02T01:51:55+05:30" /><meta property="og:site_name" content="ashish.one" />
 
 
 
@@ -79,7 +81,11 @@ Alertmanager is software that is maintained by the prometheus and it is written 
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="https://ashish.one/">ashish.one</a>
+        <a href="https://ashish.one/">
+        
+          ashish.one
+        
+        </a>
       </span>
       
       
@@ -140,6 +146,7 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 	
 	
 	
+	
 	<a href="https://github.com/ashishtiwari1993" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
 	
 	
@@ -158,21 +165,22 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 	
 	
 	
+	
+	
+	
+	
 </section>
 
       </div>
     </div>
     
 <div class="copyright">
-  &copy; 2019 - 2021 ashish
+  &copy; 2019 - 2022 ashish
   
 </div>
 
 
 
-	<div class="social">
-		<a href="https://www.buymeacoffee.com/ashishtiwari" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;margin-left: auto;margin-right: auto;" ></a>
-	</div>
   </div>
 </div>
 
@@ -233,12 +241,12 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 <h2 id="installation">Installation:</h2>
 <p>Prerequisites will be the same as <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART - 1</a> . We will download the precompiled binary of alertmanager. Although there is a docker image also available which you can use.</p>
 <h3 id="step-1-download-alertmanager">Step 1: Download alertmanager</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://github.com/prometheus/prometheus/releases/download/v2.13.1/prometheus-2.13.1.linux-amd64.tar.gz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget https://github.com/prometheus/prometheus/releases/download/v2.13.1/prometheus-2.13.1.linux-amd64.tar.gz
 </code></pre></div><p><img src="https://ashish.one/img/alertmanager-setup/download_alertmanager.png" alt="alertmanager binary download"></p>
 <h3 id="step-2-extract-tar">Step 2: Extract tar</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ tar -xvzf alertmanager-0.19.0.linux-amd64.tar.gz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ tar -xvzf alertmanager-0.19.0.linux-amd64.tar.gz
 </code></pre></div><h3 id="step-3-folder-structure">Step 3: Folder structure</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mv alertmanager-0.19.0.linux-amd64 alertmanager
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mv alertmanager-0.19.0.linux-amd64 alertmanager
 $ cd alertmanager/
 $ ll
 </code></pre></div><p>Folder contains below files:</p>
@@ -250,14 +258,14 @@ $ ll
 </ul>
 <h3 id="step--4-run-alertmanager">Step  4: Run alertmanager</h3>
 <p>Execute binary:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">./alertmanager
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">./alertmanager
 </code></pre></div><p><img src="https://ashish.one/img/alertmanager-setup/execute_alertmanager.png" alt="alertmanager folder structure"></p>
 <p>Visit to <code>localhost:9093</code> on your browser:</p>
 <p><img src="https://ashish.one/img/alertmanager-setup/alertmanager_web.png" alt="alertmanager web"></p>
 <p>Your alertmanager is up :) Like prometheus it is creating folder with the name <code>data</code>. Alertmanager starts storing data in <code>/data</code> folder.</p>
 <p>To check alertmanager metrics just visit <code>localhost:9093/metrics</code></p>
 <p>My production execution command is</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/alertmanager/alertmanager --config.file<span style="color:#f92672">=</span>~/alertmanager/alertmanager.yml --storage.path<span style="color:#f92672">=</span>/var/lib/alertmanager --web.external-url<span style="color:#f92672">=</span>http://myurl.com:9093
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/alertmanager/alertmanager --config.file<span style="color:#f92672">=</span>~/alertmanager/alertmanager.yml --storage.path<span style="color:#f92672">=</span>/var/lib/alertmanager --web.external-url<span style="color:#f92672">=</span>http://myurl.com:9093
 </code></pre></div><ul>
 <li><code>--storage.tsdb.path</code> : Specify the path where you want to save prometheus data.</li>
 <li><code>--web.external-url</code> : You can use this option if you want to bind your address with your URL.</li>
@@ -266,11 +274,11 @@ $ ll
 <ol>
 <li>Create file</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim /etc/systemd/system/alertmanager.service
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim /etc/systemd/system/alertmanager.service
 </code></pre></div><ol start="2">
 <li>Paste Below code</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
 Description<span style="color:#f92672">=</span>AlertManager Server Service
 Wants<span style="color:#f92672">=</span>network-online.target
 After<span style="color:#f92672">=</span>network-online.target
@@ -288,17 +296,17 @@ WantedBy<span style="color:#f92672">=</span>multi-user.target
 <ol start="3">
 <li>Reload the Systemctl Daemon:</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl daemon-reload
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl daemon-reload
 </code></pre></div><ol start="4">
 <li>To start alertmanager service</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start alertmanager
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start alertmanager
 </code></pre></div><h2 id="setup-alerts">Setup Alerts</h2>
 <h3 id="step-1-add-settings-in-prometheusyml">Step 1: Add settings in <code>prometheus.yml</code></h3>
 <p>Open <code>prometheus.yml</code> file</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim ~/prometheus/prometheus.yml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim ~/prometheus/prometheus.yml
 </code></pre></div><p>Add below code</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scrape_configs:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scrape_configs:
   <span style="color:#75715e"># The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.</span>
   - job_name: <span style="color:#e6db74">&#39;prometheus&#39;</span>
 
@@ -346,7 +354,7 @@ alerting:
 </ol>
 <h3 id="step-3-create-alertrulesyml">Step 3: Create <code>alert.rules.yml</code></h3>
 <p>Create <code>~/prometheus/alert.rules.yml</code> file and paste below sample rule:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">groups:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">groups:
 
 - name: Disk-usage
   rules:
@@ -381,12 +389,12 @@ alerting:
 <p>Now you might be wondering what is <code>node_filesystem_size_bytes</code> or <code>node_memory_MemTotal_bytes</code> ?</p>
 <p>If we recall part - 1 when we set up the node exporter and visited on <code>localhost:9100/metrics</code>, It has shown some metric. In that will get the above variable name. If you want to put any alert rules irrespective of any exporters, You have to make <code>expr</code> using these variables.</p>
 <p>You can compile your alert rule file :</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ promtool check rules alert.rules.yml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ promtool check rules alert.rules.yml
 </code></pre></div><p><code>promtool</code> is binary which we got in prometheus folder when we extracted it.</p>
 <p>You can explore some sample rules <a href="https://awesome-prometheus-alerts.grep.to/rules.html">here</a>.</p>
 <h3 id="step-4-create-alertmanageryml">Step 4: Create alertmanager.yml</h3>
 <p>Create <code>~/alertmanager/alertmanager.yml</code> file and paste below code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">global:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">global:
   slack_api_url: <span style="color:#e6db74">&#34;https://hooks.slack.com/services/XXXXXXXXXXXXXXX&#34;</span>
 
 route:
@@ -453,7 +461,7 @@ templates:
 </ul>
 <h3 id="step-5-sample-template">Step 5: Sample template</h3>
 <p>Create and Paste below code in <code>~/prometheus/alert.tmpl</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">{{</span> define <span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#f92672">}}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">{{</span> define <span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#f92672">}}</span>
 
 &lt;html&gt;
    &lt;head&gt;
@@ -510,7 +518,7 @@ templates:
 
 <span style="color:#f92672">{{</span>end<span style="color:#f92672">}}</span>
 </code></pre></div><h3 id="step-6-start-alertmanager-service--restart-prometheus">Step 6: Start alertmanager service &amp; restart prometheus</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start alertmanager
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start alertmanager
 $ sudo systemctl restart prometheus
 </code></pre></div><h2 id="test-complete-integration">Test complete Integration:</h2>
 <p>If everything is set up correctly and alert rule getting true then it will trigger an alert. You can enable the log of alertmanager for debugging purposes.</p>
@@ -572,7 +580,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     

@@ -3,12 +3,14 @@
     
   <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
+    
+    <link rel="canonical" href="https://ashish.one/">
+    
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.91.2" />
 
     
 
@@ -71,7 +73,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="https://ashish.one/">ashish.one</a>
+        <a href="https://ashish.one/">
+        
+          ashish.one
+        
+        </a>
       </span>
       
       
@@ -132,6 +138,7 @@
 	
 	
 	
+	
 	<a href="https://github.com/ashishtiwari1993" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
 	
 	
@@ -150,21 +157,22 @@
 	
 	
 	
+	
+	
+	
+	
 </section>
 
       </div>
     </div>
     
 <div class="copyright">
-  &copy; 2019 - 2021 ashish
+  &copy; 2019 - 2022 ashish
   
 </div>
 
 
 
-	<div class="social">
-		<a href="https://www.buymeacoffee.com/ashishtiwari" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;margin-left: auto;margin-right: auto;" ></a>
-	</div>
   </div>
 </div>
 
@@ -173,6 +181,51 @@
   <div class="post-list">
     
     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="https://ashish.one/gist/add-responsive-google-slides-on-hugo/" >Add Responsive Google Slides on Hugo</a>
+        </span>
+        <span class="item__date">
+          Apr 13, 2020
+        </span>
+        <span >
+        
+        Steps to add Responsive google slides iframe with Hugo:
+Hugo version:
+$ hugo version Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &lt;div id=&#34;Container&#34; style=&#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&#34;&gt; &lt;iframe id=&#34;googleSlideIframe&#34; width=&#34;100%&#34; height=&#34;100%&#34; src=&#34;{{ .Get &#34;src&#34; }}&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;&#34; style=&#34;position:absolute; top:0; left: 0&#34;&gt;&lt;/iframe&gt; &lt;/div&gt; Step 3: Use shortcode &lsquo;gslides&rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="https://ashish.one/gist/add-responsive-google-slides-on-hugo/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="https://ashish.one/blogs/challenges-in-linuxfromscratch/" >Challenges in linuxfromscratch</a>
+        </span>
+        <span class="item__date">
+          Apr 11, 2020
+        </span>
+        <span >
+        
+        I have started with www.linuxfromscratch.org, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.
+Before we get start You need some basic linux command knowledge to use linuxfromscratch guide. I am going to build LFS on my local machine. If your machine has a different OS or different configuration, Then some solution will not work.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="https://ashish.one/blogs/challenges-in-linuxfromscratch/">➦</a>
+        
+        </div>
+        
+     
       
         
       
@@ -217,73 +270,6 @@ RAM: 2 GB
         </span>
         
           ... <a class="read-more-symbol" href="https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/" >Covid19 Data Source for India &amp; Global</a>
-        </span>
-        <span class="item__date">
-          Mar 27, 2020
-        </span>
-        <span >
-        
-        Hi Guys, I am trying to listing all data source &amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.
-APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in APIs available: Statewise Data  StateWise StateWise History  Medica  Hospital Stats Bed Stats  Contacts  HelpLines Contacts  Patient  Tracing History  Sources The source is both types of official &amp; Unofficial.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/" >[SOLVED] Golang fatal error: concurrent map writes</a>
-        </span>
-        <span class="item__date">
-          Feb 04, 2020
-        </span>
-        <span >
-        
-        The Problem: Suddenly got below errors which killed my daemon:
-fatal error: concurrent map writes goroutine 646 [running]: runtime.throw(0x75fd38, 0x15) /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e) goroutine 1 [sleep]: runtime.goparkunlock(...) /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200) /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager() goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0) /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b) /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...) /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0) /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8 net.(*netFD).accept(0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0) /usr/local/go/src/net/fd_unix.go:238 +0x42 net.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="https://ashish.one/blogs/write-custom-exporters-prometheus/" >[Part 3] How to write custom prometheus exporter?</a>
-        </span>
-        <span class="item__date">
-          Nov 29, 2019
-        </span>
-        <span >
-        
-        Introduction In PART-1 and PART-2, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
-But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.
-There is two way to exporting the data on prometheus: 1. Exporting to a Pushgateway Here we metrics are getting the push to prometheus server.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="https://ashish.one/blogs/write-custom-exporters-prometheus/">➦</a>
         
         </div>
         
@@ -335,12 +321,23 @@ There is two way to exporting the data on prometheus: 1. Exporting to a Pushgate
     <li class="page-item"><a class="page-link" href="https://ashish.one/page/3/">3</a></li>
     
     
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="https://ashish.one/page/4/">4</a></li>
+    
+    
     <li class="page-item">
     <a href="https://ashish.one/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
     <li class="page-item">
-        <a href="https://ashish.one/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="https://ashish.one/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>
@@ -363,7 +360,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
   
-  <script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     </body>

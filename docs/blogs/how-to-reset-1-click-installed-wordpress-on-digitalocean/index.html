@@ -6,12 +6,14 @@
 
     <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
+    
+    <link rel="canonical" href="https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/">
+    
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.91.2" />
 
     
     
@@ -36,8 +38,8 @@ service mysql status service apache2 status Both services was active. Then I che
 $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/" /><meta property="article:section" content="blogs" />
-<meta property="article:published_time" content="2019-12-03T00:49:07&#43;05:30" />
-<meta property="article:modified_time" content="2020-09-02T01:51:55&#43;05:30" /><meta property="og:site_name" content="ashish.one" />
+<meta property="article:published_time" content="2019-12-03T00:49:07+05:30" />
+<meta property="article:modified_time" content="2020-09-02T01:51:55+05:30" /><meta property="og:site_name" content="ashish.one" />
 
 
 
@@ -85,7 +87,11 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="https://ashish.one/">ashish.one</a>
+        <a href="https://ashish.one/">
+        
+          ashish.one
+        
+        </a>
       </span>
       
       
@@ -146,6 +152,7 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
 	
 	
 	
+	
 	<a href="https://github.com/ashishtiwari1993" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
 	
 	
@@ -164,21 +171,22 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
 	
 	
 	
+	
+	
+	
+	
 </section>
 
       </div>
     </div>
     
 <div class="copyright">
-  &copy; 2019 - 2021 ashish
+  &copy; 2019 - 2022 ashish
   
 </div>
 
 
 
-	<div class="social">
-		<a href="https://www.buymeacoffee.com/ashishtiwari" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;margin-left: auto;margin-right: auto;" ></a>
-	</div>
   </div>
 </div>
 
@@ -243,29 +251,29 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
 <p>My setup (wordpress droplet) was suddenly stop working. I started debugging.</p>
 <h2 id="debug">Debug</h2>
 <p>Checked <code>apache2</code> and <code>mysql</code> service:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">service mysql status
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">service mysql status
 
 service apache2 status
 </code></pre></div><p>Both services was active. Then I checked the <code>apache2</code> processes with below command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ps -ef | grep apache2 | wc -l
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ps -ef | grep apache2 | wc -l
 <span style="color:#ae81ff">151</span>
 </code></pre></div><p>Lots of apache child process has been forked. Which was not good.</p>
 <p>checked apache&rsquo;s error log (<code>tail /var/log/apache2/error.log</code>), But not found anything.</p>
 <p>I took decision to setup new wordpress of same version. I was little sure that some plugin was causing this problem But i don&rsquo;t have so much time to go through all plugins.</p>
 <h2 id="droplet-configuration">Droplet configuration</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">OS : Ubuntu 18.04.3 LTS
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">OS : Ubuntu 18.04.3 LTS
 Memory : 1GB
 Disk : 25GB
 Cost : $5/Monthly
 </code></pre></div><h2 id="process-to-install-wordpress">Process to install WordPress</h2>
 <h3 id="step-1-source-directory-backup">Step 1: Source directory backup</h3>
 <p>Take backup with <code>cp</code> command.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd
 $ mkdir ~/backup_wp
 $ cp -R /var/www/html ~/backup_wp/
 </code></pre></div><p>Digitalocean installs the wordpress in <code>/var/www/html/</code> path.</p>
 <h3 id="step-2-database-backup">Step 2: Database backup</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mysqldump -uroot -p wordpress &gt; ~/backup_wp/wp.sql
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mysqldump -uroot -p wordpress &gt; ~/backup_wp/wp.sql
 </code></pre></div><p>Here <code>wordpress</code> is the Database name.</p>
 <p>If you don&rsquo;t remember the password for MySQL, Get it from <code>wp-config.php</code>:</p>
 <p><code>vim /var/www/html/wp-config.php</code></p>
@@ -278,14 +286,14 @@ $ cp -R /var/www/html ~/backup_wp/
 <p>Version can be different.</p>
 <h3 id="step-4-download-wordpress-zip-file">Step 4: Download WordPress zip file</h3>
 <p>Go to <a href="https://wordpress.org/download/releases/">Wordpress Releases page</a>. Check for your version and download with below command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">wget https://wordpress.org/wordpress-5.2.4.zip
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">wget https://wordpress.org/wordpress-5.2.4.zip
 </code></pre></div><p>Unzip it:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">unzip wordpress-5.2.4.zip
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">unzip wordpress-5.2.4.zip
 </code></pre></div><p>It will extract all files in <code>wordpress</code> folder.</p>
 <p>If <code>unzip</code> is not already installed, Please install it with below command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">apt install unzip
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">apt install unzip
 </code></pre></div><h3 id="step-5-replace-source-of-html-with-wordpress">Step 5: Replace source of <code>/html</code> with <code>/wordpress</code></h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rm -rf /var/www/html
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rm -rf /var/www/html
 mv wordpress /var/www/html
 </code></pre></div><h3 id="step-6-change-configuration">Step 6: Change configuration</h3>
 <ol>
@@ -312,18 +320,18 @@ mv wordpress /var/www/html
 </ol>
 <p>Now you can log in into your admin panel.</p>
 <h3 id="step-7-copy-important-files-from-backup">Step 7: Copy important files from backup</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp -R ~/backup_wp/html/wp-content/plugins/ /var/www/html/wp-content/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp -R ~/backup_wp/html/wp-content/plugins/ /var/www/html/wp-content/
 cp -R ~/backup_wp/html/wp-content/themes/ /var/www/html/wp-content/
 cp -R ~/backup_wp/html/wp-content/uploads/ /var/www/html/wp-content/
 </code></pre></div><p>This will copy all existing plugins, themes &amp; all media files. But be careful while copying it, Becuase if it is the cause of your bug it can bring your site down again.</p>
 <p><strong>Important Configuration</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp ~/backup_wp/html/.htaccess /var/www/html/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp ~/backup_wp/html/.htaccess /var/www/html/
 </code></pre></div><p>Otherwise, your URL routing won&rsquo;t work.</p>
 <h3 id="step-8-wordpress-asking-for-ftp-details">Step 8: WordPress asking for FTP details</h3>
 <p>If WordPress asking for FTP details on the each option like Adding themes, Installing plugins etc. Then add below line in your <code>wp-config.php</code> file.</p>
 <p><code>vim /var/www/html/wp-config.php</code></p>
 <p>Add</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">define<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;FS_METHOD&#39;</span>,<span style="color:#e6db74">&#39;direct&#39;</span><span style="color:#f92672">)</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">define<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;FS_METHOD&#39;</span>,<span style="color:#e6db74">&#39;direct&#39;</span><span style="color:#f92672">)</span>;
 </code></pre></div><h2 id="test-complete-website">Test complete website</h2>
 <p>If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.</p>
 
@@ -381,7 +389,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     

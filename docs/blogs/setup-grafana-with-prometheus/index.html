@@ -6,12 +6,14 @@
 
     <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
+    
+    <link rel="canonical" href="https://ashish.one/blogs/setup-grafana-with-prometheus/">
+    
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.91.2" />
 
     
     
@@ -34,8 +36,8 @@ What is Grafana? As grafana.com says
  This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ashish.one/blogs/setup-grafana-with-prometheus/" /><meta property="article:section" content="blogs" />
-<meta property="article:published_time" content="2020-04-03T21:32:48&#43;05:30" />
-<meta property="article:modified_time" content="2020-09-02T01:51:55&#43;05:30" /><meta property="og:site_name" content="ashish.one" />
+<meta property="article:published_time" content="2020-04-03T21:32:48+05:30" />
+<meta property="article:modified_time" content="2020-09-02T01:51:55+05:30" /><meta property="og:site_name" content="ashish.one" />
 
 
 
@@ -83,7 +85,11 @@ What is Grafana? As grafana.com says
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="https://ashish.one/">ashish.one</a>
+        <a href="https://ashish.one/">
+        
+          ashish.one
+        
+        </a>
       </span>
       
       
@@ -144,6 +150,7 @@ What is Grafana? As grafana.com says
 	
 	
 	
+	
 	<a href="https://github.com/ashishtiwari1993" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
 	
 	
@@ -162,21 +169,22 @@ What is Grafana? As grafana.com says
 	
 	
 	
+	
+	
+	
+	
 </section>
 
       </div>
     </div>
     
 <div class="copyright">
-  &copy; 2019 - 2021 ashish
+  &copy; 2019 - 2022 ashish
   
 </div>
 
 
 
-	<div class="social">
-		<a href="https://www.buymeacoffee.com/ashishtiwari" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;margin-left: auto;margin-right: auto;" ></a>
-	</div>
   </div>
 </div>
 
@@ -273,22 +281,22 @@ What is Grafana? As grafana.com says
 </ol>
 <p>We are going to install OSS Release.</p>
 <h4 id="step-1-install-apt-transport-https">Step 1: Install <code>apt-transport-https</code></h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get install -y apt-transport-https
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get install -y apt-transport-https
 </code></pre></div><p><img src="https://ashish.one/img/grafana-setup/apt-transport-https.png" alt="apt-transport-https"></p>
 <h4 id="step-2-install-wget">Step 2: Install <code>wget</code></h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get install -y software-properties-common wget
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get install -y software-properties-common wget
 </code></pre></div><p><img src="https://ashish.one/img/grafana-setup/install-wget.png" alt="install-wget"></p>
 <h4 id="step-3-add-key">Step 3: Add key</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 </code></pre></div><h4 id="step-4-add-apt-repository">Step 4: Add <code>apt</code> Repository</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo add-apt-repository <span style="color:#e6db74">&#34;deb https://packages.grafana.com/oss/deb stable main&#34;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">OK
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo add-apt-repository <span style="color:#e6db74">&#34;deb https://packages.grafana.com/oss/deb stable main&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">OK
 </code></pre></div><h4 id="step-5-update--install">Step 5: Update &amp; Install</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt-get update
 $ sudo apt-get install grafana
 </code></pre></div><p><img src="https://ashish.one/img/grafana-setup/install-grafana.png" alt="install-grafana"></p>
 <h4 id="step-6-start-grafana-server">Step 6: Start <code>grafana-server</code></h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl daemon-reload  
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl daemon-reload  
 $ sudo systemctl start grafana-server  
 $ sudo systemctl status grafana-server  
 </code></pre></div><p><img src="https://ashish.one/img/grafana-setup/grafana-status.png" alt="grafana-status"></p>
@@ -296,7 +304,7 @@ $ sudo systemctl status grafana-server
 <p><img src="https://ashish.one/img/grafana-setup/grafana-browser.png" alt="grafana-browser"></p>
 <h3 id="install-with-docker">Install with Docker</h3>
 <p>Ignore this part if you not using docker.</p>
-<pre><code>docker run -d -p 3000:3000 grafana/grafana
+<pre tabindex="0"><code>docker run -d -p 3000:3000 grafana/grafana
 </code></pre><p>visit <code>localhost:3000</code>.</p>
 <p>We have successfully installed Grafana. Let&rsquo;s configure with Prometheus.</p>
 <h2 id="configure-with-prometheus">Configure with Prometheus</h2>
@@ -398,7 +406,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     

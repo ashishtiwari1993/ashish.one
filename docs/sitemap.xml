@@ -2,11 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ashish.one/tags/arch/</loc>
+    <lastmod>2022-01-07T19:59:47+00:00</lastmod>
+  </url><url>
+    <loc>https://ashish.one/blogs/arch-linux-installation-challenges/</loc>
+    <lastmod>2022-01-07T19:59:47+00:00</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/arch-installation/</loc>
+    <lastmod>2022-01-07T19:59:47+00:00</lastmod>
+  </url><url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2021-06-20T14:12:49+05:30</lastmod>
+    <lastmod>2022-01-07T19:59:47+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/</loc>
-    <lastmod>2021-06-20T14:12:49+05:30</lastmod>
+    <lastmod>2022-01-07T19:59:47+00:00</lastmod>
+  </url><url>
+    <loc>https://ashish.one/topics/linux/</loc>
+    <lastmod>2022-01-07T19:59:47+00:00</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/linux/</loc>
+    <lastmod>2022-01-07T19:59:47+00:00</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2022-01-07T19:59:47+00:00</lastmod>
+  </url><url>
+    <loc>https://ashish.one/topics/</loc>
+    <lastmod>2022-01-07T19:59:47+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/bugbounty/</loc>
     <lastmod>2021-06-20T14:12:49+05:30</lastmod>
@@ -21,12 +42,6 @@
     <lastmod>2021-06-20T14:12:49+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/security/</loc>
-    <lastmod>2021-06-20T14:12:49+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/</loc>
-    <lastmod>2021-06-20T14:12:49+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/topics/</loc>
     <lastmod>2021-06-20T14:12:49+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/gist/</loc>
@@ -95,9 +110,6 @@
     <loc>https://ashish.one/tags/lemp/</loc>
     <lastmod>2020-09-02T01:51:55+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/linux/</loc>
-    <lastmod>2020-09-02T01:51:55+05:30</lastmod>
-  </url><url>
     <loc>https://ashish.one/tags/mysql/</loc>
     <lastmod>2020-09-02T01:51:55+05:30</lastmod>
   </url><url>
@@ -129,9 +141,6 @@
     <lastmod>2020-09-02T01:51:55+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/lfs/</loc>
-    <lastmod>2020-09-02T01:51:55+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/topics/linux/</loc>
     <lastmod>2020-09-02T01:51:55+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/linuxfromscratch/</loc>

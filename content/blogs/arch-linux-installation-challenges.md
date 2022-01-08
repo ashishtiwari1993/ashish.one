@@ -7,7 +7,12 @@ tags: ["linux","arch","arch-installation"]
 ogtype: "article"
 slug: "arch-linux-installation-challenges"
 topics: "Linux"
+header:
+    image: "/img/arch-linux-installation/arch-linux.jpeg"
+    caption: "Arch linux login screen"
 ---
+
+![arch linux login screen](/img/arch-linux-installation/arch-linux.jpeg)
 
 # Introduction
 
@@ -201,3 +206,33 @@ Once done with proper installation you can connect to wifi using:
 ```sh
 nmtui
 ```
+
+## 8. Stuck on GRUB window while booting on arch linux
+
+![arch linux login screen](/img/arch-linux-installation/grub-window.jpeg)
+
+It seems my bootloader was not configured properly. Re Attached the live bootable device and perform steps 3 and then 2. 
+
+Reboot the system.
+
+## 9. Error: [ TIME ] Timed out waiting for device /dev/disk/by-uuid/
+
+![arch linux login screen](/img/arch-linux-installation/partition-fail.jpeg)
+
+Please perform step 3. 
+
+Check UUID of partitions
+
+```sh
+lsblk -l
+```
+
+Cross-check whether the above UUIDs and mentioned UUIDs in `/etc/fstab` should be the same.
+
+```sh
+vim /etc/fstab
+```
+Update UUID accordingly on the above file. Save and exit.
+
+Reboot the system.
+
