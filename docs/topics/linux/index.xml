@@ -6,11 +6,11 @@
     <description>Recent content in Linux on ashish.one</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Jan 2022 07:20:29 +0530</lastBuildDate><atom:link href="https://ashish.one/topics/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Jan 2022 07:20:29 +0000</lastBuildDate><atom:link href="https://ashish.one/topics/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Linux Installation Challenges</title>
       <link>https://ashish.one/blogs/arch-linux-installation-challenges/</link>
-      <pubDate>Fri, 07 Jan 2022 07:20:29 +0530</pubDate>
+      <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
       
       <guid>https://ashish.one/blogs/arch-linux-installation-challenges/</guid>
       <description>Introduction This article is not containing the detailed procedure for installation but listed some challenges which you can face while installing the arch Linux. Arch Linux is one of the Linux distributions, Which gives you full control over your application and OS. You have complete freedom to install or what to keep. Unlike the other distribution like Ubuntu, Centos, etc. It doesn&amp;rsquo;t come with pre-loaded applications or software.
