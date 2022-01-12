@@ -3,9 +3,10 @@ title: "About me"
 date: 2019-09-03T15:11:45+05:30
 ---
 
-Having 5+ Year experience in Software & Email Industry. I am **Co-Founder** at [MimePost](https://mimepost.com). 
 
-Started journey with **Software Engineer**, Where i got opportunity to working with various stacks & Still learning. 
+Having 6+ Year experience in Software & Email Industry. I am working as **Developer Advocate** at [Elastic](https://www.elastic.co/). 
+
+Started journey with Software Engineer, Where i got opportunity to working with various stacks & Still learning. 
 
 Open Source fan, Love to contirbute.
 
