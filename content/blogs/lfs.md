@@ -7,7 +7,18 @@ tags: ["linux","linuxfromscratch","lfs","LFS","linuxfromscratch.org","ubuntu"]
 ogtype: "article"
 slug: "challenges-in-linuxfromscratch"
 topics: "Linux"
+cover:
+    image: "https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&name=large" # image path/url
+    alt: "Linux from scratch login screen" # alt text
+    caption: "LFS main screen" # display caption under cover
+    relative: false # when using page bundles set this to true
+    hidden: true # only hide on current single page
+
 ---
+
+![lfs_screen](https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&name=large)
+
+{{< tweet user="SanDiegoZoo" id="1254719517491511296" >}}
 
 I have started with [www.linuxfromscratch.org](www.linuxfromscratch.org), I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward. 
 

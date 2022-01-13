@@ -140,7 +140,7 @@ This is how we successfully fix this problem.
 
 To reproduce, Comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.
 
-<script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
+{{< gist ashishtiwari1993 d494b71ac264184ba46ced1bf2114c30 >}}
 
 ## References:
 

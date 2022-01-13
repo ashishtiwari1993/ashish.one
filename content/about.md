@@ -3,6 +3,7 @@ title: "About me"
 date: 2019-09-03T15:11:45+05:30
 ---
 
+![Ashish Tiwari](https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=450)
 
 Having 6+ Year experience in Software & Email Industry. I am working as **Developer Advocate** at [Elastic](https://www.elastic.co/). 
 

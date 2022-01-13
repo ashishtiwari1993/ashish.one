@@ -106,11 +106,6 @@ paginate = 5
     weight = -100
 
   [[menu.main]]
-    name = "Topics"
-    url = "/topics/"
-    weight = -99
-
-  [[menu.main]]
     name = "Gist"
     url = "/gist/"
     weight = -97
@@ -121,6 +116,16 @@ paginate = 5
     weight = -96
 
   [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = -95
+
+  [[menu.main]]
+    name = "Topics"
+    url = "/topics/"
+    weight = -94
+
+  [[menu.main]]
     name = "Search"
     url = "/search/"
-    weight = -95
+    weight = -93

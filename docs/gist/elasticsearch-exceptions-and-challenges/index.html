@@ -6,7 +6,7 @@
 <title>Elasticsearch Exceptions & Challenges | ashish.one</title>
 <meta name=keywords content="elasticsearch,exceptions">
 <meta name=description content="Below are some challenges & exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
- ">
+ Every use case having different solutions. You can try accordingly.">
 <meta name=author content="Ashish Tiwari">
 <link rel=canonical href=https://ashish.one/gist/elasticsearch-exceptions-and-challenges/>
 <link crossorigin=anonymous href=https://ashish.one/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
@@ -24,7 +24,7 @@
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-149424518-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="Elasticsearch Exceptions & Challenges">
 <meta property="og:description" content="Below are some challenges & exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
- ">
+ Every use case having different solutions. You can try accordingly.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://ashish.one/gist/elasticsearch-exceptions-and-challenges/"><meta property="og:image" content="https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200"><meta property="article:section" content="gist">
 <meta property="article:published_time" content="2019-12-03T02:47:28+05:30">
@@ -33,9 +33,9 @@
 <meta name=twitter:image content="https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200">
 <meta name=twitter:title content="Elasticsearch Exceptions & Challenges">
 <meta name=twitter:description content="Below are some challenges & exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
- ">
+ Every use case having different solutions. You can try accordingly.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Gists","item":"https://ashish.one/gist/"},{"@type":"ListItem","position":2,"name":"Elasticsearch Exceptions \u0026 Challenges","item":"https://ashish.one/gist/elasticsearch-exceptions-and-challenges/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Elasticsearch Exceptions \u0026 Challenges","name":"Elasticsearch Exceptions \u0026 Challenges","description":"Below are some challenges \u0026amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.\n ","keywords":["elasticsearch","exceptions"],"articleBody":"Below are some challenges \u0026 exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.\n ","wordCount":"44","inLanguage":"en","datePublished":"2019-12-03T02:47:28+05:30","dateModified":"2020-04-11T22:28:16+05:30","author":{"@type":"Person","name":"Ashish Tiwari"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ashish.one/gist/elasticsearch-exceptions-and-challenges/"},"publisher":{"@type":"Organization","name":"ashish.one","logo":{"@type":"ImageObject","url":"https://ashish.one/favicon.png"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Elasticsearch Exceptions \u0026 Challenges","name":"Elasticsearch Exceptions \u0026 Challenges","description":"Below are some challenges \u0026amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.\n Every use case having different solutions. You can try accordingly.","keywords":["elasticsearch","exceptions"],"articleBody":"Below are some challenges \u0026 exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.\n Every use case having different solutions. You can try accordingly.\n","wordCount":"54","inLanguage":"en","datePublished":"2019-12-03T02:47:28+05:30","dateModified":"2020-04-11T22:28:16+05:30","author":{"@type":"Person","name":"Ashish Tiwari"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ashish.one/gist/elasticsearch-exceptions-and-challenges/"},"publisher":{"@type":"Organization","name":"ashish.one","logo":{"@type":"ImageObject","url":"https://ashish.one/favicon.png"}}}</script>
 </head>
 <body class=dark id=top>
 <script>localStorage.getItem("pref-theme")==="light"&&document.body.classList.remove('dark')</script>
@@ -55,11 +55,6 @@
 </a>
 </li>
 <li>
-<a href=https://ashish.one/topics/ title=Topics>
-<span>Topics</span>
-</a>
-</li>
-<li>
 <a href=https://ashish.one/gist/ title=Gist>
 <span>Gist</span>
 </a>
@@ -67,6 +62,16 @@
 <li>
 <a href=https://ashish.one/talks/ title=Talks>
 <span>Talks</span>
+</a>
+</li>
+<li>
+<a href=https://ashish.one/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+<li>
+<a href=https://ashish.one/topics/ title=Topics>
+<span>Topics</span>
 </a>
 </li>
 <li>
@@ -88,7 +93,8 @@ Elasticsearch Exceptions & Challenges
 </div>
 </header>
 <div class=post-content><p>Below are some challenges & exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.</p>
-<script type=application/javascript src=https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js></script>
+<p><script type=application/javascript src=https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js></script>
+Every use case having different solutions. You can try accordingly.</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
