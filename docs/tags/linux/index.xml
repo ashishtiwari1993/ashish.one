@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>linux on ashish.one</title>
     <link>https://ashish.one/tags/linux/</link>
     <description>Recent content in linux on ashish.one</description>
+    <image>
+      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
+      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 07 Jan 2022 07:20:29 +0000</lastBuildDate><atom:link href="https://ashish.one/tags/linux/index.xml" rel="self" type="application/rss+xml" />
@@ -13,8 +17,7 @@
       <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
       
       <guid>https://ashish.one/blogs/arch-linux-installation-challenges/</guid>
-      <description>Introduction This article is not containing the detailed procedure for installation but listed some challenges which you can face while installing the arch Linux. Arch Linux is one of the Linux distributions, Which gives you full control over your application and OS. You have complete freedom to install or what to keep. Unlike the other distribution like Ubuntu, Centos, etc. It doesn&amp;rsquo;t come with pre-loaded applications or software.
-Though Arch wiki has a detailed explanation of the installation process I faced some challenges whose solution was not easily available.</description>
+      <description>Arch linux installation challenges</description>
     </item>
     
     <item>

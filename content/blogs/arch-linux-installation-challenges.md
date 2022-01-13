@@ -7,9 +7,24 @@ tags: ["linux","arch","arch-installation"]
 ogtype: "article"
 slug: "arch-linux-installation-challenges"
 topics: "Linux"
-header:
-    image: "/img/arch-linux-installation/arch-linux.jpeg"
-    caption: "Arch linux login screen"
+showToc: true
+TocOpen: true
+draft: false
+hidemeta: false
+description: "Arch linux installation challenges"
+disableHLJS: false # to disable highlightjs
+disableShare: false
+hideSummary: true
+searchHidden: false
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+cover:
+    image: "/img/arch-linux-installation/arch-linux.jpeg" # image path/url
+    alt: "arch linux main screen" # alt text
+    caption: "Arch linux login screen" # display caption under cover
+    relative: false # when using page bundles set this to true
+    hidden: true # only hide on current single page
 ---
 
 ![arch linux login screen](/img/arch-linux-installation/arch-linux.jpeg)

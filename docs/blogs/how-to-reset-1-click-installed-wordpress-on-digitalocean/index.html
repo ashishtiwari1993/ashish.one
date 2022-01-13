@@ -1,428 +1,270 @@
-<!DOCTYPE html>
-<html lang="en-us">
-    
-    
-
-
-    <head>
-    <link href="https://gmpg.org/xfn/11" rel="profile">
-    
-    <link rel="canonical" href="https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/">
-    
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- Enable responsiveness on mobile devices -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.91.2" />
-
-    
-    
-    
-
-<title>How to reset 1-Click Installed WordPress on DigitalOcean? • ashish.one</title>
-
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to reset 1-Click Installed WordPress on DigitalOcean?"/>
-<meta name="twitter:description" content="The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>How to reset 1-Click Installed WordPress on DigitalOcean? | ashish.one</title>
+<meta name=keywords content="Digitalocean,WordPress,1-Click,Installation">
+<meta name=description content="The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
 The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
 Debug Checked apache2 and mysql service:
 service mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:
-$ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked."/>
-
-<meta property="og:title" content="How to reset 1-Click Installed WordPress on DigitalOcean?" />
+$ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.">
+<meta name=author content="Ashish Tiwari">
+<link rel=canonical href=https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/>
+<link crossorigin=anonymous href=https://ashish.one/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
+<script defer crossorigin=anonymous src=https://ashish.one/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://ashish.one/favicon.png>
+<link rel=icon type=image/png sizes=16x16 href=https://ashish.one/favicon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://ashish.one/favicon.png>
+<link rel=apple-touch-icon href=https://ashish.one/favicon.png>
+<link rel=mask-icon href=https://ashish.one/favicon.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.2">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+</noscript>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-149424518-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="How to reset 1-Click Installed WordPress on DigitalOcean?">
 <meta property="og:description" content="The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
 The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
 Debug Checked apache2 and mysql service:
 service mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:
-$ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/" /><meta property="article:section" content="blogs" />
-<meta property="article:published_time" content="2019-12-03T00:49:07+05:30" />
-<meta property="article:modified_time" content="2020-09-02T01:51:55+05:30" /><meta property="og:site_name" content="ashish.one" />
-
-
-
-    
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://ashish.one/scss/hyde-hyde.4a2700e99df4fd999848994a7ceaf465d846f20a6f60022584754dffe91a943e.css" integrity="sha256-SicA6Z30/ZmYSJlKfOr0ZdhG8gpvYAIlhHVN/&#43;kalD4=">
-
-
-<link rel="stylesheet" href="https://ashish.one/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
-
-
-
-
-<link rel="stylesheet" href="https://ashish.one/scss/tocbot.5ef07cebc3c477b54270456f149ee02922479bb7555fd344b2c69f953b0e7e5e.css" integrity="sha256-XvB868PEd7VCcEVvFJ7gKSJHm7dVX9NEssaflTsOfl4=">
-
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ashish.one/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="https://ashish.one/favicon.png">
-    
-    
-
+$ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/"><meta property="og:image" content="https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200"><meta property="article:section" content="blogs">
+<meta property="article:published_time" content="2019-12-03T00:49:07+05:30">
+<meta property="article:modified_time" content="2020-09-02T01:51:55+05:30"><meta property="og:site_name" content="ashish.one">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200">
+<meta name=twitter:title content="How to reset 1-Click Installed WordPress on DigitalOcean?">
+<meta name=twitter:description content="The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
+The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
+Debug Checked apache2 and mysql service:
+service mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:
+$ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Blogs","item":"https://ashish.one/blogs/"},{"@type":"ListItem","position":2,"name":"How to reset 1-Click Installed WordPress on DigitalOcean?","item":"https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to reset 1-Click Installed WordPress on DigitalOcean?","name":"How to reset 1-Click Installed WordPress on DigitalOcean?","description":"The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.\nThe Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.\nDebug Checked apache2 and mysql service:\nservice mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:\n$ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.","keywords":["Digitalocean","WordPress","1-Click","Installation"],"articleBody":"The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.\nThe Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.\nDebug Checked apache2 and mysql service:\nservice mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:\n$ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked. Which was not good.\nchecked apache’s error log (tail /var/log/apache2/error.log), But not found anything.\nI took decision to setup new wordpress of same version. I was little sure that some plugin was causing this problem But i don’t have so much time to go through all plugins.\nDroplet configuration OS : Ubuntu 18.04.3 LTS Memory : 1GB Disk : 25GB Cost : $5/Monthly Process to install WordPress Step 1: Source directory backup Take backup with cp command.\n$ cd $ mkdir ~/backup_wp $ cp -R /var/www/html ~/backup_wp/ Digitalocean installs the wordpress in /var/www/html/ path.\nStep 2: Database backup $ mysqldump -uroot -p wordpress  ~/backup_wp/wp.sql Here wordpress is the Database name.\nIf you don’t remember the password for MySQL, Get it from wp-config.php:\nvim /var/www/html/wp-config.php\nCheck for the line\ndefine( 'DB_PASSWORD', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' );\nStep 3: Check version of the existing WordPress vim /var/www/html/wp-includes/version.php\nLook for the line\n$wp_version = '5.2.4';\nVersion can be different.\nStep 4: Download WordPress zip file Go to Wordpress Releases page. Check for your version and download with below command:\nwget https://wordpress.org/wordpress-5.2.4.zip Unzip it:\nunzip wordpress-5.2.4.zip It will extract all files in wordpress folder.\nIf unzip is not already installed, Please install it with below command:\napt install unzip Step 5: Replace source of /html with /wordpress rm -rf /var/www/html mv wordpress /var/www/html Step 6: Change configuration   Go to your website URL, It will show you below page:\nJust click on the Let's go! Button.\n  Put you DB conf as shown in below image\nClick on the Submit Button.\n  Create wp-config.php file\nCreate manually (vim /var/www/html/wp-config.php) if it is not created automatically and click on the Run the installation Button.\n  You will see Already Installed page\nJust click on the Log In button. It will redirect you on the admin panel login page.\n  Now you can log in into your admin panel.\nStep 7: Copy important files from backup cp -R ~/backup_wp/html/wp-content/plugins/ /var/www/html/wp-content/ cp -R ~/backup_wp/html/wp-content/themes/ /var/www/html/wp-content/ cp -R ~/backup_wp/html/wp-content/uploads/ /var/www/html/wp-content/ This will copy all existing plugins, themes \u0026 all media files. But be careful while copying it, Becuase if it is the cause of your bug it can bring your site down again.\nImportant Configuration\ncp ~/backup_wp/html/.htaccess /var/www/html/ Otherwise, your URL routing won’t work.\nStep 8: WordPress asking for FTP details If WordPress asking for FTP details on the each option like Adding themes, Installing plugins etc. Then add below line in your wp-config.php file.\nvim /var/www/html/wp-config.php\nAdd\ndefine('FS_METHOD','direct'); Test complete website If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.\n","wordCount":"525","inLanguage":"en","datePublished":"2019-12-03T00:49:07+05:30","dateModified":"2020-09-02T01:51:55+05:30","author":{"@type":"Person","name":"Ashish Tiwari"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/"},"publisher":{"@type":"Organization","name":"ashish.one","logo":{"@type":"ImageObject","url":"https://ashish.one/favicon.png"}}}</script>
 </head>
-
-
-    <body class=" ">
-    
-<div class="sidebar">
-  <div class="container ">
-    <div class="sidebar-about">
-      <span class="site__title">
-        <a href="https://ashish.one/">
-        
-          ashish.one
-        
-        </a>
-      </span>
-      
-      
-        <div class="author-image">
-          <img src="https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=240&d=mp" class="img--circle img--headshot element--center" alt="gravatar">
-        </div>
-      
-      <p class="site__description">
-        
-      </p>
-    </div>
-    <div class="collapsible-menu">
-      <input type="checkbox" id="menuToggle">
-      <label for="menuToggle">ashish.one</label>
-      <div class="menu-content">
-        <div>
-	<ul class="sidebar-nav">
-		 
-		 
-			 
-				<li>
-					<a href="https://ashish.one/about/">
-						<span>About Me</span>
-					</a>
-				</li>
-			 
-		 
-			 
-				<li>
-					<a href="https://ashish.one/topics/">
-						<span>Topics</span>
-					</a>
-				</li>
-			 
-		 
-			 
-				<li>
-					<a href="https://ashish.one/gist/">
-						<span>Gist</span>
-					</a>
-				</li>
-			 
-		 
-			 
-				<li>
-					<a href="https://ashish.one/talks/">
-						<span>Talks</span>
-					</a>
-				</li>
-			 
-		
-	</ul>
+<body class=dark id=top>
+<script>localStorage.getItem("pref-theme")==="light"&&document.body.classList.remove('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://ashish.one/ accesskey=h title="Ashish Tiwari (Alt + H)">Ashish Tiwari</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
 </div>
-
-        <section class="social">
-	
-	<a href="https://twitter.com/_ashish_tiwari" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
-	
-	
-	
-	
-	<a href="https://github.com/ashishtiwari1993" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
-	
-	
-	
-	
-	
-	
-	
-	<a href="https://linkedin.com/in/ashish-tiwari-a40a012b" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-</section>
-
-      </div>
-    </div>
-    
-<div class="copyright">
-  &copy; 2019 - 2022 ashish
-  
+<ul id=menu>
+<li>
+<a href=https://ashish.one/about/ title="About me">
+<span>About me</span>
+</a>
+</li>
+<li>
+<a href=https://ashish.one/topics/ title=Topics>
+<span>Topics</span>
+</a>
+</li>
+<li>
+<a href=https://ashish.one/gist/ title=Gist>
+<span>Gist</span>
+</a>
+</li>
+<li>
+<a href=https://ashish.one/talks/ title=Talks>
+<span>Talks</span>
+</a>
+</li>
+<li>
+<a href=https://ashish.one/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://ashish.one/>Home</a>&nbsp;»&nbsp;<a href=https://ashish.one/blogs/>Blogs</a></div>
+<h1 class=post-title>
+How to reset 1-Click Installed WordPress on DigitalOcean?
+</h1>
+<div class=post-meta><span title="2019-12-03 00:49:07 +0530 +0530">December 3, 2019</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Ashish Tiwari
 </div>
-
-
-
-  </div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#the-requirement aria-label="The Requirement">The Requirement</a></li>
+<li>
+<a href=#the-problem aria-label="The Problem">The Problem</a></li>
+<li>
+<a href=#debug aria-label=Debug>Debug</a></li>
+<li>
+<a href=#droplet-configuration aria-label="Droplet configuration">Droplet configuration</a></li>
+<li>
+<a href=#process-to-install-wordpress aria-label="Process to install WordPress">Process to install WordPress</a><ul>
+<li>
+<a href=#step-1-source-directory-backup aria-label="Step 1: Source directory backup">Step 1: Source directory backup</a></li>
+<li>
+<a href=#step-2-database-backup aria-label="Step 2: Database backup">Step 2: Database backup</a></li>
+<li>
+<a href=#step-3-check-version-of-the-existing-wordpress aria-label="Step 3: Check version of the existing WordPress">Step 3: Check version of the existing WordPress</a></li>
+<li>
+<a href=#step-4-download-wordpress-zip-file aria-label="Step 4: Download WordPress zip file">Step 4: Download WordPress zip file</a></li>
+<li>
+<a href=#step-5-replace-source-of-html-with-wordpress aria-label="Step 5: Replace source of /html with /wordpress">Step 5: Replace source of <code>/html</code> with <code>/wordpress</code></a></li>
+<li>
+<a href=#step-6-change-configuration aria-label="Step 6: Change configuration">Step 6: Change configuration</a></li>
+<li>
+<a href=#step-7-copy-important-files-from-backup aria-label="Step 7: Copy important files from backup">Step 7: Copy important files from backup</a></li>
+<li>
+<a href=#step-8-wordpress-asking-for-ftp-details aria-label="Step 8: WordPress asking for FTP details">Step 8: WordPress asking for FTP details</a></li></ul>
+</li>
+<li>
+<a href=#test-complete-website aria-label="Test complete website">Test complete website</a>
+</li>
+</ul>
 </div>
-
-        <div class="content container">
-            
-    
-<article>
-  <header>
-    <h1>How to reset 1-Click Installed WordPress on DigitalOcean?</h1>
-    
-    
-<div class="post__meta">
-    
-    
-      <i class="fas fa-calendar-alt"></i> Dec 03, 2019
-    
-    
-    
-    
-    
-      
-      
-          <br/>
-           <i class="fas fa-tags"></i>
-          
-          <a class="badge badge-tag" href="https://ashish.one/tags/digitalocean">digitalocean</a>
-           
-      
-          <a class="badge badge-tag" href="https://ashish.one/tags/wordpress">wordpress</a>
-           
-      
-          <a class="badge badge-tag" href="https://ashish.one/tags/1-click">1-click</a>
-           
-      
-          <a class="badge badge-tag" href="https://ashish.one/tags/installation">installation</a>
-          
-      
-    
-    
-    <br/>
-    <i class="fas fa-clock"></i> 3 min read
+</details>
 </div>
-
-
-  </header>
-  
-  
-  
-    <div class="toc-wrapper">
-      <input type="checkbox" id="tocToggle">
-      <label for="tocToggle">Table of Content</label>
-      
-        <div class="toc" id="TableOfContents"></div>
-      
-    </div>
-  
-  
-  <div class="post">
-    <h2 id="the-requirement">The Requirement</h2>
+<div class=post-content><h2 id=the-requirement>The Requirement<a hidden class=anchor aria-hidden=true href=#the-requirement>#</a></h2>
 <p>Need to install fresh wordpress with same version on wordpress droplet of digitalocean.</p>
-<h2 id="the-problem">The Problem</h2>
+<h2 id=the-problem>The Problem<a hidden class=anchor aria-hidden=true href=#the-problem>#</a></h2>
 <p>My setup (wordpress droplet) was suddenly stop working. I started debugging.</p>
-<h2 id="debug">Debug</h2>
+<h2 id=debug>Debug<a hidden class=anchor aria-hidden=true href=#debug>#</a></h2>
 <p>Checked <code>apache2</code> and <code>mysql</code> service:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">service mysql status
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>service mysql status
 
 service apache2 status
 </code></pre></div><p>Both services was active. Then I checked the <code>apache2</code> processes with below command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ps -ef | grep apache2 | wc -l
-<span style="color:#ae81ff">151</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ ps -ef | grep apache2 | wc -l
+<span style=color:#ae81ff>151</span>
 </code></pre></div><p>Lots of apache child process has been forked. Which was not good.</p>
 <p>checked apache&rsquo;s error log (<code>tail /var/log/apache2/error.log</code>), But not found anything.</p>
 <p>I took decision to setup new wordpress of same version. I was little sure that some plugin was causing this problem But i don&rsquo;t have so much time to go through all plugins.</p>
-<h2 id="droplet-configuration">Droplet configuration</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">OS : Ubuntu 18.04.3 LTS
+<h2 id=droplet-configuration>Droplet configuration<a hidden class=anchor aria-hidden=true href=#droplet-configuration>#</a></h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>OS : Ubuntu 18.04.3 LTS
 Memory : 1GB
 Disk : 25GB
 Cost : $5/Monthly
-</code></pre></div><h2 id="process-to-install-wordpress">Process to install WordPress</h2>
-<h3 id="step-1-source-directory-backup">Step 1: Source directory backup</h3>
+</code></pre></div><h2 id=process-to-install-wordpress>Process to install WordPress<a hidden class=anchor aria-hidden=true href=#process-to-install-wordpress>#</a></h2>
+<h3 id=step-1-source-directory-backup>Step 1: Source directory backup<a hidden class=anchor aria-hidden=true href=#step-1-source-directory-backup>#</a></h3>
 <p>Take backup with <code>cp</code> command.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ cd
 $ mkdir ~/backup_wp
 $ cp -R /var/www/html ~/backup_wp/
 </code></pre></div><p>Digitalocean installs the wordpress in <code>/var/www/html/</code> path.</p>
-<h3 id="step-2-database-backup">Step 2: Database backup</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mysqldump -uroot -p wordpress &gt; ~/backup_wp/wp.sql
+<h3 id=step-2-database-backup>Step 2: Database backup<a hidden class=anchor aria-hidden=true href=#step-2-database-backup>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ mysqldump -uroot -p wordpress &gt; ~/backup_wp/wp.sql
 </code></pre></div><p>Here <code>wordpress</code> is the Database name.</p>
 <p>If you don&rsquo;t remember the password for MySQL, Get it from <code>wp-config.php</code>:</p>
 <p><code>vim /var/www/html/wp-config.php</code></p>
 <p>Check for the line<br>
 <code>define( 'DB_PASSWORD', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' );</code></p>
-<h3 id="step-3-check-version-of-the-existing-wordpress">Step 3: Check version of the existing WordPress</h3>
+<h3 id=step-3-check-version-of-the-existing-wordpress>Step 3: Check version of the existing WordPress<a hidden class=anchor aria-hidden=true href=#step-3-check-version-of-the-existing-wordpress>#</a></h3>
 <p><code>vim /var/www/html/wp-includes/version.php</code></p>
 <p>Look for the line<br>
 <code>$wp_version = '5.2.4';</code></p>
 <p>Version can be different.</p>
-<h3 id="step-4-download-wordpress-zip-file">Step 4: Download WordPress zip file</h3>
-<p>Go to <a href="https://wordpress.org/download/releases/">Wordpress Releases page</a>. Check for your version and download with below command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">wget https://wordpress.org/wordpress-5.2.4.zip
+<h3 id=step-4-download-wordpress-zip-file>Step 4: Download WordPress zip file<a hidden class=anchor aria-hidden=true href=#step-4-download-wordpress-zip-file>#</a></h3>
+<p>Go to <a href=https://wordpress.org/download/releases/>Wordpress Releases page</a>. Check for your version and download with below command:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>wget https://wordpress.org/wordpress-5.2.4.zip
 </code></pre></div><p>Unzip it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">unzip wordpress-5.2.4.zip
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>unzip wordpress-5.2.4.zip
 </code></pre></div><p>It will extract all files in <code>wordpress</code> folder.</p>
 <p>If <code>unzip</code> is not already installed, Please install it with below command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">apt install unzip
-</code></pre></div><h3 id="step-5-replace-source-of-html-with-wordpress">Step 5: Replace source of <code>/html</code> with <code>/wordpress</code></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rm -rf /var/www/html
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>apt install unzip
+</code></pre></div><h3 id=step-5-replace-source-of-html-with-wordpress>Step 5: Replace source of <code>/html</code> with <code>/wordpress</code><a hidden class=anchor aria-hidden=true href=#step-5-replace-source-of-html-with-wordpress>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>rm -rf /var/www/html
 mv wordpress /var/www/html
-</code></pre></div><h3 id="step-6-change-configuration">Step 6: Change configuration</h3>
+</code></pre></div><h3 id=step-6-change-configuration>Step 6: Change configuration<a hidden class=anchor aria-hidden=true href=#step-6-change-configuration>#</a></h3>
 <ol>
 <li>
 <p>Go to your website URL, It will show you below page:</p>
-<p><img src="https://ashish.one/img/wordpress-digitalocean-reset/lets_go.png" alt="Lets_go"></p>
+<p><img loading=lazy src=https://ashish.one/img/wordpress-digitalocean-reset/lets_go.png alt=Lets_go>
+</p>
 <p>Just click on the <code>Let's go!</code> Button.</p>
 </li>
 <li>
 <p>Put you DB conf as shown in below image</p>
-<p><img src="https://ashish.one/img/wordpress-digitalocean-reset/db_conf.png" alt="db_conf"></p>
+<p><img loading=lazy src=https://ashish.one/img/wordpress-digitalocean-reset/db_conf.png alt=db_conf>
+</p>
 <p>Click on the <code>Submit</code> Button.</p>
 </li>
 <li>
 <p>Create <code>wp-config.php</code> file</p>
-<p><img src="https://ashish.one/img/wordpress-digitalocean-reset/wp-config.png" alt="wp-config"></p>
+<p><img loading=lazy src=https://ashish.one/img/wordpress-digitalocean-reset/wp-config.png alt=wp-config>
+</p>
 <p>Create manually (<code>vim /var/www/html/wp-config.php</code>) if it is not created automatically and click on the <code>Run the installation</code> Button.</p>
 </li>
 <li>
 <p>You will see <code>Already Installed</code> page</p>
-<p><img src="https://ashish.one/img/wordpress-digitalocean-reset/already_installed.png" alt="already_installed"></p>
+<p><img loading=lazy src=https://ashish.one/img/wordpress-digitalocean-reset/already_installed.png alt=already_installed>
+</p>
 <p>Just click on the <code>Log In</code> button. It will redirect you on the admin panel login page.</p>
 </li>
 </ol>
 <p>Now you can log in into your admin panel.</p>
-<h3 id="step-7-copy-important-files-from-backup">Step 7: Copy important files from backup</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp -R ~/backup_wp/html/wp-content/plugins/ /var/www/html/wp-content/
+<h3 id=step-7-copy-important-files-from-backup>Step 7: Copy important files from backup<a hidden class=anchor aria-hidden=true href=#step-7-copy-important-files-from-backup>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cp -R ~/backup_wp/html/wp-content/plugins/ /var/www/html/wp-content/
 cp -R ~/backup_wp/html/wp-content/themes/ /var/www/html/wp-content/
 cp -R ~/backup_wp/html/wp-content/uploads/ /var/www/html/wp-content/
-</code></pre></div><p>This will copy all existing plugins, themes &amp; all media files. But be careful while copying it, Becuase if it is the cause of your bug it can bring your site down again.</p>
+</code></pre></div><p>This will copy all existing plugins, themes & all media files. But be careful while copying it, Becuase if it is the cause of your bug it can bring your site down again.</p>
 <p><strong>Important Configuration</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp ~/backup_wp/html/.htaccess /var/www/html/
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cp ~/backup_wp/html/.htaccess /var/www/html/
 </code></pre></div><p>Otherwise, your URL routing won&rsquo;t work.</p>
-<h3 id="step-8-wordpress-asking-for-ftp-details">Step 8: WordPress asking for FTP details</h3>
+<h3 id=step-8-wordpress-asking-for-ftp-details>Step 8: WordPress asking for FTP details<a hidden class=anchor aria-hidden=true href=#step-8-wordpress-asking-for-ftp-details>#</a></h3>
 <p>If WordPress asking for FTP details on the each option like Adding themes, Installing plugins etc. Then add below line in your <code>wp-config.php</code> file.</p>
 <p><code>vim /var/www/html/wp-config.php</code></p>
 <p>Add</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">define<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;FS_METHOD&#39;</span>,<span style="color:#e6db74">&#39;direct&#39;</span><span style="color:#f92672">)</span>;
-</code></pre></div><h2 id="test-complete-website">Test complete website</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>define<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;FS_METHOD&#39;</span>,<span style=color:#e6db74>&#39;direct&#39;</span><span style=color:#f92672>)</span>;
+</code></pre></div><h2 id=test-complete-website>Test complete website<a hidden class=anchor aria-hidden=true href=#test-complete-website>#</a></h2>
 <p>If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.</p>
-
-  </div>
-  
-
-<div class="navigation navigation-single">
-    
-    <a href="https://ashish.one/blogs/write-custom-exporters-prometheus/" class="navigation-prev">
-      <i aria-hidden="true" class="fa fa-chevron-left"></i>
-      <span class="navigation-tittle">[Part 3] How to write custom prometheus exporter?</span>
-    </a>
-    
-    
-    <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/" class="navigation-next">
-      <span class="navigation-tittle">[SOLVED] Golang fatal error: concurrent map writes</span>
-      <i aria-hidden="true" class="fa fa-chevron-right"></i>
-    </a>
-    
 </div>
-
-
-  
-
-  
-    
-        <script src="https://utteranc.es/client.js"
-        repo="ashishtiwari1993/ashish.one"
-        issue-term="title"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-    
-
-
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://ashish.one/tags/digitalocean/>Digitalocean</a></li>
+<li><a href=https://ashish.one/tags/wordpress/>WordPress</a></li>
+<li><a href=https://ashish.one/tags/1-click/>1-Click</a></li>
+<li><a href=https://ashish.one/tags/installation/>Installation</a></li>
+</ul>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share How to reset 1-Click Installed WordPress on DigitalOcean? on twitter" href="https://twitter.com/intent/tweet/?text=How%20to%20reset%201-Click%20Installed%20WordPress%20on%20DigitalOcean%3f&url=https%3a%2f%2fashish.one%2fblogs%2fhow-to-reset-1-click-installed-wordpress-on-digitalocean%2f&hashtags=Digitalocean%2cWordPress%2c1-Click%2cInstallation"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share How to reset 1-Click Installed WordPress on DigitalOcean? on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fashish.one%2fblogs%2fhow-to-reset-1-click-installed-wordpress-on-digitalocean%2f&title=How%20to%20reset%201-Click%20Installed%20WordPress%20on%20DigitalOcean%3f&summary=How%20to%20reset%201-Click%20Installed%20WordPress%20on%20DigitalOcean%3f&source=https%3a%2f%2fashish.one%2fblogs%2fhow-to-reset-1-click-installed-wordpress-on-digitalocean%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share How to reset 1-Click Installed WordPress on DigitalOcean? on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fashish.one%2fblogs%2fhow-to-reset-1-click-installed-wordpress-on-digitalocean%2f&title=How%20to%20reset%201-Click%20Installed%20WordPress%20on%20DigitalOcean%3f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share How to reset 1-Click Installed WordPress on DigitalOcean? on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fashish.one%2fblogs%2fhow-to-reset-1-click-installed-wordpress-on-digitalocean%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share How to reset 1-Click Installed WordPress on DigitalOcean? on whatsapp" href="https://api.whatsapp.com/send?text=How%20to%20reset%201-Click%20Installed%20WordPress%20on%20DigitalOcean%3f%20-%20https%3a%2f%2fashish.one%2fblogs%2fhow-to-reset-1-click-installed-wordpress-on-digitalocean%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share How to reset 1-Click Installed WordPress on DigitalOcean? on telegram" href="https://telegram.me/share/url?text=How%20to%20reset%201-Click%20Installed%20WordPress%20on%20DigitalOcean%3f&url=https%3a%2f%2fashish.one%2fblogs%2fhow-to-reset-1-click-installed-wordpress-on-digitalocean%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer><script src=https://utteranc.es/client.js repo=ashishtiwari1993/ashish.one issue-term=title theme=github-dark crossorigin=anonymous async></script>
 </article>
-
-
-        </div>
-        
-    
-
-  
-  
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-149424518-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
-
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
-        
-    <script type="text/javascript">
-        
-        hljs.initHighlightingOnLoad();
-    </script>
-    
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
-<script type="text/javascript">
-  if (tocbot) {
-    tocbot.init({
-      
-      tocSelector: '.toc',
-      
-      contentSelector: '.post',
-      
-      headingSelector: 'h2, h3, h4',
-      collapseDepth: 4
-    });
-  }
-</script>
-
-
-
-    
-
-
-
-    </body>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://ashish.one/>ashish.one</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
 </html>
