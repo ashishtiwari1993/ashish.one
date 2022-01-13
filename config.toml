@@ -1,26 +1,49 @@
 baseurl = "https://ashish.one/"
 languageCode = "en-us"
 title = "ashish.one"
-theme = "hyde-hyde"
+theme = "PaperMod"
 
 publishDir = "docs"
 
 googleAnalytics = "UA-149424518-1"
+
 enableEmoji = true
 enableGitInfo = true
 enableRobotsTXT = true
 canonifyURLs = true
-paginate = 4
+paginate = 5
 
 [Taxonomies]
 	tag = "tags"
 	topics = "topics"
 
+[minify]
+	disableXML = true
+	minifyOutput = true
+
 [params]
+	env = "production"
 	mainSections = ["post"]
 	author = "Ashish Tiwari"
 	title = "ashish.one"
-	#images = ["https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200"]
+	keyword = ["Blogs", "Gists"]
+	images = ["https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200"]
+	DateFormat = "January 2, 2006"
+	defaultTheme = "dark"
+	disableThemeToggle = false
+
+	ShowReadingTime = true
+	ShowShareButtons = true
+	ShowPostNavLinks = true
+	ShowBreadCrumbs = true
+	ShowCodeCopyButtons = false
+	disableSpecial1stPost = false
+	disableScrollToTop = false
+	comments = true
+	hidemeta = false
+	hideSummary = false
+	showtoc = true
+	tocopen = true
 
 	copyright = "ashish"
 	since = "2019"
@@ -40,6 +63,40 @@ paginate = 4
 	github = "ashishtiwari1993"
 	linkedin = "ashish-tiwari-a40a012b"
 
+[params.assets]
+	favicon = "favicon.png"
+	favicon16x16 = "favicon.png"
+	favicon32x32 = "favicon.png"
+	apple_touch_icon = "favicon.png"
+	safari_pinned_tab = "favicon.png"
+
+[params.label]
+	text = "Ashish Tiwari"
+	iconHeight = 35
+
+[params.profileMode]
+	enabled = false
+	imageUrl = "https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200" 
+
+[params.homeInfoParams]
+	Title = "Bio"
+	Content = "Developer Advocate @ Elastic | Co-Founder @ MimePost | Mumbai Elastic Community Organiser | Speaker | OSS guy | Linux lover"
+
+
+[params.fuseOpts]
+	isCaseSensitive = false
+	shouldSort = true
+	location = 0
+	distance = 1000
+	threshold = 0.4
+	minMatchCharLength = 0
+	keys = ["title", "permalink", "summary", "content"]
+
+[outputs]
+	home = ["HTML", "RSS", "JSON"]
+	
+
+
 [menu]
 
   [[menu.main]]
@@ -50,18 +107,20 @@ paginate = 4
 
   [[menu.main]]
     name = "Topics"
-    post = "<span class='alert'>New!</span>"
     url = "/topics/"
     weight = -99
 
   [[menu.main]]
     name = "Gist"
-    post = "<span class='alert'>New!</span>"
     url = "/gist/"
     weight = -97
 
   [[menu.main]]
     name = "Talks"
-    post = "<span class='alert'>New!</span>"
     url = "/talks/"
     weight = -96
+
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = -95
