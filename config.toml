@@ -92,6 +92,22 @@ paginate = 5
 	minMatchCharLength = 0
 	keys = ["title", "permalink", "summary", "content"]
 
+[[params.socialIcons]]
+	name = "twitter"
+	url = "https://twitter.com/_ashish_tiwari"
+
+[[params.socialIcons]]
+	name = "github"
+	url = "https://github.com/ashishtiwari1993"
+
+[[params.socialIcons]]
+	name = "linkedin"
+	url = "https://www.linkedin.com/in/ashish-tiwari-a40a012b/"
+
+[[params.socialIcons]]
+  name = "stackoverflow"
+  url = "https://stackoverflow.com/users/6438430/ashish-tiwari"
+
 [outputs]
 	home = ["HTML", "RSS", "JSON"]
 	
