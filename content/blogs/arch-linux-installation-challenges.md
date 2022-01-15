@@ -118,7 +118,7 @@ pacman -S grub
 ### 2.2 Generate Grub config
 
 ```sh
-grub-mkconfig -o /boot/grub/grub.cfg
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 ```
 
 ### 2.3 Reboot the system
@@ -137,7 +137,7 @@ Attach the live bootable device and choose the specific device in the boot order
 
 ```sh
 mount /dev/sda3 /mnt
-mkswap /dev/sda2
+mount /dev/sda1 /mnt/boot
 swapon /dev/sda2
 
 arch-chroot /mnt
