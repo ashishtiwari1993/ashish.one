@@ -6,7 +6,7 @@ type: "post"
 ogtype: "article"
 slug: "install-python3.6-pip3.6-pipenv-on-ubuntu14.04"
 tags: ["ubuntu","ubuntu14.04","python3.6","pip3.6","python3.6 install","pipenv"]
-topics: "Miscellaneous"
+topics: "Misc"
 ---
 
 ## Prerequisite

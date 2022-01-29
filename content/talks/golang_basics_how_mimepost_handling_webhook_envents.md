@@ -5,6 +5,8 @@ draft: false
 ogtype: "article"
 tags: ["golang","talk","concurrency"]
 slug: "golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost"
+topics: "Golang"
+type: "post"
 ---
 
 ## What this talk about?

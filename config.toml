@@ -105,8 +105,8 @@ paginate = 5
 	url = "https://www.linkedin.com/in/ashishtiwari93/"
 
 [[params.socialIcons]]
-  name = "stackoverflow"
-  url = "https://stackoverflow.com/users/6438430/ashish-tiwari"
+  	name = "stackoverflow"
+  	url = "https://stackoverflow.com/users/6438430/ashish-tiwari"
 
 [outputs]
 	home = ["HTML", "RSS", "JSON"]
@@ -122,13 +122,13 @@ paginate = 5
     weight = -100
 
   [[menu.main]]
-    name = "Gist"
-    url = "/gist/"
+    name = "Elastic"
+    url = "/topics/elastic"
     weight = -97
 
   [[menu.main]]
-    name = "Talks"
-    url = "/talks/"
+    name = "Topics"
+    url = "/topics/"
     weight = -96
 
   [[menu.main]]
@@ -137,8 +137,8 @@ paginate = 5
     weight = -95
 
   [[menu.main]]
-    name = "Topics"
-    url = "/topics/"
+    name = "Talk"
+    url = "/talks/"
     weight = -94
 
   [[menu.main]]

@@ -10,7 +10,18 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Mar 2020 00:12:30 +0530</lastBuildDate><atom:link href="https://ashish.one/talks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jan 2022 19:24:45 +0000</lastBuildDate><atom:link href="https://ashish.one/talks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploy Elasicsearch on Azure cloud</title>
+      <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
+      <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
+      
+      <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
+      <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
+Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co).
+In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</description>
+    </item>
+    
     <item>
       <title>Golang basics &amp; Handling 100k hourly webhooks with golang @MimePost</title>
       <link>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>

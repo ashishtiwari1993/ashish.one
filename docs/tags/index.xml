@@ -10,7 +10,25 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Jan 2022 07:20:29 +0000</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jan 2022 19:24:45 +0000</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>azure</title>
+      <link>https://ashish.one/tags/azure/</link>
+      <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
+      
+      <guid>https://ashish.one/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://ashish.one/tags/elasticsearch/</link>
+      <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
+      
+      <guid>https://ashish.one/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>arch</title>
       <link>https://ashish.one/tags/arch/</link>
@@ -57,11 +75,11 @@
     </item>
     
     <item>
-      <title>security</title>
-      <link>https://ashish.one/tags/security/</link>
+      <title>researcher</title>
+      <link>https://ashish.one/tags/researcher/</link>
       <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
       
-      <guid>https://ashish.one/tags/security/</guid>
+      <guid>https://ashish.one/tags/researcher/</guid>
       <description></description>
     </item>
     
@@ -98,15 +116,6 @@
       <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
       
       <guid>https://ashish.one/tags/spflookup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Elasticsearch</title>
-      <link>https://ashish.one/tags/elasticsearch/</link>
-      <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/elasticsearch/</guid>
       <description></description>
     </item>
     

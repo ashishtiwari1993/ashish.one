@@ -5,6 +5,8 @@ ogtype: "gist"
 tags: ["elasticsearch","exceptions"]
 draft: false
 slug: "Elasticsearch-Exceptions-and-Challenges"
+topic: "Elastic"
+type: "post"
 ---
 
 Below are some challenges & exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.

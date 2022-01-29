@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Jan 2022 07:20:29 +0000</lastBuildDate><atom:link href="https://ashish.one/topics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jan 2022 19:24:45 +0000</lastBuildDate><atom:link href="https://ashish.one/topics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elastic</title>
+      <link>https://ashish.one/topics/elastic/</link>
+      <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
+      
+      <guid>https://ashish.one/topics/elastic/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Linux</title>
       <link>https://ashish.one/topics/linux/</link>
@@ -21,38 +30,20 @@
     </item>
     
     <item>
-      <title>Security</title>
-      <link>https://ashish.one/topics/security/</link>
+      <title>Misc</title>
+      <link>https://ashish.one/topics/misc/</link>
       <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
       
-      <guid>https://ashish.one/topics/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Elasticsearch</title>
-      <link>https://ashish.one/topics/elasticsearch/</link>
-      <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      
-      <guid>https://ashish.one/topics/elasticsearch/</guid>
+      <guid>https://ashish.one/topics/misc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
       <link>https://ashish.one/topics/golang/</link>
-      <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
+      <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
       
       <guid>https://ashish.one/topics/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://ashish.one/topics/docker/</link>
-      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      
-      <guid>https://ashish.one/topics/docker/</guid>
       <description></description>
     </item>
     
@@ -62,15 +53,6 @@
       <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
       
       <guid>https://ashish.one/topics/prometheus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Miscellaneous</title>
-      <link>https://ashish.one/topics/miscellaneous/</link>
-      <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
-      
-      <guid>https://ashish.one/topics/miscellaneous/</guid>
       <description></description>
     </item>
     

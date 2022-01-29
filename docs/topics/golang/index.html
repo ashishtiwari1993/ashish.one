@@ -48,13 +48,13 @@
 </a>
 </li>
 <li>
-<a href=https://ashish.one/gist/ title=Gist>
-<span>Gist</span>
+<a href=https://ashish.one/topics/elastic title=Elastic>
+<span>Elastic</span>
 </a>
 </li>
 <li>
-<a href=https://ashish.one/talks/ title=Talks>
-<span>Talks</span>
+<a href=https://ashish.one/topics/ title=Topics>
+<span>Topics</span>
 </a>
 </li>
 <li>
@@ -63,8 +63,8 @@
 </a>
 </li>
 <li>
-<a href=https://ashish.one/topics/ title=Topics>
-<span>Topics</span>
+<a href=https://ashish.one/talks/ title=Talk>
+<span>Talk</span>
 </a>
 </li>
 <li>
@@ -80,18 +80,31 @@
 <h1>Golang</h1>
 </header>
 <article class="post-entry tag-entry">
-<figure class=entry-cover><img loading=lazy src=https://ashish.one/img/go-elk-logs/banner.png alt="go ship logs to ELK flow">
-</figure>
 <header class=entry-header>
-<h2>Shipping Golang logs with ELKB stack
+<h2>SPF Lookup in Go
 </h2>
 </header>
 <section class=entry-content>
-<p>Goal of this blog In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).
-Why ELKB stack ? Logs are very important for debugging, reporting, insights etc. In today’s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too....</p>
+<p>In this gist, We will check how we can extract SPF records in Go.
+Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns)
+Install dependency $ go get github.com/miekg/dns spfLookup.go Here you can change nameserver according to your requirement. I have specified here google’s name server (8.8.8.8). You can also use cloudflare’s nameserver (1.1.1.1)
+Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-06 23:31:33 +0530 +0530">June 6, 2020</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Ashish Tiwari</footer>
-<a class=entry-link aria-label="post link to Shipping Golang logs with ELKB stack" href=https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/></a>
+<footer class=entry-footer><span title="2020-08-03 00:38:53 +0530 +0530">August 3, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Ashish Tiwari</footer>
+<a class=entry-link aria-label="post link to SPF Lookup in Go" href=https://ashish.one/gist/spf-lookup-in-go/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Golang basics & Handling 100k hourly webhooks with golang @MimePost
+</h2>
+</header>
+<section class=entry-content>
+<p>What this talk about? I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.
+Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?
+I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k)....</p>
+</section>
+<footer class=entry-footer><span title="2020-03-11 00:12:30 +0530 +0530">March 11, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Ashish Tiwari</footer>
+<a class=entry-link aria-label="post link to Golang basics & Handling 100k hourly webhooks with golang @MimePost" href=https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>

@@ -6,7 +6,7 @@ type: "post"
 tags: ["linux","linuxfromscratch","lfs","LFS","linuxfromscratch.org","ubuntu"]
 ogtype: "article"
 slug: "challenges-in-linuxfromscratch"
-topics: "Linux"
+topics: ["Linux"]
 cover:
     image: "https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&name=large" # image path/url
     alt: "Linux from scratch login screen" # alt text
