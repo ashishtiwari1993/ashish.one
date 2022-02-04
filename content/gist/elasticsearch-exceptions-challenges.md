@@ -2,7 +2,7 @@
 title: "Elasticsearch Exceptions & Challenges"
 date: 2019-12-03T02:47:28+05:30
 ogtype: "gist"
-tags: ["elasticsearch","exceptions"]
+tags: ["elastic","elasticsearch","exceptions"]
 draft: false
 slug: "Elasticsearch-Exceptions-and-Challenges"
 topic: "Elastic"

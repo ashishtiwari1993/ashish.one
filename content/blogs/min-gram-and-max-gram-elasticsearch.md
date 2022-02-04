@@ -3,7 +3,7 @@ title: "What should be the value of max_gram and min_gram in Elasticsearch?"
 date: 2019-09-22T15:20:39+05:30
 type: "post"
 ogtype: "article"
-tags: ["min_gram","max_gram","tokenizer","elasticsearach"]
+tags: ["elastic","min_gram","max_gram","tokenizer","elasticsearach"]
 draft: false
 topics: "Elastic"
 ---

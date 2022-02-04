@@ -4,7 +4,7 @@ date: 2020-06-06T23:31:33+05:30
 draft: false
 type: "post"
 ogtype: "article"
-tags: ["ELK","ELKB","Elasticsearch","Kibana","Logstash","Go","Golang","Logrus","Logs","JSON"]
+tags: ["ELK","ELKB","Elasticsearch","Kibana","Logstash","Go","Golang","Logrus","Logs","JSON","Elastic"]
 slug: "Shipping-Golang-logs-with-ELKB-stack"
 topics: ["Elastic"]
 cover:

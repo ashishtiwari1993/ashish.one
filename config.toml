@@ -122,8 +122,8 @@ paginate = 5
     weight = -100
 
   [[menu.main]]
-    name = "Elastic"
-    url = "/topics/elastic"
+    name = "Elastic Stacks"
+    url = "/tags/elastic"
     weight = -97
 
   [[menu.main]]
