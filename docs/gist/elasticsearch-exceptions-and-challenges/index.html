@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Elasticsearch Exceptions & Challenges | ashish.one</title>
-<meta name=keywords content="elasticsearch,exceptions">
+<meta name=keywords content="elastic,elasticsearch,exceptions">
 <meta name=description content="Below are some challenges & exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
  Every use case having different solutions. You can try accordingly.">
 <meta name=author content="Ashish Tiwari">
@@ -35,7 +35,7 @@
 <meta name=twitter:description content="Below are some challenges & exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
  Every use case having different solutions. You can try accordingly.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Gists","item":"https://ashish.one/gist/"},{"@type":"ListItem","position":2,"name":"Elasticsearch Exceptions \u0026 Challenges","item":"https://ashish.one/gist/elasticsearch-exceptions-and-challenges/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Elasticsearch Exceptions \u0026 Challenges","name":"Elasticsearch Exceptions \u0026 Challenges","description":"Below are some challenges \u0026amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.\n Every use case having different solutions. You can try accordingly.","keywords":["elasticsearch","exceptions"],"articleBody":"Below are some challenges \u0026 exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.\n Every use case having different solutions. You can try accordingly.\n","wordCount":"54","inLanguage":"en","datePublished":"2019-12-03T02:47:28+05:30","dateModified":"2022-01-29T20:39:26Z","author":{"@type":"Person","name":"Ashish Tiwari"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ashish.one/gist/elasticsearch-exceptions-and-challenges/"},"publisher":{"@type":"Organization","name":"ashish.one","logo":{"@type":"ImageObject","url":"https://ashish.one/favicon.png"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Elasticsearch Exceptions \u0026 Challenges","name":"Elasticsearch Exceptions \u0026 Challenges","description":"Below are some challenges \u0026amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.\n Every use case having different solutions. You can try accordingly.","keywords":["elastic","elasticsearch","exceptions"],"articleBody":"Below are some challenges \u0026 exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.\n Every use case having different solutions. You can try accordingly.\n","wordCount":"54","inLanguage":"en","datePublished":"2019-12-03T02:47:28+05:30","dateModified":"2022-01-29T20:39:26Z","author":{"@type":"Person","name":"Ashish Tiwari"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ashish.one/gist/elasticsearch-exceptions-and-challenges/"},"publisher":{"@type":"Organization","name":"ashish.one","logo":{"@type":"ImageObject","url":"https://ashish.one/favicon.png"}}}</script>
 </head>
 <body class=dark id=top>
 <script>localStorage.getItem("pref-theme")==="light"&&document.body.classList.remove('dark')</script>
@@ -55,8 +55,8 @@
 </a>
 </li>
 <li>
-<a href=https://ashish.one/topics/elastic title=Elastic>
-<span>Elastic</span>
+<a href=https://ashish.one/tags/elastic title="Elastic Stacks">
+<span>Elastic Stacks</span>
 </a>
 </li>
 <li>
@@ -98,6 +98,7 @@ Every use case having different solutions. You can try accordingly.</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
+<li><a href=https://ashish.one/tags/elastic/>Elastic</a></li>
 <li><a href=https://ashish.one/tags/elasticsearch/>Elasticsearch</a></li>
 <li><a href=https://ashish.one/tags/exceptions/>exceptions</a></li>
 </ul>
@@ -114,7 +115,7 @@ Every use case having different solutions. You can try accordingly.</p>
 </a>
 </nav>
 <div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Elasticsearch Exceptions & Challenges on twitter" href="https://twitter.com/intent/tweet/?text=Elasticsearch%20Exceptions%20%26%20Challenges&url=https%3a%2f%2fashish.one%2fgist%2felasticsearch-exceptions-and-challenges%2f&hashtags=elasticsearch%2cexceptions"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share Elasticsearch Exceptions & Challenges on twitter" href="https://twitter.com/intent/tweet/?text=Elasticsearch%20Exceptions%20%26%20Challenges&url=https%3a%2f%2fashish.one%2fgist%2felasticsearch-exceptions-and-challenges%2f&hashtags=elastic%2celasticsearch%2cexceptions"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Elasticsearch Exceptions & Challenges on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fashish.one%2fgist%2felasticsearch-exceptions-and-challenges%2f&title=Elasticsearch%20Exceptions%20%26%20Challenges&summary=Elasticsearch%20Exceptions%20%26%20Challenges&source=https%3a%2f%2fashish.one%2fgist%2felasticsearch-exceptions-and-challenges%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
 </a>
