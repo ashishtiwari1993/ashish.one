@@ -45,7 +45,7 @@ Make sure docker and docker-compose is installed on your machine.
 ```sh
 mkdir LEMP
 cd LEMP
-mkdir {public_html,nginxi_conf}
+mkdir {public_html,nginx_conf}
 ```
 
 `public_html`: It will contains your PHP code.  
@@ -107,8 +107,6 @@ services:
   image: php:7.2-fpm
   volumes:
   - ./public_html:/public_html
-  ports:
-  - "9000:9000"
   networks:
   - nginx-php
 
