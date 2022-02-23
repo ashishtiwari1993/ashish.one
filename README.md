@@ -12,7 +12,7 @@ git clone https://github.com/ashishtiwari1993/ashish.one.git
 cd ashish.one
 ```
 
-## Install theme (e.g. hyde-hyde)
+## Install theme (e.g. PaperMod)
 
 ```sh
 git clone https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
