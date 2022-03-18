@@ -46,7 +46,7 @@ Add below snippet
 </script>
 ```
 
-Re Generate the Site:
+Re Generate the Site
 
 ```
 hugo
