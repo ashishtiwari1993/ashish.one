@@ -138,7 +138,7 @@ paginate = 5
     weight = -95
 
   [[menu.main]]
-    name = "Talk"
+    name = "Talks"
     url = "/talks/"
     weight = -94
 
