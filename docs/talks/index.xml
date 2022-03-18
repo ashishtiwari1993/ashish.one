@@ -10,7 +10,18 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Jan 2022 19:24:45 +0000</lastBuildDate><atom:link href="https://ashish.one/talks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Mar 2022 14:30:32 +0530</lastBuildDate><atom:link href="https://ashish.one/talks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parse custom logs in Elasticsearch using grok_pattern</title>
+      <link>https://ashish.one/talks/devops-conf-2022/</link>
+      <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
+      
+      <guid>https://ashish.one/talks/devops-conf-2022/</guid>
+      <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
+Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
+But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor.</description>
+    </item>
+    
     <item>
       <title>Deploy Elasicsearch on Azure cloud</title>
       <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
