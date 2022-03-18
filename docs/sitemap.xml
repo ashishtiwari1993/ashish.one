@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2022-02-04T07:49:36+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/azure/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
@@ -18,13 +18,13 @@
     <lastmod>2022-02-04T07:49:36+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/</loc>
-    <lastmod>2022-02-04T07:49:36+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/talks/</loc>
     <lastmod>2022-02-04T07:49:36+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/topics/</loc>
-    <lastmod>2022-02-04T07:49:36+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/arch/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
@@ -36,13 +36,13 @@
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/</loc>
-    <lastmod>2022-02-04T07:49:36+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/topics/linux/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/linux/</loc>
-    <lastmod>2022-01-29T20:39:26+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/bugbounty/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
@@ -51,7 +51,7 @@
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/topics/misc/</loc>
-    <lastmod>2022-01-29T20:39:26+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/pentest/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
@@ -108,25 +108,25 @@
     <lastmod>2022-02-04T07:49:36+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</loc>
-    <lastmod>2022-01-29T20:39:26+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/docker/</loc>
-    <lastmod>2022-01-29T20:39:26+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/docker-compose/</loc>
-    <lastmod>2022-01-29T20:39:26+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/lemp/</loc>
-    <lastmod>2022-01-29T20:39:26+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/mysql/</loc>
-    <lastmod>2022-02-04T07:49:36+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/nginx/</loc>
-    <lastmod>2022-01-29T20:39:26+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/php/</loc>
-    <lastmod>2022-01-29T20:39:26+00:00</lastmod>
+    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/gist/add-responsive-google-slides-on-hugo/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
@@ -307,5 +307,7 @@
   </url><url>
     <loc>https://ashish.one/search/</loc>
     <lastmod>2022-01-13T18:27:41+00:00</lastmod>
+  </url><url>
+    <loc>https://ashish.one/series/</loc>
   </url>
 </urlset>

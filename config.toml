@@ -16,6 +16,7 @@ paginate = 5
 [Taxonomies]
 	tag = "tags"
 	topics = "topics"
+	series = "series"
 
 [minify]
 	disableXML = true
