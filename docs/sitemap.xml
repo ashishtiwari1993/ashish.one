@@ -2,8 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ashish.one/blogs/search_as_you_type/</loc>
+    <lastmod>2022-03-18T10:35:40+05:30</lastmod>
+  </url><url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
+    <lastmod>2022-03-18T10:35:40+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/blogs/</loc>
+    <lastmod>2022-03-18T10:35:40+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/topics/elastic/</loc>
+    <lastmod>2022-03-18T10:35:40+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/elasticsearch/</loc>
+    <lastmod>2022-03-18T10:35:40+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/search_as_you_type/</loc>
+    <lastmod>2022-03-18T10:35:40+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2022-03-18T10:35:40+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/topics/</loc>
+    <lastmod>2022-03-18T10:35:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/azure/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
@@ -11,20 +32,8 @@
     <loc>https://ashish.one/talks/deploy_elastic_on_azure/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/topics/elastic/</loc>
-    <lastmod>2022-02-04T07:49:36+00:00</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/elasticsearch/</loc>
-    <lastmod>2022-02-04T07:49:36+00:00</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/</loc>
-    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
-  </url><url>
     <loc>https://ashish.one/talks/</loc>
     <lastmod>2022-02-04T07:49:36+00:00</lastmod>
-  </url><url>
-    <loc>https://ashish.one/topics/</loc>
-    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/arch/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
@@ -34,9 +43,6 @@
   </url><url>
     <loc>https://ashish.one/tags/arch-installation/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
-  </url><url>
-    <loc>https://ashish.one/blogs/</loc>
-    <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/topics/linux/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
