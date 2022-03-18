@@ -25,3 +25,29 @@ hugo server -D
 ```
 
 Visit [localhost:1313](http://localhost:1313)
+
+## To enable the comment
+
+Open below file
+
+```sh
+vim themes/PaperMod/layouts/partials/comments.html
+```
+
+Add below snippet
+
+```sh
+<script src="https://utteranc.es/client.js"
+        repo="ashishtiwari1993/ashish.one"
+        issue-term="title"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+```
+
+Re Generate the Site:
+
+```
+hugo
+```
