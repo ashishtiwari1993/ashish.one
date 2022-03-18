@@ -348,7 +348,7 @@ Let’s take a practical experience of how it is going to work.
 
 # Search As You Type (Elasticsearch)
 
-Demo code and sample employees data to implement the "Search as you type" feature on elasticsearch. 
+[Demo code](https://github.com/ashishtiwari1993/search_as_you_type) and sample employees data to implement the "Search as you type" feature on elasticsearch. 
 
 Written the middleware API in `python` using [flask](https://flask.palletsprojects.com/en/2.0.x/). Used [JQuery](https://jquery.com/) for javascript operations.
 
