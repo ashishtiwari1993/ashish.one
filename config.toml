@@ -143,6 +143,11 @@ paginate = 5
     weight = -94
 
   [[menu.main]]
+    name = "Gists"
+    url = "/gist/"
+    weight = -93
+
+  [[menu.main]]
     name = "Search"
     url = "/search/"
-    weight = -93
+    weight = -92

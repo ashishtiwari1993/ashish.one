@@ -20,7 +20,7 @@
       <description>The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
 The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
 Debug Checked apache2 and mysql service:
-service mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:
+service mysql status  service apache2 status Both services was active. Then I checked the apache2 processes with below command:
 $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.</description>
     </item>
     

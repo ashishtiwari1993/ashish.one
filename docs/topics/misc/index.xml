@@ -43,7 +43,7 @@ Docker makes the installation process very smooth and it gives your isolated env
       <description>Prerequisite OS: Ubuntu 14.04 LTS
 Processor: 64 Bit
 RAM: 2 GB
-1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last): File &amp;#34;get-pip.</description>
+1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last):  File &amp;#34;get-pip.</description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
       <description>The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
 The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
 Debug Checked apache2 and mysql service:
-service mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:
+service mysql status  service apache2 status Both services was active. Then I checked the apache2 processes with below command:
 $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.</description>
     </item>
     

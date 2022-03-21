@@ -348,13 +348,17 @@ Let’s take a practical experience of how it is going to work.
 
 # Search As You Type (Elasticsearch)
 
-[Demo code](https://github.com/ashishtiwari1993/search_as_you_type) and sample employees data to implement the "Search as you type" feature on elasticsearch. 
+Demo code and sample employees data to implement the "Search as you type" feature on elasticsearch. 
 
 Written the middleware API in `python` using [flask](https://flask.palletsprojects.com/en/2.0.x/). Used [JQuery](https://jquery.com/) for javascript operations.
 
 ## Installation
 
-Assuming you have successfully installed [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html) and [Kibana](https://www.elastic.co/guide/en/kibana/current/install.html) on your machine and it is working perfectly. Kindly refer to the respective installation document if there is any issue.
+Assuming you have successfully installed [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html) and [Kibana](https://www.elastic.co/guide/en/kibana/current/install.html) on your machine and it is working perfectly. Kindly refer respective installation document. 
+
+OR
+
+You can run [Elasticsearch on the cloud](https://cloud.elastic.co/registration) with a few clicks. 
 
 ### Install Python3 & pip3
 
@@ -414,13 +418,22 @@ Sample [data.json](https://github.com/ashishtiwari1993/search_as_you_type/blob/m
 curl -s -H "Content-Type: application/x-ndjson" -XPOST "localhost:9200/_bulk" --data-binary "@data.json"
 ```
 
+Do not forget to change the elasticsearch's endpoint. 
+
 ### Run `api.py` & test
 
-Start API Server
+Open `api.py` and change elasticsearch endpoint accordingly.
+
+```py
+es = Elasticsearch("http://localhost:9200")
+```
+
+#### Start API Server
 
 ```
 python3 api.py
 ```
 
-Open `index.html` on your browser. 
+This will start the API service on port `5001`.
 
+Open `index.html` on your browser. 

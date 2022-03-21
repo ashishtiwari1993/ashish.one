@@ -104,7 +104,7 @@ Docker makes the installation process very smooth and it gives your isolated env
       <guid>https://ashish.one/gist/add-responsive-google-slides-on-hugo/</guid>
       <description>Steps to add Responsive google slides iframe with Hugo:
 Hugo version:
-$ hugo version Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &amp;lt;div id=&amp;#34;Container&amp;#34; style=&amp;#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&amp;#34;&amp;gt; &amp;lt;iframe id=&amp;#34;googleSlideIframe&amp;#34; width=&amp;#34;100%&amp;#34; height=&amp;#34;100%&amp;#34; src=&amp;#34;{{ .Get &amp;#34;src&amp;#34; }}&amp;#34; frameborder=&amp;#34;0&amp;#34; allowfullscreen=&amp;#34;&amp;#34; style=&amp;#34;position:absolute; top:0; left: 0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;/div&amp;gt; Step 3: Use shortcode &amp;lsquo;gslides&amp;rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.</description>
+$ hugo version  Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &amp;lt;div id=&amp;#34;Container&amp;#34;  style=&amp;#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&amp;#34;&amp;gt;  &amp;lt;iframe id=&amp;#34;googleSlideIframe&amp;#34;  width=&amp;#34;100%&amp;#34; height=&amp;#34;100%&amp;#34;  src=&amp;#34;{{ .Get &amp;#34;src&amp;#34; }}&amp;#34;  frameborder=&amp;#34;0&amp;#34; allowfullscreen=&amp;#34;&amp;#34;  style=&amp;#34;position:absolute; top:0; left: 0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;/div&amp;gt; Step 3: Use shortcode &amp;lsquo;gslides&amp;rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.</description>
     </item>
     
     <item>
@@ -140,7 +140,7 @@ What is Grafana? As grafana.com says
       <description>Prerequisite OS: Ubuntu 14.04 LTS
 Processor: 64 Bit
 RAM: 2 GB
-1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last): File &amp;#34;get-pip.</description>
+1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last):  File &amp;#34;get-pip.</description>
     </item>
     
     <item>
@@ -171,7 +171,7 @@ I have explained the Webhook architecture of MimePost And how we sending 100k Re
       
       <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
       <description>The Problem: Suddenly got below errors which killed my daemon:
-fatal error: concurrent map writes goroutine 646 [running]: runtime.throw(0x75fd38, 0x15) /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e) goroutine 1 [sleep]: runtime.goparkunlock(...) /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200) /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager() goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0) /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b) /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...) /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0) /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8 net.(*netFD).accept(0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0) /usr/local/go/src/net/fd_unix.go:238 +0x42 net.</description>
+fatal error: concurrent map writes  goroutine 646 [running]: runtime.throw(0x75fd38, 0x15)  /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e)  goroutine 1 [sleep]: runtime.goparkunlock(...)  /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200)  /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager()  goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0)  /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b)  /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...)  /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)  /usr/local/go/src/internal/poll/fd_unix.</description>
     </item>
     
     <item>
@@ -203,7 +203,7 @@ We came up with unique use cases of heavy updates in Elasticsearch. That been ch
       <description>The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
 The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
 Debug Checked apache2 and mysql service:
-service mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:
+service mysql status  service apache2 status Both services was active. Then I checked the apache2 processes with below command:
 $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.</description>
     </item>
     
