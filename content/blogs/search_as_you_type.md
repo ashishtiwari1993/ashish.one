@@ -72,7 +72,7 @@ It will produce the terms according to the default analyzer if no analyzer is de
 
 ### Field 2: `description._2gram`
 
-This will use a shingle token filter and produce the terms with shingle size 2. 
+This will use a [shingle token filter](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html) and produce the terms with shingle size 2. 
 This means a shingle token filter produces the token by concatenating the adjacent token. You can find more [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html).
 
 This operation will perform on all the terms which are created on the `description` field and it will produce the below terms.
@@ -100,7 +100,7 @@ This will also use a shingle token filter and produce the terms with shingle siz
 
 ### Field 4: `description._index_prefix`
 
-This will apply an edge n gram token filter on the field `description._3gram` which means it will split terms (words) of `description._3gram` to a small substring that will start from the edge. 
+This will apply an [edge n gram token filter](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html) on the field `description._3gram` which means it will split terms (words) of `description._3gram` to a small substring that will start from the edge. 
 You can have a look at the terms below. 
 
 ```json
