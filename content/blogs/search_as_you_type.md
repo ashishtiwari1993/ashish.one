@@ -5,7 +5,7 @@ draft: false
 type: "post"
 ogtype: "article"
 tags: ["elasticsearch","search_as_you_type"]
-slug: "search_as_you_type"
+slug: "search-as-you-type"
 topics: ["Elastic"]
 cover:
     image: "/img/misc/search_as_you_type.gif"
