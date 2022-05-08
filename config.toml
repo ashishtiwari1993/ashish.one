@@ -1,6 +1,6 @@
 baseurl = "https://ashish.one/"
 languageCode = "en-us"
-title = ""
+title = "ashish.one"
 theme = "hyde-hyde"
 
 publishDir = "docs"
@@ -23,7 +23,6 @@ paginate = 5
     mainSections = ["post"]
 	author = "Ashish Tiwari"
 	title = "ashish.one"
-    description = "ashish.1"
 	images = ["https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200"]
 	DateFormat = "January 2, 2006"
 	copyright = "ashish"
