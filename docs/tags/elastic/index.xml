@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Elastic on ashish.one</title>
     <link>https://ashish.one/tags/elastic/</link>
     <description>Recent content in Elastic on ashish.one</description>
-    <image>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
-    </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jun 2020 23:31:33 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/elastic/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Apr 2022 01:24:55 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/elastic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parsing Custom log format to the Elasticsearch</title>
+      <link>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</link>
+      <pubDate>Fri, 29 Apr 2022 01:24:55 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</guid>
+      <description>Introduction As a developer, you need to log everything it may be info, error or debug logs, etc. There are multiple types of log formats like Common log, JSON log, etc. and there are already solutions available in an elastic stack like filebeat to read JSON logs and push them to elasticsearch.
+There can be cases where you need to log the data according to your convenience which will not be any standard log format.</description>
+    </item>
+    
+    <item>
+      <title>[Part -1] Search as you type</title>
+      <link>https://ashish.one/blogs/search-as-you-type/</link>
+      <pubDate>Fri, 18 Mar 2022 01:24:55 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/search-as-you-type/</guid>
+      <description>Introduction In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data. You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp;amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature. Search as you type Elasticsearch gives this specific mapping type which you can simply set to a specific field where you want to perform this kind of search.</description>
+    </item>
+    
+    <item>
+      <title>Deploy Elasicsearch on Azure cloud</title>
+      <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
+      <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
+      
+      <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
+      <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
+Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co).
+In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</description>
+    </item>
+    
     <item>
       <title>Shipping Golang logs with ELKB stack</title>
       <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>

@@ -4,7 +4,7 @@ date: 2022-04-29T01:24:55+05:30
 draft: false
 type: "post"
 ogtype: "article"
-tags: ["elasticsearch","grok-processor","grok-pattern","ingest-pipeline"]
+tags: ["elasticsearch","grok-processor","grok-pattern","ingest-pipeline","Elastic"]
 slug: "parsing-custom-log-format-to-the-elasticsearch"
 topics: ["Elastic"]
 cover:

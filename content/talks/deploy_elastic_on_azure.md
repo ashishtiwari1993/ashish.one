@@ -3,7 +3,7 @@ title: "Deploy Elasicsearch on Azure cloud"
 date: 2022-01-29T19:24:45Z
 draft: false
 type: "post"
-tags: ["elasticsearch","azure"]
+tags: ["elasticsearch","azure","Elastic"]
 topics: ["Elastic"]
 cover:
     image: "/img/misc/deploy_elastic_on_azure_cover.png" # image path/url

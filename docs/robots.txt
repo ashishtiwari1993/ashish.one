@@ -1,3 +1,1 @@
 User-agent: *
-Disallow:
-Sitemap: https://ashish.one/sitemap.xml

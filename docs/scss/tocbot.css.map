@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "tocbot.css",
-	"sourceRoot": "/home/ashish/work/ashish.one/ashish.one",
+	"sourceRoot": "/Users/ashishtiwari/Work/ashish.one",
 	"sources": [
 		"themes/hyde-hyde/assets/scss/tocbot.scss",
 		"themes/hyde-hyde/assets/scss/hugo-toc.scss"

@@ -4,7 +4,7 @@ date: 2022-03-18T01:24:55+05:30
 draft: false
 type: "post"
 ogtype: "article"
-tags: ["elasticsearch","search_as_you_type"]
+tags: ["elasticsearch","search_as_you_type","Elastic"]
 slug: "search-as-you-type"
 topics: ["Elastic"]
 cover:
