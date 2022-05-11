@@ -34,7 +34,7 @@ $ go get github.com/miekg/dns
 
 {{< gist ashishtiwari1993 ea5da5581ae2c56f3e25f8509155bd37 >}}
 
-Here you can change `nameserver` according to your requirement. I have specified here google's name server (`8.8.8.8`). You can also use cloudflare's nameserver [(1.1.1.1)](1.1.1.1)
+Here you can change `nameserver` according to your requirement. I have specified here google's name server (`8.8.8.8`). You can also use cloudflare's nameserver [(1.1.1.1)](https://1.1.1.1)
 
 ## Conclusion
 

@@ -20,7 +20,7 @@ cover:
 
 {{< tweet user="SanDiegoZoo" id="1254719517491511296" >}}
 
-I have started with [www.linuxfromscratch.org](www.linuxfromscratch.org), I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward. 
+I have started with [www.linuxfromscratch.org](https://www.linuxfromscratch.org), I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward. 
 
 ## Before we get start
 
