@@ -18,6 +18,7 @@
       
       <guid>https://ashish.one/topics/elastic/</guid>
       <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
@@ -27,6 +28,7 @@
       
       <guid>https://ashish.one/topics/linux/</guid>
       <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
@@ -36,6 +38,7 @@
       
       <guid>https://ashish.one/topics/misc/</guid>
       <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
@@ -45,6 +48,7 @@
       
       <guid>https://ashish.one/topics/golang/</guid>
       <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
@@ -54,6 +58,7 @@
       
       <guid>https://ashish.one/topics/prometheus/</guid>
       <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
   </channel>

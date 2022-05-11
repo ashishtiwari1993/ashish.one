@@ -33,11 +33,12 @@ paginate = 5
 	defaultTheme = "dark"
 	disableThemeToggle = false
 
+    ShowFullTextinRSS = true
 	ShowReadingTime = true
 	ShowShareButtons = true
 	ShowPostNavLinks = true
 	ShowBreadCrumbs = true
-	ShowCodeCopyButtons = false
+	ShowCodeCopyButtons = true
 	disableSpecial1stPost = false
 	disableScrollToTop = false
 	comments = true
@@ -49,8 +50,8 @@ paginate = 5
 	copyright = "ashish"
 	since = "2019"
 
-    	highlightjs = true
-    	highlightjsstyle = "github"	
+    highlightjs = true
+    highlightjsstyle = "github"	
 
 	UtterancesRepo = "ashishtiwari1993/ashish.one"
 	UtterancesIssueTerm = "title"
@@ -83,6 +84,11 @@ paginate = 5
 	Title = "Bio"
 	Content = "Developer Advocate @ Elastic | Co-Founder @ MimePost | Mumbai Elastic Community Organiser | Speaker | OSS guy | Linux lover"
 
+[params.cover]
+    linkFullImages = false
+    hiddenInList = false
+    hiddenInSingle = false
+    responsiveImages = true
 
 [params.fuseOpts]
 	isCaseSensitive = false

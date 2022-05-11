@@ -10,8 +10,6 @@ topics: ["Elastic"]
 cover:
     image: "/img/misc/parse-custom-log.png"
     alt: "Parsing Custom log format to the Elasticsearch"
-    relative: false
-    hidden: false
 ---
 
 # Introduction

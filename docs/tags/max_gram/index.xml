@@ -19,6 +19,74 @@
       <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
       <description>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use ngram token filter for like query. It was quickly implemented on local and works exactly i want.
 The problem To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</description>
+      <content:encoded><![CDATA[<p>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html">ngram token filter</a> for like query. It was quickly implemented on local and works exactly i want.</p>
+<h2 id="the-problem">The problem</h2>
+<p>To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</p>
+<ol>
+<li>Storage size was directly increase by 8x, Which was too risky. In my previous index the string type was “keyword”. Its took approx 43 gb to store the same data. I implemented a new schema for “like query” with ngram filter which took below storage to store same data.</li>
+</ol>
+<pre tabindex="0"><code>curl -XGET http://localhost:9200/_cat/indices?v
+
+index       docs.count  pri.store.size
+ngram-test  459483245   329.5gb
+</code></pre><ol start="2">
+<li>Sometime like query was not behaving properly. Not getting exact output.</li>
+</ol>
+<h2 id="schema">Schema</h2>
+<pre tabindex="0"><code>curl -XPUT &#34;localhost:9200/ngram-test?pretty&#34; -H &#39;Content-Type: application/json&#39; -d&#39;
+{
+  &#34;settings&#34;:{
+    &#34;index&#34;:{
+      &#34;number_of_shards&#34;:5,
+      &#34;number_of_replicas&#34;:0,
+      &#34;codec&#34;: &#34;best_compression&#34;
+    },
+    &#34;analysis&#34;:{
+      &#34;filter&#34;:{
+        &#34;like_filter&#34;:{
+          &#34;type&#34;:&#34;ngram&#34;,
+          &#34;min_gram&#34;:3,
+          &#34;max_gram&#34;:10,
+          &#34;token_chars&#34;:[
+            &#34;letter&#34;,
+            &#34;digit&#34;,
+            &#34;symbol&#34;
+          ]
+        }
+      },
+      &#34;analyzer&#34;:{
+        &#34;like_analyzer&#34;:{
+          &#34;type&#34;:&#34;custom&#34;,
+          &#34;tokenizer&#34;:&#34;keyword&#34;,
+          &#34;filter&#34;:[
+            &#34;lowercase&#34;,
+            &#34;like_filter&#34;
+          ]
+        }
+      }
+    }
+  },
+  &#34;mappings&#34;:{
+    &#34;logs&#34;:{
+      &#34;properties&#34;:{
+        &#34;email&#34;:{
+          &#34;type&#34;:&#34;keyword&#34;,
+          &#34;fields&#34;:{
+            &#34;text&#34;:{
+              &#34;analyzer&#34;:&#34;like_analyzer&#34;,
+              &#34;search_analyzer&#34;:&#34;like_analyzer&#34;,
+              &#34;type&#34;:&#34;text&#34;
+            }
+          }
+        }
+      }
+    }
+  }
+}&#39;
+</code></pre><h2 id="analyzing-the-behavior-of-ngram-filter">Analyzing the behavior of ngram filter</h2>
+<p>We made one test index and start monitoring by inserting doc one by one.</p>
+<p><a href="https://medium.com/@ashishstiwari/what-should-be-the-value-of-max-gram-and-min-gram-in-elasticsearch-f091404c9a14">Continue Reading</a></p>
+]]></content:encoded>
     </item>
     
   </channel>

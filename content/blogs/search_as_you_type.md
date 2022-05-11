@@ -10,11 +10,7 @@ topics: ["Elastic"]
 cover:
     image: "/img/misc/search_as_you_type.gif"
     alt: "Searcy As You Type"
-    relative: false
-    hidden: true
 ---
-
-![search_as_you_type](/img/misc/search_as_you_type.gif)
 
 # Introduction
 

@@ -19,6 +19,281 @@
       <guid>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</guid>
       <description>Introduction As a developer, you need to log everything it may be info, error or debug logs, etc. There are multiple types of log formats like Common log, JSON log, etc. and there are already solutions available in an elastic stack like filebeat to read JSON logs and push them to elasticsearch.
 There can be cases where you need to log the data according to your convenience which will not be any standard log format.</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>As a developer, you need to log everything it may be info, error or debug logs, etc. There are multiple types of log formats like Common log, JSON log, etc. and there are already solutions available in an elastic stack like filebeat to read JSON logs and push them to elasticsearch.</p>
+<p>There can be cases where you need to log the data according to your convenience which will not be any standard log format. Or sometimes you just need to dump the log in an unstructured way but you need to have it in a structured format if you want to analyze those.</p>
+<p>In this article, we are going to see how we can parse custom logs of any format into Elasticsearch. Elasticsearch provides the ingest pipeline with grok processor which will be able to match any unstructured log.</p>
+<h1 id="overview">Overview</h1>
+<h2 id="ingest-pipeline">Ingest Pipeline</h2>
+<p>Elasticsearch gives <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">ingest pipeline</a> where it let you perform different types of operations or data transformations before indexing the data. The pipeline consists of a series of various processors.</p>
+<p>Each processor in the pipeline takes input and produces the output. That output goes as input to the next processor.</p>
+<p>Like below, After converting into lowercase letters by &ldquo;lowercase processor&rdquo; it sends the same string as input to the &ldquo;split processor&rdquo;.</p>
+<p>Example</p>
+<pre tabindex="0"><code>{&#34;date&#34;:&#34;HELLO - WORLD&#34;} Input → |  lowercase processor ({&#34;date&#34;:&#34;hello - world&#34;}) → split processor ({&#34;date&#34;:&#34;hello world&#34;})   |  → Index
+</code></pre><p>You can check more about ingest <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">pipeline</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/processors.html">processors</a>.</p>
+<h2 id="grok-processor">Grok Processor</h2>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/grok-processor.html">Grok Processor</a> allows you to extract structured data from the ingested value on the specific field. Grok Processor works with grok patterns.</p>
+<p>Let&rsquo;s suppose you have the following document</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Ip&#34;</span>:<span style="color:#e6db74">&#34;1.2.3.4&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;country&#34;</span>:<span style="color:#e6db74">&#34;India&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;log&#34;</span>:<span style="color:#e6db74">&#34;LEVEL:ERROR,method:fetchUser(),message:user not found&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>You can mention the field name (Ex. <code>log</code>) where you want to apply a grok processor. The Grok processor uses the Grok pattern.</p>
+<h2 id="grok-pattern">Grok pattern</h2>
+<p>Grok pattern is the regular expression which is the alias of some of the predefined expressions which can be reused.</p>
+<p>Below is some sample grok patterns:</p>
+<pre tabindex="0"><code>HOSTNAME \b(?:[0-9A-Za-z][0-9A-Za-z-]{0,62})(?:\.(?:[0-9A-Za-z][0-9A-Za-z-]{0,62}))*(\.?|\b)
+USERNAME [a-zA-Z0-9._-]+
+USER %{USERNAME}
+SPACE \s*
+</code></pre><p>Here <code>HOSTNAME</code>, <code>USERNAME</code>, <code>USER</code> &amp; <code>SPACE</code> are Grok pattern names.</p>
+<p>I can directly use <code>SPACE</code> label to define regex for space instead of a regular pattern like <code>\s*</code>. Also, the Grok pattern can be reused as the same as <code>USERNAME</code>.</p>
+<h3 id="pattern-list">Pattern list</h3>
+<p>You can find all pattern list on the below link:</p>
+<p><a href="https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns">https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns</a></p>
+<p>You can select any folder and explore all the patterns.</p>
+<p><strong>Grok pattern</strong>: <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a></p>
+<h1 id="the-flow">The flow</h1>
+<ol>
+<li>Create &amp; Test Ingest Pipeline</li>
+<li>Index custom data</li>
+</ol>
+<p>Lets create the pipeline with a grok processor which is going to parse the <code>message</code> field with the document below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Ip&#34;</span>:<span style="color:#e6db74">&#34;1.2.3.4&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;country&#34;</span>:<span style="color:#e6db74">&#34;India&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;LEVEL:ERROR,method:fetchUser(),message:user not found,code:123&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I would like to extract the below data from message field and index into elasticsearch,</p>
+<pre tabindex="0"><code>&#34;method_name&#34; : &#34;fetchUser&#34;,
+&#34;log_level&#34; : &#34;ERROR&#34;,
+&#34;response_code&#34; : &#34;123&#34;,
+&#34;message&#34; : &#34;user not found&#34;
+</code></pre><h2 id="create--test-ingest-pipeline">Create &amp; Test Ingest Pipeline</h2>
+<h3 id="syntax">Syntax</h3>
+<pre tabindex="0"><code>%{SYNTAX:ID}
+</code></pre><p><strong>SYNTAX</strong>: It is the pattern name.<br>
+<strong>ID</strong>: It is the key name of the document.</p>
+<p>Data need to parse</p>
+<pre tabindex="0"><code>LEVEL:ERROR,method:fetchUser(),message:user not found
+</code></pre><p>Let&rsquo;s match some of the grok patterns from the below file
+<a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a></p>
+<pre tabindex="0"><code>ERROR = %{LOGLEVEL:log_level}
+fetchUser = %{WORD:method_name}
+user not found = %{GREEDYDATA:message}
+123 = code:(?&lt;response_code&gt;(?:[+-]?(?:[0-9]+)))
+</code></pre><p><strong>Data</strong></p>
+<pre tabindex="0"><code>LEVEL:ERROR,method:fetchUser(),message:user not found
+</code></pre><p><strong>Final Pattern</strong></p>
+<pre tabindex="0"><code>&#34;LEVEL:%{LOGLEVEL:log_level},method:%{WORD:method_name}\\(\\),message:%{GREEDYDATA:message},code:(?&lt;response_code&gt;(?:[+-]?(?:[0-9]+)))&#34;
+</code></pre><blockquote>
+<p>Note: You can add your own regex as well. For example, I have added regex for <code>code</code>.</p>
+</blockquote>
+<h2 id="test-pipeline">Test pipeline</h2>
+<p>For testing above pattern or pipeline we can use <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">Simulate Pipeline API</a> like below:</p>
+<h4 id="_simulate">_simulate</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST /_ingest/pipeline/_simulate?pretty
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;pipeline&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;testing grok processor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;processors&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;grok&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;field&#34;</span>: <span style="color:#e6db74">&#34;log&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;patterns&#34;</span>: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;LEVEL:%{LOGLEVEL:log_level},method:%{WORD:method_name}\\(\\),message:%{GREEDYDATA:message},code:(?&lt;response_code&gt;(?:[+-]?(?:[0-9]+)))&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;docs&#34;</span>:<span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;_source&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;log&#34;</span>: <span style="color:#e6db74">&#34;LEVEL:ERROR,method:fetchUser(),message:user not found,code:123&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h4 id="response">Response</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;docs&#34;</span> : [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;doc&#34;</span> : {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;_index&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;_id&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;response_code&#34;</span> : <span style="color:#e6db74">&#34;123&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;log&#34;</span> : <span style="color:#e6db74">&#34;LEVEL:ERROR,method:fetchUser(),message:user not found,code:123&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;method_name&#34;</span> : <span style="color:#e6db74">&#34;fetchUser&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;log_level&#34;</span> : <span style="color:#e6db74">&#34;ERROR&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;message&#34;</span> : <span style="color:#e6db74">&#34;user not found&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_ingest&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;timestamp&#34;</span> : <span style="color:#e6db74">&#34;2022-04-29T14:20:59.454111422Z&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>As you can see we got the desired output. Now let&rsquo;s save the pipeline.</p>
+<h3 id="save-pipeline">Save pipeline</h3>
+<p>Pipeline can be saved using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">_ingest/pipeline</a> API.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>PUT /_ingest/pipeline/custom_log?pretty
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;testing grok processor&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;processors&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;grok&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;field&#34;</span>: <span style="color:#e6db74">&#34;log&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;patterns&#34;</span>: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;LEVEL:%{LOGLEVEL:log_level},method:%{WORD:method_name}\\(\\),message:%{GREEDYDATA:message},code:(?&lt;response_code&gt;(?:[+-]?(?:[0-9]+)))&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><strong>Custom_log</strong>:  It is the pipeline name. We need to specify the pipeline name while indexing the data.</p>
+<h2 id="index-custom-data">Index custom data</h2>
+<p>Now let&rsquo;s index some data with the same pipeline which we created.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST data-stream/_doc?pipeline<span style="color:#f92672">=</span>custom_log
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;log&#34;</span> : <span style="color:#e6db74">&#34;LEVEL:INFO,method:addUser(),message:user added successfully.,code:200&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>POST data-stream/_doc?pipeline<span style="color:#f92672">=</span>custom_log
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;log&#34;</span> : <span style="color:#e6db74">&#34;LEVEL:DEBUG,method:deleteUser(),message:user_id notfound.,code:433&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>POST data-stream/_doc?pipeline<span style="color:#f92672">=</span>custom_log
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;log&#34;</span> : <span style="color:#e6db74">&#34;LEVEL:ERROR,method:fetchUser(),message:Database connection timeout,code:567&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Check all data</p>
+<pre tabindex="0"><code>GET data-stream/_search?pretty
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;took&#34;</span> : <span style="color:#ae81ff">898</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timed_out&#34;</span> : <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_shards&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;successful&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipped&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;failed&#34;</span> : <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hits&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;relation&#34;</span> : <span style="color:#e6db74">&#34;eq&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;max_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hits&#34;</span> : [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;data-stream&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;3460dYABYeDE95hG23XJ&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;response_code&#34;</span> : <span style="color:#e6db74">&#34;200&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;log&#34;</span> : <span style="color:#e6db74">&#34;LEVEL:INFO,method:addUser(),message:user added successfully.,code:200&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;method_name&#34;</span> : <span style="color:#e6db74">&#34;addUser&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;log_level&#34;</span> : <span style="color:#e6db74">&#34;INFO&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;message&#34;</span> : <span style="color:#e6db74">&#34;user added successfully.&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;data-stream&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;Kwi2dYABbuPmoOiCSUjL&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;response_code&#34;</span> : <span style="color:#e6db74">&#34;433&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;log&#34;</span> : <span style="color:#e6db74">&#34;LEVEL:DEBUG,method:deleteUser(),message:user_id notfound.,code:433&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;method_name&#34;</span> : <span style="color:#e6db74">&#34;deleteUser&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;log_level&#34;</span> : <span style="color:#e6db74">&#34;DEBUG&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;message&#34;</span> : <span style="color:#e6db74">&#34;user_id notfound.&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;data-stream&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;LAi4dYABbuPmoOiCmUgb&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;response_code&#34;</span> : <span style="color:#e6db74">&#34;567&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;log&#34;</span> : <span style="color:#e6db74">&#34;LEVEL:ERROR,method:fetchUser(),message:Database connection timeout,code:567&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;method_name&#34;</span> : <span style="color:#e6db74">&#34;fetchUser&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;log_level&#34;</span> : <span style="color:#e6db74">&#34;ERROR&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;message&#34;</span> : <span style="color:#e6db74">&#34;Database connection timeout&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="parsing-common-log-format">Parsing common log format</h1>
+<p>Common log format is standard format for logging which is used by webservers and system log generators etc.</p>
+<p>Let&rsquo;s say we having below log:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>97.92.139.153 <span style="color:#ae81ff">1254</span> ashishtiwari <span style="color:#f92672">[</span>04/Mar/2022:15:18:55 +0530<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /niches HTTP/1.1&#34;</span> <span style="color:#ae81ff">201</span> <span style="color:#ae81ff">2322</span>
+</span></span></code></pre></div><h2 id="grok-pattern-1">Grok Pattern</h2>
+<p><img loading="lazy" src="/img/misc/parse-custom-log.png" alt="Common log format grok pattern"  />
+</p>
+<h2 id="final-grok-pattern">Final Grok Pattern</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>%<span style="color:#f92672">{</span>IPORHOST:ip<span style="color:#f92672">}</span> %<span style="color:#f92672">{</span>USER:user_id<span style="color:#f92672">}</span> %<span style="color:#f92672">{</span>USERNAME:username<span style="color:#f92672">}</span> <span style="color:#ae81ff">\\</span><span style="color:#f92672">[</span>%<span style="color:#f92672">{</span>HTTPDATE:date<span style="color:#f92672">}</span><span style="color:#ae81ff">\\</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">\&#34;</span>%<span style="color:#f92672">{</span>WORD:request.method<span style="color:#f92672">}</span> %<span style="color:#f92672">{</span>URIPATH:request.path<span style="color:#f92672">}</span> %<span style="color:#f92672">{</span>URIPROTO:request.proto<span style="color:#f92672">}</span>/%<span style="color:#f92672">{</span>NUMBER:request.http_version<span style="color:#f92672">}</span><span style="color:#ae81ff">\&#34;</span> %<span style="color:#f92672">{</span>NUMBER:request.response<span style="color:#f92672">}</span> %<span style="color:#f92672">{</span>NUMBER:request.size_bytes<span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="_simulate-1">_simulate</h2>
+<p>Lets simulate the pipeline with above grok pattern</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST /_ingest/pipeline/_simulate?pretty
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;pipeline&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;testing grok processor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;processors&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;grok&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;field&#34;</span>: <span style="color:#e6db74">&#34;log&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;patterns&#34;</span>: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;%{IPORHOST:ip} %{USER:user_id} %{USERNAME:username} \\[%{HTTPDATE:date}\\] \&#34;%{WORD:request.method} %{URIPATH:request.path} %{URIPROTO:request.proto}/%{NUMBER:request.http_version}\&#34; %{NUMBER:request.response} %{NUMBER:request.size_bytes}&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;docs&#34;</span>:<span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;_source&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;log&#34;</span>: <span style="color:#e6db74">&#34;97.92.139.153 1254 ashishtiwari [04/Mar/2022:15:18:55 +0530] \&#34;GET /niches HTTP/1.1\&#34; 201 2322&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="response-1">Response</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;docs&#34;</span> : [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;doc&#34;</span> : {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;_index&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;_id&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;date&#34;</span> : <span style="color:#e6db74">&#34;04/Mar/2022:15:18:55 +0530&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;request&#34;</span> : {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;path&#34;</span> : <span style="color:#e6db74">&#34;/niches&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;size_bytes&#34;</span> : <span style="color:#e6db74">&#34;2322&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;method&#34;</span> : <span style="color:#e6db74">&#34;GET&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;response&#34;</span> : <span style="color:#e6db74">&#34;201&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;proto&#34;</span> : <span style="color:#e6db74">&#34;HTTP&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;http_version&#34;</span> : <span style="color:#e6db74">&#34;1.1&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;log&#34;</span> : <span style="color:#e6db74">&#34;&#34;&#34;97.92.139.153 1254 ashishtiwari [04/Mar/2022:15:18:55 +0530] &#34;</span><span style="color:#960050;background-color:#1e0010">GET</span> <span style="color:#960050;background-color:#1e0010">/niches</span> <span style="color:#960050;background-color:#1e0010">HTTP/</span><span style="color:#ae81ff">1.1</span><span style="color:#e6db74">&#34; 201 2322&#34;&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;user_id&#34;</span> : <span style="color:#e6db74">&#34;1254&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;ip&#34;</span> : <span style="color:#e6db74">&#34;97.92.139.153&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;username&#34;</span> : <span style="color:#e6db74">&#34;ashishtiwari&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_ingest&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;timestamp&#34;</span> : <span style="color:#e6db74">&#34;2022-04-29T14:42:51.765427484Z&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>As we can see it successfully parsed the data. You can save the pipeline and index the data as shown on the above steps.</p>
+<p>Similarly you can parse any log format with Grok pattern.</p>
+<h1 id="demo">Demo</h1>
+<p>You can also check the demo on the below link where I presented how you can parse common log format using ingest pipeline and grok processor.</p>
+<p><a href="https://ashish.one/talks/devops-conf-2022/">https://ashish.one/talks/devops-conf-2022/</a></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>We have seen how we can parse any types of log format into elasticsearch with the help of ingest pipeline &amp; grok processor. You can also use this ingest pipeline with filebeat or logstash. Where you just need to specify the pipeline name.</p>
+<p>Feel free to put in comments if you have any doubts.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -28,6 +303,321 @@ There can be cases where you need to log the data according to your convenience 
       
       <guid>https://ashish.one/blogs/search-as-you-type/</guid>
       <description>Introduction In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data. You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp;amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature. Search as you type Elasticsearch gives this specific mapping type which you can simply set to a specific field where you want to perform this kind of search.</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data.
+You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature.
+Search as you type
+Elasticsearch gives this specific mapping type which you can simply set to a specific field where you want to perform this kind of search.</p>
+<h1 id="why-search_as_you_type">Why <code>search_as_you_type</code>?</h1>
+<p>No need to think about what kind of functionality like analyzer, tokenizer, etc. you have to apply to achieve this. It automatically handles everything in the backend by producing necessary terms on which you can query efficiently.</p>
+<p>You can simply create mapping like the below example:</p>
+<h2 id="create-index">Create Index</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>PUT products
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;mappings&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;properties&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;search_as_you_type&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="insert-sample-data">Insert sample data</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST products/_doc/
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;best jogging shoes for men&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="how-is-data-indexed-">How is data indexed ?</h2>
+<p><code>search_as_you_type</code> mapping creates 4 types of fields in the backend.</p>
+<h3 id="field-1-description">Field 1: <code>description</code></h3>
+<p>It will produce the terms according to the default analyzer if no analyzer is defined i.e. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-analyzer.html">standard analyzer</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men&#34;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="field-2-description_2gram">Field 2: <code>description._2gram</code></h3>
+<p>This will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">shingle token filter</a> and produce the terms with shingle size 2.
+This means a shingle token filter produces the token by concatenating the adjacent token. You can find more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">here</a>.</p>
+<p>This operation will perform on all the terms which are created on the <code>description</code> field and it will produce the below terms.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[ 
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for men&#34;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="field-3-description_3gram">Field 3: <code>description._3gram</code></h3>
+<p>This will also use a shingle token filter and produce the terms with shingle size 3. This means it will concatenate 3 adjacent tokens like below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for men&#34;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="field-4-description_index_prefix">Field 4: <code>description._index_prefix</code></h3>
+<p>This will apply an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html">edge n gram token filter</a> on the field <code>description._3gram</code> which means it will split terms (words) of <code>description._3gram</code> to a small substring that will start from the edge.
+You can have a look at the terms below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;b&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;be&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;bes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best j&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jog&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogg&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best joggi&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best joggin&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging s&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging sh&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging sho&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging shoe&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;j&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jog&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogg&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;joggi&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;joggin&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging s&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging sh&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging sho&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoe&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes f&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes fo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;s&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;sh&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;sho&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoe&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes f&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes fo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for m&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for me&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for men&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;f&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;fo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for m&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for me&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for men&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for men &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;m&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;me&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men  &#34;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>As you noticed the token limit is up to 3 words only because <code>description._3gram</code> has generated 3 word tokens only.</p>
+<h1 id="search-query">Search Query</h1>
+<h2 id="multi_match"><code>multi_match</code></h2>
+<p>We will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html">multi_match</a> query here. Because we want to look up on each subfield for a perfect match.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;multi_match&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#e6db74">&#34;jogging&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;fields&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._2gram&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._3gram&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The above query is going to search the term <code>&quot;jogging&quot;</code> on all 3 subfields which are specified in <code>fields[]</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;took&#34;</span> : <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timed_out&#34;</span> : <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_shards&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;successful&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipped&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;failed&#34;</span> : <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hits&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;relation&#34;</span> : <span style="color:#e6db74">&#34;eq&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;max_score&#34;</span> : <span style="color:#ae81ff">0.2876821</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hits&#34;</span> : [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;products&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;TSNNiX8BYh0NLleBiu4u&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span> : <span style="color:#ae81ff">0.2876821</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;best jogging shoes for men&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Lets try with any substring (<code>jog</code>).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;multi_match&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#e6db74">&#34;jog&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;fields&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._2gram&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._3gram&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;took&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timed_out&#34;</span> : <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_shards&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;successful&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipped&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;failed&#34;</span> : <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hits&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;relation&#34;</span> : <span style="color:#e6db74">&#34;eq&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;max_score&#34;</span> : <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hits&#34;</span> : [ ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The result is empty. Because there is no term created with the name <strong><code>jog</code></strong> if you closely look at the above generated tokens on respective fields.</p>
+<p>To solve this we need to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-bool-prefix-query.html">bool_prefix</a> query.</p>
+<p><code>bool_prefix</code> analyze the input and constructs the bool query from the terms. But it puts the last term in the prefix query. For example, input is given as <code>men jogging s</code>, So it will produce terms like <code>[&quot;men&quot;,&quot;jogging&quot;,&quot;s&quot;]</code> but it will always perform a prefix query on the last term which is <code>&quot;s&quot;</code>. So documents will return where terms will match with <code>&quot;men&quot;</code> or <code>&quot;jogging&quot;</code> or any term which is starting with <code>&quot;s&quot;</code>.</p>
+<p>Below is the query which will give you the desired output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;multi_match&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#e6db74">&#34;jog&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;bool_prefix&#34;</span>, 
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;fields&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._2gram&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._3gram&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;took&#34;</span> : <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timed_out&#34;</span> : <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_shards&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;successful&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipped&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;failed&#34;</span> : <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hits&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;relation&#34;</span> : <span style="color:#e6db74">&#34;eq&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;max_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hits&#34;</span> : [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;products&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;TSNNiX8BYh0NLleBiu4u&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;best jogging shoes for men&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here when we make a prefix query on the root field (<code>description</code>) or any subfields, It will rewrite the query as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html">term</a> query on <code>description._index_prefix</code> field.</p>
+<p>This matches more efficiently because prefixes up to 3 words are already created as the terms as shown in the above.</p>
+<blockquote>
+<p>Note: This query will search for terms irrespective of order. For example, if we search for <code>jogging men</code>, This will also give the result because it will search for both the terms <code>jogging</code> or <code>men</code>. In most of the cases this query (multi_match + bool_prefix) is recommended because the end user can search for any string like <code>shoes</code> or <code>shoes for men</code> or <code>jogging shoes</code> etc.</p>
+</blockquote>
+<h2 id="what-if-you-want-to-search-with-strict-prefix-order">What if you want to search with strict prefix order?</h2>
+<p>You can use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html">match_phrase_prefix</a>, It will strictly match input from prefix in the same order only. So input like “men best” won’t return anything. Whereas you will get results with the previous one.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;match_phrase_prefix&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;best jogging s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>It will return documents where the term&rsquo;s prefix will be matched with “best jogging s”. Sometimes it can provide confusing results. You can check more about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-autocomplete">match_phrase_prefix</a>.</p>
+<h1 id="demo">Demo</h1>
+<p>Let’s take a practical experience of how it is going to work.</p>
+<h1 id="search-as-you-type-elasticsearch">Search As You Type (Elasticsearch)</h1>
+<p>Demo code and sample employees data to implement the &ldquo;Search as you type&rdquo; feature on elasticsearch.</p>
+<p>Written the middleware API in <code>python</code> using <a href="https://flask.palletsprojects.com/en/2.0.x/">flask</a>. Used <a href="https://jquery.com/">JQuery</a> for javascript operations.</p>
+<h2 id="installation">Installation</h2>
+<p>Assuming you have successfully installed <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Elasticsearch</a> and <a href="https://www.elastic.co/guide/en/kibana/current/install.html">Kibana</a> on your machine and it is working perfectly. Kindly refer respective installation document.</p>
+<p>OR</p>
+<p>You can run <a href="https://cloud.elastic.co/registration">Elasticsearch on the cloud</a> with a few clicks.</p>
+<h3 id="install-python3--pip3">Install Python3 &amp; pip3</h3>
+<ol>
+<li>Refer <a href="https://www.python.org/downloads/">Document</a> to install <code>python3</code> &amp; <code>pip3</code> on your system.</li>
+<li>Install <code>flask</code></li>
+</ol>
+<pre tabindex="0"><code>pip3 install flask
+</code></pre><ol start="3">
+<li>Install <code>elasticsearch</code> package</li>
+</ol>
+<pre tabindex="0"><code>pip3 install elasticsearch
+</code></pre><h3 id="git-clone">git Clone</h3>
+<pre tabindex="0"><code>git clone https://github.com/ashishtiwari1993/search_as_you_type.git
+cd search_as_you_type
+</code></pre><h3 id="create-index-and-load-data">Create Index and load data</h3>
+<p>Make sure Elasticsearch and kibana are up and running fine on your machine.</p>
+<h4 id="create-index-1">Create Index</h4>
+<pre tabindex="0"><code>PUT /sayt?pretty
+{
+  &#34;mappings&#34;: {
+    &#34;properties&#34;: {
+      &#34;first_name&#34;: {
+        &#34;type&#34;: &#34;search_as_you_type&#34;
+      },
+      &#34;last_name&#34;: {
+        &#34;type&#34;: &#34;search_as_you_type&#34;
+      },
+      &#34;street_address&#34;: {
+        &#34;type&#34;: &#34;search_as_you_type&#34;
+      },
+      &#34;company&#34;: {
+        &#34;type&#34;: &#34;search_as_you_type&#34;
+      },
+      &#34;email&#34;: {
+        &#34;type&#34;: &#34;search_as_you_type&#34;
+      }
+    }
+  }
+}
+</code></pre><h4 id="load-sample-data">Load sample data</h4>
+<p>Sample <a href="https://github.com/ashishtiwari1993/search_as_you_type/blob/main/data.json">data.json</a> file is given which need to load with the help of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">bulk API</a>.</p>
+<pre tabindex="0"><code>curl -s -H &#34;Content-Type: application/x-ndjson&#34; -XPOST &#34;localhost:9200/_bulk&#34; --data-binary &#34;@data.json&#34;
+</code></pre><p>Do not forget to change the elasticsearch&rsquo;s endpoint.</p>
+<h3 id="run-apipy--test">Run <code>api.py</code> &amp; test</h3>
+<p>Open <code>api.py</code> and change elasticsearch endpoint accordingly.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>es <span style="color:#f92672">=</span> Elasticsearch(<span style="color:#e6db74">&#34;http://localhost:9200&#34;</span>)
+</span></span></code></pre></div><h4 id="start-api-server">Start API Server</h4>
+<pre tabindex="0"><code>python3 api.py
+</code></pre><p>This will start the API service on port <code>5001</code>.</p>
+<p>Open <code>index.html</code> on your browser.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -39,6 +629,29 @@ There can be cases where you need to log the data according to your convenience 
       <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
 Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co).
 In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
+<p>The purpose of the talk is to give a short overview of Elastic solutions &amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.</p>
+<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co">cloud.elastic.co</a>).</p>
+<p>In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</p>
+<h2 id="slides">Slides</h2>
+<div id="Container"
+ style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
+ <iframe id="googleSlideIframe"
+  width="100%" height="100%"
+  src="https://docs.google.com/presentation/d/e/2PACX-1vR9COL0Pod4Hdhc3OlkIPorb-UM0DtbhSgcqQajOYV789jbmRYsffyIRVR0cFCnm8eu80sF8-khLc0K/embed?start=false&amp;loop=false&amp;delayms=3000"
+  frameborder="0" allowfullscreen=""
+  style="position:absolute; top:0; left: 0"></iframe>
+</div>
+
+<h2 id="talk-video">Talk Video</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/O2HdAA5o1i4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
+]]></content:encoded>
     </item>
     
     <item>
@@ -49,6 +662,201 @@ In the demo, Successfully shipped the metric data of the local system (my MacBoo
       <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
       <description>Goal of this blog In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).
 Why ELKB stack ? Logs are very important for debugging, reporting, insights etc. In today&amp;rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too.</description>
+      <content:encoded><![CDATA[<p><img loading="lazy" src="/img/go-elk-logs/banner.png" alt="Go ship logs with ELK Banner"  />
+</p>
+<h2 id="goal-of-this-blog">Goal of this blog</h2>
+<p>In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).</p>
+<h2 id="why-elkb-stack-">Why ELKB stack ?</h2>
+<p>Logs are very important for debugging, reporting, insights etc. In today&rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too. It is very difficult to go to each server and check all log files in case of debugging or to generate any insights or reporting.</p>
+<p>In my case I used to go to every server and perform <code>grep</code>  on log files.</p>
+<p>ELKB Gives you an easy setup to move all yours logs into one central Place which is Elasticsearch &amp; With a beautiful kibana interface, You can visualize all your logs. You can also make various types of dashboards.</p>
+<p>This is a very small use case I am going to convert but you can find lots of big problem solving use cases on the internet about ELKB.</p>
+<p>I will not go much deeper about ELKB stack. You can find a wonderful explanation on elastic.co.</p>
+<h2 id="two-parts">Two Parts:</h2>
+<ol>
+<li>Write JSON logs to the file in Go</li>
+<li>Shift All JSON logs on Elasticsearch</li>
+</ol>
+<h2 id="my-configuration">My Configuration</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>OS: ubuntu 18.04
+</span></span><span style="display:flex;"><span>Go version: go version go1.13 linux/amd64
+</span></span><span style="display:flex;"><span>Elasticsearch version: 7.7.1
+</span></span><span style="display:flex;"><span>Filebeat version: filebeat version 7.7.1 <span style="color:#f92672">(</span>amd64<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Kibana version: 7.7.1
+</span></span></code></pre></div><h2 id="1-write-json-logs-to-the-file-in-go">1. Write JSON logs to the file in Go</h2>
+<p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install">here</a>.</p>
+<h3 id="my-golang-version">My Golang version:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go version go1.13 linux/amd64
+</span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus">Logrus</a></h3>
+<p>This is a wonderful package available to write logs. Below is the short example of using logrus package:</p>
+<h4 id="1-install-logrus-package">1. Install Logrus package</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go install github.com/sirupsen/logru
+</span></span></code></pre></div><h4 id="2-create-loggo-and-paste-the-below-code">2. Create <code>log.go</code> and paste the below code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;os&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span> <span style="color:#e6db74">&#34;github.com/sirupsen/logrus&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">f</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">OpenFile</span>(<span style="color:#e6db74">&#34;/tmp/go_logs/example.log&#34;</span>, <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">O_RDWR</span>|<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">O_CREATE</span>|<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">O_APPEND</span>, <span style="color:#ae81ff">0666</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">SetFormatter</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">JSONFormatter</span>{})
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">SetOutput</span>(<span style="color:#a6e22e">f</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">WithFields</span>(<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fields</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;event&#34;</span>: <span style="color:#e6db74">&#34;create_profile&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_id&#34;</span>:   <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>  }).<span style="color:#a6e22e">Info</span>(<span style="color:#e6db74">&#34;This is an info message.&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">WithFields</span>(<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fields</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;event&#34;</span>: <span style="color:#e6db74">&#34;delete_profile&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_id&#34;</span>: <span style="color:#ae81ff">11</span>,
+</span></span><span style="display:flex;"><span>  }).<span style="color:#a6e22e">Warn</span>(<span style="color:#e6db74">&#34;This is a warning message.&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">WithFields</span>(<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fields</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;event&#34;</span> : <span style="color:#e6db74">&#34;edit_profile&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_id&#34;</span>: <span style="color:#ae81ff">13</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;package&#34;</span> : <span style="color:#e6db74">&#34;main&#34;</span>,
+</span></span><span style="display:flex;"><span>  }).<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;This is a critical message.&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here I have specified the log file /tmp/go_logs/example.log.  You can specify according to your need. We also specified the log format <code>JSON</code>.</p>
+<h4 id="3-lets-run-the-loggo">3. Lets run the <code>log.go</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go run log.go
+</span></span></code></pre></div><h4 id="4-check-log-file">4. Check log file:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cat /tmp/go_logs/example.log
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;create_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;info&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is an info message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">10</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;delete_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;warning&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a warning message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">11</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;edit_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;fatal&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a critical message.&#34;</span>,<span style="color:#f92672">&#34;package&#34;</span>:<span style="color:#e6db74">&#34;main&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">13</span>}
+</span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus">here</a>.</p>
+<h2 id="2-shift-all-json-logs-on-elasticsearch">2. Shift All JSON logs on Elasticsearch</h2>
+<p>This part has no dependency on the above part. You can use any <code>JSON</code> log file irrespective of any language.</p>
+<p>Before start I am assuming you have installed Elasticsearch, Filebeat &amp; Kibana on your machine. If not then refer below link:</p>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Install Elasticsearch</a></li>
+<li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html">Install Filebeat</a></li>
+<li><a href="https://www.elastic.co/guide/en/kibana/current/install.html">Install Kibana</a></li>
+</ul>
+<blockquote>
+<p><strong>Note: In this part we are not going to use Logstash.</strong></p>
+</blockquote>
+<h3 id="1-start-elasticsearch-service">1. Start Elasticsearch Service</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service elasticsearch start
+</span></span></code></pre></div><p>It will run on port 9200. You can verify with the below command or just hit <code>localhost:9200</code> on your browser.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ashish@ashish-laptop:~$ curl localhost:9200
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;753853fa62d1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;cluster_name&#34;</span> : <span style="color:#e6db74">&#34;docker-cluster&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;cluster_uuid&#34;</span> : <span style="color:#e6db74">&#34;JLlH0Z0pQqWjGEHO8MQgZQ&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;version&#34;</span> : <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;number&#34;</span> : <span style="color:#e6db74">&#34;7.7.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_flavor&#34;</span> : <span style="color:#e6db74">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_type&#34;</span> : <span style="color:#e6db74">&#34;docker&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_hash&#34;</span> : <span style="color:#e6db74">&#34;ad56dce891c901a492bb1ee393f12dfff473a423&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_date&#34;</span> : <span style="color:#e6db74">&#34;2020-05-28T16:30:01.040088Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_snapshot&#34;</span> : false,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;lucene_version&#34;</span> : <span style="color:#e6db74">&#34;8.5.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;minimum_wire_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;6.8.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;minimum_index_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;6.0.0-beta1&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;tagline&#34;</span> : <span style="color:#e6db74">&#34;You Know, for Search&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="2-start-kibana-service">2. Start Kibana service</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service kibana start
+</span></span></code></pre></div><p>It will run on port 5601. You can verify by visiting <code>localhost:5601</code> from your browser. You should see the kibana dashboard.</p>
+<h3 id="3-edit-filebeatyml">3. Edit <code>filebeat.yml</code></h3>
+<p>Open <code>filebeat.yml</code>. Add below snippet in <code>filebeat.inputs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">filebeat.inputs</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">type</span>: <span style="color:#ae81ff">log</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">paths</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/tmp/go_logs/*.log</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">json.add_error_key</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">output.elasticsearch</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Array of hosts to connect to.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: [<span style="color:#e6db74">&#34;localhost:9200&#34;</span>]
+</span></span></code></pre></div><p>You can check on below link to know more about filebeat log input &amp; JSON decoding</p>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a></p>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a></p>
+<h3 id="4-restart-filebeat">4. Restart Filebeat</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service filebeat restart
+</span></span></code></pre></div><h2 id="verify-if-data-indexed-on-elasticsearch">Verify If Data Indexed on Elasticsearch</h2>
+<h3 id="check-logs">Check Logs</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ tail -f /var/log/filebeat/filebeat
+</span></span></code></pre></div><h3 id="check-indices">Check Indices:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl localhost:9200/_cat/indices?v
+</span></span></code></pre></div><p>Or you can simply visit <code>localhost:9200/_cat/indices?v</code> on your browser.</p>
+<p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>health status index                            uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+</span></span><span style="display:flex;"><span>green  open   .apm-custom-link                 xp0mitnBQtijaZ9tEgan_g   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>       208b           208b
+</span></span><span style="display:flex;"><span>green  open   .kibana_task_manager_1           7Q4mMTYxRhCB6sfnQ2ibmA   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">5</span>            <span style="color:#ae81ff">0</span>       34kb           34kb
+</span></span><span style="display:flex;"><span>green  open   .apm-agent-configuration         3piA79spTbGWAVItYL3PlQ   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>       208b           208b
+</span></span><span style="display:flex;"><span>yellow open   filebeat-7.7.1-2020.06.06-000001 nsFk7mOuTguIfaPSbeM3PA   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">1</span>         <span style="color:#ae81ff">19</span>            <span style="color:#ae81ff">0</span>     74.9kb         74.9kb
+</span></span><span style="display:flex;"><span>green  open   .kibana_1                        LBmzoJspR8a8HAcs9WGr8g   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">54</span>            <span style="color:#ae81ff">0</span>    171.6kb        171.6kb
+</span></span></code></pre></div><p>As you can see a new index is created by filebeat with the name <code>filebeat-7.7.1-2020.06.06-000001</code>. In your case index name can be different but it will start with <code>filebeat*</code>.</p>
+<p>Index lifecycle will be handled by filebeat. You don’t need to worry about that.</p>
+<h3 id="check-documents">Check Documents</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl localhost:9200/filebeat-7.7.1-2020.06.06-000001/_search?pretty
+</span></span></code></pre></div><p>Sample Output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;filebeat-7.7.1-2020.06.06-000001&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_type&#34;</span> : <span style="color:#e6db74">&#34;_doc&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;4qW3inIBVJJF9hMQm_yi&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_source&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@timestamp&#34;</span> : <span style="color:#e6db74">&#34;2020-06-06T17:39:47.208Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;log&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;offset&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;file&#34;</span> : {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;path&#34;</span> : <span style="color:#e6db74">&#34;/tmp/go_logs/ashish.log&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;json&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;msg&#34;</span> : <span style="color:#e6db74">&#34;This is an info message.&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;time&#34;</span> : <span style="color:#e6db74">&#34;2020-06-06T23:09:26+05:30&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;user_id&#34;</span> : <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;event&#34;</span> : <span style="color:#e6db74">&#34;create_profile&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;level&#34;</span> : <span style="color:#e6db74">&#34;info&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;input&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;host&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;ashish-laptop&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;agent&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;version&#34;</span> : <span style="color:#e6db74">&#34;7.7.1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;filebeat&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;ephemeral_id&#34;</span> : <span style="color:#e6db74">&#34;3f53f9c1-66a0-4e93-85fa-1532221c9670&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;hostname&#34;</span> : <span style="color:#e6db74">&#34;ashish-laptop&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;id&#34;</span> : <span style="color:#e6db74">&#34;72976284-d927-49d1-abcb-1d2a5be15176&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ecs&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;version&#34;</span> : <span style="color:#e6db74">&#34;1.5.0&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Your data will be saved on the <code>json</code> key. Another is metadata which is added by filebeat. Filebeat provides lots of options, features &amp; settings. You can use it according to your requirements.</p>
+<h3 id="logs-on-kibana">Logs on Kibana</h3>
+<p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html">here</a> for more details.</p>
+<p>Once you are done with defining the index pattern, Go to <code>Discover</code> section, Here you will see all your logs.</p>
+<p><img loading="lazy" src="/img/go-elk-logs/kibana.png" alt="Kibana-discover"  />
+</p>
+<p>You can query on your logs. You can apply filters &amp; create various types of dashboard to get better insights from your logs. You can find a wonderful explanation on the official site.</p>
+<h2 id="in-the-end">In the end</h2>
+<p>We have successfully shipped our logs on Elasticsearch. This is only a small use case of ELKB Stack. It provides much more than this. You can explore more on the internet.</p>
+<p>Put your comments if you have any doubts.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -59,6 +867,31 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
       <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
       <description>Introduction What this talk is all about? We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.
 We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<h2 id="what-this-talk-is-all-about">What this talk is all about?</h2>
+<p>We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.</p>
+<p>We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.</p>
+<p>Our READ request is 1 million/day which contains Scroll, simple search &amp; Aggregations Query. We achieved to display our email logs in next to real-time.
+We also worked on Disk optimization by believing in the principle of &ldquo;Know your query&rdquo;. Currently having 6TB + of the cluster with 80 GB ingestion per day.</p>
+<h2 id="slides">Slides</h2>
+<div id="Container"
+ style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
+ <iframe id="googleSlideIframe"
+  width="100%" height="100%"
+  src="https://docs.google.com/presentation/d/e/2PACX-1vRiOzGgkrN1dO7fD4MDUKzr8WIhHqIhS5Iw1N27_mxYVdtPYcK17ib6ZTdg3bgExVuccJ35vxUSNP3X/embed?start=false&amp;loop=false&amp;delayms=3000"
+  frameborder="0" allowfullscreen=""
+  style="position:absolute; top:0; left: 0"></iframe>
+</div>
+
+<h2 id="talk-video">Talk Video</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/NSZXMv0va74" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted -->
+<h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
+]]></content:encoded>
     </item>
     
     <item>
@@ -69,6 +902,11 @@ We came up with unique use cases of heavy updates in Elasticsearch. That been ch
       <guid>https://ashish.one/gist/elasticsearch-exceptions-and-challenges/</guid>
       <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
  Every use case having different solutions. You can try accordingly.</description>
+      <content:encoded><![CDATA[<p>Below are some challenges &amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.</p>
+<p><script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js"></script>
+
+Every use case having different solutions. You can try accordingly.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -79,6 +917,74 @@ We came up with unique use cases of heavy updates in Elasticsearch. That been ch
       <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
       <description>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use ngram token filter for like query. It was quickly implemented on local and works exactly i want.
 The problem To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</description>
+      <content:encoded><![CDATA[<p>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html">ngram token filter</a> for like query. It was quickly implemented on local and works exactly i want.</p>
+<h2 id="the-problem">The problem</h2>
+<p>To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</p>
+<ol>
+<li>Storage size was directly increase by 8x, Which was too risky. In my previous index the string type was “keyword”. Its took approx 43 gb to store the same data. I implemented a new schema for “like query” with ngram filter which took below storage to store same data.</li>
+</ol>
+<pre tabindex="0"><code>curl -XGET http://localhost:9200/_cat/indices?v
+
+index       docs.count  pri.store.size
+ngram-test  459483245   329.5gb
+</code></pre><ol start="2">
+<li>Sometime like query was not behaving properly. Not getting exact output.</li>
+</ol>
+<h2 id="schema">Schema</h2>
+<pre tabindex="0"><code>curl -XPUT &#34;localhost:9200/ngram-test?pretty&#34; -H &#39;Content-Type: application/json&#39; -d&#39;
+{
+  &#34;settings&#34;:{
+    &#34;index&#34;:{
+      &#34;number_of_shards&#34;:5,
+      &#34;number_of_replicas&#34;:0,
+      &#34;codec&#34;: &#34;best_compression&#34;
+    },
+    &#34;analysis&#34;:{
+      &#34;filter&#34;:{
+        &#34;like_filter&#34;:{
+          &#34;type&#34;:&#34;ngram&#34;,
+          &#34;min_gram&#34;:3,
+          &#34;max_gram&#34;:10,
+          &#34;token_chars&#34;:[
+            &#34;letter&#34;,
+            &#34;digit&#34;,
+            &#34;symbol&#34;
+          ]
+        }
+      },
+      &#34;analyzer&#34;:{
+        &#34;like_analyzer&#34;:{
+          &#34;type&#34;:&#34;custom&#34;,
+          &#34;tokenizer&#34;:&#34;keyword&#34;,
+          &#34;filter&#34;:[
+            &#34;lowercase&#34;,
+            &#34;like_filter&#34;
+          ]
+        }
+      }
+    }
+  },
+  &#34;mappings&#34;:{
+    &#34;logs&#34;:{
+      &#34;properties&#34;:{
+        &#34;email&#34;:{
+          &#34;type&#34;:&#34;keyword&#34;,
+          &#34;fields&#34;:{
+            &#34;text&#34;:{
+              &#34;analyzer&#34;:&#34;like_analyzer&#34;,
+              &#34;search_analyzer&#34;:&#34;like_analyzer&#34;,
+              &#34;type&#34;:&#34;text&#34;
+            }
+          }
+        }
+      }
+    }
+  }
+}&#39;
+</code></pre><h2 id="analyzing-the-behavior-of-ngram-filter">Analyzing the behavior of ngram filter</h2>
+<p>We made one test index and start monitoring by inserting doc one by one.</p>
+<p><a href="https://medium.com/@ashishstiwari/what-should-be-the-value-of-max-gram-and-min-gram-in-elasticsearch-f091404c9a14">Continue Reading</a></p>
+]]></content:encoded>
     </item>
     
   </channel>

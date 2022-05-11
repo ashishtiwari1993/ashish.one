@@ -46,6 +46,22 @@ Add below snippet
 </script>
 ```
 
+## Add Cover page customization
+
+Create below file
+
+```sh
+vim themes/PaperMod/assets/css/extended/tag_list_cover.css 
+```
+
+Add below CSS
+
+```
+.tag-entry .entry-cover {
+    display: flex;
+}
+```
+
 Re Generate the Site
 
 ```

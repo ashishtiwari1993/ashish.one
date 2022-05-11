@@ -18,6 +18,144 @@
       
       <guid>https://ashish.one/blogs/arch-linux-installation-challenges/</guid>
       <description>Arch linux installation challenges</description>
+      <content:encoded><![CDATA[<p><img loading="lazy" src="/img/arch-linux-installation/arch-linux.jpeg" alt="arch linux login screen"  />
+</p>
+<h1 id="introduction">Introduction</h1>
+<p>This article is not containing the detailed procedure for installation but listed some challenges which you can face while installing the arch Linux. Arch Linux is one of the Linux distributions, Which gives you full control over your application and OS. You have complete freedom to install or what to keep. Unlike the other distribution like Ubuntu, Centos, etc. It doesn&rsquo;t come with pre-loaded applications or software.</p>
+<p>Though Arch wiki has a detailed explanation of the installation process I faced some challenges whose solution was not easily available. I am listing a few here and will keep updating this post as I move forward.</p>
+<p>In this post I am not going to cover the installation steps, You will get a better explanation on the arch wiki.</p>
+<h1 id="machine-configuration">Machine Configuration</h1>
+<h2 id="hardware">Hardware</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>RAM: 2GB
+</span></span><span style="display:flex;"><span>Disk: <span style="color:#ae81ff">500</span>
+</span></span></code></pre></div><h2 id="bios-configuration">BIOS configuration</h2>
+<p>Secure boot: <code>disabled</code><br>
+Legacy boot: <code>enabled</code><br>
+Boot Mode: <code>UEFI</code></p>
+<h1 id="challenges">Challenges</h1>
+<h2 id="1-what-should-be-my-disk-partition-">1. What should be my disk partition ?</h2>
+<h3 id="11-check-boot-mode">1.1 Check Boot mode</h3>
+<p>You need to check <a href="https://wiki.archlinux.org/title/Installation_guide">installation guide</a>, Refer step <strong>Verify the boot mode</strong>.</p>
+<p>In a live environment, you need to check first what is your boot mode.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls /sys/firmware/efi/efivars
+</span></span></code></pre></div><p>If the command shows the directory without error, then the system is booted in UEFI mode. If the directory does not exist, the system may be booted in BIOS (or CSM) mode.</p>
+<p>So my machine&rsquo;s boot mode is UEFI.</p>
+<h3 id="12-how-to-create-partitions">1.2 How to create partitions?</h3>
+<p>I would recommend using <code>cfdisk</code> command to create the partition. Which gives you good visualization.</p>
+<p>My SCSI Disk is <code>dev/sda</code>.</p>
+<h3 id="13-types-of-partition">1.3 Types of Partition</h3>
+<p>You need to create 3 types of partition as shown below:</p>
+<table>
+<thead>
+<tr>
+<th>Mount Point</th>
+<th>Partition</th>
+<th>Partition Type</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/mnt/boot</td>
+<td>/dev/sda1</td>
+<td>EFI System</td>
+<td>1G</td>
+</tr>
+<tr>
+<td>[SWAP]</td>
+<td>/dev/sda2</td>
+<td>LINUX Swap</td>
+<td>4G</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>/dev/sda3</td>
+<td>LINUX Filesystem</td>
+<td>460G</td>
+</tr>
+</tbody>
+</table>
+<p>Here on my machine i have created 3 partition name <code>dev/sda1</code>, <code>dev/sda2</code>, <code>dev/sda3</code>. This name can be different.</p>
+<p>This is how you need to create the partition with the help of the <code>cfdisk</code> command.</p>
+<h3 id="14-mount-the-partition">1.4 Mount the partition</h3>
+<h4 id="format-the-partition">Format the partition</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkfs.ext4 /dev/sda3
+</span></span><span style="display:flex;"><span>mkswap /dev/sda2
+</span></span><span style="display:flex;"><span>mkfs.fat -F <span style="color:#ae81ff">32</span> /dev/sda1
+</span></span></code></pre></div><h4 id="mount-the-partition">Mount the partition</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mount /dev/sda3 /mnt
+</span></span><span style="display:flex;"><span>mount /dev/sda1 /mnt/boot
+</span></span><span style="display:flex;"><span>swapon /dev/sda2
+</span></span></code></pre></div><h2 id="2-install-bootloader">2. Install Bootloader</h2>
+<p>I have decided to install a grub bootloader on my machine. You can decide on this <a href="https://wiki.archlinux.org/title/Arch_boot_process">wiki page</a>.</p>
+<h3 id="21-install-grub">2.1 Install GRUB</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S grub
+</span></span></code></pre></div><h3 id="22-generate-grub-config">2.2 Generate Grub config</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>grub-install --target<span style="color:#f92672">=</span>x86_64-efi --efi-directory<span style="color:#f92672">=</span>/boot --bootloader-id<span style="color:#f92672">=</span>GRUB
+</span></span></code></pre></div><h3 id="23-reboot-the-system">2.3 Reboot the system</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>exit
+</span></span><span style="display:flex;"><span>umount /dev/sda3
+</span></span><span style="display:flex;"><span>reboot
+</span></span></code></pre></div><h2 id="3-how-to-login-again-with-live-bootable-arch-device-usbcd-etc">3. How to login again with Live bootable Arch device (USB/CD etc.)</h2>
+<p>Sometimes we need to install some package with a live environment only. In such a case, you can prefer these steps.</p>
+<p>Attach the live bootable device and choose the specific device in the boot order. Once you are logged in, Just perform the below commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mount /dev/sda3 /mnt
+</span></span><span style="display:flex;"><span>mount /dev/sda1 /mnt/boot
+</span></span><span style="display:flex;"><span>swapon /dev/sda2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>arch-chroot /mnt
+</span></span></code></pre></div><p>Once you are in Than you can perform any operation on your installed Arch OS.</p>
+<h2 id="4-install-networkmanager">4. Install NetworkManager</h2>
+<p>Please refer to challenge #3 to log in with the live environment. Once you successfully log in, Perform the below commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S NetworkManager
+</span></span><span style="display:flex;"><span>systemctl start NetworkManager
+</span></span><span style="display:flex;"><span>systemclt enable NetworkManager
+</span></span></code></pre></div><p>Simply check with ping if you connected with a LAN connection.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ping google.com
+</span></span></code></pre></div><blockquote>
+<p>Note: Please start and enable the Network Manager after reboot. It will not start on first time login.</p>
+</blockquote>
+<h2 id="5-install-broadcom-wireless">5. Install Broadcom Wireless</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S linux-headers
+</span></span><span style="display:flex;"><span>pacman -S broadcom-wl-dkms
+</span></span></code></pre></div><p>Reboot the system.</p>
+<h2 id="6-desktop-environment-arch">6. Desktop Environment Arch</h2>
+<p>To run any desktop environment, Need to install Display Manager. First, we will install LXDM (display manager).</p>
+<h3 id="61-lxdm">6.1 LXDM</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S lxdm
+</span></span><span style="display:flex;"><span>systemctl start lxdm
+</span></span><span style="display:flex;"><span>systemctl enable lxdm
+</span></span></code></pre></div><h3 id="62-lxde">6.2 LXDE</h3>
+<p>LXDE is a lightweight desktop. As my system has 2GB RAM, I have tried this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S lxde
+</span></span></code></pre></div><p>Reboot the system.</p>
+<h3 id="63-xfce4">6.3 XFCE4</h3>
+<p>Xfce is a lightweight and modular desktop environment currently based on GTK 3. To provide a complete user experience, it includes a window manager, a file manager, desktop and panel.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S xfce4 xfce4-goodies
+</span></span></code></pre></div><p>Edit <code>lxdm.conf</code></p>
+<p>Edit below line</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>session<span style="color:#f92672">=</span>/usr/bin/startlxfce4
+</span></span></code></pre></div><p>Reboot the system.</p>
+<h2 id="7-connect-to-wifi">7. Connect to WIFI</h2>
+<p>You need to install Network Manager and wireless driver first. You can refer step 4 &amp; 5.</p>
+<p>Once done with proper installation you can connect to wifi using:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>nmtui
+</span></span></code></pre></div><h2 id="8-stuck-on-grub-window-while-booting-on-arch-linux">8. Stuck on GRUB window while booting on arch linux</h2>
+<p><img loading="lazy" src="/img/arch-linux-installation/grub-window.jpeg" alt="arch linux login screen"  />
+</p>
+<p>It seems my bootloader was not configured properly. Re Attached the live bootable device and perform steps 3 and then 2.</p>
+<p>Reboot the system.</p>
+<h2 id="9-error--time--timed-out-waiting-for-device-devdiskby-uuid">9. Error: [ TIME ] Timed out waiting for device /dev/disk/by-uuid/</h2>
+<p><img loading="lazy" src="/img/arch-linux-installation/partition-fail.jpeg" alt="arch linux login screen"  />
+</p>
+<p>Please perform step 3.</p>
+<p>Check UUID of partitions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>lsblk -l
+</span></span></code></pre></div><p>Cross-check whether the above UUIDs and mentioned UUIDs in <code>/etc/fstab</code> should be the same.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vim /etc/fstab
+</span></span></code></pre></div><p>Update UUID accordingly on the above file. Save and exit.</p>
+<p>Reboot the system.</p>
+]]></content:encoded>
     </item>
     
   </channel>

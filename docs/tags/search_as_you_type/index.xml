@@ -18,6 +18,321 @@
       
       <guid>https://ashish.one/blogs/search-as-you-type/</guid>
       <description>Introduction In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data. You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp;amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature. Search as you type Elasticsearch gives this specific mapping type which you can simply set to a specific field where you want to perform this kind of search.</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data.
+You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature.
+Search as you type
+Elasticsearch gives this specific mapping type which you can simply set to a specific field where you want to perform this kind of search.</p>
+<h1 id="why-search_as_you_type">Why <code>search_as_you_type</code>?</h1>
+<p>No need to think about what kind of functionality like analyzer, tokenizer, etc. you have to apply to achieve this. It automatically handles everything in the backend by producing necessary terms on which you can query efficiently.</p>
+<p>You can simply create mapping like the below example:</p>
+<h2 id="create-index">Create Index</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>PUT products
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;mappings&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;properties&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;search_as_you_type&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="insert-sample-data">Insert sample data</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST products/_doc/
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;best jogging shoes for men&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="how-is-data-indexed-">How is data indexed ?</h2>
+<p><code>search_as_you_type</code> mapping creates 4 types of fields in the backend.</p>
+<h3 id="field-1-description">Field 1: <code>description</code></h3>
+<p>It will produce the terms according to the default analyzer if no analyzer is defined i.e. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-analyzer.html">standard analyzer</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men&#34;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="field-2-description_2gram">Field 2: <code>description._2gram</code></h3>
+<p>This will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">shingle token filter</a> and produce the terms with shingle size 2.
+This means a shingle token filter produces the token by concatenating the adjacent token. You can find more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">here</a>.</p>
+<p>This operation will perform on all the terms which are created on the <code>description</code> field and it will produce the below terms.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[ 
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for men&#34;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="field-3-description_3gram">Field 3: <code>description._3gram</code></h3>
+<p>This will also use a shingle token filter and produce the terms with shingle size 3. This means it will concatenate 3 adjacent tokens like below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for men&#34;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="field-4-description_index_prefix">Field 4: <code>description._index_prefix</code></h3>
+<p>This will apply an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html">edge n gram token filter</a> on the field <code>description._3gram</code> which means it will split terms (words) of <code>description._3gram</code> to a small substring that will start from the edge.
+You can have a look at the terms below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;b&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;be&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;bes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best j&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jog&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogg&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best joggi&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best joggin&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging s&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging sh&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging sho&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging shoe&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;j&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jog&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogg&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;joggi&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;joggin&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging s&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging sh&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging sho&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoe&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes f&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes fo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging shoes for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;s&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;sh&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;sho&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoe&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes f&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes fo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for m&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for me&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for men&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;f&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;fo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for m&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for me&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for men&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;for men &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;m&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;me&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men &#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men  &#34;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>As you noticed the token limit is up to 3 words only because <code>description._3gram</code> has generated 3 word tokens only.</p>
+<h1 id="search-query">Search Query</h1>
+<h2 id="multi_match"><code>multi_match</code></h2>
+<p>We will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html">multi_match</a> query here. Because we want to look up on each subfield for a perfect match.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;multi_match&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#e6db74">&#34;jogging&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;fields&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._2gram&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._3gram&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The above query is going to search the term <code>&quot;jogging&quot;</code> on all 3 subfields which are specified in <code>fields[]</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;took&#34;</span> : <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timed_out&#34;</span> : <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_shards&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;successful&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipped&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;failed&#34;</span> : <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hits&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;relation&#34;</span> : <span style="color:#e6db74">&#34;eq&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;max_score&#34;</span> : <span style="color:#ae81ff">0.2876821</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hits&#34;</span> : [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;products&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;TSNNiX8BYh0NLleBiu4u&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span> : <span style="color:#ae81ff">0.2876821</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;best jogging shoes for men&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Lets try with any substring (<code>jog</code>).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;multi_match&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#e6db74">&#34;jog&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;fields&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._2gram&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._3gram&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;took&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timed_out&#34;</span> : <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_shards&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;successful&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipped&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;failed&#34;</span> : <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hits&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;relation&#34;</span> : <span style="color:#e6db74">&#34;eq&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;max_score&#34;</span> : <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hits&#34;</span> : [ ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The result is empty. Because there is no term created with the name <strong><code>jog</code></strong> if you closely look at the above generated tokens on respective fields.</p>
+<p>To solve this we need to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-bool-prefix-query.html">bool_prefix</a> query.</p>
+<p><code>bool_prefix</code> analyze the input and constructs the bool query from the terms. But it puts the last term in the prefix query. For example, input is given as <code>men jogging s</code>, So it will produce terms like <code>[&quot;men&quot;,&quot;jogging&quot;,&quot;s&quot;]</code> but it will always perform a prefix query on the last term which is <code>&quot;s&quot;</code>. So documents will return where terms will match with <code>&quot;men&quot;</code> or <code>&quot;jogging&quot;</code> or any term which is starting with <code>&quot;s&quot;</code>.</p>
+<p>Below is the query which will give you the desired output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;multi_match&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#e6db74">&#34;jog&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;bool_prefix&#34;</span>, 
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;fields&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._2gram&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description._3gram&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;took&#34;</span> : <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timed_out&#34;</span> : <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_shards&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;successful&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipped&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;failed&#34;</span> : <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hits&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;relation&#34;</span> : <span style="color:#e6db74">&#34;eq&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;max_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hits&#34;</span> : [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;products&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;TSNNiX8BYh0NLleBiu4u&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span> : {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;best jogging shoes for men&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here when we make a prefix query on the root field (<code>description</code>) or any subfields, It will rewrite the query as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html">term</a> query on <code>description._index_prefix</code> field.</p>
+<p>This matches more efficiently because prefixes up to 3 words are already created as the terms as shown in the above.</p>
+<blockquote>
+<p>Note: This query will search for terms irrespective of order. For example, if we search for <code>jogging men</code>, This will also give the result because it will search for both the terms <code>jogging</code> or <code>men</code>. In most of the cases this query (multi_match + bool_prefix) is recommended because the end user can search for any string like <code>shoes</code> or <code>shoes for men</code> or <code>jogging shoes</code> etc.</p>
+</blockquote>
+<h2 id="what-if-you-want-to-search-with-strict-prefix-order">What if you want to search with strict prefix order?</h2>
+<p>You can use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html">match_phrase_prefix</a>, It will strictly match input from prefix in the same order only. So input like “men best” won’t return anything. Whereas you will get results with the previous one.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;match_phrase_prefix&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;best jogging s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>It will return documents where the term&rsquo;s prefix will be matched with “best jogging s”. Sometimes it can provide confusing results. You can check more about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-autocomplete">match_phrase_prefix</a>.</p>
+<h1 id="demo">Demo</h1>
+<p>Let’s take a practical experience of how it is going to work.</p>
+<h1 id="search-as-you-type-elasticsearch">Search As You Type (Elasticsearch)</h1>
+<p>Demo code and sample employees data to implement the &ldquo;Search as you type&rdquo; feature on elasticsearch.</p>
+<p>Written the middleware API in <code>python</code> using <a href="https://flask.palletsprojects.com/en/2.0.x/">flask</a>. Used <a href="https://jquery.com/">JQuery</a> for javascript operations.</p>
+<h2 id="installation">Installation</h2>
+<p>Assuming you have successfully installed <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Elasticsearch</a> and <a href="https://www.elastic.co/guide/en/kibana/current/install.html">Kibana</a> on your machine and it is working perfectly. Kindly refer respective installation document.</p>
+<p>OR</p>
+<p>You can run <a href="https://cloud.elastic.co/registration">Elasticsearch on the cloud</a> with a few clicks.</p>
+<h3 id="install-python3--pip3">Install Python3 &amp; pip3</h3>
+<ol>
+<li>Refer <a href="https://www.python.org/downloads/">Document</a> to install <code>python3</code> &amp; <code>pip3</code> on your system.</li>
+<li>Install <code>flask</code></li>
+</ol>
+<pre tabindex="0"><code>pip3 install flask
+</code></pre><ol start="3">
+<li>Install <code>elasticsearch</code> package</li>
+</ol>
+<pre tabindex="0"><code>pip3 install elasticsearch
+</code></pre><h3 id="git-clone">git Clone</h3>
+<pre tabindex="0"><code>git clone https://github.com/ashishtiwari1993/search_as_you_type.git
+cd search_as_you_type
+</code></pre><h3 id="create-index-and-load-data">Create Index and load data</h3>
+<p>Make sure Elasticsearch and kibana are up and running fine on your machine.</p>
+<h4 id="create-index-1">Create Index</h4>
+<pre tabindex="0"><code>PUT /sayt?pretty
+{
+  &#34;mappings&#34;: {
+    &#34;properties&#34;: {
+      &#34;first_name&#34;: {
+        &#34;type&#34;: &#34;search_as_you_type&#34;
+      },
+      &#34;last_name&#34;: {
+        &#34;type&#34;: &#34;search_as_you_type&#34;
+      },
+      &#34;street_address&#34;: {
+        &#34;type&#34;: &#34;search_as_you_type&#34;
+      },
+      &#34;company&#34;: {
+        &#34;type&#34;: &#34;search_as_you_type&#34;
+      },
+      &#34;email&#34;: {
+        &#34;type&#34;: &#34;search_as_you_type&#34;
+      }
+    }
+  }
+}
+</code></pre><h4 id="load-sample-data">Load sample data</h4>
+<p>Sample <a href="https://github.com/ashishtiwari1993/search_as_you_type/blob/main/data.json">data.json</a> file is given which need to load with the help of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">bulk API</a>.</p>
+<pre tabindex="0"><code>curl -s -H &#34;Content-Type: application/x-ndjson&#34; -XPOST &#34;localhost:9200/_bulk&#34; --data-binary &#34;@data.json&#34;
+</code></pre><p>Do not forget to change the elasticsearch&rsquo;s endpoint.</p>
+<h3 id="run-apipy--test">Run <code>api.py</code> &amp; test</h3>
+<p>Open <code>api.py</code> and change elasticsearch endpoint accordingly.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>es <span style="color:#f92672">=</span> Elasticsearch(<span style="color:#e6db74">&#34;http://localhost:9200&#34;</span>)
+</span></span></code></pre></div><h4 id="start-api-server">Start API Server</h4>
+<pre tabindex="0"><code>python3 api.py
+</code></pre><p>This will start the API service on port <code>5001</code>.</p>
+<p>Open <code>index.html</code> on your browser.</p>
+]]></content:encoded>
     </item>
     
   </channel>

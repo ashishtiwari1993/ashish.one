@@ -18,6 +18,144 @@
       
       <guid>https://ashish.one/blogs/arch-linux-installation-challenges/</guid>
       <description>Arch linux installation challenges</description>
+      <content:encoded><![CDATA[<p><img loading="lazy" src="/img/arch-linux-installation/arch-linux.jpeg" alt="arch linux login screen"  />
+</p>
+<h1 id="introduction">Introduction</h1>
+<p>This article is not containing the detailed procedure for installation but listed some challenges which you can face while installing the arch Linux. Arch Linux is one of the Linux distributions, Which gives you full control over your application and OS. You have complete freedom to install or what to keep. Unlike the other distribution like Ubuntu, Centos, etc. It doesn&rsquo;t come with pre-loaded applications or software.</p>
+<p>Though Arch wiki has a detailed explanation of the installation process I faced some challenges whose solution was not easily available. I am listing a few here and will keep updating this post as I move forward.</p>
+<p>In this post I am not going to cover the installation steps, You will get a better explanation on the arch wiki.</p>
+<h1 id="machine-configuration">Machine Configuration</h1>
+<h2 id="hardware">Hardware</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>RAM: 2GB
+</span></span><span style="display:flex;"><span>Disk: <span style="color:#ae81ff">500</span>
+</span></span></code></pre></div><h2 id="bios-configuration">BIOS configuration</h2>
+<p>Secure boot: <code>disabled</code><br>
+Legacy boot: <code>enabled</code><br>
+Boot Mode: <code>UEFI</code></p>
+<h1 id="challenges">Challenges</h1>
+<h2 id="1-what-should-be-my-disk-partition-">1. What should be my disk partition ?</h2>
+<h3 id="11-check-boot-mode">1.1 Check Boot mode</h3>
+<p>You need to check <a href="https://wiki.archlinux.org/title/Installation_guide">installation guide</a>, Refer step <strong>Verify the boot mode</strong>.</p>
+<p>In a live environment, you need to check first what is your boot mode.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls /sys/firmware/efi/efivars
+</span></span></code></pre></div><p>If the command shows the directory without error, then the system is booted in UEFI mode. If the directory does not exist, the system may be booted in BIOS (or CSM) mode.</p>
+<p>So my machine&rsquo;s boot mode is UEFI.</p>
+<h3 id="12-how-to-create-partitions">1.2 How to create partitions?</h3>
+<p>I would recommend using <code>cfdisk</code> command to create the partition. Which gives you good visualization.</p>
+<p>My SCSI Disk is <code>dev/sda</code>.</p>
+<h3 id="13-types-of-partition">1.3 Types of Partition</h3>
+<p>You need to create 3 types of partition as shown below:</p>
+<table>
+<thead>
+<tr>
+<th>Mount Point</th>
+<th>Partition</th>
+<th>Partition Type</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/mnt/boot</td>
+<td>/dev/sda1</td>
+<td>EFI System</td>
+<td>1G</td>
+</tr>
+<tr>
+<td>[SWAP]</td>
+<td>/dev/sda2</td>
+<td>LINUX Swap</td>
+<td>4G</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>/dev/sda3</td>
+<td>LINUX Filesystem</td>
+<td>460G</td>
+</tr>
+</tbody>
+</table>
+<p>Here on my machine i have created 3 partition name <code>dev/sda1</code>, <code>dev/sda2</code>, <code>dev/sda3</code>. This name can be different.</p>
+<p>This is how you need to create the partition with the help of the <code>cfdisk</code> command.</p>
+<h3 id="14-mount-the-partition">1.4 Mount the partition</h3>
+<h4 id="format-the-partition">Format the partition</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkfs.ext4 /dev/sda3
+</span></span><span style="display:flex;"><span>mkswap /dev/sda2
+</span></span><span style="display:flex;"><span>mkfs.fat -F <span style="color:#ae81ff">32</span> /dev/sda1
+</span></span></code></pre></div><h4 id="mount-the-partition">Mount the partition</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mount /dev/sda3 /mnt
+</span></span><span style="display:flex;"><span>mount /dev/sda1 /mnt/boot
+</span></span><span style="display:flex;"><span>swapon /dev/sda2
+</span></span></code></pre></div><h2 id="2-install-bootloader">2. Install Bootloader</h2>
+<p>I have decided to install a grub bootloader on my machine. You can decide on this <a href="https://wiki.archlinux.org/title/Arch_boot_process">wiki page</a>.</p>
+<h3 id="21-install-grub">2.1 Install GRUB</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S grub
+</span></span></code></pre></div><h3 id="22-generate-grub-config">2.2 Generate Grub config</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>grub-install --target<span style="color:#f92672">=</span>x86_64-efi --efi-directory<span style="color:#f92672">=</span>/boot --bootloader-id<span style="color:#f92672">=</span>GRUB
+</span></span></code></pre></div><h3 id="23-reboot-the-system">2.3 Reboot the system</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>exit
+</span></span><span style="display:flex;"><span>umount /dev/sda3
+</span></span><span style="display:flex;"><span>reboot
+</span></span></code></pre></div><h2 id="3-how-to-login-again-with-live-bootable-arch-device-usbcd-etc">3. How to login again with Live bootable Arch device (USB/CD etc.)</h2>
+<p>Sometimes we need to install some package with a live environment only. In such a case, you can prefer these steps.</p>
+<p>Attach the live bootable device and choose the specific device in the boot order. Once you are logged in, Just perform the below commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mount /dev/sda3 /mnt
+</span></span><span style="display:flex;"><span>mount /dev/sda1 /mnt/boot
+</span></span><span style="display:flex;"><span>swapon /dev/sda2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>arch-chroot /mnt
+</span></span></code></pre></div><p>Once you are in Than you can perform any operation on your installed Arch OS.</p>
+<h2 id="4-install-networkmanager">4. Install NetworkManager</h2>
+<p>Please refer to challenge #3 to log in with the live environment. Once you successfully log in, Perform the below commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S NetworkManager
+</span></span><span style="display:flex;"><span>systemctl start NetworkManager
+</span></span><span style="display:flex;"><span>systemclt enable NetworkManager
+</span></span></code></pre></div><p>Simply check with ping if you connected with a LAN connection.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ping google.com
+</span></span></code></pre></div><blockquote>
+<p>Note: Please start and enable the Network Manager after reboot. It will not start on first time login.</p>
+</blockquote>
+<h2 id="5-install-broadcom-wireless">5. Install Broadcom Wireless</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S linux-headers
+</span></span><span style="display:flex;"><span>pacman -S broadcom-wl-dkms
+</span></span></code></pre></div><p>Reboot the system.</p>
+<h2 id="6-desktop-environment-arch">6. Desktop Environment Arch</h2>
+<p>To run any desktop environment, Need to install Display Manager. First, we will install LXDM (display manager).</p>
+<h3 id="61-lxdm">6.1 LXDM</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S lxdm
+</span></span><span style="display:flex;"><span>systemctl start lxdm
+</span></span><span style="display:flex;"><span>systemctl enable lxdm
+</span></span></code></pre></div><h3 id="62-lxde">6.2 LXDE</h3>
+<p>LXDE is a lightweight desktop. As my system has 2GB RAM, I have tried this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S lxde
+</span></span></code></pre></div><p>Reboot the system.</p>
+<h3 id="63-xfce4">6.3 XFCE4</h3>
+<p>Xfce is a lightweight and modular desktop environment currently based on GTK 3. To provide a complete user experience, it includes a window manager, a file manager, desktop and panel.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S xfce4 xfce4-goodies
+</span></span></code></pre></div><p>Edit <code>lxdm.conf</code></p>
+<p>Edit below line</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>session<span style="color:#f92672">=</span>/usr/bin/startlxfce4
+</span></span></code></pre></div><p>Reboot the system.</p>
+<h2 id="7-connect-to-wifi">7. Connect to WIFI</h2>
+<p>You need to install Network Manager and wireless driver first. You can refer step 4 &amp; 5.</p>
+<p>Once done with proper installation you can connect to wifi using:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>nmtui
+</span></span></code></pre></div><h2 id="8-stuck-on-grub-window-while-booting-on-arch-linux">8. Stuck on GRUB window while booting on arch linux</h2>
+<p><img loading="lazy" src="/img/arch-linux-installation/grub-window.jpeg" alt="arch linux login screen"  />
+</p>
+<p>It seems my bootloader was not configured properly. Re Attached the live bootable device and perform steps 3 and then 2.</p>
+<p>Reboot the system.</p>
+<h2 id="9-error--time--timed-out-waiting-for-device-devdiskby-uuid">9. Error: [ TIME ] Timed out waiting for device /dev/disk/by-uuid/</h2>
+<p><img loading="lazy" src="/img/arch-linux-installation/partition-fail.jpeg" alt="arch linux login screen"  />
+</p>
+<p>Please perform step 3.</p>
+<p>Check UUID of partitions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>lsblk -l
+</span></span></code></pre></div><p>Cross-check whether the above UUIDs and mentioned UUIDs in <code>/etc/fstab</code> should be the same.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vim /etc/fstab
+</span></span></code></pre></div><p>Update UUID accordingly on the above file. Save and exit.</p>
+<p>Reboot the system.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -30,6 +168,113 @@
 In this blog, We are going to setup PHP and Nginx.
 Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
 Docker makes the installation process very smooth and it gives your isolated environment as the container.</description>
+      <content:encoded><![CDATA[<p>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.</p>
+<p>In this blog, We are going to setup PHP and Nginx.</p>
+<h3 id="why-docker">Why Docker?</h3>
+<p>I will not go too much deep, You can find more resources over the internet about the docker.</p>
+<p>Docker makes the installation process very smooth and it gives your isolated environment as the container.</p>
+<p>With the docker, There will be no more excuses like:</p>
+<blockquote>
+<p><strong>”It&rsquo;s working on my machine.”  :D</strong></p>
+</blockquote>
+<p>Because your docker environment remains the same across the platforms, So above excuses will going to turn with:</p>
+<blockquote>
+<p><strong>”It&rsquo;s working on every machine” ;)</strong></p>
+</blockquote>
+<p>In Short, Docker makes tech person&rsquo;s life easy like the developer, tester, etc.</p>
+<h3 id="my-machine-configuration">My Machine configuration:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Docker Version: 18.09.7
+</span></span><span style="display:flex;"><span>Docker Compose Version: 1.24.1
+</span></span><span style="display:flex;"><span>RAM: 8GB
+</span></span><span style="display:flex;"><span>OS: Ubuntu 18.04
+</span></span></code></pre></div><p>Make sure docker and docker-compose is installed on your machine.</p>
+<h3 id="step-1-create-folders">Step 1: Create folders:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir LEMP
+</span></span><span style="display:flex;"><span>cd LEMP
+</span></span><span style="display:flex;"><span>mkdir <span style="color:#f92672">{</span>public_html,nginx_conf<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>public_html</code>: It will contains your PHP code.<br>
+<code>nginx_conf</code>: It will contains your Nginx configuration file.</p>
+<h3 id="step-2-create-nginx-conf-file">Step 2: Create Nginx conf file</h3>
+<p>Go to <code>nginx_conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd nginx_conf
+</span></span></code></pre></div><p>Create file <code>lemp-docker.conf</code> (You can give any name according to your requirement) &amp; Paste below configuration block.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		listen 80;
+</span></span><span style="display:flex;"><span>		server_name _;
+</span></span><span style="display:flex;"><span>		root /public_html;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		location / <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>				index index.php index.html;
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		location ~* <span style="color:#ae81ff">\.</span>php$ <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>				fastcgi_pass    php:9000;
+</span></span><span style="display:flex;"><span>				fastcgi_index   index.php;
+</span></span><span style="display:flex;"><span>				include         fastcgi_params;
+</span></span><span style="display:flex;"><span>				fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+</span></span><span style="display:flex;"><span>				fastcgi_param PATH_INFO $fastcgi_path_info;
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Save and Exit from folder.</p>
+<h3 id="step-3-create-file-docker-composeyml">Step 3: Create file <code>docker-compose.yml</code></h3>
+<p>Create file <code>docker-compose.yml</code> in <code>LEMP</code> folder &amp; paste the below lines:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>version: <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>services:
+</span></span><span style="display:flex;"><span> web:
+</span></span><span style="display:flex;"><span>  image: nginx
+</span></span><span style="display:flex;"><span>  ports:
+</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">&#34;80:80&#34;</span> 
+</span></span><span style="display:flex;"><span>  volumes:
+</span></span><span style="display:flex;"><span>   - ./public_html:/public_html
+</span></span><span style="display:flex;"><span>   - ./nginx_conf:/etc/nginx/conf.d
+</span></span><span style="display:flex;"><span>   - /tmp/nginx_logs:/var/log/nginx 
+</span></span><span style="display:flex;"><span>  networks:
+</span></span><span style="display:flex;"><span>   - nginx-php
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> php:
+</span></span><span style="display:flex;"><span>  image: php:7.2-fpm
+</span></span><span style="display:flex;"><span>  volumes:
+</span></span><span style="display:flex;"><span>  - ./public_html:/public_html
+</span></span><span style="display:flex;"><span>  networks:
+</span></span><span style="display:flex;"><span>  - nginx-php
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>networks:
+</span></span><span style="display:flex;"><span> nginx-php:
+</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks">here</a>.</p>
+<p>You can set <code>volumes</code> path according to your requirement.</p>
+<h3 id="step-4-lets-up-the-containers">Step 4: Let&rsquo;s Up the containers</h3>
+<p>Create container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd LEMP/
+</span></span><span style="display:flex;"><span>docker-compose up
+</span></span></code></pre></div><p><strong>Note:</strong> Make sure no other service is running on port 80.</p>
+<p>Output:</p>
+<p><img loading="lazy" src="/img/lemp-docker/docker-compose-up.png" alt="docker compose up"  />
+</p>
+<p>You can hit the <code>localhost</code> on your browser.</p>
+<p>Once you hit the <code>localhost</code> check nginx logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /tmp/nginx_logs/access.log 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>172.25.0.1 - - <span style="color:#f92672">[</span>16/May/2020:12:51:04 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET / HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">556</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36&#34;</span> <span style="color:#e6db74">&#34;-&#34;</span>
+</span></span></code></pre></div><p>Now stop the containers by simply hitting <code>Ctrl + c</code>. Now run docker-compose in detached mode. It will run in the background.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose up -d
+</span></span></code></pre></div><p>Lists containers</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose ps
+</span></span></code></pre></div><h3 id="step-5-lets-create-testphp">Step 5: Let&rsquo;s Create <code>test.php</code></h3>
+<p>Go to <code>LEMP/public_html</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd LEMP/public_html
+</span></span></code></pre></div><p>Create file <code>test.php</code> &amp; paste below code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">phpinfo</span>();
+</span></span></code></pre></div><h3 id="step-6-run-testphp">Step 6: Run <code>test.php</code></h3>
+<p>Visit <a href="http://localhost/test.php">http://localhost/test.php</a>.</p>
+<p>Output:</p>
+<p><img loading="lazy" src="/img/lemp-docker/phpinfo.png" alt="phpinfo"  />
+</p>
+<h3 id="at-the-end">At the End</h3>
+<p>We have successfully created Nginx and PHP Environment. In Part 2, We will check, How we can add MySQL to this environment.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -42,6 +287,351 @@ Docker makes the installation process very smooth and it gives your isolated env
 Listed my challenges here https://t.co/gU2SoAxly2@nixcraft#linux #lfs #linuxfromscratch pic.twitter.com/XlWchVHy26
 &amp;mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) April 27, 2020  I have started with www.linuxfromscratch.org, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.
 Before we get start You need some basic linux command knowledge to use linuxfromscratch guide.</description>
+      <content:encoded><![CDATA[<p><img loading="lazy" src="https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&amp;name=large" alt="lfs_screen"  />
+</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Successfully built custom <a href="https://twitter.com/hashtag/Linux?src=hash&amp;ref_src=twsrc%5Etfw">#Linux</a> system by referring <a href="https://t.co/lyrdKkfXo9">https://t.co/lyrdKkfXo9</a> .<br><br>Listed my challenges here <a href="https://t.co/gU2SoAxly2">https://t.co/gU2SoAxly2</a><a href="https://twitter.com/nixcraft?ref_src=twsrc%5Etfw">@nixcraft</a><a href="https://twitter.com/hashtag/linux?src=hash&amp;ref_src=twsrc%5Etfw">#linux</a> <a href="https://twitter.com/hashtag/lfs?src=hash&amp;ref_src=twsrc%5Etfw">#lfs</a> <a href="https://twitter.com/hashtag/linuxfromscratch?src=hash&amp;ref_src=twsrc%5Etfw">#linuxfromscratch</a> <a href="https://t.co/XlWchVHy26">pic.twitter.com/XlWchVHy26</a></p>&mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) <a href="https://twitter.com/_ashish_tiwari/status/1254719517491511296?ref_src=twsrc%5Etfw">April 27, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>I have started with <a href="www.linuxfromscratch.org">www.linuxfromscratch.org</a>, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.</p>
+<h2 id="before-we-get-start">Before we get start</h2>
+<p>You need some basic linux command knowledge to use linuxfromscratch guide. I am going to build LFS on my local machine. If your machine has a different OS or different configuration, Then some solution will not work.</p>
+<p>I am going to use the same chapter title as mentioned in linuxfromscratch. I will skip those sections where I haven&rsquo;t faced any difficulties.</p>
+<h2 id="my-machine-configuration">My Machine Configuration</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>OS: Ubuntu 14.04
+</span></span><span style="display:flex;"><span>RAM: 2GB
+</span></span><span style="display:flex;"><span>Disk: <span style="color:#ae81ff">500</span> GB
+</span></span></code></pre></div><h2 id="going-to-build">Going to build</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>LFS version: 9.1
+</span></span><span style="display:flex;"><span>Published: March 1st, <span style="color:#ae81ff">2020</span>
+</span></span><span style="display:flex;"><span>LFS doc:http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html
+</span></span></code></pre></div><h2 id="challenges">Challenges</h2>
+<h2 id="22-host-system-requirements">2.2. Host System Requirements</h2>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs</a></p>
+<h3 id="version-check">Version check</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat &gt; version-check.sh &lt;&lt; <span style="color:#e6db74">&#34;EOF&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Simple script to list version numbers of critical development tools</span>
+</span></span><span style="display:flex;"><span>export LC_ALL<span style="color:#f92672">=</span>C
+</span></span><span style="display:flex;"><span>bash --version | head -n1 | cut -d<span style="color:#e6db74">&#34; &#34;</span> -f2-4
+</span></span><span style="display:flex;"><span>MYSH<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>readlink -f /bin/sh<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;/bin/sh -&gt; </span>$MYSH<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo $MYSH | grep -q bash <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;ERROR: /bin/sh does not point to bash&#34;</span>
+</span></span><span style="display:flex;"><span>unset MYSH
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo -n <span style="color:#e6db74">&#34;Binutils: &#34;</span>; ld --version | head -n1 | cut -d<span style="color:#e6db74">&#34; &#34;</span> -f3-
+</span></span><span style="display:flex;"><span>bison --version | head -n1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -h /usr/bin/yacc <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;/usr/bin/yacc -&gt; `readlink -f /usr/bin/yacc`&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -x /usr/bin/yacc <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo yacc is <span style="color:#e6db74">`</span>/usr/bin/yacc --version | head -n1<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;yacc not found&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bzip2 --version 2&gt;&amp;<span style="color:#ae81ff">1</span> &lt; /dev/null | head -n1 | cut -d<span style="color:#e6db74">&#34; &#34;</span> -f1,6-
+</span></span><span style="display:flex;"><span>echo -n <span style="color:#e6db74">&#34;Coreutils: &#34;</span>; chown --version | head -n1 | cut -d<span style="color:#e6db74">&#34;)&#34;</span> -f2
+</span></span><span style="display:flex;"><span>diff --version | head -n1
+</span></span><span style="display:flex;"><span>find --version | head -n1
+</span></span><span style="display:flex;"><span>gawk --version | head -n1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -h /usr/bin/awk <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;/usr/bin/awk -&gt; `readlink -f /usr/bin/awk`&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -x /usr/bin/awk <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo awk is <span style="color:#e6db74">`</span>/usr/bin/awk --version | head -n1<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;awk not found&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gcc --version | head -n1
+</span></span><span style="display:flex;"><span>g++ --version | head -n1
+</span></span><span style="display:flex;"><span>ldd --version | head -n1 | cut -d<span style="color:#e6db74">&#34; &#34;</span> -f2-  <span style="color:#75715e"># glibc version</span>
+</span></span><span style="display:flex;"><span>grep --version | head -n1
+</span></span><span style="display:flex;"><span>gzip --version | head -n1
+</span></span><span style="display:flex;"><span>cat /proc/version
+</span></span><span style="display:flex;"><span>m4 --version | head -n1
+</span></span><span style="display:flex;"><span>make --version | head -n1
+</span></span><span style="display:flex;"><span>patch --version | head -n1
+</span></span><span style="display:flex;"><span>echo Perl <span style="color:#e6db74">`</span>perl -V:version<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>python3 --version
+</span></span><span style="display:flex;"><span>sed --version | head -n1
+</span></span><span style="display:flex;"><span>tar --version | head -n1
+</span></span><span style="display:flex;"><span>makeinfo --version | head -n1  <span style="color:#75715e"># texinfo version</span>
+</span></span><span style="display:flex;"><span>xz --version | head -n1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c <span style="color:#f92672">&amp;&amp;</span> g++ -o dummy dummy.c
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -x dummy <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;g++ compilation OK&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span> echo <span style="color:#e6db74">&#34;g++ compilation failed&#34;</span>; <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>rm -f dummy.c dummy
+</span></span><span style="display:flex;"><span>EOF
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bash version-check.sh
+</span></span></code></pre></div><h3 id="error-1">Error 1:</h3>
+<p><code>/bin/sh does not point to bash</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo ln -sf bash /bin/sh
+</span></span></code></pre></div><h3 id="error-2">Error 2:</h3>
+<p><code>version-check.sh: line 11: bison: command not found</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get install bison
+</span></span></code></pre></div><h3 id="error-3">Error 3:</h3>
+<p><code>version-check.sh: line 25: gawk: command not found</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get install gawk
+</span></span></code></pre></div><h3 id="error-4">Error 4:</h3>
+<p><code>version-check.sh: line 36: g++: command not found</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get install g++
+</span></span></code></pre></div><h3 id="error-5">Error 5:</h3>
+<p><code>version-check.sh: line 48: makeinfo: command not found</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get update -y
+</span></span><span style="display:flex;"><span>sudo apt-get install -y texinfo
+</span></span></code></pre></div><h3 id="final-success-output">Final success output:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ bash version-check.sh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bash, version 4.3.11<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>-release
+</span></span><span style="display:flex;"><span>/bin/sh -&gt; /bin/bash
+</span></span><span style="display:flex;"><span>Binutils: <span style="color:#f92672">(</span>GNU Binutils <span style="color:#66d9ef">for</span> Ubuntu<span style="color:#f92672">)</span> 2.24
+</span></span><span style="display:flex;"><span>bison <span style="color:#f92672">(</span>GNU Bison<span style="color:#f92672">)</span> 3.0.2
+</span></span><span style="display:flex;"><span>/usr/bin/yacc -&gt; /usr/bin/bison.yacc
+</span></span><span style="display:flex;"><span>bzip2,  Version 1.0.6, 6-Sept-2010.
+</span></span><span style="display:flex;"><span>Coreutils:  8.21
+</span></span><span style="display:flex;"><span>diff <span style="color:#f92672">(</span>GNU diffutils<span style="color:#f92672">)</span> 3.3
+</span></span><span style="display:flex;"><span>find <span style="color:#f92672">(</span>GNU findutils<span style="color:#f92672">)</span> 4.4.2
+</span></span><span style="display:flex;"><span>GNU Awk 4.0.1
+</span></span><span style="display:flex;"><span>/usr/bin/awk -&gt; /usr/bin/gawk
+</span></span><span style="display:flex;"><span>gcc <span style="color:#f92672">(</span>Ubuntu 4.8.4-2ubuntu1~14.04.4<span style="color:#f92672">)</span> 4.8.4
+</span></span><span style="display:flex;"><span>g++ <span style="color:#f92672">(</span>Ubuntu 4.8.4-2ubuntu1~14.04.4<span style="color:#f92672">)</span> 4.8.4
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>Ubuntu EGLIBC 2.19-0ubuntu6.15<span style="color:#f92672">)</span> 2.19
+</span></span><span style="display:flex;"><span>grep <span style="color:#f92672">(</span>GNU grep<span style="color:#f92672">)</span> 2.16
+</span></span><span style="display:flex;"><span>gzip 1.6
+</span></span><span style="display:flex;"><span>Linux version 4.4.0-142-generic <span style="color:#f92672">(</span>buildd@lcy01-amd64-006<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>gcc version 4.8.4 <span style="color:#f92672">(</span>Ubuntu 4.8.4-2ubuntu1~14.04.4<span style="color:#f92672">)</span> <span style="color:#f92672">)</span> <span style="color:#75715e">#168~14.04.1-Ubuntu SMP Sat Jan 19 11:26:28 UTC 2019</span>
+</span></span><span style="display:flex;"><span>m4 <span style="color:#f92672">(</span>GNU M4<span style="color:#f92672">)</span> 1.4.17
+</span></span><span style="display:flex;"><span>GNU Make 3.81
+</span></span><span style="display:flex;"><span>GNU patch 2.7.1
+</span></span><span style="display:flex;"><span>Perl version<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;5.18.2&#39;</span>;
+</span></span><span style="display:flex;"><span>Python 3.4.3
+</span></span><span style="display:flex;"><span>sed <span style="color:#f92672">(</span>GNU sed<span style="color:#f92672">)</span> 4.2.2
+</span></span><span style="display:flex;"><span>tar <span style="color:#f92672">(</span>GNU tar<span style="color:#f92672">)</span> 1.27.1
+</span></span><span style="display:flex;"><span>makeinfo <span style="color:#f92672">(</span>GNU texinfo<span style="color:#f92672">)</span> 5.2
+</span></span><span style="display:flex;"><span>xz <span style="color:#f92672">(</span>XZ Utils<span style="color:#f92672">)</span> 5.1.0alpha
+</span></span><span style="display:flex;"><span>g++ compilation OK
+</span></span></code></pre></div><h2 id="25-creating-a-file-system-on-the-partition">2.5. Creating a File System on the Partition</h2>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem</a></p>
+<p>I had only one partition. I need to create new <strong>physical</strong> partition for LFS.</p>
+<blockquote>
+<p>It is recommended to use Physical partition only not logical.</p>
+</blockquote>
+<p>I have reinstall my OS with new partition which is long way. You can use <a href="https://www.howtogeek.com/114503/how-to-resize-your-ubuntu-partitions/">GParted</a> to make partitions. Remember you can create only 4 Physical partition. Give 1 physical partition dedicated to LFS. Below is my partition view.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ lsblk
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+</span></span><span style="display:flex;"><span>sda      8:0    <span style="color:#ae81ff">0</span> 465.8G  <span style="color:#ae81ff">0</span> disk 
+</span></span><span style="display:flex;"><span>|-sda1   8:1    <span style="color:#ae81ff">0</span>   476M  <span style="color:#ae81ff">0</span> part /boot/efi
+</span></span><span style="display:flex;"><span>|-sda2   8:2    <span style="color:#ae81ff">0</span>   1.9G  <span style="color:#ae81ff">0</span> part <span style="color:#f92672">[</span>SWAP<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>|-sda3   8:3    <span style="color:#ae81ff">0</span> 190.8G  <span style="color:#ae81ff">0</span> part /
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">`</span>-sda4   8:4    <span style="color:#ae81ff">0</span> 272.7G  <span style="color:#ae81ff">0</span> part /lfs
+</span></span></code></pre></div><h3 id="challenge-my-partition-wipe-out-after-restart-my-system">Challenge: My Partition wipe out after restart my system</h3>
+<p>After restart I again hit the same command <code>lsblk</code>. <code>/lfs</code> partition was not there.</p>
+<p>In Ubuntu, You need to make entry in <code>/etc/fstab</code> in order to mount the partition on restart.</p>
+<p>You have to find first volumeId or UUID to make entry in <code>/etc/fstab</code>. You can use <code>blkid</code> command to get all UUID:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ blkid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/dev/sda1: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1FBD-F51A&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vfat&#34;</span> 
+</span></span><span style="display:flex;"><span>/dev/sda2: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;9f41c453-3b5c-4537-81b0-2fb33f19ded8&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;swap&#34;</span> 
+</span></span><span style="display:flex;"><span>/dev/sda3: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1a16afba-cabb-40c7-b704-1129b7004ffb&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ext4&#34;</span> 
+</span></span><span style="display:flex;"><span>/dev/sda4: UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;b3b2eb8c-2a43-405d-97da-af8b46c743e2&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ext4&#34;</span> 
+</span></span></code></pre></div><p>Above my Partition is <code>/dev/sda4</code> which is mounted on <code>/lfs</code>, So my UUID is <code>b3b2eb8c-2a43-405d-97da-af8b46c743e2</code>. Now I have added below line in <code>/etc/fstab</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>UUID<span style="color:#f92672">=</span>b3b2eb8c-2a43-405d-97da-af8b46c743e2 /lfs            ext4    rw,user,exec,errors<span style="color:#f92672">=</span>remount-ro              <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Here</p>
+<ul>
+<li><code>rw</code>: Read, Write</li>
+<li><code>exec</code>: Execute</li>
+<li><code>errors=remount-ro</code>: It will mount as Read-Only, If you get any error on mounting.</li>
+</ul>
+<blockquote>
+<p>Make sure you have added <code>exec</code>, Otherwise you cannot execute any binaries from chapter <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1">5.4. Binutils-2.34 - Pass 1</a></p>
+</blockquote>
+<h2 id="54-binutils-234---pass-1">5.4. Binutils-2.34 - Pass 1</h2>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1</a></p>
+<h3 id="error-1-1">Error 1:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bash: ../configure: No such file or directory
+</span></span></code></pre></div><p>As I mentioned on above Section, Make sure you have added <code>exec</code> in your <code>/etc/fstab</code> entry OR Make sure your partition <code>/lfs</code> has Read, Write &amp; Execute permission. Below <code>/etc/fstab</code> entry worked for me:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>UUID<span style="color:#f92672">=</span>b3b2eb8c-2a43-405d-97da-af8b46c743e2 /lfs            ext4    rw,user,exec,errors<span style="color:#f92672">=</span>remount-ro              <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>This setting can be different for different OS.</p>
+<h3 id="error-2-1">Error 2:</h3>
+<p>I had no idea where to create <code>build</code> folder.</p>
+<p>Below steps worked for me:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd $LFS/source
+</span></span><span style="display:flex;"><span>$ tar xvf binutils-2.34.tar.xz
+</span></span><span style="display:flex;"><span>$ cd binutils-2.34
+</span></span><span style="display:flex;"><span>$ mkdir -v build
+</span></span><span style="display:flex;"><span>$ cd build
+</span></span><span style="display:flex;"><span>$ ../configure --prefix<span style="color:#f92672">=</span>/tools          <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>             --with-sysroot<span style="color:#f92672">=</span>$LFS        <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>             --with-lib-path<span style="color:#f92672">=</span>/tools/lib <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>             --target<span style="color:#f92672">=</span>$LFS_TGT          <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>             --disable-nls              <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>             --disable-werror
+</span></span></code></pre></div><h2 id="55-gcc-920---pass-1">5.5. GCC-9.2.0 - Pass 1</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd $LFS/sources
+</span></span><span style="display:flex;"><span>tar -xvf gcc-9.2.0.tar.xz
+</span></span><span style="display:flex;"><span>cd gcc-9.2.0
+</span></span></code></pre></div><p>After this you can continue with document flow.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tar -xf ../mpfr-4.0.2.tar.xz
+</span></span><span style="display:flex;"><span>mv -v mpfr-4.0.2 mpfr
+</span></span><span style="display:flex;"><span>tar -xf ../gmp-6.2.0.tar.xz
+</span></span><span style="display:flex;"><span>mv -v gmp-6.2.0 gmp
+</span></span><span style="display:flex;"><span>tar -xf ../mpc-1.1.0.tar.gz
+</span></span><span style="display:flex;"><span>mv -v mpc-1.1.0 mpc
+</span></span></code></pre></div><h3 id="error-1-2">Error 1:</h3>
+<p>On <code>make</code> command, I got below error:</p>
+<h4 id="error-for-loop-initial-declarations-are-only-allowed-in-c99-mode">error: &lsquo;for&rsquo; loop initial declarations are only allowed in C99 mode</h4>
+<pre tabindex="0"><code>compute_powtab.c: In function &#39;mpn_compute_powtab_mul&#39;:
+compute_powtab.c:142:3: error: &#39;for&#39; loop initial declarations are only allowed in C99 mode
+   for (long pi = start_idx; pi &gt;= 0; pi--)
+   ^
+compute_powtab.c:142:3: note: use option -std=c99 or -std=gnu99 to compile your code
+compute_powtab.c: In function &#39;mpn_compute_powtab_div&#39;:
+compute_powtab.c:226:3: error: &#39;for&#39; loop initial declarations are only allowed in C99 mode
+   for (long pi = n_pows - 1; pi &gt;= 0; pi--)
+   ^
+compute_powtab.c:274:13: error: redefinition of &#39;pi&#39;
+   for (long pi = n_pows; pi &gt;= 0; pi--)
+             ^
+compute_powtab.c:226:13: note: previous definition of &#39;pi&#39; was here
+   for (long pi = n_pows - 1; pi &gt;= 0; pi--)
+             ^
+compute_powtab.c:274:3: error: &#39;for&#39; loop initial declarations are only allowed in C99 mode
+   for (long pi = n_pows; pi &gt;= 0; pi--)
+   ^
+compute_powtab.c: In function &#39;powtab_decide&#39;:
+compute_powtab.c:296:3: error: &#39;for&#39; loop initial declarations are only allowed in C99 mode
+   for (size_t pn = (un + 1) &gt;&gt; 1; pn != 1; pn = (pn + 1) &gt;&gt; 1)
+   ^
+compute_powtab.c:304:10: error: redefinition of &#39;pn&#39;
+   size_t pn = un - 1;
+          ^
+compute_powtab.c:296:15: note: previous definition of &#39;pn&#39; was here
+   for (size_t pn = (un + 1) &gt;&gt; 1; pn != 1; pn = (pn + 1) &gt;&gt; 1)
+               ^
+compute_powtab.c:308:3: error: &#39;for&#39; loop initial declarations are only allowed in C99 mode
+   for (long i = n_pows - 2; i &gt;= 0; i--)
+</code></pre><p>As per (<a href="https://stackoverflow.com/a/29338269)%5Bhttps://stackoverflow.com/a/29338269%5D">https://stackoverflow.com/a/29338269)[https://stackoverflow.com/a/29338269]</a>,</p>
+<blockquote>
+<p><strong>This happens because declaring variables inside a for loop wasn&rsquo;t valid C until C99(which is the standard of C published in 1999).</strong></p>
+</blockquote>
+<h4 id="how-i-sovled-this">How I sovled this?</h4>
+<p>Open file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vim $LFS/sources/gcc-9.2.0/build/gmp/mpn/compute_powtab.c
+</span></span></code></pre></div><p><strong>We will solve first error:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>compute_powtab.c:226:3: error: <span style="color:#e6db74">&#39;for&#39;</span> loop initial declarations are only allowed in C99 mode
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>long pi <span style="color:#f92672">=</span> n_pows - 1; pi &gt;<span style="color:#f92672">=</span> 0; pi--<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Changes on line number 226:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  long pi;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>pi <span style="color:#f92672">=</span> n_pows - 1; pi &gt;<span style="color:#f92672">=</span> 0; pi--<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span>
+</span></span></code></pre></div><p>Just declare <code>long pi;</code> outside the loop. Similarly you can solve above all errors.</p>
+<p><strong>OR</strong></p>
+<p>You can download my edited version of <a href="/download/compute_powtab.c">compute_powtab.c</a>, Place in <code>$LFS/sources/gcc-9.2.0/build/gmp/mpn/</code>.</p>
+<p>Hit</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>make
+</span></span></code></pre></div><p>Now it should works :)</p>
+<h2 id="57-glibc-231">5.7. Glibc-2.31</h2>
+<p>On below command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>../configure                             <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>      --prefix<span style="color:#f92672">=</span>/tools                    <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>      --host<span style="color:#f92672">=</span>$LFS_TGT                    <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>      --build<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>../scripts/config.guess<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>      --enable-kernel<span style="color:#f92672">=</span>3.2                <span style="color:#ae81ff">\
+</span></span></span></code></pre></div><h3 id="error-these-critical-programs-are-missing-or-too-old-make">Error: These critical programs are missing or too old: make</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>configure: error:
+</span></span><span style="display:flex;"><span>*** These critical programs are missing or too old: make
+</span></span><span style="display:flex;"><span>*** Check the INSTALL file <span style="color:#66d9ef">for</span> required versions.
+</span></span></code></pre></div><p>I checked my current <code>make</code> version:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ make --version
+</span></span><span style="display:flex;"><span>GNU Make 3.81
+</span></span><span style="display:flex;"><span>Copyright <span style="color:#f92672">(</span>C<span style="color:#f92672">)</span> <span style="color:#ae81ff">2006</span>  Free Software Foundation, Inc.
+</span></span><span style="display:flex;"><span>This is free software; see the source <span style="color:#66d9ef">for</span> copying conditions.
+</span></span><span style="display:flex;"><span>There is NO warranty; not even <span style="color:#66d9ef">for</span> MERCHANTABILITY or FITNESS FOR A
+</span></span><span style="display:flex;"><span>PARTICULAR PURPOSE.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>This program built <span style="color:#66d9ef">for</span> x86_64-pc-linux-gnu
+</span></span></code></pre></div><p>As per (<a href="https://stackoverflow.com/a/31915313)%5Bhttps://stackoverflow.com/a/31915313%5D">https://stackoverflow.com/a/31915313)[https://stackoverflow.com/a/31915313]</a></p>
+<blockquote>
+<p><strong>Due to a long-standing unresolved Debian bug report, GNU Make remained the age-old 3.81 in Debian for a very long time, and as a consequence, in Debian-based distributions such as Ubuntu and Mint.</strong></p>
+</blockquote>
+<p>So we need to upgrade our make version. Below steps worked for me.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd /tmp
+</span></span><span style="display:flex;"><span>wget http://ftp.gnu.org/gnu/make/make-4.1.tar.gz
+</span></span><span style="display:flex;"><span>tar xvf make-4.1.tar.gz
+</span></span><span style="display:flex;"><span>cd make-4.1/
+</span></span><span style="display:flex;"><span>./configure
+</span></span><span style="display:flex;"><span>make
+</span></span><span style="display:flex;"><span>sudo make install
+</span></span><span style="display:flex;"><span>sudo mv /usr/local/bin/make /usr/bin/make
+</span></span></code></pre></div><p>Now again hit <code>../configure ..</code> command, Now it should work :)</p>
+<h2 id="67-linux-553-api-headers">6.7. Linux-5.5.3 API Headers</h2>
+<h3 id="error">Error</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">(</span>lfs chroot<span style="color:#f92672">)</span> root:/sources/linux-5.5.3# make mrproper
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/bin/sh: sed: command not found
+</span></span><span style="display:flex;"><span>Makefile:653: arch//Makefile: No such file or directory
+</span></span><span style="display:flex;"><span>make: *** No rule to make target <span style="color:#e6db74">&#39;arch//Makefile&#39;</span>.  Stop.
+</span></span></code></pre></div><p>Because of my silly mistake. I had not installed the sed package. I just reinstall the package.</p>
+<h2 id="612-bzip2-108">6.12. Bzip2-1.0.8</h2>
+<h3 id="error-6">Error:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
+</span></span><span style="display:flex;"><span>make: *** <span style="color:#f92672">[</span>Makefile-libbz2_so:38: all<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Just hit <code>make clean</code>.<br>
+Again run <code>make -f Makefile-libbz2_so</code>.</p>
+<h2 id="618-binutils-234">6.18. Binutils-2.34</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ make -k check
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:2565: check-DEJAGNU<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/sources/binutils-2.34/build_6.18/ld&#39;</span>
+</span></span><span style="display:flex;"><span>make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:1902: check-am<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/sources/binutils-2.34/build_6.18/ld&#39;</span>
+</span></span><span style="display:flex;"><span>make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:1771: check-recursive<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/sources/binutils-2.34/build_6.18/ld&#39;</span>
+</span></span><span style="display:flex;"><span>make<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:1904: check<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>make<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/sources/binutils-2.34/build_6.18/ld&#39;</span>
+</span></span><span style="display:flex;"><span>make<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:7568: check-ld<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>make<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/sources/binutils-2.34/build_6.18&#39;</span>
+</span></span><span style="display:flex;"><span>make: *** <span style="color:#f92672">[</span>Makefile:2222: <span style="color:#66d9ef">do</span>-check<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>As I research these are few common errors But as I have not found any solution So I jump on to the next step as suggested in various places.</p>
+<p><code>make tooldir=/usr install</code></p>
+<p>If you get any solution of above error, Feel free to comment below.</p>
+<h2 id="625-gcc-920">6.25. GCC-9.2.0</h2>
+<h3 id="error-1-3">Error 1:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>make: *** <span style="color:#f92672">[</span>Makefile:2295: <span style="color:#66d9ef">do</span>-check<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>I ignored this and move to next steps.</p>
+<h3 id="error-2-got-no-output-with-below-command">Error 2: Got no output with below command:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
+</span></span><span style="display:flex;"><span>cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
+</span></span><span style="display:flex;"><span>readelf -l a.out | grep <span style="color:#e6db74">&#39;: /lib&#39;</span>
+</span></span></code></pre></div><p>Performed below steps as mentioned on this link <a href="https://stackoverflow.com/a/48289145">https://stackoverflow.com/a/48289145</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gcc -dumpspecs | sed -e <span style="color:#e6db74">&#39;s@/tools@@g&#39;</span> &gt; <span style="color:#e6db74">`</span>dirname <span style="color:#66d9ef">$(</span>gcc --print-libgcc-file-name<span style="color:#66d9ef">)</span><span style="color:#e6db74">`</span>/specs
+</span></span></code></pre></div><p>Again perform above command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
+</span></span><span style="display:flex;"><span>$ cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
+</span></span><span style="display:flex;"><span>readelf -l a.out | grep <span style="color:#e6db74">&#39;: /lib&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">[</span>Requesting program interpreter: /lib64/ld-linux-x86-64.so.2<span style="color:#f92672">]</span>
+</span></span></code></pre></div><h2 id="641-perl-5301">6.41. Perl-5.30.1</h2>
+<h3 id="error-7">Error:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>erlio.c:<span style="color:#f92672">(</span>.text+0x91b<span style="color:#f92672">)</span>: undefined reference to <span style="color:#e6db74">`</span>pthread_getspecific<span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/usr/bin/ld: perlio.o:perlio.c:(.text+0x44e4): more undefined references to `pthread_getspecific&#39;</span> follow
+</span></span><span style="display:flex;"><span>collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
+</span></span><span style="display:flex;"><span>make: *** <span style="color:#f92672">[</span>makefile:364: lib/buildcustomize.pl<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Solution which suggested here <a href="https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/">https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/</a> It worked for me.</p>
+<p>it&rsquo;s due to not having deleted the extracted Perl-5.28.0 directory after Chapter 5. I deleted the folder. Again untar the file.</p>
+<h2 id="84-using-grub-to-set-up-the-boot-process">8.4. Using GRUB to Set Up the Boot Process</h2>
+<p><strong>NOTE</strong>: I have not performed this section, Becuase I am going to use my host system&rsquo;s (Ubuntu 14.04) GRUB bootloader. Just go to another terminal of host system and hit below command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo update-grub2
+</span></span></code></pre></div><p>After this again go to old terminal(LFS) and proceed with next step (The End).</p>
+<p>Please comment below if you facing any issue.</p>
+<p>Thanks</p>
+]]></content:encoded>
     </item>
     
   </channel>

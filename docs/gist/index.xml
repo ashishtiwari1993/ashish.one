@@ -21,6 +21,22 @@
 Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns)
 Install dependency $ go get github.com/miekg/dns spfLookup.go  Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1)
 Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1.</description>
+      <content:encoded><![CDATA[<p>In this gist, We will check how we can extract SPF records in Go.</p>
+<h2 id="prerequisite">Prerequisite</h2>
+<h3 id="go-version">Go version</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go version
+</span></span><span style="display:flex;"><span>go version go1.13 linux/amd64
+</span></span></code></pre></div><h3 id="dependency">Dependency</h3>
+<p><a href="https://github.com/miekg/dns">DNS Library(https://github.com/miekg/dns)</a></p>
+<h2 id="install-dependency">Install dependency</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get github.com/miekg/dns 
+</span></span></code></pre></div><h2 id="spflookupgo">spfLookup.go</h2>
+<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/ea5da5581ae2c56f3e25f8509155bd37.js"></script>
+
+<p>Here you can change <code>nameserver</code> according to your requirement. I have specified here google&rsquo;s name server (<code>8.8.8.8</code>). You can also use cloudflare&rsquo;s nameserver <a href="1.1.1.1">(1.1.1.1)</a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>You can make any DNS query with <code>miekg/dns</code> library. In the above script, we have looked up <code>TXT</code> Records and then we have searched for a string containing <code>v=spf1</code>.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -32,6 +48,32 @@ Conclusion You can make any DNS query with miekg/dns library. In the above scrip
       <description>Steps to add Responsive google slides iframe with Hugo:
 Hugo version:
 $ hugo version  Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &amp;lt;div id=&amp;#34;Container&amp;#34;  style=&amp;#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&amp;#34;&amp;gt;  &amp;lt;iframe id=&amp;#34;googleSlideIframe&amp;#34;  width=&amp;#34;100%&amp;#34; height=&amp;#34;100%&amp;#34;  src=&amp;#34;{{ .Get &amp;#34;src&amp;#34; }}&amp;#34;  frameborder=&amp;#34;0&amp;#34; allowfullscreen=&amp;#34;&amp;#34;  style=&amp;#34;position:absolute; top:0; left: 0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;/div&amp;gt; Step 3: Use shortcode &amp;lsquo;gslides&amp;rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.</description>
+      <content:encoded><![CDATA[<p>Steps to add Responsive google slides iframe with Hugo:</p>
+<p><strong>Hugo version:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ hugo version
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z
+</span></span></code></pre></div><h2 id="step-1-create-shortcode">Step 1: Create Shortcode</h2>
+<h3 id="create-gslideshtml-file">Create <code>gslides.html</code> file</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vim layouts/shortcodes/gslides.html
+</span></span></code></pre></div><h2 id="step-2-add-below-code">Step 2: Add below code:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Container&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&#34;</span>&gt;
+</span></span><span style="display:flex;"><span> &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;googleSlideIframe&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">src</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">allowfullscreen</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;position:absolute; top:0; left: 0&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><h2 id="step-3-use-shortcode-gslides-in-your-blogpost-markdown-file">Step 3: Use shortcode &lsquo;gslides&rsquo; in your Blog/Post Markdown file</h2>
+<p>Simply place below snippet in your markdown file.</p>
+<p>Replace <code>src</code> value with your Google slide URL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><code>{</code>{<code>&lt; gslides src="https://docs.google.com/presentation/d/e/2PACX-1vQExSl-gRPoA9hC6qXuqrjwiQVHAanDieZN_5GpV2Lw9cuxjsVFEN_wkTThqpQwZ36vJz4zwmTvV7cC/embed?start=false&loop=false&delayms=3000" ></code><code>}}</code>
+
+</span></span></code></pre></div><blockquote>
+<p><strong>I have shown for google slides, Similarly, you can create or add any other document type like google sheets, doc, etc. OR you can place any iframe like this.</strong></p>
+</blockquote>
+]]></content:encoded>
     </item>
     
     <item>
@@ -42,6 +84,11 @@ $ hugo version  Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDat
       <guid>https://ashish.one/gist/elasticsearch-exceptions-and-challenges/</guid>
       <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
  Every use case having different solutions. You can try accordingly.</description>
+      <content:encoded><![CDATA[<p>Below are some challenges &amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.</p>
+<p><script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js"></script>
+
+Every use case having different solutions. You can try accordingly.</p>
+]]></content:encoded>
     </item>
     
   </channel>

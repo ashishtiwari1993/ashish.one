@@ -20,6 +20,29 @@
       <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
 Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
 But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor.</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat">metricbeat</a> to check system health. With a few clicks, you can start monitoring your infra.</p>
+<p>Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.</p>
+<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html">Grok processor</a>.</p>
+<p>Also explained how you can read custom logs from log files in real time and ingest to Elasticsearch.</p>
+<h1 id="slides">Slides</h1>
+<div id="Container"
+ style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
+ <iframe id="googleSlideIframe"
+  width="100%" height="100%"
+  src="https://docs.google.com/presentation/d/e/2PACX-1vQtGa1x8-WMwWX8MTMZ-8GdJDMmiro4dNwcIE5HHmj1oGaSs88znwGf-W8bwUSANkIRQkeMZnh8KfWs/embed?start=false&amp;loop=false&amp;delayms=3000"
+  frameborder="0" allowfullscreen=""
+  style="position:absolute; top:0; left: 0"></iframe>
+</div>
+
+<h2 id="talk-video">Talk Video</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/owyv9sQE7q8?start=4856&amp;end=9427" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
+]]></content:encoded>
     </item>
     
   </channel>

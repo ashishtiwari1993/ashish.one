@@ -21,6 +21,122 @@
 What is Grafana? As grafana.com says
  ”Grafana is the open-source analytics and monitoring solution for every database.”
  This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs.</description>
+      <content:encoded><![CDATA[<p>As you know Prometheus already having UI (<code>localhost:9090</code>). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.</p>
+<h2 id="what-is-grafana">What is Grafana?</h2>
+<p>As <a href="https://grafana.com">grafana.com</a> says</p>
+<blockquote>
+<p><strong>”Grafana is the open-source analytics and monitoring solution for every database.”</strong></p>
+</blockquote>
+<p>This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc. So you can visualize different data points from the different databases on one screen. This is the flexibility and power Grafana provides.</p>
+<p>Grafana works on TSDB(Time Series Database) or Your data should be save in time series manner. Check explaination <a href="https://grafana.com/docs/grafana/latest/guides/timeseries/">here</a>.</p>
+<p>It has an alert system. You can configure an alert on Grafana itself for any Metric.</p>
+<h2 id="why-grafana">Why Grafana?</h2>
+<ol>
+<li>Open-source of course freely Available</li>
+<li>It is constantly contributed by the community. It is stable and used by many good brands.</li>
+<li>Good community support and well documented.</li>
+<li>You do not need any big infrastructure to get started.</li>
+<li>Lots of pre-build Grafana dashboards already available and build by the community.  So it will be a rare case where you have to build your dashboard.</li>
+</ol>
+<h2 id="my-local-system-configuration">My local system configuration:</h2>
+<ul>
+<li>8GB RAM</li>
+<li>Ubuntu 18.04 LTS</li>
+</ul>
+<p>You can check <a href="https://grafana.com/docs/grafana/latest/installation/requirements/">here</a> your system requirement according to your Operating System. Also, They explained different ways to install Grafana for different OS.</p>
+<h2 id="setup-grafana">Setup Grafana</h2>
+<h3 id="installation">Installation</h3>
+<p>Grafana has two types of Software:</p>
+<ol>
+<li><strong>Enterprise Release</strong></li>
+<li><strong>Open-Sources Software(OSS) or Community Release</strong></li>
+</ol>
+<p>We are going to install OSS Release.</p>
+<h4 id="step-1-install-apt-transport-https">Step 1: Install <code>apt-transport-https</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apt-get install -y apt-transport-https
+</span></span></code></pre></div><p><img loading="lazy" src="/img/grafana-setup/apt-transport-https.png" alt="apt-transport-https"  />
+</p>
+<h4 id="step-2-install-wget">Step 2: Install <code>wget</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apt-get install -y software-properties-common wget
+</span></span></code></pre></div><p><img loading="lazy" src="/img/grafana-setup/install-wget.png" alt="install-wget"  />
+</p>
+<h4 id="step-3-add-key">Step 3: Add key</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+</span></span></code></pre></div><h4 id="step-4-add-apt-repository">Step 4: Add <code>apt</code> Repository</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo add-apt-repository <span style="color:#e6db74">&#34;deb https://packages.grafana.com/oss/deb stable main&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>OK
+</span></span></code></pre></div><h4 id="step-5-update--install">Step 5: Update &amp; Install</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apt-get update
+</span></span><span style="display:flex;"><span>$ sudo apt-get install grafana
+</span></span></code></pre></div><p><img loading="lazy" src="/img/grafana-setup/install-grafana.png" alt="install-grafana"  />
+</p>
+<h4 id="step-6-start-grafana-server">Step 6: Start <code>grafana-server</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo systemctl daemon-reload  
+</span></span><span style="display:flex;"><span>$ sudo systemctl start grafana-server  
+</span></span><span style="display:flex;"><span>$ sudo systemctl status grafana-server  
+</span></span></code></pre></div><p><img loading="lazy" src="/img/grafana-setup/grafana-status.png" alt="grafana-status"  />
+</p>
+<h4 id="step-7-visit-localhost3000">Step 7: Visit <code>localhost:3000</code></h4>
+<p><img loading="lazy" src="/img/grafana-setup/grafana-browser.png" alt="grafana-browser"  />
+</p>
+<h3 id="install-with-docker">Install with Docker</h3>
+<p>Ignore this part if you not using docker.</p>
+<pre tabindex="0"><code>docker run -d -p 3000:3000 grafana/grafana
+</code></pre><p>visit <code>localhost:3000</code>.</p>
+<p>We have successfully installed Grafana. Let&rsquo;s configure with Prometheus.</p>
+<h2 id="configure-with-prometheus">Configure with Prometheus</h2>
+<p>We already setup Prometheus in <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">part 1</a>. Now I am considering your Prometheus and Node exporter are running on port <code>9090</code> &amp; <code>9100</code> respectively.</p>
+<h3 id="setup-grafana----prometheus">Setup Grafana &lt;&ndash;&gt; Prometheus</h3>
+<h4 id="step-1-login-on-grafana">Step 1: Login on Grafana</h4>
+<p>Visit <code>localhost:3000</code>. 3000 is the default port of Grafana, However, you can run on any port. To change the port see the <a href="https://grafana.com/docs/grafana/latest/installation/configuration/">configuration</a>.</p>
+<p>Login into Grafana with default Credentials:</p>
+<p><strong>Username</strong>:<code>admin</code><br>
+<strong>Password</strong>:<code>admin</code></p>
+<p>Now it will ask you to change your password. Once done, Click on <code>save</code>, You will be redirect on the dashboard.</p>
+<p><img loading="lazy" src="/img/grafana-setup/grafana-dashboard.png" alt="grafana-dashboard"  />
+</p>
+<h4 id="step-2-add-data-source">Step 2: Add Data Source</h4>
+<p>Goto Sidebar &amp; Navigate:</p>
+<p><strong><em>Configuration -&gt; Data Sources</em></strong></p>
+<p><img loading="lazy" src="/img/grafana-setup/datasource.png" alt="datasource"  />
+</p>
+<p>click on <code>Add data source</code>.
+<img loading="lazy" src="/img/grafana-setup/prometheus-data-source.png" alt="prometheus-data-source"  />
+</p>
+<p>Search for <code>Prometheus</code> &amp; click on <code>Select</code>.</p>
+<p>Add Prometheus endpoint in <code>URL</code> and click on <code>save &amp; Test</code>.</p>
+<p><img loading="lazy" src="/img/grafana-setup/grafana-prometheus-config.png" alt="grafana-prometheus-config"  />
+</p>
+<p>You will get the notification for success. Here we have successfully integrated Grafana and Prometheus.</p>
+<h4 id="step-3-add-dashboard">Step 3: Add Dashboard</h4>
+<p>Here we have two option available:</p>
+<ol>
+<li><strong><em>Create your Dashboard</em></strong></li>
+<li><strong><em>Import any pre-build Dashboard</em></strong></li>
+</ol>
+<p>We will go with the second option because that is the beauty of community :) People already build a dashboard for various stacks.</p>
+<p>You can search for Dashboard from <a href="https://grafana.com/grafana/dashboards">https://grafana.com/grafana/dashboards</a> as per your requirement.</p>
+<p>Here is the link for Node exporter dashboard: <a href="https://grafana.com/grafana/dashboards/1860">https://grafana.com/grafana/dashboards/1860</a></p>
+<p>Here Dashboard ID is <code>1860</code>. Every dashboard which contributed in Grafana has unique ID. You can just import any dashboard by inserting the ID.</p>
+<p><img loading="lazy" src="/img/grafana-setup/node-exporter-dashboard.png" alt="node-exporter-dashboard"  />
+</p>
+<p>On Grafana Goto sidebar &amp; Navigate:</p>
+<p><strong><em>+(Plus/Add sign) -&gt; Import</em></strong></p>
+<p>Enter Dashboard Id and click on <code>load</code>. After that<br>
+<img loading="lazy" src="/img/grafana-setup/dashboard-id.png" alt="dashboard-id"  />
+</p>
+<p>Enter the Name &amp; select Prometheus on label <code>Prometheus</code> as shown in below image.
+<img loading="lazy" src="/img/grafana-setup/dashboard-config.png" alt="dashboard-config"  />
+</p>
+<p>Click on <code>Import</code>.</p>
+<p>Your Dashboard will be ready.</p>
+<p><img loading="lazy" src="/img/grafana-setup/node-dashboard.png" alt="node-dashboard"  />
+</p>
+<p>Here we have successfully integrated the Grafana with Prometheus. You can explore more features of Grafana like Alerts, Users, etc.</p>
+<p>For the alerting system, I prefer Prometheus Alertmanager only. You can check more details on the Alertmanager in <a href="https://ashish.one/blogs/setup-alertmanager/">part 2</a>. It gives you more control and advanced feature.</p>
+<p>But every tool has use cases and built for special purposes. You can choose according to your requirements.</p>
+<p><strong>In case of any confusion or issues leave comments below :)</strong></p>
+]]></content:encoded>
     </item>
     
   </channel>

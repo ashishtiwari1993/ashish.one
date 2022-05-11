@@ -19,6 +19,31 @@
       <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
       <description>Introduction What this talk is all about? We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.
 We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<h2 id="what-this-talk-is-all-about">What this talk is all about?</h2>
+<p>We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.</p>
+<p>We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.</p>
+<p>Our READ request is 1 million/day which contains Scroll, simple search &amp; Aggregations Query. We achieved to display our email logs in next to real-time.
+We also worked on Disk optimization by believing in the principle of &ldquo;Know your query&rdquo;. Currently having 6TB + of the cluster with 80 GB ingestion per day.</p>
+<h2 id="slides">Slides</h2>
+<div id="Container"
+ style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
+ <iframe id="googleSlideIframe"
+  width="100%" height="100%"
+  src="https://docs.google.com/presentation/d/e/2PACX-1vRiOzGgkrN1dO7fD4MDUKzr8WIhHqIhS5Iw1N27_mxYVdtPYcK17ib6ZTdg3bgExVuccJ35vxUSNP3X/embed?start=false&amp;loop=false&amp;delayms=3000"
+  frameborder="0" allowfullscreen=""
+  style="position:absolute; top:0; left: 0"></iframe>
+</div>
+
+<h2 id="talk-video">Talk Video</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/NSZXMv0va74" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted -->
+<h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
+]]></content:encoded>
     </item>
     
   </channel>
