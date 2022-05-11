@@ -1,7 +1,7 @@
 baseurl = "https://ashish.one/"
 languageCode = "en-us"
 title = "ashish.one"
-theme = "hyde-hyde"
+theme = "paperMod"
 
 publishDir = "docs"
 
@@ -18,21 +18,44 @@ paginate = 5
 	topics = "topics"
 	series = "series"
 
+[minify]
+	disableXML = true
+	minifyOutput = true
+
 [params]
-    env = "production"
-    mainSections = ["post"]
+	env = "production"
+	mainSections = ["post"]
 	author = "Ashish Tiwari"
 	title = "ashish.one"
+	keyword = ["Blogs", "Gists"]
 	images = ["https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200"]
 	DateFormat = "January 2, 2006"
+	defaultTheme = "dark"
+	disableThemeToggle = false
+
+	ShowReadingTime = true
+	ShowShareButtons = true
+	ShowPostNavLinks = true
+	ShowBreadCrumbs = true
+	ShowCodeCopyButtons = false
+	disableSpecial1stPost = false
+	disableScrollToTop = false
+	comments = true
+	hidemeta = false
+	hideSummary = false
+	showtoc = true
+	tocopen = true
+
 	copyright = "ashish"
 	since = "2019"
-    highlightjs = true
-    highlightjsstyle = "github"	
+
+    	highlightjs = true
+    	highlightjsstyle = "github"	
 
 	UtterancesRepo = "ashishtiwari1993/ashish.one"
 	UtterancesIssueTerm = "title"
 	UtterancesTheme = "github-light"		
+
 	toc = "tocbot"
 
 [params.social]
@@ -41,6 +64,34 @@ paginate = 5
 	github = "ashishtiwari1993"
 	linkedin = "ashish-tiwari-a40a012b"
 
+[params.assets]
+	favicon = "favicon.png"
+	favicon16x16 = "favicon.png"
+	favicon32x32 = "favicon.png"
+	apple_touch_icon = "favicon.png"
+	safari_pinned_tab = "favicon.png"
+
+[params.label]
+	text = "Ashish Tiwari"
+	iconHeight = 35
+
+[params.profileMode]
+	enabled = false
+	imageUrl = "https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200" 
+
+[params.homeInfoParams]
+	Title = "Bio"
+	Content = "Developer Advocate @ Elastic | Co-Founder @ MimePost | Mumbai Elastic Community Organiser | Speaker | OSS guy | Linux lover"
+
+
+[params.fuseOpts]
+	isCaseSensitive = false
+	shouldSort = true
+	location = 0
+	distance = 1000
+	threshold = 0.4
+	minMatchCharLength = 0
+	keys = ["title", "permalink", "summary", "content"]
 
 [[params.socialIcons]]
 	name = "twitter"
@@ -54,6 +105,12 @@ paginate = 5
 	name = "linkedin"
 	url = "https://www.linkedin.com/in/ashishtiwari93/"
 
+[[params.socialIcons]]
+  	name = "stackoverflow"
+  	url = "https://stackoverflow.com/users/6438430/ashish-tiwari"
+
+[outputs]
+	home = ["HTML", "RSS", "JSON"]
 	
 
 
@@ -89,4 +146,11 @@ paginate = 5
     name = "Gists"
     url = "/gist/"
     weight = -93
+
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = -92
+
+
 
