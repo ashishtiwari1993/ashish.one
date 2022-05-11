@@ -7,7 +7,7 @@ ogtype: "article"
 tags: ["prometheus","alertmanager","exporter","custom","custom-exporter"]
 draft: false
 slug: "write-custom-exporters-prometheus"
-topics: "Prometheus"
+categories: "Prometheus"
 ---
 
 ## Introduction

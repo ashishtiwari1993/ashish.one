@@ -5,7 +5,7 @@ draft: false
 ogtype: "article"
 tags: ["golang","talk","concurrency"]
 slug: "golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost"
-topics: "Golang"
+categories: "Golang"
 type: "post"
 ---
 

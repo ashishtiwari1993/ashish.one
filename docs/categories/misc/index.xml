@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Misc on ashish.one</title>
+    <link>https://ashish.one/categories/misc/</link>
+    <description>Recent content in Misc on ashish.one</description>
+    <image>
+      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
+      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 13:53:50 +0530</lastBuildDate><atom:link href="https://ashish.one/categories/misc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Get start with BugBounty, Pentest and Security Researcher</title>
+      <link>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</link>
+      <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</guid>
+      <description>I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.
+The Fact The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.
+ There is no defined way to become a security researcher.</description>
+      <content:encoded><![CDATA[<p>I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.</p>
+<h2 id="the-fact">The Fact</h2>
+<p>The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.</p>
+<blockquote>
+<p>There is no defined way to become a security researcher.</p>
+</blockquote>
+<p>Here at the end, I am also going to give you some resources about the get started but to be honest it will not help until you start with a practice or use it in your day-to-day life for learning purposes.</p>
+<h2 id="so-what-missing">So what missing?</h2>
+<p>Resources will get the directions for learning. Let’s say you got one blog where the blogger explains everything steps by step and You decided to complete it in 7 days. Your approach SHOULD NOT be that once you finish with the whole tutorial you should start with researching it won’t help or probably you must have forgotten the things which you learned on day 1.</p>
+<h2 id="the-approach">The Approach</h2>
+<p>Start performing practical from the first day. Whatever your learning start implementing those. Try to find the smallest loopholes. And trust me you won’t get it on Day 1. But with the practice, you will become to know how to find or where to find.</p>
+<h2 id="where-to-do-practice">Where to do practice?</h2>
+<p>You can use any Bugbounty side where lots of products, apps, websites get listed to find bugs, vulnerabilities, etc. You can also use CTF (Capture the flag). I will not go in deep with these terminologies because you can find better explanations on google. You will also get a better guide on how to start with these platforms.</p>
+<p>Don’t Forget your practice will give you a real security expert badge. Keep practicing.</p>
+<h2 id="some-resources-to-get-start">Some resources to get start</h2>
+<ul>
+<li>
+<p><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters">https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters</a></p>
+</li>
+<li>
+<p><a href="https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/">https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/</a></p>
+</li>
+<li>
+<p><a href="https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115">https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115</a></p>
+</li>
+<li>
+<p>Pentesting for n00bs is ELI5 hacking, designed for beginners who have never walked through a hack before. All 10 episodes:</p>
+</li>
+</ul>
+<p>Ep 1 - Legacy: <a href="https://youtu.be/JZN3JhoAdWo">https://youtu.be/JZN3JhoAdWo</a></p>
+<p>Ep 2 - Lame: <a href="https://youtu.be/ntBkyid_u8Y">https://youtu.be/ntBkyid_u8Y</a></p>
+<p>Ep 3 - Blue: <a href="https://youtu.be/xLI7OialKk4">https://youtu.be/xLI7OialKk4</a></p>
+<p>Ep 4 - Devel: <a href="https://youtu.be/ODUDau7BPSY">https://youtu.be/ODUDau7BPSY</a></p>
+<p>Ep. 5 - Jerry: <a href="https://youtu.be/nF14K2VAVtw">https://youtu.be/nF14K2VAVtw</a></p>
+<p>Ep. 6 - Nibbles: <a href="https://youtu.be/8ulnQVFHcOE">https://youtu.be/8ulnQVFHcOE</a></p>
+<p>Ep. 7 - Optimum: <a href="https://youtu.be/bTxnobhJ_b8">https://youtu.be/bTxnobhJ_b8</a></p>
+<p>Ep. 8 - Bashed: <a href="https://youtu.be/5406MfOfXBc">https://youtu.be/5406MfOfXBc</a></p>
+<p>Ep. 9 - Grandpa: <a href="https://youtu.be/3aASluoJ-iM">https://youtu.be/3aASluoJ-iM</a></p>
+<p>Ep. 10 - Netmon: <a href="https://youtu.be/8k-8aVwS0fk">https://youtu.be/8k-8aVwS0fk</a></p>
+<p>Please feel free to post your doubt or suggestions below 🙂</p>
+<p>Thanks</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
+      <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
+      <description>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.
+In this blog, We are going to setup PHP and Nginx.
+Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
+Docker makes the installation process very smooth and it gives your isolated environment as the container.</description>
+      <content:encoded><![CDATA[<p>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.</p>
+<p>In this blog, We are going to setup PHP and Nginx.</p>
+<h3 id="why-docker">Why Docker?</h3>
+<p>I will not go too much deep, You can find more resources over the internet about the docker.</p>
+<p>Docker makes the installation process very smooth and it gives your isolated environment as the container.</p>
+<p>With the docker, There will be no more excuses like:</p>
+<blockquote>
+<p><strong>”It&rsquo;s working on my machine.”  :D</strong></p>
+</blockquote>
+<p>Because your docker environment remains the same across the platforms, So above excuses will going to turn with:</p>
+<blockquote>
+<p><strong>”It&rsquo;s working on every machine” ;)</strong></p>
+</blockquote>
+<p>In Short, Docker makes tech person&rsquo;s life easy like the developer, tester, etc.</p>
+<h3 id="my-machine-configuration">My Machine configuration:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Docker Version: 18.09.7
+</span></span><span style="display:flex;"><span>Docker Compose Version: 1.24.1
+</span></span><span style="display:flex;"><span>RAM: 8GB
+</span></span><span style="display:flex;"><span>OS: Ubuntu 18.04
+</span></span></code></pre></div><p>Make sure docker and docker-compose is installed on your machine.</p>
+<h3 id="step-1-create-folders">Step 1: Create folders:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir LEMP
+</span></span><span style="display:flex;"><span>cd LEMP
+</span></span><span style="display:flex;"><span>mkdir <span style="color:#f92672">{</span>public_html,nginx_conf<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>public_html</code>: It will contains your PHP code.<br>
+<code>nginx_conf</code>: It will contains your Nginx configuration file.</p>
+<h3 id="step-2-create-nginx-conf-file">Step 2: Create Nginx conf file</h3>
+<p>Go to <code>nginx_conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd nginx_conf
+</span></span></code></pre></div><p>Create file <code>lemp-docker.conf</code> (You can give any name according to your requirement) &amp; Paste below configuration block.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		listen 80;
+</span></span><span style="display:flex;"><span>		server_name _;
+</span></span><span style="display:flex;"><span>		root /public_html;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		location / <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>				index index.php index.html;
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		location ~* <span style="color:#ae81ff">\.</span>php$ <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>				fastcgi_pass    php:9000;
+</span></span><span style="display:flex;"><span>				fastcgi_index   index.php;
+</span></span><span style="display:flex;"><span>				include         fastcgi_params;
+</span></span><span style="display:flex;"><span>				fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+</span></span><span style="display:flex;"><span>				fastcgi_param PATH_INFO $fastcgi_path_info;
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Save and Exit from folder.</p>
+<h3 id="step-3-create-file-docker-composeyml">Step 3: Create file <code>docker-compose.yml</code></h3>
+<p>Create file <code>docker-compose.yml</code> in <code>LEMP</code> folder &amp; paste the below lines:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>version: <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>services:
+</span></span><span style="display:flex;"><span> web:
+</span></span><span style="display:flex;"><span>  image: nginx
+</span></span><span style="display:flex;"><span>  ports:
+</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">&#34;80:80&#34;</span> 
+</span></span><span style="display:flex;"><span>  volumes:
+</span></span><span style="display:flex;"><span>   - ./public_html:/public_html
+</span></span><span style="display:flex;"><span>   - ./nginx_conf:/etc/nginx/conf.d
+</span></span><span style="display:flex;"><span>   - /tmp/nginx_logs:/var/log/nginx 
+</span></span><span style="display:flex;"><span>  networks:
+</span></span><span style="display:flex;"><span>   - nginx-php
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> php:
+</span></span><span style="display:flex;"><span>  image: php:7.2-fpm
+</span></span><span style="display:flex;"><span>  volumes:
+</span></span><span style="display:flex;"><span>  - ./public_html:/public_html
+</span></span><span style="display:flex;"><span>  networks:
+</span></span><span style="display:flex;"><span>  - nginx-php
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>networks:
+</span></span><span style="display:flex;"><span> nginx-php:
+</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks">here</a>.</p>
+<p>You can set <code>volumes</code> path according to your requirement.</p>
+<h3 id="step-4-lets-up-the-containers">Step 4: Let&rsquo;s Up the containers</h3>
+<p>Create container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd LEMP/
+</span></span><span style="display:flex;"><span>docker-compose up
+</span></span></code></pre></div><p><strong>Note:</strong> Make sure no other service is running on port 80.</p>
+<p>Output:</p>
+<p><img loading="lazy" src="/img/lemp-docker/docker-compose-up.png" alt="docker compose up"  />
+</p>
+<p>You can hit the <code>localhost</code> on your browser.</p>
+<p>Once you hit the <code>localhost</code> check nginx logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /tmp/nginx_logs/access.log 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>172.25.0.1 - - <span style="color:#f92672">[</span>16/May/2020:12:51:04 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET / HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">556</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36&#34;</span> <span style="color:#e6db74">&#34;-&#34;</span>
+</span></span></code></pre></div><p>Now stop the containers by simply hitting <code>Ctrl + c</code>. Now run docker-compose in detached mode. It will run in the background.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose up -d
+</span></span></code></pre></div><p>Lists containers</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose ps
+</span></span></code></pre></div><h3 id="step-5-lets-create-testphp">Step 5: Let&rsquo;s Create <code>test.php</code></h3>
+<p>Go to <code>LEMP/public_html</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd LEMP/public_html
+</span></span></code></pre></div><p>Create file <code>test.php</code> &amp; paste below code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">phpinfo</span>();
+</span></span></code></pre></div><h3 id="step-6-run-testphp">Step 6: Run <code>test.php</code></h3>
+<p>Visit <a href="http://localhost/test.php">http://localhost/test.php</a>.</p>
+<p>Output:</p>
+<p><img loading="lazy" src="/img/lemp-docker/phpinfo.png" alt="phpinfo"  />
+</p>
+<h3 id="at-the-end">At the End</h3>
+<p>We have successfully created Nginx and PHP Environment. In Part 2, We will check, How we can add MySQL to this environment.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Add Responsive Google Slides on Hugo</title>
+      <link>https://ashish.one/gist/add-responsive-google-slides-on-hugo/</link>
+      <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
+      
+      <guid>https://ashish.one/gist/add-responsive-google-slides-on-hugo/</guid>
+      <description>Steps to add Responsive google slides iframe with Hugo:
+Hugo version:
+$ hugo version  Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &amp;lt;div id=&amp;#34;Container&amp;#34;  style=&amp;#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&amp;#34;&amp;gt;  &amp;lt;iframe id=&amp;#34;googleSlideIframe&amp;#34;  width=&amp;#34;100%&amp;#34; height=&amp;#34;100%&amp;#34;  src=&amp;#34;{{ .Get &amp;#34;src&amp;#34; }}&amp;#34;  frameborder=&amp;#34;0&amp;#34; allowfullscreen=&amp;#34;&amp;#34;  style=&amp;#34;position:absolute; top:0; left: 0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;/div&amp;gt; Step 3: Use shortcode &amp;lsquo;gslides&amp;rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.</description>
+      <content:encoded><![CDATA[<p>Steps to add Responsive google slides iframe with Hugo:</p>
+<p><strong>Hugo version:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ hugo version
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z
+</span></span></code></pre></div><h2 id="step-1-create-shortcode">Step 1: Create Shortcode</h2>
+<h3 id="create-gslideshtml-file">Create <code>gslides.html</code> file</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vim layouts/shortcodes/gslides.html
+</span></span></code></pre></div><h2 id="step-2-add-below-code">Step 2: Add below code:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Container&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&#34;</span>&gt;
+</span></span><span style="display:flex;"><span> &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;googleSlideIframe&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">src</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">allowfullscreen</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;position:absolute; top:0; left: 0&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><h2 id="step-3-use-shortcode-gslides-in-your-blogpost-markdown-file">Step 3: Use shortcode &lsquo;gslides&rsquo; in your Blog/Post Markdown file</h2>
+<p>Simply place below snippet in your markdown file.</p>
+<p>Replace <code>src</code> value with your Google slide URL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><code>{</code>{<code>&lt; gslides src="https://docs.google.com/presentation/d/e/2PACX-1vQExSl-gRPoA9hC6qXuqrjwiQVHAanDieZN_5GpV2Lw9cuxjsVFEN_wkTThqpQwZ36vJz4zwmTvV7cC/embed?start=false&loop=false&delayms=3000" ></code><code>}}</code>
+
+</span></span></code></pre></div><blockquote>
+<p><strong>I have shown for google slides, Similarly, you can create or add any other document type like google sheets, doc, etc. OR you can place any iframe like this.</strong></p>
+</blockquote>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</title>
+      <link>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
+      <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
+      <description>Prerequisite OS: Ubuntu 14.04 LTS
+Processor: 64 Bit
+RAM: 2 GB
+1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last):  File &amp;#34;get-pip.</description>
+      <content:encoded><![CDATA[<h2 id="prerequisite">Prerequisite</h2>
+<p><strong>OS:</strong> Ubuntu 14.04 LTS<br>
+<strong>Processor:</strong> 64 Bit<br>
+<strong>RAM:</strong> 2 GB</p>
+<h2 id="1-install-python36-from-source">1. Install python3.6 From source</h2>
+<h3 id="step-11-compile">Step 1.1: Compile</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+</span></span><span style="display:flex;"><span>$ tar -xvf Python-3.6.3.tgz
+</span></span><span style="display:flex;"><span>$ cd Python-3.6.3
+</span></span><span style="display:flex;"><span>$ sudo ./configure --enable-optimizations
+</span></span></code></pre></div><h3 id="step-12-check">Step 1.2: Check</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ python3.6 --version
+</span></span></code></pre></div><h2 id="2-install-pip36">2. Install <code>pip3.6</code></h2>
+<h3 id="step-21-download-pip">Step 2.1: Download pip</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget https://bootstrap.pypa.io/get-pip.py
+</span></span></code></pre></div><h3 id="step-22-execute">Step 2.2: Execute</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo python3.6 get-pip.py
+</span></span></code></pre></div><h3 id="step-23-if-you-got-below-error">Step 2.3: If you Got below error</h3>
+<h4 id="error--zlib-not-available">Error  <code>zlib not available</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Traceback <span style="color:#f92672">(</span>most recent call last<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>  File <span style="color:#e6db74">&#34;get-pip.py&#34;</span>, line 22711, in &lt;module&gt;
+</span></span><span style="display:flex;"><span>    main<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>  File <span style="color:#e6db74">&#34;get-pip.py&#34;</span>, line 198, in main
+</span></span><span style="display:flex;"><span>    bootstrap<span style="color:#f92672">(</span>tmpdir<span style="color:#f92672">=</span>tmpdir<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  File <span style="color:#e6db74">&#34;get-pip.py&#34;</span>, line 82, in bootstrap
+</span></span><span style="display:flex;"><span>    from pip._internal.cli.main import main as pip_entry_point
+</span></span><span style="display:flex;"><span>zipimport.ZipImportError: can<span style="color:#960050;background-color:#1e0010">&#39;</span>t decompress data; zlib not available
+</span></span></code></pre></div><h4 id="step-231-install-zlib">Step 2.3.1: Install <code>zlib</code>:</h4>
+<h4 id="install-with-some-other-dependency">Install with some other dependency</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
+</span></span></code></pre></div><p>OR</p>
+<h4 id="you-can-install-just-zlib1g-dev">You can install just <code>zlib1g-dev</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apt-get install zlib1g-dev
+</span></span></code></pre></div><h4 id="chances-to-get-error">Chances to get error</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ zlib1g-dev is already the newest version.
+</span></span></code></pre></div><h4 id="just-upgrade-it-if-not-new">Just upgrade it if not new</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apt-get upgrade zlib1g-dev
+</span></span></code></pre></div><h3 id="step-232-now-again-try">Step 2.3.2: Now again try</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo python3.6 get-pip.py
+</span></span></code></pre></div><h4 id="if-you-get-same-error-again-then-go-for-below-steps">If you get same error again, Then go for below steps:</h4>
+<p>Open <code>Modules/Setup</code> from folder &lsquo;Python-3.6.3&rsquo; which we extracted on Step 1.1</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo vim Modules/Setup
+</span></span></code></pre></div><h4 id="uncomment-the-below-line-or-jump-on-line-no-366">Uncomment the below line or jump on line no. 366</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>zlib zlibmodule.c -I<span style="color:#66d9ef">$(</span>prefix<span style="color:#66d9ef">)</span>/include -L<span style="color:#66d9ef">$(</span>exec_prefix<span style="color:#66d9ef">)</span>/lib -lz
+</span></span></code></pre></div><h4 id="now-we-need-to-again-perform-few-operation-from-__steps-11__">Now we need to again perform few operation from <strong>steps 1.1</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo ./configure
+</span></span><span style="display:flex;"><span>$ sudo make install
+</span></span></code></pre></div><h4 id="now-run-again--it-should-be-work">Now run again &amp; It should be work</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo python3.6 get-pip.py
+</span></span></code></pre></div><h3 id="step-24-lets-install-pipenv-for-testing-purpose">Step 2.4: Let&rsquo;s Install <code>pipenv</code> for testing purpose:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pip3.6 install pipenv
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Covid19 Data Source for India &amp; Global</title>
+      <link>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</link>
+      <pubDate>Fri, 27 Mar 2020 20:04:13 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</guid>
+      <description>Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.
+APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in APIs available: Statewise Data  StateWise StateWise History  Medica  Hospital Stats Bed Stats  Contacts  HelpLines Contacts  Patient  Tracing History  Sources The source is both types of official &amp;amp; Unofficial.</description>
+      <content:encoded><![CDATA[<p>Hi Guys, I am trying to listing all data source &amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.</p>
+<h2 id="apis">APIs</h2>
+<h3 id="1-github-amodmapi-covid19-in-india">1. Github: amodm/api-covid19-in (India)</h3>
+<h4 id="repo">Repo:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://github.com/amodm/api-covid19-in
+</span></span></code></pre></div><h4 id="apis-available">APIs available:</h4>
+<h5 id="statewise-data">Statewise Data</h5>
+<ul>
+<li>StateWise</li>
+<li>StateWise History</li>
+</ul>
+<h5 id="medica">Medica</h5>
+<ul>
+<li>Hospital Stats</li>
+<li>Bed Stats</li>
+</ul>
+<h5 id="contacts">Contacts</h5>
+<ul>
+<li>HelpLines</li>
+<li>Contacts</li>
+</ul>
+<h5 id="patient">Patient</h5>
+<ul>
+<li>Tracing</li>
+<li>History</li>
+</ul>
+<h4 id="sources">Sources</h4>
+<p>The source is both types of official &amp; Unofficial.</p>
+<h5 id="official">Official</h5>
+<ul>
+<li>Post Mar 15, data is from <a href="https://www.mohfw.gov.in/">The Ministry of Health &amp; Family Welfare</a></li>
+<li>Pre  Mar 15, data is sourced from <a href="https://github.com/datameet/covid19/tree/eb1cc65657929abe12ca59f0e754bef4bc562d7a/mohfw-backup">datameet/covid19</a></li>
+<li>Hospital &amp; bed data: <a href="https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity">https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity</a></li>
+<li>ICMR testing stats API: <a href="https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData">https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData</a></li>
+</ul>
+<h5 id="unofficial">Unofficial</h5>
+<ul>
+<li>The awesome volunteer driven patient tracing data <a href="https://www.covid19india.org/">covid19india.org</a></li>
+<li>API (NLP): <a href="http://coronatravelhistory.pythonanywhere.com/">http://coronatravelhistory.pythonanywhere.com/</a></li>
+<li>API (Travel history): <a href="https://api.covid19india.org/travel_history.json">https://api.covid19india.org/travel_history.json</a></li>
+</ul>
+<h3 id="2-github-ashishtiwari1993india_mohfwgovin_scrape_covid19_statewise_status-india">2. Github: ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status (India)</h3>
+<p>Scraping <a href="https://mohfw.gov.in">https://mohfw.gov.in</a> to extract the statewise data.</p>
+<h4 id="repo-1">Repo:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://github.com/ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status
+</span></span></code></pre></div><h4 id="apis-available-1">APIs available:</h4>
+<h5 id="statewise-status">Statewise status</h5>
+<ul>
+<li>Total confirmed case</li>
+<li>Counts</li>
+<li>Deaths</li>
+</ul>
+<h4 id="sources-1">Sources</h4>
+<p>Scraping from offical site of The Ministry of Health and Family Welfare.</p>
+<h3 id="3-github-novelcovidapi-global">3. Github: NovelCOVID/API (Global)</h3>
+<h4 id="repo-2">Repo:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://github.com/NovelCOVID/API
+</span></span></code></pre></div><h4 id="apis-available-2">APIs available:</h4>
+<p>It is global data source. You will get all information for any country.</p>
+<h4 id="sources-2">Sources</h4>
+<ul>
+<li><a href="https://www.worldometers.info/coronavirus/">Worldometers</a></li>
+</ul>
+<h3 id="4-github-cssegisanddatacovid-19-global">4. Github: CSSEGISandData/COVID-19 (Global)</h3>
+<p>This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).</p>
+<h4 id="repo-3">Repo:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://github.com/CSSEGISandData/COVID-19
+</span></span></code></pre></div><h4 id="data-available">Data Available</h4>
+<p>CSVs are available in time series manner. Information is available about all country.</p>
+<h2 id="sources-3">Sources</h2>
+<ul>
+<li>World Health Organization (WHO): <a href="https://www.who.int/">https://www.who.int/</a></li>
+<li>DXY.cn. Pneumonia. 2020. <a href="http://3g.dxy.cn/newh5/view/pneumonia">http://3g.dxy.cn/newh5/view/pneumonia</a>.</li>
+<li>BNO News: <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/">https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/</a></li>
+<li>National Health Commission of the People’s Republic of China (NHC):
+<a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml</a></li>
+<li>China CDC (CCDC): <a href="http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm">http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm</a></li>
+<li>Hong Kong Department of Health: <a href="https://www.chp.gov.hk/en/features/102465.html">https://www.chp.gov.hk/en/features/102465.html</a></li>
+<li>Macau Government: <a href="https://www.ssm.gov.mo/portal/">https://www.ssm.gov.mo/portal/</a></li>
+<li>Taiwan CDC: <a href="https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0">https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0</a></li>
+<li>US CDC: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">https://www.cdc.gov/coronavirus/2019-ncov/index.html</a></li>
+<li>Government of Canada: <a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus.html">https://www.canada.ca/en/public-health/services/diseases/coronavirus.html</a></li>
+<li>Australia Government Department of Health: <a href="https://www.health.gov.au/news/coronavirus-update-at-a-glance">https://www.health.gov.au/news/coronavirus-update-at-a-glance</a></li>
+<li>European Centre for Disease Prevention and Control (ECDC): <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases</a></li>
+<li>Ministry of Health Singapore (MOH): <a href="https://www.moh.gov.sg/covid-19">https://www.moh.gov.sg/covid-19</a></li>
+<li>Italy Ministry of Health: <a href="http://www.salute.gov.it/nuovocoronavirus">http://www.salute.gov.it/nuovocoronavirus</a></li>
+<li>1Point3Arces: <a href="https://coronavirus.1point3acres.com/en">https://coronavirus.1point3acres.com/en</a></li>
+<li>WorldoMeters: <a href="https://www.worldometers.info/coronavirus/">https://www.worldometers.info/coronavirus/</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>How to reset 1-Click Installed WordPress on DigitalOcean?</title>
+      <link>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
+      <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
+      <description>The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
+The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
+Debug Checked apache2 and mysql service:
+service mysql status  service apache2 status Both services was active. Then I checked the apache2 processes with below command:
+$ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.</description>
+      <content:encoded><![CDATA[<h2 id="the-requirement">The Requirement</h2>
+<p>Need to install fresh wordpress with same version on wordpress droplet of digitalocean.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>My setup (wordpress droplet) was suddenly stop working. I started debugging.</p>
+<h2 id="debug">Debug</h2>
+<p>Checked <code>apache2</code> and <code>mysql</code> service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>service mysql status
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>service apache2 status
+</span></span></code></pre></div><p>Both services was active. Then I checked the <code>apache2</code> processes with below command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ps -ef | grep apache2 | wc -l
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">151</span>
+</span></span></code></pre></div><p>Lots of apache child process has been forked. Which was not good.</p>
+<p>checked apache&rsquo;s error log (<code>tail /var/log/apache2/error.log</code>), But not found anything.</p>
+<p>I took decision to setup new wordpress of same version. I was little sure that some plugin was causing this problem But i don&rsquo;t have so much time to go through all plugins.</p>
+<h2 id="droplet-configuration">Droplet configuration</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>OS : Ubuntu 18.04.3 LTS
+</span></span><span style="display:flex;"><span>Memory : 1GB
+</span></span><span style="display:flex;"><span>Disk : 25GB
+</span></span><span style="display:flex;"><span>Cost : $5/Monthly
+</span></span></code></pre></div><h2 id="process-to-install-wordpress">Process to install WordPress</h2>
+<h3 id="step-1-source-directory-backup">Step 1: Source directory backup</h3>
+<p>Take backup with <code>cp</code> command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd
+</span></span><span style="display:flex;"><span>$ mkdir ~/backup_wp
+</span></span><span style="display:flex;"><span>$ cp -R /var/www/html ~/backup_wp/
+</span></span></code></pre></div><p>Digitalocean installs the wordpress in <code>/var/www/html/</code> path.</p>
+<h3 id="step-2-database-backup">Step 2: Database backup</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mysqldump -uroot -p wordpress &gt; ~/backup_wp/wp.sql
+</span></span></code></pre></div><p>Here <code>wordpress</code> is the Database name.</p>
+<p>If you don&rsquo;t remember the password for MySQL, Get it from <code>wp-config.php</code>:</p>
+<p><code>vim /var/www/html/wp-config.php</code></p>
+<p>Check for the line<br>
+<code>define( 'DB_PASSWORD', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' );</code></p>
+<h3 id="step-3-check-version-of-the-existing-wordpress">Step 3: Check version of the existing WordPress</h3>
+<p><code>vim /var/www/html/wp-includes/version.php</code></p>
+<p>Look for the line<br>
+<code>$wp_version = '5.2.4';</code></p>
+<p>Version can be different.</p>
+<h3 id="step-4-download-wordpress-zip-file">Step 4: Download WordPress zip file</h3>
+<p>Go to <a href="https://wordpress.org/download/releases/">Wordpress Releases page</a>. Check for your version and download with below command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget https://wordpress.org/wordpress-5.2.4.zip
+</span></span></code></pre></div><p>Unzip it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>unzip wordpress-5.2.4.zip
+</span></span></code></pre></div><p>It will extract all files in <code>wordpress</code> folder.</p>
+<p>If <code>unzip</code> is not already installed, Please install it with below command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>apt install unzip
+</span></span></code></pre></div><h3 id="step-5-replace-source-of-html-with-wordpress">Step 5: Replace source of <code>/html</code> with <code>/wordpress</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rm -rf /var/www/html
+</span></span><span style="display:flex;"><span>mv wordpress /var/www/html
+</span></span></code></pre></div><h3 id="step-6-change-configuration">Step 6: Change configuration</h3>
+<ol>
+<li>
+<p>Go to your website URL, It will show you below page:</p>
+<p><img loading="lazy" src="/img/wordpress-digitalocean-reset/lets_go.png" alt="Lets_go"  />
+</p>
+<p>Just click on the <code>Let's go!</code> Button.</p>
+</li>
+<li>
+<p>Put you DB conf as shown in below image</p>
+<p><img loading="lazy" src="/img/wordpress-digitalocean-reset/db_conf.png" alt="db_conf"  />
+</p>
+<p>Click on the <code>Submit</code> Button.</p>
+</li>
+<li>
+<p>Create <code>wp-config.php</code> file</p>
+<p><img loading="lazy" src="/img/wordpress-digitalocean-reset/wp-config.png" alt="wp-config"  />
+</p>
+<p>Create manually (<code>vim /var/www/html/wp-config.php</code>) if it is not created automatically and click on the <code>Run the installation</code> Button.</p>
+</li>
+<li>
+<p>You will see <code>Already Installed</code> page</p>
+<p><img loading="lazy" src="/img/wordpress-digitalocean-reset/already_installed.png" alt="already_installed"  />
+</p>
+<p>Just click on the <code>Log In</code> button. It will redirect you on the admin panel login page.</p>
+</li>
+</ol>
+<p>Now you can log in into your admin panel.</p>
+<h3 id="step-7-copy-important-files-from-backup">Step 7: Copy important files from backup</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cp -R ~/backup_wp/html/wp-content/plugins/ /var/www/html/wp-content/
+</span></span><span style="display:flex;"><span>cp -R ~/backup_wp/html/wp-content/themes/ /var/www/html/wp-content/
+</span></span><span style="display:flex;"><span>cp -R ~/backup_wp/html/wp-content/uploads/ /var/www/html/wp-content/
+</span></span></code></pre></div><p>This will copy all existing plugins, themes &amp; all media files. But be careful while copying it, Becuase if it is the cause of your bug it can bring your site down again.</p>
+<p><strong>Important Configuration</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cp ~/backup_wp/html/.htaccess /var/www/html/
+</span></span></code></pre></div><p>Otherwise, your URL routing won&rsquo;t work.</p>
+<h3 id="step-8-wordpress-asking-for-ftp-details">Step 8: WordPress asking for FTP details</h3>
+<p>If WordPress asking for FTP details on the each option like Adding themes, Installing plugins etc. Then add below line in your <code>wp-config.php</code> file.</p>
+<p><code>vim /var/www/html/wp-config.php</code></p>
+<p>Add</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>define<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;FS_METHOD&#39;</span>,<span style="color:#e6db74">&#39;direct&#39;</span><span style="color:#f92672">)</span>;
+</span></span></code></pre></div><h2 id="test-complete-website">Test complete website</h2>
+<p>If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

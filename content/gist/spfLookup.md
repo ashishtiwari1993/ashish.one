@@ -5,7 +5,7 @@ draft: false
 ogtype: "gist"
 tags: ["SPF","spf","spflookup","go","golang"]
 slug: "spf-lookup-in-go"
-topics: "Golang"
+categories: "Golang"
 ---
 
 In this gist, We will check how we can extract SPF records in Go.

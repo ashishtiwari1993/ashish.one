@@ -5,7 +5,7 @@ draft: false
 ogtype: "article"
 tags: ["Digitalocean","WordPress","1-Click","Installation"]
 slug: "How-to-reset-1-Click-Installed-WordPress-on-DigitalOcean"
-topics: "Misc"
+categories: "Misc"
 ---
 
 ## The Requirement

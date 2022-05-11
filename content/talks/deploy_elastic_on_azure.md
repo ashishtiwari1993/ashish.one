@@ -4,7 +4,7 @@ date: 2022-01-29T19:24:45Z
 draft: false
 type: "post"
 tags: ["elasticsearch","azure","Elastic"]
-topics: ["Elastic"]
+categories: ["Elastic"]
 cover:
     image: "/img/misc/deploy_elastic_on_azure_cover.png" # image path/url
     alt: "azure conf cover pic" # alt text

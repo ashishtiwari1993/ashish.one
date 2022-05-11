@@ -6,7 +6,7 @@ ogtype: article
 tags: ["golang","map","fatal","error","concurrent map writes","concurrent"]
 draft: false
 slug: "fatal-error-concurrent-map-writes"
-topics: "Golang"
+categories: "Golang"
 ---
 
 ![concurrent_map_writes](/img/golang/concurrent_map_writes.jpg)

@@ -15,7 +15,7 @@ paginate = 5
 
 [Taxonomies]
 	tag = "tags"
-	topics = "topics"
+	category = "categories"
 	series = "series"
 
 [minify]
@@ -134,8 +134,8 @@ paginate = 5
     weight = -97
 
   [[menu.main]]
-    name = "Topics"
-    url = "/topics/"
+    name = "Category"
+    url = "/categories/"
     weight = -96
 
   [[menu.main]]

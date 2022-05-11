@@ -6,7 +6,7 @@ type: "post"
 tags: ["linux","arch","arch-installation"]
 ogtype: "article"
 slug: "arch-linux-installation-challenges"
-topics: ["Linux"]
+categories: ["Linux"]
 showToc: true
 TocOpen: true
 draft: false

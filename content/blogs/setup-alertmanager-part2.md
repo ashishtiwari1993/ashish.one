@@ -6,7 +6,7 @@ ogtype: "article"
 tags: ["prometheus","alertmanager"]
 draft: false
 slug: "setup-alertmanager"
-topics: "Prometheus"
+categories: "Prometheus"
 ---
 
 # Introduction

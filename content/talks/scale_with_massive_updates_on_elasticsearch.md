@@ -5,7 +5,7 @@ draft: false
 type: "post"
 tags: ["elastic","elasticsearch","update","scale","mysql"]
 slug: "scale-with-massive-updates-queries-in-elasticsearch"
-topics: ["Elastic"]
+categories: ["Elastic"]
 ---
 # Introduction
 

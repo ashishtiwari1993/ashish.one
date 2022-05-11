@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Golang on ashish.one</title>
+    <link>https://ashish.one/categories/golang/</link>
+    <description>Recent content in Golang on ashish.one</description>
+    <image>
+      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
+      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Aug 2020 00:38:53 +0530</lastBuildDate><atom:link href="https://ashish.one/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SPF Lookup in Go</title>
+      <link>https://ashish.one/gist/spf-lookup-in-go/</link>
+      <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
+      
+      <guid>https://ashish.one/gist/spf-lookup-in-go/</guid>
+      <description>In this gist, We will check how we can extract SPF records in Go.
+Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns)
+Install dependency $ go get github.com/miekg/dns spfLookup.go  Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1)
+Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1.</description>
+      <content:encoded><![CDATA[<p>In this gist, We will check how we can extract SPF records in Go.</p>
+<h2 id="prerequisite">Prerequisite</h2>
+<h3 id="go-version">Go version</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go version
+</span></span><span style="display:flex;"><span>go version go1.13 linux/amd64
+</span></span></code></pre></div><h3 id="dependency">Dependency</h3>
+<p><a href="https://github.com/miekg/dns">DNS Library(https://github.com/miekg/dns)</a></p>
+<h2 id="install-dependency">Install dependency</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get github.com/miekg/dns 
+</span></span></code></pre></div><h2 id="spflookupgo">spfLookup.go</h2>
+<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/ea5da5581ae2c56f3e25f8509155bd37.js"></script>
+
+<p>Here you can change <code>nameserver</code> according to your requirement. I have specified here google&rsquo;s name server (<code>8.8.8.8</code>). You can also use cloudflare&rsquo;s nameserver <a href="1.1.1.1">(1.1.1.1)</a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>You can make any DNS query with <code>miekg/dns</code> library. In the above script, we have looked up <code>TXT</code> Records and then we have searched for a string containing <code>v=spf1</code>.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Golang basics &amp; Handling 100k hourly webhooks with golang @MimePost</title>
+      <link>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
+      <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
+      
+      <guid>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
+      <description>What this talk about? I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.
+Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?
+I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).</description>
+      <content:encoded><![CDATA[<h2 id="what-this-talk-about">What this talk about?</h2>
+<p>I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.</p>
+<p>Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?</p>
+<p>I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).</p>
+<p>Shown some immature code which given me a better understanding of 100% CPU utilization and How I waste my major time to debug on silly things.</p>
+<p>Shared one of our error and it&rsquo;s solutions related to How you can avoid race conditions on &ldquo;map&rdquo; type variables.</p>
+<h2 id="slides">Slides</h2>
+<div id="Container"
+ style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
+ <iframe id="googleSlideIframe"
+  width="100%" height="100%"
+  src="https://docs.google.com/presentation/d/e/2PACX-1vQExSl-gRPoA9hC6qXuqrjwiQVHAanDieZN_5GpV2Lw9cuxjsVFEN_wkTThqpQwZ36vJz4zwmTvV7cC/embed?start=false&amp;loop=false&amp;delayms=3000"
+  frameborder="0" allowfullscreen=""
+  style="position:absolute; top:0; left: 0"></iframe>
+</div>
+
+<h2 id="talk-video">Talk Video</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/ZjOcwoCkkog" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="demo---1">Demo - 1</h2>
+<p>This code will make 100% CPU utilization and <code>forever()</code> function not going to share any single CPU time with <code>anotherGoroutine()</code></p>
+<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/00b2a56ac8f5b39d3229d723e58815bc.js"></script>
+
+<h2 id="demo---2">Demo - 2</h2>
+<p>Reproduce Golang &ldquo;fatal error: concurrent map writes&rdquo; &amp; Solution. To reproduce comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
+<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
+
+<p>Find more details on this <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/">blog</a>.</p>
+<h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>[SOLVED] Golang fatal error: concurrent map writes</title>
+      <link>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</link>
+      <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
+      <description>The Problem: Suddenly got below errors which killed my daemon:
+fatal error: concurrent map writes  goroutine 646 [running]: runtime.throw(0x75fd38, 0x15)  /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e)  goroutine 1 [sleep]: runtime.goparkunlock(...)  /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200)  /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager()  goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0)  /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b)  /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...)  /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)  /usr/local/go/src/internal/poll/fd_unix.</description>
+      <content:encoded><![CDATA[<p><img loading="lazy" src="/img/golang/concurrent_map_writes.jpg" alt="concurrent_map_writes"  />
+</p>
+<h2 id="the-problem">The Problem:</h2>
+<p>Suddenly got below errors which killed my daemon:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>fatal error: concurrent map writes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>goroutine <span style="color:#ae81ff">646</span> <span style="color:#f92672">[</span>running<span style="color:#f92672">]</span>:
+</span></span><span style="display:flex;"><span>runtime.throw<span style="color:#f92672">(</span>0x75fd38, 0x15<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/runtime/panic.go:774 +0x72 fp<span style="color:#f92672">=</span>0xc000315e60 sp<span style="color:#f92672">=</span>0xc000315e30 pc<span style="color:#f92672">=</span>0x42ecf2
+</span></span><span style="display:flex;"><span>runtime.mapdelete_fast64<span style="color:#f92672">(</span>0x6f0800, 0xc00008ad50, 0x2b3e<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>goroutine <span style="color:#ae81ff">1</span> <span style="color:#f92672">[</span>sleep<span style="color:#f92672">]</span>:
+</span></span><span style="display:flex;"><span>runtime.goparkunlock<span style="color:#f92672">(</span>...<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/runtime/proc.go:310
+</span></span><span style="display:flex;"><span>time.Sleep<span style="color:#f92672">(</span>0x12a05f200<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/runtime/time.go:105 +0x157
+</span></span><span style="display:flex;"><span>webhook/worker.Manager<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>goroutine <span style="color:#ae81ff">6</span> <span style="color:#f92672">[</span>IO wait<span style="color:#f92672">]</span>:
+</span></span><span style="display:flex;"><span>internal/poll.runtime_pollWait<span style="color:#f92672">(</span>0x7fc308de6f08, 0x72, 0x0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/runtime/netpoll.go:184 +0x55
+</span></span><span style="display:flex;"><span>internal/poll.<span style="color:#f92672">(</span>*pollDesc<span style="color:#f92672">)</span>.wait<span style="color:#f92672">(</span>0xc000110018, 0x72, 0x0, 0x0, 0x75b00b<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+</span></span><span style="display:flex;"><span>internal/poll.<span style="color:#f92672">(</span>*pollDesc<span style="color:#f92672">)</span>.waitRead<span style="color:#f92672">(</span>...<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+</span></span><span style="display:flex;"><span>internal/poll.<span style="color:#f92672">(</span>*FD<span style="color:#f92672">)</span>.Accept<span style="color:#f92672">(</span>0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8
+</span></span><span style="display:flex;"><span>net.<span style="color:#f92672">(</span>*netFD<span style="color:#f92672">)</span>.accept<span style="color:#f92672">(</span>0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/fd_unix.go:238 +0x42
+</span></span><span style="display:flex;"><span>net.<span style="color:#f92672">(</span>*TCPListener<span style="color:#f92672">)</span>.accept<span style="color:#f92672">(</span>0xc000126000, 0xc000050d80, 0x40dd08, 0x30<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+</span></span><span style="display:flex;"><span>net.<span style="color:#f92672">(</span>*TCPListener<span style="color:#f92672">)</span>.Accept<span style="color:#f92672">(</span>0xc000126000, 0x72f560, 0xc0000f0180, 0x6f4f20, 0x9c00c0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/tcpsock.go:261 +0x47
+</span></span><span style="display:flex;"><span>net/http.<span style="color:#f92672">(</span>*Server<span style="color:#f92672">)</span>.Serve<span style="color:#f92672">(</span>0xc0000f4000, 0x7ccbe0, 0xc000126000, 0x0, 0x0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/http/server.go:2896 +0x286
+</span></span><span style="display:flex;"><span>net/http.<span style="color:#f92672">(</span>*Server<span style="color:#f92672">)</span>.ListenAndServe<span style="color:#f92672">(</span>0xc0000f4000, 0xc0000f4000, 0x8<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/http/server.go:2825 +0xb7
+</span></span><span style="display:flex;"><span>net/http.ListenAndServe<span style="color:#f92672">(</span>...<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/http/server.go:3080
+</span></span><span style="display:flex;"><span>webhook/handler.HandleRequest<span style="color:#f92672">()</span>
+</span></span></code></pre></div><h3 id="expected-behaviour">Expected behaviour</h3>
+<p>In starting for a few seconds it was working smoothly.</p>
+<p><img loading="lazy" src="/img/golang/Go-Routines_race_condition.png" alt="goroutine_race_condition"  />
+</p>
+<h3 id="actual-behaviour">Actual behaviour</h3>
+<p>After few seconds my service got kill with above mentioned error.</p>
+<p><img loading="lazy" src="/img/golang/Go-Routines_race_condition_error.png" alt="goroutine_race_condition_error"  />
+</p>
+<h2 id="code-overview">Code Overview:</h2>
+<p>Initialized one global variable with the type &lsquo;map&rsquo;. Where the key is <code>int</code> and value is <code>channel</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>var ActiveInstances <span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>map<span style="color:#f92672">[</span>int<span style="color:#f92672">](</span>chan string<span style="color:#f92672">))</span>
+</span></span></code></pre></div><p>Having two functions</p>
+<ol>
+<li><code>go SetValue()</code></li>
+<li><code>go DeleteValue()</code></li>
+</ol>
+<h3 id="in-setvalue">In <code>SetValue()</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ActiveInstances<span style="color:#f92672">[</span>id<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>chan string, 5<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h3 id="in-deletevalue">In <code>DeleteValue()</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>delete<span style="color:#f92672">(</span>ActiveInstances, id<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Both functions running in multiple goroutines.</p>
+<h2 id="observation">Observation:</h2>
+<p>The error itself says <code>concurrent map writes</code>, By which I got the idea that something is wrong with my map variable <code>ActiveInstances</code>. Both functions in multiple goroutines are trying to access the same variable(<code>ActiveInstances</code>) at the same time. Which created race condition. After exploring a few blogs &amp; documentation, I become to know that <strong><em>&ldquo;Maps are not safe for concurrent use&rdquo;</em></strong>.</p>
+<p>As per golang doc</p>
+<blockquote>
+<p>Map access is unsafe only when updates are occurring. As long as all goroutines are only reading—looking up elements in the map, including iterating through it using a for range loop—and not changing the map by assigning to elements or doing deletions, it is safe for them to access the map concurrently without synchronization.</p>
+</blockquote>
+<h2 id="solution">Solution:</h2>
+<p>Here we need to access <code>ActiveInstances</code> synchronously. We want to make sure only one goroutine can access a variable at a time to avoid conflicts, This can be easily achieved by <code>sync.Mutex</code>. This concept is called mutual exclusion which provides methods <code>Lock</code> and <code>Unlock</code>.</p>
+<p>We can define a block of code to be executed in mutual exclusion by surrounding it with a call to <code>Lock</code> and <code>Unlock</code>
+It is as simple as below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>var mutex <span style="color:#f92672">=</span> &amp;sync.Mutex<span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mutex.Lock<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>//my block of code
+</span></span><span style="display:flex;"><span>mutex.Unlock<span style="color:#f92672">()</span>
+</span></span></code></pre></div><h2 id="code-modifications">Code Modifications:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>var mutex <span style="color:#f92672">=</span> &amp;sync.Mutex<span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mutex.Lock<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>ActiveInstances<span style="color:#f92672">[</span>i_id<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>chan string, 5<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>mutex.Unlock<span style="color:#f92672">()</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mutex.Lock<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>delete<span style="color:#f92672">(</span>ActiveInstances, id<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>mutex.Unlock<span style="color:#f92672">()</span>
+</span></span></code></pre></div><p>This is how we successfully fix this problem.</p>
+<h2 id="code-to-reproduce">Code to Reproduce</h2>
+<p>To reproduce, Comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
+<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
+
+<h2 id="references">References:</h2>
+<p><a href="https://blog.golang.org/go-maps-in-action">https://blog.golang.org/go-maps-in-action</a><br>
+<a href="https://golang.org/doc/faq#atomic_maps">https://golang.org/doc/faq#atomic_maps</a><br>
+<a href="https://gobyexample.com/mutexes">https://gobyexample.com/mutexes</a></p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

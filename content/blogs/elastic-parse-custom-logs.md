@@ -6,7 +6,7 @@ type: "post"
 ogtype: "article"
 tags: ["elasticsearch","grok-processor","grok-pattern","ingest-pipeline","Elastic"]
 slug: "parsing-custom-log-format-to-the-elasticsearch"
-topics: ["Elastic"]
+categories: ["Elastic"]
 cover:
     image: "/img/misc/parse-custom-log.png"
     alt: "Parsing Custom log format to the Elasticsearch"

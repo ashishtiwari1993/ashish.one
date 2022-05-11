@@ -5,7 +5,7 @@ draft: false
 type: "post"
 ogtype: "article"
 tags: ["elasticsearch","grok_pattern","log_parse","observability"]
-topics: ["Elastic"]
+categories: ["Elastic"]
 cover:
     image: "/img/misc/devops-conf-2022.jpeg"
     alt: "devops conf 2022 cover pic"

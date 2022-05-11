@@ -3,43 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/topics/elastic/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <loc>https://ashish.one/categories/</loc>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/elastic/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/categories/elastic/</loc>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/elasticsearch/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/grok-pattern/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/grok-processor/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/ingest-pipeline/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/topics/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/search-as-you-type/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/search_as_you_type/</loc>
-    <lastmod>2022-05-08T14:41:56+05:30</lastmod>
+    <lastmod>2022-05-11T10:47:40+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/grok_pattern/</loc>
     <lastmod>2022-03-18T15:50:18+05:30</lastmod>
@@ -71,7 +71,7 @@
     <loc>https://ashish.one/tags/arch-installation/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/topics/linux/</loc>
+    <loc>https://ashish.one/categories/linux/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/linux/</loc>
@@ -83,7 +83,7 @@
     <loc>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/topics/misc/</loc>
+    <loc>https://ashish.one/categories/misc/</loc>
     <lastmod>2022-02-09T14:42:11+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/pentest/</loc>
@@ -98,11 +98,11 @@
     <loc>https://ashish.one/tags/go/</loc>
     <lastmod>2022-02-04T07:49:36+00:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/topics/golang/</loc>
-    <lastmod>2022-01-29T20:39:26+00:00</lastmod>
-  </url><url>
     <loc>https://ashish.one/tags/golang/</loc>
     <lastmod>2022-02-04T07:49:36+00:00</lastmod>
+  </url><url>
+    <loc>https://ashish.one/categories/golang/</loc>
+    <lastmod>2022-01-29T20:39:26+00:00</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/spf/</loc>
     <lastmod>2022-01-29T20:39:26+00:00</lastmod>
@@ -209,7 +209,7 @@
     <loc>https://ashish.one/tags/node-exporter/</loc>
     <lastmod>2020-09-02T01:51:55+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/topics/prometheus/</loc>
+    <loc>https://ashish.one/categories/prometheus/</loc>
     <lastmod>2020-09-02T01:51:55+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/prometheus/</loc>
