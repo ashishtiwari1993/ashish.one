@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>docker on ashish.one</title>
-    <link>https://ashish.one/tags/docker/</link>
-    <description>Recent content in docker on ashish.one</description>
+    <title>elastic-apm on ashish.one</title>
+    <link>https://ashish.one/tags/elastic-apm/</link>
+    <description>Recent content in elastic-apm on ashish.one</description>
     <image>
       <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
       <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/elastic-apm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
       <link>https://ashish.one/gist/elastic-docker-compose/</link>
@@ -235,125 +235,6 @@ Prerequisite Tested on the below configuration.
 </span></span></code></pre></div><h2 id="stop-with-deleting-network-containers-and-volumes">Stop with deleting network, containers and volumes</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose down -v
 </span></span></code></pre></div>]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
-      <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
-      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      
-      <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
-      <description>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.
-In this blog, We are going to setup PHP and Nginx.
-Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
-Docker makes the installation process very smooth and it gives your isolated environment as the container.</description>
-      <content:encoded><![CDATA[<p>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.</p>
-<p>In this blog, We are going to setup PHP and Nginx.</p>
-<h3 id="why-docker">Why Docker?</h3>
-<p>I will not go too much deep, You can find more resources over the internet about the docker.</p>
-<p>Docker makes the installation process very smooth and it gives your isolated environment as the container.</p>
-<p>With the docker, There will be no more excuses like:</p>
-<blockquote>
-<p><strong>”It&rsquo;s working on my machine.”  :D</strong></p>
-</blockquote>
-<p>Because your docker environment remains the same across the platforms, So above excuses will going to turn with:</p>
-<blockquote>
-<p><strong>”It&rsquo;s working on every machine” ;)</strong></p>
-</blockquote>
-<p>In Short, Docker makes tech person&rsquo;s life easy like the developer, tester, etc.</p>
-<h3 id="my-machine-configuration">My Machine configuration:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Docker Version: 18.09.7
-</span></span><span style="display:flex;"><span>Docker Compose Version: 1.24.1
-</span></span><span style="display:flex;"><span>RAM: 8GB
-</span></span><span style="display:flex;"><span>OS: Ubuntu 18.04
-</span></span></code></pre></div><p>Make sure docker and docker-compose is installed on your machine.</p>
-<h3 id="step-1-create-folders">Step 1: Create folders:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir LEMP
-</span></span><span style="display:flex;"><span>cd LEMP
-</span></span><span style="display:flex;"><span>mkdir <span style="color:#f92672">{</span>public_html,nginx_conf<span style="color:#f92672">}</span>
-</span></span></code></pre></div><p><code>public_html</code>: It will contains your PHP code.<br>
-<code>nginx_conf</code>: It will contains your Nginx configuration file.</p>
-<h3 id="step-2-create-nginx-conf-file">Step 2: Create Nginx conf file</h3>
-<p>Go to <code>nginx_conf</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd nginx_conf
-</span></span></code></pre></div><p>Create file <code>lemp-docker.conf</code> (You can give any name according to your requirement) &amp; Paste below configuration block.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>		listen 80;
-</span></span><span style="display:flex;"><span>		server_name _;
-</span></span><span style="display:flex;"><span>		root /public_html;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		location / <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>				index index.php index.html;
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		location ~* <span style="color:#ae81ff">\.</span>php$ <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>				fastcgi_pass    php:9000;
-</span></span><span style="display:flex;"><span>				fastcgi_index   index.php;
-</span></span><span style="display:flex;"><span>				include         fastcgi_params;
-</span></span><span style="display:flex;"><span>				fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-</span></span><span style="display:flex;"><span>				fastcgi_param PATH_INFO $fastcgi_path_info;
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Save and Exit from folder.</p>
-<h3 id="step-3-create-file-docker-composeyml">Step 3: Create file <code>docker-compose.yml</code></h3>
-<p>Create file <code>docker-compose.yml</code> in <code>LEMP</code> folder &amp; paste the below lines:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>version: <span style="color:#e6db74">&#39;3&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>services:
-</span></span><span style="display:flex;"><span> web:
-</span></span><span style="display:flex;"><span>  image: nginx
-</span></span><span style="display:flex;"><span>  ports:
-</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">&#34;80:80&#34;</span> 
-</span></span><span style="display:flex;"><span>  volumes:
-</span></span><span style="display:flex;"><span>   - ./public_html:/public_html
-</span></span><span style="display:flex;"><span>   - ./nginx_conf:/etc/nginx/conf.d
-</span></span><span style="display:flex;"><span>   - /tmp/nginx_logs:/var/log/nginx 
-</span></span><span style="display:flex;"><span>  networks:
-</span></span><span style="display:flex;"><span>   - nginx-php
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span> php:
-</span></span><span style="display:flex;"><span>  image: php:7.2-fpm
-</span></span><span style="display:flex;"><span>  volumes:
-</span></span><span style="display:flex;"><span>  - ./public_html:/public_html
-</span></span><span style="display:flex;"><span>  networks:
-</span></span><span style="display:flex;"><span>  - nginx-php
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>networks:
-</span></span><span style="display:flex;"><span> nginx-php:
-</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks">here</a>.</p>
-<p>You can set <code>volumes</code> path according to your requirement.</p>
-<h3 id="step-4-lets-up-the-containers">Step 4: Let&rsquo;s Up the containers</h3>
-<p>Create container:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd LEMP/
-</span></span><span style="display:flex;"><span>docker-compose up
-</span></span></code></pre></div><p><strong>Note:</strong> Make sure no other service is running on port 80.</p>
-<p>Output:</p>
-<p><img loading="lazy" src="/img/lemp-docker/docker-compose-up.png" alt="docker compose up"  />
-</p>
-<p>You can hit the <code>localhost</code> on your browser.</p>
-<p>Once you hit the <code>localhost</code> check nginx logs:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /tmp/nginx_logs/access.log 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>172.25.0.1 - - <span style="color:#f92672">[</span>16/May/2020:12:51:04 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET / HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">556</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36&#34;</span> <span style="color:#e6db74">&#34;-&#34;</span>
-</span></span></code></pre></div><p>Now stop the containers by simply hitting <code>Ctrl + c</code>. Now run docker-compose in detached mode. It will run in the background.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose up -d
-</span></span></code></pre></div><p>Lists containers</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose ps
-</span></span></code></pre></div><h3 id="step-5-lets-create-testphp">Step 5: Let&rsquo;s Create <code>test.php</code></h3>
-<p>Go to <code>LEMP/public_html</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd LEMP/public_html
-</span></span></code></pre></div><p>Create file <code>test.php</code> &amp; paste below code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">phpinfo</span>();
-</span></span></code></pre></div><h3 id="step-6-run-testphp">Step 6: Run <code>test.php</code></h3>
-<p>Visit <a href="http://localhost/test.php">http://localhost/test.php</a>.</p>
-<p>Output:</p>
-<p><img loading="lazy" src="/img/lemp-docker/phpinfo.png" alt="phpinfo"  />
-</p>
-<h3 id="at-the-end">At the End</h3>
-<p>We have successfully created Nginx and PHP Environment. In Part 2, We will check, How we can add MySQL to this environment.</p>
-]]></content:encoded>
     </item>
     
   </channel>
