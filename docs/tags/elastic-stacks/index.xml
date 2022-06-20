@@ -234,7 +234,11 @@ Prerequisite Tested on the below configuration.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose down
 </span></span></code></pre></div><h2 id="stop-with-deleting-network-containers-and-volumes">Stop with deleting network, containers and volumes</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose down -v
-</span></span></code></pre></div>]]></content:encoded>
+</span></span></code></pre></div><h1 id="note">NOTE</h1>
+<blockquote>
+<p>You can simply comment other stacks which is not needed. For example if you want to just run Elasticsearch &amp; Kibana, Just comment the APM or other stack specification.</p>
+</blockquote>
+]]></content:encoded>
     </item>
     
   </channel>

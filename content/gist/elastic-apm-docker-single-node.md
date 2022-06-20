@@ -255,3 +255,7 @@ docker-compose down
 docker-compose down -v
 ```
 
+# NOTE 
+
+> You can simply comment other stacks which is not needed. For example if you want to just run Elasticsearch & Kibana, Just comment the APM or other stack specification.
+
