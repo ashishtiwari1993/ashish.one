@@ -85,6 +85,8 @@ params:
 
       🧑‍🤝‍🧑 Community lover, Speaker, Open source guy
 
+
+      [More](https://ashish.one/about)
       
   cover:
     linkFullImages: false
@@ -125,10 +127,6 @@ outputs:
     - JSON
 menu:
   main:
-    - identifier: About
-      name: About me
-      url: /about/
-      weight: -100
     - name: Categories
       url: /categories/
       weight: -96
