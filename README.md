@@ -37,10 +37,17 @@ vim themes/PaperMod/layouts/partials/comments.html
 Add below snippet
 
 ```sh
-<script src="https://utteranc.es/client.js"
-        repo="ashishtiwari1993/ashish.one"
-        issue-term="title"
-        theme="github-dark"
+<script src="https://giscus.app/client.js"
+        data-repo="ashishtiwari1993/ashish.one"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMTAxMjkzNjY="
+        data-category="General"
+        data-category-id="DIC_kwDODIZR1s4CP1P2"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark_high_contrast"
+        data-lang="en"
         crossorigin="anonymous"
         async>
 </script>
