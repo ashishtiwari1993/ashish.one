@@ -10,7 +10,237 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Apr 2022 01:24:55 +0530</lastBuildDate><atom:link href="https://ashish.one/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Start a single node elastic cluster with Docker Compose</title>
+      <link>https://ashish.one/blogs/elastic-docker-compose/</link>
+      <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
+      <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose. You can learn more about Docker &amp;amp; Docker Compose, Which will help you to understand the flow.
+Prerequisite Tested on the below configuration.
+ docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414  Cluster This cluster will include
+ Elasticsearch Kibana APM  .env file Make directory mkdir docker-elastic cd docker-elastic Create .</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/">docker-compose</a>. You can learn more about <a href="https://www.docker.com/">Docker</a> &amp; <a href="https://docs.docker.com/compose/">Docker Compose</a>, Which will help you to understand the flow.</p>
+<h1 id="prerequisite">Prerequisite</h1>
+<p>Tested on the below configuration.</p>
+<ul>
+<li>docker:<code>Docker version 20.10.16, build aa7e414</code></li>
+<li>docker-compose:<code>Docker version 20.10.16, build aa7e414</code></li>
+</ul>
+<h1 id="cluster">Cluster</h1>
+<p>This cluster will include</p>
+<ul>
+<li>Elasticsearch</li>
+<li>Kibana</li>
+<li>APM</li>
+</ul>
+<h1 id="env-file"><code>.env</code> file</h1>
+<h2 id="make-directory">Make directory</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir docker-elastic
+</span></span><span style="display:flex;"><span>cd docker-elastic
+</span></span></code></pre></div><h2 id="create-env-file">Create <code>.env</code> file</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Password for the &#39;elastic&#39; user (at least 6 characters)</span>
+</span></span><span style="display:flex;"><span>ELASTIC_PASSWORD<span style="color:#f92672">=</span>pass@123
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Password for the &#39;kibana_system&#39; user (at least 6 characters)</span>
+</span></span><span style="display:flex;"><span>KIBANA_PASSWORD<span style="color:#f92672">=</span>pass@123
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Version of Elastic products</span>
+</span></span><span style="display:flex;"><span>STACK_VERSION<span style="color:#f92672">=</span>8.2.2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the cluster name</span>
+</span></span><span style="display:flex;"><span>CLUSTER_NAME<span style="color:#f92672">=</span>docker-cluster
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set to &#39;basic&#39; or &#39;trial&#39; to automatically start the 30-day trial</span>
+</span></span><span style="display:flex;"><span>LICENSE<span style="color:#f92672">=</span>basic
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#LICENSE=trial</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Port to expose Elasticsearch HTTP API to the host</span>
+</span></span><span style="display:flex;"><span>ES_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">9200</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ES_PORT=127.0.0.1:9200</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Port to expose Kibana to the host</span>
+</span></span><span style="display:flex;"><span>KIBANA_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">5601</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#KIBANA_PORT=80</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Port to expose APM Server to the host</span>
+</span></span><span style="display:flex;"><span>APM_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">8200</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Increase or decrease based on the available host memory (in bytes)</span>
+</span></span><span style="display:flex;"><span>MEM_LIMIT<span style="color:#f92672">=</span><span style="color:#ae81ff">1073741824</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Project namespace (defaults to the current folder name if not set)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#COMPOSE_PROJECT_NAME=myproject</span>
+</span></span></code></pre></div><p>Save and close.</p>
+<h1 id="create-docker-composeyml-file">Create <code>docker-compose.yml</code> file</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;2.2&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">setup</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">certs:/usr/share/elasticsearch/config/certs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">user</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: &gt;<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      bash -c &#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if [ x${ELASTIC_PASSWORD} == x ]; then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;Set the ELASTIC_PASSWORD environment variable in the .env file&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          exit 1;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        elif [ x${KIBANA_PASSWORD} == x ]; then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;Set the KIBANA_PASSWORD environment variable in the .env file&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          exit 1;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        fi;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if [ ! -f config/certs/ca.zip ]; then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;Creating CA&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          bin/elasticsearch-certutil ca --silent --pem -out config/certs/ca.zip;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          unzip config/certs/ca.zip -d config/certs;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        fi;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if [ ! -f config/certs/certs.zip ]; then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;Creating certs&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo -ne \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;instances:\n&#34;\
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;  - name: es01\n&#34;\
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;    dns:\n&#34;\
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;      - es01\n&#34;\
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;      - localhost\n&#34;\
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;    ip:\n&#34;\
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;      - 127.0.0.1\n&#34;\
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &gt; config/certs/instances.yml;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          bin/elasticsearch-certutil cert --silent --pem -out config/certs/certs.zip --in config/certs/instances.yml --ca-cert config/certs/ca/ca.crt --ca-key config/certs/ca/ca.key;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          unzip config/certs/certs.zip -d config/certs;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        fi;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;Setting file permissions&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        chown -R root:root config/certs;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        find . -type d -exec chmod 750 \{\} \;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        find . -type f -exec chmod 640 \{\} \;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;Waiting for Elasticsearch availability&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        until curl -s --cacert config/certs/ca/ca.crt https://es01:9200 | grep -q &#34;missing authentication credentials&#34;; do sleep 30; done;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;Setting kibana_system password&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        until curl -s -X POST --cacert config/certs/ca/ca.crt -u elastic:${ELASTIC_PASSWORD} -H &#34;Content-Type: application/json&#34; https://es01:9200/_security/user/kibana_system/_password -d &#34;{\&#34;password\&#34;:\&#34;${KIBANA_PASSWORD}\&#34;}&#34; | grep -q &#34;^{}&#34;; do sleep 10; done;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;All done!&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#39;</span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>: [<span style="color:#e6db74">&#34;CMD-SHELL&#34;</span>, <span style="color:#e6db74">&#34;[ -f config/certs/es01/es01.crt ]&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">1s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">5s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">120</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">es01</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">setup</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">certs:/usr/share/elasticsearch/config/certs</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">esdata01:/usr/share/elasticsearch/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${ES_PORT}:9200</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">node.name=es01</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">cluster.name=${CLUSTER_NAME}</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">cluster.initial_master_nodes=es01</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">discovery.seed_hosts=</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTIC_PASSWORD=${ELASTIC_PASSWORD}</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">bootstrap.memory_lock=true</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.enabled=true</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.http.ssl.enabled=true</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.http.ssl.key=certs/es01/es01.key</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.http.ssl.certificate=certs/es01/es01.crt</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.http.ssl.certificate_authorities=certs/ca/ca.crt</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.http.ssl.verification_mode=certificate</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.transport.ssl.enabled=true</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.transport.ssl.key=certs/es01/es01.key</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.transport.ssl.certificate=certs/es01/es01.crt</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.transport.ssl.verification_mode=certificate</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.license.self_generated.type=${LICENSE}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mem_limit</span>: <span style="color:#ae81ff">${MEM_LIMIT}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ulimits</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">memlock</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">soft</span>: -<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">hard</span>: -<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>:
+</span></span><span style="display:flex;"><span>        [
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;CMD-SHELL&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;curl -s --cacert config/certs/ca/ca.crt https://localhost:9200 | grep -q &#39;missing authentication credentials&#39;&#34;</span>,
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">120</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">apm</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">es01</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/apm/apm-server:${STACK_VERSION}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">certs:/usr/share/apm-server/certs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${APM_PORT}:8200</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: &gt;<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      apm-server -e
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.hosts=[&#34;es01:9200&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.protocol=https
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.username=elastic
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.password=pass@123
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.ssl.enabled=true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.ssl.certificate_authorities=/usr/share/apm-server/certs/ca/ca.crt
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.ssl.certificate=/usr/share/apm-server/certs/es01/es01.crt
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.ssl.key=/usr/share/apm-server/certs/es01/es01.key</span>      
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kibana</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">es01</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/kibana/kibana:${STACK_VERSION}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">certs:/usr/share/kibana/config/certs</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">kibanadata:/usr/share/kibana/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${KIBANA_PORT}:5601</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">SERVERNAME=kibana</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_HOSTS=https://es01:9200</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_USERNAME=kibana_system</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mem_limit</span>: <span style="color:#ae81ff">${MEM_LIMIT}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>:
+</span></span><span style="display:flex;"><span>        [
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;CMD-SHELL&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;curl -s -I http://localhost:5601 | grep -q &#39;HTTP/1.1 302 Found&#39;&#34;</span>,
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">120</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">certs</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">local</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">esdata01</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">local</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kibanadata</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">local</span>
+</span></span></code></pre></div><p>Save and close.</p>
+<h1 id="start-the-cluster">Start the cluster</h1>
+<h2 id="start">Start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose up -d
+</span></span></code></pre></div><h2 id="stop">Stop</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose down
+</span></span></code></pre></div><h2 id="stop-with-deleting-network-containers-and-volumes">Stop with deleting network, containers and volumes</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose down -v
+</span></span></code></pre></div><h1 id="note">NOTE</h1>
+<blockquote>
+<p>You can simply comment other stacks which is not needed. For example if you want to just run Elasticsearch &amp; Kibana, Just comment the APM or other stack specification.</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Parsing Custom log format to the Elasticsearch</title>
       <link>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</link>
@@ -821,6 +1051,34 @@ The Fact The fact is there is no hard and fast rule or there is no standard cour
     </item>
     
     <item>
+      <title>SPF Lookup in Go</title>
+      <link>https://ashish.one/blogs/spf-lookup-in-go/</link>
+      <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/spf-lookup-in-go/</guid>
+      <description>In this gist, We will check how we can extract SPF records in Go.
+Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns)
+Install dependency $ go get github.com/miekg/dns spfLookup.go  Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1)
+Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1.</description>
+      <content:encoded><![CDATA[<p>In this gist, We will check how we can extract SPF records in Go.</p>
+<h2 id="prerequisite">Prerequisite</h2>
+<h3 id="go-version">Go version</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go version
+</span></span><span style="display:flex;"><span>go version go1.13 linux/amd64
+</span></span></code></pre></div><h3 id="dependency">Dependency</h3>
+<p><a href="https://github.com/miekg/dns">DNS Library(https://github.com/miekg/dns)</a></p>
+<h2 id="install-dependency">Install dependency</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get github.com/miekg/dns 
+</span></span></code></pre></div><h2 id="spflookupgo">spfLookup.go</h2>
+<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/ea5da5581ae2c56f3e25f8509155bd37.js"></script>
+
+<p>Here you can change <code>nameserver</code> according to your requirement. I have specified here google&rsquo;s name server (<code>8.8.8.8</code>). You can also use cloudflare&rsquo;s nameserver <a href="https://1.1.1.1">(1.1.1.1)</a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>You can make any DNS query with <code>miekg/dns</code> library. In the above script, we have looked up <code>TXT</code> Records and then we have searched for a string containing <code>v=spf1</code>.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
       <title>Shipping Golang logs with ELKB stack</title>
       <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
@@ -1141,6 +1399,43 @@ Docker makes the installation process very smooth and it gives your isolated env
 </p>
 <h3 id="at-the-end">At the End</h3>
 <p>We have successfully created Nginx and PHP Environment. In Part 2, We will check, How we can add MySQL to this environment.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Add Responsive Google Slides on Hugo</title>
+      <link>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</link>
+      <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</guid>
+      <description>Steps to add Responsive google slides iframe with Hugo:
+Hugo version:
+$ hugo version  Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &amp;lt;div id=&amp;#34;Container&amp;#34;  style=&amp;#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&amp;#34;&amp;gt;  &amp;lt;iframe id=&amp;#34;googleSlideIframe&amp;#34;  width=&amp;#34;100%&amp;#34; height=&amp;#34;100%&amp;#34;  src=&amp;#34;{{ .Get &amp;#34;src&amp;#34; }}&amp;#34;  frameborder=&amp;#34;0&amp;#34; allowfullscreen=&amp;#34;&amp;#34;  style=&amp;#34;position:absolute; top:0; left: 0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;/div&amp;gt; Step 3: Use shortcode &amp;lsquo;gslides&amp;rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.</description>
+      <content:encoded><![CDATA[<p>Steps to add Responsive google slides iframe with Hugo:</p>
+<p><strong>Hugo version:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ hugo version
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z
+</span></span></code></pre></div><h2 id="step-1-create-shortcode">Step 1: Create Shortcode</h2>
+<h3 id="create-gslideshtml-file">Create <code>gslides.html</code> file</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vim layouts/shortcodes/gslides.html
+</span></span></code></pre></div><h2 id="step-2-add-below-code">Step 2: Add below code:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Container&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&#34;</span>&gt;
+</span></span><span style="display:flex;"><span> &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;googleSlideIframe&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">src</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">allowfullscreen</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;position:absolute; top:0; left: 0&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><h2 id="step-3-use-shortcode-gslides-in-your-blogpost-markdown-file">Step 3: Use shortcode &lsquo;gslides&rsquo; in your Blog/Post Markdown file</h2>
+<p>Simply place below snippet in your markdown file.</p>
+<p>Replace <code>src</code> value with your Google slide URL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><code>{</code>{<code>&lt; gslides src="https://docs.google.com/presentation/d/e/2PACX-1vQExSl-gRPoA9hC6qXuqrjwiQVHAanDieZN_5GpV2Lw9cuxjsVFEN_wkTThqpQwZ36vJz4zwmTvV7cC/embed?start=false&loop=false&delayms=3000" ></code><code>}}</code>
+
+</span></span></code></pre></div><blockquote>
+<p><strong>I have shown for google slides, Similarly, you can create or add any other document type like google sheets, doc, etc. OR you can place any iframe like this.</strong></p>
+</blockquote>
 ]]></content:encoded>
     </item>
     
@@ -1895,6 +2190,21 @@ It is as simple as below:</p>
 <p><a href="https://blog.golang.org/go-maps-in-action">https://blog.golang.org/go-maps-in-action</a><br>
 <a href="https://golang.org/doc/faq#atomic_maps">https://golang.org/doc/faq#atomic_maps</a><br>
 <a href="https://gobyexample.com/mutexes">https://gobyexample.com/mutexes</a></p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Elasticsearch Exceptions &amp; Challenges</title>
+      <link>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</link>
+      <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</guid>
+      <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
+ Every use case having different solutions. You can try accordingly.</description>
+      <content:encoded><![CDATA[<p>Below are some challenges &amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.</p>
+<p><script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js"></script>
+
+Every use case having different solutions. You can try accordingly.</p>
 ]]></content:encoded>
     </item>
     

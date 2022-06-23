@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Kibana on ashish.one</title>
+    <title>kibana on ashish.one</title>
     <link>https://ashish.one/tags/kibana/</link>
-    <description>Recent content in Kibana on ashish.one</description>
+    <description>Recent content in kibana on ashish.one</description>
     <image>
       <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
       <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
@@ -13,10 +13,10 @@
     <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/kibana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
-      <link>https://ashish.one/gist/elastic-docker-compose/</link>
+      <link>https://ashish.one/blogs/elastic-docker-compose/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
       
-      <guid>https://ashish.one/gist/elastic-docker-compose/</guid>
+      <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
       <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose. You can learn more about Docker &amp;amp; Docker Compose, Which will help you to understand the flow.
 Prerequisite Tested on the below configuration.
  docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414  Cluster This cluster will include

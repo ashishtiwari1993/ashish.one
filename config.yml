@@ -1,0 +1,137 @@
+baseurl: 'https://ashish.one/'
+languageCode: en-us
+title: ashish.one
+theme: paperMod
+publishDir: docs
+googleAnalytics: UA-149424518-1
+enableEmoji: true
+enableGitInfo: true
+enableRobotsTXT: true
+canonifyURLs: true
+paginate: 5
+Taxonomies:
+  tag: tags
+  category: categories
+  series: series
+minify:
+  disableXML: true
+  minifyOutput: true
+params:
+  env: production
+  mainSections:
+    - post
+  author: Ashish Tiwari
+  title: ashish.one
+  keyword:
+    - Blogs
+    - Gists
+  images:
+    - 'https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200'
+  DateFormat: 'January 2, 2006'
+  defaultTheme: dark
+  disableThemeToggle: false
+  ShowFullTextinRSS: true
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: true
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: true
+  copyright: ashish
+  since: '2019'
+  highlightjs: true
+  highlightjsstyle: github
+  UtterancesRepo: ashishtiwari1993/ashish.one
+  UtterancesIssueTerm: title
+  UtterancesTheme: github-light
+  toc: tocbot
+  social:
+    gravatar: atashish171@gmail.com
+    twitter: _ashish_tiwari
+    github: ashishtiwari1993
+    linkedin: ashish-tiwari-a40a012b
+  assets:
+    favicon: favicon.png
+    favicon16x16: favicon.png
+    favicon32x32: favicon.png
+    apple_touch_icon: favicon.png
+    safari_pinned_tab: favicon.png
+  label:
+    text: Ashish Tiwari
+    iconHeight: 35
+  profileMode:
+    enabled: false
+    imageUrl: 'https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200'
+  homeInfoParams:
+    Title: "Bio  \U0001F44B"
+    Content:  >
+              \U0001F44B Hi, I’m Ashish\n        
+              \U0001F1EE\U0001F1F3 From India\n        
+              \U0001F9D1‍\U0001F4BC Developer Advocate, Elastic\n        
+              \U0001F9D1‍\U0001F4BB Developer, Coder, Programmer, Tech\n        
+              \U0001F9D1‍\U0001F91D‍\U0001F9D1 Community lover, Speaker, Open source guy 
+  cover:
+    linkFullImages: false
+    hiddenInList: false
+    hiddenInSingle: false
+    responsiveImages: true
+  editPost:
+    URL: 'https://github.com/ashishtiwari1993/ashish.one/tree/master/content'
+    Text: Suggest Changes
+    appendFilePath: true
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys:
+      - title
+      - permalink
+      - summary
+      - content
+  socialIcons:
+    - name: twitter
+      url: 'https://twitter.com/_ashish_tiwari'
+    - name: github
+      url: 'https://github.com/ashishtiwari1993'
+    - name: linkedin
+      url: 'https://www.linkedin.com/in/ashishtiwari93/'
+    - name: stackoverflow
+      url: 'https://stackoverflow.com/users/6438430/ashish-tiwari'
+    - name: RSS
+      url: index.xml
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+menu:
+  main:
+    - identifier: About
+      name: About me
+      url: /about/
+      weight: -100
+    - name: Categories
+      url: /categories/
+      weight: -96
+    - name: Tags
+      url: /tags/
+      weight: -95
+    - name: Talks
+      url: /talks/
+      weight: -94
+    - name: Search
+      url: /search/
+      weight: -92
+    - identifier: Archives
+      name: Archives
+      url: /archives/
+      weight: -90

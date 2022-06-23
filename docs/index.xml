@@ -13,10 +13,10 @@
     <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
-      <link>https://ashish.one/gist/elastic-docker-compose/</link>
+      <link>https://ashish.one/blogs/elastic-docker-compose/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
       
-      <guid>https://ashish.one/gist/elastic-docker-compose/</guid>
+      <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
       <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose. You can learn more about Docker &amp;amp; Docker Compose, Which will help you to understand the flow.
 Prerequisite Tested on the below configuration.
  docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414  Cluster This cluster will include
@@ -1120,10 +1120,10 @@ The Fact The fact is there is no hard and fast rule or there is no standard cour
     
     <item>
       <title>SPF Lookup in Go</title>
-      <link>https://ashish.one/gist/spf-lookup-in-go/</link>
+      <link>https://ashish.one/blogs/spf-lookup-in-go/</link>
       <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
       
-      <guid>https://ashish.one/gist/spf-lookup-in-go/</guid>
+      <guid>https://ashish.one/blogs/spf-lookup-in-go/</guid>
       <description>In this gist, We will check how we can extract SPF records in Go.
 Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns)
 Install dependency $ go get github.com/miekg/dns spfLookup.go  Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1)
@@ -1472,10 +1472,10 @@ Docker makes the installation process very smooth and it gives your isolated env
     
     <item>
       <title>Add Responsive Google Slides on Hugo</title>
-      <link>https://ashish.one/gist/add-responsive-google-slides-on-hugo/</link>
+      <link>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</link>
       <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
       
-      <guid>https://ashish.one/gist/add-responsive-google-slides-on-hugo/</guid>
+      <guid>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</guid>
       <description>Steps to add Responsive google slides iframe with Hugo:
 Hugo version:
 $ hugo version  Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &amp;lt;div id=&amp;#34;Container&amp;#34;  style=&amp;#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&amp;#34;&amp;gt;  &amp;lt;iframe id=&amp;#34;googleSlideIframe&amp;#34;  width=&amp;#34;100%&amp;#34; height=&amp;#34;100%&amp;#34;  src=&amp;#34;{{ .Get &amp;#34;src&amp;#34; }}&amp;#34;  frameborder=&amp;#34;0&amp;#34; allowfullscreen=&amp;#34;&amp;#34;  style=&amp;#34;position:absolute; top:0; left: 0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;/div&amp;gt; Step 3: Use shortcode &amp;lsquo;gslides&amp;rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.</description>
@@ -2342,10 +2342,10 @@ We also worked on Disk optimization by believing in the principle of &ldquo;Know
     
     <item>
       <title>Elasticsearch Exceptions &amp; Challenges</title>
-      <link>https://ashish.one/gist/elasticsearch-exceptions-and-challenges/</link>
+      <link>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</link>
       <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
       
-      <guid>https://ashish.one/gist/elasticsearch-exceptions-and-challenges/</guid>
+      <guid>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</guid>
       <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
  Every use case having different solutions. You can try accordingly.</description>
       <content:encoded><![CDATA[<p>Below are some challenges &amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.</p>
@@ -3161,6 +3161,7 @@ I have been wearing multiple hats as a startup guy so got a chance to work on sy
 <strong>Ashish Tiwari</strong></p>
 ]]></content:encoded>
     </item>
+    
     
     
   </channel>

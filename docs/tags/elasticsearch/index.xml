@@ -13,10 +13,10 @@
     <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
-      <link>https://ashish.one/gist/elastic-docker-compose/</link>
+      <link>https://ashish.one/blogs/elastic-docker-compose/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
       
-      <guid>https://ashish.one/gist/elastic-docker-compose/</guid>
+      <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
       <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose. You can learn more about Docker &amp;amp; Docker Compose, Which will help you to understand the flow.
 Prerequisite Tested on the below configuration.
  docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414  Cluster This cluster will include
@@ -1160,10 +1160,10 @@ We also worked on Disk optimization by believing in the principle of &ldquo;Know
     
     <item>
       <title>Elasticsearch Exceptions &amp; Challenges</title>
-      <link>https://ashish.one/gist/elasticsearch-exceptions-and-challenges/</link>
+      <link>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</link>
       <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
       
-      <guid>https://ashish.one/gist/elasticsearch-exceptions-and-challenges/</guid>
+      <guid>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</guid>
       <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
  Every use case having different solutions. You can try accordingly.</description>
       <content:encoded><![CDATA[<p>Below are some challenges &amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.</p>
