@@ -71,11 +71,21 @@ params:
   homeInfoParams:
     Title: "Bio  \U0001F44B"
     Content:  >
-              \U0001F44B Hi, I’m Ashish\n        
-              \U0001F1EE\U0001F1F3 From India\n        
-              \U0001F9D1‍\U0001F4BC Developer Advocate, Elastic\n        
-              \U0001F9D1‍\U0001F4BB Developer, Coder, Programmer, Tech\n        
-              \U0001F9D1‍\U0001F91D‍\U0001F9D1 Community lover, Speaker, Open source guy 
+      👋 Hi, I’m Ashish
+
+
+      🇮🇳 From India
+
+
+      🧑‍💼 Developer Advocate India, Elastic
+
+
+      🧑‍💻 Developer, Coder, Programmer, Tech
+
+
+      🧑‍🤝‍🧑 Community lover, Speaker, Open source guy
+
+      
   cover:
     linkFullImages: false
     hiddenInList: false
