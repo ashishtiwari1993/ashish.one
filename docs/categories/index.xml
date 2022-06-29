@@ -10,7 +10,17 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jun 2022 22:47:37 +0530</lastBuildDate><atom:link href="https://ashish.one/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo</title>
+      <link>https://ashish.one/categories/hugo/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      
+      <guid>https://ashish.one/categories/hugo/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>Elastic</title>
       <link>https://ashish.one/categories/elastic/</link>

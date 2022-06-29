@@ -10,7 +10,80 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jun 2022 22:47:37 +0530</lastBuildDate><atom:link href="https://ashish.one/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to build a Developer Profile - HugoConf2022</title>
+      <link>https://ashish.one/blogs/build-developer-profile/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/build-developer-profile/</guid>
+      <description>Just a thought 💭 &amp;hellip; As a Developer, we keep learning &amp;amp; developing stuff. Sometimes we also find the solutions. Our stuff is distributed the same as our System architecture. We maintain different platforms like GitHub for projects, Medium for blogs, LinkedIn for profile, etc.
+All this stuff we want to share on a single platform but as a tech, I am lazy if you ask me to install some CMS and maintain all stuff over there.</description>
+      <content:encoded><![CDATA[<h1 id="just-a-thought---">Just a thought 💭  &hellip;</h1>
+<p>As a Developer, we keep learning &amp; developing stuff. Sometimes we also find the solutions. Our stuff is distributed the same as our System architecture. We maintain different platforms like GitHub for projects, Medium for blogs, LinkedIn for profile, etc.</p>
+<p>All this stuff we want to share on a single platform but as a tech, I am lazy if you ask me to install some CMS and maintain all stuff over there. it is hard to switch from a black terminal 💻  window to some UI 😅</p>
+<p>As a developer I was always thinking can I write my blogs, article or notes in Vim? What if we can publish the blog the same as we do releases by hitting some commands.</p>
+<p>In this gist, I am quickly going to give you some suggestions for tools that will help you to build your platform.</p>
+<h1 id="the-requirement-">The Requirement 📝</h1>
+<ul>
+<li>Write a blog in any editor (For me its Vim)</li>
+<li>Easy to publish</li>
+<li>Developer Friendly</li>
+<li>Lightweight and speed</li>
+<li>Cost effective</li>
+</ul>
+<h1 id="lets-build-">Let&rsquo;s Build 🔧</h1>
+<p>I was evaluating multiple tools while searching for a platform and found Hugo which is easy, fast, and handy as a developer. Hugo is an opensource static site generator which means you can write everything in Markdown and Hugo will generate the site accordingly. You need to know the basic Markdown syntax and you are good to go.</p>
+<p>You can refer official <a href="https://gohugo.io/documentation/">hugo</a> document to get started.</p>
+<p>Below is some tool that helped me to set up my platform.</p>
+<hr>
+<h1 id="theme">Theme</h1>
+<p>Lots of themes are present which you can configure with your Hugo site. There are some common features across the themes and some themes provide the special features also. You can explore all themes here <a href="https://themes.gohugo.io/">hemes.gohugo.io</a></p>
+<p>I was looking for a simple theme which has a simple layout with menus, a dark theme, and tech friendly.</p>
+<h2 id="papermodhttpsgithubcomadityatelangehugo-papermod"><a href="https://github.com/adityatelange/hugo-PaperMod">PaperMod</a></h2>
+<p>I have build my <a href="https://ashish.one">website</a> in this theme. Few pointers why i choose:</p>
+<h3 id="1-searchhttpsadityatelangegithubiohugo-papermodpostspapermodpapermod-featuressearch-page-">1. <a href="https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-features/#search-page">Search</a> 🔍</h3>
+<p>PaperMod uses <a href="https://fusejs.io/getting-started/different-builds.html#explanation-of-different-builds">Fuse.js</a> Basic for search functionality.</p>
+<h3 id="2-post-cover-image-">2. Post Cover Image 🗼</h3>
+<p>It gives an easy option to add a cover image to your post.</p>
+<h3 id="3-edit-link-for-post-">3. Edit link for post ✏️</h3>
+<p><code>Suggest changes</code> option to ask viewers to contribute or Raise PR.</p>
+<p>You can check more details about all features <a href="https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-features">here</a></p>
+<h2 id="hyde-hydehttpsgithubcomhtr3nhyde-hyde"><a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a></h2>
+<p>hyde-hyde I found a simple and easy theme if you want to get started with a simple menu and post. I chooses this because of its simplicity and then migrated to PaperMod.</p>
+<h1 id="comments-">Comments 💬</h1>
+<p>Once your audience starts reading your article, they would like to give feedback, suggestion and sometime it could be a discussion. You need someplace like <code>comments</code> where viewers can add their points to a particular article. The theme does not come with comments, for that you need to integrate the <code>comments</code> tool. Below are some suggestions you can explore:</p>
+<h2 id="giscushttpsgiscusapp"><a href="https://giscus.app/">giscus</a></h2>
+<p>A comments system powered by <a href="https://docs.github.com/en/discussions">GitHub Discussions</a>. Let visitors leave comments and reactions on your website via GitHub! As soon as your viewers comment on your article, it will create the discussion thread on Github Discussion. You can explore more about giscus on the official site.</p>
+<h2 id="utteranceshttpsgithubcomutteranceutterances"><a href="https://github.com/utterance/utterances">utterances</a></h2>
+<p>A lightweight comments system built powered by <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues">GitHub issues</a>. It will create an issue per article once anyone comments. All comments will be associated with a particular Github issue.</p>
+<h2 id="disqushttpsdisquscom"><a href="https://disqus.com/">DISQUS</a></h2>
+<p>Disqus is a blog comment hosting paid service for websites and online communities that use a networked platform. It also comes with social integration, social networks, user profiles, profile notifications, etc.</p>
+<p>I migrated my comment system from utterances to giscus. As Github discussion is a proper tool for commenting, discussion, etc. Both are lightweight and you can choose accordingly.</p>
+<h1 id="shortcodes">Shortcodes</h1>
+<p>While developing the site with Hugo, Shortcodes are your friends. Always check if shortcodes are available for popular tools e.g. youtube, github gist, etc.</p>
+<h1 id="hosting-">Hosting ☁️</h1>
+<p>After the site generation, you need to host your website somewhere.</p>
+<p>Found <a href="https://pages.github.com/">Github pages</a> best place to host your static site. It allows you to manage your website the same way you manage your projects on github. Get started by creating a simple repository and pushing your source directory.</p>
+<p>Check out all steps <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">here</a></p>
+<p>Once you set up end to end, You can publish your blog or changes by just basic git commands i.e. <code>git add</code>, <code>git commit</code>, <code>git push</code>.</p>
+<p>It will give you the same feeling as you are releasing some features for your project.</p>
+<p>You can check more <a href="https://gohugo.io/hosting-and-deployment/">options</a> about hosting and deployment</p>
+<h2 id="domain">Domain</h2>
+<p>By default, Github pages assign the domain like <code>username.github.io</code> and you can access your site by visiting that subdomain. You can also setup the custom domain.</p>
+<h1 id="speed-">Speed 🚀</h1>
+<p>Almost 100% Page speed.</p>
+<p><a href="https://pagespeed.web.dev/report?url=https://ashish.one">Pagespeed insights</a></p>
+<hr>
+<h1 id="tldr">tl;dr</h1>
+<p>✅ Platform - Hugo<br>
+✅ Theme - PaperMod<br>
+✅ Comment - giscus<br>
+✅ Hosting - Github Pages<br>
+✅ PageSpeed - 100%</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
       <link>https://ashish.one/blogs/elastic-docker-compose/</link>
@@ -2202,9 +2275,9 @@ It is as simple as below:</p>
       <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
  Every use case having different solutions. You can try accordingly.</description>
       <content:encoded><![CDATA[<p>Below are some challenges &amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.</p>
-<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js"></script>
+<p><script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js"></script>
 
-<p>Every use case having different solutions. You can try accordingly.</p>
+Every use case having different solutions. You can try accordingly.</p>
 ]]></content:encoded>
     </item>
     

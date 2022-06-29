@@ -6,7 +6,7 @@ ogtype: "article"
 type: "post"
 tags: ["hugo","shortcode","google slides","gslides","responsive"]
 slug: "add-responsive-google-slides-on-hugo"
-categories: ["Misc"]
+categories: ["Hugo"]
 ---
 
 Steps to add Responsive google slides iframe with Hugo:

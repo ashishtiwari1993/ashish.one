@@ -2,16 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ashish.one/tags/apm-server/</loc>
-    <lastmod>2022-06-23T18:22:32+05:30</lastmod>
-  </url><url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2022-06-23T18:22:32+05:30</lastmod>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/</loc>
-    <lastmod>2022-06-23T18:22:32+05:30</lastmod>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/categories/</loc>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/conf/</loc>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/developer/</loc>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/gohugo/</loc>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/blogs/build-developer-profile/</loc>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/categories/hugo/</loc>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/hugo/</loc>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/hugoconf2022/</loc>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/profile/</loc>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2022-06-27T22:47:37+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/apm-server/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/docker/</loc>
@@ -36,9 +63,6 @@
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/elastic-docker-compose/</loc>
-    <lastmod>2022-06-23T18:22:32+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/elastic/</loc>
@@ -105,7 +129,7 @@
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/categories/misc/</loc>
-    <lastmod>2022-06-23T18:22:32+05:30</lastmod>
+    <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/pentest/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
@@ -177,9 +201,6 @@
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/gslides/</loc>
-    <lastmod>2022-06-23T18:22:32+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/hugo/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/responsive/</loc>

@@ -10,7 +10,67 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jun 2022 22:47:37 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>conf</title>
+      <link>https://ashish.one/tags/conf/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/conf/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>developer</title>
+      <link>https://ashish.one/tags/developer/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/developer/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>gohugo</title>
+      <link>https://ashish.one/tags/gohugo/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/gohugo/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://ashish.one/tags/hugo/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/hugo/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>hugoconf2022</title>
+      <link>https://ashish.one/tags/hugoconf2022/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/hugoconf2022/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>profile</title>
+      <link>https://ashish.one/tags/profile/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/profile/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>apm-server</title>
       <link>https://ashish.one/tags/apm-server/</link>
@@ -397,16 +457,6 @@
       <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
       
       <guid>https://ashish.one/tags/gslides/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://ashish.one/tags/hugo/</link>
-      <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/hugo/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
