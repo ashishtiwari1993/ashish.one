@@ -43,13 +43,13 @@ Below is some tool that helped me to set up my platform.
 
 # Theme
 
-Lots of themes are present which you can configure with your Hugo site. There are some common features across the themes and some themes provide the special features also. You can explore all themes here [hemes.gohugo.io](https://themes.gohugo.io/)  
+Lots of themes are present which you can configure with your Hugo site. There are some common features across the themes and some themes provide the special features also. You can explore all themes here [themes.gohugo.io](https://themes.gohugo.io/)  
 
 I was looking for a simple theme which has a simple layout with menus, a dark theme, and tech friendly.
 
-## [PaperMod](https://github.com/adityatelange/hugo-PaperMod)
+## PaperMod
 
-I have build my [website](https://ashish.one) in this theme. Few pointers why i choose:
+I have build my [website](https://ashish.one) in [PaperMod](https://github.com/adityatelange/hugo-PaperMod). Few pointers why i choose:
 
 ### 1. [Search](https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-features/#search-page) :mag:
 
@@ -73,17 +73,17 @@ hyde-hyde I found a simple and easy theme if you want to get started with a simp
 
 Once your audience starts reading your article, they would like to give feedback, suggestion and sometime it could be a discussion. You need someplace like `comments` where viewers can add their points to a particular article. The theme does not come with comments, for that you need to integrate the `comments` tool. Below are some suggestions you can explore:
 
-## [giscus](https://giscus.app/)
+## 1. giscus
 
-A comments system powered by [GitHub Discussions](https://docs.github.com/en/discussions). Let visitors leave comments and reactions on your website via GitHub! As soon as your viewers comment on your article, it will create the discussion thread on Github Discussion. You can explore more about giscus on the official site.
+[Giscus](https://giscus.app/) comments system powered by [GitHub Discussions](https://docs.github.com/en/discussions). Let visitors leave comments and reactions on your website via GitHub! As soon as your viewers comment on your article, it will create the discussion thread on Github Discussion. You can explore more about giscus on the official site.
 
-## [utterances](https://github.com/utterance/utterances) 
+## 2. Utterances 
 
-A lightweight comments system built powered by [GitHub issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues). It will create an issue per article once anyone comments. All comments will be associated with a particular Github issue.
+[utterances](https://github.com/utterance/utterances) lightweight comments system built powered by [GitHub issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues). It will create an issue per article once anyone comments. All comments will be associated with a particular Github issue.
 
-## [DISQUS](https://disqus.com/)
+## 2. DISQUS
 
-Disqus is a blog comment hosting paid service for websites and online communities that use a networked platform. It also comes with social integration, social networks, user profiles, profile notifications, etc.
+[Disqus](https://disqus.com/) is a blog comment hosting paid service for websites and online communities that use a networked platform. It also comes with social integration, social networks, user profiles, profile notifications, etc.
 
 I migrated my comment system from utterances to giscus. As Github discussion is a proper tool for commenting, discussion, etc. Both are lightweight and you can choose accordingly.
 
