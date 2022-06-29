@@ -7,6 +7,9 @@ ogtype: "article"
 tags: ["hugo","gohugo","hugoconf2022","conf","developer","profile"]
 slug: "build-developer-profile"
 categories: ["Hugo"]
+cover:
+    image: "/img/misc/hugo-logo.svg"
+    alt: "Hugoconf2022 how to build a developer profile"
 ---
 
 # Just a thought :thought_balloon:  ... 
@@ -121,3 +124,4 @@ Almost 100% Page speed.
 :white_check_mark: Comment - giscus  
 :white_check_mark: Hosting - Github Pages  
 :white_check_mark: PageSpeed - 100%  
+:white_check_mark: Cost - 100% Free 
