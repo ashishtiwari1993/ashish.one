@@ -57,7 +57,7 @@ All this stuff we want to share on a single platform but as a tech, I am lazy if
 <p><a href="https://giscus.app/">Giscus</a> comments system powered by <a href="https://docs.github.com/en/discussions">GitHub Discussions</a>. Let visitors leave comments and reactions on your website via GitHub! As soon as your viewers comment on your article, it will create the discussion thread on Github Discussion. You can explore more about giscus on the official site.</p>
 <h2 id="2-utterances">2. Utterances</h2>
 <p><a href="https://github.com/utterance/utterances">utterances</a> lightweight comments system built powered by <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues">GitHub issues</a>. It will create an issue per article once anyone comments. All comments will be associated with a particular Github issue.</p>
-<h2 id="2-disqus">2. DISQUS</h2>
+<h2 id="3-disqus">3. DISQUS</h2>
 <p><a href="https://disqus.com/">Disqus</a> is a blog comment hosting paid service for websites and online communities that use a networked platform. It also comes with social integration, social networks, user profiles, profile notifications, etc.</p>
 <p>I migrated my comment system from utterances to giscus. As Github discussion is a proper tool for commenting, discussion, etc. Both are lightweight and you can choose accordingly.</p>
 <h1 id="shortcodes">Shortcodes</h1>

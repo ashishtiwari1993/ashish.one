@@ -81,7 +81,7 @@ Once your audience starts reading your article, they would like to give feedback
 
 [utterances](https://github.com/utterance/utterances) lightweight comments system built powered by [GitHub issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues). It will create an issue per article once anyone comments. All comments will be associated with a particular Github issue.
 
-## 2. DISQUS
+## 3. DISQUS
 
 [Disqus](https://disqus.com/) is a blog comment hosting paid service for websites and online communities that use a networked platform. It also comes with social integration, social networks, user profiles, profile notifications, etc.
 
