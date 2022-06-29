@@ -105,6 +105,8 @@ It will give you the same feeling as you are releasing some features for your pr
 
 You can check more [options](https://gohugo.io/hosting-and-deployment/) about hosting and deployment
 
+I have hosted current website on [github.com/ashishtiwari1993](https://github.com/ashishtiwari1993/ashish.one).
+
 ## Domain
 
 By default, Github pages assign the domain like `username.github.io` and you can access your site by visiting that subdomain. You can also setup the custom domain.

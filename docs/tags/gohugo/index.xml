@@ -69,6 +69,7 @@ All this stuff we want to share on a single platform but as a tech, I am lazy if
 <p>Once you set up end to end, You can publish your blog or changes by just basic git commands i.e. <code>git add</code>, <code>git commit</code>, <code>git push</code>.</p>
 <p>It will give you the same feeling as you are releasing some features for your project.</p>
 <p>You can check more <a href="https://gohugo.io/hosting-and-deployment/">options</a> about hosting and deployment</p>
+<p>I have hosted current website on <a href="https://github.com/ashishtiwari1993/ashish.one">github.com/ashishtiwari1993</a>.</p>
 <h2 id="domain">Domain</h2>
 <p>By default, Github pages assign the domain like <code>username.github.io</code> and you can access your site by visiting that subdomain. You can also setup the custom domain.</p>
 <h1 id="speed-">Speed 🚀</h1>
