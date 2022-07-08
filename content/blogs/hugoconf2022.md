@@ -8,7 +8,7 @@ tags: ["hugo","gohugo","hugoconf2022","conf","developer","profile"]
 slug: "build-developer-profile"
 categories: ["Hugo"]
 cover:
-    image: "/img/misc/hugo-logo.svg"
+    image: "/img/misc/hugoconf2022.jpeg"
     alt: "Hugoconf2022 how to build a developer profile"
 ---
 
