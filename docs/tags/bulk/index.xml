@@ -105,8 +105,8 @@ DELETE meetup
 {&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
 </code></pre><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
 <p>Download <a href="/data/movies.json">movies.json</a> and insert into elasticsearch by using below command:</p>
-<pre tabindex="0"><code>curl -s -H &#34;Content-Type: application/x-ndjson&#34; -XPOST &#34;elasticsearch-endpoint:9200/_bulk&#34; --data-binary &#34;@movies.json&#34;
-</code></pre><h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
+<p><em>Open Kibana -&gt; Menu -&gt; Home -&gt; Upload a file</em></p>
+<h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Stack Management -&gt; Data Views (Kibana)</em></p>
 <h2 id="create-dashboard">Create Dashboard</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Analytics -&gt; Dashboard</em></p>

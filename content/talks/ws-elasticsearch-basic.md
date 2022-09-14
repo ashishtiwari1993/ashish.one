@@ -108,9 +108,7 @@ POST _bulk
 
 Download [movies.json](/data/movies.json) and insert into elasticsearch by using below command:
 
-```
-curl -s -H "Content-Type: application/x-ndjson" -XPOST "elasticsearch-endpoint:9200/_bulk" --data-binary "@movies.json"
-```
+*Open Kibana -> Menu -> Home -> Upload a file*
 
 ## Create Data view in Kibana
 
