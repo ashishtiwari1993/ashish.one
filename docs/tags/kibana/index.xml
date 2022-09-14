@@ -10,7 +10,126 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/kibana/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Sep 2022 17:44:43 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/kibana/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Elasticsearch</title>
+      <link>https://ashish.one/talks/ws-es/</link>
+      <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
+      
+      <guid>https://ashish.one/talks/ws-es/</guid>
+      <description>Sample Queries for Elasticsearch Workshop CRUD  # insert POST meetup/_doc/ { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # insert with id POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # read GET meetup/_search # update POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;, &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;, &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;, &amp;#34;skills&amp;#34;:{ &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;], &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;], &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34; } } # search with query GET meetup/_search { &amp;#34;query&amp;#34;: { &amp;#34;match&amp;#34;: { &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34; } } } # delete DELETE meetup BULK POST _bulk {&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}} {&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.</description>
+      <content:encoded><![CDATA[<h1 id="sample-queries-for-elasticsearch-workshop">Sample Queries for Elasticsearch Workshop</h1>
+<h2 id="crud">CRUD</h2>
+<pre tabindex="0"><code>
+# insert
+
+POST meetup/_doc/
+{
+  &#34;name&#34;:&#34;Ashish Tiwari&#34;
+}
+
+# insert with id
+
+POST meetup/_doc/1
+{
+  &#34;name&#34;:&#34;Ashish Tiwari&#34;
+}
+
+# read
+
+GET meetup/_search
+
+# update
+
+POST meetup/_doc/1
+{
+  &#34;name&#34;:&#34;Ashish&#34;,
+  &#34;company&#34;:&#34;elastic&#34;,
+  &#34;address&#34;:&#34;Navi Mumbai kharghar&#34;,
+  &#34;skills&#34;:{
+    &#34;language&#34;:[&#34;php&#34;,&#34;java&#34;,&#34;node&#34;],
+    &#34;database&#34;:[&#34;mysql&#34;,&#34;mongodb&#34;],
+    &#34;search&#34;:&#34;elasticsearch&#34;
+  }
+}
+
+# search with query
+
+GET meetup/_search
+{
+  &#34;query&#34;: {
+    &#34;match&#34;: {
+      &#34;address&#34;: &#34;navi&#34;
+    }
+  }
+}
+
+# delete
+
+DELETE meetup
+</code></pre><h2 id="bulk">BULK</h2>
+<pre tabindex="0"><code>POST _bulk
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:1,&#34;first_name&#34;:&#34;Yvonne&#34;,&#34;last_name&#34;:&#34;Willmott&#34;,&#34;email&#34;:&#34;ywillmott0@live.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;38 Helena Avenue&#34;,&#34;ip_address&#34;:&#34;104.221.25.110&#34;,&#34;company&#34;:&#34;Flashset&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:2,&#34;first_name&#34;:&#34;Immanuel&#34;,&#34;last_name&#34;:&#34;Philbrick&#34;,&#34;email&#34;:&#34;iphilbrick1@wunderground.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;01 Bunting Pass&#34;,&#34;ip_address&#34;:&#34;9.20.164.27&#34;,&#34;company&#34;:&#34;Babblestorm&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:3,&#34;first_name&#34;:&#34;Clotilda&#34;,&#34;last_name&#34;:&#34;Danelut&#34;,&#34;email&#34;:&#34;cdanelut2@deliciousdays.com&#34;,&#34;gender&#34;:&#34;Agender&#34;,&#34;street_address&#34;:&#34;0 Crowley Trail&#34;,&#34;ip_address&#34;:&#34;158.94.144.140&#34;,&#34;company&#34;:&#34;Riffpedia&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:4,&#34;first_name&#34;:&#34;Nahum&#34;,&#34;last_name&#34;:&#34;Attfield&#34;,&#34;email&#34;:&#34;nattfield3@blog.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Garrison Court&#34;,&#34;ip_address&#34;:&#34;225.144.148.44&#34;,&#34;company&#34;:&#34;Chatterpoint&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:5,&#34;first_name&#34;:&#34;Vaughan&#34;,&#34;last_name&#34;:&#34;Middis&#34;,&#34;email&#34;:&#34;vmiddis4@ted.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Cody Way&#34;,&#34;ip_address&#34;:&#34;66.198.31.108&#34;,&#34;company&#34;:&#34;Mynte&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:6,&#34;first_name&#34;:&#34;Nolie&#34;,&#34;last_name&#34;:&#34;Alessandrucci&#34;,&#34;email&#34;:&#34;nalessandrucci5@networksolutions.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;826 Brown Hill&#34;,&#34;ip_address&#34;:&#34;96.77.221.95&#34;,&#34;company&#34;:&#34;Feedfish&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:7,&#34;first_name&#34;:&#34;Beverlie&#34;,&#34;last_name&#34;:&#34;Ovitts&#34;,&#34;email&#34;:&#34;bovitts6@tripod.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6 Sycamore Pass&#34;,&#34;ip_address&#34;:&#34;102.24.117.107&#34;,&#34;company&#34;:&#34;Zazio&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:8,&#34;first_name&#34;:&#34;Graeme&#34;,&#34;last_name&#34;:&#34;Dopson&#34;,&#34;email&#34;:&#34;gdopson7@free.fr&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;26 Dunning Avenue&#34;,&#34;ip_address&#34;:&#34;198.33.215.93&#34;,&#34;company&#34;:&#34;Flashset&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:9,&#34;first_name&#34;:&#34;Mellisa&#34;,&#34;last_name&#34;:&#34;Hurich&#34;,&#34;email&#34;:&#34;mhurich8@nbcnews.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6371 Browning Way&#34;,&#34;ip_address&#34;:&#34;66.0.3.199&#34;,&#34;company&#34;:&#34;Divanoodle&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:10,&#34;first_name&#34;:&#34;Dyan&#34;,&#34;last_name&#34;:&#34;Loude&#34;,&#34;email&#34;:&#34;dloude9@berkeley.edu&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;9818 Reindahl Road&#34;,&#34;ip_address&#34;:&#34;16.56.137.54&#34;,&#34;company&#34;:&#34;Agivu&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:11,&#34;first_name&#34;:&#34;Becky&#34;,&#34;last_name&#34;:&#34;Shank&#34;,&#34;email&#34;:&#34;bshanka@tinypic.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;1206 Warrior Terrace&#34;,&#34;ip_address&#34;:&#34;90.63.35.111&#34;,&#34;company&#34;:&#34;Izio&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:12,&#34;first_name&#34;:&#34;Bar&#34;,&#34;last_name&#34;:&#34;Bedburrow&#34;,&#34;email&#34;:&#34;bbedburrowb@vistaprint.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;75 Onsgard Crossing&#34;,&#34;ip_address&#34;:&#34;85.122.33.250&#34;,&#34;company&#34;:&#34;Zoombox&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:13,&#34;first_name&#34;:&#34;Dorey&#34;,&#34;last_name&#34;:&#34;Isenor&#34;,&#34;email&#34;:&#34;disenorc@privacy.gov.au&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;53682 Parkside Crossing&#34;,&#34;ip_address&#34;:&#34;150.158.150.213&#34;,&#34;company&#34;:&#34;Rhyzio&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:14,&#34;first_name&#34;:&#34;Torrin&#34;,&#34;last_name&#34;:&#34;Rangall&#34;,&#34;email&#34;:&#34;trangalld@buzzfeed.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;24247 Old Shore Plaza&#34;,&#34;ip_address&#34;:&#34;40.151.17.2&#34;,&#34;company&#34;:&#34;Devpoint&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:15,&#34;first_name&#34;:&#34;Genvieve&#34;,&#34;last_name&#34;:&#34;Beslier&#34;,&#34;email&#34;:&#34;gbesliere@yolasite.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;96214 Miller Trail&#34;,&#34;ip_address&#34;:&#34;115.143.68.208&#34;,&#34;company&#34;:&#34;Oyonder&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:16,&#34;first_name&#34;:&#34;Arden&#34;,&#34;last_name&#34;:&#34;Ramas&#34;,&#34;email&#34;:&#34;aramasf@whitehouse.gov&#34;,&#34;gender&#34;:&#34;Polygender&#34;,&#34;street_address&#34;:&#34;390 Gulseth Alley&#34;,&#34;ip_address&#34;:&#34;36.83.126.154&#34;,&#34;company&#34;:&#34;Youbridge&#34;}
+{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+{&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
+</code></pre><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
+<p>Download <a href="/data/movies.json">movies.json</a> and insert into elasticsearch by using below command:</p>
+<pre tabindex="0"><code>curl -s -H &#34;Content-Type: application/x-ndjson&#34; -XPOST &#34;elasticsearch-endpoint:9200/_bulk&#34; --data-binary &#34;@movies.json&#34;
+</code></pre><h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
+<p><em>Open Kibana -&gt; Menu -&gt; Stack Management -&gt; Data Views (Kibana)</em></p>
+<h2 id="create-dashboard">Create Dashboard</h2>
+<p><em>Open Kibana -&gt; Menu -&gt; Analytics -&gt; Dashboard</em></p>
+<h2 id="_analyze">_analyze</h2>
+<pre tabindex="0"><code># analyze
+
+GET /_analyze?pretty
+{
+  &#34;text&#34; : &#34;Quick Brown Foxes!&#34;
+}
+
+# hindi analyzer
+
+GET /_analyze?pretty
+{
+  &#34;analyzer&#34;: &#34;hindi&#34;, 
+  &#34;text&#34; : &#34;चाणक्य ने चंद्रगुप्त और बिंदूसार दोनों के लिए प्रधानमंत्री और राजनयिक सलाहकार के रूप में काम किया।&#34;
+}
+
+# marathi analyzer
+</code></pre>]]></content:encoded>
+    </item>
+    
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
       <link>https://ashish.one/blogs/elastic-docker-compose/</link>

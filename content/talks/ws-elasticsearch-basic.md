@@ -1,7 +1,13 @@
 ---
 title: "Getting started with Elasticsearch"
 date: 2022-09-14T17:44:43+05:30
-draft: true
+draft: false
+type: "post"
+ogtype: "article"
+tags: ["elasticsearch","kibana","analyzer","CRUD","BULK"]
+slug: "ws-es"
+categories: ["Elastic"]
+
 ---
 
 # Sample Queries for Elasticsearch Workshop
