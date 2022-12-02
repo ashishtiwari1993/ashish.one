@@ -24,6 +24,7 @@ $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
 $ tar -xvf Python-3.6.3.tgz
 $ cd Python-3.6.3
 $ sudo ./configure --enable-optimizations
+$ sudo make install
 ```
 
 ### Step 1.2: Check
