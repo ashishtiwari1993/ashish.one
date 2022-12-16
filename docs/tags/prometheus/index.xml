@@ -19,8 +19,8 @@
       <guid>https://ashish.one/blogs/setup-grafana-with-prometheus/</guid>
       <description>As you know Prometheus already having UI (localhost:9090). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.
 What is Grafana? As grafana.com says
- ”Grafana is the open-source analytics and monitoring solution for every database.”
- This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs.</description>
+”Grafana is the open-source analytics and monitoring solution for every database.”
+This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc.</description>
       <content:encoded><![CDATA[<p>As you know Prometheus already having UI (<code>localhost:9090</code>). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.</p>
 <h2 id="what-is-grafana">What is Grafana?</h2>
 <p>As <a href="https://grafana.com">grafana.com</a> says</p>

@@ -50,10 +50,10 @@
     <loc>https://ashish.one/blogs/build-developer-profile/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/hugo/</loc>
+    <loc>https://ashish.one/tags/hugo/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/hugo/</loc>
+    <loc>https://ashish.one/categories/hugo/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/hugoconf2022/</loc>
@@ -128,10 +128,10 @@
     <loc>https://ashish.one/tags/arch-installation/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/linux/</loc>
+    <loc>https://ashish.one/tags/linux/</loc>
     <lastmod>2022-05-11T14:47:26+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/linux/</loc>
+    <loc>https://ashish.one/categories/linux/</loc>
     <lastmod>2022-05-11T14:47:26+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/bugbounty/</loc>
@@ -254,10 +254,10 @@
     <loc>https://ashish.one/tags/node-exporter/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/prometheus/</loc>
+    <loc>https://ashish.one/tags/prometheus/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/prometheus/</loc>
+    <loc>https://ashish.one/categories/prometheus/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</loc>

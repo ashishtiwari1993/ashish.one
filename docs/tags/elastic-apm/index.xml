@@ -19,8 +19,8 @@
       <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
       <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose. You can learn more about Docker &amp;amp; Docker Compose, Which will help you to understand the flow.
 Prerequisite Tested on the below configuration.
- docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414  Cluster This cluster will include
- Elasticsearch Kibana APM  .env file Make directory mkdir docker-elastic cd docker-elastic Create .</description>
+docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414 Cluster This cluster will include
+Elasticsearch Kibana APM .env file Make directory mkdir docker-elastic cd docker-elastic Create .</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/">docker-compose</a>. You can learn more about <a href="https://www.docker.com/">Docker</a> &amp; <a href="https://docs.docker.com/compose/">Docker Compose</a>, Which will help you to understand the flow.</p>
 <h1 id="prerequisite">Prerequisite</h1>

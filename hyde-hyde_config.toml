@@ -1,0 +1,92 @@
+baseurl = "https://ashish.one/"
+languageCode = "en-us"
+title = "ashish.one"
+theme = "hyde-hyde"
+
+publishDir = "docs"
+
+googleAnalytics = "UA-149424518-1"
+
+enableEmoji = true
+enableGitInfo = true
+enableRobotsTXT = true
+canonifyURLs = true
+paginate = 5
+
+[Taxonomies]
+	tag = "tags"
+	topics = "topics"
+	series = "series"
+
+[params]
+    env = "production"
+    mainSections = ["post"]
+	author = "Ashish Tiwari"
+	title = "ashish.one"
+	images = ["https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200"]
+	DateFormat = "January 2, 2006"
+	copyright = "ashish"
+	since = "2019"
+    highlightjs = true
+    highlightjsstyle = "github"	
+
+	UtterancesRepo = "ashishtiwari1993/ashish.one"
+	UtterancesIssueTerm = "title"
+	UtterancesTheme = "github-light"		
+	toc = "tocbot"
+
+[params.social]
+	gravatar = "atashish171@gmail.com"
+	twitter = "_ashish_tiwari"
+	github = "ashishtiwari1993"
+	linkedin = "ashish-tiwari-a40a012b"
+
+
+[[params.socialIcons]]
+	name = "twitter"
+	url = "https://twitter.com/_ashish_tiwari"
+
+[[params.socialIcons]]
+	name = "github"
+	url = "https://github.com/ashishtiwari1993"
+
+[[params.socialIcons]]
+	name = "linkedin"
+	url = "https://www.linkedin.com/in/ashishtiwari93/"
+
+	
+
+
+[menu]
+
+  [[menu.main]]
+    identifier = "About"
+    name = "About me"
+    url = "/about/"
+    weight = -100
+
+  [[menu.main]]
+    name = "Elastic Stacks"
+    url = "/tags/elastic"
+    weight = -97
+
+  [[menu.main]]
+    name = "Topics"
+    url = "/topics/"
+    weight = -96
+
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = -95
+
+  [[menu.main]]
+    name = "Talks"
+    url = "/talks/"
+    weight = -94
+
+  [[menu.main]]
+    name = "Gists"
+    url = "/gist/"
+    weight = -93
+

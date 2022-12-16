@@ -17,29 +17,29 @@
       <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
       
       <guid>https://ashish.one/talks/ws-es/</guid>
-      <description>Sample Queries for Elasticsearch Workshop CRUD  # insert POST meetup/_doc/ { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # insert with id POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # read GET meetup/_search # update POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;, &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;, &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;, &amp;#34;skills&amp;#34;:{ &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;], &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;], &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34; } } # search with query GET meetup/_search { &amp;#34;query&amp;#34;: { &amp;#34;match&amp;#34;: { &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34; } } } # delete DELETE meetup BULK POST _bulk {&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}} {&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.</description>
+      <description>Sample Queries for Elasticsearch Workshop CRUD # Insert POST meetup/_doc/ { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # Insert with id POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # Search GET meetup/_search # Update POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;, &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;, &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;, &amp;#34;skills&amp;#34;:{ &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;], &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;], &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34; } } # search with query GET meetup/_search { &amp;#34;query&amp;#34;: { &amp;#34;match&amp;#34;: { &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34; } } } # delete DELETE meetup BULK POST _bulk {&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}} {&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.</description>
       <content:encoded><![CDATA[<h1 id="sample-queries-for-elasticsearch-workshop">Sample Queries for Elasticsearch Workshop</h1>
 <h2 id="crud">CRUD</h2>
 <pre tabindex="0"><code>
-# insert
+# Insert
 
 POST meetup/_doc/
 {
   &#34;name&#34;:&#34;Ashish Tiwari&#34;
 }
 
-# insert with id
+# Insert with id
 
 POST meetup/_doc/1
 {
   &#34;name&#34;:&#34;Ashish Tiwari&#34;
 }
 
-# read
+# Search
 
 GET meetup/_search
 
-# update
+# Update
 
 POST meetup/_doc/1
 {
@@ -110,7 +110,18 @@ DELETE meetup
 <p><em>Open Kibana -&gt; Menu -&gt; Stack Management -&gt; Data Views (Kibana)</em></p>
 <h2 id="create-dashboard">Create Dashboard</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Analytics -&gt; Dashboard</em></p>
-<h2 id="_analyze">_analyze</h2>
+<h2 id="create-mapping">Create mapping</h2>
+<pre tabindex="0"><code>PUT /devfest-raipur
+{
+  &#34;mappings&#34;: {
+    &#34;properties&#34;: {
+      &#34;age&#34;:    { &#34;type&#34;: &#34;integer&#34; },  
+      &#34;email&#34;:  { &#34;type&#34;: &#34;keyword&#34;  }, 
+      &#34;name&#34;:   { &#34;type&#34;: &#34;text&#34;  }     
+    }
+  }
+}
+</code></pre><h2 id="analyze">Analyze</h2>
 <pre tabindex="0"><code># analyze
 
 GET /_analyze?pretty
@@ -118,16 +129,212 @@ GET /_analyze?pretty
   &#34;text&#34; : &#34;Quick Brown Foxes!&#34;
 }
 
-# hindi analyzer
+# Whitespace
+
+curl -X POST &#34;localhost:9200/_analyze?pretty&#34; -H &#39;Content-Type: application/json&#39; -d&#39;
+{
+  &#34;analyzer&#34;: &#34;whitespace&#34;,
+  &#34;text&#34;: &#34;The 2 QUICK Brown-Foxes jumped over the lazy dog\u0027s bone.&#34;
+}
+&#39;
+
+
+
+POST _analyze
+{
+  &#34;char_filter&#34;: [], 
+  &#34;tokenizer&#34;:   &#34;standard&#34;,
+  &#34;filter&#34;:      [], 
+  &#34;text&#34;: [ 
+    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+    &#34;👍 🐶 and &lt;strong&gt;fast&lt;/strong&gt; 🦊!.&#34;
+  ]
+}
+
+# hindi
 
 GET /_analyze?pretty
 {
   &#34;analyzer&#34;: &#34;hindi&#34;, 
   &#34;text&#34; : &#34;चाणक्य ने चंद्रगुप्त और बिंदूसार दोनों के लिए प्रधानमंत्री और राजनयिक सलाहकार के रूप में काम किया।&#34;
 }
+</code></pre><h2 id="lets-create-hindi-search-engine-गतयतर">Let&rsquo;s create Hindi search engine (गीतयंत्र)</h2>
+<h3 id="create-mapping-1">Create mapping</h3>
+<pre tabindex="0"><code>PUT geetyantra
+{
+  &#34;settings&#34;: {
+    &#34;analysis&#34;: {
+      &#34;analyzer&#34;: {
+        &#34;geetyantra-analyzer&#34;:{
+          &#34;type&#34;:&#34;hindi&#34;
+        }
+      }
+    }
+  },
+  &#34;mappings&#34;: {
+    &#34;properties&#34;: {
+      &#34;adhyay&#34;: {&#34;type&#34;: &#34;integer&#34;},
+      &#34;updesh&#34;: {&#34;type&#34;: &#34;text&#34;,&#34;analyzer&#34;: &#34;geetyantra-analyzer&#34;}
+    }
+  }
+}
+</code></pre><h3 id="insert-data">Insert data</h3>
+<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE">विकिपीडिया-श्रीमद्भगवद्गीता</a></p>
+<p>Lets insert some data like below:</p>
+<pre tabindex="0"><code>POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:1,
+  &#34;updesh&#34;:&#34;कृष्ण ने अर्जुन की वह स्थिति देखकर जान लिया कि अर्जुन का शरीर ठीक है किंतु युद्ध आरंभ होने से पहले ही उस अद्भुत क्षत्रिय का मनोबल टूट चुका है। बिना मन के यह शरीर खड़ा नहीं रह स।&#34;
+}
 
-# marathi analyzer
-</code></pre>]]></content:encoded>
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:2,
+  &#34;updesh&#34;:&#34;दूसरे अध्याय का नाम सांख्ययोग है। इसमें जीवन की दो प्राचीन संमानित परंपराओं का तर्कों द्वारा वर्णन आया है। अर्जुन को उस कृपण स्थिति में रोते देखकर कृष्ण ने उनका ध्यान दिलाया है कि इस प्रकार का क्लैव्य और हृदय की क्षुद्र दुर्बलता अर्जुन जैसे वीर के लिए उचित नहीं।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:3,
+  &#34;updesh&#34;:&#34;नित्य कर्म करने वाले की श्रेष्ठता&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:4,
+  &#34;updesh&#34;:&#34;चौथे अध्याय में, जिसका नाम ज्ञान-कर्म-संन्यास-योग है, यह बाताया गया है कि ज्ञान प्राप्त करके कर्म करते हुए भी कर्मसंन्यास का फल किस उपाय से प्राप्त किया जा सकता है।&#34;,
+  &#34;shloka&#34;:&#34;यदा यदा हि धर्मस्य ग्लानिर्भवति भारत,अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:5,
+  &#34;updesh&#34;:&#34;ज्ञानी महापुरुष विद्या-विनययुक्त ब्राह्मण में और चाण्डाल में तथा गाय, हाथी एवं कुत्ते में भी समरूप परमात्मा को देखने वाले होते हैं।&#34;,
+  &#34;shloka&#34;:&#34;विद्याविनयसंपन्ने ब्राह्मणे गवि हस्तिनि,शुनि चैव श्वपाके च पंडिता: समदर्शिन&#34;
+}
+
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:6,
+  &#34;updesh&#34;:&#34;छठा अध्याय आत्मसंयम योग है जिसका विषय नाम से ही प्रकट है। जितने विषय हैं उन सबसे इंद्रियों का संयम-यही कर्म और ज्ञान का निचोड़ है। सुख में और दुख में मन की समान स्थिति, इसे ही योग कहते हैं।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:7,
+  &#34;updesh&#34;:&#34;पंचतत्व, मन, बुद्धि भी मैं हूँ| मैं ही संसार की उत्पत्ति करता हूँ और विनाश भी मैं ही करता हूँ। मेरे भक्त चाहे जिस प्रकार भजें परन्तु अंततः मुझे ही प्राप्त होते हैं। मैं योगमाया से अप्रकट रहता हूँ और मुर्ख मुझे केवल साधारण मनुष्य ही समझते हैं।&#34;,
+  &#34;shloka&#34;:&#34;यो यो यां यां तनुं भक्तः श्रद्धयार्चितुमिच्छति,तस्य तस्याचलां श्रद्धां तामेव विदधाम्यहम्&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:8,
+  &#34;updesh&#34;:&#34;की संज्ञा अक्षर ब्रह्मयोग है। उपनिषदों में अक्षर विद्या का विस्तार हुआ। गीता में उस अक्षरविद्या का सार कह दिया गया है-अक्षर ब्रह्म परमं, अर्थात् परब्रह्म की संज्ञा अक्षर है। मनुष्य, अर्थात् जीव और शरीर की संयुक्त रचना का ही नाम अध्यात्म है।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:9,
+  &#34;updesh&#34;:&#34;को राजगुह्ययोग कहा गया है, अर्थात् यह अध्यात्म विद्या विद्याराज्ञी है और यह गुह्य ज्ञान सबमें श्रेष्ठ है। राजा शब्दका एक अर्थ मन भी था। अतएव मन की दिव्य शक्तिमयों को किस प्रकार ब्रह्ममय बनाया जाय, इसकी युक्ति ही राजविद्या है।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:10,
+  &#34;updesh&#34;:&#34;दसवें अध्याय का नाम विभूतियोग है। इसका सार यह है कि लोक में जितने देवता हैं, सब एक ही भगवान, की विभूतियाँ हैं, मनुष्य के समस्त गुण और अवगुण भगवान की शक्ति के ही रूप हैं।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:11,
+  &#34;updesh&#34;:&#34;का नाम विश्वरूपदर्शन योग है। इसमें अर्जुन ने भगवान का विश्वरूप देखा। विराट रूप का अर्थ है मानवीय धरातल और परिधि के ऊपर जो अनंत विश्व का प्राणवंत रचनाविधान है, उसका साक्षात दर्शन। विष्णु का जो चतुर्भुज रूप है, वह मानवीय धरातल पर सौम्यरूप है।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:12,
+  &#34;updesh&#34;:&#34;का नाम भक्ति योग है। जो जानने योग्य है। जिसको जानकर मनुष्य परमानन्द को प्राप्त हो जाता है अर्थात वो परमात्मा ही सत्य है ।।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:13,
+  &#34;updesh&#34;:&#34;में एक सीधा विषय क्षेत्र और क्षेत्रज्ञ का विचार है। यह शरीर क्षेत्र है, उसका जाननेवाला जीवात्मा क्षेत्रज्ञ है।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:14,
+  &#34;updesh&#34;:&#34;का नाम गुणत्रय विभाग योग है। यह विषय समस्त वैदिक, दार्शनिक और पौराणिक तत्वचिंतन का निचोड़ है-सत्व, रज, तम नामक तीन गुण-त्रिको की अनेक व्याख्याएँ हैं।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:15,
+  &#34;updesh&#34;:&#34;का नाम पुरुषोत्तमयोग है। इसमें विश्व का अश्वत्थ के रूप में वर्णन किया गया है। यह अश्वत्थ रूपी संसार महान विस्तारवाला है। देश और काल में इसका कोई अंत नहीं है।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:16,
+  &#34;updesh&#34;:&#34;में देवासुर संपत्ति का विभाग बताया गया है। आरंभ से ही ऋग्देव में सृष्टि की कल्पना दैवी और आसुरी शक्तियों के रूप में की गई है। &#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:17,
+  &#34;updesh&#34;:&#34;की संज्ञा श्रद्धात्रय विभाग योग है। इसका संबंध सत, रज और तम, इन तीन गुणों से ही है, अर्थात् जिसमें जिस गुण का प्रादुर्भाव होता है, उसकी श्रद्धा या जीवन की निष्ठा वैसी ही बन जाती है।&#34;
+}
+
+POST geetyantra/_doc
+{
+  &#34;adhyay&#34;:18,
+  &#34;updesh&#34;:&#34;की संज्ञा मोक्षसंन्यास योग है। इसमें गीता के समस्त उपदेशों का सार एवं उपसंहार है। यहाँ पुन: बलपूर्वक मानव जीवन के लिए तीन गुणों का महत्व कहा गया है। पृथ्वी के मानवों में और स्वर्ग के देवताओं में कोई भी ऐसा नहीं जो प्रकृति के चलाए हुए इन तीन गुणों से बचा हो।&#34;
+}
+</code></pre><h3 id="search">Search</h3>
+<pre tabindex="0"><code>
+GET geetyantra/_search?size=20
+
+GET geetyantra/_search
+{
+  &#34;query&#34;: {
+    &#34;match&#34;: {
+      &#34;updesh&#34;: &#34;अर्जुन&#34;
+    }
+  }
+}
+
+GET geetyantra/_search
+{
+  &#34;query&#34;: {
+    &#34;match&#34;: {
+      &#34;shloka&#34;: &#34;धर्मस्य&#34;
+    }
+  }
+}
+
+GET geetyantra/_search
+{
+  &#34;query&#34;: {
+    &#34;multi_match&#34;: {
+      &#34;query&#34;: &#34;श्रद्धा&#34;,
+      &#34;fields&#34;: [&#34;shloka&#34;,&#34;updesh&#34;]
+    }
+  }
+}
+
+GET geetyantra/_search
+{
+  &#34;query&#34;: {
+    &#34;match_phrase_prefix&#34;: {
+      &#34;updesh&#34;: &#34;चौथे अध्याय में&#34;
+    }
+  }
+}
+</code></pre><h2 id="search-as-you-type">Search as you type</h2>
+<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/">Search as you type</a>.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -218,8 +425,8 @@ All this stuff we want to share on a single platform but as a tech, I am lazy if
       <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
       <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose. You can learn more about Docker &amp;amp; Docker Compose, Which will help you to understand the flow.
 Prerequisite Tested on the below configuration.
- docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414  Cluster This cluster will include
- Elasticsearch Kibana APM  .env file Make directory mkdir docker-elastic cd docker-elastic Create .</description>
+docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414 Cluster This cluster will include
+Elasticsearch Kibana APM .env file Make directory mkdir docker-elastic cd docker-elastic Create .</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/">docker-compose</a>. You can learn more about <a href="https://www.docker.com/">Docker</a> &amp; <a href="https://docs.docker.com/compose/">Docker Compose</a>, Which will help you to understand the flow.</p>
 <h1 id="prerequisite">Prerequisite</h1>
@@ -1272,7 +1479,7 @@ Boot Mode: <code>UEFI</code></p>
       <guid>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</guid>
       <description>I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.
 The Fact The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.
- There is no defined way to become a security researcher.</description>
+There is no defined way to become a security researcher.</description>
       <content:encoded><![CDATA[<p>I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.</p>
 <h2 id="the-fact">The Fact</h2>
 <p>The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.</p>
@@ -1325,7 +1532,7 @@ The Fact The fact is there is no hard and fast rule or there is no standard cour
       <guid>https://ashish.one/blogs/spf-lookup-in-go/</guid>
       <description>In this gist, We will check how we can extract SPF records in Go.
 Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns)
-Install dependency $ go get github.com/miekg/dns spfLookup.go  Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1)
+Install dependency $ go get github.com/miekg/dns spfLookup.go Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1)
 Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1.</description>
       <content:encoded><![CDATA[<p>In this gist, We will check how we can extract SPF records in Go.</p>
 <h2 id="prerequisite">Prerequisite</h2>
@@ -1677,7 +1884,7 @@ Docker makes the installation process very smooth and it gives your isolated env
       <guid>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</guid>
       <description>Steps to add Responsive google slides iframe with Hugo:
 Hugo version:
-$ hugo version  Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &amp;lt;div id=&amp;#34;Container&amp;#34;  style=&amp;#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&amp;#34;&amp;gt;  &amp;lt;iframe id=&amp;#34;googleSlideIframe&amp;#34;  width=&amp;#34;100%&amp;#34; height=&amp;#34;100%&amp;#34;  src=&amp;#34;{{ .Get &amp;#34;src&amp;#34; }}&amp;#34;  frameborder=&amp;#34;0&amp;#34; allowfullscreen=&amp;#34;&amp;#34;  style=&amp;#34;position:absolute; top:0; left: 0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;/div&amp;gt; Step 3: Use shortcode &amp;lsquo;gslides&amp;rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.</description>
+$ hugo version Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z Step 1: Create Shortcode Create gslides.html file vim layouts/shortcodes/gslides.html Step 2: Add below code: &amp;lt;div id=&amp;#34;Container&amp;#34; style=&amp;#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&amp;#34;&amp;gt; &amp;lt;iframe id=&amp;#34;googleSlideIframe&amp;#34; width=&amp;#34;100%&amp;#34; height=&amp;#34;100%&amp;#34; src=&amp;#34;{{ .Get &amp;#34;src&amp;#34; }}&amp;#34; frameborder=&amp;#34;0&amp;#34; allowfullscreen=&amp;#34;&amp;#34; style=&amp;#34;position:absolute; top:0; left: 0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;/div&amp;gt; Step 3: Use shortcode &amp;lsquo;gslides&amp;rsquo; in your Blog/Post Markdown file Simply place below snippet in your markdown file.</description>
       <content:encoded><![CDATA[<p>Steps to add Responsive google slides iframe with Hugo:</p>
 <p><strong>Hugo version:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ hugo version
@@ -1714,7 +1921,7 @@ $ hugo version  Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDat
       <guid>https://ashish.one/blogs/challenges-in-linuxfromscratch/</guid>
       <description>Successfully built custom #Linux system by referring https://t.co/lyrdKkfXo9 .
 Listed my challenges here https://t.co/gU2SoAxly2@nixcraft#linux #lfs #linuxfromscratch pic.twitter.com/XlWchVHy26
-&amp;mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) April 27, 2020  I have started with www.linuxfromscratch.org, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.
+&amp;mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) April 27, 2020 I have started with www.linuxfromscratch.org, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.
 Before we get start You need some basic linux command knowledge to use linuxfromscratch guide.</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&amp;name=large" alt="lfs_screen"  />
 </p>
@@ -2071,8 +2278,8 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
       <guid>https://ashish.one/blogs/setup-grafana-with-prometheus/</guid>
       <description>As you know Prometheus already having UI (localhost:9090). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.
 What is Grafana? As grafana.com says
- ”Grafana is the open-source analytics and monitoring solution for every database.”
- This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs.</description>
+”Grafana is the open-source analytics and monitoring solution for every database.”
+This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc.</description>
       <content:encoded><![CDATA[<p>As you know Prometheus already having UI (<code>localhost:9090</code>). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.</p>
 <h2 id="what-is-grafana">What is Grafana?</h2>
 <p>As <a href="https://grafana.com">grafana.com</a> says</p>
@@ -2200,7 +2407,7 @@ What is Grafana? As grafana.com says
       <description>Prerequisite OS: Ubuntu 14.04 LTS
 Processor: 64 Bit
 RAM: 2 GB
-1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations $ sudo make install Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last):  File &amp;#34;get-pip.</description>
+1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations $ sudo make install Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last): File &amp;#34;get-pip.</description>
       <content:encoded><![CDATA[<h2 id="prerequisite">Prerequisite</h2>
 <p><strong>OS:</strong> Ubuntu 14.04 LTS<br>
 <strong>Processor:</strong> 64 Bit<br>
@@ -2263,7 +2470,7 @@ RAM: 2 GB
       
       <guid>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</guid>
       <description>Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.
-APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in APIs available: Statewise Data  StateWise StateWise History  Medica  Hospital Stats Bed Stats  Contacts  HelpLines Contacts  Patient  Tracing History  Sources The source is both types of official &amp;amp; Unofficial.</description>
+APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in APIs available: Statewise Data StateWise StateWise History Medica Hospital Stats Bed Stats Contacts HelpLines Contacts Patient Tracing History Sources The source is both types of official &amp;amp; Unofficial.</description>
       <content:encoded><![CDATA[<p>Hi Guys, I am trying to listing all data source &amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.</p>
 <h2 id="apis">APIs</h2>
 <h3 id="1-github-amodmapi-covid19-in-india">1. Github: amodm/api-covid19-in (India)</h3>
@@ -2407,7 +2614,7 @@ I have explained the Webhook architecture of MimePost And how we sending 100k Re
       
       <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
       <description>The Problem: Suddenly got below errors which killed my daemon:
-fatal error: concurrent map writes  goroutine 646 [running]: runtime.throw(0x75fd38, 0x15)  /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e)  goroutine 1 [sleep]: runtime.goparkunlock(...)  /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200)  /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager()  goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0)  /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b)  /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...)  /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)  /usr/local/go/src/internal/poll/fd_unix.</description>
+fatal error: concurrent map writes goroutine 646 [running]: runtime.throw(0x75fd38, 0x15) /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e) goroutine 1 [sleep]: runtime.goparkunlock(...) /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200) /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager() goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0) /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b) /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...) /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0) /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8 net.(*netFD).accept(0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0) /usr/local/go/src/net/fd_unix.</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/golang/concurrent_map_writes.jpg" alt="concurrent_map_writes"  />
 </p>
 <h2 id="the-problem">The Problem:</h2>
@@ -2547,7 +2754,7 @@ We also worked on Disk optimization by believing in the principle of &ldquo;Know
       
       <guid>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</guid>
       <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
- Every use case having different solutions. You can try accordingly.</description>
+Every use case having different solutions. You can try accordingly.</description>
       <content:encoded><![CDATA[<p>Below are some challenges &amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.</p>
 <p><script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js"></script>
 
@@ -2564,7 +2771,7 @@ Every use case having different solutions. You can try accordingly.</p>
       <description>The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
 The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
 Debug Checked apache2 and mysql service:
-service mysql status  service apache2 status Both services was active. Then I checked the apache2 processes with below command:
+service mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:
 $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.</description>
       <content:encoded><![CDATA[<h2 id="the-requirement">The Requirement</h2>
 <p>Need to install fresh wordpress with same version on wordpress droplet of digitalocean.</p>
