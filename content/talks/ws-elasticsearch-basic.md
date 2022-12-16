@@ -146,15 +146,19 @@ GET /_analyze?pretty
 
 # Whitespace
 
-curl -X POST "localhost:9200/_analyze?pretty" -H 'Content-Type: application/json' -d'
+GET _analyze
 {
   "analyzer": "whitespace",
   "text": "The 2 QUICK Brown-Foxes jumped over the lazy dog\u0027s bone."
 }
-'
+```
 
+### What is an analyzer?
+An analyzer is made of character filters, tokenizer and token filters.
 
+Let's build one
 
+```
 POST _analyze
 {
   "char_filter": [], 
@@ -162,12 +166,125 @@ POST _analyze
   "filter":      [], 
   "text": [ 
     "I like when the <strong>quick</strong> foxes jumps over lazy DOGS!",
-    "👍 🐶 and <strong>fast</strong> 🦊!."
+    "and <strong>fast</strong>"
   ]
 }
 
-# hindi
+```
 
+Let's remove the html code.
+
+```
+POST _analyze
+{
+  "char_filter": ["html_strip"], 
+  "tokenizer":   "standard",
+  "filter":      [], 
+  "text": [ 
+    "I like when the <strong>quick</strong> foxes jumps over lazy DOGS!",
+    "and <strong>fast</strong>"
+  ]
+}
+```
+
+Some words don't bring us any value. Let's skip them.
+
+```
+POST _analyze
+{
+  "char_filter": ["html_strip"], 
+  "tokenizer":   "standard",
+  "filter":      [
+    {
+      "type":       "stop",
+      "stopwords":  [ "_english_"]
+    }
+  ], 
+  "text":
+  [ 
+    "I like when the <strong>quick</strong> foxes jumps over lazy DOGS!",
+    "and <strong>fast</strong>"
+  ]
+}
+```
+
+We can also remove "I", "when" and "over".
+
+```
+POST _analyze
+{
+  "char_filter": ["html_strip"], 
+  "tokenizer":   "standard",
+  "filter":      [
+    {
+      "type":       "stop",
+      "ignore_case":true, 
+      "stopwords":  [ "_english_", "I", "when", "over"]
+    }
+  ], 
+  "text":
+  [ 
+    "I like when the <strong>quick</strong> foxes jumps over lazy DOGS!",
+    "and <strong>fast</strong>"
+  ]
+}
+```
+
+
+`DOGS` and `dogs` should match.
+
+```
+POST _analyze
+{
+  "char_filter": ["html_strip"], 
+  "tokenizer":   "standard",
+  "filter":      [
+    {
+      "type":       "stop",
+      "ignore_case":true, 
+      "stopwords":  [ "_english_", "I", "when", "over"]
+    },
+    "lowercase"
+  ], 
+  "text":
+  [ 
+    "I like when the <strong>quick</strong> foxes jumps over lazy DOGS!",
+    "and <strong>fast</strong>"
+  ]
+}
+```
+
+`dog`, `dogs` and `fox`, `foxes` and `jump`, `jumps`, `jumping`, `jumped` should match. Let's use a `stemmer`.
+
+```
+POST _analyze
+{
+  "char_filter": ["html_strip"], 
+  "tokenizer":   "standard",
+  "filter":      [
+    {
+      "type":       "stop",
+      "ignore_case":true, 
+      "stopwords":  [ "_english_", "I", "when", "over"]
+    },
+    "lowercase",
+    {
+      "type":       "stemmer",
+      "language":   "english" 
+    }
+  ], 
+  "text":
+  [ 
+    "jumping jumps jump jumped",
+    "I like when the <strong>quick</strong> foxes jumps over lazy DOGS!",
+    "and <strong>fast</strong>"
+  ]
+}
+```
+
+# Language analyzer
+
+```
 GET /_analyze?pretty
 {
   "analyzer": "hindi", 

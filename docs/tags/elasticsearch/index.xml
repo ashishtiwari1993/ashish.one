@@ -131,29 +131,115 @@ GET /_analyze?pretty
 
 # Whitespace
 
-curl -X POST &#34;localhost:9200/_analyze?pretty&#34; -H &#39;Content-Type: application/json&#39; -d&#39;
+GET _analyze
 {
   &#34;analyzer&#34;: &#34;whitespace&#34;,
   &#34;text&#34;: &#34;The 2 QUICK Brown-Foxes jumped over the lazy dog\u0027s bone.&#34;
 }
-&#39;
-
-
-
-POST _analyze
+</code></pre><h3 id="what-is-an-analyzer">What is an analyzer?</h3>
+<p>An analyzer is made of character filters, tokenizer and token filters.</p>
+<p>Let&rsquo;s build one</p>
+<pre tabindex="0"><code>POST _analyze
 {
   &#34;char_filter&#34;: [], 
   &#34;tokenizer&#34;:   &#34;standard&#34;,
   &#34;filter&#34;:      [], 
   &#34;text&#34;: [ 
     &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;👍 🐶 and &lt;strong&gt;fast&lt;/strong&gt; 🦊!.&#34;
+    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
   ]
 }
-
-# hindi
-
-GET /_analyze?pretty
+</code></pre><p>Let&rsquo;s remove the html code.</p>
+<pre tabindex="0"><code>POST _analyze
+{
+  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+  &#34;tokenizer&#34;:   &#34;standard&#34;,
+  &#34;filter&#34;:      [], 
+  &#34;text&#34;: [ 
+    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+  ]
+}
+</code></pre><p>Some words don&rsquo;t bring us any value. Let&rsquo;s skip them.</p>
+<pre tabindex="0"><code>POST _analyze
+{
+  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+  &#34;tokenizer&#34;:   &#34;standard&#34;,
+  &#34;filter&#34;:      [
+    {
+      &#34;type&#34;:       &#34;stop&#34;,
+      &#34;stopwords&#34;:  [ &#34;_english_&#34;]
+    }
+  ], 
+  &#34;text&#34;:
+  [ 
+    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+  ]
+}
+</code></pre><p>We can also remove &ldquo;I&rdquo;, &ldquo;when&rdquo; and &ldquo;over&rdquo;.</p>
+<pre tabindex="0"><code>POST _analyze
+{
+  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+  &#34;tokenizer&#34;:   &#34;standard&#34;,
+  &#34;filter&#34;:      [
+    {
+      &#34;type&#34;:       &#34;stop&#34;,
+      &#34;ignore_case&#34;:true, 
+      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+    }
+  ], 
+  &#34;text&#34;:
+  [ 
+    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+  ]
+}
+</code></pre><p><code>DOGS</code> and <code>dogs</code> should match.</p>
+<pre tabindex="0"><code>POST _analyze
+{
+  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+  &#34;tokenizer&#34;:   &#34;standard&#34;,
+  &#34;filter&#34;:      [
+    {
+      &#34;type&#34;:       &#34;stop&#34;,
+      &#34;ignore_case&#34;:true, 
+      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+    },
+    &#34;lowercase&#34;
+  ], 
+  &#34;text&#34;:
+  [ 
+    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+  ]
+}
+</code></pre><p><code>dog</code>, <code>dogs</code> and <code>fox</code>, <code>foxes</code> and <code>jump</code>, <code>jumps</code>, <code>jumping</code>, <code>jumped</code> should match. Let&rsquo;s use a <code>stemmer</code>.</p>
+<pre tabindex="0"><code>POST _analyze
+{
+  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+  &#34;tokenizer&#34;:   &#34;standard&#34;,
+  &#34;filter&#34;:      [
+    {
+      &#34;type&#34;:       &#34;stop&#34;,
+      &#34;ignore_case&#34;:true, 
+      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+    },
+    &#34;lowercase&#34;,
+    {
+      &#34;type&#34;:       &#34;stemmer&#34;,
+      &#34;language&#34;:   &#34;english&#34; 
+    }
+  ], 
+  &#34;text&#34;:
+  [ 
+    &#34;jumping jumps jump jumped&#34;,
+    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+  ]
+}
+</code></pre><h1 id="language-analyzer">Language analyzer</h1>
+<pre tabindex="0"><code>GET /_analyze?pretty
 {
   &#34;analyzer&#34;: &#34;hindi&#34;, 
   &#34;text&#34; : &#34;चाणक्य ने चंद्रगुप्त और बिंदूसार दोनों के लिए प्रधानमंत्री और राजनयिक सलाहकार के रूप में काम किया।&#34;
