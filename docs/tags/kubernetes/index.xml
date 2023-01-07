@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>kubernetes on ashish.one</title>
+    <link>https://ashish.one/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on ashish.one</description>
+    <image>
+      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
+      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Jan 2023 22:41:02 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes generic errors</title>
+      <link>https://ashish.one/blogs/k8s/k8s-generic-errors/</link>
+      <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
+      
+      <guid>https://ashish.one/blogs/k8s/k8s-generic-errors/</guid>
+      <description>1. unknown service runtime.v1alpha2.ImageService Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService
+System configuration centos 9 / 2GB RAM / 2CPU Master Node Same issue on master node.
+Command [root@kube-master-1 ~]# kubeadm config images pull failed to pull image &amp;#34;registry.k8s.io/kube-apiserver:v1.26.0&amp;#34;: output: E0107 14:52:09.997544 4134 remote_image.go:222] &amp;#34;PullImage from image service failed&amp;#34; err=&amp;#34;rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&amp;#34; image=&amp;#34;registry.k8s.io/kube-apiserver:v1.26.0&amp;#34; time=&amp;#34;2023-01-07T14:52:09Z&amp;#34; level=fatal msg=&amp;#34;pulling image: rpc error: code = Unimplemented desc = unknown service runtime.</description>
+      <content:encoded><![CDATA[<h2 id="1-unknown-service-runtimev1alpha2imageservice">1. unknown service runtime.v1alpha2.ImageService</h2>
+<blockquote>
+<p>Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService</p>
+</blockquote>
+<h3 id="system-configuration">System configuration</h3>
+<pre tabindex="0"><code>centos 9 / 2GB RAM / 2CPU
+</code></pre><h3 id="master-node">Master Node</h3>
+<p>Same issue on master node.</p>
+<h4 id="command">Command</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@kube-master-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># kubeadm config images pull</span>
+</span></span><span style="display:flex;"><span>failed to pull image <span style="color:#e6db74">&#34;registry.k8s.io/kube-apiserver:v1.26.0&#34;</span>: output: E0107 14:52:09.997544    <span style="color:#ae81ff">4134</span> remote_image.go:222<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;PullImage from image service failed&#34;</span> err<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&#34;</span> image<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;registry.k8s.io/kube-apiserver:v1.26.0&#34;</span>
+</span></span><span style="display:flex;"><span>time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2023-01-07T14:52:09Z&#34;</span> level<span style="color:#f92672">=</span>fatal msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&#34;</span>
+</span></span><span style="display:flex;"><span>, error: exit status <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>To see the stack trace of this error execute with --v<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span> or higher
+</span></span></code></pre></div><h4 id="-solved">✅ Solved</h4>
+<p>Remove below file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rm /etc/containerd/config.toml
+</span></span></code></pre></div><p>Try again.</p>
+<h3 id="worker-node">Worker Node</h3>
+<p>Same issue on worker node while joining to master.</p>
+<h4 id="command-1">Command</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@kube-worker-2 ~<span style="color:#f92672">]</span><span style="color:#75715e"># kubeadm join x.x.x.x:6443 --token ga8bqg.01azxe9avjx2n6jr        --discovery-token-ca-cert-hash sha256:d57699d74721094e5f921d48a0f9f895a0d7def7e1977e95ce0027a03e7f7d39</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>preflight<span style="color:#f92672">]</span> Running pre-flight checks
+</span></span><span style="display:flex;"><span>error execution phase preflight: <span style="color:#f92672">[</span>preflight<span style="color:#f92672">]</span> Some fatal errors occurred:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">[</span>ERROR CRI<span style="color:#f92672">]</span>: container runtime is not running: output: E0107 17:46:12.269694   <span style="color:#ae81ff">11160</span> remote_runtime.go:948<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;Status from runtime service failed&#34;</span> err<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.RuntimeService&#34;</span>
+</span></span><span style="display:flex;"><span>time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2023-01-07T17:46:12Z&#34;</span> level<span style="color:#f92672">=</span>fatal msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;getting status of runtime: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.RuntimeService&#34;</span>
+</span></span><span style="display:flex;"><span>, error: exit status <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>preflight<span style="color:#f92672">]</span> If you know what you are doing, you can make a check non-fatal with <span style="color:#e6db74">`</span>--ignore-preflight-errors<span style="color:#f92672">=</span>...<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>To see the stack trace of this error execute with --v<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span> or higher
+</span></span></code></pre></div><h4 id="-solved-1">✅ Solved</h4>
+<p>Same remove the <code>config.toml</code> file and restart the <code>containerd</code> service.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rm /etc/containerd/config.toml
+</span></span><span style="display:flex;"><span>systemctl restart containerd
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

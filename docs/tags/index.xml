@@ -10,7 +10,57 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Sep 2022 17:44:43 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 22:41:02 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>errors</title>
+      <link>https://ashish.one/tags/errors/</link>
+      <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/errors/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>generic-errors</title>
+      <link>https://ashish.one/tags/generic-errors/</link>
+      <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/generic-errors/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>https://ashish.one/tags/k8s/</link>
+      <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/k8s/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>k8s-errors</title>
+      <link>https://ashish.one/tags/k8s-errors/</link>
+      <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/k8s-errors/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://ashish.one/tags/kubernetes/</link>
+      <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/kubernetes/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>analyzer</title>
       <link>https://ashish.one/tags/analyzer/</link>
