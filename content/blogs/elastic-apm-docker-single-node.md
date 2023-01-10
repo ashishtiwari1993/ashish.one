@@ -27,6 +27,7 @@ This cluster will include
 
 * Elasticsearch
 * Kibana
+* Logstash
 * APM
 
 # `.env` file
@@ -41,14 +42,14 @@ cd docker-elastic
 ## Create `.env` file
 
 ```sh
-# Password for the 'elastic' user (at least 6 characters)
+ # Password for the 'elastic' user (at least 6 characters)
 ELASTIC_PASSWORD=pass@123
 
 # Password for the 'kibana_system' user (at least 6 characters)
 KIBANA_PASSWORD=pass@123
 
 # Version of Elastic products
-STACK_VERSION=8.2.2
+STACK_VERSION=8.6.0
 
 # Set the cluster name
 CLUSTER_NAME=docker-cluster
@@ -67,6 +68,13 @@ KIBANA_PORT=5601
 
 # Port to expose APM Server to the host
 APM_PORT=8200
+
+# Port to expose Logstash Server to the host
+
+# Here we are not specifying any port for logstash.
+# But if you want to use any port in the input plugin,
+# Feel free to mention in the docker-compose.yml file.
+LOGSTASH_PIPELINE_PATH=/tmp/pipeline/
 
 # Increase or decrease based on the available host memory (in bytes)
 MEM_LIMIT=1073741824
@@ -125,7 +133,7 @@ services:
         echo "Setting kibana_system password";
         until curl -s -X POST --cacert config/certs/ca/ca.crt -u elastic:${ELASTIC_PASSWORD} -H "Content-Type: application/json" https://es01:9200/_security/user/kibana_system/_password -d "{\"password\":\"${KIBANA_PASSWORD}\"}" | grep -q "^{}"; do sleep 10; done;
         echo "All done!";
-      '
+      '      
     healthcheck:
       test: ["CMD-SHELL", "[ -f config/certs/es01/es01.crt ]"]
       interval: 1s
@@ -146,7 +154,7 @@ services:
       - node.name=es01
       - cluster.name=${CLUSTER_NAME}
       - cluster.initial_master_nodes=es01
-      - discovery.seed_hosts=
+      - discovery.seed_hosts=""
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
       - bootstrap.memory_lock=true
       - xpack.security.enabled=true
@@ -190,11 +198,11 @@ services:
          -E output.elasticsearch.hosts=["es01:9200"]
          -E output.elasticsearch.protocol=https
          -E output.elasticsearch.username=elastic
-         -E output.elasticsearch.password=pass@123
+         -E output.elasticsearch.password=${ELASTIC_PASSWORD}
          -E output.elasticsearch.ssl.enabled=true
          -E output.elasticsearch.ssl.certificate_authorities=/usr/share/apm-server/certs/ca/ca.crt
          -E output.elasticsearch.ssl.certificate=/usr/share/apm-server/certs/es01/es01.crt
-         -E output.elasticsearch.ssl.key=/usr/share/apm-server/certs/es01/es01.key
+         -E output.elasticsearch.ssl.key=/usr/share/apm-server/certs/es01/es01.key      
 
   kibana:
     depends_on:
@@ -223,7 +231,22 @@ services:
       timeout: 10s
       retries: 120
 
-      
+  logstash:
+    depends_on:
+      es01:
+        condition: service_healthy
+    image: docker.elastic.co/logstash/logstash:${STACK_VERSION}
+    volumes:
+      - certs:/usr/share/logstash-server/certs
+      - ${LOGSTASH_PIPELINE_PATH}:/usr/share/logstash/pipeline/
+    environment:
+      - SERVERNAME=kibana
+      - ELASTICSEARCH_HOSTS=https://es01:9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=${ELASTIC_PASSWORD}
+      - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=/usr/share/logstash-server/certs/ca/ca.crt
+    mem_limit: ${MEM_LIMIT}
+     
 volumes:
   certs:
     driver: local
@@ -254,6 +277,12 @@ docker-compose down
 ```sh
 docker-compose down -v
 ```
+
+# Instruction
+
+## Logstash
+
+1. You need to have pipeline configuration files on `LOGSTASH_PIPELINE_PATH` location. If there will be no file, Logstash will throw an error and get exit.
 
 # NOTE 
 
