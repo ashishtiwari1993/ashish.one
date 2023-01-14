@@ -266,6 +266,8 @@ Save and close.
 docker-compose up -d
 ```
 
+Just visit to `localhost:5601`. You should see a kibana login page. 
+
 ## Stop
 
 ```sh
@@ -279,6 +281,22 @@ docker-compose down -v
 ```
 
 # Instruction
+
+## Elasticsearch
+
+### Access via `curl` from host machine
+
+#### Copy `ca.crt` file
+
+```sh
+docker cp elastic_es01_1:/usr/share/elasticsearch/config/certs/ca/ca.crt /tmp/
+```
+
+#### Curl command
+
+```sh
+curl --cacert /tmp/ca.crt -u elastic:pass@123 https://localhost:9200
+```
 
 ## Logstash
 
