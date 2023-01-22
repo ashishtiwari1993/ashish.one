@@ -556,8 +556,9 @@ All this stuff we want to share on a single platform but as a tech, I am lazy if
       <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
       <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose. You can learn more about Docker &amp;amp; Docker Compose, Which will help you to understand the flow.
 Prerequisite Tested on the below configuration.
-docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414 Cluster This cluster will include
-Elasticsearch Kibana Logstash APM .env file Make directory mkdir docker-elastic cd docker-elastic Create .</description>
+docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414 Cluster This setup will include
+Elasticsearch Kibana Logstash APM Setup Clone repo:
+git clone https://github.com/ashishtiwari1993/elastic-docker.git cd elastic-docker Make changes in .</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/">docker-compose</a>. You can learn more about <a href="https://www.docker.com/">Docker</a> &amp; <a href="https://docs.docker.com/compose/">Docker Compose</a>, Which will help you to understand the flow.</p>
 <h1 id="prerequisite">Prerequisite</h1>
@@ -567,226 +568,18 @@ Elasticsearch Kibana Logstash APM .env file Make directory mkdir docker-elastic 
 <li>docker-compose:<code>Docker version 20.10.16, build aa7e414</code></li>
 </ul>
 <h1 id="cluster">Cluster</h1>
-<p>This cluster will include</p>
+<p>This setup will include</p>
 <ul>
 <li>Elasticsearch</li>
 <li>Kibana</li>
 <li>Logstash</li>
 <li>APM</li>
 </ul>
-<h1 id="env-file"><code>.env</code> file</h1>
-<h2 id="make-directory">Make directory</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir docker-elastic
-</span></span><span style="display:flex;"><span>cd docker-elastic
-</span></span></code></pre></div><h2 id="create-env-file">Create <code>.env</code> file</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> <span style="color:#75715e"># Password for the &#39;elastic&#39; user (at least 6 characters)</span>
-</span></span><span style="display:flex;"><span>ELASTIC_PASSWORD<span style="color:#f92672">=</span>pass@123
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Password for the &#39;kibana_system&#39; user (at least 6 characters)</span>
-</span></span><span style="display:flex;"><span>KIBANA_PASSWORD<span style="color:#f92672">=</span>pass@123
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Version of Elastic products</span>
-</span></span><span style="display:flex;"><span>STACK_VERSION<span style="color:#f92672">=</span>8.6.0
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the cluster name</span>
-</span></span><span style="display:flex;"><span>CLUSTER_NAME<span style="color:#f92672">=</span>docker-cluster
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set to &#39;basic&#39; or &#39;trial&#39; to automatically start the 30-day trial</span>
-</span></span><span style="display:flex;"><span>LICENSE<span style="color:#f92672">=</span>basic
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#LICENSE=trial</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Port to expose Elasticsearch HTTP API to the host</span>
-</span></span><span style="display:flex;"><span>ES_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">9200</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#ES_PORT=127.0.0.1:9200</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Port to expose Kibana to the host</span>
-</span></span><span style="display:flex;"><span>KIBANA_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">5601</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#KIBANA_PORT=80</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Port to expose APM Server to the host</span>
-</span></span><span style="display:flex;"><span>APM_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">8200</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Port to expose Logstash Server to the host</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Here we are not specifying any port for logstash.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># But if you want to use any port in the input plugin,</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Feel free to mention in the docker-compose.yml file.</span>
-</span></span><span style="display:flex;"><span>LOGSTASH_PIPELINE_PATH<span style="color:#f92672">=</span>/tmp/pipeline/
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Increase or decrease based on the available host memory (in bytes)</span>
-</span></span><span style="display:flex;"><span>MEM_LIMIT<span style="color:#f92672">=</span><span style="color:#ae81ff">1073741824</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Project namespace (defaults to the current folder name if not set)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#COMPOSE_PROJECT_NAME=myproject</span>
-</span></span></code></pre></div><p>Save and close.</p>
-<h1 id="create-docker-composeyml-file">Create <code>docker-compose.yml</code> file</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;2.2&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">setup</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">certs:/usr/share/elasticsearch/config/certs</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">user</span>: <span style="color:#e6db74">&#34;0&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: &gt;<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      bash -c &#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if [ x${ELASTIC_PASSWORD} == x ]; then
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;Set the ELASTIC_PASSWORD environment variable in the .env file&#34;;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          exit 1;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        elif [ x${KIBANA_PASSWORD} == x ]; then
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;Set the KIBANA_PASSWORD environment variable in the .env file&#34;;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          exit 1;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        fi;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if [ ! -f config/certs/ca.zip ]; then
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;Creating CA&#34;;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          bin/elasticsearch-certutil ca --silent --pem -out config/certs/ca.zip;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          unzip config/certs/ca.zip -d config/certs;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        fi;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if [ ! -f config/certs/certs.zip ]; then
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;Creating certs&#34;;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo -ne \
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;instances:\n&#34;\
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;  - name: es01\n&#34;\
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;    dns:\n&#34;\
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;      - es01\n&#34;\
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;      - localhost\n&#34;\
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;    ip:\n&#34;\
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;      - 127.0.0.1\n&#34;\
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &gt; config/certs/instances.yml;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          bin/elasticsearch-certutil cert --silent --pem -out config/certs/certs.zip --in config/certs/instances.yml --ca-cert config/certs/ca/ca.crt --ca-key config/certs/ca/ca.key;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          unzip config/certs/certs.zip -d config/certs;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        fi;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;Setting file permissions&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        chown -R root:root config/certs;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        find . -type d -exec chmod 750 \{\} \;;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        find . -type f -exec chmod 640 \{\} \;;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;Waiting for Elasticsearch availability&#34;;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        until curl -s --cacert config/certs/ca/ca.crt https://es01:9200 | grep -q &#34;missing authentication credentials&#34;; do sleep 30; done;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;Setting kibana_system password&#34;;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        until curl -s -X POST --cacert config/certs/ca/ca.crt -u elastic:${ELASTIC_PASSWORD} -H &#34;Content-Type: application/json&#34; https://es01:9200/_security/user/kibana_system/_password -d &#34;{\&#34;password\&#34;:\&#34;${KIBANA_PASSWORD}\&#34;}&#34; | grep -q &#34;^{}&#34;; do sleep 10; done;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;All done!&#34;;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#39;      </span>      
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>: [<span style="color:#e6db74">&#34;CMD-SHELL&#34;</span>, <span style="color:#e6db74">&#34;[ -f config/certs/es01/es01.crt ]&#34;</span>]
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">1s</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">5s</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">120</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">es01</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">setup</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">certs:/usr/share/elasticsearch/config/certs</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">esdata01:/usr/share/elasticsearch/data</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${ES_PORT}:9200</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">node.name=es01</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">cluster.name=${CLUSTER_NAME}</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">cluster.initial_master_nodes=es01</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">discovery.seed_hosts=&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTIC_PASSWORD=${ELASTIC_PASSWORD}</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">bootstrap.memory_lock=true</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.enabled=true</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.http.ssl.enabled=true</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.http.ssl.key=certs/es01/es01.key</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.http.ssl.certificate=certs/es01/es01.crt</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.http.ssl.certificate_authorities=certs/ca/ca.crt</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.http.ssl.verification_mode=certificate</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.transport.ssl.enabled=true</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.transport.ssl.key=certs/es01/es01.key</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.transport.ssl.certificate=certs/es01/es01.crt</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.security.transport.ssl.verification_mode=certificate</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">xpack.license.self_generated.type=${LICENSE}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mem_limit</span>: <span style="color:#ae81ff">${MEM_LIMIT}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ulimits</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">memlock</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">soft</span>: -<span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">hard</span>: -<span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>:
-</span></span><span style="display:flex;"><span>        [
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;CMD-SHELL&#34;</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;curl -s --cacert config/certs/ca/ca.crt https://localhost:9200 | grep -q &#39;missing authentication credentials&#39;&#34;</span>,
-</span></span><span style="display:flex;"><span>        ]
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">10s</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">120</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">apm</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">es01</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/apm/apm-server:${STACK_VERSION}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">certs:/usr/share/apm-server/certs</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${APM_PORT}:8200</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: &gt;<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      apm-server -e
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.hosts=[&#34;es01:9200&#34;]
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.protocol=https
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.username=elastic
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.password=${ELASTIC_PASSWORD}
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.ssl.enabled=true
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.ssl.certificate_authorities=/usr/share/apm-server/certs/ca/ca.crt
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.ssl.certificate=/usr/share/apm-server/certs/es01/es01.crt
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         -E output.elasticsearch.ssl.key=/usr/share/apm-server/certs/es01/es01.key      </span>      
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kibana</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">es01</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/kibana/kibana:${STACK_VERSION}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">certs:/usr/share/kibana/config/certs</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">kibanadata:/usr/share/kibana/data</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${KIBANA_PORT}:5601</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">SERVERNAME=kibana</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_HOSTS=https://es01:9200</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_USERNAME=kibana_system</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mem_limit</span>: <span style="color:#ae81ff">${MEM_LIMIT}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>:
-</span></span><span style="display:flex;"><span>        [
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;CMD-SHELL&#34;</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;curl -s -I http://localhost:5601 | grep -q &#39;HTTP/1.1 302 Found&#39;&#34;</span>,
-</span></span><span style="display:flex;"><span>        ]
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">10s</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">120</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">logstash</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">es01</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/logstash/logstash:${STACK_VERSION}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">certs:/usr/share/logstash-server/certs</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${LOGSTASH_PIPELINE_PATH}:/usr/share/logstash/pipeline/</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">SERVERNAME=kibana</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_HOSTS=https://es01:9200</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_USERNAME=elastic</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_PASSWORD=${ELASTIC_PASSWORD}</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=/usr/share/logstash-server/certs/ca/ca.crt</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mem_limit</span>: <span style="color:#ae81ff">${MEM_LIMIT}</span>
-</span></span><span style="display:flex;"><span>     
-</span></span><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">certs</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">local</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">esdata01</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">local</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kibanadata</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">local</span>
-</span></span></code></pre></div><p>Save and close.</p>
+<h1 id="setup">Setup</h1>
+<p>Clone repo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/ashishtiwari1993/elastic-docker.git
+</span></span><span style="display:flex;"><span>cd elastic-docker
+</span></span></code></pre></div><p>Make changes in <code>.env</code> file.</p>
 <h1 id="start-the-cluster">Start the cluster</h1>
 <h2 id="start">Start</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose up -d
@@ -795,7 +588,7 @@ Elasticsearch Kibana Logstash APM .env file Make directory mkdir docker-elastic 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose down
 </span></span></code></pre></div><h2 id="stop-with-deleting-network-containers-and-volumes">Stop with deleting network, containers and volumes</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose down -v
-</span></span></code></pre></div><h1 id="instruction">Instruction</h1>
+</span></span></code></pre></div><h1 id="access-stacks">Access stacks</h1>
 <h2 id="elasticsearch">Elasticsearch</h2>
 <h3 id="access-via-curl-from-host-machine">Access via <code>curl</code> from host machine</h3>
 <h4 id="copy-cacrt-file">Copy <code>ca.crt</code> file</h4>
