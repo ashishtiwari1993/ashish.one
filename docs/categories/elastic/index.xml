@@ -205,8 +205,6 @@ Visualise data from kibana.</p>
 <p>To create the dashboard, go to <em><strong>Menu -&gt; Analytics -&gt; Dashboard</strong></em>. You can create a dashboard according to your requirement.</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>We have successfully set up the webhook receiver with the help of ELK stack. Though ELK use cases are very vast. There are various <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">input</a> and <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html">output</a> plugins available in logstash for data pipelines.</p>
-<p><img loading="lazy" src="/img/elastic/sample-dashboard.png" alt="Sample dashboard"  />
-</p>
 ]]></content:encoded>
     </item>
     

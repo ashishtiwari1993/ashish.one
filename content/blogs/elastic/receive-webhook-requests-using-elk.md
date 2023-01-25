@@ -7,6 +7,10 @@ ogtype: "article"
 tags: ["elasticsearch","kibana","elastic","webhook-elk","logstash","http-plugin"]
 slug: "receive-webhook-requests-using-elk"
 categories: ["Elastic"]
+cover:
+    image: "/img/elastic/sample-dashboard.png"
+    alt: "Receive webhook requests using ELK"
+
 ---
 
 In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case. 
@@ -288,4 +292,3 @@ To create the dashboard, go to _**Menu -> Analytics -> Dashboard**_. You can cre
 
 We have successfully set up the webhook receiver with the help of ELK stack. Though ELK use cases are very vast. There are various [input](https://www.elastic.co/guide/en/logstash/current/input-plugins.html) and [output](https://www.elastic.co/guide/en/logstash/current/output-plugins.html) plugins available in logstash for data pipelines. 
 
-![Sample dashboard](/img/elastic/sample-dashboard.png)
