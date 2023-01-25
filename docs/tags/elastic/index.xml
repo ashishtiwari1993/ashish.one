@@ -35,9 +35,15 @@ Most of the saas allow you to integrate their product with your system with the 
 <p><em>K</em> - <code>Kibana</code> - Kibana is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Check more <a href="https://www.elastic.co/what-is/kibana">here</a>.</p>
 <h1 id="the-flow">The Flow</h1>
 <p><em><strong>Events -&gt; Logstash -&gt; Elasticsearch &lt;- Kibana</strong></em></p>
-<p>We will use logstash to accept the webhooks.
-Input plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html">HTTP</a>
-Output plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">Elasticsearch</a></p>
+<p>Logstash works with three plugins - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">input</a>, <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html">filter</a>, <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html">output</a>.</p>
+<p>You can choose any source as a input. For example you can use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html">jdbc input plugin</a> to read data from <code>mysql</code>.</p>
+<p>Transform your data with the help of <code>filter</code> plugin.</p>
+<p>Push the data on destination which you have specified in output plugin.</p>
+<p>We will use below plugins to process the webhooks requests.</p>
+<ul>
+<li>Input plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html">HTTP</a></li>
+<li>Output plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">Elasticsearch</a></li>
+</ul>
 <p>Logstash will process the event and push to the Elasticsearch.
 Visualise data from kibana.</p>
 <h1 id="implementation">Implementation</h1>

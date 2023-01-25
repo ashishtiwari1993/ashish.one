@@ -40,9 +40,18 @@ Well from elastic.co -
 
 _**Events -> Logstash -> Elasticsearch <- Kibana**_
 
-We will use logstash to accept the webhooks.
-Input plugin -> [HTTP](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html)
-Output plugin -> [Elasticsearch](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html)
+Logstash works with three plugins - [input](https://www.elastic.co/guide/en/logstash/current/input-plugins.html), [filter](https://www.elastic.co/guide/en/logstash/current/filter-plugins.html), [output](https://www.elastic.co/guide/en/logstash/current/output-plugins.html).
+
+You can choose any source as a input. For example you can use [jdbc input plugin](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html) to read data from `mysql`. 
+
+Transform your data with the help of `filter` plugin. 
+
+Push the data on destination which you have specified in output plugin. 
+
+We will use below plugins to process the webhooks requests.
+
+* Input plugin -> [HTTP](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html)
+* Output plugin -> [Elasticsearch](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html)
 
 Logstash will process the event and push to the Elasticsearch.
 Visualise data from kibana. 
