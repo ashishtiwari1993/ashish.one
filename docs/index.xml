@@ -5,12 +5,192 @@
     <link>https://ashish.one/</link>
     <description>Recent content on ashish.one</description>
     <image>
+      <title>ashish.one</title>
       <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
       <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Jan 2023 13:00:09 +0530</lastBuildDate><atom:link href="https://ashish.one/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Jul 2023 15:52:06 +0530</lastBuildDate><atom:link href="https://ashish.one/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Workshop - Leverage ChatGPT with Elasticsearch</title>
+      <link>https://ashish.one/talks/chatgpt-elasticsearch/</link>
+      <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
+      
+      <guid>https://ashish.one/talks/chatgpt-elasticsearch/</guid>
+      <description>Leverage ChatGPT with Elasticsearch</description>
+      <content:encoded><![CDATA[<h1 id="objective">Objective</h1>
+<p>In this hands-on workshop, We will learn how to connect ChatGPT to proprietary data stores using Elasticsearch and build question/answer capabilities for your data. In a demo, We will quickly convert your website, FAQ, or any documentation into prompt chat where your user can directly ask a question on your data.</p>
+<h1 id="flow">Flow</h1>
+<p><img loading="lazy" src="/img/talks/elasticsearch-chatgpt/flow.png" alt="ChatGPT with Elasticsearch"  />
+</p>
+<h1 id="prerequisites">Prerequisites</h1>
+<ol>
+<li>
+<p>You have used ChatGPT :)</p>
+</li>
+<li>
+<p>Good to have understanding around Elasticsearch (Not mandatory, Introduction will be cover)</p>
+</li>
+<li>
+<p>System + Internet connection</p>
+</li>
+<li>
+<p>Docker - Install it from <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</p>
+</li>
+<li>
+<p>Having basic python knowledge will be good.</p>
+</li>
+<li>
+<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>. Make sure it having <a href="https://platform.openai.com/account/usage">free credits</a>.</p>
+</li>
+</ol>
+<h1 id="1-setup-cluster">1. Setup cluster</h1>
+<ol>
+<li>
+<p>Visit <a href="https://cloud.elastic.co">cloud.elastic.co</a> and signup.</p>
+</li>
+<li>
+<p>Create deployment</p>
+<ol>
+<li>
+<p>Change settings according to your requirement or leave it default.</p>
+</li>
+<li>
+<p>Add machine learning instance - Simply click on &ldquo;<em><strong>advance settings</strong></em>&rdquo;.</p>
+</li>
+<li>
+<p>Go to <em><strong>&ldquo;Machine Learning instances&rdquo; -&gt; click on &ldquo;Add Capacity&rdquo;</strong></em> and select at least 2GB ram capacity.</p>
+</li>
+<li>
+<p>Finally click on &ldquo;<em><strong>Create deployment</strong></em>&rdquo;.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Download / Copy the deployment credentials.</p>
+</li>
+</ol>
+<h1 id="2-upload-third-party-model">2. Upload third party Model</h1>
+<ol>
+<li>
+<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1">all-distilroberta-v1</a> model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
+</li>
+<li>
+<p>We’re going to use docker for import model to the elastic cluster</p>
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> git clone https://github.com/elastic/eland.git 
+</span></span><span style="display:flex;"><span> cd eland
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> docker build -t elastic/eland .
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> docker run -it --rm elastic/eland eland_import_hub_model <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --cloud-id &lt;cloud_id&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     -u elastic -p &lt;elastic_cloud_password&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --hub-model-id sentence-transformers/all-distilroberta-v1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --task-type text_embedding <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --start
+</span></span></code></pre></div></li>
+<li>Let&rsquo;s wait till the model gets uploaded without any error.</li>
+</ol>
+</li>
+<li>
+<p>Go to the kibana panel. Navigate to <em><strong>Menu -&gt; Analytics -&gt; Machine Learning -&gt; Trained model</strong></em>. You must see your model here in the “<em><strong>Started</strong></em>” state.</p>
+</li>
+</ol>
+<h1 id="3-crawling-private-data">3. Crawling private data</h1>
+<ol>
+<li>Click on <em><strong>Menu -&gt; Enterprise Search -&gt; “Create an Elasticsearch index”</strong></em> button</li>
+<li>Click on <em><strong>Web crawler</strong></em>.</li>
+<li>Add index name (It will add prefix <em><strong>search</strong></em>) and  hit “<em><strong>Create index</strong></em>”. In my case index name is (search-ashish.one)</li>
+<li>Go to “<em><strong>Pipelines</strong></em>” to create a pipeline.</li>
+<li>Click “<em><strong>Copy and customize</strong></em>” in the Ingest Pipeline Box.</li>
+<li>Click “<em><strong>Add Inference Pipeline</strong></em>” in the Machine Learning Inference Pipelines box.</li>
+<li>Give the unique pipeline name “<em><strong>ml-inference-ashish-one</strong></em>”</li>
+<li>Select a trained ML Model from the dropdown “<em><strong>sentence-transformers__all-distilroberta-v1</strong></em>”</li>
+<li>Select “title” as the Source field and set “<em><strong>title-vector</strong></em>” as a destination. You can specify your own destination field name.</li>
+<li>Let&rsquo;s click on “Continue” and move to the Test(Optional) tab.  Click on “<em><strong>Continue</strong></em>” again.</li>
+<li>At the Review stage let&rsquo;s click on “<em><strong>Create pipeline</strong></em>”.</li>
+<li>Go to <em><strong>Menu -&gt; Management -&gt; Dev Tools</strong></em>. Let&rsquo;s create a mapping</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST &lt;index_name&gt;/_mapping
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;properties&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&lt;vector_field_name&gt;&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;dense_vector&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;dims&#34;</span>: 768,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;index&#34;</span>: true,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;similarity&#34;</span>: <span style="color:#e6db74">&#34;dot_product&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>In my case mapping will be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST search-ashish.one/_mapping
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;properties&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;title-vector&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;dense_vector&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;dims&#34;</span>: 768,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;index&#34;</span>: true,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;similarity&#34;</span>: <span style="color:#e6db74">&#34;dot_product&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>hit on play button.</p>
+<ol start="13">
+<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one">https://ashish.one</a>. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
+<li>If everything is fine, simply click on “<em><strong>Add domain</strong></em>” and start crawling by click on <em><strong>Crawl -&gt; Crawl all domains on this index</strong></em>.</li>
+<li>Go to <em><strong>Enterprise Search -&gt; Indices</strong></em>. You should see your index name.</li>
+</ol>
+<h1 id="4-setup-interface">4. Setup Interface</h1>
+<ol>
+<li>
+<p>Get your credentials ready:</p>
+<ol>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_user</code>: elastic</li>
+<li><code>cloud_password</code>: You will get it from step 1.3. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be elastic)</li>
+<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>.</li>
+<li><code>es_index</code>: Index name which we created in step 3.3. (search-ashish.one)</li>
+<li><code>vector_field</code>: The field which we&rsquo;ve set for destination at step 3.9. i.e. <strong>title-vector</strong></li>
+</ol>
+</li>
+<li>
+<p>Clone</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/ashishtiwari1993/elasticsearch-chatgpt.git
+</span></span><span style="display:flex;"><span>cd elasticsearch-chatgpt
+</span></span></code></pre></div><ol start="3">
+<li>Replace credentials in <code>Dockerfile</code></li>
+</ol>
+<p>Open Dockerfile and change below creds</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ENV openai_api<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;open_api_key&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>ENV cloud_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elastic cloud id&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>ENV cloud_user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;elastic&#34;</span>
+</span></span><span style="display:flex;"><span>ENV cloud_pass<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elastic_cloud_password&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>ENV es_index<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elasticsearch_index_name&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>ENV chat_title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;Any title for your page e.g. ashish.one GPT&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>ENV vector_field<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt; specify vector field where embedding will be save. e.g. title-vector&gt;&#34;</span>
+</span></span></code></pre></div><ol start="4">
+<li>Build</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker build -t es-gpt .
+</span></span></code></pre></div><ol start="5">
+<li>Run</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker run -p 8501:8501 es-gpt
+</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a></p>
+<p><img loading="lazy" src="/img/talks/elasticsearch-chatgpt/ashish_one_gpt.gif" alt="ashish.one ChatGPT"  />
+</p>
+<h1 id="reference">Reference</h1>
+<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a></p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Receive Webhook Requests Using ELK</title>
       <link>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</link>
