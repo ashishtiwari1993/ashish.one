@@ -90,6 +90,11 @@ In this hands-on workshop, We will learn how to connect ChatGPT to proprietary d
         ```
     4. Let's wait till the model gets uploaded without any error. 
 
+    5. Exit from `eland` folder.
+        ```sh
+        cd ..
+        ```
+
 3. Go to the kibana panel. Navigate to *__Menu -> Analytics -> Machine Learning -> Trained model__*. You must see your model here in the “*__Started__*” state.
 
 # 3. Crawling private data
