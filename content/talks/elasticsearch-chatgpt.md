@@ -105,10 +105,10 @@ In this hands-on workshop, We will learn how to connect ChatGPT to proprietary d
 4. Go to “*__Pipelines__*” to create a pipeline. 
 5. Click “*__Copy and customize__*” in the Ingest Pipeline Box.
 6. Click “*__Add Inference Pipeline__*” in the Machine Learning Inference Pipelines box.
-7. Give the unique pipeline name “*__ml-inference-ashish-one__*”
+7. Give the unique pipeline name e.g. “*__ml-inference-ashish-one__*”
 8. Select a trained ML Model from the dropdown “*__sentence-transformers__all-distilroberta-v1__*”
-9. Select “title” as the Source field and set “*__title-vector__*” as a destination. You can specify your own destination field name.
-10. Let's click on “Continue” and move to the Test(Optional) tab.  Click on “*__Continue__*” again.
+9. Select “*__title__*” as the Source field and set “*__title-vector__*” as a destination. You can specify your own destination field name.
+10. Let's click on “*__Continue__*” and move to the Test(Optional) tab.  Click on “*__Continue__*” again.
 11. At the Review stage let's click on “*__Create pipeline__*”.
 12. Go to *__Menu -> Management -> Dev Tools__*. Let's create a mapping 
 
@@ -142,7 +142,7 @@ POST search-ashish.one/_mapping
 }
 ```
 
-hit on play button.
+Paste above query in `cosole` and hit on play button.
 
 
 13. Go to *__Enterprise search -> indices -> your_index_name -> Manage Domains__*. Enter the domain (e.g. https://ashish.one. You can add your own domain) to crawl and hit “*__Validate Domain__*”.

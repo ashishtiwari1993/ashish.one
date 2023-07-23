@@ -115,10 +115,10 @@
 <li>Go to “<em><strong>Pipelines</strong></em>” to create a pipeline.</li>
 <li>Click “<em><strong>Copy and customize</strong></em>” in the Ingest Pipeline Box.</li>
 <li>Click “<em><strong>Add Inference Pipeline</strong></em>” in the Machine Learning Inference Pipelines box.</li>
-<li>Give the unique pipeline name “<em><strong>ml-inference-ashish-one</strong></em>”</li>
+<li>Give the unique pipeline name e.g. “<em><strong>ml-inference-ashish-one</strong></em>”</li>
 <li>Select a trained ML Model from the dropdown “<em><strong>sentence-transformers__all-distilroberta-v1</strong></em>”</li>
-<li>Select “title” as the Source field and set “<em><strong>title-vector</strong></em>” as a destination. You can specify your own destination field name.</li>
-<li>Let&rsquo;s click on “Continue” and move to the Test(Optional) tab.  Click on “<em><strong>Continue</strong></em>” again.</li>
+<li>Select “<em><strong>title</strong></em>” as the Source field and set “<em><strong>title-vector</strong></em>” as a destination. You can specify your own destination field name.</li>
+<li>Let&rsquo;s click on “<em><strong>Continue</strong></em>” and move to the Test(Optional) tab.  Click on “<em><strong>Continue</strong></em>” again.</li>
 <li>At the Review stage let&rsquo;s click on “<em><strong>Create pipeline</strong></em>”.</li>
 <li>Go to <em><strong>Menu -&gt; Management -&gt; Dev Tools</strong></em>. Let&rsquo;s create a mapping</li>
 </ol>
@@ -145,7 +145,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>hit on play button.</p>
+</span></span></code></pre></div><p>Paste above query in <code>cosole</code> and hit on play button.</p>
 <ol start="13">
 <li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one">https://ashish.one</a>. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
 <li>If everything is fine, simply click on “<em><strong>Add domain</strong></em>” and start crawling by click on <em><strong>Crawl -&gt; Crawl all domains on this index</strong></em>.</li>
