@@ -18,7 +18,7 @@
       <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
       
       <guid>https://ashish.one/talks/chatgpt-elasticsearch/</guid>
-      <description>Leverage ChatGPT with Elasticsearch</description>
+      <description>Connect ChatGPT to proprietary data stores using Elasticsearch</description>
       <content:encoded><![CDATA[<h1 id="objective">Objective</h1>
 <p>In this hands-on workshop, We will learn how to connect ChatGPT to proprietary data stores using Elasticsearch and build question/answer capabilities for your data. In a demo, We will quickly convert your website, FAQ, or any documentation into prompt chat where your user can directly ask a question on your data.</p>
 <h1 id="flow">Flow</h1>

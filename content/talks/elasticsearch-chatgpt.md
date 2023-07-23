@@ -11,7 +11,7 @@ showToc: true
 TocOpen: true
 draft: false
 hidemeta: false
-description: "Leverage ChatGPT with Elasticsearch"
+description: "Connect ChatGPT to proprietary data stores using Elasticsearch"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: true
