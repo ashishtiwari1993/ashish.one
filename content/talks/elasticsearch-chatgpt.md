@@ -66,6 +66,8 @@ In this hands-on workshop, We will learn how to connect ChatGPT to proprietary d
 
 3. Download / Copy the deployment credentials.
 
+4. Once deployment ready, click on "Continue". It will redirect you on kibana dashboard.
+
 # 2. Upload third party Model
 
 1. We are going to use [all-distilroberta-v1](https://huggingface.co/sentence-transformers/all-distilroberta-v1) model hosted on a hugging face. Lets import on an elastic cluster using eland.

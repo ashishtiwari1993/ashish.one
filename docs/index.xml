@@ -70,6 +70,9 @@
 <li>
 <p>Download / Copy the deployment credentials.</p>
 </li>
+<li>
+<p>Once deployment ready, click on &ldquo;Continue&rdquo;. It will redirect you on kibana dashboard.</p>
+</li>
 </ol>
 <h1 id="2-upload-third-party-model">2. Upload third party Model</h1>
 <ol>
