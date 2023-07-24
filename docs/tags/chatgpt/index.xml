@@ -36,6 +36,9 @@
 <p>System + Internet connection</p>
 </li>
 <li>
+<p>Git - Install it from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+</li>
+<li>
 <p>Docker - Install it from <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</p>
 </li>
 <li>

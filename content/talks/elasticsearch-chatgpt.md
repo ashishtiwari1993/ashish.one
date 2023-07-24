@@ -44,11 +44,13 @@ In this hands-on workshop, We will learn how to connect ChatGPT to proprietary d
 
 3. System + Internet connection
 
-4. Docker - Install it from [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/).
+4. Git - Install it from [https://git-scm.com/downloads](https://git-scm.com/downloads)
 
-5. Having basic python knowledge will be good.  
+5. Docker - Install it from [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/).
 
-6. OpenAI account with API key - Create new one from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys). Make sure it having [free credits](https://platform.openai.com/account/usage). 
+6. Having basic python knowledge will be good.  
+
+7. OpenAI account with API key - Create new one from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys). Make sure it having [free credits](https://platform.openai.com/account/usage). 
 
 # 1. Setup cluster
 
