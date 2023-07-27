@@ -155,24 +155,28 @@ Paste above query in `cosole` and hit on play button.
 
 # 4. Setup Interface
 
-1. Get your credentials ready:
-    1. `cloud_id` : Visit “*__[cloud.elastic.co](https://cloud.elastic.co)__*” -> Navigate to your deployment and click on “*__manage__*”. Simply copy Cloud ID and save it.
-    2. `cloud_user`: elastic
-    3. `cloud_password`: You will get it from step 1.3. If you forget to save, Simply click on *__“Action” -> “Reset password”__*. (Username will be elastic)
-    4. `openai_api`: Create open ai api key from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys).
-    5. `es_index`: Index name which we created in step 3.3. (search-ashish.one)
-    6. `vector_field`: The field which we've set for destination at step 3.9. i.e. **title-vector**
+## Get your credentials ready
 
-2. Clone
+1. `cloud_id` : Visit “*__[cloud.elastic.co](https://cloud.elastic.co)__*” -> Navigate to your deployment and click on “*__manage__*”. Simply copy Cloud ID and save it.
+2. `cloud_user`: elastic
+3. `cloud_password`: You will get it from step 1.3. If you forget to save, Simply click on *__“Action” -> “Reset password”__*. (Username will be elastic)
+4. `openai_api`: Create open ai api key from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys).
+5. `es_index`: Index name which we created in step 3.3. (search-ashish.one)
+6. `vector_field`: The field which we've set for destination at step 3.9. i.e. **title-vector**
+
+
+## Setup on local with Docker
+
+1. Clone
 
 ```sh
 git clone https://github.com/ashishtiwari1993/elasticsearch-chatgpt.git
 cd elasticsearch-chatgpt
 ```
 
-3. Replace credentials in `Dockerfile`
+2. Replace credentials in `Dockerfile`
 
-Open Dockerfile and change below creds
+Open `Dockerfile` and change below creds
 
 ```sh
 ENV openai_api="<open_api_key>"
@@ -184,13 +188,13 @@ ENV chat_title="<Any title for your page e.g. ashish.one GPT>"
 ENV vector_field="< specify vector field where embedding will be save. e.g. title-vector>"
 ```
 
-4. Build
+3. Build
 
 ```sh
 docker build -t es-gpt .
 ```
 
-5. Run
+4. Run
 
 ```sh
 docker run -p 8501:8501 es-gpt
@@ -198,9 +202,40 @@ docker run -p 8501:8501 es-gpt
 
 Simply visit on [localhost:8501](!http://localhost:8501)
 
+## Setup on [Render](https://render.com/) with Docker
+
+1. Signup on [https://render.com](https://render.com).
+
+2. Create **Web Service**.
+
+3. Go to **Public Git repository** section and add below repo url
+
+```sh
+https://github.com/ashishtiwari1993/elasticsearch-chatgpt
+```
+
+Hit on **Continue**.
+
+4. Add **Name** and select **Free** Instance Type. 
+
+5. Click on **Advanced** and **Add Environment Variable**
+
+```sh
+openai_api="<open_api_key>"
+cloud_id="<elastic cloud id>"
+cloud_user="elastic"
+cloud_pass="<elastic_cloud_password>"
+es_index="<elasticsearch_index_name>"                                                 
+chat_title="<Any title for your page e.g. ashish.one GPT>"
+vector_field="< specify vector field where embedding will be save. e.g. title-vector>"
+```
+
+6. Finally click on **Create Web Service**
+
+## Output
 
 ![ashish.one ChatGPT](/img/talks/elasticsearch-chatgpt/ashish_one_gpt.gif)
 
-# Reference
 
+# Reference
 [Blog - ChatGPT and Elasticsearch: OpenAI meets private data](https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data)

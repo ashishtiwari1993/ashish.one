@@ -158,9 +158,7 @@
 <li>Go to <em><strong>Enterprise Search -&gt; Indices</strong></em>. You should see your index name.</li>
 </ol>
 <h1 id="4-setup-interface">4. Setup Interface</h1>
-<ol>
-<li>
-<p>Get your credentials ready:</p>
+<h2 id="get-your-credentials-ready">Get your credentials ready</h2>
 <ol>
 <li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: elastic</li>
@@ -169,17 +167,16 @@
 <li><code>es_index</code>: Index name which we created in step 3.3. (search-ashish.one)</li>
 <li><code>vector_field</code>: The field which we&rsquo;ve set for destination at step 3.9. i.e. <strong>title-vector</strong></li>
 </ol>
-</li>
-<li>
-<p>Clone</p>
-</li>
+<h2 id="setup-on-local-with-docker">Setup on local with Docker</h2>
+<ol>
+<li>Clone</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/ashishtiwari1993/elasticsearch-chatgpt.git
 </span></span><span style="display:flex;"><span>cd elasticsearch-chatgpt
-</span></span></code></pre></div><ol start="3">
+</span></span></code></pre></div><ol start="2">
 <li>Replace credentials in <code>Dockerfile</code></li>
 </ol>
-<p>Open Dockerfile and change below creds</p>
+<p>Open <code>Dockerfile</code> and change below creds</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ENV openai_api<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;open_api_key&gt;&#34;</span>
 </span></span><span style="display:flex;"><span>ENV cloud_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elastic cloud id&gt;&#34;</span>
 </span></span><span style="display:flex;"><span>ENV cloud_user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;elastic&#34;</span>
@@ -187,15 +184,48 @@
 </span></span><span style="display:flex;"><span>ENV es_index<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elasticsearch_index_name&gt;&#34;</span>
 </span></span><span style="display:flex;"><span>ENV chat_title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;Any title for your page e.g. ashish.one GPT&gt;&#34;</span>
 </span></span><span style="display:flex;"><span>ENV vector_field<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt; specify vector field where embedding will be save. e.g. title-vector&gt;&#34;</span>
-</span></span></code></pre></div><ol start="4">
+</span></span></code></pre></div><ol start="3">
 <li>Build</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker build -t es-gpt .
-</span></span></code></pre></div><ol start="5">
+</span></span></code></pre></div><ol start="4">
 <li>Run</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker run -p 8501:8501 es-gpt
 </span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a></p>
+<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/">Render</a> with Docker</h2>
+<ol>
+<li>
+<p>Signup on <a href="https://render.com">https://render.com</a>.</p>
+</li>
+<li>
+<p>Create <strong>Web Service</strong>.</p>
+</li>
+<li>
+<p>Go to <strong>Public Git repository</strong> section and add below repo url</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://github.com/ashishtiwari1993/elasticsearch-chatgpt
+</span></span></code></pre></div><p>Hit on <strong>Continue</strong>.</p>
+<ol start="4">
+<li>
+<p>Add <strong>Name</strong> and select <strong>Free</strong> Instance Type.</p>
+</li>
+<li>
+<p>Click on <strong>Advanced</strong> and <strong>Add Environment Variable</strong></p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>openai_api<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;open_api_key&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>cloud_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elastic cloud id&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>cloud_user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;elastic&#34;</span>
+</span></span><span style="display:flex;"><span>cloud_pass<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elastic_cloud_password&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>es_index<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elasticsearch_index_name&gt;&#34;</span>                                                 
+</span></span><span style="display:flex;"><span>chat_title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;Any title for your page e.g. ashish.one GPT&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>vector_field<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt; specify vector field where embedding will be save. e.g. title-vector&gt;&#34;</span>
+</span></span></code></pre></div><ol start="6">
+<li>Finally click on <strong>Create Web Service</strong></li>
+</ol>
+<h2 id="output">Output</h2>
 <p><img loading="lazy" src="/img/talks/elasticsearch-chatgpt/ashish_one_gpt.gif" alt="ashish.one ChatGPT"  />
 </p>
 <h1 id="reference">Reference</h1>
