@@ -62,7 +62,7 @@ In this hands-on workshop, We will learn how to connect ChatGPT to proprietary d
 
     2. Add machine learning instance - Simply click on "*__advance settings__*".
 
-    3. Go to *__"Machine Learning instances" -> click on "Add Capacity"__* and select at least **2GB** ram capacity. 
+    3. Go to *__"Machine Learning instances" -> click on "Add Capacity"__* and select at least **4GB** ram capacity. 
 
     4. Finally click on "*__Create deployment__*". 
 

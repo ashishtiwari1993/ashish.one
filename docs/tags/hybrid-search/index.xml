@@ -63,7 +63,7 @@
 <p>Add machine learning instance - Simply click on &ldquo;<em><strong>advance settings</strong></em>&rdquo;.</p>
 </li>
 <li>
-<p>Go to <em><strong>&ldquo;Machine Learning instances&rdquo; -&gt; click on &ldquo;Add Capacity&rdquo;</strong></em> and select at least <strong>2GB</strong> ram capacity.</p>
+<p>Go to <em><strong>&ldquo;Machine Learning instances&rdquo; -&gt; click on &ldquo;Add Capacity&rdquo;</strong></em> and select at least <strong>4GB</strong> ram capacity.</p>
 </li>
 <li>
 <p>Finally click on &ldquo;<em><strong>Create deployment</strong></em>&rdquo;.</p>
