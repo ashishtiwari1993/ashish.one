@@ -3,42 +3,54 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/categories/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/chatgpt/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/categories/elastic/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/elasticsearch/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/hybrid-search/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/knn/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/llm/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/talks/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/talks/chatgpt-elasticsearch/</loc>
-    <lastmod>2023-07-28T00:06:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/blogs/</loc>
-    <lastmod>2023-01-25T11:52:17+05:30</lastmod>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/elastic/</loc>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/categories/elastic/</loc>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/elasticsearch/</loc>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/k8s/</loc>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/kubernetes/</loc>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/talks/monitor_k8_elastic_observability/</loc>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/observability/</loc>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/talks/</loc>
+    <lastmod>2023-07-28T21:41:03+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/chatgpt/</loc>
+    <lastmod>2023-07-28T01:09:33+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/hybrid-search/</loc>
+    <lastmod>2023-07-28T01:09:33+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/knn/</loc>
+    <lastmod>2023-07-28T01:09:33+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/llm/</loc>
+    <lastmod>2023-07-28T01:09:33+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/talks/chatgpt-elasticsearch/</loc>
+    <lastmod>2023-07-28T01:09:33+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/blogs/</loc>
     <lastmod>2023-01-25T11:52:17+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/http-plugin/</loc>
@@ -62,13 +74,7 @@
     <loc>https://ashish.one/tags/generic-errors/</loc>
     <lastmod>2023-01-07T23:49:15+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/k8s/</loc>
-    <lastmod>2023-01-07T23:49:15+05:30</lastmod>
-  </url><url>
     <loc>https://ashish.one/tags/k8s-errors/</loc>
-    <lastmod>2023-01-07T23:49:15+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/kubernetes/</loc>
     <lastmod>2023-01-07T23:49:15+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/categories/kubernetes/</loc>
@@ -153,9 +159,6 @@
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/log_parse/</loc>
-    <lastmod>2022-05-11T13:39:05+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/observability/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/talks/devops-conf-2022/</loc>
