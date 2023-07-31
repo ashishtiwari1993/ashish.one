@@ -38,39 +38,68 @@ In this hands-on workshop, We will learn how to connect ChatGPT to proprietary d
 
 # Prerequisites
 
+
 1. You have used ChatGPT :)
 
 2. Good to have understanding around Elasticsearch (Not mandatory, Introduction will be cover)
 
 3. System + Internet connection
 
-4. Git - Install it from [https://git-scm.com/downloads](https://git-scm.com/downloads)
+4. OpenAI account with API key - Create new one from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys). Make sure it having [free credits](https://platform.openai.com/account/usage). 
 
-5. Docker - Install it from [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/).
+## Without local setup
 
-6. Having basic python knowledge will be good.  
+1. Google account to use [google Colab](https://colab.research.google.com/).
 
-7. OpenAI account with API key - Create new one from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys). Make sure it having [free credits](https://platform.openai.com/account/usage). 
+2. [Render](https://render.com/) account.
+
+## Local setup
+
+1. Git - Install it from [https://git-scm.com/downloads](https://git-scm.com/downloads)
+
+2. Docker - Good to have. Install it from [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/).
+
+3. Having basic python knowledge will be good.  
+
+For a workshop we going to follow without local setup.
+
 
 # 1. Setup cluster
 
 1. Visit [cloud.elastic.co](https://cloud.elastic.co) and signup.
 
-2. Create deployment
+2. Click on `Create deployment`. In the pop-up, you can change the settings or leave it default.
 
-    1. Change settings according to your requirement or leave it default.
+3. We need to add machine learning instance. For that, simply click on "*__advance settings__*" .
 
-    2. Add machine learning instance - Simply click on "*__advance settings__*".
+4. Go to *__"Machine Learning instances" -> click on "Add Capacity"__* and select at least **4GB** ram capacity. 
 
-    3. Go to *__"Machine Learning instances" -> click on "Add Capacity"__* and select at least **4GB** ram capacity. 
+5. Finally click on "*__Create deployment__*". 
 
-    4. Finally click on "*__Create deployment__*". 
+6. Download / Copy the deployment credentials.
 
-3. Download / Copy the deployment credentials.
+7. Once deployment ready, click on "Continue" (or click on `Open Kibana`). It will redirect you on kibana dashboard.
 
-4. Once deployment ready, click on "Continue". It will redirect you on kibana dashboard.
+
 
 # 2. Upload third party Model
+
+**Get your credentials ready**
+
+* `cloud_id` : Visit “*__[cloud.elastic.co](https://cloud.elastic.co)__*” -> Navigate to your deployment and click on “*__manage__*”. Simply copy Cloud ID and save it.
+* `cloud_user`: `elastic`
+* `cloud_password`: You will get it from step 1.6. If you forget to save, Simply click on *__“Action” -> “Reset password”__*. (Username will be `elastic` only)
+
+
+Now there is two way, You can upload the model using `docker` as well as `Google colab`. 
+
+## Using Google Colab (Recommended)
+
+Simply click on below link. It will open ready made notebook. You just need to click on `play` button.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb)
+
+## Using Docker
 
 1. We are going to use [all-distilroberta-v1](https://huggingface.co/sentence-transformers/all-distilroberta-v1) model hosted on a hugging face. Lets import on an elastic cluster using eland.
 
@@ -99,7 +128,11 @@ In this hands-on workshop, We will learn how to connect ChatGPT to proprietary d
         cd ..
         ```
 
-3. Go to the kibana panel. Navigate to *__Menu -> Analytics -> Machine Learning -> Trained model__*. You must see your model here in the “*__Started__*” state.
+## Verify uploaded model
+
+Go to the kibana panel. Navigate to *__Menu -> Machine Learning (In `Analytics` section)__*. In left menu, Click on *__Trained Models__*(`Model Management` Section). You must see your model here in the “*__Started__*” state.
+
+In case if a warning message is displayed at the top of the page that says *__ML job and trained model synchronization required__*. Follow the link to *__Synchronize your jobs and trained models.__* Then click *__Synchronize__*.
 
 # 3. Crawling private data
 
@@ -155,11 +188,11 @@ Paste above query in `cosole` and hit on play button.
 
 # 4. Setup Interface
 
-## Get your credentials ready
+** Get your credentials ready **
 
 1. `cloud_id` : Visit “*__[cloud.elastic.co](https://cloud.elastic.co)__*” -> Navigate to your deployment and click on “*__manage__*”. Simply copy Cloud ID and save it.
 2. `cloud_user`: elastic
-3. `cloud_password`: You will get it from step 1.3. If you forget to save, Simply click on *__“Action” -> “Reset password”__*. (Username will be elastic)
+3. `cloud_password`: You will get it from step 1.6. If you forget to save, Simply click on *__“Action” -> “Reset password”__*. (Username will be elastic)
 4. `openai_api`: Create open ai api key from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys).
 5. `es_index`: Index name which we created in step 3.3. (search-ashish.one)
 6. `vector_field`: The field which we've set for destination at step 3.9. i.e. **title-vector**
@@ -239,3 +272,5 @@ vector_field="< specify vector field where embedding will be save. e.g. title-ve
 
 # Reference
 [Blog - ChatGPT and Elasticsearch: OpenAI meets private data](https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data)
+
+

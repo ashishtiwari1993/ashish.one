@@ -36,31 +36,41 @@
 <p>System + Internet connection</p>
 </li>
 <li>
+<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>. Make sure it having <a href="https://platform.openai.com/account/usage">free credits</a>.</p>
+</li>
+</ol>
+<h2 id="without-local-setup">Without local setup</h2>
+<ol>
+<li>
+<p>Google account to use <a href="https://colab.research.google.com/">google Colab</a>.</p>
+</li>
+<li>
+<p><a href="https://render.com/">Render</a> account.</p>
+</li>
+</ol>
+<h2 id="local-setup">Local setup</h2>
+<ol>
+<li>
 <p>Git - Install it from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
 </li>
 <li>
-<p>Docker - Install it from <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</p>
+<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</p>
 </li>
 <li>
 <p>Having basic python knowledge will be good.</p>
 </li>
-<li>
-<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>. Make sure it having <a href="https://platform.openai.com/account/usage">free credits</a>.</p>
-</li>
 </ol>
+<p>For a workshop we going to follow without local setup.</p>
 <h1 id="1-setup-cluster">1. Setup cluster</h1>
 <ol>
 <li>
 <p>Visit <a href="https://cloud.elastic.co">cloud.elastic.co</a> and signup.</p>
 </li>
 <li>
-<p>Create deployment</p>
-<ol>
-<li>
-<p>Change settings according to your requirement or leave it default.</p>
+<p>Click on <code>Create deployment</code>. In the pop-up, you can change the settings or leave it default.</p>
 </li>
 <li>
-<p>Add machine learning instance - Simply click on &ldquo;<em><strong>advance settings</strong></em>&rdquo;.</p>
+<p>We need to add machine learning instance. For that, simply click on &ldquo;<em><strong>advance settings</strong></em>&rdquo; .</p>
 </li>
 <li>
 <p>Go to <em><strong>&ldquo;Machine Learning instances&rdquo; -&gt; click on &ldquo;Add Capacity&rdquo;</strong></em> and select at least <strong>4GB</strong> ram capacity.</p>
@@ -68,16 +78,26 @@
 <li>
 <p>Finally click on &ldquo;<em><strong>Create deployment</strong></em>&rdquo;.</p>
 </li>
-</ol>
-</li>
 <li>
 <p>Download / Copy the deployment credentials.</p>
 </li>
 <li>
-<p>Once deployment ready, click on &ldquo;Continue&rdquo;. It will redirect you on kibana dashboard.</p>
+<p>Once deployment ready, click on &ldquo;Continue&rdquo; (or click on <code>Open Kibana</code>). It will redirect you on kibana dashboard.</p>
 </li>
 </ol>
 <h1 id="2-upload-third-party-model">2. Upload third party Model</h1>
+<p><strong>Get your credentials ready</strong></p>
+<ul>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_user</code>: <code>elastic</code></li>
+<li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be <code>elastic</code> only)</li>
+</ul>
+<p>Now there is two way, You can upload the model using <code>docker</code> as well as <code>Google colab</code>.</p>
+<h2 id="using-google-colab-recommended">Using Google Colab (Recommended)</h2>
+<p>Simply click on below link. It will open ready made notebook. You just need to click on <code>play</code> button.</p>
+<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
+</a></p>
+<h2 id="using-docker">Using Docker</h2>
 <ol>
 <li>
 <p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1">all-distilroberta-v1</a> model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
@@ -109,10 +129,10 @@
 </span></span></code></pre></div></li>
 </ol>
 </li>
-<li>
-<p>Go to the kibana panel. Navigate to <em><strong>Menu -&gt; Analytics -&gt; Machine Learning -&gt; Trained model</strong></em>. You must see your model here in the “<em><strong>Started</strong></em>” state.</p>
-</li>
 </ol>
+<h2 id="verify-uploaded-model">Verify uploaded model</h2>
+<p>Go to the kibana panel. Navigate to <em><strong>Menu -&gt; Machine Learning (In <code>Analytics</code> section)</strong></em>. In left menu, Click on <em><strong>Trained Models</strong></em>(<code>Model Management</code> Section). You must see your model here in the “<em><strong>Started</strong></em>” state.</p>
+<p>In case if a warning message is displayed at the top of the page that says <em><strong>ML job and trained model synchronization required</strong></em>. Follow the link to <em><strong>Synchronize your jobs and trained models.</strong></em> Then click <em><strong>Synchronize</strong></em>.</p>
 <h1 id="3-crawling-private-data">3. Crawling private data</h1>
 <ol>
 <li>Click on <em><strong>Menu -&gt; Enterprise Search -&gt; “Create an Elasticsearch index”</strong></em> button</li>
@@ -158,11 +178,11 @@
 <li>Go to <em><strong>Enterprise Search -&gt; Indices</strong></em>. You should see your index name.</li>
 </ol>
 <h1 id="4-setup-interface">4. Setup Interface</h1>
-<h2 id="get-your-credentials-ready">Get your credentials ready</h2>
+<p>** Get your credentials ready **</p>
 <ol>
 <li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: elastic</li>
-<li><code>cloud_password</code>: You will get it from step 1.3. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be elastic)</li>
+<li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be elastic)</li>
 <li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>.</li>
 <li><code>es_index</code>: Index name which we created in step 3.3. (search-ashish.one)</li>
 <li><code>vector_field</code>: The field which we&rsquo;ve set for destination at step 3.9. i.e. <strong>title-vector</strong></li>
