@@ -39,11 +39,13 @@ Talk Video </description>
       <guid>https://ashish.one/talks/devops-conf-2022/</guid>
       <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
 Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
-But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor.</description>
+But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor .</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat">metricbeat</a> to check system health. With a few clicks, you can start monitoring your infra.</p>
+<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat" target="_blank" rel="noopener">metricbeat</a>
+ to check system health. With a few clicks, you can start monitoring your infra.</p>
 <p>Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.</p>
-<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html">Grok processor</a>.</p>
+<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html" target="_blank" rel="noopener">Grok processor</a>
+.</p>
 <p>Also explained how you can read custom logs from log files in real time and ingest to Elasticsearch.</p>
 <h1 id="slides">Slides</h1>
 <div id="Container"

@@ -18,10 +18,11 @@
       <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
       
       <guid>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</guid>
-      <description>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case. Elastic provides Search, Observability &amp;amp; Security you can check more on this with official documentation.
+      <description>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case. Elastic provides Search, Observability &amp;amp; Security you can check more on this with official documentation .
 What is Webhook ? Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks.</description>
       <content:encoded><![CDATA[<p>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case.
-Elastic provides Search, Observability &amp; Security you can check more on this with <a href="https://www.elastic.co/guide/index.html">official documentation</a>.</p>
+Elastic provides Search, Observability &amp; Security you can check more on this with <a href="https://www.elastic.co/guide/index.html" target="_blank" rel="noopener">official documentation</a>
+.</p>
 <h1 id="what-is-webhook-">What is Webhook ?</h1>
 <p>Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks. Now in the modern tech world it is also known as Reverse API, Push API etc.
 Mostly it is used to send small amounts of data from source to destination. It is a one way data transfer procedure. It works over the HTTP protocol using REST API. It is simple like client and server communication.
@@ -31,19 +32,28 @@ Most of the saas allow you to integrate their product with your system with the 
 <p>So I have to use the <code>POST</code> method, and send data on the above endpoint. You can hit this Endpoint using curl, postman or any programming language.</p>
 <h1 id="what-is-elk-">What is ELK ?</h1>
 <p>Well from elastic.co -</p>
-<p><em>E</em> - <code>Elasticsearch</code> - Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Check more <a href="https://www.elastic.co/what-is/elasticsearch">here</a>.</p>
-<p><em>L</em> - <code>logstash</code> - Logstash is a free and open server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to your favorite &ldquo;stash.&rdquo; check more <a href="https://www.elastic.co/logstash/">here</a>.</p>
-<p><em>K</em> - <code>Kibana</code> - Kibana is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Check more <a href="https://www.elastic.co/what-is/kibana">here</a>.</p>
+<p><em>E</em> - <code>Elasticsearch</code> - Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Check more <a href="https://www.elastic.co/what-is/elasticsearch" target="_blank" rel="noopener">here</a>
+.</p>
+<p><em>L</em> - <code>logstash</code> - Logstash is a free and open server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to your favorite &ldquo;stash.&rdquo; check more <a href="https://www.elastic.co/logstash/" target="_blank" rel="noopener">here</a>
+.</p>
+<p><em>K</em> - <code>Kibana</code> - Kibana is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Check more <a href="https://www.elastic.co/what-is/kibana" target="_blank" rel="noopener">here</a>
+.</p>
 <h1 id="the-flow">The Flow</h1>
 <p><em><strong>Events -&gt; Logstash -&gt; Elasticsearch &lt;- Kibana</strong></em></p>
-<p>Logstash works with three plugins - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">input</a>, <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html">filter</a>, <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html">output</a>.</p>
-<p>You can choose any source as a input. For example you can use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html">jdbc input plugin</a> to read data from <code>mysql</code>.</p>
+<p>Logstash works with three plugins - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" rel="noopener">input</a>
+, <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html" target="_blank" rel="noopener">filter</a>
+, <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html" target="_blank" rel="noopener">output</a>
+.</p>
+<p>You can choose any source as a input. For example you can use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html" target="_blank" rel="noopener">jdbc input plugin</a>
+ to read data from <code>mysql</code>.</p>
 <p>Transform your data with the help of <code>filter</code> plugin.</p>
 <p>Push the data on destination which you have specified in output plugin.</p>
 <p>We will use below plugins to process the webhooks requests.</p>
 <ul>
-<li>Input plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html">HTTP</a></li>
-<li>Output plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">Elasticsearch</a></li>
+<li>Input plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html" target="_blank" rel="noopener">HTTP</a>
+</li>
+<li>Output plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html" target="_blank" rel="noopener">Elasticsearch</a>
+</li>
 </ul>
 <p>Logstash will process the event and push to the Elasticsearch.
 Visualise data from kibana.</p>
@@ -51,9 +61,12 @@ Visualise data from kibana.</p>
 <h2 id="installation">Installation</h2>
 <p>You can simply follow the official documentation for installation.</p>
 <ul>
-<li><strong>Elasticsearch</strong> - <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html</a></li>
-<li><strong>Kibana</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a></li>
-<li><strong>Logstash</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a></li>
+<li><strong>Elasticsearch</strong> - <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html</a>
+</li>
+<li><strong>Kibana</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a>
+</li>
+<li><strong>Logstash</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a>
+</li>
 </ul>
 <p>I am spinning ELK instances using docker. You can choose any method mentioned on above links.</p>
 <h2 id="verify">Verify</h2>
@@ -110,7 +123,8 @@ Visualise data from kibana.</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>We are configuring HTTP endpoint on port <code>4000</code>. So whenever anyone calls the webhook endpoint, they need to specify port like <code>http://mydomain.com:4000</code></p>
-<p>Here i am only defining the index but you can configure data stream as well. Check <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">here</a> for more options.</p>
+<p>Here i am only defining the index but you can configure data stream as well. Check <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html" target="_blank" rel="noopener">here</a>
+ for more options.</p>
 <h3 id="test-configuration">Test configuration</h3>
 <p>Run pipeline with below command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./bin/logstash -f webhook-receiver.conf
@@ -205,7 +219,9 @@ Visualise data from kibana.</p>
 </p>
 <p>To create the dashboard, go to <em><strong>Menu -&gt; Analytics -&gt; Dashboard</strong></em>. You can create a dashboard according to your requirement.</p>
 <h1 id="conclusion">Conclusion</h1>
-<p>We have successfully set up the webhook receiver with the help of ELK stack. Though ELK use cases are very vast. There are various <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">input</a> and <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html">output</a> plugins available in logstash for data pipelines.</p>
+<p>We have successfully set up the webhook receiver with the help of ELK stack. Though ELK use cases are very vast. There are various <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" rel="noopener">input</a>
+ and <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html" target="_blank" rel="noopener">output</a>
+ plugins available in logstash for data pipelines.</p>
 ]]></content:encoded>
     </item>
     
@@ -277,47 +293,65 @@ All this stuff we want to share on a single platform but as a tech, I am lazy if
 </ul>
 <h1 id="lets-build-">Let&rsquo;s Build 🔧</h1>
 <p>I was evaluating multiple tools while searching for a platform and found Hugo which is easy, fast, and handy as a developer. Hugo is an opensource static site generator which means you can write everything in Markdown and Hugo will generate the site accordingly. You need to know the basic Markdown syntax and you are good to go.</p>
-<p>You can refer official <a href="https://gohugo.io/documentation/">hugo</a> document to get started.</p>
+<p>You can refer official <a href="https://gohugo.io/documentation/" target="_blank" rel="noopener">hugo</a>
+ document to get started.</p>
 <p>Below is some tool that helped me to set up my platform.</p>
 <hr>
 <h1 id="theme">Theme</h1>
-<p>Lots of themes are present which you can configure with your Hugo site. There are some common features across the themes and some themes provide the special features also. You can explore all themes here <a href="https://themes.gohugo.io/">themes.gohugo.io</a></p>
+<p>Lots of themes are present which you can configure with your Hugo site. There are some common features across the themes and some themes provide the special features also. You can explore all themes here <a href="https://themes.gohugo.io/" target="_blank" rel="noopener">themes.gohugo.io</a>
+</p>
 <p>I was looking for a simple theme which has a simple layout with menus, a dark theme, and tech friendly.</p>
 <h2 id="papermod">PaperMod</h2>
-<p>I have build my <a href="https://ashish.one">website</a> in <a href="https://github.com/adityatelange/hugo-PaperMod">PaperMod</a>. Few pointers why i choose:</p>
-<h3 id="1-searchhttpsadityatelangegithubiohugo-papermodpostspapermodpapermod-featuressearch-page-">1. <a href="https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-features/#search-page">Search</a> 🔍</h3>
-<p>PaperMod uses <a href="https://fusejs.io/getting-started/different-builds.html#explanation-of-different-builds">Fuse.js</a> Basic for search functionality.</p>
+<p>I have build my <a href="https://ashish.one" target="_blank" rel="noopener">website</a>
+ in <a href="https://github.com/adityatelange/hugo-PaperMod" target="_blank" rel="noopener">PaperMod</a>
+. Few pointers why i choose:</p>
+<h3 id="1-searchhttpsadityatelangegithubiohugo-papermodpostspapermodpapermod-featuressearch-page-">1. <a href="https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-features/#search-page" target="_blank" rel="noopener">Search</a>
+ 🔍</h3>
+<p>PaperMod uses <a href="https://fusejs.io/getting-started/different-builds.html#explanation-of-different-builds" target="_blank" rel="noopener">Fuse.js</a>
+ Basic for search functionality.</p>
 <h3 id="2-post-cover-image-">2. Post Cover Image 🗼</h3>
 <p>It gives an easy option to add a cover image to your post.</p>
 <h3 id="3-edit-link-for-post-">3. Edit link for post ✏️</h3>
 <p><code>Suggest changes</code> option to ask viewers to contribute or Raise PR.</p>
-<p>You can check more details about all features <a href="https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-features">here</a></p>
-<h2 id="hyde-hydehttpsgithubcomhtr3nhyde-hyde"><a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a></h2>
+<p>You can check more details about all features <a href="https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-features" target="_blank" rel="noopener">here</a>
+</p>
+<h2 id="hyde-hydehttpsgithubcomhtr3nhyde-hyde"><a href="https://github.com/htr3n/hyde-hyde" target="_blank" rel="noopener">hyde-hyde</a>
+</h2>
 <p>hyde-hyde I found a simple and easy theme if you want to get started with a simple menu and post. I chooses this because of its simplicity and then migrated to PaperMod.</p>
 <h1 id="comments-">Comments 💬</h1>
 <p>Once your audience starts reading your article, they would like to give feedback, suggestion and sometime it could be a discussion. You need someplace like <code>comments</code> where viewers can add their points to a particular article. The theme does not come with comments, for that you need to integrate the <code>comments</code> tool. Below are some suggestions you can explore:</p>
 <h2 id="1-giscus">1. giscus</h2>
-<p><a href="https://giscus.app/">Giscus</a> comments system powered by <a href="https://docs.github.com/en/discussions">GitHub Discussions</a>. Let visitors leave comments and reactions on your website via GitHub! As soon as your viewers comment on your article, it will create the discussion thread on Github Discussion. You can explore more about giscus on the official site.</p>
+<p><a href="https://giscus.app/" target="_blank" rel="noopener">Giscus</a>
+ comments system powered by <a href="https://docs.github.com/en/discussions" target="_blank" rel="noopener">GitHub Discussions</a>
+. Let visitors leave comments and reactions on your website via GitHub! As soon as your viewers comment on your article, it will create the discussion thread on Github Discussion. You can explore more about giscus on the official site.</p>
 <h2 id="2-utterances">2. Utterances</h2>
-<p><a href="https://github.com/utterance/utterances">utterances</a> lightweight comments system built powered by <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues">GitHub issues</a>. It will create an issue per article once anyone comments. All comments will be associated with a particular Github issue.</p>
+<p><a href="https://github.com/utterance/utterances" target="_blank" rel="noopener">utterances</a>
+ lightweight comments system built powered by <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues" target="_blank" rel="noopener">GitHub issues</a>
+. It will create an issue per article once anyone comments. All comments will be associated with a particular Github issue.</p>
 <h2 id="3-disqus">3. DISQUS</h2>
-<p><a href="https://disqus.com/">Disqus</a> is a blog comment hosting paid service for websites and online communities that use a networked platform. It also comes with social integration, social networks, user profiles, profile notifications, etc.</p>
+<p><a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a>
+ is a blog comment hosting paid service for websites and online communities that use a networked platform. It also comes with social integration, social networks, user profiles, profile notifications, etc.</p>
 <p>I migrated my comment system from utterances to giscus. As Github discussion is a proper tool for commenting, discussion, etc. Both are lightweight and you can choose accordingly.</p>
 <h1 id="shortcodes">Shortcodes</h1>
 <p>While developing the site with Hugo, Shortcodes are your friends. Always check if shortcodes are available for popular tools e.g. youtube, github gist, etc.</p>
 <h1 id="hosting-">Hosting ☁️</h1>
 <p>After the site generation, you need to host your website somewhere.</p>
-<p>Found <a href="https://pages.github.com/">Github pages</a> best place to host your static site. It allows you to manage your website the same way you manage your projects on github. Get started by creating a simple repository and pushing your source directory.</p>
-<p>Check out all steps <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">here</a></p>
+<p>Found <a href="https://pages.github.com/" target="_blank" rel="noopener">Github pages</a>
+ best place to host your static site. It allows you to manage your website the same way you manage your projects on github. Get started by creating a simple repository and pushing your source directory.</p>
+<p>Check out all steps <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages" target="_blank" rel="noopener">here</a>
+</p>
 <p>Once you set up end to end, You can publish your blog or changes by just basic git commands i.e. <code>git add</code>, <code>git commit</code>, <code>git push</code>.</p>
 <p>It will give you the same feeling as you are releasing some features for your project.</p>
-<p>You can check more <a href="https://gohugo.io/hosting-and-deployment/">options</a> about hosting and deployment</p>
-<p>I have hosted current website on <a href="https://github.com/ashishtiwari1993/ashish.one">github.com/ashishtiwari1993</a>.</p>
+<p>You can check more <a href="https://gohugo.io/hosting-and-deployment/" target="_blank" rel="noopener">options</a>
+ about hosting and deployment</p>
+<p>I have hosted current website on <a href="https://github.com/ashishtiwari1993/ashish.one" target="_blank" rel="noopener">github.com/ashishtiwari1993</a>
+.</p>
 <h2 id="domain">Domain</h2>
 <p>By default, Github pages assign the domain like <code>username.github.io</code> and you can access your site by visiting that subdomain. You can also setup the custom domain.</p>
 <h1 id="speed-">Speed 🚀</h1>
 <p>Almost 100% Page speed.</p>
-<p><a href="https://pagespeed.web.dev/report?url=https://ashish.one">Pagespeed insights</a></p>
+<p><a href="https://pagespeed.web.dev/report?url=https://ashish.one" target="_blank" rel="noopener">Pagespeed insights</a>
+</p>
 <hr>
 <h1 id="tldr">tl;dr</h1>
 <p>✅ Platform - Hugo<br>
@@ -340,13 +374,16 @@ All this stuff we want to share on a single platform but as a tech, I am lazy if
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
       
       <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
-      <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose. You can learn more about Docker &amp;amp; Docker Compose, Which will help you to understand the flow.
+      <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose . You can learn more about Docker &amp;amp; Docker Compose , Which will help you to understand the flow.
 Prerequisite Tested on the below configuration.
 docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414 Cluster This setup will include
 Elasticsearch Kibana Logstash APM Setup Clone repo:
-git clone https://github.com/ashishtiwari1993/elastic-docker.git cd elastic-docker Make changes in .</description>
+git clone https://github.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/">docker-compose</a>. You can learn more about <a href="https://www.docker.com/">Docker</a> &amp; <a href="https://docs.docker.com/compose/">Docker Compose</a>, Which will help you to understand the flow.</p>
+<p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/" target="_blank" rel="noopener">docker-compose</a>
+. You can learn more about <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a>
+ &amp; <a href="https://docs.docker.com/compose/" target="_blank" rel="noopener">Docker Compose</a>
+, Which will help you to understand the flow.</p>
 <h1 id="prerequisite">Prerequisite</h1>
 <p>Tested on the below configuration.</p>
 <ul>
@@ -406,14 +443,18 @@ There can be cases where you need to log the data according to your convenience 
 <p>In this article, we are going to see how we can parse custom logs of any format into Elasticsearch. Elasticsearch provides the ingest pipeline with grok processor which will be able to match any unstructured log.</p>
 <h1 id="overview">Overview</h1>
 <h2 id="ingest-pipeline">Ingest Pipeline</h2>
-<p>Elasticsearch gives <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">ingest pipeline</a> where it let you perform different types of operations or data transformations before indexing the data. The pipeline consists of a series of various processors.</p>
+<p>Elasticsearch gives <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html" target="_blank" rel="noopener">ingest pipeline</a>
+ where it let you perform different types of operations or data transformations before indexing the data. The pipeline consists of a series of various processors.</p>
 <p>Each processor in the pipeline takes input and produces the output. That output goes as input to the next processor.</p>
 <p>Like below, After converting into lowercase letters by &ldquo;lowercase processor&rdquo; it sends the same string as input to the &ldquo;split processor&rdquo;.</p>
 <p>Example</p>
 <pre tabindex="0"><code>{&#34;date&#34;:&#34;HELLO - WORLD&#34;} Input → |  lowercase processor ({&#34;date&#34;:&#34;hello - world&#34;}) → split processor ({&#34;date&#34;:&#34;hello world&#34;})   |  → Index
-</code></pre><p>You can check more about ingest <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">pipeline</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/processors.html">processors</a>.</p>
+</code></pre><p>You can check more about ingest <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html" target="_blank" rel="noopener">pipeline</a>
+ and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/processors.html" target="_blank" rel="noopener">processors</a>
+.</p>
 <h2 id="grok-processor">Grok Processor</h2>
-<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/grok-processor.html">Grok Processor</a> allows you to extract structured data from the ingested value on the specific field. Grok Processor works with grok patterns.</p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/grok-processor.html" target="_blank" rel="noopener">Grok Processor</a>
+ allows you to extract structured data from the ingested value on the specific field. Grok Processor works with grok patterns.</p>
 <p>Let&rsquo;s suppose you have the following document</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Ip&#34;</span>:<span style="color:#e6db74">&#34;1.2.3.4&#34;</span>,
@@ -432,9 +473,11 @@ SPACE \s*
 <p>I can directly use <code>SPACE</code> label to define regex for space instead of a regular pattern like <code>\s*</code>. Also, the Grok pattern can be reused as the same as <code>USERNAME</code>.</p>
 <h3 id="pattern-list">Pattern list</h3>
 <p>You can find all pattern list on the below link:</p>
-<p><a href="https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns">https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns</a></p>
+<p><a href="https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns" target="_blank" rel="noopener">https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns</a>
+</p>
 <p>You can select any folder and explore all the patterns.</p>
-<p><strong>Grok pattern</strong>: <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a></p>
+<p><strong>Grok pattern</strong>: <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns" target="_blank" rel="noopener">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a>
+</p>
 <h1 id="the-flow">The flow</h1>
 <ol>
 <li>Create &amp; Test Ingest Pipeline</li>
@@ -459,7 +502,8 @@ SPACE \s*
 <p>Data need to parse</p>
 <pre tabindex="0"><code>LEVEL:ERROR,method:fetchUser(),message:user not found
 </code></pre><p>Let&rsquo;s match some of the grok patterns from the below file
-<a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a></p>
+<a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns" target="_blank" rel="noopener">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a>
+</p>
 <pre tabindex="0"><code>ERROR = %{LOGLEVEL:log_level}
 fetchUser = %{WORD:method_name}
 user not found = %{GREEDYDATA:message}
@@ -472,7 +516,8 @@ user not found = %{GREEDYDATA:message}
 <p>Note: You can add your own regex as well. For example, I have added regex for <code>code</code>.</p>
 </blockquote>
 <h2 id="test-pipeline">Test pipeline</h2>
-<p>For testing above pattern or pipeline we can use <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">Simulate Pipeline API</a> like below:</p>
+<p>For testing above pattern or pipeline we can use <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns" target="_blank" rel="noopener">Simulate Pipeline API</a>
+ like below:</p>
 <h4 id="_simulate">_simulate</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST /_ingest/pipeline/_simulate?pretty
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
@@ -518,7 +563,8 @@ user not found = %{GREEDYDATA:message}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>As you can see we got the desired output. Now let&rsquo;s save the pipeline.</p>
 <h3 id="save-pipeline">Save pipeline</h3>
-<p>Pipeline can be saved using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">_ingest/pipeline</a> API.</p>
+<p>Pipeline can be saved using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html" target="_blank" rel="noopener">_ingest/pipeline</a>
+ API.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>PUT /_ingest/pipeline/custom_log?pretty
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;testing grok processor&#34;</span>,
@@ -670,7 +716,8 @@ user not found = %{GREEDYDATA:message}
 <p>Similarly you can parse any log format with Grok pattern.</p>
 <h1 id="demo">Demo</h1>
 <p>You can also check the demo on the below link where I presented how you can parse common log format using ingest pipeline and grok processor.</p>
-<p><a href="https://ashish.one/talks/devops-conf-2022/">https://ashish.one/talks/devops-conf-2022/</a></p>
+<p><a href="https://ashish.one/talks/devops-conf-2022/" target="_blank" rel="noopener">https://ashish.one/talks/devops-conf-2022/</a>
+</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>We have seen how we can parse any types of log format into elasticsearch with the help of ingest pipeline &amp; grok processor. You can also use this ingest pipeline with filebeat or logstash. Where you just need to specify the pipeline name.</p>
 <p>Feel free to put in comments if you have any doubts.</p>
@@ -711,7 +758,8 @@ Elasticsearch gives this specific mapping type which you can simply set to a spe
 </span></span></code></pre></div><h2 id="how-is-data-indexed-">How is data indexed ?</h2>
 <p><code>search_as_you_type</code> mapping creates 4 types of fields in the backend.</p>
 <h3 id="field-1-description">Field 1: <code>description</code></h3>
-<p>It will produce the terms according to the default analyzer if no analyzer is defined i.e. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-analyzer.html">standard analyzer</a>.</p>
+<p>It will produce the terms according to the default analyzer if no analyzer is defined i.e. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-analyzer.html" target="_blank" rel="noopener">standard analyzer</a>
+.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging&#34;</span>,
@@ -720,8 +768,10 @@ Elasticsearch gives this specific mapping type which you can simply set to a spe
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men&#34;</span>
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><h3 id="field-2-description_2gram">Field 2: <code>description._2gram</code></h3>
-<p>This will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">shingle token filter</a> and produce the terms with shingle size 2.
-This means a shingle token filter produces the token by concatenating the adjacent token. You can find more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">here</a>.</p>
+<p>This will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html" target="_blank" rel="noopener">shingle token filter</a>
+ and produce the terms with shingle size 2.
+This means a shingle token filter produces the token by concatenating the adjacent token. You can find more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html" target="_blank" rel="noopener">here</a>
+.</p>
 <p>This operation will perform on all the terms which are created on the <code>description</code> field and it will produce the below terms.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[ 
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging&#34;</span>,
@@ -737,7 +787,8 @@ This means a shingle token filter produces the token by concatenating the adjace
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for men&#34;</span>
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><h3 id="field-4-description_index_prefix">Field 4: <code>description._index_prefix</code></h3>
-<p>This will apply an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html">edge n gram token filter</a> on the field <code>description._3gram</code> which means it will split terms (words) of <code>description._3gram</code> to a small substring that will start from the edge.
+<p>This will apply an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html" target="_blank" rel="noopener">edge n gram token filter</a>
+ on the field <code>description._3gram</code> which means it will split terms (words) of <code>description._3gram</code> to a small substring that will start from the edge.
 You can have a look at the terms below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;b&#34;</span>,
@@ -805,7 +856,8 @@ You can have a look at the terms below.</p>
 </span></span></code></pre></div><p>As you noticed the token limit is up to 3 words only because <code>description._3gram</code> has generated 3 word tokens only.</p>
 <h1 id="search-query">Search Query</h1>
 <h2 id="multi_match"><code>multi_match</code></h2>
-<p>We will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html">multi_match</a> query here. Because we want to look up on each subfield for a perfect match.</p>
+<p>We will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html" target="_blank" rel="noopener">multi_match</a>
+ query here. Because we want to look up on each subfield for a perfect match.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
@@ -880,7 +932,8 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The result is empty. Because there is no term created with the name <strong><code>jog</code></strong> if you closely look at the above generated tokens on respective fields.</p>
-<p>To solve this we need to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-bool-prefix-query.html">bool_prefix</a> query.</p>
+<p>To solve this we need to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-bool-prefix-query.html" target="_blank" rel="noopener">bool_prefix</a>
+ query.</p>
 <p><code>bool_prefix</code> analyze the input and constructs the bool query from the terms. But it puts the last term in the prefix query. For example, input is given as <code>men jogging s</code>, So it will produce terms like <code>[&quot;men&quot;,&quot;jogging&quot;,&quot;s&quot;]</code> but it will always perform a prefix query on the last term which is <code>&quot;s&quot;</code>. So documents will return where terms will match with <code>&quot;men&quot;</code> or <code>&quot;jogging&quot;</code> or any term which is starting with <code>&quot;s&quot;</code>.</p>
 <p>Below is the query which will give you the desired output.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
@@ -924,13 +977,15 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>    ]
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Here when we make a prefix query on the root field (<code>description</code>) or any subfields, It will rewrite the query as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html">term</a> query on <code>description._index_prefix</code> field.</p>
+</span></span></code></pre></div><p>Here when we make a prefix query on the root field (<code>description</code>) or any subfields, It will rewrite the query as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html" target="_blank" rel="noopener">term</a>
+ query on <code>description._index_prefix</code> field.</p>
 <p>This matches more efficiently because prefixes up to 3 words are already created as the terms as shown in the above.</p>
 <blockquote>
 <p>Note: This query will search for terms irrespective of order. For example, if we search for <code>jogging men</code>, This will also give the result because it will search for both the terms <code>jogging</code> or <code>men</code>. In most of the cases this query (multi_match + bool_prefix) is recommended because the end user can search for any string like <code>shoes</code> or <code>shoes for men</code> or <code>jogging shoes</code> etc.</p>
 </blockquote>
 <h2 id="what-if-you-want-to-search-with-strict-prefix-order">What if you want to search with strict prefix order?</h2>
-<p>You can use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html">match_phrase_prefix</a>, It will strictly match input from prefix in the same order only. So input like “men best” won’t return anything. Whereas you will get results with the previous one.</p>
+<p>You can use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html" target="_blank" rel="noopener">match_phrase_prefix</a>
+, It will strictly match input from prefix in the same order only. So input like “men best” won’t return anything. Whereas you will get results with the previous one.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
@@ -939,19 +994,26 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>It will return documents where the term&rsquo;s prefix will be matched with “best jogging s”. Sometimes it can provide confusing results. You can check more about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-autocomplete">match_phrase_prefix</a>.</p>
+</span></span></code></pre></div><p>It will return documents where the term&rsquo;s prefix will be matched with “best jogging s”. Sometimes it can provide confusing results. You can check more about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-autocomplete" target="_blank" rel="noopener">match_phrase_prefix</a>
+.</p>
 <h1 id="demo">Demo</h1>
 <p>Let’s take a practical experience of how it is going to work.</p>
 <h1 id="search-as-you-type-elasticsearch">Search As You Type (Elasticsearch)</h1>
 <p>Demo code and sample employees data to implement the &ldquo;Search as you type&rdquo; feature on elasticsearch.</p>
-<p>Written the middleware API in <code>python</code> using <a href="https://flask.palletsprojects.com/en/2.0.x/">flask</a>. Used <a href="https://jquery.com/">JQuery</a> for javascript operations.</p>
+<p>Written the middleware API in <code>python</code> using <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank" rel="noopener">flask</a>
+. Used <a href="https://jquery.com/" target="_blank" rel="noopener">JQuery</a>
+ for javascript operations.</p>
 <h2 id="installation">Installation</h2>
-<p>Assuming you have successfully installed <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Elasticsearch</a> and <a href="https://www.elastic.co/guide/en/kibana/current/install.html">Kibana</a> on your machine and it is working perfectly. Kindly refer respective installation document.</p>
+<p>Assuming you have successfully installed <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">Elasticsearch</a>
+ and <a href="https://www.elastic.co/guide/en/kibana/current/install.html" target="_blank" rel="noopener">Kibana</a>
+ on your machine and it is working perfectly. Kindly refer respective installation document.</p>
 <p>OR</p>
-<p>You can run <a href="https://cloud.elastic.co/registration">Elasticsearch on the cloud</a> with a few clicks.</p>
+<p>You can run <a href="https://cloud.elastic.co/registration" target="_blank" rel="noopener">Elasticsearch on the cloud</a>
+ with a few clicks.</p>
 <h3 id="install-python3--pip3">Install Python3 &amp; pip3</h3>
 <ol>
-<li>Refer <a href="https://www.python.org/downloads/">Document</a> to install <code>python3</code> &amp; <code>pip3</code> on your system.</li>
+<li>Refer <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Document</a>
+ to install <code>python3</code> &amp; <code>pip3</code> on your system.</li>
 <li>Install <code>flask</code></li>
 </ol>
 <pre tabindex="0"><code>pip3 install flask
@@ -988,7 +1050,9 @@ cd search_as_you_type
   }
 }
 </code></pre><h4 id="load-sample-data">Load sample data</h4>
-<p>Sample <a href="https://github.com/ashishtiwari1993/search_as_you_type/blob/main/data.json">data.json</a> file is given which need to load with the help of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">bulk API</a>.</p>
+<p>Sample <a href="https://github.com/ashishtiwari1993/search_as_you_type/blob/main/data.json" target="_blank" rel="noopener">data.json</a>
+ file is given which need to load with the help of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html" target="_blank" rel="noopener">bulk API</a>
+.</p>
 <pre tabindex="0"><code>curl -s -H &#34;Content-Type: application/x-ndjson&#34; -XPOST &#34;localhost:9200/_bulk&#34; --data-binary &#34;@data.json&#34;
 </code></pre><p>Do not forget to change the elasticsearch&rsquo;s endpoint.</p>
 <h3 id="run-apipy--test">Run <code>api.py</code> &amp; test</h3>
@@ -1025,7 +1089,8 @@ Boot Mode: <code>UEFI</code></p>
 <h1 id="challenges">Challenges</h1>
 <h2 id="1-what-should-be-my-disk-partition-">1. What should be my disk partition ?</h2>
 <h3 id="11-check-boot-mode">1.1 Check Boot mode</h3>
-<p>You need to check <a href="https://wiki.archlinux.org/title/Installation_guide">installation guide</a>, Refer step <strong>Verify the boot mode</strong>.</p>
+<p>You need to check <a href="https://wiki.archlinux.org/title/Installation_guide" target="_blank" rel="noopener">installation guide</a>
+, Refer step <strong>Verify the boot mode</strong>.</p>
 <p>In a live environment, you need to check first what is your boot mode.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls /sys/firmware/efi/efivars
 </span></span></code></pre></div><p>If the command shows the directory without error, then the system is booted in UEFI mode. If the directory does not exist, the system may be booted in BIOS (or CSM) mode.</p>
@@ -1077,7 +1142,8 @@ Boot Mode: <code>UEFI</code></p>
 </span></span><span style="display:flex;"><span>mount /dev/sda1 /mnt/boot
 </span></span><span style="display:flex;"><span>swapon /dev/sda2
 </span></span></code></pre></div><h2 id="2-install-bootloader">2. Install Bootloader</h2>
-<p>I have decided to install a grub bootloader on my machine. You can decide on this <a href="https://wiki.archlinux.org/title/Arch_boot_process">wiki page</a>.</p>
+<p>I have decided to install a grub bootloader on my machine. You can decide on this <a href="https://wiki.archlinux.org/title/Arch_boot_process" target="_blank" rel="noopener">wiki page</a>
+.</p>
 <h3 id="21-install-grub">2.1 Install GRUB</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S grub
 </span></span></code></pre></div><h3 id="22-generate-grub-config">2.2 Generate Grub config</h3>
@@ -1174,28 +1240,41 @@ There is no defined way to become a security researcher.</description>
 <h2 id="some-resources-to-get-start">Some resources to get start</h2>
 <ul>
 <li>
-<p><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters">https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters</a></p>
+<p><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters" target="_blank" rel="noopener">https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters</a>
+</p>
 </li>
 <li>
-<p><a href="https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/">https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/</a></p>
+<p><a href="https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/" target="_blank" rel="noopener">https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/</a>
+</p>
 </li>
 <li>
-<p><a href="https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115">https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115</a></p>
+<p><a href="https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115" target="_blank" rel="noopener">https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115</a>
+</p>
 </li>
 <li>
 <p>Pentesting for n00bs is ELI5 hacking, designed for beginners who have never walked through a hack before. All 10 episodes:</p>
 </li>
 </ul>
-<p>Ep 1 - Legacy: <a href="https://youtu.be/JZN3JhoAdWo">https://youtu.be/JZN3JhoAdWo</a></p>
-<p>Ep 2 - Lame: <a href="https://youtu.be/ntBkyid_u8Y">https://youtu.be/ntBkyid_u8Y</a></p>
-<p>Ep 3 - Blue: <a href="https://youtu.be/xLI7OialKk4">https://youtu.be/xLI7OialKk4</a></p>
-<p>Ep 4 - Devel: <a href="https://youtu.be/ODUDau7BPSY">https://youtu.be/ODUDau7BPSY</a></p>
-<p>Ep. 5 - Jerry: <a href="https://youtu.be/nF14K2VAVtw">https://youtu.be/nF14K2VAVtw</a></p>
-<p>Ep. 6 - Nibbles: <a href="https://youtu.be/8ulnQVFHcOE">https://youtu.be/8ulnQVFHcOE</a></p>
-<p>Ep. 7 - Optimum: <a href="https://youtu.be/bTxnobhJ_b8">https://youtu.be/bTxnobhJ_b8</a></p>
-<p>Ep. 8 - Bashed: <a href="https://youtu.be/5406MfOfXBc">https://youtu.be/5406MfOfXBc</a></p>
-<p>Ep. 9 - Grandpa: <a href="https://youtu.be/3aASluoJ-iM">https://youtu.be/3aASluoJ-iM</a></p>
-<p>Ep. 10 - Netmon: <a href="https://youtu.be/8k-8aVwS0fk">https://youtu.be/8k-8aVwS0fk</a></p>
+<p>Ep 1 - Legacy: <a href="https://youtu.be/JZN3JhoAdWo" target="_blank" rel="noopener">https://youtu.be/JZN3JhoAdWo</a>
+</p>
+<p>Ep 2 - Lame: <a href="https://youtu.be/ntBkyid_u8Y" target="_blank" rel="noopener">https://youtu.be/ntBkyid_u8Y</a>
+</p>
+<p>Ep 3 - Blue: <a href="https://youtu.be/xLI7OialKk4" target="_blank" rel="noopener">https://youtu.be/xLI7OialKk4</a>
+</p>
+<p>Ep 4 - Devel: <a href="https://youtu.be/ODUDau7BPSY" target="_blank" rel="noopener">https://youtu.be/ODUDau7BPSY</a>
+</p>
+<p>Ep. 5 - Jerry: <a href="https://youtu.be/nF14K2VAVtw" target="_blank" rel="noopener">https://youtu.be/nF14K2VAVtw</a>
+</p>
+<p>Ep. 6 - Nibbles: <a href="https://youtu.be/8ulnQVFHcOE" target="_blank" rel="noopener">https://youtu.be/8ulnQVFHcOE</a>
+</p>
+<p>Ep. 7 - Optimum: <a href="https://youtu.be/bTxnobhJ_b8" target="_blank" rel="noopener">https://youtu.be/bTxnobhJ_b8</a>
+</p>
+<p>Ep. 8 - Bashed: <a href="https://youtu.be/5406MfOfXBc" target="_blank" rel="noopener">https://youtu.be/5406MfOfXBc</a>
+</p>
+<p>Ep. 9 - Grandpa: <a href="https://youtu.be/3aASluoJ-iM" target="_blank" rel="noopener">https://youtu.be/3aASluoJ-iM</a>
+</p>
+<p>Ep. 10 - Netmon: <a href="https://youtu.be/8k-8aVwS0fk" target="_blank" rel="noopener">https://youtu.be/8k-8aVwS0fk</a>
+</p>
 <p>Please feel free to post your doubt or suggestions below 🙂</p>
 <p>Thanks</p>
 ]]></content:encoded>
@@ -1208,22 +1287,22 @@ There is no defined way to become a security researcher.</description>
       
       <guid>https://ashish.one/blogs/spf-lookup-in-go/</guid>
       <description>In this gist, We will check how we can extract SPF records in Go.
-Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns)
-Install dependency $ go get github.com/miekg/dns spfLookup.go Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1)
-Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1.</description>
+Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns) Install dependency $ go get github.com/miekg/dns spfLookup.go Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1) Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1.</description>
       <content:encoded><![CDATA[<p>In this gist, We will check how we can extract SPF records in Go.</p>
 <h2 id="prerequisite">Prerequisite</h2>
 <h3 id="go-version">Go version</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go version
 </span></span><span style="display:flex;"><span>go version go1.13 linux/amd64
 </span></span></code></pre></div><h3 id="dependency">Dependency</h3>
-<p><a href="https://github.com/miekg/dns">DNS Library(https://github.com/miekg/dns)</a></p>
+<p><a href="https://github.com/miekg/dns" target="_blank" rel="noopener">DNS Library(https://github.com/miekg/dns)</a>
+</p>
 <h2 id="install-dependency">Install dependency</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get github.com/miekg/dns 
 </span></span></code></pre></div><h2 id="spflookupgo">spfLookup.go</h2>
 <script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/ea5da5581ae2c56f3e25f8509155bd37.js"></script>
 
-<p>Here you can change <code>nameserver</code> according to your requirement. I have specified here google&rsquo;s name server (<code>8.8.8.8</code>). You can also use cloudflare&rsquo;s nameserver <a href="https://1.1.1.1">(1.1.1.1)</a></p>
+<p>Here you can change <code>nameserver</code> according to your requirement. I have specified here google&rsquo;s name server (<code>8.8.8.8</code>). You can also use cloudflare&rsquo;s nameserver <a href="https://1.1.1.1" target="_blank" rel="noopener">(1.1.1.1)</a>
+</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>You can make any DNS query with <code>miekg/dns</code> library. In the above script, we have looked up <code>TXT</code> Records and then we have searched for a string containing <code>v=spf1</code>.</p>
 ]]></content:encoded>
@@ -1259,10 +1338,12 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>Filebeat version: filebeat version 7.7.1 <span style="color:#f92672">(</span>amd64<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>Kibana version: 7.7.1
 </span></span></code></pre></div><h2 id="1-write-json-logs-to-the-file-in-go">1. Write JSON logs to the file in Go</h2>
-<p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install">here</a>.</p>
+<p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install" target="_blank" rel="noopener">here</a>
+.</p>
 <h3 id="my-golang-version">My Golang version:</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go version go1.13 linux/amd64
-</span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus">Logrus</a></h3>
+</span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus" target="_blank" rel="noopener">Logrus</a>
+</h3>
 <p>This is a wonderful package available to write logs. Below is the short example of using logrus package:</p>
 <h4 id="1-install-logrus-package">1. Install Logrus package</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go install github.com/sirupsen/logru
@@ -1310,14 +1391,18 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;create_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;info&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is an info message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">10</span>}
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;delete_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;warning&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a warning message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">11</span>}
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;edit_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;fatal&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a critical message.&#34;</span>,<span style="color:#f92672">&#34;package&#34;</span>:<span style="color:#e6db74">&#34;main&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">13</span>}
-</span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus">here</a>.</p>
+</span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus" target="_blank" rel="noopener">here</a>
+.</p>
 <h2 id="2-shift-all-json-logs-on-elasticsearch">2. Shift All JSON logs on Elasticsearch</h2>
 <p>This part has no dependency on the above part. You can use any <code>JSON</code> log file irrespective of any language.</p>
 <p>Before start I am assuming you have installed Elasticsearch, Filebeat &amp; Kibana on your machine. If not then refer below link:</p>
 <ul>
-<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Install Elasticsearch</a></li>
-<li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html">Install Filebeat</a></li>
-<li><a href="https://www.elastic.co/guide/en/kibana/current/install.html">Install Kibana</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">Install Elasticsearch</a>
+</li>
+<li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html" target="_blank" rel="noopener">Install Filebeat</a>
+</li>
+<li><a href="https://www.elastic.co/guide/en/kibana/current/install.html" target="_blank" rel="noopener">Install Kibana</a>
+</li>
 </ul>
 <blockquote>
 <p><strong>Note: In this part we are not going to use Logstash.</strong></p>
@@ -1361,8 +1446,10 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Array of hosts to connect to.</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: [<span style="color:#e6db74">&#34;localhost:9200&#34;</span>]
 </span></span></code></pre></div><p>You can check on below link to know more about filebeat log input &amp; JSON decoding</p>
-<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a></p>
-<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a></p>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a>
+</p>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json" target="_blank" rel="noopener">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a>
+</p>
 <h3 id="4-restart-filebeat">4. Restart Filebeat</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service filebeat restart
 </span></span></code></pre></div><h2 id="verify-if-data-indexed-on-elasticsearch">Verify If Data Indexed on Elasticsearch</h2>
@@ -1423,7 +1510,8 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Your data will be saved on the <code>json</code> key. Another is metadata which is added by filebeat. Filebeat provides lots of options, features &amp; settings. You can use it according to your requirements.</p>
 <h3 id="logs-on-kibana">Logs on Kibana</h3>
-<p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html">here</a> for more details.</p>
+<p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html" target="_blank" rel="noopener">here</a>
+ for more details.</p>
 <p>Once you are done with defining the index pattern, Go to <code>Discover</code> section, Here you will see all your logs.</p>
 <p><img loading="lazy" src="/img/go-elk-logs/kibana.png" alt="Kibana-discover"  />
 </p>
@@ -1517,7 +1605,8 @@ Docker makes the installation process very smooth and it gives your isolated env
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>networks:
 </span></span><span style="display:flex;"><span> nginx-php:
-</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks">here</a>.</p>
+</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks" target="_blank" rel="noopener">here</a>
+.</p>
 <p>You can set <code>volumes</code> path according to your requirement.</p>
 <h3 id="step-4-lets-up-the-containers">Step 4: Let&rsquo;s Up the containers</h3>
 <p>Create container:</p>
@@ -1544,7 +1633,8 @@ Docker makes the installation process very smooth and it gives your isolated env
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">phpinfo</span>();
 </span></span></code></pre></div><h3 id="step-6-run-testphp">Step 6: Run <code>test.php</code></h3>
-<p>Visit <a href="http://localhost/test.php">http://localhost/test.php</a>.</p>
+<p>Visit <a href="http://localhost/test.php" target="_blank" rel="noopener">http://localhost/test.php</a>
+.</p>
 <p>Output:</p>
 <p><img loading="lazy" src="/img/lemp-docker/phpinfo.png" alt="phpinfo"  />
 </p>
@@ -1598,14 +1688,15 @@ $ hugo version Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate
       <guid>https://ashish.one/blogs/challenges-in-linuxfromscratch/</guid>
       <description>Successfully built custom #Linux system by referring https://t.co/lyrdKkfXo9 .
 Listed my challenges here https://t.co/gU2SoAxly2@nixcraft#linux #lfs #linuxfromscratch pic.twitter.com/XlWchVHy26
-&amp;mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) April 27, 2020 I have started with www.linuxfromscratch.org, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.
+&amp;mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) April 27, 2020 I have started with www.linuxfromscratch.org , I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.
 Before we get start You need some basic linux command knowledge to use linuxfromscratch guide.</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&amp;name=large" alt="lfs_screen"  />
 </p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Successfully built custom <a href="https://twitter.com/hashtag/Linux?src=hash&amp;ref_src=twsrc%5Etfw">#Linux</a> system by referring <a href="https://t.co/lyrdKkfXo9">https://t.co/lyrdKkfXo9</a> .<br><br>Listed my challenges here <a href="https://t.co/gU2SoAxly2">https://t.co/gU2SoAxly2</a><a href="https://twitter.com/nixcraft?ref_src=twsrc%5Etfw">@nixcraft</a><a href="https://twitter.com/hashtag/linux?src=hash&amp;ref_src=twsrc%5Etfw">#linux</a> <a href="https://twitter.com/hashtag/lfs?src=hash&amp;ref_src=twsrc%5Etfw">#lfs</a> <a href="https://twitter.com/hashtag/linuxfromscratch?src=hash&amp;ref_src=twsrc%5Etfw">#linuxfromscratch</a> <a href="https://t.co/XlWchVHy26">pic.twitter.com/XlWchVHy26</a></p>&mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) <a href="https://twitter.com/_ashish_tiwari/status/1254719517491511296?ref_src=twsrc%5Etfw">April 27, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p>I have started with <a href="https://www.linuxfromscratch.org">www.linuxfromscratch.org</a>, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.</p>
+<p>I have started with <a href="https://www.linuxfromscratch.org" target="_blank" rel="noopener">www.linuxfromscratch.org</a>
+, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.</p>
 <h2 id="before-we-get-start">Before we get start</h2>
 <p>You need some basic linux command knowledge to use linuxfromscratch guide. I am going to build LFS on my local machine. If your machine has a different OS or different configuration, Then some solution will not work.</p>
 <p>I am going to use the same chapter title as mentioned in linuxfromscratch. I will skip those sections where I haven&rsquo;t faced any difficulties.</p>
@@ -1619,7 +1710,8 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 </span></span><span style="display:flex;"><span>LFS doc:http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html
 </span></span></code></pre></div><h2 id="challenges">Challenges</h2>
 <h2 id="22-host-system-requirements">2.2. Host System Requirements</h2>
-<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs</a></p>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs" target="_blank" rel="noopener">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs</a>
+</p>
 <h3 id="version-check">Version check</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat &gt; version-check.sh &lt;&lt; <span style="color:#e6db74">&#34;EOF&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
@@ -1727,12 +1819,14 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 </span></span><span style="display:flex;"><span>xz <span style="color:#f92672">(</span>XZ Utils<span style="color:#f92672">)</span> 5.1.0alpha
 </span></span><span style="display:flex;"><span>g++ compilation OK
 </span></span></code></pre></div><h2 id="25-creating-a-file-system-on-the-partition">2.5. Creating a File System on the Partition</h2>
-<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem</a></p>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem" target="_blank" rel="noopener">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem</a>
+</p>
 <p>I had only one partition. I need to create new <strong>physical</strong> partition for LFS.</p>
 <blockquote>
 <p>It is recommended to use Physical partition only not logical.</p>
 </blockquote>
-<p>I have reinstall my OS with new partition which is long way. You can use <a href="https://www.howtogeek.com/114503/how-to-resize-your-ubuntu-partitions/">GParted</a> to make partitions. Remember you can create only 4 Physical partition. Give 1 physical partition dedicated to LFS. Below is my partition view.</p>
+<p>I have reinstall my OS with new partition which is long way. You can use <a href="https://www.howtogeek.com/114503/how-to-resize-your-ubuntu-partitions/" target="_blank" rel="noopener">GParted</a>
+ to make partitions. Remember you can create only 4 Physical partition. Give 1 physical partition dedicated to LFS. Below is my partition view.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ lsblk
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
@@ -1760,10 +1854,12 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 <li><code>errors=remount-ro</code>: It will mount as Read-Only, If you get any error on mounting.</li>
 </ul>
 <blockquote>
-<p>Make sure you have added <code>exec</code>, Otherwise you cannot execute any binaries from chapter <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1">5.4. Binutils-2.34 - Pass 1</a></p>
+<p>Make sure you have added <code>exec</code>, Otherwise you cannot execute any binaries from chapter <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1" target="_blank" rel="noopener">5.4. Binutils-2.34 - Pass 1</a>
+</p>
 </blockquote>
 <h2 id="54-binutils-234---pass-1">5.4. Binutils-2.34 - Pass 1</h2>
-<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1</a></p>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1" target="_blank" rel="noopener">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1</a>
+</p>
 <h3 id="error-1-1">Error 1:</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bash: ../configure: No such file or directory
 </span></span></code></pre></div><p>As I mentioned on above Section, Make sure you have added <code>exec</code> in your <code>/etc/fstab</code> entry OR Make sure your partition <code>/lfs</code> has Read, Write &amp; Execute permission. Below <code>/etc/fstab</code> entry worked for me:</p>
@@ -1827,7 +1923,8 @@ compute_powtab.c:296:15: note: previous definition of &#39;pn&#39; was here
                ^
 compute_powtab.c:308:3: error: &#39;for&#39; loop initial declarations are only allowed in C99 mode
    for (long i = n_pows - 2; i &gt;= 0; i--)
-</code></pre><p>As per (<a href="https://stackoverflow.com/a/29338269)%5Bhttps://stackoverflow.com/a/29338269%5D">https://stackoverflow.com/a/29338269)[https://stackoverflow.com/a/29338269]</a>,</p>
+</code></pre><p>As per (<a href="https://stackoverflow.com/a/29338269%29[https://stackoverflow.com/a/29338269]" target="_blank" rel="noopener">https://stackoverflow.com/a/29338269)[https://stackoverflow.com/a/29338269]</a>
+,</p>
 <blockquote>
 <p><strong>This happens because declaring variables inside a for loop wasn&rsquo;t valid C until C99(which is the standard of C published in 1999).</strong></p>
 </blockquote>
@@ -1844,7 +1941,8 @@ compute_powtab.c:308:3: error: &#39;for&#39; loop initial declarations are only 
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span>
 </span></span></code></pre></div><p>Just declare <code>long pi;</code> outside the loop. Similarly you can solve above all errors.</p>
 <p><strong>OR</strong></p>
-<p>You can download my edited version of <a href="/download/compute_powtab.c">compute_powtab.c</a>, Place in <code>$LFS/sources/gcc-9.2.0/build/gmp/mpn/</code>.</p>
+<p>You can download my edited version of <a href="/download/compute_powtab.c">compute_powtab.c</a>
+, Place in <code>$LFS/sources/gcc-9.2.0/build/gmp/mpn/</code>.</p>
 <p>Hit</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>make
 </span></span></code></pre></div><p>Now it should works :)</p>
@@ -1868,7 +1966,8 @@ compute_powtab.c:308:3: error: &#39;for&#39; loop initial declarations are only 
 </span></span><span style="display:flex;"><span>PARTICULAR PURPOSE.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>This program built <span style="color:#66d9ef">for</span> x86_64-pc-linux-gnu
-</span></span></code></pre></div><p>As per (<a href="https://stackoverflow.com/a/31915313)%5Bhttps://stackoverflow.com/a/31915313%5D">https://stackoverflow.com/a/31915313)[https://stackoverflow.com/a/31915313]</a></p>
+</span></span></code></pre></div><p>As per (<a href="https://stackoverflow.com/a/31915313%29[https://stackoverflow.com/a/31915313]" target="_blank" rel="noopener">https://stackoverflow.com/a/31915313)[https://stackoverflow.com/a/31915313]</a>
+</p>
 <blockquote>
 <p><strong>Due to a long-standing unresolved Debian bug report, GNU Make remained the age-old 3.81 in Debian for a very long time, and as a consequence, in Debian-based distributions such as Ubuntu and Mint.</strong></p>
 </blockquote>
@@ -1922,7 +2021,8 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
 </span></span><span style="display:flex;"><span>cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 </span></span><span style="display:flex;"><span>readelf -l a.out | grep <span style="color:#e6db74">&#39;: /lib&#39;</span>
-</span></span></code></pre></div><p>Performed below steps as mentioned on this link <a href="https://stackoverflow.com/a/48289145">https://stackoverflow.com/a/48289145</a>:</p>
+</span></span></code></pre></div><p>Performed below steps as mentioned on this link <a href="https://stackoverflow.com/a/48289145" target="_blank" rel="noopener">https://stackoverflow.com/a/48289145</a>
+:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gcc -dumpspecs | sed -e <span style="color:#e6db74">&#39;s@/tools@@g&#39;</span> &gt; <span style="color:#e6db74">`</span>dirname <span style="color:#66d9ef">$(</span>gcc --print-libgcc-file-name<span style="color:#66d9ef">)</span><span style="color:#e6db74">`</span>/specs
 </span></span></code></pre></div><p>Again perform above command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
@@ -1936,7 +2036,8 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/usr/bin/ld: perlio.o:perlio.c:(.text+0x44e4): more undefined references to `pthread_getspecific&#39;</span> follow
 </span></span><span style="display:flex;"><span>collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
 </span></span><span style="display:flex;"><span>make: *** <span style="color:#f92672">[</span>makefile:364: lib/buildcustomize.pl<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>Solution which suggested here <a href="https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/">https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/</a> It worked for me.</p>
+</span></span></code></pre></div><p>Solution which suggested here <a href="https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/" target="_blank" rel="noopener">https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/</a>
+ It worked for me.</p>
 <p>it&rsquo;s due to not having deleted the extracted Perl-5.28.0 directory after Chapter 5. I deleted the folder. Again untar the file.</p>
 <h2 id="84-using-grub-to-set-up-the-boot-process">8.4. Using GRUB to Set Up the Boot Process</h2>
 <p><strong>NOTE</strong>: I have not performed this section, Becuase I am going to use my host system&rsquo;s (Ubuntu 14.04) GRUB bootloader. Just go to another terminal of host system and hit below command.</p>
@@ -1959,12 +2060,14 @@ What is Grafana? As grafana.com says
 This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc.</description>
       <content:encoded><![CDATA[<p>As you know Prometheus already having UI (<code>localhost:9090</code>). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.</p>
 <h2 id="what-is-grafana">What is Grafana?</h2>
-<p>As <a href="https://grafana.com">grafana.com</a> says</p>
+<p>As <a href="https://grafana.com" target="_blank" rel="noopener">grafana.com</a>
+ says</p>
 <blockquote>
 <p><strong>”Grafana is the open-source analytics and monitoring solution for every database.”</strong></p>
 </blockquote>
 <p>This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc. So you can visualize different data points from the different databases on one screen. This is the flexibility and power Grafana provides.</p>
-<p>Grafana works on TSDB(Time Series Database) or Your data should be save in time series manner. Check explaination <a href="https://grafana.com/docs/grafana/latest/guides/timeseries/">here</a>.</p>
+<p>Grafana works on TSDB(Time Series Database) or Your data should be save in time series manner. Check explaination <a href="https://grafana.com/docs/grafana/latest/guides/timeseries/" target="_blank" rel="noopener">here</a>
+.</p>
 <p>It has an alert system. You can configure an alert on Grafana itself for any Metric.</p>
 <h2 id="why-grafana">Why Grafana?</h2>
 <ol>
@@ -1979,7 +2082,8 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 <li>8GB RAM</li>
 <li>Ubuntu 18.04 LTS</li>
 </ul>
-<p>You can check <a href="https://grafana.com/docs/grafana/latest/installation/requirements/">here</a> your system requirement according to your Operating System. Also, They explained different ways to install Grafana for different OS.</p>
+<p>You can check <a href="https://grafana.com/docs/grafana/latest/installation/requirements/" target="_blank" rel="noopener">here</a>
+ your system requirement according to your Operating System. Also, They explained different ways to install Grafana for different OS.</p>
 <h2 id="setup-grafana">Setup Grafana</h2>
 <h3 id="installation">Installation</h3>
 <p>Grafana has two types of Software:</p>
@@ -2021,10 +2125,12 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 </code></pre><p>visit <code>localhost:3000</code>.</p>
 <p>We have successfully installed Grafana. Let&rsquo;s configure with Prometheus.</p>
 <h2 id="configure-with-prometheus">Configure with Prometheus</h2>
-<p>We already setup Prometheus in <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">part 1</a>. Now I am considering your Prometheus and Node exporter are running on port <code>9090</code> &amp; <code>9100</code> respectively.</p>
+<p>We already setup Prometheus in <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/" target="_blank" rel="noopener">part 1</a>
+. Now I am considering your Prometheus and Node exporter are running on port <code>9090</code> &amp; <code>9100</code> respectively.</p>
 <h3 id="setup-grafana----prometheus">Setup Grafana &lt;&ndash;&gt; Prometheus</h3>
 <h4 id="step-1-login-on-grafana">Step 1: Login on Grafana</h4>
-<p>Visit <code>localhost:3000</code>. 3000 is the default port of Grafana, However, you can run on any port. To change the port see the <a href="https://grafana.com/docs/grafana/latest/installation/configuration/">configuration</a>.</p>
+<p>Visit <code>localhost:3000</code>. 3000 is the default port of Grafana, However, you can run on any port. To change the port see the <a href="https://grafana.com/docs/grafana/latest/installation/configuration/" target="_blank" rel="noopener">configuration</a>
+.</p>
 <p>Login into Grafana with default Credentials:</p>
 <p><strong>Username</strong>:<code>admin</code><br>
 <strong>Password</strong>:<code>admin</code></p>
@@ -2051,8 +2157,10 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 <li><strong><em>Import any pre-build Dashboard</em></strong></li>
 </ol>
 <p>We will go with the second option because that is the beauty of community :) People already build a dashboard for various stacks.</p>
-<p>You can search for Dashboard from <a href="https://grafana.com/grafana/dashboards">https://grafana.com/grafana/dashboards</a> as per your requirement.</p>
-<p>Here is the link for Node exporter dashboard: <a href="https://grafana.com/grafana/dashboards/1860">https://grafana.com/grafana/dashboards/1860</a></p>
+<p>You can search for Dashboard from <a href="https://grafana.com/grafana/dashboards" target="_blank" rel="noopener">https://grafana.com/grafana/dashboards</a>
+ as per your requirement.</p>
+<p>Here is the link for Node exporter dashboard: <a href="https://grafana.com/grafana/dashboards/1860" target="_blank" rel="noopener">https://grafana.com/grafana/dashboards/1860</a>
+</p>
 <p>Here Dashboard ID is <code>1860</code>. Every dashboard which contributed in Grafana has unique ID. You can just import any dashboard by inserting the ID.</p>
 <p><img loading="lazy" src="/img/grafana-setup/node-exporter-dashboard.png" alt="node-exporter-dashboard"  />
 </p>
@@ -2069,7 +2177,8 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 <p><img loading="lazy" src="/img/grafana-setup/node-dashboard.png" alt="node-dashboard"  />
 </p>
 <p>Here we have successfully integrated the Grafana with Prometheus. You can explore more features of Grafana like Alerts, Users, etc.</p>
-<p>For the alerting system, I prefer Prometheus Alertmanager only. You can check more details on the Alertmanager in <a href="https://ashish.one/blogs/setup-alertmanager/">part 2</a>. It gives you more control and advanced feature.</p>
+<p>For the alerting system, I prefer Prometheus Alertmanager only. You can check more details on the Alertmanager in <a href="https://ashish.one/blogs/setup-alertmanager/" target="_blank" rel="noopener">part 2</a>
+. It gives you more control and advanced feature.</p>
 <p>But every tool has use cases and built for special purposes. You can choose according to your requirements.</p>
 <p><strong>In case of any confusion or issues leave comments below :)</strong></p>
 ]]></content:encoded>
@@ -2178,19 +2287,27 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
 <p>The source is both types of official &amp; Unofficial.</p>
 <h5 id="official">Official</h5>
 <ul>
-<li>Post Mar 15, data is from <a href="https://www.mohfw.gov.in/">The Ministry of Health &amp; Family Welfare</a></li>
-<li>Pre  Mar 15, data is sourced from <a href="https://github.com/datameet/covid19/tree/eb1cc65657929abe12ca59f0e754bef4bc562d7a/mohfw-backup">datameet/covid19</a></li>
-<li>Hospital &amp; bed data: <a href="https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity">https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity</a></li>
-<li>ICMR testing stats API: <a href="https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData">https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData</a></li>
+<li>Post Mar 15, data is from <a href="https://www.mohfw.gov.in/" target="_blank" rel="noopener">The Ministry of Health &amp; Family Welfare</a>
+</li>
+<li>Pre  Mar 15, data is sourced from <a href="https://github.com/datameet/covid19/tree/eb1cc65657929abe12ca59f0e754bef4bc562d7a/mohfw-backup" target="_blank" rel="noopener">datameet/covid19</a>
+</li>
+<li>Hospital &amp; bed data: <a href="https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity" target="_blank" rel="noopener">https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity</a>
+</li>
+<li>ICMR testing stats API: <a href="https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData" target="_blank" rel="noopener">https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData</a>
+</li>
 </ul>
 <h5 id="unofficial">Unofficial</h5>
 <ul>
-<li>The awesome volunteer driven patient tracing data <a href="https://www.covid19india.org/">covid19india.org</a></li>
-<li>API (NLP): <a href="http://coronatravelhistory.pythonanywhere.com/">http://coronatravelhistory.pythonanywhere.com/</a></li>
-<li>API (Travel history): <a href="https://api.covid19india.org/travel_history.json">https://api.covid19india.org/travel_history.json</a></li>
+<li>The awesome volunteer driven patient tracing data <a href="https://www.covid19india.org/" target="_blank" rel="noopener">covid19india.org</a>
+</li>
+<li>API (NLP): <a href="http://coronatravelhistory.pythonanywhere.com/" target="_blank" rel="noopener">http://coronatravelhistory.pythonanywhere.com/</a>
+</li>
+<li>API (Travel history): <a href="https://api.covid19india.org/travel_history.json" target="_blank" rel="noopener">https://api.covid19india.org/travel_history.json</a>
+</li>
 </ul>
 <h3 id="2-github-ashishtiwari1993india_mohfwgovin_scrape_covid19_statewise_status-india">2. Github: ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status (India)</h3>
-<p>Scraping <a href="https://mohfw.gov.in">https://mohfw.gov.in</a> to extract the statewise data.</p>
+<p>Scraping <a href="https://mohfw.gov.in" target="_blank" rel="noopener">https://mohfw.gov.in</a>
+ to extract the statewise data.</p>
 <h4 id="repo-1">Repo:</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://github.com/ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status
 </span></span></code></pre></div><h4 id="apis-available-1">APIs available:</h4>
@@ -2209,7 +2326,8 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
 <p>It is global data source. You will get all information for any country.</p>
 <h4 id="sources-2">Sources</h4>
 <ul>
-<li><a href="https://www.worldometers.info/coronavirus/">Worldometers</a></li>
+<li><a href="https://www.worldometers.info/coronavirus/" target="_blank" rel="noopener">Worldometers</a>
+</li>
 </ul>
 <h3 id="4-github-cssegisanddatacovid-19-global">4. Github: CSSEGISandData/COVID-19 (Global)</h3>
 <p>This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).</p>
@@ -2219,23 +2337,39 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
 <p>CSVs are available in time series manner. Information is available about all country.</p>
 <h2 id="sources-3">Sources</h2>
 <ul>
-<li>World Health Organization (WHO): <a href="https://www.who.int/">https://www.who.int/</a></li>
-<li>DXY.cn. Pneumonia. 2020. <a href="http://3g.dxy.cn/newh5/view/pneumonia">http://3g.dxy.cn/newh5/view/pneumonia</a>.</li>
-<li>BNO News: <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/">https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/</a></li>
+<li>World Health Organization (WHO): <a href="https://www.who.int/" target="_blank" rel="noopener">https://www.who.int/</a>
+</li>
+<li>DXY.cn. Pneumonia. 2020. <a href="http://3g.dxy.cn/newh5/view/pneumonia" target="_blank" rel="noopener">http://3g.dxy.cn/newh5/view/pneumonia</a>
+.</li>
+<li>BNO News: <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/" target="_blank" rel="noopener">https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/</a>
+</li>
 <li>National Health Commission of the People’s Republic of China (NHC):
-<a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml</a></li>
-<li>China CDC (CCDC): <a href="http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm">http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm</a></li>
-<li>Hong Kong Department of Health: <a href="https://www.chp.gov.hk/en/features/102465.html">https://www.chp.gov.hk/en/features/102465.html</a></li>
-<li>Macau Government: <a href="https://www.ssm.gov.mo/portal/">https://www.ssm.gov.mo/portal/</a></li>
-<li>Taiwan CDC: <a href="https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0">https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0</a></li>
-<li>US CDC: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">https://www.cdc.gov/coronavirus/2019-ncov/index.html</a></li>
-<li>Government of Canada: <a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus.html">https://www.canada.ca/en/public-health/services/diseases/coronavirus.html</a></li>
-<li>Australia Government Department of Health: <a href="https://www.health.gov.au/news/coronavirus-update-at-a-glance">https://www.health.gov.au/news/coronavirus-update-at-a-glance</a></li>
-<li>European Centre for Disease Prevention and Control (ECDC): <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases</a></li>
-<li>Ministry of Health Singapore (MOH): <a href="https://www.moh.gov.sg/covid-19">https://www.moh.gov.sg/covid-19</a></li>
-<li>Italy Ministry of Health: <a href="http://www.salute.gov.it/nuovocoronavirus">http://www.salute.gov.it/nuovocoronavirus</a></li>
-<li>1Point3Arces: <a href="https://coronavirus.1point3acres.com/en">https://coronavirus.1point3acres.com/en</a></li>
-<li>WorldoMeters: <a href="https://www.worldometers.info/coronavirus/">https://www.worldometers.info/coronavirus/</a></li>
+<a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml" target="_blank" rel="noopener">http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml</a>
+</li>
+<li>China CDC (CCDC): <a href="http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm" target="_blank" rel="noopener">http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm</a>
+</li>
+<li>Hong Kong Department of Health: <a href="https://www.chp.gov.hk/en/features/102465.html" target="_blank" rel="noopener">https://www.chp.gov.hk/en/features/102465.html</a>
+</li>
+<li>Macau Government: <a href="https://www.ssm.gov.mo/portal/" target="_blank" rel="noopener">https://www.ssm.gov.mo/portal/</a>
+</li>
+<li>Taiwan CDC: <a href="https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0" target="_blank" rel="noopener">https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0</a>
+</li>
+<li>US CDC: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" target="_blank" rel="noopener">https://www.cdc.gov/coronavirus/2019-ncov/index.html</a>
+</li>
+<li>Government of Canada: <a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus.html" target="_blank" rel="noopener">https://www.canada.ca/en/public-health/services/diseases/coronavirus.html</a>
+</li>
+<li>Australia Government Department of Health: <a href="https://www.health.gov.au/news/coronavirus-update-at-a-glance" target="_blank" rel="noopener">https://www.health.gov.au/news/coronavirus-update-at-a-glance</a>
+</li>
+<li>European Centre for Disease Prevention and Control (ECDC): <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases" target="_blank" rel="noopener">https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases</a>
+</li>
+<li>Ministry of Health Singapore (MOH): <a href="https://www.moh.gov.sg/covid-19" target="_blank" rel="noopener">https://www.moh.gov.sg/covid-19</a>
+</li>
+<li>Italy Ministry of Health: <a href="http://www.salute.gov.it/nuovocoronavirus" target="_blank" rel="noopener">http://www.salute.gov.it/nuovocoronavirus</a>
+</li>
+<li>1Point3Arces: <a href="https://coronavirus.1point3acres.com/en" target="_blank" rel="noopener">https://coronavirus.1point3acres.com/en</a>
+</li>
+<li>WorldoMeters: <a href="https://www.worldometers.info/coronavirus/" target="_blank" rel="noopener">https://www.worldometers.info/coronavirus/</a>
+</li>
 </ul>
 ]]></content:encoded>
     </item>
@@ -2339,9 +2473,12 @@ It is as simple as below:</p>
 <script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
 <h2 id="references">References:</h2>
-<p><a href="https://blog.golang.org/go-maps-in-action">https://blog.golang.org/go-maps-in-action</a><br>
-<a href="https://golang.org/doc/faq#atomic_maps">https://golang.org/doc/faq#atomic_maps</a><br>
-<a href="https://gobyexample.com/mutexes">https://gobyexample.com/mutexes</a></p>
+<p><a href="https://blog.golang.org/go-maps-in-action" target="_blank" rel="noopener">https://blog.golang.org/go-maps-in-action</a>
+<br>
+<a href="https://golang.org/doc/faq#atomic_maps" target="_blank" rel="noopener">https://golang.org/doc/faq#atomic_maps</a>
+<br>
+<a href="https://gobyexample.com/mutexes" target="_blank" rel="noopener">https://gobyexample.com/mutexes</a>
+</p>
 ]]></content:encoded>
     </item>
     
@@ -2411,7 +2548,8 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
 <code>$wp_version = '5.2.4';</code></p>
 <p>Version can be different.</p>
 <h3 id="step-4-download-wordpress-zip-file">Step 4: Download WordPress zip file</h3>
-<p>Go to <a href="https://wordpress.org/download/releases/">Wordpress Releases page</a>. Check for your version and download with below command:</p>
+<p>Go to <a href="https://wordpress.org/download/releases/" target="_blank" rel="noopener">Wordpress Releases page</a>
+. Check for your version and download with below command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget https://wordpress.org/wordpress-5.2.4.zip
 </span></span></code></pre></div><p>Unzip it:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>unzip wordpress-5.2.4.zip
@@ -2473,11 +2611,13 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
       <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
       
       <guid>https://ashish.one/blogs/write-custom-exporters-prometheus/</guid>
-      <description>Introduction In PART-1 and PART-2, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
+      <description>Introduction In PART-1 and PART-2 , We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
 But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.
-There is two way to exporting the data on prometheus: 1. Exporting to a Pushgateway Here we metrics are getting the push to prometheus server.</description>
+There is two way to exporting the data on prometheus: 1.</description>
       <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART-1</a> and <a href="https://ashish.one/blogs/setup-alertmanager/">PART-2</a>, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.</p>
+<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/" target="_blank" rel="noopener">PART-1</a>
+ and <a href="https://ashish.one/blogs/setup-alertmanager/" target="_blank" rel="noopener">PART-2</a>
+, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.</p>
 <p>But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.</p>
 <h2 id="there-is-two-way-to-exporting-the-data-on-prometheus">There is two way to exporting the data on prometheus:</h2>
 <h3 id="1-exporting-to-a-pushgateway">1. Exporting to a Pushgateway</h3>
@@ -2494,12 +2634,15 @@ There is two way to exporting the data on prometheus: 1. Exporting to a Pushgate
 <h2 id="writing-exporter">Writing Exporter</h2>
 <p>We are going to use the Second option (Exposing over HTTP).</p>
 <h3 id="step-1">Step 1</h3>
-<p>We going to use <a href="https://github.com/prometheus/client_python">python_client</a>. Just install it with below <code>pip</code> command:</p>
+<p>We going to use <a href="https://github.com/prometheus/client_python" target="_blank" rel="noopener">python_client</a>
+. Just install it with below <code>pip</code> command:</p>
 <p><code>pip install prometheus_client</code></p>
 <h3 id="step-2">Step 2</h3>
-<p>We need webserver gateway, For which we are going to use <a href="https://www.python.org/dev/peps/pep-0333/">WSGI</a>.</p>
+<p>We need webserver gateway, For which we are going to use <a href="https://www.python.org/dev/peps/pep-0333/" target="_blank" rel="noopener">WSGI</a>
+.</p>
 <h3 id="step-3">Step 3</h3>
-<p>Whenever we are writing exporters, We need to take care of metric type storage. Prometheus offered four types of metrics: Counter, Gauge, Summary, and Histogram. You can explore more <a href="https://github.com/prometheus/client_python#instrumenting">here</a>. Decide your metric type before pushing data.</p>
+<p>Whenever we are writing exporters, We need to take care of metric type storage. Prometheus offered four types of metrics: Counter, Gauge, Summary, and Histogram. You can explore more <a href="https://github.com/prometheus/client_python#instrumenting" target="_blank" rel="noopener">here</a>
+. Decide your metric type before pushing data.</p>
 <h3 id="step-4">Step 4</h3>
 <p>We are going to run a webserver on <code>8000</code> port and exposing the result on <code>/metrics</code> path. So to access metrics just hit <code>http://myurl.com:8000/metrics</code>.</p>
 <h3 id="step-5">Step 5</h3>
@@ -2520,8 +2663,10 @@ There is two way to exporting the data on prometheus: 1. Exporting to a Pushgate
 <blockquote>
 <p>This is just a very basic example. It is a simple script to understand the way of writing exporters. You can write your custom exporters according to your use case.</p>
 </blockquote>
-<p>Here we have successfully write exporter which will expose the metrics. To know more about pushgateway or HTTP expoorter visit <a href="https://github.com/prometheus/client_python#instrumenting">here</a></p>
-<p>In <a href="https://ashish.one/blogs/setup-grafana-with-prometheus/">part - 4</a>, I have explained how you can integrate Grafana with Prometheus.</p>
+<p>Here we have successfully write exporter which will expose the metrics. To know more about pushgateway or HTTP expoorter visit <a href="https://github.com/prometheus/client_python#instrumenting" target="_blank" rel="noopener">here</a>
+</p>
+<p>In <a href="https://ashish.one/blogs/setup-grafana-with-prometheus/" target="_blank" rel="noopener">part - 4</a>
+, I have explained how you can integrate Grafana with Prometheus.</p>
 <p>Share you comments below :)</p>
 ]]></content:encoded>
     </item>
@@ -2532,15 +2677,17 @@ There is two way to exporting the data on prometheus: 1. Exporting to a Pushgate
       <pubDate>Wed, 23 Oct 2019 15:24:26 +0530</pubDate>
       
       <guid>https://ashish.one/blogs/setup-alertmanager/</guid>
-      <description>Introduction In PART - 1, We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.
+      <description>Introduction In PART - 1 , We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.
 Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART - 1</a>, We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.</p>
+<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/" target="_blank" rel="noopener">PART - 1</a>
+, We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.</p>
 <p>Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.</p>
 <p>Let&rsquo;s setup alertmanage: )</p>
 <h1 id="setup-alertmanager">Setup Alertmanager</h1>
 <h2 id="installation">Installation:</h2>
-<p>Prerequisites will be the same as <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART - 1</a> . We will download the precompiled binary of alertmanager. Although there is a docker image also available which you can use.</p>
+<p>Prerequisites will be the same as <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/" target="_blank" rel="noopener">PART - 1</a>
+ . We will download the precompiled binary of alertmanager. Although there is a docker image also available which you can use.</p>
 <h3 id="step-1-download-alertmanager">Step 1: Download alertmanager</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget https://github.com/prometheus/prometheus/releases/download/v2.13.1/prometheus-2.13.1.linux-amd64.tar.gz
 </span></span></code></pre></div><p><img loading="lazy" src="/img/alertmanager-setup/download_alertmanager.png" alt="alertmanager binary download"  />
@@ -2690,13 +2837,15 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 <li>If memory utilization is exceeded than 80% then it will trigger an email.</li>
 <li>If any disk partition usage exceeded than 95% then it will trigger an email.</li>
 </ol>
-<p>You will get more insights on defining alerting rules <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/">here</a>.</p>
+<p>You will get more insights on defining alerting rules <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/" target="_blank" rel="noopener">here</a>
+.</p>
 <p>Now you might be wondering what is <code>node_filesystem_size_bytes</code> or <code>node_memory_MemTotal_bytes</code> ?</p>
 <p>If we recall part - 1 when we set up the node exporter and visited on <code>localhost:9100/metrics</code>, It has shown some metric. In that will get the above variable name. If you want to put any alert rules irrespective of any exporters, You have to make <code>expr</code> using these variables.</p>
 <p>You can compile your alert rule file :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ promtool check rules alert.rules.yml
 </span></span></code></pre></div><p><code>promtool</code> is binary which we got in prometheus folder when we extracted it.</p>
-<p>You can explore some sample rules <a href="https://awesome-prometheus-alerts.grep.to/rules.html">here</a>.</p>
+<p>You can explore some sample rules <a href="https://awesome-prometheus-alerts.grep.to/rules.html" target="_blank" rel="noopener">here</a>
+.</p>
 <h3 id="step-4-create-alertmanageryml">Step 4: Create alertmanager.yml</h3>
 <p>Create <code>~/alertmanager/alertmanager.yml</code> file and paste below code:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>global:
@@ -2761,8 +2910,10 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 <ul>
 <li><code>global</code>: Here we can define any global variable like we defined <code>slack_api_url</code>.</li>
 <li><code>route</code>: It is a routing block. I am playing routing on <code>severity</code>. Similarly, it is your choice on which variable you want to route your alerts. So here if <code>severity == ‘info’</code>, Alert will go from slack or if <code>severity == ‘critical’</code>, Alert will go via an email.</li>
-<li><code>receivers</code>: Here we can define the channel by which alert will go. For now, I have defined only email &amp; slack. You can explore more receivers <a href="https://prometheus.io/docs/alerting/configuration/#receiver">here</a>.</li>
-<li><code>templates</code>: It is an alert template where I have defined the HTML template for an email alert. It is not restricted to email. You can define a template for any channel. Explore more details about templates <a href="https://prometheus.io/docs/alerting/notification_examples/">here</a>.</li>
+<li><code>receivers</code>: Here we can define the channel by which alert will go. For now, I have defined only email &amp; slack. You can explore more receivers <a href="https://prometheus.io/docs/alerting/configuration/#receiver" target="_blank" rel="noopener">here</a>
+.</li>
+<li><code>templates</code>: It is an alert template where I have defined the HTML template for an email alert. It is not restricted to email. You can define a template for any channel. Explore more details about templates <a href="https://prometheus.io/docs/alerting/notification_examples/" target="_blank" rel="noopener">here</a>
+.</li>
 </ul>
 <h3 id="step-5-sample-template">Step 5: Sample template</h3>
 <p>Create and Paste below code in <code>~/prometheus/alert.tmpl</code></p>
@@ -2829,7 +2980,9 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 <p>If everything is set up correctly and alert rule getting true then it will trigger an alert. You can enable the log of alertmanager for debugging purposes.</p>
 <p>If you want to test alert, Then simply make threshold to very less 0% or 1% after 30s it should trigger the alert.</p>
 <p>Visit <code>localhost:9093</code>. If there is some alert you will get the list on the dashboard.</p>
-<p>So we successfully setup alert using alertmanager. In <a href="https://ashish.one/blogs/write-custom-exporters-prometheus/">part - 3</a> I have explained how you can write your own custom exporters &amp; You can check <a href="https://ashish.one/blogs/setup-grafana-with-prometheus/">part - 4</a> to integrate Grafana with Prometheus.</p>
+<p>So we successfully setup alert using alertmanager. In <a href="https://ashish.one/blogs/write-custom-exporters-prometheus/" target="_blank" rel="noopener">part - 3</a>
+ I have explained how you can write your own custom exporters &amp; You can check <a href="https://ashish.one/blogs/setup-grafana-with-prometheus/" target="_blank" rel="noopener">part - 4</a>
+ to integrate Grafana with Prometheus.</p>
 ]]></content:encoded>
     </item>
     
@@ -2847,17 +3000,21 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 <p>At some time, deploying humans to check all these and that too for 24 * 7 can be a real pain.</p>
 <p>That&rsquo;s exactly the purpose of writing this tutorial series around monitoring and alerting. In this tutorial, you will learn how to setup Prometheus as a universal monitoring system and how to use its exporter to define and fetch the metrics which are really important to track.</p>
 <h2 id="what-is-prometheus">What is Prometheus?</h2>
-<p>Prometheus is an open-source system for monitoring and alerting. It developed in the GO language. It is currently a standalone open source project and maintained independently by any organization. You can check more details <a href="https://prometheus.io/docs/introduction/overview/#what-is-prometheus">here</a>.</p>
+<p>Prometheus is an open-source system for monitoring and alerting. It developed in the GO language. It is currently a standalone open source project and maintained independently by any organization. You can check more details <a href="https://prometheus.io/docs/introduction/overview/#what-is-prometheus" target="_blank" rel="noopener">here</a>
+.</p>
 <h2 id="why-prometheus">Why Prometheus?</h2>
 <ol>
 <li>Open-source and of course freely available :)</li>
-<li>It is constantly contributed by the community. It is stable and used by many good brands.  Check <a href="https://stackshare.io/prometheus">Stackshare</a>.</li>
+<li>It is constantly contributed by the community. It is stable and used by many good brands.  Check <a href="https://stackshare.io/prometheus" target="_blank" rel="noopener">Stackshare</a>
+.</li>
 <li>Good community support and well documented.</li>
 <li>You do not need any big infrastructure to get started. It can be started with 1 GB RAM.</li>
 <li>It has its own UI to check any metrics. But, many prefer Grafana with Prometheus which gives you better visualization on your Prometheus metrics.</li>
 <li>Lots of pre-build Grafana dashboard and exporters already written. You have to just reuse those exporters.
-You can check the list of Prometheus features <a href="https://prometheus.io/docs/introduction/overview/#features">here</a>.</li>
-<li>You can check the list of Prometheus features <a href="https://prometheus.io/docs/introduction/overview/#features">here</a>.</li>
+You can check the list of Prometheus features <a href="https://prometheus.io/docs/introduction/overview/#features" target="_blank" rel="noopener">here</a>
+.</li>
+<li>You can check the list of Prometheus features <a href="https://prometheus.io/docs/introduction/overview/#features" target="_blank" rel="noopener">here</a>
+.</li>
 </ol>
 <h2 id="prerequisites-for-setting-up-prometheus">Prerequisites for setting up Prometheus</h2>
 <p>Here Is This Tutorial, Prometheus Is Installed And Tested On A Test Server With Minimum Configuration:</p>
@@ -2872,7 +3029,8 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
 <p>There are multiple ways to install Prometheus. You can use docker image or use any of the available configuration management systems like Ansible, chef, puppet and salt stack. For more information on installation, visit the official installation guide here.</p>
 <p>It also has pre-compiled binaries available. I am going to use this binary for installation because it is easy to set up and easy to understand because of we already familiar with the utilization of binary files.</p>
 <h4 id="step-1-download-the-prometheus-binary">Step 1: Download the Prometheus binary</h4>
-<p>Visit <a href="https://prometheus.io/download/">Prometheus</a> download page. It will give you a list of pre-compiled binaries for drawins, linux, and windows. You can download according to your OS. Below, the installation is explained for Linux OS.</p>
+<p>Visit <a href="https://prometheus.io/download/" target="_blank" rel="noopener">Prometheus</a>
+ download page. It will give you a list of pre-compiled binaries for drawins, linux, and windows. You can download according to your OS. Below, the installation is explained for Linux OS.</p>
 <p>OR</p>
 <p>You can simply fire below command in your Linux terminal:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget https://github.com/prometheus/prometheus/releases/download/v2.11.1/prometheus-2.11.1.linux-amd64.tar.gz
@@ -2903,7 +3061,9 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
 <p>Now get all metric list by hitting the URL to <code>localhost:9090/metrics</code></p>
 <p><img loading="lazy" src="/img/prometheus-setup/metrics.png" alt="Prometheus metrics"  />
 </p>
-<p>Prometheus stores data on disk in time series, with its custom format.  Behind the scenes, it uses <a href="https://github.com/google/leveldb">leveldb</a>. You can check more <a href="https://prometheus.io/docs/prometheus/latest/storage/">details</a> on storage.</p>
+<p>Prometheus stores data on disk in time series, with its custom format.  Behind the scenes, it uses <a href="https://github.com/google/leveldb" target="_blank" rel="noopener">leveldb</a>
+. You can check more <a href="https://prometheus.io/docs/prometheus/latest/storage/" target="_blank" rel="noopener">details</a>
+ on storage.</p>
 <p>Here is a sample production command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ~/prometheus/prometheus --storage.tsdb.path<span style="color:#f92672">=</span>/var/lib/prometheus/data/ --web.external-url<span style="color:#f92672">=</span>http://myurl.com:9090
 </span></span></code></pre></div><p><code>--storage.tsdb.path</code>: Specify the path where you want to save Prometheus data.<br>
@@ -2958,7 +3118,8 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
 </li>
 </ol>
 <p>You can use both methods but usually, people prefer the first one to fetch metrics.</p>
-<p>So now we are going to setup <a href="https://github.com/prometheus/node_exporter">node exporter</a>. It will fetch your server metrics which will be RAM/DISK/CPU utilization, network, io etc.</p>
+<p>So now we are going to setup <a href="https://github.com/prometheus/node_exporter" target="_blank" rel="noopener">node exporter</a>
+. It will fetch your server metrics which will be RAM/DISK/CPU utilization, network, io etc.</p>
 <h3 id="node-exporter-setup">Node Exporter Setup</h3>
 <h4 id="step-1-download-the-binary-file-and-start-node-exporter">Step 1: Download The Binary File And Start Node Exporter:</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
@@ -3054,16 +3215,20 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
 </span></span></code></pre></div><p>The rest of option will remain same as i explained in above parts.</p>
 <h1 id="at-the-end">At the end</h1>
 <p>Like this, you can explore each metrics like memory, CPU, etc.</p>
-<p>There are already lots of exporters is available on the internet like Nginx exporter, MongoDB exporter, MySQL server exporter, etc. Just download them and start using it. You can check more info about exporter <a href="https://prometheus.io/docs/instrumenting/exporters/">here</a>.</p>
+<p>There are already lots of exporters is available on the internet like Nginx exporter, MongoDB exporter, MySQL server exporter, etc. Just download them and start using it. You can check more info about exporter <a href="https://prometheus.io/docs/instrumenting/exporters/" target="_blank" rel="noopener">here</a>
+.</p>
 <p><strong>You have now successfully installed Prometheus and node exporters.</strong></p>
-<p>If you see this <a href="https://prometheus.io/docs/introduction/overview/#architecture">official architecture diagram</a>, we have successfully set up the <strong>Prometheus</strong>, <strong>Pushgateway/Exporters</strong>, and <strong>Prometheus UI</strong>.</p>
-<p>In the <a href="https://ashish.one/blogs/setup-alertmanager/">Part 2</a>, we will see how we can set up an alert manager and how to setup alert over the metrics.</p>
+<p>If you see this <a href="https://prometheus.io/docs/introduction/overview/#architecture" target="_blank" rel="noopener">official architecture diagram</a>
+, we have successfully set up the <strong>Prometheus</strong>, <strong>Pushgateway/Exporters</strong>, and <strong>Prometheus UI</strong>.</p>
+<p>In the <a href="https://ashish.one/blogs/setup-alertmanager/" target="_blank" rel="noopener">Part 2</a>
+, we will see how we can set up an alert manager and how to setup alert over the metrics.</p>
 <p>Stay tuned for the new updates.</p>
 <blockquote>
 <p><strong>“NOTE: PROMETHEUS IS METRIC STORAGE SYSTEM. DON’T TRY TO STORE ANY KIND OF LOGS. IT IS NOT RECOMMENDED.”</strong></p>
 </blockquote>
 <p><strong>In case of any confusion or issues leave comments below :)</strong></p>
-<p>Article partially posted on <a href="https://pepipost.com/tutorials/setup-prometheus-and-exporters/">Pepipost tutorial</a> by me.</p>
+<p>Article partially posted on <a href="https://pepipost.com/tutorials/setup-prometheus-and-exporters/" target="_blank" rel="noopener">Pepipost tutorial</a>
+ by me.</p>
 ]]></content:encoded>
     </item>
     
@@ -3075,7 +3240,8 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
       <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
       <description>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use ngram token filter for like query. It was quickly implemented on local and works exactly i want.
 The problem To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</description>
-      <content:encoded><![CDATA[<p>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html">ngram token filter</a> for like query. It was quickly implemented on local and works exactly i want.</p>
+      <content:encoded><![CDATA[<p>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html" target="_blank" rel="noopener">ngram token filter</a>
+ for like query. It was quickly implemented on local and works exactly i want.</p>
 <h2 id="the-problem">The problem</h2>
 <p>To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</p>
 <ol>
@@ -3141,7 +3307,8 @@ ngram-test  459483245   329.5gb
 }&#39;
 </code></pre><h2 id="analyzing-the-behavior-of-ngram-filter">Analyzing the behavior of ngram filter</h2>
 <p>We made one test index and start monitoring by inserting doc one by one.</p>
-<p><a href="https://medium.com/@ashishstiwari/what-should-be-the-value-of-max-gram-and-min-gram-in-elasticsearch-f091404c9a14">Continue Reading</a></p>
+<p><a href="https://medium.com/@ashishstiwari/what-should-be-the-value-of-max-gram-and-min-gram-in-elasticsearch-f091404c9a14" target="_blank" rel="noopener">Continue Reading</a>
+</p>
 ]]></content:encoded>
     </item>
     

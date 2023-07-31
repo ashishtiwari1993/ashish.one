@@ -18,10 +18,11 @@
       <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
       
       <guid>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</guid>
-      <description>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case. Elastic provides Search, Observability &amp;amp; Security you can check more on this with official documentation.
+      <description>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case. Elastic provides Search, Observability &amp;amp; Security you can check more on this with official documentation .
 What is Webhook ? Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks.</description>
       <content:encoded><![CDATA[<p>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case.
-Elastic provides Search, Observability &amp; Security you can check more on this with <a href="https://www.elastic.co/guide/index.html">official documentation</a>.</p>
+Elastic provides Search, Observability &amp; Security you can check more on this with <a href="https://www.elastic.co/guide/index.html" target="_blank" rel="noopener">official documentation</a>
+.</p>
 <h1 id="what-is-webhook-">What is Webhook ?</h1>
 <p>Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks. Now in the modern tech world it is also known as Reverse API, Push API etc.
 Mostly it is used to send small amounts of data from source to destination. It is a one way data transfer procedure. It works over the HTTP protocol using REST API. It is simple like client and server communication.
@@ -31,19 +32,28 @@ Most of the saas allow you to integrate their product with your system with the 
 <p>So I have to use the <code>POST</code> method, and send data on the above endpoint. You can hit this Endpoint using curl, postman or any programming language.</p>
 <h1 id="what-is-elk-">What is ELK ?</h1>
 <p>Well from elastic.co -</p>
-<p><em>E</em> - <code>Elasticsearch</code> - Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Check more <a href="https://www.elastic.co/what-is/elasticsearch">here</a>.</p>
-<p><em>L</em> - <code>logstash</code> - Logstash is a free and open server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to your favorite &ldquo;stash.&rdquo; check more <a href="https://www.elastic.co/logstash/">here</a>.</p>
-<p><em>K</em> - <code>Kibana</code> - Kibana is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Check more <a href="https://www.elastic.co/what-is/kibana">here</a>.</p>
+<p><em>E</em> - <code>Elasticsearch</code> - Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Check more <a href="https://www.elastic.co/what-is/elasticsearch" target="_blank" rel="noopener">here</a>
+.</p>
+<p><em>L</em> - <code>logstash</code> - Logstash is a free and open server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to your favorite &ldquo;stash.&rdquo; check more <a href="https://www.elastic.co/logstash/" target="_blank" rel="noopener">here</a>
+.</p>
+<p><em>K</em> - <code>Kibana</code> - Kibana is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Check more <a href="https://www.elastic.co/what-is/kibana" target="_blank" rel="noopener">here</a>
+.</p>
 <h1 id="the-flow">The Flow</h1>
 <p><em><strong>Events -&gt; Logstash -&gt; Elasticsearch &lt;- Kibana</strong></em></p>
-<p>Logstash works with three plugins - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">input</a>, <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html">filter</a>, <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html">output</a>.</p>
-<p>You can choose any source as a input. For example you can use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html">jdbc input plugin</a> to read data from <code>mysql</code>.</p>
+<p>Logstash works with three plugins - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" rel="noopener">input</a>
+, <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html" target="_blank" rel="noopener">filter</a>
+, <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html" target="_blank" rel="noopener">output</a>
+.</p>
+<p>You can choose any source as a input. For example you can use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html" target="_blank" rel="noopener">jdbc input plugin</a>
+ to read data from <code>mysql</code>.</p>
 <p>Transform your data with the help of <code>filter</code> plugin.</p>
 <p>Push the data on destination which you have specified in output plugin.</p>
 <p>We will use below plugins to process the webhooks requests.</p>
 <ul>
-<li>Input plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html">HTTP</a></li>
-<li>Output plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">Elasticsearch</a></li>
+<li>Input plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html" target="_blank" rel="noopener">HTTP</a>
+</li>
+<li>Output plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html" target="_blank" rel="noopener">Elasticsearch</a>
+</li>
 </ul>
 <p>Logstash will process the event and push to the Elasticsearch.
 Visualise data from kibana.</p>
@@ -51,9 +61,12 @@ Visualise data from kibana.</p>
 <h2 id="installation">Installation</h2>
 <p>You can simply follow the official documentation for installation.</p>
 <ul>
-<li><strong>Elasticsearch</strong> - <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html</a></li>
-<li><strong>Kibana</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a></li>
-<li><strong>Logstash</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a></li>
+<li><strong>Elasticsearch</strong> - <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html</a>
+</li>
+<li><strong>Kibana</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a>
+</li>
+<li><strong>Logstash</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a>
+</li>
 </ul>
 <p>I am spinning ELK instances using docker. You can choose any method mentioned on above links.</p>
 <h2 id="verify">Verify</h2>
@@ -110,7 +123,8 @@ Visualise data from kibana.</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>We are configuring HTTP endpoint on port <code>4000</code>. So whenever anyone calls the webhook endpoint, they need to specify port like <code>http://mydomain.com:4000</code></p>
-<p>Here i am only defining the index but you can configure data stream as well. Check <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">here</a> for more options.</p>
+<p>Here i am only defining the index but you can configure data stream as well. Check <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html" target="_blank" rel="noopener">here</a>
+ for more options.</p>
 <h3 id="test-configuration">Test configuration</h3>
 <p>Run pipeline with below command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./bin/logstash -f webhook-receiver.conf
@@ -205,7 +219,9 @@ Visualise data from kibana.</p>
 </p>
 <p>To create the dashboard, go to <em><strong>Menu -&gt; Analytics -&gt; Dashboard</strong></em>. You can create a dashboard according to your requirement.</p>
 <h1 id="conclusion">Conclusion</h1>
-<p>We have successfully set up the webhook receiver with the help of ELK stack. Though ELK use cases are very vast. There are various <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">input</a> and <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html">output</a> plugins available in logstash for data pipelines.</p>
+<p>We have successfully set up the webhook receiver with the help of ELK stack. Though ELK use cases are very vast. There are various <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" rel="noopener">input</a>
+ and <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html" target="_blank" rel="noopener">output</a>
+ plugins available in logstash for data pipelines.</p>
 ]]></content:encoded>
     </item>
     

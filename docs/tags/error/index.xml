@@ -111,9 +111,12 @@ It is as simple as below:</p>
 <script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
 <h2 id="references">References:</h2>
-<p><a href="https://blog.golang.org/go-maps-in-action">https://blog.golang.org/go-maps-in-action</a><br>
-<a href="https://golang.org/doc/faq#atomic_maps">https://golang.org/doc/faq#atomic_maps</a><br>
-<a href="https://gobyexample.com/mutexes">https://gobyexample.com/mutexes</a></p>
+<p><a href="https://blog.golang.org/go-maps-in-action" target="_blank" rel="noopener">https://blog.golang.org/go-maps-in-action</a>
+<br>
+<a href="https://golang.org/doc/faq#atomic_maps" target="_blank" rel="noopener">https://golang.org/doc/faq#atomic_maps</a>
+<br>
+<a href="https://gobyexample.com/mutexes" target="_blank" rel="noopener">https://gobyexample.com/mutexes</a>
+</p>
 ]]></content:encoded>
     </item>
     

@@ -36,7 +36,8 @@ Boot Mode: <code>UEFI</code></p>
 <h1 id="challenges">Challenges</h1>
 <h2 id="1-what-should-be-my-disk-partition-">1. What should be my disk partition ?</h2>
 <h3 id="11-check-boot-mode">1.1 Check Boot mode</h3>
-<p>You need to check <a href="https://wiki.archlinux.org/title/Installation_guide">installation guide</a>, Refer step <strong>Verify the boot mode</strong>.</p>
+<p>You need to check <a href="https://wiki.archlinux.org/title/Installation_guide" target="_blank" rel="noopener">installation guide</a>
+, Refer step <strong>Verify the boot mode</strong>.</p>
 <p>In a live environment, you need to check first what is your boot mode.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls /sys/firmware/efi/efivars
 </span></span></code></pre></div><p>If the command shows the directory without error, then the system is booted in UEFI mode. If the directory does not exist, the system may be booted in BIOS (or CSM) mode.</p>
@@ -88,7 +89,8 @@ Boot Mode: <code>UEFI</code></p>
 </span></span><span style="display:flex;"><span>mount /dev/sda1 /mnt/boot
 </span></span><span style="display:flex;"><span>swapon /dev/sda2
 </span></span></code></pre></div><h2 id="2-install-bootloader">2. Install Bootloader</h2>
-<p>I have decided to install a grub bootloader on my machine. You can decide on this <a href="https://wiki.archlinux.org/title/Arch_boot_process">wiki page</a>.</p>
+<p>I have decided to install a grub bootloader on my machine. You can decide on this <a href="https://wiki.archlinux.org/title/Arch_boot_process" target="_blank" rel="noopener">wiki page</a>
+.</p>
 <h3 id="21-install-grub">2.1 Install GRUB</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pacman -S grub
 </span></span></code></pre></div><h3 id="22-generate-grub-config">2.2 Generate Grub config</h3>

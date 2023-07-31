@@ -19,12 +19,13 @@
       
       <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
       <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
-Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co).
+Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co ).
 In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>The purpose of the talk is to give a short overview of Elastic solutions &amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.</p>
-<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co">cloud.elastic.co</a>).</p>
+<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
+).</p>
 <p>In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</p>
 <h2 id="slides">Slides</h2>
 <div id="Container"

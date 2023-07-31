@@ -38,28 +38,41 @@ There is no defined way to become a security researcher.</description>
 <h2 id="some-resources-to-get-start">Some resources to get start</h2>
 <ul>
 <li>
-<p><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters">https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters</a></p>
+<p><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters" target="_blank" rel="noopener">https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters</a>
+</p>
 </li>
 <li>
-<p><a href="https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/">https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/</a></p>
+<p><a href="https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/" target="_blank" rel="noopener">https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/</a>
+</p>
 </li>
 <li>
-<p><a href="https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115">https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115</a></p>
+<p><a href="https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115" target="_blank" rel="noopener">https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115</a>
+</p>
 </li>
 <li>
 <p>Pentesting for n00bs is ELI5 hacking, designed for beginners who have never walked through a hack before. All 10 episodes:</p>
 </li>
 </ul>
-<p>Ep 1 - Legacy: <a href="https://youtu.be/JZN3JhoAdWo">https://youtu.be/JZN3JhoAdWo</a></p>
-<p>Ep 2 - Lame: <a href="https://youtu.be/ntBkyid_u8Y">https://youtu.be/ntBkyid_u8Y</a></p>
-<p>Ep 3 - Blue: <a href="https://youtu.be/xLI7OialKk4">https://youtu.be/xLI7OialKk4</a></p>
-<p>Ep 4 - Devel: <a href="https://youtu.be/ODUDau7BPSY">https://youtu.be/ODUDau7BPSY</a></p>
-<p>Ep. 5 - Jerry: <a href="https://youtu.be/nF14K2VAVtw">https://youtu.be/nF14K2VAVtw</a></p>
-<p>Ep. 6 - Nibbles: <a href="https://youtu.be/8ulnQVFHcOE">https://youtu.be/8ulnQVFHcOE</a></p>
-<p>Ep. 7 - Optimum: <a href="https://youtu.be/bTxnobhJ_b8">https://youtu.be/bTxnobhJ_b8</a></p>
-<p>Ep. 8 - Bashed: <a href="https://youtu.be/5406MfOfXBc">https://youtu.be/5406MfOfXBc</a></p>
-<p>Ep. 9 - Grandpa: <a href="https://youtu.be/3aASluoJ-iM">https://youtu.be/3aASluoJ-iM</a></p>
-<p>Ep. 10 - Netmon: <a href="https://youtu.be/8k-8aVwS0fk">https://youtu.be/8k-8aVwS0fk</a></p>
+<p>Ep 1 - Legacy: <a href="https://youtu.be/JZN3JhoAdWo" target="_blank" rel="noopener">https://youtu.be/JZN3JhoAdWo</a>
+</p>
+<p>Ep 2 - Lame: <a href="https://youtu.be/ntBkyid_u8Y" target="_blank" rel="noopener">https://youtu.be/ntBkyid_u8Y</a>
+</p>
+<p>Ep 3 - Blue: <a href="https://youtu.be/xLI7OialKk4" target="_blank" rel="noopener">https://youtu.be/xLI7OialKk4</a>
+</p>
+<p>Ep 4 - Devel: <a href="https://youtu.be/ODUDau7BPSY" target="_blank" rel="noopener">https://youtu.be/ODUDau7BPSY</a>
+</p>
+<p>Ep. 5 - Jerry: <a href="https://youtu.be/nF14K2VAVtw" target="_blank" rel="noopener">https://youtu.be/nF14K2VAVtw</a>
+</p>
+<p>Ep. 6 - Nibbles: <a href="https://youtu.be/8ulnQVFHcOE" target="_blank" rel="noopener">https://youtu.be/8ulnQVFHcOE</a>
+</p>
+<p>Ep. 7 - Optimum: <a href="https://youtu.be/bTxnobhJ_b8" target="_blank" rel="noopener">https://youtu.be/bTxnobhJ_b8</a>
+</p>
+<p>Ep. 8 - Bashed: <a href="https://youtu.be/5406MfOfXBc" target="_blank" rel="noopener">https://youtu.be/5406MfOfXBc</a>
+</p>
+<p>Ep. 9 - Grandpa: <a href="https://youtu.be/3aASluoJ-iM" target="_blank" rel="noopener">https://youtu.be/3aASluoJ-iM</a>
+</p>
+<p>Ep. 10 - Netmon: <a href="https://youtu.be/8k-8aVwS0fk" target="_blank" rel="noopener">https://youtu.be/8k-8aVwS0fk</a>
+</p>
 <p>Please feel free to post your doubt or suggestions below 🙂</p>
 <p>Thanks</p>
 ]]></content:encoded>

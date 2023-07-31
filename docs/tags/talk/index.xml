@@ -51,7 +51,8 @@ I have explained the Webhook architecture of MimePost And how we sending 100k Re
 <p>Reproduce Golang &ldquo;fatal error: concurrent map writes&rdquo; &amp; Solution. To reproduce comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
 <script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
-<p>Find more details on this <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/">blog</a>.</p>
+<p>Find more details on this <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/" target="_blank" rel="noopener">blog</a>
+.</p>
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>

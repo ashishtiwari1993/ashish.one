@@ -19,22 +19,22 @@
       
       <guid>https://ashish.one/blogs/spf-lookup-in-go/</guid>
       <description>In this gist, We will check how we can extract SPF records in Go.
-Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns)
-Install dependency $ go get github.com/miekg/dns spfLookup.go Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1)
-Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1.</description>
+Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns) Install dependency $ go get github.com/miekg/dns spfLookup.go Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1) Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1.</description>
       <content:encoded><![CDATA[<p>In this gist, We will check how we can extract SPF records in Go.</p>
 <h2 id="prerequisite">Prerequisite</h2>
 <h3 id="go-version">Go version</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go version
 </span></span><span style="display:flex;"><span>go version go1.13 linux/amd64
 </span></span></code></pre></div><h3 id="dependency">Dependency</h3>
-<p><a href="https://github.com/miekg/dns">DNS Library(https://github.com/miekg/dns)</a></p>
+<p><a href="https://github.com/miekg/dns" target="_blank" rel="noopener">DNS Library(https://github.com/miekg/dns)</a>
+</p>
 <h2 id="install-dependency">Install dependency</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get github.com/miekg/dns 
 </span></span></code></pre></div><h2 id="spflookupgo">spfLookup.go</h2>
 <script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/ea5da5581ae2c56f3e25f8509155bd37.js"></script>
 
-<p>Here you can change <code>nameserver</code> according to your requirement. I have specified here google&rsquo;s name server (<code>8.8.8.8</code>). You can also use cloudflare&rsquo;s nameserver <a href="https://1.1.1.1">(1.1.1.1)</a></p>
+<p>Here you can change <code>nameserver</code> according to your requirement. I have specified here google&rsquo;s name server (<code>8.8.8.8</code>). You can also use cloudflare&rsquo;s nameserver <a href="https://1.1.1.1" target="_blank" rel="noopener">(1.1.1.1)</a>
+</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>You can make any DNS query with <code>miekg/dns</code> library. In the above script, we have looked up <code>TXT</code> Records and then we have searched for a string containing <code>v=spf1</code>.</p>
 ]]></content:encoded>

@@ -55,25 +55,31 @@ Talk Video </description>
 <p>System + Internet connection</p>
 </li>
 <li>
-<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>. Make sure it having <a href="https://platform.openai.com/account/usage">free credits</a>.</p>
+<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">https://platform.openai.com/account/api-keys</a>
+. Make sure it having <a href="https://platform.openai.com/account/usage" target="_blank" rel="noopener">free credits</a>
+.</p>
 </li>
 </ol>
 <h2 id="without-local-setup">Without local setup</h2>
 <ol>
 <li>
-<p>Google account to use <a href="https://colab.research.google.com/">google Colab</a>.</p>
+<p>Google account to use <a href="https://colab.research.google.com/" target="_blank" rel="noopener">google Colab</a>
+.</p>
 </li>
 <li>
-<p><a href="https://render.com/">Render</a> account.</p>
+<p><a href="https://render.com/" target="_blank" rel="noopener">Render</a>
+ account.</p>
 </li>
 </ol>
 <h2 id="local-setup">Local setup</h2>
 <ol>
 <li>
-<p>Git - Install it from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<p>Git - Install it from <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a>
+</p>
 </li>
 <li>
-<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</p>
+<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">https://docs.docker.com/engine/install/</a>
+.</p>
 </li>
 <li>
 <p>Having basic python knowledge will be good.</p>
@@ -83,7 +89,8 @@ Talk Video </description>
 <h1 id="1-setup-cluster">1. Setup cluster</h1>
 <ol>
 <li>
-<p>Visit <a href="https://cloud.elastic.co">cloud.elastic.co</a> and signup.</p>
+<p>Visit <a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
+ and signup.</p>
 </li>
 <li>
 <p>Click on <code>Create deployment</code>. In the pop-up, you can change the settings or leave it default.</p>
@@ -107,19 +114,22 @@ Talk Video </description>
 <h1 id="2-upload-third-party-model">2. Upload third party Model</h1>
 <p><strong>Get your credentials ready</strong></p>
 <ul>
-<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
+</strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: <code>elastic</code></li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be <code>elastic</code> only)</li>
 </ul>
 <p>Now there is two way, You can upload the model using <code>docker</code> as well as <code>Google colab</code>.</p>
 <h2 id="using-google-colab-recommended">Using Google Colab (Recommended)</h2>
 <p>Simply click on below link. It will open ready made notebook. You just need to click on <code>play</code> button.</p>
-<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
-</a></p>
+<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb" target="_blank" rel="noopener"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
+</a>
+</p>
 <h2 id="using-docker">Using Docker</h2>
 <ol>
 <li>
-<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1">all-distilroberta-v1</a> model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
+<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">all-distilroberta-v1</a>
+ model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
 </li>
 <li>
 <p>We’re going to use docker for import model to the elastic cluster</p>
@@ -192,17 +202,20 @@ Talk Video </description>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>Paste above query in <code>cosole</code> and hit on play button.</p>
 <ol start="13">
-<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one">https://ashish.one</a>. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
+<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one" target="_blank" rel="noopener">https://ashish.one</a>
+. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
 <li>If everything is fine, simply click on “<em><strong>Add domain</strong></em>” and start crawling by click on <em><strong>Crawl -&gt; Crawl all domains on this index</strong></em>.</li>
 <li>Go to <em><strong>Enterprise Search -&gt; Indices</strong></em>. You should see your index name.</li>
 </ol>
 <h1 id="4-setup-interface">4. Setup Interface</h1>
 <p>** Get your credentials ready **</p>
 <ol>
-<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
+</strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: elastic</li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be elastic)</li>
-<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>.</li>
+<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">https://platform.openai.com/account/api-keys</a>
+.</li>
 <li><code>es_index</code>: Index name which we created in step 3.3. (search-ashish.one)</li>
 <li><code>vector_field</code>: The field which we&rsquo;ve set for destination at step 3.9. i.e. <strong>title-vector</strong></li>
 </ol>
@@ -231,11 +244,14 @@ Talk Video </description>
 <li>Run</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker run -p 8501:8501 es-gpt
-</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a></p>
-<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/">Render</a> with Docker</h2>
+</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a>
+</p>
+<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/" target="_blank" rel="noopener">Render</a>
+ with Docker</h2>
 <ol>
 <li>
-<p>Signup on <a href="https://render.com">https://render.com</a>.</p>
+<p>Signup on <a href="https://render.com" target="_blank" rel="noopener">https://render.com</a>
+.</p>
 </li>
 <li>
 <p>Create <strong>Web Service</strong>.</p>
@@ -268,7 +284,8 @@ Talk Video </description>
 <p><img loading="lazy" src="/img/talks/elasticsearch-chatgpt/ashish_one_gpt.gif" alt="ashish.one ChatGPT"  />
 </p>
 <h1 id="reference">Reference</h1>
-<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a></p>
+<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data" target="_blank" rel="noopener">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a>
+</p>
 ]]></content:encoded>
     </item>
     
@@ -365,7 +382,8 @@ DELETE meetup
 {&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
 {&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
 </code></pre><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
-<p>Download <a href="/data/movies.json">movies.json</a> and insert into elasticsearch by using below command:</p>
+<p>Download <a href="/data/movies.json">movies.json</a>
+ and insert into elasticsearch by using below command:</p>
 <p><em>Open Kibana -&gt; Menu -&gt; Home -&gt; Upload a file</em></p>
 <h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Stack Management -&gt; Data Views (Kibana)</em></p>
@@ -526,7 +544,8 @@ GET _analyze
   }
 }
 </code></pre><h3 id="insert-data">Insert data</h3>
-<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE">विकिपीडिया-श्रीमद्भगवद्गीता</a></p>
+<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE" target="_blank" rel="noopener">विकिपीडिया-श्रीमद्भगवद्गीता</a>
+</p>
 <p>Lets insert some data like below:</p>
 <pre tabindex="0"><code>POST geetyantra/_doc
 {
@@ -680,7 +699,8 @@ GET geetyantra/_search
   }
 }
 </code></pre><h2 id="search-as-you-type">Search as you type</h2>
-<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/">Search as you type</a>.</p>
+<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/" target="_blank" rel="noopener">Search as you type</a>
+.</p>
 ]]></content:encoded>
     </item>
     
@@ -692,11 +712,13 @@ GET geetyantra/_search
       <guid>https://ashish.one/talks/devops-conf-2022/</guid>
       <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
 Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
-But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor.</description>
+But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor .</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat">metricbeat</a> to check system health. With a few clicks, you can start monitoring your infra.</p>
+<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat" target="_blank" rel="noopener">metricbeat</a>
+ to check system health. With a few clicks, you can start monitoring your infra.</p>
 <p>Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.</p>
-<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html">Grok processor</a>.</p>
+<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html" target="_blank" rel="noopener">Grok processor</a>
+.</p>
 <p>Also explained how you can read custom logs from log files in real time and ingest to Elasticsearch.</p>
 <h1 id="slides">Slides</h1>
 <div id="Container"
@@ -725,12 +747,13 @@ But if you have different requirement where you need to parse a different types 
       
       <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
       <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
-Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co).
+Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co ).
 In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>The purpose of the talk is to give a short overview of Elastic solutions &amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.</p>
-<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co">cloud.elastic.co</a>).</p>
+<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
+).</p>
 <p>In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</p>
 <h2 id="slides">Slides</h2>
 <div id="Container"
@@ -791,7 +814,8 @@ I have explained the Webhook architecture of MimePost And how we sending 100k Re
 <p>Reproduce Golang &ldquo;fatal error: concurrent map writes&rdquo; &amp; Solution. To reproduce comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
 <script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
-<p>Find more details on this <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/">blog</a>.</p>
+<p>Find more details on this <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/" target="_blank" rel="noopener">blog</a>
+.</p>
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>

@@ -20,7 +20,8 @@
       <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
       <description>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use ngram token filter for like query. It was quickly implemented on local and works exactly i want.
 The problem To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</description>
-      <content:encoded><![CDATA[<p>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html">ngram token filter</a> for like query. It was quickly implemented on local and works exactly i want.</p>
+      <content:encoded><![CDATA[<p>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html" target="_blank" rel="noopener">ngram token filter</a>
+ for like query. It was quickly implemented on local and works exactly i want.</p>
 <h2 id="the-problem">The problem</h2>
 <p>To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</p>
 <ol>
@@ -86,7 +87,8 @@ ngram-test  459483245   329.5gb
 }&#39;
 </code></pre><h2 id="analyzing-the-behavior-of-ngram-filter">Analyzing the behavior of ngram filter</h2>
 <p>We made one test index and start monitoring by inserting doc one by one.</p>
-<p><a href="https://medium.com/@ashishstiwari/what-should-be-the-value-of-max-gram-and-min-gram-in-elasticsearch-f091404c9a14">Continue Reading</a></p>
+<p><a href="https://medium.com/@ashishstiwari/what-should-be-the-value-of-max-gram-and-min-gram-in-elasticsearch-f091404c9a14" target="_blank" rel="noopener">Continue Reading</a>
+</p>
 ]]></content:encoded>
     </item>
     

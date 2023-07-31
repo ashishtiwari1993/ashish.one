@@ -38,28 +38,41 @@ There is no defined way to become a security researcher.</description>
 <h2 id="some-resources-to-get-start">Some resources to get start</h2>
 <ul>
 <li>
-<p><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters">https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters</a></p>
+<p><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters" target="_blank" rel="noopener">https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters</a>
+</p>
 </li>
 <li>
-<p><a href="https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/">https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/</a></p>
+<p><a href="https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/" target="_blank" rel="noopener">https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/</a>
+</p>
 </li>
 <li>
-<p><a href="https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115">https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115</a></p>
+<p><a href="https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115" target="_blank" rel="noopener">https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115</a>
+</p>
 </li>
 <li>
 <p>Pentesting for n00bs is ELI5 hacking, designed for beginners who have never walked through a hack before. All 10 episodes:</p>
 </li>
 </ul>
-<p>Ep 1 - Legacy: <a href="https://youtu.be/JZN3JhoAdWo">https://youtu.be/JZN3JhoAdWo</a></p>
-<p>Ep 2 - Lame: <a href="https://youtu.be/ntBkyid_u8Y">https://youtu.be/ntBkyid_u8Y</a></p>
-<p>Ep 3 - Blue: <a href="https://youtu.be/xLI7OialKk4">https://youtu.be/xLI7OialKk4</a></p>
-<p>Ep 4 - Devel: <a href="https://youtu.be/ODUDau7BPSY">https://youtu.be/ODUDau7BPSY</a></p>
-<p>Ep. 5 - Jerry: <a href="https://youtu.be/nF14K2VAVtw">https://youtu.be/nF14K2VAVtw</a></p>
-<p>Ep. 6 - Nibbles: <a href="https://youtu.be/8ulnQVFHcOE">https://youtu.be/8ulnQVFHcOE</a></p>
-<p>Ep. 7 - Optimum: <a href="https://youtu.be/bTxnobhJ_b8">https://youtu.be/bTxnobhJ_b8</a></p>
-<p>Ep. 8 - Bashed: <a href="https://youtu.be/5406MfOfXBc">https://youtu.be/5406MfOfXBc</a></p>
-<p>Ep. 9 - Grandpa: <a href="https://youtu.be/3aASluoJ-iM">https://youtu.be/3aASluoJ-iM</a></p>
-<p>Ep. 10 - Netmon: <a href="https://youtu.be/8k-8aVwS0fk">https://youtu.be/8k-8aVwS0fk</a></p>
+<p>Ep 1 - Legacy: <a href="https://youtu.be/JZN3JhoAdWo" target="_blank" rel="noopener">https://youtu.be/JZN3JhoAdWo</a>
+</p>
+<p>Ep 2 - Lame: <a href="https://youtu.be/ntBkyid_u8Y" target="_blank" rel="noopener">https://youtu.be/ntBkyid_u8Y</a>
+</p>
+<p>Ep 3 - Blue: <a href="https://youtu.be/xLI7OialKk4" target="_blank" rel="noopener">https://youtu.be/xLI7OialKk4</a>
+</p>
+<p>Ep 4 - Devel: <a href="https://youtu.be/ODUDau7BPSY" target="_blank" rel="noopener">https://youtu.be/ODUDau7BPSY</a>
+</p>
+<p>Ep. 5 - Jerry: <a href="https://youtu.be/nF14K2VAVtw" target="_blank" rel="noopener">https://youtu.be/nF14K2VAVtw</a>
+</p>
+<p>Ep. 6 - Nibbles: <a href="https://youtu.be/8ulnQVFHcOE" target="_blank" rel="noopener">https://youtu.be/8ulnQVFHcOE</a>
+</p>
+<p>Ep. 7 - Optimum: <a href="https://youtu.be/bTxnobhJ_b8" target="_blank" rel="noopener">https://youtu.be/bTxnobhJ_b8</a>
+</p>
+<p>Ep. 8 - Bashed: <a href="https://youtu.be/5406MfOfXBc" target="_blank" rel="noopener">https://youtu.be/5406MfOfXBc</a>
+</p>
+<p>Ep. 9 - Grandpa: <a href="https://youtu.be/3aASluoJ-iM" target="_blank" rel="noopener">https://youtu.be/3aASluoJ-iM</a>
+</p>
+<p>Ep. 10 - Netmon: <a href="https://youtu.be/8k-8aVwS0fk" target="_blank" rel="noopener">https://youtu.be/8k-8aVwS0fk</a>
+</p>
 <p>Please feel free to post your doubt or suggestions below 🙂</p>
 <p>Thanks</p>
 ]]></content:encoded>
@@ -148,7 +161,8 @@ Docker makes the installation process very smooth and it gives your isolated env
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>networks:
 </span></span><span style="display:flex;"><span> nginx-php:
-</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks">here</a>.</p>
+</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks" target="_blank" rel="noopener">here</a>
+.</p>
 <p>You can set <code>volumes</code> path according to your requirement.</p>
 <h3 id="step-4-lets-up-the-containers">Step 4: Let&rsquo;s Up the containers</h3>
 <p>Create container:</p>
@@ -175,7 +189,8 @@ Docker makes the installation process very smooth and it gives your isolated env
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">phpinfo</span>();
 </span></span></code></pre></div><h3 id="step-6-run-testphp">Step 6: Run <code>test.php</code></h3>
-<p>Visit <a href="http://localhost/test.php">http://localhost/test.php</a>.</p>
+<p>Visit <a href="http://localhost/test.php" target="_blank" rel="noopener">http://localhost/test.php</a>
+.</p>
 <p>Output:</p>
 <p><img loading="lazy" src="/img/lemp-docker/phpinfo.png" alt="phpinfo"  />
 </p>
@@ -287,19 +302,27 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
 <p>The source is both types of official &amp; Unofficial.</p>
 <h5 id="official">Official</h5>
 <ul>
-<li>Post Mar 15, data is from <a href="https://www.mohfw.gov.in/">The Ministry of Health &amp; Family Welfare</a></li>
-<li>Pre  Mar 15, data is sourced from <a href="https://github.com/datameet/covid19/tree/eb1cc65657929abe12ca59f0e754bef4bc562d7a/mohfw-backup">datameet/covid19</a></li>
-<li>Hospital &amp; bed data: <a href="https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity">https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity</a></li>
-<li>ICMR testing stats API: <a href="https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData">https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData</a></li>
+<li>Post Mar 15, data is from <a href="https://www.mohfw.gov.in/" target="_blank" rel="noopener">The Ministry of Health &amp; Family Welfare</a>
+</li>
+<li>Pre  Mar 15, data is sourced from <a href="https://github.com/datameet/covid19/tree/eb1cc65657929abe12ca59f0e754bef4bc562d7a/mohfw-backup" target="_blank" rel="noopener">datameet/covid19</a>
+</li>
+<li>Hospital &amp; bed data: <a href="https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity" target="_blank" rel="noopener">https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity</a>
+</li>
+<li>ICMR testing stats API: <a href="https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData" target="_blank" rel="noopener">https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData</a>
+</li>
 </ul>
 <h5 id="unofficial">Unofficial</h5>
 <ul>
-<li>The awesome volunteer driven patient tracing data <a href="https://www.covid19india.org/">covid19india.org</a></li>
-<li>API (NLP): <a href="http://coronatravelhistory.pythonanywhere.com/">http://coronatravelhistory.pythonanywhere.com/</a></li>
-<li>API (Travel history): <a href="https://api.covid19india.org/travel_history.json">https://api.covid19india.org/travel_history.json</a></li>
+<li>The awesome volunteer driven patient tracing data <a href="https://www.covid19india.org/" target="_blank" rel="noopener">covid19india.org</a>
+</li>
+<li>API (NLP): <a href="http://coronatravelhistory.pythonanywhere.com/" target="_blank" rel="noopener">http://coronatravelhistory.pythonanywhere.com/</a>
+</li>
+<li>API (Travel history): <a href="https://api.covid19india.org/travel_history.json" target="_blank" rel="noopener">https://api.covid19india.org/travel_history.json</a>
+</li>
 </ul>
 <h3 id="2-github-ashishtiwari1993india_mohfwgovin_scrape_covid19_statewise_status-india">2. Github: ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status (India)</h3>
-<p>Scraping <a href="https://mohfw.gov.in">https://mohfw.gov.in</a> to extract the statewise data.</p>
+<p>Scraping <a href="https://mohfw.gov.in" target="_blank" rel="noopener">https://mohfw.gov.in</a>
+ to extract the statewise data.</p>
 <h4 id="repo-1">Repo:</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://github.com/ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status
 </span></span></code></pre></div><h4 id="apis-available-1">APIs available:</h4>
@@ -318,7 +341,8 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
 <p>It is global data source. You will get all information for any country.</p>
 <h4 id="sources-2">Sources</h4>
 <ul>
-<li><a href="https://www.worldometers.info/coronavirus/">Worldometers</a></li>
+<li><a href="https://www.worldometers.info/coronavirus/" target="_blank" rel="noopener">Worldometers</a>
+</li>
 </ul>
 <h3 id="4-github-cssegisanddatacovid-19-global">4. Github: CSSEGISandData/COVID-19 (Global)</h3>
 <p>This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).</p>
@@ -328,23 +352,39 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
 <p>CSVs are available in time series manner. Information is available about all country.</p>
 <h2 id="sources-3">Sources</h2>
 <ul>
-<li>World Health Organization (WHO): <a href="https://www.who.int/">https://www.who.int/</a></li>
-<li>DXY.cn. Pneumonia. 2020. <a href="http://3g.dxy.cn/newh5/view/pneumonia">http://3g.dxy.cn/newh5/view/pneumonia</a>.</li>
-<li>BNO News: <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/">https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/</a></li>
+<li>World Health Organization (WHO): <a href="https://www.who.int/" target="_blank" rel="noopener">https://www.who.int/</a>
+</li>
+<li>DXY.cn. Pneumonia. 2020. <a href="http://3g.dxy.cn/newh5/view/pneumonia" target="_blank" rel="noopener">http://3g.dxy.cn/newh5/view/pneumonia</a>
+.</li>
+<li>BNO News: <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/" target="_blank" rel="noopener">https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/</a>
+</li>
 <li>National Health Commission of the People’s Republic of China (NHC):
-<a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml</a></li>
-<li>China CDC (CCDC): <a href="http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm">http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm</a></li>
-<li>Hong Kong Department of Health: <a href="https://www.chp.gov.hk/en/features/102465.html">https://www.chp.gov.hk/en/features/102465.html</a></li>
-<li>Macau Government: <a href="https://www.ssm.gov.mo/portal/">https://www.ssm.gov.mo/portal/</a></li>
-<li>Taiwan CDC: <a href="https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0">https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0</a></li>
-<li>US CDC: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">https://www.cdc.gov/coronavirus/2019-ncov/index.html</a></li>
-<li>Government of Canada: <a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus.html">https://www.canada.ca/en/public-health/services/diseases/coronavirus.html</a></li>
-<li>Australia Government Department of Health: <a href="https://www.health.gov.au/news/coronavirus-update-at-a-glance">https://www.health.gov.au/news/coronavirus-update-at-a-glance</a></li>
-<li>European Centre for Disease Prevention and Control (ECDC): <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases</a></li>
-<li>Ministry of Health Singapore (MOH): <a href="https://www.moh.gov.sg/covid-19">https://www.moh.gov.sg/covid-19</a></li>
-<li>Italy Ministry of Health: <a href="http://www.salute.gov.it/nuovocoronavirus">http://www.salute.gov.it/nuovocoronavirus</a></li>
-<li>1Point3Arces: <a href="https://coronavirus.1point3acres.com/en">https://coronavirus.1point3acres.com/en</a></li>
-<li>WorldoMeters: <a href="https://www.worldometers.info/coronavirus/">https://www.worldometers.info/coronavirus/</a></li>
+<a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml" target="_blank" rel="noopener">http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml</a>
+</li>
+<li>China CDC (CCDC): <a href="http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm" target="_blank" rel="noopener">http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm</a>
+</li>
+<li>Hong Kong Department of Health: <a href="https://www.chp.gov.hk/en/features/102465.html" target="_blank" rel="noopener">https://www.chp.gov.hk/en/features/102465.html</a>
+</li>
+<li>Macau Government: <a href="https://www.ssm.gov.mo/portal/" target="_blank" rel="noopener">https://www.ssm.gov.mo/portal/</a>
+</li>
+<li>Taiwan CDC: <a href="https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0" target="_blank" rel="noopener">https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0</a>
+</li>
+<li>US CDC: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" target="_blank" rel="noopener">https://www.cdc.gov/coronavirus/2019-ncov/index.html</a>
+</li>
+<li>Government of Canada: <a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus.html" target="_blank" rel="noopener">https://www.canada.ca/en/public-health/services/diseases/coronavirus.html</a>
+</li>
+<li>Australia Government Department of Health: <a href="https://www.health.gov.au/news/coronavirus-update-at-a-glance" target="_blank" rel="noopener">https://www.health.gov.au/news/coronavirus-update-at-a-glance</a>
+</li>
+<li>European Centre for Disease Prevention and Control (ECDC): <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases" target="_blank" rel="noopener">https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases</a>
+</li>
+<li>Ministry of Health Singapore (MOH): <a href="https://www.moh.gov.sg/covid-19" target="_blank" rel="noopener">https://www.moh.gov.sg/covid-19</a>
+</li>
+<li>Italy Ministry of Health: <a href="http://www.salute.gov.it/nuovocoronavirus" target="_blank" rel="noopener">http://www.salute.gov.it/nuovocoronavirus</a>
+</li>
+<li>1Point3Arces: <a href="https://coronavirus.1point3acres.com/en" target="_blank" rel="noopener">https://coronavirus.1point3acres.com/en</a>
+</li>
+<li>WorldoMeters: <a href="https://www.worldometers.info/coronavirus/" target="_blank" rel="noopener">https://www.worldometers.info/coronavirus/</a>
+</li>
 </ul>
 ]]></content:encoded>
     </item>
@@ -400,7 +440,8 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
 <code>$wp_version = '5.2.4';</code></p>
 <p>Version can be different.</p>
 <h3 id="step-4-download-wordpress-zip-file">Step 4: Download WordPress zip file</h3>
-<p>Go to <a href="https://wordpress.org/download/releases/">Wordpress Releases page</a>. Check for your version and download with below command:</p>
+<p>Go to <a href="https://wordpress.org/download/releases/" target="_blank" rel="noopener">Wordpress Releases page</a>
+. Check for your version and download with below command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget https://wordpress.org/wordpress-5.2.4.zip
 </span></span></code></pre></div><p>Unzip it:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>unzip wordpress-5.2.4.zip

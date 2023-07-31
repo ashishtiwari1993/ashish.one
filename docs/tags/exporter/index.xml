@@ -18,11 +18,13 @@
       <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
       
       <guid>https://ashish.one/blogs/write-custom-exporters-prometheus/</guid>
-      <description>Introduction In PART-1 and PART-2, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
+      <description>Introduction In PART-1 and PART-2 , We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
 But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.
-There is two way to exporting the data on prometheus: 1. Exporting to a Pushgateway Here we metrics are getting the push to prometheus server.</description>
+There is two way to exporting the data on prometheus: 1.</description>
       <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART-1</a> and <a href="https://ashish.one/blogs/setup-alertmanager/">PART-2</a>, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.</p>
+<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/" target="_blank" rel="noopener">PART-1</a>
+ and <a href="https://ashish.one/blogs/setup-alertmanager/" target="_blank" rel="noopener">PART-2</a>
+, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.</p>
 <p>But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.</p>
 <h2 id="there-is-two-way-to-exporting-the-data-on-prometheus">There is two way to exporting the data on prometheus:</h2>
 <h3 id="1-exporting-to-a-pushgateway">1. Exporting to a Pushgateway</h3>
@@ -39,12 +41,15 @@ There is two way to exporting the data on prometheus: 1. Exporting to a Pushgate
 <h2 id="writing-exporter">Writing Exporter</h2>
 <p>We are going to use the Second option (Exposing over HTTP).</p>
 <h3 id="step-1">Step 1</h3>
-<p>We going to use <a href="https://github.com/prometheus/client_python">python_client</a>. Just install it with below <code>pip</code> command:</p>
+<p>We going to use <a href="https://github.com/prometheus/client_python" target="_blank" rel="noopener">python_client</a>
+. Just install it with below <code>pip</code> command:</p>
 <p><code>pip install prometheus_client</code></p>
 <h3 id="step-2">Step 2</h3>
-<p>We need webserver gateway, For which we are going to use <a href="https://www.python.org/dev/peps/pep-0333/">WSGI</a>.</p>
+<p>We need webserver gateway, For which we are going to use <a href="https://www.python.org/dev/peps/pep-0333/" target="_blank" rel="noopener">WSGI</a>
+.</p>
 <h3 id="step-3">Step 3</h3>
-<p>Whenever we are writing exporters, We need to take care of metric type storage. Prometheus offered four types of metrics: Counter, Gauge, Summary, and Histogram. You can explore more <a href="https://github.com/prometheus/client_python#instrumenting">here</a>. Decide your metric type before pushing data.</p>
+<p>Whenever we are writing exporters, We need to take care of metric type storage. Prometheus offered four types of metrics: Counter, Gauge, Summary, and Histogram. You can explore more <a href="https://github.com/prometheus/client_python#instrumenting" target="_blank" rel="noopener">here</a>
+. Decide your metric type before pushing data.</p>
 <h3 id="step-4">Step 4</h3>
 <p>We are going to run a webserver on <code>8000</code> port and exposing the result on <code>/metrics</code> path. So to access metrics just hit <code>http://myurl.com:8000/metrics</code>.</p>
 <h3 id="step-5">Step 5</h3>
@@ -65,8 +70,10 @@ There is two way to exporting the data on prometheus: 1. Exporting to a Pushgate
 <blockquote>
 <p>This is just a very basic example. It is a simple script to understand the way of writing exporters. You can write your custom exporters according to your use case.</p>
 </blockquote>
-<p>Here we have successfully write exporter which will expose the metrics. To know more about pushgateway or HTTP expoorter visit <a href="https://github.com/prometheus/client_python#instrumenting">here</a></p>
-<p>In <a href="https://ashish.one/blogs/setup-grafana-with-prometheus/">part - 4</a>, I have explained how you can integrate Grafana with Prometheus.</p>
+<p>Here we have successfully write exporter which will expose the metrics. To know more about pushgateway or HTTP expoorter visit <a href="https://github.com/prometheus/client_python#instrumenting" target="_blank" rel="noopener">here</a>
+</p>
+<p>In <a href="https://ashish.one/blogs/setup-grafana-with-prometheus/" target="_blank" rel="noopener">part - 4</a>
+, I have explained how you can integrate Grafana with Prometheus.</p>
 <p>Share you comments below :)</p>
 ]]></content:encoded>
     </item>

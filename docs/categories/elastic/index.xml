@@ -55,25 +55,31 @@ Talk Video </description>
 <p>System + Internet connection</p>
 </li>
 <li>
-<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>. Make sure it having <a href="https://platform.openai.com/account/usage">free credits</a>.</p>
+<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">https://platform.openai.com/account/api-keys</a>
+. Make sure it having <a href="https://platform.openai.com/account/usage" target="_blank" rel="noopener">free credits</a>
+.</p>
 </li>
 </ol>
 <h2 id="without-local-setup">Without local setup</h2>
 <ol>
 <li>
-<p>Google account to use <a href="https://colab.research.google.com/">google Colab</a>.</p>
+<p>Google account to use <a href="https://colab.research.google.com/" target="_blank" rel="noopener">google Colab</a>
+.</p>
 </li>
 <li>
-<p><a href="https://render.com/">Render</a> account.</p>
+<p><a href="https://render.com/" target="_blank" rel="noopener">Render</a>
+ account.</p>
 </li>
 </ol>
 <h2 id="local-setup">Local setup</h2>
 <ol>
 <li>
-<p>Git - Install it from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<p>Git - Install it from <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a>
+</p>
 </li>
 <li>
-<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</p>
+<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">https://docs.docker.com/engine/install/</a>
+.</p>
 </li>
 <li>
 <p>Having basic python knowledge will be good.</p>
@@ -83,7 +89,8 @@ Talk Video </description>
 <h1 id="1-setup-cluster">1. Setup cluster</h1>
 <ol>
 <li>
-<p>Visit <a href="https://cloud.elastic.co">cloud.elastic.co</a> and signup.</p>
+<p>Visit <a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
+ and signup.</p>
 </li>
 <li>
 <p>Click on <code>Create deployment</code>. In the pop-up, you can change the settings or leave it default.</p>
@@ -107,19 +114,22 @@ Talk Video </description>
 <h1 id="2-upload-third-party-model">2. Upload third party Model</h1>
 <p><strong>Get your credentials ready</strong></p>
 <ul>
-<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
+</strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: <code>elastic</code></li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be <code>elastic</code> only)</li>
 </ul>
 <p>Now there is two way, You can upload the model using <code>docker</code> as well as <code>Google colab</code>.</p>
 <h2 id="using-google-colab-recommended">Using Google Colab (Recommended)</h2>
 <p>Simply click on below link. It will open ready made notebook. You just need to click on <code>play</code> button.</p>
-<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
-</a></p>
+<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb" target="_blank" rel="noopener"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
+</a>
+</p>
 <h2 id="using-docker">Using Docker</h2>
 <ol>
 <li>
-<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1">all-distilroberta-v1</a> model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
+<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">all-distilroberta-v1</a>
+ model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
 </li>
 <li>
 <p>We’re going to use docker for import model to the elastic cluster</p>
@@ -192,17 +202,20 @@ Talk Video </description>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>Paste above query in <code>cosole</code> and hit on play button.</p>
 <ol start="13">
-<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one">https://ashish.one</a>. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
+<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one" target="_blank" rel="noopener">https://ashish.one</a>
+. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
 <li>If everything is fine, simply click on “<em><strong>Add domain</strong></em>” and start crawling by click on <em><strong>Crawl -&gt; Crawl all domains on this index</strong></em>.</li>
 <li>Go to <em><strong>Enterprise Search -&gt; Indices</strong></em>. You should see your index name.</li>
 </ol>
 <h1 id="4-setup-interface">4. Setup Interface</h1>
 <p>** Get your credentials ready **</p>
 <ol>
-<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
+</strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: elastic</li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be elastic)</li>
-<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>.</li>
+<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">https://platform.openai.com/account/api-keys</a>
+.</li>
 <li><code>es_index</code>: Index name which we created in step 3.3. (search-ashish.one)</li>
 <li><code>vector_field</code>: The field which we&rsquo;ve set for destination at step 3.9. i.e. <strong>title-vector</strong></li>
 </ol>
@@ -231,11 +244,14 @@ Talk Video </description>
 <li>Run</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker run -p 8501:8501 es-gpt
-</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a></p>
-<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/">Render</a> with Docker</h2>
+</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a>
+</p>
+<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/" target="_blank" rel="noopener">Render</a>
+ with Docker</h2>
 <ol>
 <li>
-<p>Signup on <a href="https://render.com">https://render.com</a>.</p>
+<p>Signup on <a href="https://render.com" target="_blank" rel="noopener">https://render.com</a>
+.</p>
 </li>
 <li>
 <p>Create <strong>Web Service</strong>.</p>
@@ -268,7 +284,8 @@ Talk Video </description>
 <p><img loading="lazy" src="/img/talks/elasticsearch-chatgpt/ashish_one_gpt.gif" alt="ashish.one ChatGPT"  />
 </p>
 <h1 id="reference">Reference</h1>
-<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a></p>
+<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data" target="_blank" rel="noopener">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a>
+</p>
 ]]></content:encoded>
     </item>
     
@@ -278,10 +295,11 @@ Talk Video </description>
       <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
       
       <guid>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</guid>
-      <description>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case. Elastic provides Search, Observability &amp;amp; Security you can check more on this with official documentation.
+      <description>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case. Elastic provides Search, Observability &amp;amp; Security you can check more on this with official documentation .
 What is Webhook ? Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks.</description>
       <content:encoded><![CDATA[<p>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case.
-Elastic provides Search, Observability &amp; Security you can check more on this with <a href="https://www.elastic.co/guide/index.html">official documentation</a>.</p>
+Elastic provides Search, Observability &amp; Security you can check more on this with <a href="https://www.elastic.co/guide/index.html" target="_blank" rel="noopener">official documentation</a>
+.</p>
 <h1 id="what-is-webhook-">What is Webhook ?</h1>
 <p>Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks. Now in the modern tech world it is also known as Reverse API, Push API etc.
 Mostly it is used to send small amounts of data from source to destination. It is a one way data transfer procedure. It works over the HTTP protocol using REST API. It is simple like client and server communication.
@@ -291,19 +309,28 @@ Most of the saas allow you to integrate their product with your system with the 
 <p>So I have to use the <code>POST</code> method, and send data on the above endpoint. You can hit this Endpoint using curl, postman or any programming language.</p>
 <h1 id="what-is-elk-">What is ELK ?</h1>
 <p>Well from elastic.co -</p>
-<p><em>E</em> - <code>Elasticsearch</code> - Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Check more <a href="https://www.elastic.co/what-is/elasticsearch">here</a>.</p>
-<p><em>L</em> - <code>logstash</code> - Logstash is a free and open server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to your favorite &ldquo;stash.&rdquo; check more <a href="https://www.elastic.co/logstash/">here</a>.</p>
-<p><em>K</em> - <code>Kibana</code> - Kibana is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Check more <a href="https://www.elastic.co/what-is/kibana">here</a>.</p>
+<p><em>E</em> - <code>Elasticsearch</code> - Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Check more <a href="https://www.elastic.co/what-is/elasticsearch" target="_blank" rel="noopener">here</a>
+.</p>
+<p><em>L</em> - <code>logstash</code> - Logstash is a free and open server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to your favorite &ldquo;stash.&rdquo; check more <a href="https://www.elastic.co/logstash/" target="_blank" rel="noopener">here</a>
+.</p>
+<p><em>K</em> - <code>Kibana</code> - Kibana is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Check more <a href="https://www.elastic.co/what-is/kibana" target="_blank" rel="noopener">here</a>
+.</p>
 <h1 id="the-flow">The Flow</h1>
 <p><em><strong>Events -&gt; Logstash -&gt; Elasticsearch &lt;- Kibana</strong></em></p>
-<p>Logstash works with three plugins - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">input</a>, <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html">filter</a>, <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html">output</a>.</p>
-<p>You can choose any source as a input. For example you can use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html">jdbc input plugin</a> to read data from <code>mysql</code>.</p>
+<p>Logstash works with three plugins - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" rel="noopener">input</a>
+, <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html" target="_blank" rel="noopener">filter</a>
+, <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html" target="_blank" rel="noopener">output</a>
+.</p>
+<p>You can choose any source as a input. For example you can use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html" target="_blank" rel="noopener">jdbc input plugin</a>
+ to read data from <code>mysql</code>.</p>
 <p>Transform your data with the help of <code>filter</code> plugin.</p>
 <p>Push the data on destination which you have specified in output plugin.</p>
 <p>We will use below plugins to process the webhooks requests.</p>
 <ul>
-<li>Input plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html">HTTP</a></li>
-<li>Output plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">Elasticsearch</a></li>
+<li>Input plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html" target="_blank" rel="noopener">HTTP</a>
+</li>
+<li>Output plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html" target="_blank" rel="noopener">Elasticsearch</a>
+</li>
 </ul>
 <p>Logstash will process the event and push to the Elasticsearch.
 Visualise data from kibana.</p>
@@ -311,9 +338,12 @@ Visualise data from kibana.</p>
 <h2 id="installation">Installation</h2>
 <p>You can simply follow the official documentation for installation.</p>
 <ul>
-<li><strong>Elasticsearch</strong> - <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html</a></li>
-<li><strong>Kibana</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a></li>
-<li><strong>Logstash</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a></li>
+<li><strong>Elasticsearch</strong> - <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html</a>
+</li>
+<li><strong>Kibana</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a>
+</li>
+<li><strong>Logstash</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a>
+</li>
 </ul>
 <p>I am spinning ELK instances using docker. You can choose any method mentioned on above links.</p>
 <h2 id="verify">Verify</h2>
@@ -370,7 +400,8 @@ Visualise data from kibana.</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>We are configuring HTTP endpoint on port <code>4000</code>. So whenever anyone calls the webhook endpoint, they need to specify port like <code>http://mydomain.com:4000</code></p>
-<p>Here i am only defining the index but you can configure data stream as well. Check <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">here</a> for more options.</p>
+<p>Here i am only defining the index but you can configure data stream as well. Check <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html" target="_blank" rel="noopener">here</a>
+ for more options.</p>
 <h3 id="test-configuration">Test configuration</h3>
 <p>Run pipeline with below command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./bin/logstash -f webhook-receiver.conf
@@ -465,7 +496,9 @@ Visualise data from kibana.</p>
 </p>
 <p>To create the dashboard, go to <em><strong>Menu -&gt; Analytics -&gt; Dashboard</strong></em>. You can create a dashboard according to your requirement.</p>
 <h1 id="conclusion">Conclusion</h1>
-<p>We have successfully set up the webhook receiver with the help of ELK stack. Though ELK use cases are very vast. There are various <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">input</a> and <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html">output</a> plugins available in logstash for data pipelines.</p>
+<p>We have successfully set up the webhook receiver with the help of ELK stack. Though ELK use cases are very vast. There are various <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" rel="noopener">input</a>
+ and <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html" target="_blank" rel="noopener">output</a>
+ plugins available in logstash for data pipelines.</p>
 ]]></content:encoded>
     </item>
     
@@ -562,7 +595,8 @@ DELETE meetup
 {&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
 {&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
 </code></pre><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
-<p>Download <a href="/data/movies.json">movies.json</a> and insert into elasticsearch by using below command:</p>
+<p>Download <a href="/data/movies.json">movies.json</a>
+ and insert into elasticsearch by using below command:</p>
 <p><em>Open Kibana -&gt; Menu -&gt; Home -&gt; Upload a file</em></p>
 <h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Stack Management -&gt; Data Views (Kibana)</em></p>
@@ -723,7 +757,8 @@ GET _analyze
   }
 }
 </code></pre><h3 id="insert-data">Insert data</h3>
-<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE">विकिपीडिया-श्रीमद्भगवद्गीता</a></p>
+<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE" target="_blank" rel="noopener">विकिपीडिया-श्रीमद्भगवद्गीता</a>
+</p>
 <p>Lets insert some data like below:</p>
 <pre tabindex="0"><code>POST geetyantra/_doc
 {
@@ -877,7 +912,8 @@ GET geetyantra/_search
   }
 }
 </code></pre><h2 id="search-as-you-type">Search as you type</h2>
-<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/">Search as you type</a>.</p>
+<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/" target="_blank" rel="noopener">Search as you type</a>
+.</p>
 ]]></content:encoded>
     </item>
     
@@ -887,13 +923,16 @@ GET geetyantra/_search
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
       
       <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
-      <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose. You can learn more about Docker &amp;amp; Docker Compose, Which will help you to understand the flow.
+      <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose . You can learn more about Docker &amp;amp; Docker Compose , Which will help you to understand the flow.
 Prerequisite Tested on the below configuration.
 docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414 Cluster This setup will include
 Elasticsearch Kibana Logstash APM Setup Clone repo:
-git clone https://github.com/ashishtiwari1993/elastic-docker.git cd elastic-docker Make changes in .</description>
+git clone https://github.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/">docker-compose</a>. You can learn more about <a href="https://www.docker.com/">Docker</a> &amp; <a href="https://docs.docker.com/compose/">Docker Compose</a>, Which will help you to understand the flow.</p>
+<p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/" target="_blank" rel="noopener">docker-compose</a>
+. You can learn more about <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a>
+ &amp; <a href="https://docs.docker.com/compose/" target="_blank" rel="noopener">Docker Compose</a>
+, Which will help you to understand the flow.</p>
 <h1 id="prerequisite">Prerequisite</h1>
 <p>Tested on the below configuration.</p>
 <ul>
@@ -953,14 +992,18 @@ There can be cases where you need to log the data according to your convenience 
 <p>In this article, we are going to see how we can parse custom logs of any format into Elasticsearch. Elasticsearch provides the ingest pipeline with grok processor which will be able to match any unstructured log.</p>
 <h1 id="overview">Overview</h1>
 <h2 id="ingest-pipeline">Ingest Pipeline</h2>
-<p>Elasticsearch gives <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">ingest pipeline</a> where it let you perform different types of operations or data transformations before indexing the data. The pipeline consists of a series of various processors.</p>
+<p>Elasticsearch gives <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html" target="_blank" rel="noopener">ingest pipeline</a>
+ where it let you perform different types of operations or data transformations before indexing the data. The pipeline consists of a series of various processors.</p>
 <p>Each processor in the pipeline takes input and produces the output. That output goes as input to the next processor.</p>
 <p>Like below, After converting into lowercase letters by &ldquo;lowercase processor&rdquo; it sends the same string as input to the &ldquo;split processor&rdquo;.</p>
 <p>Example</p>
 <pre tabindex="0"><code>{&#34;date&#34;:&#34;HELLO - WORLD&#34;} Input → |  lowercase processor ({&#34;date&#34;:&#34;hello - world&#34;}) → split processor ({&#34;date&#34;:&#34;hello world&#34;})   |  → Index
-</code></pre><p>You can check more about ingest <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">pipeline</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/processors.html">processors</a>.</p>
+</code></pre><p>You can check more about ingest <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html" target="_blank" rel="noopener">pipeline</a>
+ and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/processors.html" target="_blank" rel="noopener">processors</a>
+.</p>
 <h2 id="grok-processor">Grok Processor</h2>
-<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/grok-processor.html">Grok Processor</a> allows you to extract structured data from the ingested value on the specific field. Grok Processor works with grok patterns.</p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/grok-processor.html" target="_blank" rel="noopener">Grok Processor</a>
+ allows you to extract structured data from the ingested value on the specific field. Grok Processor works with grok patterns.</p>
 <p>Let&rsquo;s suppose you have the following document</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Ip&#34;</span>:<span style="color:#e6db74">&#34;1.2.3.4&#34;</span>,
@@ -979,9 +1022,11 @@ SPACE \s*
 <p>I can directly use <code>SPACE</code> label to define regex for space instead of a regular pattern like <code>\s*</code>. Also, the Grok pattern can be reused as the same as <code>USERNAME</code>.</p>
 <h3 id="pattern-list">Pattern list</h3>
 <p>You can find all pattern list on the below link:</p>
-<p><a href="https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns">https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns</a></p>
+<p><a href="https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns" target="_blank" rel="noopener">https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns</a>
+</p>
 <p>You can select any folder and explore all the patterns.</p>
-<p><strong>Grok pattern</strong>: <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a></p>
+<p><strong>Grok pattern</strong>: <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns" target="_blank" rel="noopener">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a>
+</p>
 <h1 id="the-flow">The flow</h1>
 <ol>
 <li>Create &amp; Test Ingest Pipeline</li>
@@ -1006,7 +1051,8 @@ SPACE \s*
 <p>Data need to parse</p>
 <pre tabindex="0"><code>LEVEL:ERROR,method:fetchUser(),message:user not found
 </code></pre><p>Let&rsquo;s match some of the grok patterns from the below file
-<a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a></p>
+<a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns" target="_blank" rel="noopener">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a>
+</p>
 <pre tabindex="0"><code>ERROR = %{LOGLEVEL:log_level}
 fetchUser = %{WORD:method_name}
 user not found = %{GREEDYDATA:message}
@@ -1019,7 +1065,8 @@ user not found = %{GREEDYDATA:message}
 <p>Note: You can add your own regex as well. For example, I have added regex for <code>code</code>.</p>
 </blockquote>
 <h2 id="test-pipeline">Test pipeline</h2>
-<p>For testing above pattern or pipeline we can use <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">Simulate Pipeline API</a> like below:</p>
+<p>For testing above pattern or pipeline we can use <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns" target="_blank" rel="noopener">Simulate Pipeline API</a>
+ like below:</p>
 <h4 id="_simulate">_simulate</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST /_ingest/pipeline/_simulate?pretty
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
@@ -1065,7 +1112,8 @@ user not found = %{GREEDYDATA:message}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>As you can see we got the desired output. Now let&rsquo;s save the pipeline.</p>
 <h3 id="save-pipeline">Save pipeline</h3>
-<p>Pipeline can be saved using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">_ingest/pipeline</a> API.</p>
+<p>Pipeline can be saved using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html" target="_blank" rel="noopener">_ingest/pipeline</a>
+ API.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>PUT /_ingest/pipeline/custom_log?pretty
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;testing grok processor&#34;</span>,
@@ -1217,7 +1265,8 @@ user not found = %{GREEDYDATA:message}
 <p>Similarly you can parse any log format with Grok pattern.</p>
 <h1 id="demo">Demo</h1>
 <p>You can also check the demo on the below link where I presented how you can parse common log format using ingest pipeline and grok processor.</p>
-<p><a href="https://ashish.one/talks/devops-conf-2022/">https://ashish.one/talks/devops-conf-2022/</a></p>
+<p><a href="https://ashish.one/talks/devops-conf-2022/" target="_blank" rel="noopener">https://ashish.one/talks/devops-conf-2022/</a>
+</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>We have seen how we can parse any types of log format into elasticsearch with the help of ingest pipeline &amp; grok processor. You can also use this ingest pipeline with filebeat or logstash. Where you just need to specify the pipeline name.</p>
 <p>Feel free to put in comments if you have any doubts.</p>
@@ -1258,7 +1307,8 @@ Elasticsearch gives this specific mapping type which you can simply set to a spe
 </span></span></code></pre></div><h2 id="how-is-data-indexed-">How is data indexed ?</h2>
 <p><code>search_as_you_type</code> mapping creates 4 types of fields in the backend.</p>
 <h3 id="field-1-description">Field 1: <code>description</code></h3>
-<p>It will produce the terms according to the default analyzer if no analyzer is defined i.e. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-analyzer.html">standard analyzer</a>.</p>
+<p>It will produce the terms according to the default analyzer if no analyzer is defined i.e. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-analyzer.html" target="_blank" rel="noopener">standard analyzer</a>
+.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging&#34;</span>,
@@ -1267,8 +1317,10 @@ Elasticsearch gives this specific mapping type which you can simply set to a spe
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men&#34;</span>
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><h3 id="field-2-description_2gram">Field 2: <code>description._2gram</code></h3>
-<p>This will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">shingle token filter</a> and produce the terms with shingle size 2.
-This means a shingle token filter produces the token by concatenating the adjacent token. You can find more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">here</a>.</p>
+<p>This will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html" target="_blank" rel="noopener">shingle token filter</a>
+ and produce the terms with shingle size 2.
+This means a shingle token filter produces the token by concatenating the adjacent token. You can find more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html" target="_blank" rel="noopener">here</a>
+.</p>
 <p>This operation will perform on all the terms which are created on the <code>description</code> field and it will produce the below terms.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[ 
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging&#34;</span>,
@@ -1284,7 +1336,8 @@ This means a shingle token filter produces the token by concatenating the adjace
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for men&#34;</span>
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><h3 id="field-4-description_index_prefix">Field 4: <code>description._index_prefix</code></h3>
-<p>This will apply an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html">edge n gram token filter</a> on the field <code>description._3gram</code> which means it will split terms (words) of <code>description._3gram</code> to a small substring that will start from the edge.
+<p>This will apply an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html" target="_blank" rel="noopener">edge n gram token filter</a>
+ on the field <code>description._3gram</code> which means it will split terms (words) of <code>description._3gram</code> to a small substring that will start from the edge.
 You can have a look at the terms below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;b&#34;</span>,
@@ -1352,7 +1405,8 @@ You can have a look at the terms below.</p>
 </span></span></code></pre></div><p>As you noticed the token limit is up to 3 words only because <code>description._3gram</code> has generated 3 word tokens only.</p>
 <h1 id="search-query">Search Query</h1>
 <h2 id="multi_match"><code>multi_match</code></h2>
-<p>We will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html">multi_match</a> query here. Because we want to look up on each subfield for a perfect match.</p>
+<p>We will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html" target="_blank" rel="noopener">multi_match</a>
+ query here. Because we want to look up on each subfield for a perfect match.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
@@ -1427,7 +1481,8 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The result is empty. Because there is no term created with the name <strong><code>jog</code></strong> if you closely look at the above generated tokens on respective fields.</p>
-<p>To solve this we need to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-bool-prefix-query.html">bool_prefix</a> query.</p>
+<p>To solve this we need to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-bool-prefix-query.html" target="_blank" rel="noopener">bool_prefix</a>
+ query.</p>
 <p><code>bool_prefix</code> analyze the input and constructs the bool query from the terms. But it puts the last term in the prefix query. For example, input is given as <code>men jogging s</code>, So it will produce terms like <code>[&quot;men&quot;,&quot;jogging&quot;,&quot;s&quot;]</code> but it will always perform a prefix query on the last term which is <code>&quot;s&quot;</code>. So documents will return where terms will match with <code>&quot;men&quot;</code> or <code>&quot;jogging&quot;</code> or any term which is starting with <code>&quot;s&quot;</code>.</p>
 <p>Below is the query which will give you the desired output.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
@@ -1471,13 +1526,15 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>    ]
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Here when we make a prefix query on the root field (<code>description</code>) or any subfields, It will rewrite the query as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html">term</a> query on <code>description._index_prefix</code> field.</p>
+</span></span></code></pre></div><p>Here when we make a prefix query on the root field (<code>description</code>) or any subfields, It will rewrite the query as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html" target="_blank" rel="noopener">term</a>
+ query on <code>description._index_prefix</code> field.</p>
 <p>This matches more efficiently because prefixes up to 3 words are already created as the terms as shown in the above.</p>
 <blockquote>
 <p>Note: This query will search for terms irrespective of order. For example, if we search for <code>jogging men</code>, This will also give the result because it will search for both the terms <code>jogging</code> or <code>men</code>. In most of the cases this query (multi_match + bool_prefix) is recommended because the end user can search for any string like <code>shoes</code> or <code>shoes for men</code> or <code>jogging shoes</code> etc.</p>
 </blockquote>
 <h2 id="what-if-you-want-to-search-with-strict-prefix-order">What if you want to search with strict prefix order?</h2>
-<p>You can use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html">match_phrase_prefix</a>, It will strictly match input from prefix in the same order only. So input like “men best” won’t return anything. Whereas you will get results with the previous one.</p>
+<p>You can use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html" target="_blank" rel="noopener">match_phrase_prefix</a>
+, It will strictly match input from prefix in the same order only. So input like “men best” won’t return anything. Whereas you will get results with the previous one.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
@@ -1486,19 +1543,26 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>It will return documents where the term&rsquo;s prefix will be matched with “best jogging s”. Sometimes it can provide confusing results. You can check more about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-autocomplete">match_phrase_prefix</a>.</p>
+</span></span></code></pre></div><p>It will return documents where the term&rsquo;s prefix will be matched with “best jogging s”. Sometimes it can provide confusing results. You can check more about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-autocomplete" target="_blank" rel="noopener">match_phrase_prefix</a>
+.</p>
 <h1 id="demo">Demo</h1>
 <p>Let’s take a practical experience of how it is going to work.</p>
 <h1 id="search-as-you-type-elasticsearch">Search As You Type (Elasticsearch)</h1>
 <p>Demo code and sample employees data to implement the &ldquo;Search as you type&rdquo; feature on elasticsearch.</p>
-<p>Written the middleware API in <code>python</code> using <a href="https://flask.palletsprojects.com/en/2.0.x/">flask</a>. Used <a href="https://jquery.com/">JQuery</a> for javascript operations.</p>
+<p>Written the middleware API in <code>python</code> using <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank" rel="noopener">flask</a>
+. Used <a href="https://jquery.com/" target="_blank" rel="noopener">JQuery</a>
+ for javascript operations.</p>
 <h2 id="installation">Installation</h2>
-<p>Assuming you have successfully installed <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Elasticsearch</a> and <a href="https://www.elastic.co/guide/en/kibana/current/install.html">Kibana</a> on your machine and it is working perfectly. Kindly refer respective installation document.</p>
+<p>Assuming you have successfully installed <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">Elasticsearch</a>
+ and <a href="https://www.elastic.co/guide/en/kibana/current/install.html" target="_blank" rel="noopener">Kibana</a>
+ on your machine and it is working perfectly. Kindly refer respective installation document.</p>
 <p>OR</p>
-<p>You can run <a href="https://cloud.elastic.co/registration">Elasticsearch on the cloud</a> with a few clicks.</p>
+<p>You can run <a href="https://cloud.elastic.co/registration" target="_blank" rel="noopener">Elasticsearch on the cloud</a>
+ with a few clicks.</p>
 <h3 id="install-python3--pip3">Install Python3 &amp; pip3</h3>
 <ol>
-<li>Refer <a href="https://www.python.org/downloads/">Document</a> to install <code>python3</code> &amp; <code>pip3</code> on your system.</li>
+<li>Refer <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Document</a>
+ to install <code>python3</code> &amp; <code>pip3</code> on your system.</li>
 <li>Install <code>flask</code></li>
 </ol>
 <pre tabindex="0"><code>pip3 install flask
@@ -1535,7 +1599,9 @@ cd search_as_you_type
   }
 }
 </code></pre><h4 id="load-sample-data">Load sample data</h4>
-<p>Sample <a href="https://github.com/ashishtiwari1993/search_as_you_type/blob/main/data.json">data.json</a> file is given which need to load with the help of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">bulk API</a>.</p>
+<p>Sample <a href="https://github.com/ashishtiwari1993/search_as_you_type/blob/main/data.json" target="_blank" rel="noopener">data.json</a>
+ file is given which need to load with the help of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html" target="_blank" rel="noopener">bulk API</a>
+.</p>
 <pre tabindex="0"><code>curl -s -H &#34;Content-Type: application/x-ndjson&#34; -XPOST &#34;localhost:9200/_bulk&#34; --data-binary &#34;@data.json&#34;
 </code></pre><p>Do not forget to change the elasticsearch&rsquo;s endpoint.</p>
 <h3 id="run-apipy--test">Run <code>api.py</code> &amp; test</h3>
@@ -1556,11 +1622,13 @@ cd search_as_you_type
       <guid>https://ashish.one/talks/devops-conf-2022/</guid>
       <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
 Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
-But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor.</description>
+But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor .</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat">metricbeat</a> to check system health. With a few clicks, you can start monitoring your infra.</p>
+<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat" target="_blank" rel="noopener">metricbeat</a>
+ to check system health. With a few clicks, you can start monitoring your infra.</p>
 <p>Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.</p>
-<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html">Grok processor</a>.</p>
+<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html" target="_blank" rel="noopener">Grok processor</a>
+.</p>
 <p>Also explained how you can read custom logs from log files in real time and ingest to Elasticsearch.</p>
 <h1 id="slides">Slides</h1>
 <div id="Container"
@@ -1589,12 +1657,13 @@ But if you have different requirement where you need to parse a different types 
       
       <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
       <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
-Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co).
+Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co ).
 In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>The purpose of the talk is to give a short overview of Elastic solutions &amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.</p>
-<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co">cloud.elastic.co</a>).</p>
+<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
+).</p>
 <p>In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</p>
 <h2 id="slides">Slides</h2>
 <div id="Container"
@@ -1646,10 +1715,12 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>Filebeat version: filebeat version 7.7.1 <span style="color:#f92672">(</span>amd64<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>Kibana version: 7.7.1
 </span></span></code></pre></div><h2 id="1-write-json-logs-to-the-file-in-go">1. Write JSON logs to the file in Go</h2>
-<p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install">here</a>.</p>
+<p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install" target="_blank" rel="noopener">here</a>
+.</p>
 <h3 id="my-golang-version">My Golang version:</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go version go1.13 linux/amd64
-</span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus">Logrus</a></h3>
+</span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus" target="_blank" rel="noopener">Logrus</a>
+</h3>
 <p>This is a wonderful package available to write logs. Below is the short example of using logrus package:</p>
 <h4 id="1-install-logrus-package">1. Install Logrus package</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go install github.com/sirupsen/logru
@@ -1697,14 +1768,18 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;create_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;info&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is an info message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">10</span>}
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;delete_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;warning&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a warning message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">11</span>}
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;edit_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;fatal&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a critical message.&#34;</span>,<span style="color:#f92672">&#34;package&#34;</span>:<span style="color:#e6db74">&#34;main&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">13</span>}
-</span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus">here</a>.</p>
+</span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus" target="_blank" rel="noopener">here</a>
+.</p>
 <h2 id="2-shift-all-json-logs-on-elasticsearch">2. Shift All JSON logs on Elasticsearch</h2>
 <p>This part has no dependency on the above part. You can use any <code>JSON</code> log file irrespective of any language.</p>
 <p>Before start I am assuming you have installed Elasticsearch, Filebeat &amp; Kibana on your machine. If not then refer below link:</p>
 <ul>
-<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Install Elasticsearch</a></li>
-<li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html">Install Filebeat</a></li>
-<li><a href="https://www.elastic.co/guide/en/kibana/current/install.html">Install Kibana</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">Install Elasticsearch</a>
+</li>
+<li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html" target="_blank" rel="noopener">Install Filebeat</a>
+</li>
+<li><a href="https://www.elastic.co/guide/en/kibana/current/install.html" target="_blank" rel="noopener">Install Kibana</a>
+</li>
 </ul>
 <blockquote>
 <p><strong>Note: In this part we are not going to use Logstash.</strong></p>
@@ -1748,8 +1823,10 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Array of hosts to connect to.</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: [<span style="color:#e6db74">&#34;localhost:9200&#34;</span>]
 </span></span></code></pre></div><p>You can check on below link to know more about filebeat log input &amp; JSON decoding</p>
-<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a></p>
-<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a></p>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a>
+</p>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json" target="_blank" rel="noopener">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a>
+</p>
 <h3 id="4-restart-filebeat">4. Restart Filebeat</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service filebeat restart
 </span></span></code></pre></div><h2 id="verify-if-data-indexed-on-elasticsearch">Verify If Data Indexed on Elasticsearch</h2>
@@ -1810,7 +1887,8 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Your data will be saved on the <code>json</code> key. Another is metadata which is added by filebeat. Filebeat provides lots of options, features &amp; settings. You can use it according to your requirements.</p>
 <h3 id="logs-on-kibana">Logs on Kibana</h3>
-<p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html">here</a> for more details.</p>
+<p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html" target="_blank" rel="noopener">here</a>
+ for more details.</p>
 <p>Once you are done with defining the index pattern, Go to <code>Discover</code> section, Here you will see all your logs.</p>
 <p><img loading="lazy" src="/img/go-elk-logs/kibana.png" alt="Kibana-discover"  />
 </p>
@@ -1879,7 +1957,8 @@ Every use case having different solutions. You can try accordingly.</p>
       <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
       <description>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use ngram token filter for like query. It was quickly implemented on local and works exactly i want.
 The problem To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</description>
-      <content:encoded><![CDATA[<p>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html">ngram token filter</a> for like query. It was quickly implemented on local and works exactly i want.</p>
+      <content:encoded><![CDATA[<p>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html" target="_blank" rel="noopener">ngram token filter</a>
+ for like query. It was quickly implemented on local and works exactly i want.</p>
 <h2 id="the-problem">The problem</h2>
 <p>To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</p>
 <ol>
@@ -1945,7 +2024,8 @@ ngram-test  459483245   329.5gb
 }&#39;
 </code></pre><h2 id="analyzing-the-behavior-of-ngram-filter">Analyzing the behavior of ngram filter</h2>
 <p>We made one test index and start monitoring by inserting doc one by one.</p>
-<p><a href="https://medium.com/@ashishstiwari/what-should-be-the-value-of-max-gram-and-min-gram-in-elasticsearch-f091404c9a14">Continue Reading</a></p>
+<p><a href="https://medium.com/@ashishstiwari/what-should-be-the-value-of-max-gram-and-min-gram-in-elasticsearch-f091404c9a14" target="_blank" rel="noopener">Continue Reading</a>
+</p>
 ]]></content:encoded>
     </item>
     

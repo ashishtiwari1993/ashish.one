@@ -74,3 +74,7 @@ Re Generate the Site
 ```
 hugo
 ```
+
+## Open links in new tab
+
+[https://github.com/adityatelange/hugo-PaperMod/discussions/760#discussioncomment-2021778](https://github.com/adityatelange/hugo-PaperMod/discussions/760#discussioncomment-2021778)

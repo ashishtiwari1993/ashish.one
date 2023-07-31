@@ -105,7 +105,8 @@ DELETE meetup
 {&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
 {&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
 </code></pre><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
-<p>Download <a href="/data/movies.json">movies.json</a> and insert into elasticsearch by using below command:</p>
+<p>Download <a href="/data/movies.json">movies.json</a>
+ and insert into elasticsearch by using below command:</p>
 <p><em>Open Kibana -&gt; Menu -&gt; Home -&gt; Upload a file</em></p>
 <h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Stack Management -&gt; Data Views (Kibana)</em></p>
@@ -266,7 +267,8 @@ GET _analyze
   }
 }
 </code></pre><h3 id="insert-data">Insert data</h3>
-<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE">विकिपीडिया-श्रीमद्भगवद्गीता</a></p>
+<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE" target="_blank" rel="noopener">विकिपीडिया-श्रीमद्भगवद्गीता</a>
+</p>
 <p>Lets insert some data like below:</p>
 <pre tabindex="0"><code>POST geetyantra/_doc
 {
@@ -420,7 +422,8 @@ GET geetyantra/_search
   }
 }
 </code></pre><h2 id="search-as-you-type">Search as you type</h2>
-<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/">Search as you type</a>.</p>
+<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/" target="_blank" rel="noopener">Search as you type</a>
+.</p>
 ]]></content:encoded>
     </item>
     

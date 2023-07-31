@@ -63,7 +63,8 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
 <code>$wp_version = '5.2.4';</code></p>
 <p>Version can be different.</p>
 <h3 id="step-4-download-wordpress-zip-file">Step 4: Download WordPress zip file</h3>
-<p>Go to <a href="https://wordpress.org/download/releases/">Wordpress Releases page</a>. Check for your version and download with below command:</p>
+<p>Go to <a href="https://wordpress.org/download/releases/" target="_blank" rel="noopener">Wordpress Releases page</a>
+. Check for your version and download with below command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget https://wordpress.org/wordpress-5.2.4.zip
 </span></span></code></pre></div><p>Unzip it:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>unzip wordpress-5.2.4.zip
