@@ -74,7 +74,7 @@
  and signup.</p>
 </li>
 <li>
-<p>Click on <code>Create deployment</code>. In the pop-up, you can change the settings or leave it default.</p>
+<p>Click on <em><strong>Create deployment</strong></em>. In the pop-up, you can change the settings or leave it default.</p>
 </li>
 <li>
 <p>We need to add machine learning instance. For that, simply click on &ldquo;<em><strong>advance settings</strong></em>&rdquo; .</p>
@@ -89,29 +89,39 @@
 <p>Download / Copy the deployment credentials.</p>
 </li>
 <li>
-<p>Once deployment ready, click on &ldquo;Continue&rdquo; (or click on <code>Open Kibana</code>). It will redirect you on kibana dashboard.</p>
+<p>Once deployment ready, click on &ldquo;Continue&rdquo; (or click on <em><strong>Open Kibana</strong></em>). It will redirect you on kibana dashboard.</p>
 </li>
 </ol>
-<h1 id="2-upload-third-party-model">2. Upload third party Model</h1>
+<h1 id="2-deploy-model">2. Deploy Model</h1>
+<h2 id="elser-model-by-elastic-recommended">ELSER Model by Elastic (Recommended)</h2>
+<p>Go to the kibana panel. Navigate to <em><strong>Menu -&gt; Machine Learning</strong></em> (In <em>Analytics</em> section). In left menu, Click on <em><strong>Trained Models</strong></em> (In <em>Model Management</em> Section).</p>
+<ol>
+<li>ELSER can be found in the list of trained models.</li>
+<li>Click the <em><strong>Download model</strong></em> button under <em><strong>Actions</strong></em>.</li>
+<li>After the download is finished, start the deployment by clicking the <em><strong>Start deployment</strong></em> button.</li>
+<li>Provide a deployment ID, select the priority, and set the number of allocations and threads per allocation values.</li>
+<li>Click <em><strong>Start</strong></em>.</li>
+</ol>
+<h2 id="third-party-model">Third party model</h2>
+<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">all-distilroberta-v1</a>
+ model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
 <p><strong>Get your credentials ready</strong></p>
 <ul>
 <li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
 </strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: <code>elastic</code></li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be <code>elastic</code> only)</li>
+<li><code>hf_model_id</code>: <code>sentence-transformers/all-distilroberta-v1</code> (Go to model <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">page</a>
+ on huggingface &amp; copy the ID <code>sentence-transformers/all-distilroberta-v1</code>)</li>
 </ul>
 <p>Now there is two way, You can upload the model using <code>docker</code> as well as <code>Google colab</code>.</p>
-<h2 id="using-google-colab-recommended">Using Google Colab (Recommended)</h2>
-<p>Simply click on below link. It will open ready made notebook. You just need to click on <code>play</code> button.</p>
+<h3 id="using-google-colab-recommended">Using Google Colab (Recommended)</h3>
+<p>Simply click on below link. It will open ready made notebook. You just need to click on <code>play</code> button to run notebood.</p>
 <p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb" target="_blank" rel="noopener"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
 </a>
 </p>
-<h2 id="using-docker">Using Docker</h2>
-<ol>
-<li>
-<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">all-distilroberta-v1</a>
- model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
-</li>
+<h3 id="using-docker">Using Docker</h3>
+<ol start="2">
 <li>
 <p>We’re going to use docker for import model to the elastic cluster</p>
 <ol>
@@ -140,7 +150,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="verify-uploaded-model">Verify uploaded model</h2>
+<h3 id="verify-uploaded-model">Verify uploaded model</h3>
 <p>Go to the kibana panel. Navigate to <em><strong>Menu -&gt; Machine Learning (In <code>Analytics</code> section)</strong></em>. In left menu, Click on <em><strong>Trained Models</strong></em>(<code>Model Management</code> Section). You must see your model here in the “<em><strong>Started</strong></em>” state.</p>
 <p>In case if a warning message is displayed at the top of the page that says <em><strong>ML job and trained model synchronization required</strong></em>. Follow the link to <em><strong>Synchronize your jobs and trained models.</strong></em> Then click <em><strong>Synchronize</strong></em>.</p>
 <h1 id="3-crawling-private-data">3. Crawling private data</h1>
@@ -152,11 +162,11 @@
 <li>Click “<em><strong>Copy and customize</strong></em>” in the Ingest Pipeline Box.</li>
 <li>Click “<em><strong>Add Inference Pipeline</strong></em>” in the Machine Learning Inference Pipelines box.</li>
 <li>Give the unique pipeline name e.g. “<em><strong>ml-inference-ashish-one</strong></em>”</li>
-<li>Select a trained ML Model from the dropdown “<em><strong>sentence-transformers__all-distilroberta-v1</strong></em>”</li>
-<li>Select “<em><strong>title</strong></em>” as the Source field and set “<em><strong>title-vector</strong></em>” as a destination. You can specify your own destination field name.</li>
+<li>Select a trained ML Model from the dropdown “<em><strong>sentence-transformers__all-distilroberta-v1</strong></em>” (For ELSER choose &ldquo;<em><strong>.elser_model_1</strong></em>&rdquo;)</li>
+<li>Select “<em><strong>title</strong></em>” as the Source field and set “<em><strong>title-vector</strong></em>” as a destination. You can specify your own destination field name. (In case of ELSER, just select the &ldquo;<em><strong>Source</strong></em>&rdquo; field e.g <em>title, body_content</em>)</li>
 <li>Let&rsquo;s click on “<em><strong>Continue</strong></em>” and move to the Test(Optional) tab.  Click on “<em><strong>Continue</strong></em>” again.</li>
 <li>At the Review stage let&rsquo;s click on “<em><strong>Create pipeline</strong></em>”.</li>
-<li>Go to <em><strong>Menu -&gt; Management -&gt; Dev Tools</strong></em>. Let&rsquo;s create a mapping</li>
+<li>(Skip this for <em><strong>ELSER</strong></em>) Go to <em><strong>Menu -&gt; Management -&gt; Dev Tools</strong></em>. Let&rsquo;s create a mapping</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST &lt;index_name&gt;/_mapping
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>

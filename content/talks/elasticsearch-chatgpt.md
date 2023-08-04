@@ -68,7 +68,7 @@ For a workshop we going to follow without local setup.
 
 1. Visit [cloud.elastic.co](https://cloud.elastic.co) and signup.
 
-2. Click on `Create deployment`. In the pop-up, you can change the settings or leave it default.
+2. Click on *__Create deployment__*. In the pop-up, you can change the settings or leave it default.
 
 3. We need to add machine learning instance. For that, simply click on "*__advance settings__*" .
 
@@ -78,30 +78,42 @@ For a workshop we going to follow without local setup.
 
 6. Download / Copy the deployment credentials.
 
-7. Once deployment ready, click on "Continue" (or click on `Open Kibana`). It will redirect you on kibana dashboard.
+7. Once deployment ready, click on "Continue" (or click on *__Open Kibana__*). It will redirect you on kibana dashboard.
 
 
 
-# 2. Upload third party Model
+# 2. Deploy Model
+
+## ELSER Model by Elastic (Recommended)
+
+Go to the kibana panel. Navigate to *__Menu -> Machine Learning__* (In *Analytics* section). In left menu, Click on *__Trained Models__* (In *Model Management* Section).
+
+1. ELSER can be found in the list of trained models.
+2. Click the *__Download model__* button under *__Actions__*.
+3. After the download is finished, start the deployment by clicking the *__Start deployment__* button.
+4. Provide a deployment ID, select the priority, and set the number of allocations and threads per allocation values.
+5. Click *__Start__*.
+
+## Third party model 
+
+We are going to use [all-distilroberta-v1](https://huggingface.co/sentence-transformers/all-distilroberta-v1) model hosted on a hugging face. Lets import on an elastic cluster using eland.
 
 **Get your credentials ready**
 
 * `cloud_id` : Visit “*__[cloud.elastic.co](https://cloud.elastic.co)__*” -> Navigate to your deployment and click on “*__manage__*”. Simply copy Cloud ID and save it.
 * `cloud_user`: `elastic`
 * `cloud_password`: You will get it from step 1.6. If you forget to save, Simply click on *__“Action” -> “Reset password”__*. (Username will be `elastic` only)
-
+* `hf_model_id`: `sentence-transformers/all-distilroberta-v1` (Go to model [page](https://huggingface.co/sentence-transformers/all-distilroberta-v1) on huggingface & copy the ID `sentence-transformers/all-distilroberta-v1`)
 
 Now there is two way, You can upload the model using `docker` as well as `Google colab`. 
 
-## Using Google Colab (Recommended)
+### Using Google Colab (Recommended)
 
-Simply click on below link. It will open ready made notebook. You just need to click on `play` button.
+Simply click on below link. It will open ready made notebook. You just need to click on `play` button to run notebood.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb)
 
-## Using Docker
-
-1. We are going to use [all-distilroberta-v1](https://huggingface.co/sentence-transformers/all-distilroberta-v1) model hosted on a hugging face. Lets import on an elastic cluster using eland.
+### Using Docker
 
 2. We’re going to use docker for import model to the elastic cluster
 
@@ -128,7 +140,7 @@ Simply click on below link. It will open ready made notebook. You just need to c
         cd ..
         ```
 
-## Verify uploaded model
+### Verify uploaded model
 
 Go to the kibana panel. Navigate to *__Menu -> Machine Learning (In `Analytics` section)__*. In left menu, Click on *__Trained Models__*(`Model Management` Section). You must see your model here in the “*__Started__*” state.
 
@@ -143,11 +155,11 @@ In case if a warning message is displayed at the top of the page that says *__ML
 5. Click “*__Copy and customize__*” in the Ingest Pipeline Box.
 6. Click “*__Add Inference Pipeline__*” in the Machine Learning Inference Pipelines box.
 7. Give the unique pipeline name e.g. “*__ml-inference-ashish-one__*”
-8. Select a trained ML Model from the dropdown “*__sentence-transformers__all-distilroberta-v1__*”
-9. Select “*__title__*” as the Source field and set “*__title-vector__*” as a destination. You can specify your own destination field name.
+8. Select a trained ML Model from the dropdown “*__sentence-transformers__all-distilroberta-v1__*” (For ELSER choose "*__.elser_model_1__*")
+9. Select “*__title__*” as the Source field and set “*__title-vector__*” as a destination. You can specify your own destination field name. (In case of ELSER, just select the "*__Source__*" field e.g *title, body_content*)
 10. Let's click on “*__Continue__*” and move to the Test(Optional) tab.  Click on “*__Continue__*” again.
 11. At the Review stage let's click on “*__Create pipeline__*”.
-12. Go to *__Menu -> Management -> Dev Tools__*. Let's create a mapping 
+12. (Skip this for *__ELSER__*) Go to *__Menu -> Management -> Dev Tools__*. Let's create a mapping 
 
 ```sh
 POST <index_name>/_mapping
