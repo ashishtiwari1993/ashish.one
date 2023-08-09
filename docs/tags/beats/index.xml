@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>beats on ashish.one</title>
+    <link>https://ashish.one/tags/beats/</link>
+    <description>Recent content in beats on ashish.one</description>
+    <image>
+      <title>ashish.one</title>
+      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
+      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Sep 2022 19:24:45 +0000</lastBuildDate><atom:link href="https://ashish.one/tags/beats/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Elastic stack</title>
+      <link>https://ashish.one/talks/getting_started_elastic_stack/</link>
+      <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
+      
+      <guid>https://ashish.one/talks/getting_started_elastic_stack/</guid>
+      <description>What this talk is all about ? Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.
+Talk Video Feel free to comment below, If you have any doubts or suggestion about this talk.</description>
+      <content:encoded><![CDATA[<h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
+<p>Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.</p>
+<h2 id="talk-video">Talk Video</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/hJoorF6zxBA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
