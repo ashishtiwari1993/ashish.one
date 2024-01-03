@@ -11,23 +11,63 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jul 2023 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Aug 2023 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>elasticsearch</title>
+      <link>https://ashish.one/tags/elasticsearch/</link>
+      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/elasticsearch/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>embeddings</title>
+      <link>https://ashish.one/tags/embeddings/</link>
+      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/embeddings/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>hybrid-search</title>
+      <link>https://ashish.one/tags/hybrid-search/</link>
+      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/hybrid-search/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>https://ashish.one/tags/llm/</link>
+      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/llm/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>vector-search</title>
+      <link>https://ashish.one/tags/vector-search/</link>
+      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/vector-search/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>Elastic</title>
       <link>https://ashish.one/tags/elastic/</link>
       <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
       
       <guid>https://ashish.one/tags/elastic/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>elasticsearch</title>
-      <link>https://ashish.one/tags/elasticsearch/</link>
-      <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/elasticsearch/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
@@ -73,31 +113,11 @@
     </item>
     
     <item>
-      <title>hybrid-search</title>
-      <link>https://ashish.one/tags/hybrid-search/</link>
-      <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/hybrid-search/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
       <title>knn</title>
       <link>https://ashish.one/tags/knn/</link>
       <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
       
       <guid>https://ashish.one/tags/knn/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>LLM</title>
-      <link>https://ashish.one/tags/llm/</link>
-      <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/llm/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>

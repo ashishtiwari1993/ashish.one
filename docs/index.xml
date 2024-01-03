@@ -11,7 +11,36 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jul 2023 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Aug 2023 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elasticsearch: Vector and Hybrid Search</title>
+      <link>https://ashish.one/talks/vector-hybrid-search/</link>
+      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/talks/vector-hybrid-search/</guid>
+      <description>Introduction Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.
+This talk gives an overview of:
+Classic search and its limitations. What is a model and how can you use it. How to use vector search or hybrid search in Elasticsearch. Where OpenAI&amp;rsquo;s ChatGPT or similar LLMs come into play to with Elastic. Check how to leverage Leverage ChatGPT with Elasticsearch .</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.</p>
+<p>This talk gives an overview of:</p>
+<ul>
+<li><strong>Classic</strong> search and its limitations.</li>
+<li>What is a model and how can you use it.</li>
+<li>How to use vector search or hybrid search in Elasticsearch.</li>
+<li>Where OpenAI&rsquo;s ChatGPT or similar LLMs come into play to with Elastic.</li>
+</ul>
+<p>Check how to leverage <a href="https://ashish.one/talks/chatgpt-elasticsearch/" target="_blank" rel="noopener">Leverage ChatGPT with Elasticsearch</a>
+.</p>
+<h2 id="talk-video">Talk Video</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/AljarsLZRW0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Monitor Kubernetes cluster with Elastic</title>
       <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>
@@ -2487,6 +2516,7 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 </p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Successfully built custom <a href="https://twitter.com/hashtag/Linux?src=hash&amp;ref_src=twsrc%5Etfw">#Linux</a> system by referring <a href="https://t.co/lyrdKkfXo9">https://t.co/lyrdKkfXo9</a> .<br><br>Listed my challenges here <a href="https://t.co/gU2SoAxly2">https://t.co/gU2SoAxly2</a><a href="https://twitter.com/nixcraft?ref_src=twsrc%5Etfw">@nixcraft</a><a href="https://twitter.com/hashtag/linux?src=hash&amp;ref_src=twsrc%5Etfw">#linux</a> <a href="https://twitter.com/hashtag/lfs?src=hash&amp;ref_src=twsrc%5Etfw">#lfs</a> <a href="https://twitter.com/hashtag/linuxfromscratch?src=hash&amp;ref_src=twsrc%5Etfw">#linuxfromscratch</a> <a href="https://t.co/XlWchVHy26">pic.twitter.com/XlWchVHy26</a></p>&mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) <a href="https://twitter.com/_ashish_tiwari/status/1254719517491511296?ref_src=twsrc%5Etfw">April 27, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 <p>I have started with <a href="https://www.linuxfromscratch.org" target="_blank" rel="noopener">www.linuxfromscratch.org</a>
 , I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.</p>
