@@ -34,7 +34,8 @@ It is a piped separated langugage with a combination of source commands and proc
 <p>Below is a few examples of ES|QL. I am considering you have an Elasticsearch and kibana is <a href="https://www.elastic.co/search-labs/tutorials/install-elasticsearch" target="_blank" rel="noopener">installed</a>
  and running. Please <a href="https://www.elastic.co/guide/en/kibana/current/get-started.html#gs-get-data-into-kibana" target="_blank" rel="noopener">import the sample dataset (Sample web logs)</a>
  from kibana. Navigate in side menu  -&gt; <code>Management</code> -&gt; <code>Dev Tools</code>  to perform the below query.</p>
-<h3 id="query">Query</h3>
+<h3 id="source-commands">Source commands</h3>
+<h4 id="from">FROM</h4>
 <pre tabindex="0"><code># Format
 
 POST /_query?format=csv
@@ -43,29 +44,93 @@ POST /_query?format=csv
     from kibana_sample_data_logs
   &#34;&#34;&#34;
 }
-
-# keep
-
-POST _query?format=txt
+</code></pre><h4 id="row">ROW</h4>
+<pre tabindex="0"><code>POST _query?format=txt
+{
+  &#34;query&#34;:&#34;&#34;&#34;
+    row a = &#34;Mozilla/5.0 (X11; Linux x86_64; rv:6.0a1) Gecko/20110421 Firefox/6.0a1&#34;
+    | dissect a &#34;%{browser}/%{version}&#34;
+    | keep browser
+  &#34;&#34;&#34;
+}
+</code></pre><h4 id="show">SHOW</h4>
+<pre tabindex="0"><code>POST /_query?format=txt
+{
+  &#34;query&#34;: &#34;&#34;&#34;
+    show info
+  &#34;&#34;&#34;
+}
+</code></pre><h3 id="processing-commands">Processing commands</h3>
+<h4 id="keep">keep</h4>
+<pre tabindex="0"><code>POST _query?format=txt
 {
   &#34;query&#34;: &#34;&#34;&#34;
     from kibana_sample_data_logs
     | keep @timestamp, clientip, host, tags, bytes
   &#34;&#34;&#34;
 }
-
-# where, limit
-
-POST _query?format=txt
+</code></pre><h4 id="where-limit-sort">where, limit, sort</h4>
+<pre tabindex="0"><code>POST _query?format=txt
 {
   &#34;query&#34;: &#34;&#34;&#34;
     from kibana_sample_data_logs
     | keep @timestamp, clientip, host, tags, bytes
     | where bytes &gt; 1000
+    | sort bytes desc
     | limit 5
   &#34;&#34;&#34;
 }
-</code></pre><h3 id="data-enrichment-enrich">Data enrichment (ENRICH)</h3>
+</code></pre><h4 id="like">like</h4>
+<pre tabindex="0"><code>POST _query?format=txt
+{
+  &#34;query&#34;:&#34;&#34;&#34;
+    FROM sample_data
+    | where message like &#34;*error*&#34;
+  &#34;&#34;&#34;
+}
+</code></pre><h4 id="grok-statsby">GROK, STATS&hellip;BY</h4>
+<pre tabindex="0"><code>POST _query?format=txt
+{
+  &#34;query&#34;:&#34;&#34;&#34;
+    from kibana_sample_data_logs
+    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
+    | keep browser, version, @timestamp
+  &#34;&#34;&#34;
+}
+
+POST _query?format=txt
+{
+  &#34;query&#34;:&#34;&#34;&#34;
+    from kibana_sample_data_logs
+    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
+    | keep browser, version, @timestamp
+    | stats count(*) by version
+  &#34;&#34;&#34;
+}
+</code></pre><h4 id="dissect">DISSECT</h4>
+<pre tabindex="0"><code>POST _query?format=txt
+{
+  &#34;query&#34;: &#34;&#34;&#34;
+    from kibana_sample_data_logs 
+    | dissect message &#34;%{ip} - - %{time} %{web_call} &#34;
+    | keep ip, time, web_call
+  &#34;&#34;&#34;
+}
+</code></pre><h4 id="eval">EVAL</h4>
+<pre tabindex="0"><code>POST /_query?format=txt
+{
+  &#34;query&#34;: &#34;&#34;&#34;
+    from kibana_sample_data_logs
+    | eval t = replace(agent, &#34;Mozilla&#34;, &#34;Chrome&#34;)
+    | eval l = length(agent)
+    | dissect agent &#34;%{browser}/%{version} &#34;
+    | eval lt = left(t, 6)
+    | keep lt, browser, version, t, l
+  &#34;&#34;&#34;
+}
+</code></pre><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions" target="_blank" rel="noopener">string functions</a>
+.</p>
+<h4 id="data-enrichment-enrich">Data enrichment (ENRICH)</h4>
 <pre tabindex="0"><code>
 # Create mappings
 
@@ -145,34 +210,6 @@ POST _query?format=txt
     from devs
     | keep lang_id, name, developer
     | enrich dev_lang on lang_id with name
-  &#34;&#34;&#34;
-}
-</code></pre><h3 id="grok">GROK</h3>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
-    | keep browser, version, @timestamp
-  &#34;&#34;&#34;
-}
-
-POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
-    | keep browser, version, @timestamp
-    | stats count(*) by version
-  &#34;&#34;&#34;
-}
-</code></pre><h3 id="dissect">DISSECT</h3>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs 
-    | dissect message &#34;%{ip} - - %{time} %{web_call} &#34;
-    | keep ip, time, web_call
   &#34;&#34;&#34;
 }
 </code></pre>]]></content:encoded>

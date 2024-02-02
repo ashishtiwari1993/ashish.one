@@ -4,7 +4,7 @@ date: 2024-02-01T10:54:52+05:30
 draft: false
 type: "post"
 ogtype: "article"
-tags: ["elasticsearch","kibana","analyzer","CRUD","BULK","ESQL","query","langugate"]
+tags: ["elasticsearch","kibana","esql","grok","query"]
 slug: "esql"
 categories: ["Elastic"]
 
@@ -24,7 +24,9 @@ ES|QL is more than langugage. The execution engine is developed by considering p
 
 Below is a few examples of ES|QL. I am considering you have an Elasticsearch and kibana is [installed](https://www.elastic.co/search-labs/tutorials/install-elasticsearch) and running. Please [import the sample dataset (Sample web logs)](https://www.elastic.co/guide/en/kibana/current/get-started.html#gs-get-data-into-kibana) from kibana. Navigate in side menu  -> `Management` -> `Dev Tools`  to perform the below query.
 
-### Query
+### Source commands
+
+#### FROM
 
 ```
 # Format
@@ -36,8 +38,39 @@ POST /_query?format=csv
   """
 }
 
-# keep
+```
 
+
+#### ROW
+
+```
+POST _query?format=txt
+{
+  "query":"""
+    row a = "Mozilla/5.0 (X11; Linux x86_64; rv:6.0a1) Gecko/20110421 Firefox/6.0a1"
+    | dissect a "%{browser}/%{version}"
+    | keep browser
+  """
+}
+```
+
+
+#### SHOW
+
+```
+POST /_query?format=txt
+{
+  "query": """
+    show info
+  """
+}
+```
+
+### Processing commands
+
+#### keep
+
+```
 POST _query?format=txt
 {
   "query": """
@@ -46,21 +79,91 @@ POST _query?format=txt
   """
 }
 
-# where, limit
+```
 
+#### where, limit, sort
+
+```
 POST _query?format=txt
 {
   "query": """
     from kibana_sample_data_logs
     | keep @timestamp, clientip, host, tags, bytes
     | where bytes > 1000
+    | sort bytes desc
     | limit 5
   """
 }
-
 ```
 
-### Data enrichment (ENRICH)
+#### like
+
+```
+POST _query?format=txt
+{
+  "query":"""
+    FROM sample_data
+    | where message like "*error*"
+  """
+}
+```
+
+
+#### GROK, STATS...BY
+
+```
+POST _query?format=txt
+{
+  "query":"""
+    from kibana_sample_data_logs
+    | grok agent "%{WORD:browser}/%{NUMBER:version}"
+    | keep browser, version, @timestamp
+  """
+}
+
+POST _query?format=txt
+{
+  "query":"""
+    from kibana_sample_data_logs
+    | grok agent "%{WORD:browser}/%{NUMBER:version}"
+    | keep browser, version, @timestamp
+    | stats count(*) by version
+  """
+}
+```
+
+#### DISSECT
+
+```
+POST _query?format=txt
+{
+  "query": """
+    from kibana_sample_data_logs 
+    | dissect message "%{ip} - - %{time} %{web_call} "
+    | keep ip, time, web_call
+  """
+}
+```
+
+#### EVAL
+
+
+```
+POST /_query?format=txt
+{
+  "query": """
+    from kibana_sample_data_logs
+    | eval t = replace(agent, "Mozilla", "Chrome")
+    | eval l = length(agent)
+    | dissect agent "%{browser}/%{version} "
+    | eval lt = left(t, 6)
+    | keep lt, browser, version, t, l
+  """
+}
+```
+You can check more [string functions](https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions).
+
+#### Data enrichment (ENRICH)
 
 ```
 
@@ -147,40 +250,4 @@ POST _query?format=txt
 
 ```
 
-
-### GROK
-
-```
-POST _query?format=txt
-{
-  "query":"""
-    from kibana_sample_data_logs
-    | grok agent "%{WORD:browser}/%{NUMBER:version}"
-    | keep browser, version, @timestamp
-  """
-}
-
-POST _query?format=txt
-{
-  "query":"""
-    from kibana_sample_data_logs
-    | grok agent "%{WORD:browser}/%{NUMBER:version}"
-    | keep browser, version, @timestamp
-    | stats count(*) by version
-  """
-}
-```
-
-### DISSECT
-
-```
-POST _query?format=txt
-{
-  "query": """
-    from kibana_sample_data_logs 
-    | dissect message "%{ip} - - %{time} %{web_call} "
-    | keep ip, time, web_call
-  """
-}
-```
 
