@@ -106,6 +106,7 @@ POST _query?format=txt
     | where message like "*error*"
   """
 }
+
 ```
 
 
