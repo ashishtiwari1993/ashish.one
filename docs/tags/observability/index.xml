@@ -11,7 +11,162 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jul 2023 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Mar 2024 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setup &amp; Observe Kubernetes cluster</title>
+      <link>https://ashish.one/talks/setup_and_observe_kubernetes/</link>
+      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/talks/setup_and_observe_kubernetes/</guid>
+      <description>Introduction In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.
+Setup K8s cluster Cluster architecture 3 Node cluster
+Machine - Centos7, 4GB RAM
+kube1.local - Control plane node kube2.local - worker node kube3.local - worker node Here I am setting hostname kube1.local, kube2.local, kube3.local. Login into all of the servers and perform below command on all three nodes.</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.</p>
+<h1 id="setup-k8s-cluster">Setup K8s cluster</h1>
+<h2 id="cluster-architecture">Cluster architecture</h2>
+<p>3 Node cluster</p>
+<p>Machine - Centos7, 4GB RAM</p>
+<ol>
+<li>kube1.local  - Control plane node</li>
+<li>kube2.local - worker node</li>
+<li>kube3.local - worker node</li>
+</ol>
+<p>Here I am setting hostname <code>kube1.local</code>, <code>kube2.local</code>, <code>kube3.local</code>.  Login into all of the servers and perform below command on all three nodes.</p>
+<h2 id="swap-off">Swap off</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo swapoff -a
+</span></span></code></pre></div><h2 id="install-docker">Install docker</h2>
+<p>You can refer <a href="https://docs.docker.com/engine/install/centos/" target="_blank" rel="noopener">docker documentation</a>
+ but here are the quick steps:</p>
+<h2 id="contanerd-runtime">Contanerd runtime</h2>
+<p>kubeadm automatically tries to detect an installed container runtime by scanning through a list of known endpoints.</p>
+<p>Verify if containerd is running or not</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ps -ef | grep containerd
+</span></span></code></pre></div><p>In my system containerd was running. <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank" rel="noopener">Install containerd</a>
+ if it is not installed.</p>
+<p>Change below cofing to remove <code>cri</code> from <code>disable_plugins</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo vim /etc/containerd/config.toml
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#disabled_plugins = [&#34;cri&#34;]</span>
+</span></span><span style="display:flex;"><span>disabled_plugins <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sudo systemctl restart containerd
+</span></span></code></pre></div><h2 id="install-kubeadm-kubelet--kubectl">Install kubeadm, kubelet &amp; kubectl</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[kubernetes]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">name=Kubernetes
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">baseurl=https://pkgs.k8s.io/core:/stable:/v1.28/rpm/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">enabled=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">gpgcheck=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">gpgkey=https://pkgs.k8s.io/core:/stable:/v1.28/rpm/repodata/repomd.xml.key
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set SELinux in permissive mode (effectively disabling it)</span>
+</span></span><span style="display:flex;"><span>sudo setenforce <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#39;s/^SELINUX=enforcing$/SELINUX=permissive/&#39;</span> /etc/selinux/config
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sudo yum install -y kubelet kubeadm kubectl --disableexcludes<span style="color:#f92672">=</span>kubernetes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sudo systemctl enable --now kubelet
+</span></span></code></pre></div><p>Make sure you install same version on all of the nodes. In my case i am installing <code>v1.28</code>.</p>
+<p>Need to install all three packages on all nodes</p>
+<p><strong>Kubeadm</strong> - Use to bootstrap the cluster</p>
+<p><strong>Kubelet</strong> - Will run all over the machin and take care of pods and container (General operation like stop / start / modify)</p>
+<p><strong>Kubectl</strong> - command line utility to talk with kubernetes APIs</p>
+<h2 id="on-control-plane-node-only-kube1local">On control plane node only (kube1.local)</h2>
+<p>Initialise kubeadm</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubeadm init
+</span></span></code></pre></div><p>On success, It will print the below <code>join</code> command, which we will use to join any machine in the cluster.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubeadm join control_plane_ip:6443 --token tlif0t.jq7r1nvdmltre7m3 --discovery-token-ca-cert-hash sha256:02eb1a7f249b2f2a2b8db2b8fef9b5564ac3db9d42da39db71c23c06df5cecb8
+</span></span></code></pre></div><p>Save this command. We need to execute this command on every worker node to join the cluster.</p>
+<h2 id="on-worker-node-only-kube2local-kube3local">On worker node only (kube2.local, kube3.local)</h2>
+<p>Perform join command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubeadm join control_plane_ip:6443 --token tlif0t.jq7r1nvdmltre7m3 --discovery-token-ca-cert-hash sha256:02eb1a7f249b2f2a2b8db2b8fef9b5564ac3db9d42da39db71c23c06df5cecb8
+</span></span></code></pre></div><p>You should see the message - “This node has joined the cluster” with addition details.</p>
+<h2 id="verify-cluster-kube1local">Verify cluster (kube1.local)</h2>
+<p>Enable <code>kubectl</code> to run from non root user.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir -p $HOME/.kube
+</span></span><span style="display:flex;"><span>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+</span></span><span style="display:flex;"><span>sudo chown <span style="color:#66d9ef">$(</span>id -u<span style="color:#66d9ef">)</span>:<span style="color:#66d9ef">$(</span>id -g<span style="color:#66d9ef">)</span> $HOME/.kube/config
+</span></span></code></pre></div><p>List nodes</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl get nodes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAME          STATUS   ROLES           AGE     VERSION
+</span></span><span style="display:flex;"><span>kube1.local   Ready    control-plane   199d    v1.28.1
+</span></span><span style="display:flex;"><span>kube2.local   Ready    &lt;none&gt;          8m22s   v1.28.8
+</span></span><span style="display:flex;"><span>kube3.local   Ready    &lt;none&gt;          199d    v1.28.1
+</span></span></code></pre></div><p>Our cluster is up and running.</p>
+<h1 id="deploy-nginx-kube1local">Deploy Nginx (kube1.local)</h1>
+<p>Create Nginx deployment</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF | kubectl apply -f -
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: apps/v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Deployment
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: nginx-deployment
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  selector:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    matchLabels:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      app: nginx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  replicas: 2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  template:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      labels:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        app: nginx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      containers:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: nginx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        image: nginx:latest
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ports:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        - containerPort: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><p>Expose the Nginx deployment on a NodePort 32000</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF | kubectl apply -f -
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Service
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: nginx-service
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  selector:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    app: nginx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  type: NodePort
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ports:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - port: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      targetPort: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      nodePort: 32000
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><p>Verify pod is running</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Kubectl get pods
+</span></span></code></pre></div><p>Just visit on browser - http://external_id:32000.</p>
+<p>You should able to see the nginx’s default page.</p>
+<h1 id="setup-observability-with-elastic">Setup Observability with Elastic</h1>
+<h2 id="enable-kube-state-matrics-kube1local">Enable kube-state-matrics (kube1.local)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/kubernetes/kube-state-metrics
+</span></span><span style="display:flex;"><span>kubectl apply -f kube-state-metrics/examples/standard/
+</span></span></code></pre></div><h2 id="verify-endpoint">Verify endpoint</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl port-forward svc/kube-state-metrics -n kube-system 8080:8080
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#login to anoter tab and hit</span>
+</span></span><span style="display:flex;"><span>curl localhost:8080/metrics
+</span></span></code></pre></div><p>It should return all metrics.</p>
+<h2 id="monitoring-using-elastic-cloud">Monitoring using Elastic cloud</h2>
+<p>You can follow detailed doc - <a href="https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters" target="_blank" rel="noopener">https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters</a>
+</p>
+<p>Blog - <a href="https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring" target="_blank" rel="noopener">https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring</a>
+</p>
+<h1 id="reference-talk">Reference talk</h1>
+<p>Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.</p>
+<h2 id="talk-video">Talk Video</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/8qOt_gYjwcw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Monitor Kubernetes cluster with Elastic</title>
       <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>

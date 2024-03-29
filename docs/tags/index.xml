@@ -11,13 +11,53 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Feb 2024 10:54:52 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Mar 2024 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elastic</title>
+      <link>https://ashish.one/tags/elastic/</link>
+      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/elastic/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>elasticsearch</title>
       <link>https://ashish.one/tags/elasticsearch/</link>
-      <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
+      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
       
       <guid>https://ashish.one/tags/elasticsearch/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>https://ashish.one/tags/k8s/</link>
+      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/k8s/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://ashish.one/tags/kubernetes/</link>
+      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/kubernetes/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>observability</title>
+      <link>https://ashish.one/tags/observability/</link>
+      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/observability/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
@@ -98,46 +138,6 @@
       <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
       
       <guid>https://ashish.one/tags/vector-search/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Elastic</title>
-      <link>https://ashish.one/tags/elastic/</link>
-      <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/elastic/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>k8s</title>
-      <link>https://ashish.one/tags/k8s/</link>
-      <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/k8s/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://ashish.one/tags/kubernetes/</link>
-      <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/kubernetes/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>observability</title>
-      <link>https://ashish.one/tags/observability/</link>
-      <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/observability/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
