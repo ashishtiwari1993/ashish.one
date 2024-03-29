@@ -11,23 +11,43 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Mar 2024 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Mar 2024 20:29:51 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>elasticsearch</title>
+      <link>https://ashish.one/tags/elasticsearch/</link>
+      <pubDate>Fri, 29 Mar 2024 20:29:51 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/elasticsearch/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>JSON</title>
+      <link>https://ashish.one/tags/json/</link>
+      <pubDate>Fri, 29 Mar 2024 20:29:51 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/json/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>ndjson</title>
+      <link>https://ashish.one/tags/ndjson/</link>
+      <pubDate>Fri, 29 Mar 2024 20:29:51 +0530</pubDate>
+      
+      <guid>https://ashish.one/tags/ndjson/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>Elastic</title>
       <link>https://ashish.one/tags/elastic/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
       
       <guid>https://ashish.one/tags/elastic/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>elasticsearch</title>
-      <link>https://ashish.one/tags/elasticsearch/</link>
-      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/elasticsearch/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
@@ -568,16 +588,6 @@
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
       
       <guid>https://ashish.one/tags/elkb/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>JSON</title>
-      <link>https://ashish.one/tags/json/</link>
-      <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      
-      <guid>https://ashish.one/tags/json/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
