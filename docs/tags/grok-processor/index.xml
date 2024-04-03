@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Apr 2022 01:24:55 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/grok-processor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/grok-processor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Parsing Custom log format to the Elasticsearch</title>
       <link>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</link>
       <pubDate>Fri, 29 Apr 2022 01:24:55 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</guid>
       <description>Introduction As a developer, you need to log everything it may be info, error or debug logs, etc. There are multiple types of log formats like Common log, JSON log, etc. and there are already solutions available in an elastic stack like filebeat to read JSON logs and push them to elasticsearch.
 There can be cases where you need to log the data according to your convenience which will not be any standard log format.</description>
@@ -306,6 +306,5 @@ user not found = %{GREEDYDATA:message}
 <p>Feel free to put in comments if you have any doubts.</p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

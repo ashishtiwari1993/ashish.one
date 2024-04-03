@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Apr 2020 13:55:52 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/lfs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 14:47:26 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/lfs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Challenges in linuxfromscratch</title>
       <link>https://ashish.one/blogs/challenges-in-linuxfromscratch/</link>
       <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/challenges-in-linuxfromscratch/</guid>
       <description>Successfully built custom #Linux system by referring https://t.co/lyrdKkfXo9 .
 Listed my challenges here https://t.co/gU2SoAxly2@nixcraft#linux #lfs #linuxfromscratch pic.twitter.com/XlWchVHy26
@@ -380,6 +380,5 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
 <p>Thanks</p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

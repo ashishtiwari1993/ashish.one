@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jan 2023 22:41:02 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/generic-errors/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 23:49:15 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/generic-errors/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes generic errors</title>
       <link>https://ashish.one/blogs/k8s/k8s-generic-errors/</link>
       <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/k8s/k8s-generic-errors/</guid>
       <description>1. unknown service runtime.v1alpha2.ImageService Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService
 System configuration centos 9 / 2GB RAM / 2CPU Master Node Same issue on master node.
@@ -56,6 +56,5 @@ Command [root@kube-master-1 ~]# kubeadm config images pull failed to pull image 
 </span></span><span style="display:flex;"><span>systemctl restart containerd
 </span></span></code></pre></div>]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

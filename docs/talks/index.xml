@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Mar 2024 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/talks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Mar 2024 20:26:29 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/talks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setup &amp; Observe Kubernetes cluster</title>
       <link>https://ashish.one/talks/setup_and_observe_kubernetes/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/setup_and_observe_kubernetes/</guid>
       <description>Introduction In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.
 Setup K8s cluster Cluster architecture 3 Node cluster
@@ -166,12 +166,10 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Elasticsearch Query Language (ES|QL)</title>
       <link>https://ashish.one/talks/esql/</link>
       <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/esql/</guid>
       <description>Introduction ES|QL is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.
 It is a piped separated langugage with a combination of source commands and process commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion.</description>
@@ -369,12 +367,10 @@ POST _query?format=txt
 }
 </code></pre>]]></content:encoded>
     </item>
-    
     <item>
       <title>Elasticsearch: Vector and Hybrid Search</title>
       <link>https://ashish.one/talks/vector-hybrid-search/</link>
       <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/vector-hybrid-search/</guid>
       <description>Introduction Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.
 This talk gives an overview of:
@@ -398,12 +394,10 @@ Classic search and its limitations. What is a model and how can you use it. How 
 
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Monitor Kubernetes cluster with Elastic</title>
       <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>
       <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/monitor_k8_elastic_observability/</guid>
       <description>Introduction Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.
 Talk Video </description>
@@ -417,12 +411,10 @@ Talk Video </description>
 
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Workshop - Leverage ChatGPT with Elasticsearch</title>
       <link>https://ashish.one/talks/chatgpt-elasticsearch/</link>
       <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/chatgpt-elasticsearch/</guid>
       <description>Connect ChatGPT to proprietary data stores using Elasticsearch</description>
       <content:encoded><![CDATA[<h1 id="objective">Objective</h1>
@@ -685,12 +677,10 @@ Talk Video </description>
 </p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Getting started with Elastic stack</title>
       <link>https://ashish.one/talks/getting_started_elastic_stack/</link>
       <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
-      
       <guid>https://ashish.one/talks/getting_started_elastic_stack/</guid>
       <description>What this talk is all about ? Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.
 Talk Video Feel free to comment below, If you have any doubts or suggestion about this talk.</description>
@@ -705,12 +695,10 @@ Talk Video Feel free to comment below, If you have any doubts or suggestion abou
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Getting started with Elasticsearch</title>
       <link>https://ashish.one/talks/ws-es/</link>
       <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/ws-es/</guid>
       <description>Sample Queries for Elasticsearch Workshop CRUD # Insert POST meetup/_doc/ { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # Insert with id POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # Search GET meetup/_search # Update POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;, &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;, &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;, &amp;#34;skills&amp;#34;:{ &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;], &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;], &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34; } } # search with query GET meetup/_search { &amp;#34;query&amp;#34;: { &amp;#34;match&amp;#34;: { &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34; } } } # delete DELETE meetup BULK POST _bulk {&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}} {&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.</description>
       <content:encoded><![CDATA[<h1 id="sample-queries-for-elasticsearch-workshop">Sample Queries for Elasticsearch Workshop</h1>
@@ -1120,12 +1108,10 @@ GET geetyantra/_search
 .</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Parse custom logs in Elasticsearch using grok_pattern</title>
       <link>https://ashish.one/talks/devops-conf-2022/</link>
       <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/devops-conf-2022/</guid>
       <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
 Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
@@ -1156,12 +1142,10 @@ But if you have different requirement where you need to parse a different types 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Deploy Elasicsearch on Azure cloud</title>
       <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
       <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
-      
       <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
       <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
 Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co ).
@@ -1191,12 +1175,10 @@ In the demo, Successfully shipped the metric data of the local system (my MacBoo
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Golang basics &amp; Handling 100k hourly webhooks with golang @MimePost</title>
       <link>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
       <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
       <description>What this talk about? I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.
 Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?
@@ -1236,12 +1218,10 @@ I have explained the Webhook architecture of MimePost And how we sending 100k Re
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>How to scale with massive update queries in Elasticsearch?</title>
       <link>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
       <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
       <description>Introduction What this talk is all about? We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.
 We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.</description>
@@ -1271,6 +1251,5 @@ We also worked on Disk optimization by believing in the principle of &ldquo;Know
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

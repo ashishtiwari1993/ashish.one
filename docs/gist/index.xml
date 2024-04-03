@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Mar 2024 20:29:51 +0530</lastBuildDate><atom:link href="https://ashish.one/gist/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Mar 2024 20:39:59 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/gist/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Convert json to nd-json for elasticsearch</title>
       <link>https://ashish.one/gist/json-to-ndjson-elasticsearch/</link>
       <pubDate>Fri, 29 Mar 2024 20:29:51 +0530</pubDate>
-      
       <guid>https://ashish.one/gist/json-to-ndjson-elasticsearch/</guid>
       <description>Convert JSON to nd-json for bulk indexing into Elasticsearch.
 movies.json [ { &amp;#34;title_x&amp;#34;: &amp;#34;Student of the Year 2&amp;#34;, &amp;#34;imdb_id&amp;#34;: &amp;#34;tt7255568&amp;#34;, &amp;#34;poster_path&amp;#34;: &amp;#34;https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Student_of_the_year_2_Poster.jpg/220px-Student_of_the_year_2_Poster.jpg&amp;#34;, &amp;#34;wiki_link&amp;#34;: &amp;#34;https://en.wikipedia.org/wiki/Student_of_the_Year_2&amp;#34;, &amp;#34;title_y&amp;#34;: &amp;#34;Student of the Year 2&amp;#34;, &amp;#34;original_title&amp;#34;: &amp;#34;Student of the Year 2&amp;#34;, &amp;#34;is_adult&amp;#34;: 0, &amp;#34;year_of_release&amp;#34;: &amp;#34;2019&amp;#34;, &amp;#34;runtime&amp;#34;: &amp;#34;146&amp;#34;, &amp;#34;genres&amp;#34;: &amp;#34;Drama|Romance|Sport&amp;#34;, &amp;#34;imdb_rating&amp;#34;: 2.5, &amp;#34;imdb_votes&amp;#34;: 12671, &amp;#34;story&amp;#34;: &amp;#34;A student must face off against bullies and overcome hurdles both academic and romantic to win his college&amp;#39;s coveted Student of the Year trophy.</description>
@@ -230,6 +230,5 @@ movies.json [ { &amp;#34;title_x&amp;#34;: &amp;#34;Student of the Year 2&amp;#3
 </span></span></code></pre></div><p>Verify newly created <code>nd-movies.json</code> file.</p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

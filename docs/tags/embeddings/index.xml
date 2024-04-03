@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Aug 2023 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/embeddings/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 23:08:57 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/embeddings/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elasticsearch: Vector and Hybrid Search</title>
       <link>https://ashish.one/talks/vector-hybrid-search/</link>
       <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/vector-hybrid-search/</guid>
       <description>Introduction Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.
 This talk gives an overview of:
@@ -40,6 +40,5 @@ Classic search and its limitations. What is a model and how can you use it. How 
 
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

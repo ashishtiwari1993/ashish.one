@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Sep 2019 15:20:39 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/elasticsearach/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/elasticsearach/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What should be the value of max_gram and min_gram in Elasticsearch?</title>
       <link>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</link>
       <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
       <description>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use ngram token filter for like query. It was quickly implemented on local and works exactly i want.
 The problem To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</description>
@@ -91,6 +91,5 @@ ngram-test  459483245   329.5gb
 </p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

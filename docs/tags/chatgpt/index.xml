@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Jul 2023 15:52:06 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Aug 2023 19:38:41 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Workshop - Leverage ChatGPT with Elasticsearch</title>
       <link>https://ashish.one/talks/chatgpt-elasticsearch/</link>
       <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/chatgpt-elasticsearch/</guid>
       <description>Connect ChatGPT to proprietary data stores using Elasticsearch</description>
       <content:encoded><![CDATA[<h1 id="objective">Objective</h1>
@@ -279,6 +279,5 @@
 </p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

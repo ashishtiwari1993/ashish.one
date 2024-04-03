@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Jan 2022 07:20:29 +0000</lastBuildDate><atom:link href="https://ashish.one/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 14:47:26 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Linux Installation Challenges</title>
       <link>https://ashish.one/blogs/arch-linux-installation-challenges/</link>
       <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
-      
       <guid>https://ashish.one/blogs/arch-linux-installation-challenges/</guid>
       <description>Arch linux installation challenges</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/arch-linux-installation/arch-linux.jpeg" alt="arch linux login screen"  />
@@ -160,12 +160,10 @@ Boot Mode: <code>UEFI</code></p>
 <p>Reboot the system.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
       <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
       <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
       <description>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.
 In this blog, We are going to setup PHP and Nginx.
@@ -281,12 +279,10 @@ Docker makes the installation process very smooth and it gives your isolated env
 <p>We have successfully created Nginx and PHP Environment. In Part 2, We will check, How we can add MySQL to this environment.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Challenges in linuxfromscratch</title>
       <link>https://ashish.one/blogs/challenges-in-linuxfromscratch/</link>
       <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/challenges-in-linuxfromscratch/</guid>
       <description>Successfully built custom #Linux system by referring https://t.co/lyrdKkfXo9 .
 Listed my challenges here https://t.co/gU2SoAxly2@nixcraft#linux #lfs #linuxfromscratch pic.twitter.com/XlWchVHy26
@@ -650,6 +646,5 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
 <p>Thanks</p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Sep 2022 19:24:45 +0000</lastBuildDate><atom:link href="https://ashish.one/tags/metricbeat/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Aug 2023 20:10:27 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/metricbeat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting started with Elastic stack</title>
       <link>https://ashish.one/talks/getting_started_elastic_stack/</link>
       <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
-      
       <guid>https://ashish.one/talks/getting_started_elastic_stack/</guid>
       <description>What this talk is all about ? Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.
 Talk Video Feel free to comment below, If you have any doubts or suggestion about this talk.</description>
@@ -31,6 +31,5 @@ Talk Video Feel free to comment below, If you have any doubts or suggestion abou
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

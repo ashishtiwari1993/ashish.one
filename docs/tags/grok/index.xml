@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Feb 2024 10:54:52 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/grok/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Feb 2024 02:56:16 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/grok/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elasticsearch Query Language (ES|QL)</title>
       <link>https://ashish.one/talks/esql/</link>
       <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/esql/</guid>
       <description>Introduction ES|QL is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.
 It is a piped separated langugage with a combination of source commands and process commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion.</description>
@@ -214,6 +214,5 @@ POST _query?format=txt
 }
 </code></pre>]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

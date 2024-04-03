@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Dec 2019 00:49:07 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to reset 1-Click Installed WordPress on DigitalOcean?</title>
       <link>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
       <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
       <description>The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
 The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
@@ -119,6 +119,5 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
 <p>If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.</p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

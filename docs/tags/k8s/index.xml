@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Mar 2024 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Mar 2024 20:26:29 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setup &amp; Observe Kubernetes cluster</title>
       <link>https://ashish.one/talks/setup_and_observe_kubernetes/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/setup_and_observe_kubernetes/</guid>
       <description>Introduction In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.
 Setup K8s cluster Cluster architecture 3 Node cluster
@@ -166,12 +166,10 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Monitor Kubernetes cluster with Elastic</title>
       <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>
       <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/monitor_k8_elastic_observability/</guid>
       <description>Introduction Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.
 Talk Video </description>
@@ -185,12 +183,10 @@ Talk Video </description>
 
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Kubernetes generic errors</title>
       <link>https://ashish.one/blogs/k8s/k8s-generic-errors/</link>
       <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/k8s/k8s-generic-errors/</guid>
       <description>1. unknown service runtime.v1alpha2.ImageService Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService
 System configuration centos 9 / 2GB RAM / 2CPU Master Node Same issue on master node.
@@ -230,6 +226,5 @@ Command [root@kube-master-1 ~]# kubeadm config images pull failed to pull image 
 </span></span><span style="display:flex;"><span>systemctl restart containerd
 </span></span></code></pre></div>]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

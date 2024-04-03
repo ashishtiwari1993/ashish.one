@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jun 2020 23:31:33 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/logs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/logs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shipping Golang logs with ELKB stack</title>
       <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
       <description>Goal of this blog In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).
 Why ELKB stack ? Logs are very important for debugging, reporting, insights etc. In today&amp;rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too.</description>
@@ -225,6 +225,5 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 <p>Put your comments if you have any doubts.</p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

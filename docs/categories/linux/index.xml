@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Jan 2022 07:20:29 +0000</lastBuildDate><atom:link href="https://ashish.one/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 14:47:26 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Linux Installation Challenges</title>
       <link>https://ashish.one/blogs/arch-linux-installation-challenges/</link>
       <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
-      
       <guid>https://ashish.one/blogs/arch-linux-installation-challenges/</guid>
       <description>Arch linux installation challenges</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/arch-linux-installation/arch-linux.jpeg" alt="arch linux login screen"  />
@@ -160,12 +160,10 @@ Boot Mode: <code>UEFI</code></p>
 <p>Reboot the system.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Challenges in linuxfromscratch</title>
       <link>https://ashish.one/blogs/challenges-in-linuxfromscratch/</link>
       <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/challenges-in-linuxfromscratch/</guid>
       <description>Successfully built custom #Linux system by referring https://t.co/lyrdKkfXo9 .
 Listed my challenges here https://t.co/gU2SoAxly2@nixcraft#linux #lfs #linuxfromscratch pic.twitter.com/XlWchVHy26
@@ -529,6 +527,5 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
 <p>Thanks</p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

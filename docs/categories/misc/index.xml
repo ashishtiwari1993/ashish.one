@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 13:53:50 +0530</lastBuildDate><atom:link href="https://ashish.one/categories/misc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Oct 2022 13:27:05 -0400</lastBuildDate>
+    <atom:link href="https://ashish.one/categories/misc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Get start with BugBounty, Pentest and Security Researcher</title>
       <link>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</link>
       <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</guid>
       <description>I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.
 The Fact The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.
@@ -77,12 +77,10 @@ There is no defined way to become a security researcher.</description>
 <p>Thanks</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
       <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
       <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
       <description>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.
 In this blog, We are going to setup PHP and Nginx.
@@ -198,12 +196,10 @@ Docker makes the installation process very smooth and it gives your isolated env
 <p>We have successfully created Nginx and PHP Environment. In Part 2, We will check, How we can add MySQL to this environment.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</title>
       <link>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
       <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
       <description>Prerequisite OS: Ubuntu 14.04 LTS
 Processor: 64 Bit
@@ -263,12 +259,10 @@ RAM: 2 GB
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pip3.6 install pipenv
 </span></span></code></pre></div>]]></content:encoded>
     </item>
-    
     <item>
       <title>Covid19 Data Source for India &amp; Global</title>
       <link>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</link>
       <pubDate>Fri, 27 Mar 2020 20:04:13 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</guid>
       <description>Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.
 APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in APIs available: Statewise Data StateWise StateWise History Medica Hospital Stats Bed Stats Contacts HelpLines Contacts Patient Tracing History Sources The source is both types of official &amp;amp; Unofficial.</description>
@@ -388,12 +382,10 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
 </ul>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>How to reset 1-Click Installed WordPress on DigitalOcean?</title>
       <link>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
       <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
       <description>The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
 The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
@@ -496,6 +488,5 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
 <p>If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.</p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

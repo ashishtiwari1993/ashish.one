@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jun 2022 22:47:37 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Jul 2022 23:36:30 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to build a Developer Profile - HugoConf2022</title>
       <link>https://ashish.one/blogs/build-developer-profile/</link>
       <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/build-developer-profile/</guid>
       <description>Just a thought 💭 &amp;hellip; As a Developer, we keep learning &amp;amp; developing stuff. Sometimes we also find the solutions. Our stuff is distributed the same as our System architecture. We maintain different platforms like GitHub for projects, Medium for blogs, LinkedIn for profile, etc.
 All this stuff we want to share on a single platform but as a tech, I am lazy if you ask me to install some CMS and maintain all stuff over there.</description>
@@ -109,12 +109,10 @@ All this stuff we want to share on a single platform but as a tech, I am lazy if
 
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Add Responsive Google Slides on Hugo</title>
       <link>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</link>
       <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</guid>
       <description>Steps to add Responsive google slides iframe with Hugo:
 Hugo version:
@@ -146,6 +144,5 @@ $ hugo version Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate
 </blockquote>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

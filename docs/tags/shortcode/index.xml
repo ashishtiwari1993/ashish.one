@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Apr 2020 14:11:53 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/shortcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jun 2022 13:58:34 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/shortcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Responsive Google Slides on Hugo</title>
       <link>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</link>
       <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</guid>
       <description>Steps to add Responsive google slides iframe with Hugo:
 Hugo version:
@@ -48,6 +48,5 @@ $ hugo version Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate
 </blockquote>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

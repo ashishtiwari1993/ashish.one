@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jun 2022 13:25:09 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/apm-server/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Jan 2023 14:11:57 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/apm-server/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
       <link>https://ashish.one/blogs/elastic-docker-compose/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
       <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose . You can learn more about Docker &amp;amp; Docker Compose , Which will help you to understand the flow.
 Prerequisite Tested on the below configuration.
@@ -72,6 +72,5 @@ git clone https://github.</description>
 </blockquote>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

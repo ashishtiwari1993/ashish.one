@@ -10,6 +10,7 @@
       <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://ashish.one/series/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="https://ashish.one/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

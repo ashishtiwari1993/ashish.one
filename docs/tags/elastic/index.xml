@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Mar 2024 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/elastic/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Mar 2024 20:26:29 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/elastic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setup &amp; Observe Kubernetes cluster</title>
       <link>https://ashish.one/talks/setup_and_observe_kubernetes/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/setup_and_observe_kubernetes/</guid>
       <description>Introduction In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.
 Setup K8s cluster Cluster architecture 3 Node cluster
@@ -166,12 +166,10 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Monitor Kubernetes cluster with Elastic</title>
       <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>
       <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/monitor_k8_elastic_observability/</guid>
       <description>Introduction Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.
 Talk Video </description>
@@ -185,12 +183,10 @@ Talk Video </description>
 
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Receive Webhook Requests Using ELK</title>
       <link>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</link>
       <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</guid>
       <description>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case. Elastic provides Search, Observability &amp;amp; Security you can check more on this with official documentation .
 What is Webhook ? Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks.</description>
@@ -398,12 +394,10 @@ Visualise data from kibana.</p>
  plugins available in logstash for data pipelines.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Getting started with Elastic stack</title>
       <link>https://ashish.one/talks/getting_started_elastic_stack/</link>
       <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
-      
       <guid>https://ashish.one/talks/getting_started_elastic_stack/</guid>
       <description>What this talk is all about ? Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.
 Talk Video Feel free to comment below, If you have any doubts or suggestion about this talk.</description>
@@ -418,12 +412,10 @@ Talk Video Feel free to comment below, If you have any doubts or suggestion abou
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Parsing Custom log format to the Elasticsearch</title>
       <link>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</link>
       <pubDate>Fri, 29 Apr 2022 01:24:55 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</guid>
       <description>Introduction As a developer, you need to log everything it may be info, error or debug logs, etc. There are multiple types of log formats like Common log, JSON log, etc. and there are already solutions available in an elastic stack like filebeat to read JSON logs and push them to elasticsearch.
 There can be cases where you need to log the data according to your convenience which will not be any standard log format.</description>
@@ -713,12 +705,10 @@ user not found = %{GREEDYDATA:message}
 <p>Feel free to put in comments if you have any doubts.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>[Part -1] Search as you type</title>
       <link>https://ashish.one/blogs/search-as-you-type/</link>
       <pubDate>Fri, 18 Mar 2022 01:24:55 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/search-as-you-type/</guid>
       <description>Introduction In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data. You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp;amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature. Search as you type Elasticsearch gives this specific mapping type which you can simply set to a specific field where you want to perform this kind of search.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
@@ -1054,12 +1044,10 @@ cd search_as_you_type
 <p>Open <code>index.html</code> on your browser.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Deploy Elasicsearch on Azure cloud</title>
       <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
       <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
-      
       <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
       <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
 Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co ).
@@ -1089,12 +1077,10 @@ In the demo, Successfully shipped the metric data of the local system (my MacBoo
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Shipping Golang logs with ELKB stack</title>
       <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
       <description>Goal of this blog In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).
 Why ELKB stack ? Logs are very important for debugging, reporting, insights etc. In today&amp;rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too.</description>
@@ -1303,12 +1289,10 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 <p>Put your comments if you have any doubts.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>How to scale with massive update queries in Elasticsearch?</title>
       <link>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
       <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
       <description>Introduction What this talk is all about? We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.
 We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.</description>
@@ -1338,12 +1322,10 @@ We also worked on Disk optimization by believing in the principle of &ldquo;Know
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Elasticsearch Exceptions &amp; Challenges</title>
       <link>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</link>
       <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</guid>
       <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
 Every use case having different solutions. You can try accordingly.</description>
@@ -1353,12 +1335,10 @@ Every use case having different solutions. You can try accordingly.</description
 Every use case having different solutions. You can try accordingly.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>What should be the value of max_gram and min_gram in Elasticsearch?</title>
       <link>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</link>
       <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
-      
       <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
       <description>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use ngram token filter for like query. It was quickly implemented on local and works exactly i want.
 The problem To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</description>
@@ -1433,6 +1413,5 @@ ngram-test  459483245   329.5gb
 </p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

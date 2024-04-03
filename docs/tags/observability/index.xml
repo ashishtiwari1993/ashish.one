@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Mar 2024 21:41:03 +0530</lastBuildDate><atom:link href="https://ashish.one/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Mar 2024 20:26:29 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/observability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setup &amp; Observe Kubernetes cluster</title>
       <link>https://ashish.one/talks/setup_and_observe_kubernetes/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/setup_and_observe_kubernetes/</guid>
       <description>Introduction In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.
 Setup K8s cluster Cluster architecture 3 Node cluster
@@ -166,12 +166,10 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Monitor Kubernetes cluster with Elastic</title>
       <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>
       <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/monitor_k8_elastic_observability/</guid>
       <description>Introduction Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.
 Talk Video </description>
@@ -185,12 +183,10 @@ Talk Video </description>
 
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Getting started with Elastic stack</title>
       <link>https://ashish.one/talks/getting_started_elastic_stack/</link>
       <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
-      
       <guid>https://ashish.one/talks/getting_started_elastic_stack/</guid>
       <description>What this talk is all about ? Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.
 Talk Video Feel free to comment below, If you have any doubts or suggestion about this talk.</description>
@@ -205,12 +201,10 @@ Talk Video Feel free to comment below, If you have any doubts or suggestion abou
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Parse custom logs in Elasticsearch using grok_pattern</title>
       <link>https://ashish.one/talks/devops-conf-2022/</link>
       <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
-      
       <guid>https://ashish.one/talks/devops-conf-2022/</guid>
       <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
 Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
@@ -241,6 +235,5 @@ But if you have different requirement where you need to parse a different types 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>
