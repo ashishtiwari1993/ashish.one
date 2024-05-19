@@ -90,7 +90,7 @@ params:
       
   cover:
     linkFullImages: false
-    hiddenInList: false
+    hiddenInList: true
     hiddenInSingle: false
     responsiveImages: true
   editPost:
@@ -110,7 +110,7 @@ params:
       - summary
       - content
   socialIcons:
-    - name: twitter
+    - name: x
       url: 'https://twitter.com/_ashish_tiwari'
     - name: github
       url: 'https://github.com/ashishtiwari1993'
@@ -130,8 +130,8 @@ menu:
     - name: Categories
       url: /categories/
       weight: -96
-    - name: Tags
-      url: /tags/
+    - name: Decks
+      url: /decks/
       weight: -95
     - name: Talks
       url: /talks/
