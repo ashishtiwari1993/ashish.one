@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>decks on ashish.one</title>
+    <link>https://ashish.one/tags/decks/</link>
+    <description>Recent content in decks on ashish.one</description>
+    <image>
+      <title>ashish.one</title>
+      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
+      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+    </image>
+    <generator>Hugo -- 0.115.4</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 May 2024 17:39:53 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/decks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Decks</title>
+      <link>https://ashish.one/decks/</link>
+      <pubDate>Tue, 19 May 2020 17:27:32 +0530</pubDate>
+      <guid>https://ashish.one/decks/</guid>
+      <description> Opentelemetry with Elastic </description>
+      <content:encoded><![CDATA[<ul>
+<li><a href="/decks/otel.pdf">Opentelemetry with Elastic</a>
+</li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
