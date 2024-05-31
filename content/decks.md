@@ -10,3 +10,4 @@ slug: "decks"
 ---
 
 * [Opentelemetry with Elastic](/decks/otel.pdf)
+* [Function calling](/decks/function_calling.pdf)
