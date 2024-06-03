@@ -90,7 +90,7 @@ params:
       
   cover:
     linkFullImages: false
-    hiddenInList: true
+    hiddenInList: false
     hiddenInSingle: false
     responsiveImages: true
   editPost:

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>aws on ashish.one</title>
+    <link>https://ashish.one/tags/aws/</link>
+    <description>Recent content in aws on ashish.one</description>
+    <image>
+      <title>ashish.one</title>
+      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
+      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+    </image>
+    <generator>Hugo -- 0.115.4</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Jun 2024 12:13:06 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Serverless Ahmedabad 2023: Monitoring serverless environment with Elastic observability</title>
+      <link>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</link>
+      <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
+      <guid>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
+      <description>Introduction Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.
+For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.</description>
+      <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.</p>
+<p>For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.</p>
+<h2 id="talk-video">Talk video</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/PCPAlMaqRFw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

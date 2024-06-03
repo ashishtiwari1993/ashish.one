@@ -3,18 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2024-05-19T17:44:58+05:30</lastmod>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/aws/</loc>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/categories/</loc>
-    <lastmod>2024-03-29T20:39:59+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/gist/json-to-ndjson-elasticsearch/</loc>
-    <lastmod>2024-03-29T20:39:59+05:30</lastmod>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/categories/elastic/</loc>
-    <lastmod>2024-03-29T20:39:59+05:30</lastmod>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/elasticsearch/</loc>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/monitoring/</loc>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/observability/</loc>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/serverless/</loc>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</loc>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/</loc>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/talks/</loc>
+    <lastmod>2024-06-03T12:13:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/genai/</loc>
+    <lastmod>2024-06-03T12:12:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/talks/gids-2024-rag/</loc>
+    <lastmod>2024-06-03T12:12:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/llms/</loc>
+    <lastmod>2024-06-03T12:12:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/rag/</loc>
+    <lastmod>2024-06-03T12:12:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/semantic-search/</loc>
+    <lastmod>2024-06-03T12:12:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/vector-search/</loc>
+    <lastmod>2024-06-03T12:12:06+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/gist/json-to-ndjson-elasticsearch/</loc>
     <lastmod>2024-03-29T20:39:59+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/gist/</loc>
@@ -26,9 +65,6 @@
     <loc>https://ashish.one/tags/ndjson/</loc>
     <lastmod>2024-03-29T20:39:59+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/</loc>
-    <lastmod>2024-05-19T17:44:58+05:30</lastmod>
-  </url><url>
     <loc>https://ashish.one/tags/elastic/</loc>
     <lastmod>2024-03-29T20:26:29+05:30</lastmod>
   </url><url>
@@ -38,13 +74,7 @@
     <loc>https://ashish.one/tags/kubernetes/</loc>
     <lastmod>2024-03-29T20:26:29+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/observability/</loc>
-    <lastmod>2024-03-29T20:26:29+05:30</lastmod>
-  </url><url>
     <loc>https://ashish.one/talks/setup_and_observe_kubernetes/</loc>
-    <lastmod>2024-03-29T20:26:29+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/talks/</loc>
     <lastmod>2024-03-29T20:26:29+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/talks/esql/</loc>
@@ -72,9 +102,6 @@
     <lastmod>2024-01-03T23:08:57+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/llm/</loc>
-    <lastmod>2024-01-03T23:08:57+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/vector-search/</loc>
     <lastmod>2024-01-03T23:08:57+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/talks/monitor_k8_elastic_observability/</loc>
@@ -279,10 +306,10 @@
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/decks/</loc>
-    <lastmod>2024-05-19T17:44:58+05:30</lastmod>
+    <lastmod>2024-05-31T19:29:18+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/decks/</loc>
-    <lastmod>2024-05-19T17:44:58+05:30</lastmod>
+    <lastmod>2024-05-31T19:29:18+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
