@@ -130,8 +130,8 @@ menu:
     - name: Categories
       url: /categories/
       weight: -96
-    - name: Decks
-      url: /decks/
+    - name: Slides
+      url: https://slides.ashish.one
       weight: -95
     - name: Talks
       url: /talks/
