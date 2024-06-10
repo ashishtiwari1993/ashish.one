@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.115.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jun 2024 12:13:06 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2024 14:43:28 +0530</lastBuildDate>
     <atom:link href="https://ashish.one/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Serverless Ahmedabad 2023: Monitoring serverless environment with Elastic observability</title>
@@ -2926,15 +2926,29 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 ]]></content:encoded>
     </item>
     <item>
-      <title>Decks</title>
-      <link>https://ashish.one/decks/</link>
+      <title>Slides</title>
+      <link>https://ashish.one/slides/</link>
       <pubDate>Tue, 19 May 2020 17:27:32 +0530</pubDate>
-      <guid>https://ashish.one/decks/</guid>
+      <guid>https://ashish.one/slides/</guid>
       <description> Opentelemetry with Elastic Function calling </description>
       <content:encoded><![CDATA[<ul>
-<li><a href="/decks/otel.pdf">Opentelemetry with Elastic</a>
+<li><a href="https://slides.ashish.one/otel" target="_blank" rel="noopener">Opentelemetry with Elastic</a>
 </li>
-<li><a href="/decks/function_calling.pdf">Function calling</a>
+<li><a href="https://slides.ashish.one/function-calling" target="_blank" rel="noopener">Function calling</a>
+</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Slides</title>
+      <link>https://ashish.one/slides/</link>
+      <pubDate>Tue, 19 May 2020 17:27:32 +0530</pubDate>
+      <guid>https://ashish.one/slides/</guid>
+      <description> Opentelemetry with Elastic Function calling </description>
+      <content:encoded><![CDATA[<ul>
+<li><a href="https://slides.ashish.one/otel" target="_blank" rel="noopener">Opentelemetry with Elastic</a>
+</li>
+<li><a href="https://slides.ashish.one/function-calling" target="_blank" rel="noopener">Function calling</a>
 </li>
 </ul>
 ]]></content:encoded>
