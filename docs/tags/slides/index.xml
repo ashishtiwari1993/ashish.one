@@ -11,22 +11,8 @@
     </image>
     <generator>Hugo -- 0.115.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 May 2024 19:29:18 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jun 2024 04:12:44 +0530</lastBuildDate>
     <atom:link href="https://ashish.one/tags/slides/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Slides</title>
-      <link>https://ashish.one/slides/</link>
-      <pubDate>Tue, 19 May 2020 17:27:32 +0530</pubDate>
-      <guid>https://ashish.one/slides/</guid>
-      <description> Opentelemetry with Elastic Function calling </description>
-      <content:encoded><![CDATA[<ul>
-<li><a href="https://slides.ashish.one/otel" target="_blank" rel="noopener">Opentelemetry with Elastic</a>
-</li>
-<li><a href="https://slides.ashish.one/function-calling" target="_blank" rel="noopener">Function calling</a>
-</li>
-</ul>
-]]></content:encoded>
-    </item>
     <item>
       <title>Slides</title>
       <link>https://ashish.one/slides/</link>
