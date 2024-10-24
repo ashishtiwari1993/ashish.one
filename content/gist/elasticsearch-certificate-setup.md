@@ -234,6 +234,8 @@ Kept it as a blank in my case. But if you have set any password on `Step 2 (Ques
 
 ## 5. Restart the Elasticsearch and verify
 
+Restart the Elasticsearch.
+
 Let's make the same CURL call with the newly generated CA in `kibana` folder
 
 ```sh

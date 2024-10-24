@@ -181,6 +181,7 @@ unzip elasticsearch-ssl-http.zip
 <pre tabindex="0"><code>Enter value for xpack.security.http.ssl.keystore.secure_password:
 </code></pre><p>Kept it as a blank in my case. But if you have set any password on <code>Step 2 (Question no. 12)</code>, Please enter the same password.</p>
 <h2 id="5-restart-the-elasticsearch-and-verify">5. Restart the Elasticsearch and verify</h2>
+<p>Restart the Elasticsearch.</p>
 <p>Let&rsquo;s make the same CURL call with the newly generated CA in <code>kibana</code> folder</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --cacert $ES_HOME/new-ssl/kibana/elasticsearch-ca.pem -u elastic:pass https://x.x.x.x:9200
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">{</span>
