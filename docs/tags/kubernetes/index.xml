@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>kubernetes on ashish.one</title>
-    <link>https://ashish.one/tags/kubernetes/</link>
-    <description>Recent content in kubernetes on ashish.one</description>
+    <title>Kubernetes on ashish.one</title>
+    <link>http://localhost:1313/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Mar 2024 20:26:29 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setup &amp; Observe Kubernetes cluster</title>
-      <link>https://ashish.one/talks/setup_and_observe_kubernetes/</link>
+      <link>http://localhost:1313/talks/setup_and_observe_kubernetes/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/setup_and_observe_kubernetes/</guid>
-      <description>Introduction In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.
-Setup K8s cluster Cluster architecture 3 Node cluster
-Machine - Centos7, 4GB RAM
-kube1.local - Control plane node kube2.local - worker node kube3.local - worker node Here I am setting hostname kube1.local, kube2.local, kube3.local. Login into all of the servers and perform below command on all three nodes.</description>
+      <guid>http://localhost:1313/talks/setup_and_observe_kubernetes/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.&lt;/p&gt;
+&lt;h1 id=&#34;setup-k8s-cluster&#34;&gt;Setup K8s cluster&lt;/h1&gt;
+&lt;h2 id=&#34;cluster-architecture&#34;&gt;Cluster architecture&lt;/h2&gt;
+&lt;p&gt;3 Node cluster&lt;/p&gt;
+&lt;p&gt;Machine - Centos7, 4GB RAM&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;kube1.local  - Control plane node&lt;/li&gt;
+&lt;li&gt;kube2.local - worker node&lt;/li&gt;
+&lt;li&gt;kube3.local - worker node&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here I am setting hostname &lt;code&gt;kube1.local&lt;/code&gt;, &lt;code&gt;kube2.local&lt;/code&gt;, &lt;code&gt;kube3.local&lt;/code&gt;.  Login into all of the servers and perform below command on all three nodes.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.</p>
 <h1 id="setup-k8s-cluster">Setup K8s cluster</h1>
@@ -37,14 +45,12 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 <h2 id="swap-off">Swap off</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo swapoff -a
 </span></span></code></pre></div><h2 id="install-docker">Install docker</h2>
-<p>You can refer <a href="https://docs.docker.com/engine/install/centos/" target="_blank" rel="noopener">docker documentation</a>
- but here are the quick steps:</p>
+<p>You can refer <a href="https://docs.docker.com/engine/install/centos/">docker documentation</a> but here are the quick steps:</p>
 <h2 id="contanerd-runtime">Contanerd runtime</h2>
 <p>kubeadm automatically tries to detect an installed container runtime by scanning through a list of known endpoints.</p>
 <p>Verify if containerd is running or not</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ps -ef | grep containerd
-</span></span></code></pre></div><p>In my system containerd was running. <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank" rel="noopener">Install containerd</a>
- if it is not installed.</p>
+</span></span></code></pre></div><p>In my system containerd was running. <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md">Install containerd</a> if it is not installed.</p>
 <p>Change below cofing to remove <code>cri</code> from <code>disable_plugins</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo vim /etc/containerd/config.toml
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#disabled_plugins = [&#34;cri&#34;]</span>
@@ -152,45 +158,70 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 </span></span><span style="display:flex;"><span>curl localhost:8080/metrics
 </span></span></code></pre></div><p>It should return all metrics.</p>
 <h2 id="monitoring-using-elastic-cloud">Monitoring using Elastic cloud</h2>
-<p>You can follow detailed doc - <a href="https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters" target="_blank" rel="noopener">https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters</a>
-</p>
-<p>Blog - <a href="https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring" target="_blank" rel="noopener">https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring</a>
-</p>
+<p>You can follow detailed doc - <a href="https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters">https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters</a></p>
+<p>Blog - <a href="https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring">https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring</a></p>
 <h1 id="reference-talk">Reference talk</h1>
 <p>Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/8qOt_gYjwcw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Monitor Kubernetes cluster with Elastic</title>
-      <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>
+      <link>http://localhost:1313/talks/monitor_k8_elastic_observability/</link>
       <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/monitor_k8_elastic_observability/</guid>
-      <description>Introduction Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.
-Talk Video </description>
+      <guid>http://localhost:1313/talks/monitor_k8_elastic_observability/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.&lt;/p&gt;
+&lt;h2 id=&#34;talk-video&#34;&gt;Talk Video&lt;/h2&gt;
+
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/8qOt_gYjwcw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Kubernetes generic errors</title>
-      <link>https://ashish.one/blogs/k8s/k8s-generic-errors/</link>
+      <link>http://localhost:1313/blogs/k8s/k8s-generic-errors/</link>
       <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
-      <guid>https://ashish.one/blogs/k8s/k8s-generic-errors/</guid>
-      <description>1. unknown service runtime.v1alpha2.ImageService Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService
-System configuration centos 9 / 2GB RAM / 2CPU Master Node Same issue on master node.
-Command [root@kube-master-1 ~]# kubeadm config images pull failed to pull image &amp;#34;registry.k8s.io/kube-apiserver:v1.26.0&amp;#34;: output: E0107 14:52:09.997544 4134 remote_image.go:222] &amp;#34;PullImage from image service failed&amp;#34; err=&amp;#34;rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&amp;#34; image=&amp;#34;registry.k8s.io/kube-apiserver:v1.26.0&amp;#34; time=&amp;#34;2023-01-07T14:52:09Z&amp;#34; level=fatal msg=&amp;#34;pulling image: rpc error: code = Unimplemented desc = unknown service runtime.</description>
+      <guid>http://localhost:1313/blogs/k8s/k8s-generic-errors/</guid>
+      <description>&lt;h2 id=&#34;1-unknown-service-runtimev1alpha2imageservice&#34;&gt;1. unknown service runtime.v1alpha2.ImageService&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;system-configuration&#34;&gt;System configuration&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;centos 9 / 2GB RAM / 2CPU
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;master-node&#34;&gt;Master Node&lt;/h3&gt;
+&lt;p&gt;Same issue on master node.&lt;/p&gt;
+&lt;h4 id=&#34;command&#34;&gt;Command&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;root@kube-master-1 ~&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# kubeadm config images pull&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;failed to pull image &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;registry.k8s.io/kube-apiserver:v1.26.0&amp;#34;&lt;/span&gt;: output: E0107 14:52:09.997544    &lt;span style=&#34;color:#ae81ff&#34;&gt;4134&lt;/span&gt; remote_image.go:222&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PullImage from image service failed&amp;#34;&lt;/span&gt; err&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&amp;#34;&lt;/span&gt; image&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;registry.k8s.io/kube-apiserver:v1.26.0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2023-01-07T14:52:09Z&amp;#34;&lt;/span&gt; level&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;fatal msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;, error: exit status &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;To see the stack trace of this error execute with --v&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; or higher
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;-solved&#34;&gt;✅ Solved&lt;/h4&gt;
+&lt;p&gt;Remove below file:&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="1-unknown-service-runtimev1alpha2imageservice">1. unknown service runtime.v1alpha2.ImageService</h2>
 <blockquote>
 <p>Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService</p>

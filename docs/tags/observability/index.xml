@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>observability on ashish.one</title>
-    <link>https://ashish.one/tags/observability/</link>
-    <description>Recent content in observability on ashish.one</description>
+    <title>Observability on ashish.one</title>
+    <link>http://localhost:1313/tags/observability/</link>
+    <description>Recent content in Observability on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Jun 2024 14:43:28 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/observability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Serverless Ahmedabad 2023: Monitoring serverless environment with Elastic observability</title>
-      <link>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</link>
+      <link>http://localhost:1313/talks/serverless-ahmedabad-2023-elastic-observability/</link>
       <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
-      <guid>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
-      <description>Introduction Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.
-For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.</description>
+      <guid>http://localhost:1313/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.&lt;/p&gt;
+&lt;p&gt;For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.</p>
 <p>For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.</p>
 <h2 id="talk-video">Talk video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/PCPAlMaqRFw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/PCPAlMaqRFw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Setup &amp; Observe Kubernetes cluster</title>
-      <link>https://ashish.one/talks/setup_and_observe_kubernetes/</link>
+      <link>http://localhost:1313/talks/setup_and_observe_kubernetes/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/setup_and_observe_kubernetes/</guid>
-      <description>Introduction In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.
-Setup K8s cluster Cluster architecture 3 Node cluster
-Machine - Centos7, 4GB RAM
-kube1.local - Control plane node kube2.local - worker node kube3.local - worker node Here I am setting hostname kube1.local, kube2.local, kube3.local. Login into all of the servers and perform below command on all three nodes.</description>
+      <guid>http://localhost:1313/talks/setup_and_observe_kubernetes/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.&lt;/p&gt;
+&lt;h1 id=&#34;setup-k8s-cluster&#34;&gt;Setup K8s cluster&lt;/h1&gt;
+&lt;h2 id=&#34;cluster-architecture&#34;&gt;Cluster architecture&lt;/h2&gt;
+&lt;p&gt;3 Node cluster&lt;/p&gt;
+&lt;p&gt;Machine - Centos7, 4GB RAM&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;kube1.local  - Control plane node&lt;/li&gt;
+&lt;li&gt;kube2.local - worker node&lt;/li&gt;
+&lt;li&gt;kube3.local - worker node&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here I am setting hostname &lt;code&gt;kube1.local&lt;/code&gt;, &lt;code&gt;kube2.local&lt;/code&gt;, &lt;code&gt;kube3.local&lt;/code&gt;.  Login into all of the servers and perform below command on all three nodes.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.</p>
 <h1 id="setup-k8s-cluster">Setup K8s cluster</h1>
@@ -55,14 +67,12 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 <h2 id="swap-off">Swap off</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo swapoff -a
 </span></span></code></pre></div><h2 id="install-docker">Install docker</h2>
-<p>You can refer <a href="https://docs.docker.com/engine/install/centos/" target="_blank" rel="noopener">docker documentation</a>
- but here are the quick steps:</p>
+<p>You can refer <a href="https://docs.docker.com/engine/install/centos/">docker documentation</a> but here are the quick steps:</p>
 <h2 id="contanerd-runtime">Contanerd runtime</h2>
 <p>kubeadm automatically tries to detect an installed container runtime by scanning through a list of known endpoints.</p>
 <p>Verify if containerd is running or not</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ps -ef | grep containerd
-</span></span></code></pre></div><p>In my system containerd was running. <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank" rel="noopener">Install containerd</a>
- if it is not installed.</p>
+</span></span></code></pre></div><p>In my system containerd was running. <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md">Install containerd</a> if it is not installed.</p>
 <p>Change below cofing to remove <code>cri</code> from <code>disable_plugins</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo vim /etc/containerd/config.toml
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#disabled_plugins = [&#34;cri&#34;]</span>
@@ -170,69 +180,93 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 </span></span><span style="display:flex;"><span>curl localhost:8080/metrics
 </span></span></code></pre></div><p>It should return all metrics.</p>
 <h2 id="monitoring-using-elastic-cloud">Monitoring using Elastic cloud</h2>
-<p>You can follow detailed doc - <a href="https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters" target="_blank" rel="noopener">https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters</a>
-</p>
-<p>Blog - <a href="https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring" target="_blank" rel="noopener">https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring</a>
-</p>
+<p>You can follow detailed doc - <a href="https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters">https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters</a></p>
+<p>Blog - <a href="https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring">https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring</a></p>
 <h1 id="reference-talk">Reference talk</h1>
 <p>Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/8qOt_gYjwcw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Monitor Kubernetes cluster with Elastic</title>
-      <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>
+      <link>http://localhost:1313/talks/monitor_k8_elastic_observability/</link>
       <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/monitor_k8_elastic_observability/</guid>
-      <description>Introduction Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.
-Talk Video </description>
+      <guid>http://localhost:1313/talks/monitor_k8_elastic_observability/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.&lt;/p&gt;
+&lt;h2 id=&#34;talk-video&#34;&gt;Talk Video&lt;/h2&gt;
+
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/8qOt_gYjwcw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Getting started with Elastic stack</title>
-      <link>https://ashish.one/talks/getting_started_elastic_stack/</link>
+      <link>http://localhost:1313/talks/getting_started_elastic_stack/</link>
       <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
-      <guid>https://ashish.one/talks/getting_started_elastic_stack/</guid>
-      <description>What this talk is all about ? Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.
-Talk Video Feel free to comment below, If you have any doubts or suggestion about this talk.</description>
+      <guid>http://localhost:1313/talks/getting_started_elastic_stack/</guid>
+      <description>&lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
+&lt;p&gt;Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.&lt;/p&gt;
+&lt;h2 id=&#34;talk-video&#34;&gt;Talk Video&lt;/h2&gt;
+
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/hJoorF6zxBA?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h4 id=&#34;feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk&#34;&gt;Feel free to comment below, If you have any doubts or suggestion about this talk.&lt;/h4&gt;</description>
       <content:encoded><![CDATA[<h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/hJoorF6zxBA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hJoorF6zxBA?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
     <item>
       <title>Parse custom logs in Elasticsearch using grok_pattern</title>
-      <link>https://ashish.one/talks/devops-conf-2022/</link>
+      <link>http://localhost:1313/talks/devops-conf-2022/</link>
       <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
-      <guid>https://ashish.one/talks/devops-conf-2022/</guid>
-      <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
-Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
-But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor .</description>
+      <guid>http://localhost:1313/talks/devops-conf-2022/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In the talk, Quickly showed how you can use the &lt;a href=&#34;https://www.elastic.co/beats/metricbeat&#34;&gt;metricbeat&lt;/a&gt; to check system health. With a few clicks, you can start monitoring your infra.&lt;/p&gt;
+&lt;p&gt;Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.&lt;/p&gt;
+&lt;p&gt;But if you have different requirement where you need to parse a different types of log format , You can parse using &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html&#34;&gt;Grok processor&lt;/a&gt;.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat" target="_blank" rel="noopener">metricbeat</a>
- to check system health. With a few clicks, you can start monitoring your infra.</p>
+<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat">metricbeat</a> to check system health. With a few clicks, you can start monitoring your infra.</p>
 <p>Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.</p>
-<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html" target="_blank" rel="noopener">Grok processor</a>
-.</p>
+<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html">Grok processor</a>.</p>
 <p>Also explained how you can read custom logs from log files in real time and ingest to Elasticsearch.</p>
 <h1 id="slides">Slides</h1>
 <div id="Container"
@@ -246,9 +280,12 @@ But if you have different requirement where you need to parse a different types 
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/owyv9sQE7q8?start=4856&amp;end=9427" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/owyv9sQE7q8?start=4856&end=9427?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>

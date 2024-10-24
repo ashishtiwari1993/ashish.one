@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>log_parse on ashish.one</title>
-    <link>https://ashish.one/tags/log_parse/</link>
-    <description>Recent content in log_parse on ashish.one</description>
+    <title>Log_parse on ashish.one</title>
+    <link>http://localhost:1313/tags/log_parse/</link>
+    <description>Recent content in Log_parse on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/log_parse/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/log_parse/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Parse custom logs in Elasticsearch using grok_pattern</title>
-      <link>https://ashish.one/talks/devops-conf-2022/</link>
+      <link>http://localhost:1313/talks/devops-conf-2022/</link>
       <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
-      <guid>https://ashish.one/talks/devops-conf-2022/</guid>
-      <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
-Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
-But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor .</description>
+      <guid>http://localhost:1313/talks/devops-conf-2022/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In the talk, Quickly showed how you can use the &lt;a href=&#34;https://www.elastic.co/beats/metricbeat&#34;&gt;metricbeat&lt;/a&gt; to check system health. With a few clicks, you can start monitoring your infra.&lt;/p&gt;
+&lt;p&gt;Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.&lt;/p&gt;
+&lt;p&gt;But if you have different requirement where you need to parse a different types of log format , You can parse using &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html&#34;&gt;Grok processor&lt;/a&gt;.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat" target="_blank" rel="noopener">metricbeat</a>
- to check system health. With a few clicks, you can start monitoring your infra.</p>
+<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat">metricbeat</a> to check system health. With a few clicks, you can start monitoring your infra.</p>
 <p>Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.</p>
-<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html" target="_blank" rel="noopener">Grok processor</a>
-.</p>
+<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html">Grok processor</a>.</p>
 <p>Also explained how you can read custom logs from log files in real time and ingest to Elasticsearch.</p>
 <h1 id="slides">Slides</h1>
 <div id="Container"
@@ -40,9 +39,12 @@ But if you have different requirement where you need to parse a different types 
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/owyv9sQE7q8?start=4856&amp;end=9427" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/owyv9sQE7q8?start=4856&end=9427?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>

@@ -3,12 +3,15 @@ languageCode: en-us
 title: ashish.one
 theme: paperMod
 publishDir: docs
-googleAnalytics: UA-149424518-1
+googleAnalytics: G-D2G6QZGNG1
 enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true
 canonifyURLs: true
-paginate: 5
+pagination:
+  disableAliases: false
+  pagerSize: 5
+  path: page
 Taxonomies:
   tag: tags
   category: categories
@@ -26,7 +29,7 @@ params:
     - Blogs
     - Gists
   images:
-    - 'https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200'
+    - 'https://ashish.one/img/speaker-pic/ashish.png'
   DateFormat: 'January 2, 2006'
   defaultTheme: dark
   disableThemeToggle: false

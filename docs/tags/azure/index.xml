@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>azure on ashish.one</title>
-    <link>https://ashish.one/tags/azure/</link>
-    <description>Recent content in azure on ashish.one</description>
+    <title>Azure on ashish.one</title>
+    <link>http://localhost:1313/tags/azure/</link>
+    <description>Recent content in Azure on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/azure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploy Elasicsearch on Azure cloud</title>
-      <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
+      <link>http://localhost:1313/talks/deploy_elastic_on_azure/</link>
       <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
-      <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
-      <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
-Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co ).
-In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</description>
+      <guid>http://localhost:1313/talks/deploy_elastic_on_azure/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
+&lt;p&gt;The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.&lt;/p&gt;
+&lt;p&gt;Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (&lt;a href=&#34;https://cloud.elastic.co&#34;&gt;cloud.elastic.co&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>The purpose of the talk is to give a short overview of Elastic solutions &amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.</p>
-<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
-).</p>
+<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co">cloud.elastic.co</a>).</p>
 <p>In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</p>
 <h2 id="slides">Slides</h2>
 <div id="Container"
@@ -39,9 +40,12 @@ In the demo, Successfully shipped the metric data of the local system (my MacBoo
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/O2HdAA5o1i4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/O2HdAA5o1i4?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>

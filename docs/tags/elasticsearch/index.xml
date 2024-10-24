@@ -1,42 +1,240 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>elasticsearch on ashish.one</title>
-    <link>https://ashish.one/tags/elasticsearch/</link>
-    <description>Recent content in elasticsearch on ashish.one</description>
+    <title>Elasticsearch on ashish.one</title>
+    <link>http://localhost:1313/tags/elasticsearch/</link>
+    <description>Recent content in Elasticsearch on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jun 2024 14:43:28 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Oct 2024 20:29:51 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Set Up TLS for Elasticsearch on Public IP / Domain</title>
+      <link>http://localhost:1313/gist/setup-tls-elasticsearch/</link>
+      <pubDate>Wed, 23 Oct 2024 20:29:51 +0530</pubDate>
+      <guid>http://localhost:1313/gist/setup-tls-elasticsearch/</guid>
+      <description>&lt;h1 id=&#34;setup-tls-on-public-ip-or-domain-with-elasticsearch&#34;&gt;Setup TLS on public IP or Domain with Elasticsearch&lt;/h1&gt;
+&lt;p&gt;This is a quick gist to demonstrate how you can run Elasticsearch securely with TLS on a public IP or domain. Sometimes, we need to spin up Elasticsearch for a development environment. In that case, you can follow these quick steps.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note - This gist is not recommended for production multinode cluster. As I only tested on single node cluster. If you have a multi-node cluster please follow the official &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/manually-configure-security.html&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h1 id="setup-tls-on-public-ip-or-domain-with-elasticsearch">Setup TLS on public IP or Domain with Elasticsearch</h1>
+<p>This is a quick gist to demonstrate how you can run Elasticsearch securely with TLS on a public IP or domain. Sometimes, we need to spin up Elasticsearch for a development environment. In that case, you can follow these quick steps.</p>
+<blockquote>
+<p>Note - This gist is not recommended for production multinode cluster. As I only tested on single node cluster. If you have a multi-node cluster please follow the official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/manually-configure-security.html">guide</a>.</p>
+</blockquote>
+<h1 id="elasticsearch-installation">Elasticsearch Installation</h1>
+<ol>
+<li>I created a VM instance on GCP. Here are the details -</li>
+</ol>
+<p>OS: <code>Ubuntu 22.04</code><br>
+Machine type: <code>e2-standard-4</code><br>
+Configuration: <code>4 CPU, 16 GB RAM</code></p>
+<ol start="2">
+<li>
+<p><a href="https://cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address">Configure static external IP</a> for newly created VM or ensure your VM is accessible from the public IP.</p>
+</li>
+<li>
+<p>Installed Elasticsearch from <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html">Archive</a>.</p>
+</li>
+</ol>
+<p>You can <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html#_check_that_elasticsearch_is_running">verify</a> if Elasticsearch is running or not.</p>
+<p>Get into the <code>$ES_HOME</code> folder -</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd elasticsearch-<span style="color:#f92672">{</span>version<span style="color:#f92672">}</span>/
+</span></span></code></pre></div><p>In my case it was</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd elasticsearch-8.15.3/
+</span></span></code></pre></div><h1 id="default-tls-setup">Default TLS setup</h1>
+<p>When you install Elasticsearch, By default it will generate a TLS certificate for the host <code>localhost</code> and IP <code>127.0.0.1</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls config/certs/
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>http.p12  http_ca.crt  transport.p12
+</span></span></code></pre></div><p>CURL call -</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --cacert $ES_HOME/config/certs/http_ca.crt -u elastic:pass https://localhost:9200
+</span></span></code></pre></div><p>OR</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --cacert $ES_HOME/config/certs/http_ca.crt -u elastic:pass https://127.0.0.1:9200
+</span></span></code></pre></div><p>Response</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;benchmark1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;cluster_name&#34;</span> : <span style="color:#e6db74">&#34;elasticsearch&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;cluster_uuid&#34;</span> : <span style="color:#e6db74">&#34;kqZsQ5WrTAWnlFmYbyMQWw&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;version&#34;</span> : {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;number&#34;</span> : <span style="color:#e6db74">&#34;8.15.3&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build_flavor&#34;</span> : <span style="color:#e6db74">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build_type&#34;</span> : <span style="color:#e6db74">&#34;tar&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build_hash&#34;</span> : <span style="color:#e6db74">&#34;f97532e680b555c3a05e73a74c28afb666923018&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build_date&#34;</span> : <span style="color:#e6db74">&#34;2024-10-09T22:08:00.328917561Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build_snapshot&#34;</span> : <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lucene_version&#34;</span> : <span style="color:#e6db74">&#34;9.11.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;minimum_wire_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;7.17.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;minimum_index_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;7.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;tagline&#34;</span> : <span style="color:#e6db74">&#34;You Know, for Search&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If you run the same CURL command using the public IP of the VM, It won’t work.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --cacert $ES_HOME/config/certs/http_ca.crt -u elastic:pass https://x.x.x.x:9200
+</span></span></code></pre></div><pre tabindex="0"><code>curl: (60) SSL certificate problem: unable to get local issuer certificate
+More details here: https://curl.se/docs/sslcerts.html
+
+curl failed to verify the legitimacy of the server and therefore could not
+establish a secure connection to it. To learn more about this situation and
+how to fix it, please visit the web page mentioned above.
+</code></pre><p>It is giving an error because the certificate is not valid for the IP / Domain. However, you can call insecurely by adding <code>-k</code> which is not recommended for production use.</p>
+<pre tabindex="0"><code>curl -k --cacert $ES_HOME/config/certs/http_ca.crt -u elastic:pass https://x.x.x.x:9200
+</code></pre><h1 id="generate-tls-certificate-for-the-public-ip--domain">Generate TLS certificate for the Public IP / Domain</h1>
+<h2 id="1-lets-generate-the-new-local-certificate-authority-ca">1. Let&rsquo;s generate the new local certificate authority CA)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./bin/elasticsearch-certutil ca
+</span></span></code></pre></div><pre tabindex="0"><code>This tool assists you in the generation of X.509 certificates and certificate
+signing requests for use with SSL/TLS in the Elastic stack.
+
+The &#39;ca&#39; mode generates a new &#39;certificate authority&#39;
+This will create a new X.509 certificate and private key that can be used
+to sign certificate when running in &#39;cert&#39; mode.
+
+Use the &#39;ca-dn&#39; option if you wish to configure the &#39;distinguished name&#39;
+of the certificate authority
+
+By default the &#39;ca&#39; mode produces a single PKCS#12 output file which holds:
+    * The CA certificate
+    * The CA&#39;s private key
+
+If you elect to generate PEM format certificates (the -pem option), then the output will
+be a zip file containing individual files for the CA certificate and private key
+
+Please enter the desired output file [elastic-stack-ca.p12]: 
+Enter password for elastic-stack-ca.p12 :
+</code></pre><p>I kept blank for the last two questions. But you can change the output file and set the Password.</p>
+<p>It must have created a file <code>elastic-stack-ca.p12</code> in <code>$ES_HOME</code> directory.</p>
+<h2 id="2-generate-the-certificate-using-newly-created-ca">2. Generate the Certificate using newly created CA</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./bin/elasticsearch-certutil http
+</span></span></code></pre></div><p>It will ask some questions -</p>
+<ol>
+<li>Generate a CSR? [y/N] <code>n</code></li>
+<li>Use an existing CA? [y/N] <code>y</code></li>
+<li>CA Path: <code>$ES_HOME/elastic-stack-ca.p12</code></li>
+</ol>
+<blockquote>
+<p>You need to provide the absolute path for <code>elastic-stack-ca.p12</code>.</p>
+</blockquote>
+<ol start="4">
+<li>Password for elastic-stack-ca.p12:</li>
+</ol>
+<blockquote>
+<p>Type the password if you had set in Step 1. In my case, I&rsquo;ll keep it blank.</p>
+</blockquote>
+<ol start="5">
+<li>
+<p>For how long should your certificate be valid? [5y]</p>
+</li>
+<li>
+<p>Generate a certificate per node? [y/N] <code>y</code></p>
+</li>
+<li>
+<p>node #1 name: <code>benchmakr1.node</code></p>
+</li>
+<li>
+<p>Which hostnames will be used to connect to benchmakr1.node?</p>
+</li>
+</ol>
+<pre tabindex="0"><code>yourdomain.name  
+localhost
+</code></pre><ol start="9">
+<li>Which IP addresses will be used to connect to benchmakr1.node?</li>
+</ol>
+<pre tabindex="0"><code>127.0.0.1  
+x.x.x.x
+</code></pre><blockquote>
+<p>Add your public IP list.</p>
+</blockquote>
+<ol start="10">
+<li>Do you wish to change any of these options? [y/N] <code>n</code></li>
+<li>Generate additional certificates? [Y/n] <code>n</code></li>
+<li>Provide a password for the &ldquo;http.p12&rdquo; file:</li>
+</ol>
+<blockquote>
+<p>Type the password which you want to set and save it. I kept it as a blank.</p>
+</blockquote>
+<ol start="13">
+<li>What filename should be used for the output zip file?</li>
+</ol>
+<p>It must have created <code>elasticsearch-ssl-http.zip</code> file</p>
+<h2 id="3-set-httpp12">3. Set <code>http.p12</code></h2>
+<p>Lets unzip</p>
+<pre tabindex="0"><code>mkdir new-ssl
+mv elasticsearch-ssl-http.zip new-ssl/
+cd new-ssl/
+unzip elasticsearch-ssl-http.zip
+</code></pre><p>This will create two directory -</p>
+<pre tabindex="0"><code>1. elasticsearch
+2. kibana
+</code></pre><p>go to the <code>$ES_HOME</code> directory</p>
+<pre tabindex="0"><code>cd ..
+</code></pre><p>Replace old <code>http.p12</code> with new.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cp new-ssl/elasticsearch/http.p12 config/certs/http.p12
+</span></span></code></pre></div><h2 id="4-change-password-for-your-private-key-httpp12">4. Change password for your private key <code>http.p12</code></h2>
+<pre tabindex="0"><code>./bin/elasticsearch-keystore add xpack.security.http.ssl.keystore.secure_password
+</code></pre><blockquote>
+<p>Setting xpack.security.http.ssl.keystore.secure_password already exists. Overwrite? [y/N] <code>y</code></p>
+</blockquote>
+<pre tabindex="0"><code>Enter value for xpack.security.http.ssl.keystore.secure_password:
+</code></pre><p>Kept it as a blank in my case. But if you have set any password on <code>Step 2 (Question no. 12)</code>, Please enter the same password.</p>
+<h2 id="5-restart-the-elasticsearch-and-verify">5. Restart the Elasticsearch and verify</h2>
+<p>Let&rsquo;s make the same CURL call with the newly generated CA in <code>kibana</code> folder</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --cacert $ES_HOME/new-ssl/kibana/elasticsearch-ca.pem -u elastic:pass https://x.x.x.x:9200
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;benchmark1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;cluster_name&#34;</span> : <span style="color:#e6db74">&#34;elasticsearch&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;cluster_uuid&#34;</span> : <span style="color:#e6db74">&#34;kqZsQ5WrTAWnlFmYbyMQWw&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;version&#34;</span> : <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;number&#34;</span> : <span style="color:#e6db74">&#34;8.15.3&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_flavor&#34;</span> : <span style="color:#e6db74">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_type&#34;</span> : <span style="color:#e6db74">&#34;tar&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_hash&#34;</span> : <span style="color:#e6db74">&#34;f97532e680b555c3a05e73a74c28afb666923018&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_date&#34;</span> : <span style="color:#e6db74">&#34;2024-10-09T22:08:00.328917561Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_snapshot&#34;</span> : false,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;lucene_version&#34;</span> : <span style="color:#e6db74">&#34;9.11.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;minimum_wire_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;7.17.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;minimum_index_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;7.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;tagline&#34;</span> : <span style="color:#e6db74">&#34;You Know, for Search&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><blockquote>
+<p>This gist for single node cluster. But if you&rsquo;re looking to secure your cluster end to end, Go through the complete <a href="https://www.elastic.co/guide/en/elasticsearch/reference/8.15/secure-cluster.html">guide</a>.</p>
+</blockquote>
+]]></content:encoded>
+    </item>
     <item>
       <title>Serverless Ahmedabad 2023: Monitoring serverless environment with Elastic observability</title>
-      <link>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</link>
+      <link>http://localhost:1313/talks/serverless-ahmedabad-2023-elastic-observability/</link>
       <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
-      <guid>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
-      <description>Introduction Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.
-For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.</description>
+      <guid>http://localhost:1313/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.&lt;/p&gt;
+&lt;p&gt;For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.</p>
 <p>For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.</p>
 <h2 id="talk-video">Talk video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/PCPAlMaqRFw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/PCPAlMaqRFw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>GIDS 2024 - Smart Search with RAG: Elasticsearch Meets Language Models</title>
-      <link>https://ashish.one/talks/gids-2024-rag/</link>
+      <link>http://localhost:1313/talks/gids-2024-rag/</link>
       <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
-      <guid>https://ashish.one/talks/gids-2024-rag/</guid>
-      <description>Introduction In today&amp;rsquo;s data-driven world, just having a search engine is not enough; the key is making it smart. Enter Elasticsearch Relevance Engine (ESRE) augmented with Retrieval Augmented Generation (RAG), a powerful solution that marries Elasticsearch’s superior search capabilities with Large Language Models (LLMs) like ChatGPT for precise, contextual querying over proprietary datasets. This session is a hands-on guide that will show you how to amplify the power of Elasticsearch with advanced LLMs.</description>
+      <guid>http://localhost:1313/talks/gids-2024-rag/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In today&amp;rsquo;s data-driven world, just having a search engine is not enough; the key is making it smart. Enter Elasticsearch Relevance Engine (ESRE) augmented with Retrieval Augmented Generation (RAG), a powerful solution
+that marries Elasticsearch’s superior search capabilities with Large Language Models (LLMs) like ChatGPT for precise, contextual querying over proprietary datasets. This session is a hands-on guide that will show you how to amplify the power of Elasticsearch with advanced LLMs.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In today&rsquo;s data-driven world, just having a search engine is not enough; the key is making it smart. Enter Elasticsearch Relevance Engine (ESRE) augmented with Retrieval Augmented Generation (RAG), a powerful solution
 that marries Elasticsearch’s superior search capabilities with Large Language Models (LLMs) like ChatGPT for precise, contextual querying over proprietary datasets. This session is a hands-on guide that will show you how to amplify the power of Elasticsearch with advanced LLMs.</p>
@@ -50,19 +248,225 @@ that marries Elasticsearch’s superior search capabilities with Large Language 
 <p>This talk is for you if you&rsquo;re grappling with search relevance issues and are looking for innovative ways to make your search smarter and more efficient. Whether you&rsquo;re a software developer, data engineer, or ML enthusiast, this session will equip you with the skills you need to build next-generation search capabilities.</p>
 <h2 id="talk-video">Talk video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/r1jO4TglsEg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/r1jO4TglsEg?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Convert json to nd-json for elasticsearch</title>
-      <link>https://ashish.one/gist/json-to-ndjson-elasticsearch/</link>
+      <link>http://localhost:1313/gist/json-to-ndjson-elasticsearch/</link>
       <pubDate>Fri, 29 Mar 2024 20:29:51 +0530</pubDate>
-      <guid>https://ashish.one/gist/json-to-ndjson-elasticsearch/</guid>
-      <description>Convert JSON to nd-json for bulk indexing into Elasticsearch.
-movies.json [ { &amp;#34;title_x&amp;#34;: &amp;#34;Student of the Year 2&amp;#34;, &amp;#34;imdb_id&amp;#34;: &amp;#34;tt7255568&amp;#34;, &amp;#34;poster_path&amp;#34;: &amp;#34;https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Student_of_the_year_2_Poster.jpg/220px-Student_of_the_year_2_Poster.jpg&amp;#34;, &amp;#34;wiki_link&amp;#34;: &amp;#34;https://en.wikipedia.org/wiki/Student_of_the_Year_2&amp;#34;, &amp;#34;title_y&amp;#34;: &amp;#34;Student of the Year 2&amp;#34;, &amp;#34;original_title&amp;#34;: &amp;#34;Student of the Year 2&amp;#34;, &amp;#34;is_adult&amp;#34;: 0, &amp;#34;year_of_release&amp;#34;: &amp;#34;2019&amp;#34;, &amp;#34;runtime&amp;#34;: &amp;#34;146&amp;#34;, &amp;#34;genres&amp;#34;: &amp;#34;Drama|Romance|Sport&amp;#34;, &amp;#34;imdb_rating&amp;#34;: 2.5, &amp;#34;imdb_votes&amp;#34;: 12671, &amp;#34;story&amp;#34;: &amp;#34;A student must face off against bullies and overcome hurdles both academic and romantic to win his college&amp;#39;s coveted Student of the Year trophy.</description>
+      <guid>http://localhost:1313/gist/json-to-ndjson-elasticsearch/</guid>
+      <description>&lt;p&gt;Convert JSON to nd-json for bulk indexing into Elasticsearch.&lt;/p&gt;
+&lt;h3 id=&#34;moviesjson&#34;&gt;movies.json&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_x&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Student of the Year 2&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tt7255568&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;poster_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Student_of_the_year_2_Poster.jpg/220px-Student_of_the_year_2_Poster.jpg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wiki_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://en.wikipedia.org/wiki/Student_of_the_Year_2&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_y&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Student of the Year 2&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;original_title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Student of the Year 2&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;is_adult&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;year_of_release&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2019&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;146&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drama|Romance|Sport&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_rating&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;2.5&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_votes&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;12671&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;story&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A student must face off against bullies and overcome hurdles  both academic and romantic  to win his college&amp;#39;s coveted Student of the Year trophy.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;summary&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A student must face off against bullies and overcome hurdles  both academic and romantic  to win his college&amp;#39;s coveted Student of the Year trophy.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tagline&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;actors&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Tiger Shroff|Ananya Panday|Tara Sutaria|Aditya Seal|Manoj Pahwa|Ayesha Raza|Rajesh Kumar|Manasi Joshi Roy|Samir Soni|Gul Panag|Manjot Singh|Sahil Anand|Harsh Beniwal|Daljeet Singh Gujral|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wins_nominations&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;release_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;10 May 2019 (USA)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_x&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;De De Pyaar De&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tt8647400&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;poster_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/De_De_Pyaar_De_Poster.jpg/220px-De_De_Pyaar_De_Poster.jpg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wiki_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://en.wikipedia.org/wiki/De_De_Pyaar_De&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_y&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;De De Pyaar De&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;original_title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;De De Pyaar De&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;is_adult&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;year_of_release&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2019&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;135&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Comedy|Romance&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_rating&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;6.6&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_votes&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;5387&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;story&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;a 50 year old Aashish living London away from his family fro many years He falls in love with a 26 year Ayesha.Thou officially not divorced from his first wife Manju.Aashish wants her permission to get married to Ayesha.Upon reaching his house in India  Ayesha finds that Aashish kids are of the same age as her.Aashish introduces Ayesha as his secretary to his family he also finds that his daughter is about to get married and VK whose become close family friend is trying to woo her Manju.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;summary&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A 50-year-old single father faces disapproval from his family and his ex-wife when he falls in love with a 26-year-old woman.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tagline&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;actors&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Ajay Devgn|Tabu|Rakul Preet Singh|Jimmy Sheirgill|Alok Nath|Madhumalti Kapoor|Harry Anton|Gergo Baranyi|Sammy John Heaney|Bhavin Bhanushali|Gandharv Dewan|Gulnaaz Khan|Kumud Mishra|Sunny Singh Nijjar|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wins_nominations&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;release_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;17 May 2019 (USA)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_x&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;India&amp;#39;s Most Wanted (film)&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tt8484942&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;poster_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://upload.wikimedia.org/wikipedia/en/a/ae/India%27s_Most_Wanted_poster.jpg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wiki_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://en.wikipedia.org/wiki/India%27s_Most_Wanted_(film)&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_y&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;India&amp;#39;s Most Wanted&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;original_title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;India&amp;#39;s Most Wanted&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;is_adult&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;year_of_release&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2019&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;123&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Action|Thriller&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_rating&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;4.4&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_votes&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1449&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;story&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;India&amp;#39;s Most Wanted is a Bollywood action thriller film directed by Raj Kumar Gupta and starring Arjun Kapoor. The film is about tracking a terrorist in a secret mission and arresting him without firing bullets. It pays tribute to unsung heroes of our society.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;summary&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A group of intelligence officers embark on a top secret mission to track down a wanted international criminal.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tagline&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;actors&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Arjun Kapoor|Sudev Nair|Rajesh Sharma|Prasanth|Santilal Mukherjee|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wins_nominations&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;release_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;24 May 2019 (USA)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_x&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Yeh Hai India&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tt5525846&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;poster_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Yeh_Hai_India_Official_Poster.jpg/220px-Yeh_Hai_India_Official_Poster.jpg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wiki_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://en.wikipedia.org/wiki/Yeh_Hai_India&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_y&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Yeh Hai India&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;original_title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Yeh Hai India&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;is_adult&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;year_of_release&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2017&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;128&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Action|Adventure|Drama&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_rating&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;5.7&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_votes&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;169&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;story&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Yeh Hai India  follows the story of a 25 years old NRI  who is born and brought up in U.K and shares the same stereotype views of India  which is known for its vast population  pollution and poverty. However protagonist finds new development in media or probably an &amp;#39;other side of same coin&amp;#39; of India  which is also known for successful mars mission in first attempt  a nation which proudly holds title &amp;#39;God of Cricket&amp;#39; for Sachin Tendulkar  who is again an Indian and a nation which is known for its holy generosity with icons like Mother Teresa\&amp;#34;.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;summary&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Yeh Hai India  follows the story of a 25 years old NRI  who is born and brought up in UK. He shares the same stereotypical views about India that most NRIs have and how his perception changes.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tagline&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A Film for Every Indian&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;actors&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Gavie Chahal|Mohan Agashe|Mohan Joshi|Lom Harsh|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wins_nominations&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2 wins &amp;amp; 1 nomination&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;release_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;24 May 2019 (India)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_x&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Kabir Singh&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tt8983202&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;poster_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Kabir_Singh.jpg/220px-Kabir_Singh.jpg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wiki_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://en.wikipedia.org/wiki/Kabir_Singh&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_y&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Kabir Singh&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;original_title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Kabir Singh&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;is_adult&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;year_of_release&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2019&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;173&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drama|Romance&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_rating&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;7.2&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_votes&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;20535&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;story&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This Sandeep Vanga directorial is a remake of the 2017 Telugu movie Arjun Reddy. The plot revolves around an alcoholic surgeon battling temper issues. Things get worse as he watches the love of his life marry another man. High on emotions coupled with impressive action the film promises an intense watch.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;summary&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Kabir Singh is a remake of a Telugu movie Arjun Reddy (2017)  where a short-tempered house surgeon gets used to drugs and drinks when his girlfriend is forced to marry another person.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tagline&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;actors&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Shahid Kapoor|Kiara Advani|Soham Majumdar|Arjan Bajwa|Suresh Oberoi|Kamini Kaushal|Adil Hussain|Nikita Dutta|Amit Sharma|Anurag Arora|Dolly Mattoo|Aanchal Chauhan|Suparna Marwah|Swati Seth|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wins_nominations&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;release_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;20 June 2019 (USA)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_x&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Article 15 (film)&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tt10324144&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;poster_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://upload.wikimedia.org/wikipedia/en/thumb/1/11/Article_15_Poster.jpg/220px-Article_15_Poster.jpg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wiki_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://en.wikipedia.org/wiki/Article_15_(film)&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_y&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Article 15&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;original_title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Article 15&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;is_adult&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;year_of_release&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2019&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;130&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Crime|Drama&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_rating&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;8.3&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_votes&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;13417&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;story&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;In the rural heartlands of India  an upright police officer sets out on a crusade against violent caste-based crimes and discrimination.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;summary&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;In the rural heartlands of India  an upright police officer sets out on a crusade against violent caste-based crimes and discrimination.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tagline&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Farq Bahut Kar Liya| Ab Farq Laayenge.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;actors&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Ayushmann Khurrana|Nassar|Manoj Pahwa|Kumud Mishra|Isha Talwar|Sayani Gupta|Mohammed Zeeshan Ayyub|Subhrajyoti Barat|Sushil Pandey|Aakash Dabhade|Ashish Verma|Ronjini Chakraborty|Veen|Sumbul Touqueer|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wins_nominations&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1 win&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;release_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;28 June 2019 (USA)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_x&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;One Day: Justice Delivered&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tt8130558&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;poster_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://upload.wikimedia.org/wikipedia/en/f/f7/One_Day-_Justice_Delivered.jpg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wiki_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://en.wikipedia.org/wiki/One_Day:_Justice_Delivered&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_y&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;One Day: Justice Delivered&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;original_title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;One Day: Justice Delivered&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;is_adult&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;year_of_release&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2019&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;124&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Action|Crime|Thriller&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_rating&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;6.8&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_votes&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;590&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;story&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A Crime Branch Special Officer Investigates the Serial disappearance of high profile individuals in a state capital.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;summary&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A Crime Branch Special Officer Investigates the Serial disappearance of high profile individuals in a state capital.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tagline&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;actors&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Anupam Kher|Kumud Mishra|Esha Gupta|Zakir Hussain|Rajesh Sharma|Murli Sharma|Deepshika Nagpal|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wins_nominations&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;release_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5 July 2019 (India)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_x&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Super 30 (film)&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tt7485048&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;poster_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://upload.wikimedia.org/wikipedia/en/thumb/2/29/Super_30_The_Film.jpg/220px-Super_30_The_Film.jpg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wiki_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://en.wikipedia.org/wiki/Super_30_(film)&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_y&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Super 30&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;original_title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Super 30&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;is_adult&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;year_of_release&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2019&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;154&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Biography|Drama&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_rating&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;8.2&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_votes&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;13972&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;story&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Anand Kumar  a Mathematics genius from a modest family in Bihar who is made to believe that only a King&amp;#39;s son can become a king is on a mission to prove that even the poor man can create some of the world&amp;#39;s most genius minds. He starts a training program named &amp;#39;Super 30&amp;#39; to help 30 IIT aspirants crack the entrance test and make them highly successful professionals.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;summary&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Based on life of Patna-based mathematician Anand Kumar who runs the famed Super 30 program for IIT aspirants in Patna.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tagline&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Inspired by the Life of Anand Kumar &amp;amp; His Students&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;actors&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hrithik Roshan|Mrunal Thakur|Nandish Singh|Virendra Saxena|Sadhana Singh|Aditya Srivastava|Sanket Deshpande|Pankaj Tripathi|Vaibhav Gupta|Ali Haji|Rajesh Sharma|Deepali Kumar|Chittaranjan Giri|Ganesh Kumar|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wins_nominations&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;release_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;12 July 2019 (USA)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_x&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Batla House&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tt8869978&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;poster_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://upload.wikimedia.org/wikipedia/en/e/ed/Batla_House_poster.jpg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wiki_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://en.wikipedia.org/wiki/Batla_House&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_y&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Batla House&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;original_title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Batla House&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;is_adult&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;year_of_release&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2019&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;146&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Action|Drama|Thriller&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_rating&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;7.3&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_votes&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;5556&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;story&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This action thriller is based on the real-life incident of &amp;#39;Batla House Encounter&amp;#39;  officially known as Operation Batla House  to the silver screen. The incident took place on September 19  2008  against Indian Mujahideen (IM) terrorists in Batla House locality in Jamia Nagar  Delhi.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;summary&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;After a deadly encounter  a police officer works to prove that the police acted lawfully.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tagline&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The Story of India&amp;#39;s Most Decorated / Controversial Cop&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;actors&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John Abraham|Nora Fatehi|Mrunal Thakur|Rajesh Sharma|Ravi Kishan|Sonam Arora|Sahidur Rahaman|Manish Chaudhary|Anil Rastogi|Kranti Prakash Jha|Amruta Sant|Anil Khopkar|Aditi Gulati|Jitendra Trehan|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wins_nominations&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;release_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;15 August 2019 (USA)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_x&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mission Mangal&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tt9248972&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;poster_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Mission_Mangal.jpg/220px-Mission_Mangal.jpg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wiki_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://en.wikipedia.org/wiki/Mission_Mangal&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title_y&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mission Mangal&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;original_title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mission Mangal&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;is_adult&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;year_of_release&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2019&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;130&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drama|History&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_rating&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;6.5&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;imdb_votes&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;7165&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;story&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Based on true events of the Indian Space Research Organisation (ISRO) successfully launching the Mars Orbiter Mission (Mangalyaan)  making it the least expensive mission to Mars.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;summary&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Based on true events of the Indian Space Research Organisation (ISRO) successfully launching the Mars Orbiter Mission (Mangalyaan)  making it the least expensive mission to Mars.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tagline&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This Independence Day...The Sky is Not the Limit&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;actors&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Akshay Kumar|Vidya Balan|Nithya Menon|Taapsee Pannu|Sonakshi Sinha|Kirti Kulhari|H.G. Dattatreya|Sharman Joshi|Sanjay Kapoor|Dalip Tahil|Vikram Gokhale|Mohammed Zeeshan Ayyub|Purab Kohli|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;wins_nominations&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;release_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;15 August 2019 (USA)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install &lt;code&gt;jq&lt;/code&gt; on your linux machine and hit below command&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>Convert JSON to nd-json for bulk indexing into Elasticsearch.</p>
 <h3 id="moviesjson">movies.json</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
@@ -275,13 +679,21 @@ movies.json [ { &amp;#34;title_x&amp;#34;: &amp;#34;Student of the Year 2&amp;#3
     </item>
     <item>
       <title>Setup &amp; Observe Kubernetes cluster</title>
-      <link>https://ashish.one/talks/setup_and_observe_kubernetes/</link>
+      <link>http://localhost:1313/talks/setup_and_observe_kubernetes/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/setup_and_observe_kubernetes/</guid>
-      <description>Introduction In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.
-Setup K8s cluster Cluster architecture 3 Node cluster
-Machine - Centos7, 4GB RAM
-kube1.local - Control plane node kube2.local - worker node kube3.local - worker node Here I am setting hostname kube1.local, kube2.local, kube3.local. Login into all of the servers and perform below command on all three nodes.</description>
+      <guid>http://localhost:1313/talks/setup_and_observe_kubernetes/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.&lt;/p&gt;
+&lt;h1 id=&#34;setup-k8s-cluster&#34;&gt;Setup K8s cluster&lt;/h1&gt;
+&lt;h2 id=&#34;cluster-architecture&#34;&gt;Cluster architecture&lt;/h2&gt;
+&lt;p&gt;3 Node cluster&lt;/p&gt;
+&lt;p&gt;Machine - Centos7, 4GB RAM&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;kube1.local  - Control plane node&lt;/li&gt;
+&lt;li&gt;kube2.local - worker node&lt;/li&gt;
+&lt;li&gt;kube3.local - worker node&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here I am setting hostname &lt;code&gt;kube1.local&lt;/code&gt;, &lt;code&gt;kube2.local&lt;/code&gt;, &lt;code&gt;kube3.local&lt;/code&gt;.  Login into all of the servers and perform below command on all three nodes.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.</p>
 <h1 id="setup-k8s-cluster">Setup K8s cluster</h1>
@@ -297,14 +709,12 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 <h2 id="swap-off">Swap off</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo swapoff -a
 </span></span></code></pre></div><h2 id="install-docker">Install docker</h2>
-<p>You can refer <a href="https://docs.docker.com/engine/install/centos/" target="_blank" rel="noopener">docker documentation</a>
- but here are the quick steps:</p>
+<p>You can refer <a href="https://docs.docker.com/engine/install/centos/">docker documentation</a> but here are the quick steps:</p>
 <h2 id="contanerd-runtime">Contanerd runtime</h2>
 <p>kubeadm automatically tries to detect an installed container runtime by scanning through a list of known endpoints.</p>
 <p>Verify if containerd is running or not</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ps -ef | grep containerd
-</span></span></code></pre></div><p>In my system containerd was running. <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank" rel="noopener">Install containerd</a>
- if it is not installed.</p>
+</span></span></code></pre></div><p>In my system containerd was running. <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md">Install containerd</a> if it is not installed.</p>
 <p>Change below cofing to remove <code>cri</code> from <code>disable_plugins</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo vim /etc/containerd/config.toml
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#disabled_plugins = [&#34;cri&#34;]</span>
@@ -412,41 +822,38 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 </span></span><span style="display:flex;"><span>curl localhost:8080/metrics
 </span></span></code></pre></div><p>It should return all metrics.</p>
 <h2 id="monitoring-using-elastic-cloud">Monitoring using Elastic cloud</h2>
-<p>You can follow detailed doc - <a href="https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters" target="_blank" rel="noopener">https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters</a>
-</p>
-<p>Blog - <a href="https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring" target="_blank" rel="noopener">https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring</a>
-</p>
+<p>You can follow detailed doc - <a href="https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters">https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters</a></p>
+<p>Blog - <a href="https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring">https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring</a></p>
 <h1 id="reference-talk">Reference talk</h1>
 <p>Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/8qOt_gYjwcw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Elasticsearch Query Language (ES|QL)</title>
-      <link>https://ashish.one/talks/esql/</link>
+      <link>http://localhost:1313/talks/esql/</link>
       <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
-      <guid>https://ashish.one/talks/esql/</guid>
-      <description>Introduction ES|QL is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.
-It is a piped separated langugage with a combination of source commands and process commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion.</description>
+      <guid>http://localhost:1313/talks/esql/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html&#34;&gt;ES|QL&lt;/a&gt; is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.&lt;/p&gt;
+&lt;p&gt;It is a piped separated langugage with a combination of &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands&#34;&gt;source commands&lt;/a&gt; and &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands&#34;&gt;process&lt;/a&gt; commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
-<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html" target="_blank" rel="noopener">ES|QL</a>
- is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.</p>
-<p>It is a piped separated langugage with a combination of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands" target="_blank" rel="noopener">source commands</a>
- and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands" target="_blank" rel="noopener">process</a>
- commands. The Elasticsearch Query Language (ES|QL) makes use of &ldquo;pipes&rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.</p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html">ES|QL</a> is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.</p>
+<p>It is a piped separated langugage with a combination of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands">source commands</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands">process</a> commands. The Elasticsearch Query Language (ES|QL) makes use of &ldquo;pipes&rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.</p>
 <p>ES|QL is more than langugage. The execution engine is developed by considering performance in mind. Here ES|QL is not going to convert into Query DSL instead it will be directly executed within Elasticsearch. It operates on blocks at a time instead of per row, targets vectorization and cache locality, and embraces specialization and multi-threading.</p>
 <blockquote>
 <p>ES|QL - Filter, Transform and Analyze</p>
 </blockquote>
 <h2 id="example">Example</h2>
-<p>Below is a few examples of ES|QL. I am considering you have an Elasticsearch and kibana is <a href="https://www.elastic.co/search-labs/tutorials/install-elasticsearch" target="_blank" rel="noopener">installed</a>
- and running. Please <a href="https://www.elastic.co/guide/en/kibana/current/get-started.html#gs-get-data-into-kibana" target="_blank" rel="noopener">import the sample dataset (Sample web logs)</a>
- from kibana. Navigate in side menu  -&gt; <code>Management</code> -&gt; <code>Dev Tools</code>  to perform the below query.</p>
+<p>Below is a few examples of ES|QL. I am considering you have an Elasticsearch and kibana is <a href="https://www.elastic.co/search-labs/tutorials/install-elasticsearch">installed</a> and running. Please <a href="https://www.elastic.co/guide/en/kibana/current/get-started.html#gs-get-data-into-kibana">import the sample dataset (Sample web logs)</a> from kibana. Navigate in side menu  -&gt; <code>Management</code> -&gt; <code>Dev Tools</code>  to perform the below query.</p>
 <h3 id="source-commands">Source commands</h3>
 <h4 id="from">FROM</h4>
 <pre tabindex="0"><code># Format
@@ -541,8 +948,7 @@ POST _query?format=txt
     | keep lt, browser, version, t, l
   &#34;&#34;&#34;
 }
-</code></pre><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions" target="_blank" rel="noopener">string functions</a>
-.</p>
+</code></pre><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions">string functions</a>.</p>
 <h4 id="data-enrichment-enrich">Data enrichment (ENRICH)</h4>
 <pre tabindex="0"><code>
 # Create mappings
@@ -629,12 +1035,19 @@ POST _query?format=txt
     </item>
     <item>
       <title>Elasticsearch: Vector and Hybrid Search</title>
-      <link>https://ashish.one/talks/vector-hybrid-search/</link>
+      <link>http://localhost:1313/talks/vector-hybrid-search/</link>
       <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/vector-hybrid-search/</guid>
-      <description>Introduction Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.
-This talk gives an overview of:
-Classic search and its limitations. What is a model and how can you use it. How to use vector search or hybrid search in Elasticsearch. Where OpenAI&amp;rsquo;s ChatGPT or similar LLMs come into play to with Elastic. Check how to leverage Leverage ChatGPT with Elasticsearch .</description>
+      <guid>http://localhost:1313/talks/vector-hybrid-search/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.&lt;/p&gt;
+&lt;p&gt;This talk gives an overview of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Classic&lt;/strong&gt; search and its limitations.&lt;/li&gt;
+&lt;li&gt;What is a model and how can you use it.&lt;/li&gt;
+&lt;li&gt;How to use vector search or hybrid search in Elasticsearch.&lt;/li&gt;
+&lt;li&gt;Where OpenAI&amp;rsquo;s ChatGPT or similar LLMs come into play to with Elastic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check how to leverage &lt;a href=&#34;https://ashish.one/talks/chatgpt-elasticsearch/&#34;&gt;Leverage ChatGPT with Elasticsearch&lt;/a&gt;.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.</p>
 <p>This talk gives an overview of:</p>
@@ -644,38 +1057,51 @@ Classic search and its limitations. What is a model and how can you use it. How 
 <li>How to use vector search or hybrid search in Elasticsearch.</li>
 <li>Where OpenAI&rsquo;s ChatGPT or similar LLMs come into play to with Elastic.</li>
 </ul>
-<p>Check how to leverage <a href="https://ashish.one/talks/chatgpt-elasticsearch/" target="_blank" rel="noopener">Leverage ChatGPT with Elasticsearch</a>
-.</p>
+<p>Check how to leverage <a href="https://ashish.one/talks/chatgpt-elasticsearch/">Leverage ChatGPT with Elasticsearch</a>.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/AljarsLZRW0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/AljarsLZRW0?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Monitor Kubernetes cluster with Elastic</title>
-      <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>
+      <link>http://localhost:1313/talks/monitor_k8_elastic_observability/</link>
       <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/monitor_k8_elastic_observability/</guid>
-      <description>Introduction Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.
-Talk Video </description>
+      <guid>http://localhost:1313/talks/monitor_k8_elastic_observability/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.&lt;/p&gt;
+&lt;h2 id=&#34;talk-video&#34;&gt;Talk Video&lt;/h2&gt;
+
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/8qOt_gYjwcw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Workshop - Leverage ChatGPT with Elasticsearch</title>
-      <link>https://ashish.one/talks/chatgpt-elasticsearch/</link>
+      <link>http://localhost:1313/talks/chatgpt-elasticsearch/</link>
       <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
-      <guid>https://ashish.one/talks/chatgpt-elasticsearch/</guid>
+      <guid>http://localhost:1313/talks/chatgpt-elasticsearch/</guid>
       <description>Connect ChatGPT to proprietary data stores using Elasticsearch</description>
       <content:encoded><![CDATA[<h1 id="objective">Objective</h1>
 <p>In this hands-on workshop, We will learn how to connect ChatGPT to proprietary data stores using Elasticsearch and build question/answer capabilities for your data. In a demo, We will quickly convert your website, FAQ, or any documentation into prompt chat where your user can directly ask a question on your data.</p>
@@ -694,31 +1120,25 @@ Talk Video </description>
 <p>System + Internet connection</p>
 </li>
 <li>
-<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">https://platform.openai.com/account/api-keys</a>
-. Make sure it having <a href="https://platform.openai.com/account/usage" target="_blank" rel="noopener">free credits</a>
-.</p>
+<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>. Make sure it having <a href="https://platform.openai.com/account/usage">free credits</a>.</p>
 </li>
 </ol>
 <h2 id="without-local-setup">Without local setup</h2>
 <ol>
 <li>
-<p>Google account to use <a href="https://colab.research.google.com/" target="_blank" rel="noopener">google Colab</a>
-.</p>
+<p>Google account to use <a href="https://colab.research.google.com/">google Colab</a>.</p>
 </li>
 <li>
-<p><a href="https://render.com/" target="_blank" rel="noopener">Render</a>
- account.</p>
+<p><a href="https://render.com/">Render</a> account.</p>
 </li>
 </ol>
 <h2 id="local-setup">Local setup</h2>
 <ol>
 <li>
-<p>Git - Install it from <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a>
-</p>
+<p>Git - Install it from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
 </li>
 <li>
-<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">https://docs.docker.com/engine/install/</a>
-.</p>
+<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</p>
 </li>
 <li>
 <p>Having basic python knowledge will be good.</p>
@@ -728,8 +1148,7 @@ Talk Video </description>
 <h1 id="1-setup-cluster">1. Setup cluster</h1>
 <ol>
 <li>
-<p>Visit <a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
- and signup.</p>
+<p>Visit <a href="https://cloud.elastic.co">cloud.elastic.co</a> and signup.</p>
 </li>
 <li>
 <p>Click on <em><strong>Create deployment</strong></em>. In the pop-up, you can change the settings or leave it default.</p>
@@ -761,23 +1180,19 @@ Talk Video </description>
 <li>Click <em><strong>Start</strong></em>.</li>
 </ol>
 <h2 id="third-party-model">Third party model</h2>
-<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">all-distilroberta-v1</a>
- model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
+<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1">all-distilroberta-v1</a> model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
 <p><strong>Get your credentials ready</strong></p>
 <ul>
-<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
-</strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: <code>elastic</code></li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be <code>elastic</code> only)</li>
-<li><code>hf_model_id</code>: <code>sentence-transformers/all-distilroberta-v1</code> (Go to model <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">page</a>
- on huggingface &amp; copy the ID <code>sentence-transformers/all-distilroberta-v1</code>)</li>
+<li><code>hf_model_id</code>: <code>sentence-transformers/all-distilroberta-v1</code> (Go to model <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1">page</a> on huggingface &amp; copy the ID <code>sentence-transformers/all-distilroberta-v1</code>)</li>
 </ul>
 <p>Now there is two way, You can upload the model using <code>docker</code> as well as <code>Google colab</code>.</p>
 <h3 id="using-google-colab-recommended">Using Google Colab (Recommended)</h3>
 <p>Simply click on below link. It will open ready made notebook. You just need to click on <code>play</code> button to run notebood.</p>
-<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb" target="_blank" rel="noopener"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
-</a>
-</p>
+<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
+</a></p>
 <h3 id="using-docker">Using Docker</h3>
 <ol start="2">
 <li>
@@ -851,20 +1266,17 @@ Talk Video </description>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>Paste above query in <code>cosole</code> and hit on play button.</p>
 <ol start="13">
-<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one" target="_blank" rel="noopener">https://ashish.one</a>
-. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
+<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one">https://ashish.one</a>. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
 <li>If everything is fine, simply click on “<em><strong>Add domain</strong></em>” and start crawling by click on <em><strong>Crawl -&gt; Crawl all domains on this index</strong></em>.</li>
 <li>Go to <em><strong>Enterprise Search -&gt; Indices</strong></em>. You should see your index name.</li>
 </ol>
 <h1 id="4-setup-interface">4. Setup Interface</h1>
 <p>** Get your credentials ready **</p>
 <ol>
-<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
-</strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: elastic</li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be elastic)</li>
-<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">https://platform.openai.com/account/api-keys</a>
-.</li>
+<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>.</li>
 <li><code>es_index</code>: Index name which we created in step 3.3. (search-ashish.one)</li>
 <li><code>vector_field</code>: The field which we&rsquo;ve set for destination at step 3.9. i.e. <strong>title-vector</strong></li>
 </ol>
@@ -893,14 +1305,11 @@ Talk Video </description>
 <li>Run</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker run -p 8501:8501 es-gpt
-</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a>
-</p>
-<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/" target="_blank" rel="noopener">Render</a>
- with Docker</h2>
+</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a></p>
+<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/">Render</a> with Docker</h2>
 <ol>
 <li>
-<p>Signup on <a href="https://render.com" target="_blank" rel="noopener">https://render.com</a>
-.</p>
+<p>Signup on <a href="https://render.com">https://render.com</a>.</p>
 </li>
 <li>
 <p>Create <strong>Web Service</strong>.</p>
@@ -933,20 +1342,22 @@ Talk Video </description>
 <p><img loading="lazy" src="/img/talks/elasticsearch-chatgpt/ashish_one_gpt.gif" alt="ashish.one ChatGPT"  />
 </p>
 <h1 id="reference">Reference</h1>
-<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data" target="_blank" rel="noopener">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a>
-</p>
+<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a></p>
 ]]></content:encoded>
     </item>
     <item>
       <title>Receive Webhook Requests Using ELK</title>
-      <link>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</link>
+      <link>http://localhost:1313/blogs/elastic/receive-webhook-requests-using-elk/</link>
       <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
-      <guid>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</guid>
-      <description>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case. Elastic provides Search, Observability &amp;amp; Security you can check more on this with official documentation .
-What is Webhook ? Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks.</description>
+      <guid>http://localhost:1313/blogs/elastic/receive-webhook-requests-using-elk/</guid>
+      <description>&lt;p&gt;In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case.
+Elastic provides Search, Observability &amp;amp; Security you can check more on this with &lt;a href=&#34;https://www.elastic.co/guide/index.html&#34;&gt;official documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-webhook-&#34;&gt;What is Webhook ?&lt;/h1&gt;
+&lt;p&gt;Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks. Now in the modern tech world it is also known as Reverse API, Push API etc.
+Mostly it is used to send small amounts of data from source to destination. It is a one way data transfer procedure. It works over the HTTP protocol using REST API. It is simple like client and server communication.
+Most of the saas allow you to integrate their product with your system with the help of APIs and Webhook only. E.g. Slack and discord allows you to push messages with the help of webhooks. To accept the webhook event, You need to expose one HTTP endpoint lets say&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case.
-Elastic provides Search, Observability &amp; Security you can check more on this with <a href="https://www.elastic.co/guide/index.html" target="_blank" rel="noopener">official documentation</a>
-.</p>
+Elastic provides Search, Observability &amp; Security you can check more on this with <a href="https://www.elastic.co/guide/index.html">official documentation</a>.</p>
 <h1 id="what-is-webhook-">What is Webhook ?</h1>
 <p>Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks. Now in the modern tech world it is also known as Reverse API, Push API etc.
 Mostly it is used to send small amounts of data from source to destination. It is a one way data transfer procedure. It works over the HTTP protocol using REST API. It is simple like client and server communication.
@@ -956,28 +1367,19 @@ Most of the saas allow you to integrate their product with your system with the 
 <p>So I have to use the <code>POST</code> method, and send data on the above endpoint. You can hit this Endpoint using curl, postman or any programming language.</p>
 <h1 id="what-is-elk-">What is ELK ?</h1>
 <p>Well from elastic.co -</p>
-<p><em>E</em> - <code>Elasticsearch</code> - Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Check more <a href="https://www.elastic.co/what-is/elasticsearch" target="_blank" rel="noopener">here</a>
-.</p>
-<p><em>L</em> - <code>logstash</code> - Logstash is a free and open server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to your favorite &ldquo;stash.&rdquo; check more <a href="https://www.elastic.co/logstash/" target="_blank" rel="noopener">here</a>
-.</p>
-<p><em>K</em> - <code>Kibana</code> - Kibana is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Check more <a href="https://www.elastic.co/what-is/kibana" target="_blank" rel="noopener">here</a>
-.</p>
+<p><em>E</em> - <code>Elasticsearch</code> - Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Check more <a href="https://www.elastic.co/what-is/elasticsearch">here</a>.</p>
+<p><em>L</em> - <code>logstash</code> - Logstash is a free and open server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to your favorite &ldquo;stash.&rdquo; check more <a href="https://www.elastic.co/logstash/">here</a>.</p>
+<p><em>K</em> - <code>Kibana</code> - Kibana is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Check more <a href="https://www.elastic.co/what-is/kibana">here</a>.</p>
 <h1 id="the-flow">The Flow</h1>
 <p><em><strong>Events -&gt; Logstash -&gt; Elasticsearch &lt;- Kibana</strong></em></p>
-<p>Logstash works with three plugins - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" rel="noopener">input</a>
-, <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html" target="_blank" rel="noopener">filter</a>
-, <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html" target="_blank" rel="noopener">output</a>
-.</p>
-<p>You can choose any source as a input. For example you can use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html" target="_blank" rel="noopener">jdbc input plugin</a>
- to read data from <code>mysql</code>.</p>
+<p>Logstash works with three plugins - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">input</a>, <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html">filter</a>, <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html">output</a>.</p>
+<p>You can choose any source as a input. For example you can use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html">jdbc input plugin</a> to read data from <code>mysql</code>.</p>
 <p>Transform your data with the help of <code>filter</code> plugin.</p>
 <p>Push the data on destination which you have specified in output plugin.</p>
 <p>We will use below plugins to process the webhooks requests.</p>
 <ul>
-<li>Input plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html" target="_blank" rel="noopener">HTTP</a>
-</li>
-<li>Output plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html" target="_blank" rel="noopener">Elasticsearch</a>
-</li>
+<li>Input plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html">HTTP</a></li>
+<li>Output plugin -&gt; <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">Elasticsearch</a></li>
 </ul>
 <p>Logstash will process the event and push to the Elasticsearch.
 Visualise data from kibana.</p>
@@ -985,12 +1387,9 @@ Visualise data from kibana.</p>
 <h2 id="installation">Installation</h2>
 <p>You can simply follow the official documentation for installation.</p>
 <ul>
-<li><strong>Elasticsearch</strong> - <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html</a>
-</li>
-<li><strong>Kibana</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a>
-</li>
-<li><strong>Logstash</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a>
-</li>
+<li><strong>Elasticsearch</strong> - <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html</a></li>
+<li><strong>Kibana</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a></li>
+<li><strong>Logstash</strong> - <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html</a></li>
 </ul>
 <p>I am spinning ELK instances using docker. You can choose any method mentioned on above links.</p>
 <h2 id="verify">Verify</h2>
@@ -1047,8 +1446,7 @@ Visualise data from kibana.</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>We are configuring HTTP endpoint on port <code>4000</code>. So whenever anyone calls the webhook endpoint, they need to specify port like <code>http://mydomain.com:4000</code></p>
-<p>Here i am only defining the index but you can configure data stream as well. Check <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html" target="_blank" rel="noopener">here</a>
- for more options.</p>
+<p>Here i am only defining the index but you can configure data stream as well. Check <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">here</a> for more options.</p>
 <h3 id="test-configuration">Test configuration</h3>
 <p>Run pipeline with below command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./bin/logstash -f webhook-receiver.conf
@@ -1143,35 +1541,132 @@ Visualise data from kibana.</p>
 </p>
 <p>To create the dashboard, go to <em><strong>Menu -&gt; Analytics -&gt; Dashboard</strong></em>. You can create a dashboard according to your requirement.</p>
 <h1 id="conclusion">Conclusion</h1>
-<p>We have successfully set up the webhook receiver with the help of ELK stack. Though ELK use cases are very vast. There are various <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" rel="noopener">input</a>
- and <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html" target="_blank" rel="noopener">output</a>
- plugins available in logstash for data pipelines.</p>
+<p>We have successfully set up the webhook receiver with the help of ELK stack. Though ELK use cases are very vast. There are various <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">input</a> and <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html">output</a> plugins available in logstash for data pipelines.</p>
 ]]></content:encoded>
     </item>
     <item>
       <title>Getting started with Elastic stack</title>
-      <link>https://ashish.one/talks/getting_started_elastic_stack/</link>
+      <link>http://localhost:1313/talks/getting_started_elastic_stack/</link>
       <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
-      <guid>https://ashish.one/talks/getting_started_elastic_stack/</guid>
-      <description>What this talk is all about ? Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.
-Talk Video Feel free to comment below, If you have any doubts or suggestion about this talk.</description>
+      <guid>http://localhost:1313/talks/getting_started_elastic_stack/</guid>
+      <description>&lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
+&lt;p&gt;Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.&lt;/p&gt;
+&lt;h2 id=&#34;talk-video&#34;&gt;Talk Video&lt;/h2&gt;
+
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/hJoorF6zxBA?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h4 id=&#34;feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk&#34;&gt;Feel free to comment below, If you have any doubts or suggestion about this talk.&lt;/h4&gt;</description>
       <content:encoded><![CDATA[<h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/hJoorF6zxBA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hJoorF6zxBA?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
     <item>
       <title>Getting started with Elasticsearch</title>
-      <link>https://ashish.one/talks/ws-es/</link>
+      <link>http://localhost:1313/talks/ws-es/</link>
       <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
-      <guid>https://ashish.one/talks/ws-es/</guid>
-      <description>Sample Queries for Elasticsearch Workshop CRUD # Insert POST meetup/_doc/ { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # Insert with id POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # Search GET meetup/_search # Update POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;, &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;, &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;, &amp;#34;skills&amp;#34;:{ &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;], &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;], &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34; } } # search with query GET meetup/_search { &amp;#34;query&amp;#34;: { &amp;#34;match&amp;#34;: { &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34; } } } # delete DELETE meetup BULK POST _bulk {&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}} {&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.</description>
+      <guid>http://localhost:1313/talks/ws-es/</guid>
+      <description>&lt;h1 id=&#34;sample-queries-for-elasticsearch-workshop&#34;&gt;Sample Queries for Elasticsearch Workshop&lt;/h1&gt;
+&lt;h2 id=&#34;crud&#34;&gt;CRUD&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
+# Insert
+
+POST meetup/_doc/
+{
+  &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34;
+}
+
+# Insert with id
+
+POST meetup/_doc/1
+{
+  &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34;
+}
+
+# Search
+
+GET meetup/_search
+
+# Update
+
+POST meetup/_doc/1
+{
+  &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;,
+  &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;,
+  &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;,
+  &amp;#34;skills&amp;#34;:{
+    &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;],
+    &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;],
+    &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34;
+  }
+}
+
+# search with query
+
+GET meetup/_search
+{
+  &amp;#34;query&amp;#34;: {
+    &amp;#34;match&amp;#34;: {
+      &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34;
+    }
+  }
+}
+
+# delete
+
+DELETE meetup
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;bulk&#34;&gt;BULK&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;POST _bulk
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.221.25.110&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Flashset&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:2,&amp;#34;first_name&amp;#34;:&amp;#34;Immanuel&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Philbrick&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;iphilbrick1@wunderground.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;01 Bunting Pass&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;9.20.164.27&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Babblestorm&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:3,&amp;#34;first_name&amp;#34;:&amp;#34;Clotilda&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Danelut&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;cdanelut2@deliciousdays.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Agender&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;0 Crowley Trail&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;158.94.144.140&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Riffpedia&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:4,&amp;#34;first_name&amp;#34;:&amp;#34;Nahum&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Attfield&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;nattfield3@blog.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;7 Garrison Court&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;225.144.148.44&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Chatterpoint&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:5,&amp;#34;first_name&amp;#34;:&amp;#34;Vaughan&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Middis&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;vmiddis4@ted.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;7 Cody Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;66.198.31.108&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Mynte&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:6,&amp;#34;first_name&amp;#34;:&amp;#34;Nolie&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Alessandrucci&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;nalessandrucci5@networksolutions.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;826 Brown Hill&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;96.77.221.95&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Feedfish&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:7,&amp;#34;first_name&amp;#34;:&amp;#34;Beverlie&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Ovitts&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bovitts6@tripod.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;6 Sycamore Pass&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;102.24.117.107&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Zazio&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:8,&amp;#34;first_name&amp;#34;:&amp;#34;Graeme&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Dopson&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;gdopson7@free.fr&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;26 Dunning Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;198.33.215.93&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Flashset&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:9,&amp;#34;first_name&amp;#34;:&amp;#34;Mellisa&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Hurich&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;mhurich8@nbcnews.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;6371 Browning Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;66.0.3.199&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Divanoodle&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:10,&amp;#34;first_name&amp;#34;:&amp;#34;Dyan&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Loude&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;dloude9@berkeley.edu&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;9818 Reindahl Road&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;16.56.137.54&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Agivu&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:11,&amp;#34;first_name&amp;#34;:&amp;#34;Becky&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Shank&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bshanka@tinypic.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;1206 Warrior Terrace&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;90.63.35.111&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Izio&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:12,&amp;#34;first_name&amp;#34;:&amp;#34;Bar&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Bedburrow&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bbedburrowb@vistaprint.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;75 Onsgard Crossing&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;85.122.33.250&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Zoombox&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:13,&amp;#34;first_name&amp;#34;:&amp;#34;Dorey&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Isenor&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;disenorc@privacy.gov.au&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;53682 Parkside Crossing&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;150.158.150.213&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Rhyzio&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:14,&amp;#34;first_name&amp;#34;:&amp;#34;Torrin&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Rangall&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;trangalld@buzzfeed.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;24247 Old Shore Plaza&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;40.151.17.2&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Devpoint&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:15,&amp;#34;first_name&amp;#34;:&amp;#34;Genvieve&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Beslier&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;gbesliere@yolasite.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;96214 Miller Trail&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;115.143.68.208&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Oyonder&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:16,&amp;#34;first_name&amp;#34;:&amp;#34;Arden&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Ramas&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;aramasf@whitehouse.gov&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Polygender&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;390 Gulseth Alley&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;36.83.126.154&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Youbridge&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:17,&amp;#34;first_name&amp;#34;:&amp;#34;Alyosha&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Domm&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;adommg@washingtonpost.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;32 Oxford Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;174.71.176.45&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Wikizz&amp;#34;}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;upload-sample-json-data-from-kibana&#34;&gt;Upload sample json data from kibana&lt;/h2&gt;
+&lt;p&gt;Download &lt;a href=&#34;http://localhost:1313/data/movies.json&#34;&gt;movies.json&lt;/a&gt; and insert into elasticsearch by using below command:&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="sample-queries-for-elasticsearch-workshop">Sample Queries for Elasticsearch Workshop</h1>
 <h2 id="crud">CRUD</h2>
 <pre tabindex="0"><code>
@@ -1258,8 +1753,7 @@ DELETE meetup
 {&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
 {&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
 </code></pre><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
-<p>Download <a href="/data/movies.json">movies.json</a>
- and insert into elasticsearch by using below command:</p>
+<p>Download <a href="/data/movies.json">movies.json</a> and insert into elasticsearch by using below command:</p>
 <p><em>Open Kibana -&gt; Menu -&gt; Home -&gt; Upload a file</em></p>
 <h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Stack Management -&gt; Data Views (Kibana)</em></p>
@@ -1420,8 +1914,7 @@ GET _analyze
   }
 }
 </code></pre><h3 id="insert-data">Insert data</h3>
-<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE" target="_blank" rel="noopener">विकिपीडिया-श्रीमद्भगवद्गीता</a>
-</p>
+<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE">विकिपीडिया-श्रीमद्भगवद्गीता</a></p>
 <p>Lets insert some data like below:</p>
 <pre tabindex="0"><code>POST geetyantra/_doc
 {
@@ -1575,25 +2068,37 @@ GET geetyantra/_search
   }
 }
 </code></pre><h2 id="search-as-you-type">Search as you type</h2>
-<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/" target="_blank" rel="noopener">Search as you type</a>
-.</p>
+<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/">Search as you type</a>.</p>
 ]]></content:encoded>
     </item>
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
-      <link>https://ashish.one/blogs/elastic-docker-compose/</link>
+      <link>http://localhost:1313/blogs/elastic-docker-compose/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
-      <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
-      <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose . You can learn more about Docker &amp;amp; Docker Compose , Which will help you to understand the flow.
-Prerequisite Tested on the below configuration.
-docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414 Cluster This setup will include
-Elasticsearch Kibana Logstash APM Setup Clone repo:
-git clone https://github.</description>
+      <guid>http://localhost:1313/blogs/elastic-docker-compose/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;. You can learn more about &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Docker Compose&lt;/a&gt;, Which will help you to understand the flow.&lt;/p&gt;
+&lt;h1 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h1&gt;
+&lt;p&gt;Tested on the below configuration.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;docker:&lt;code&gt;Docker version 20.10.16, build aa7e414&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;docker-compose:&lt;code&gt;Docker version 20.10.16, build aa7e414&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;cluster&#34;&gt;Cluster&lt;/h1&gt;
+&lt;p&gt;This setup will include&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Elasticsearch&lt;/li&gt;
+&lt;li&gt;Kibana&lt;/li&gt;
+&lt;li&gt;Logstash&lt;/li&gt;
+&lt;li&gt;APM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
+&lt;p&gt;Clone repo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/ashishtiwari1993/elastic-docker.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd elastic-docker
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Make changes in &lt;code&gt;.env&lt;/code&gt; file.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/" target="_blank" rel="noopener">docker-compose</a>
-. You can learn more about <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a>
- &amp; <a href="https://docs.docker.com/compose/" target="_blank" rel="noopener">Docker Compose</a>
-, Which will help you to understand the flow.</p>
+<p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/">docker-compose</a>. You can learn more about <a href="https://www.docker.com/">Docker</a> &amp; <a href="https://docs.docker.com/compose/">Docker Compose</a>, Which will help you to understand the flow.</p>
 <h1 id="prerequisite">Prerequisite</h1>
 <p>Tested on the below configuration.</p>
 <ul>
@@ -1640,29 +2145,26 @@ git clone https://github.</description>
     </item>
     <item>
       <title>Parsing Custom log format to the Elasticsearch</title>
-      <link>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</link>
+      <link>http://localhost:1313/blogs/parsing-custom-log-format-to-the-elasticsearch/</link>
       <pubDate>Fri, 29 Apr 2022 01:24:55 +0530</pubDate>
-      <guid>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</guid>
-      <description>Introduction As a developer, you need to log everything it may be info, error or debug logs, etc. There are multiple types of log formats like Common log, JSON log, etc. and there are already solutions available in an elastic stack like filebeat to read JSON logs and push them to elasticsearch.
-There can be cases where you need to log the data according to your convenience which will not be any standard log format.</description>
+      <guid>http://localhost:1313/blogs/parsing-custom-log-format-to-the-elasticsearch/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;As a developer, you need to log everything it may be info, error or debug logs, etc. There are multiple types of log formats like Common log, JSON log, etc. and there are already solutions available in an elastic stack like filebeat to read JSON logs and push them to elasticsearch.&lt;/p&gt;
+&lt;p&gt;There can be cases where you need to log the data according to your convenience which will not be any standard log format. Or sometimes you just need to dump the log in an unstructured way but you need to have it in a structured format if you want to analyze those.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>As a developer, you need to log everything it may be info, error or debug logs, etc. There are multiple types of log formats like Common log, JSON log, etc. and there are already solutions available in an elastic stack like filebeat to read JSON logs and push them to elasticsearch.</p>
 <p>There can be cases where you need to log the data according to your convenience which will not be any standard log format. Or sometimes you just need to dump the log in an unstructured way but you need to have it in a structured format if you want to analyze those.</p>
 <p>In this article, we are going to see how we can parse custom logs of any format into Elasticsearch. Elasticsearch provides the ingest pipeline with grok processor which will be able to match any unstructured log.</p>
 <h1 id="overview">Overview</h1>
 <h2 id="ingest-pipeline">Ingest Pipeline</h2>
-<p>Elasticsearch gives <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html" target="_blank" rel="noopener">ingest pipeline</a>
- where it let you perform different types of operations or data transformations before indexing the data. The pipeline consists of a series of various processors.</p>
+<p>Elasticsearch gives <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">ingest pipeline</a> where it let you perform different types of operations or data transformations before indexing the data. The pipeline consists of a series of various processors.</p>
 <p>Each processor in the pipeline takes input and produces the output. That output goes as input to the next processor.</p>
 <p>Like below, After converting into lowercase letters by &ldquo;lowercase processor&rdquo; it sends the same string as input to the &ldquo;split processor&rdquo;.</p>
 <p>Example</p>
 <pre tabindex="0"><code>{&#34;date&#34;:&#34;HELLO - WORLD&#34;} Input → |  lowercase processor ({&#34;date&#34;:&#34;hello - world&#34;}) → split processor ({&#34;date&#34;:&#34;hello world&#34;})   |  → Index
-</code></pre><p>You can check more about ingest <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html" target="_blank" rel="noopener">pipeline</a>
- and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/processors.html" target="_blank" rel="noopener">processors</a>
-.</p>
+</code></pre><p>You can check more about ingest <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">pipeline</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/processors.html">processors</a>.</p>
 <h2 id="grok-processor">Grok Processor</h2>
-<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/grok-processor.html" target="_blank" rel="noopener">Grok Processor</a>
- allows you to extract structured data from the ingested value on the specific field. Grok Processor works with grok patterns.</p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/grok-processor.html">Grok Processor</a> allows you to extract structured data from the ingested value on the specific field. Grok Processor works with grok patterns.</p>
 <p>Let&rsquo;s suppose you have the following document</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Ip&#34;</span>:<span style="color:#e6db74">&#34;1.2.3.4&#34;</span>,
@@ -1681,11 +2183,9 @@ SPACE \s*
 <p>I can directly use <code>SPACE</code> label to define regex for space instead of a regular pattern like <code>\s*</code>. Also, the Grok pattern can be reused as the same as <code>USERNAME</code>.</p>
 <h3 id="pattern-list">Pattern list</h3>
 <p>You can find all pattern list on the below link:</p>
-<p><a href="https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns" target="_blank" rel="noopener">https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns</a>
-</p>
+<p><a href="https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns">https://github.com/elastic/elasticsearch/tree/8.1/libs/grok/src/main/resources/patterns</a></p>
 <p>You can select any folder and explore all the patterns.</p>
-<p><strong>Grok pattern</strong>: <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns" target="_blank" rel="noopener">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a>
-</p>
+<p><strong>Grok pattern</strong>: <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a></p>
 <h1 id="the-flow">The flow</h1>
 <ol>
 <li>Create &amp; Test Ingest Pipeline</li>
@@ -1710,8 +2210,7 @@ SPACE \s*
 <p>Data need to parse</p>
 <pre tabindex="0"><code>LEVEL:ERROR,method:fetchUser(),message:user not found
 </code></pre><p>Let&rsquo;s match some of the grok patterns from the below file
-<a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns" target="_blank" rel="noopener">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a>
-</p>
+<a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns</a></p>
 <pre tabindex="0"><code>ERROR = %{LOGLEVEL:log_level}
 fetchUser = %{WORD:method_name}
 user not found = %{GREEDYDATA:message}
@@ -1724,8 +2223,7 @@ user not found = %{GREEDYDATA:message}
 <p>Note: You can add your own regex as well. For example, I have added regex for <code>code</code>.</p>
 </blockquote>
 <h2 id="test-pipeline">Test pipeline</h2>
-<p>For testing above pattern or pipeline we can use <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns" target="_blank" rel="noopener">Simulate Pipeline API</a>
- like below:</p>
+<p>For testing above pattern or pipeline we can use <a href="https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/ecs-v1/grok-patterns">Simulate Pipeline API</a> like below:</p>
 <h4 id="_simulate">_simulate</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST /_ingest/pipeline/_simulate?pretty
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
@@ -1771,8 +2269,7 @@ user not found = %{GREEDYDATA:message}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>As you can see we got the desired output. Now let&rsquo;s save the pipeline.</p>
 <h3 id="save-pipeline">Save pipeline</h3>
-<p>Pipeline can be saved using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html" target="_blank" rel="noopener">_ingest/pipeline</a>
- API.</p>
+<p>Pipeline can be saved using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">_ingest/pipeline</a> API.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>PUT /_ingest/pipeline/custom_log?pretty
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;testing grok processor&#34;</span>,
@@ -1924,8 +2421,7 @@ user not found = %{GREEDYDATA:message}
 <p>Similarly you can parse any log format with Grok pattern.</p>
 <h1 id="demo">Demo</h1>
 <p>You can also check the demo on the below link where I presented how you can parse common log format using ingest pipeline and grok processor.</p>
-<p><a href="https://ashish.one/talks/devops-conf-2022/" target="_blank" rel="noopener">https://ashish.one/talks/devops-conf-2022/</a>
-</p>
+<p><a href="https://ashish.one/talks/devops-conf-2022/">https://ashish.one/talks/devops-conf-2022/</a></p>
 <h1 id="conclusion">Conclusion</h1>
 <p>We have seen how we can parse any types of log format into elasticsearch with the help of ingest pipeline &amp; grok processor. You can also use this ingest pipeline with filebeat or logstash. Where you just need to specify the pipeline name.</p>
 <p>Feel free to put in comments if you have any doubts.</p>
@@ -1933,10 +2429,14 @@ user not found = %{GREEDYDATA:message}
     </item>
     <item>
       <title>[Part -1] Search as you type</title>
-      <link>https://ashish.one/blogs/search-as-you-type/</link>
+      <link>http://localhost:1313/blogs/search-as-you-type/</link>
       <pubDate>Fri, 18 Mar 2022 01:24:55 +0530</pubDate>
-      <guid>https://ashish.one/blogs/search-as-you-type/</guid>
-      <description>Introduction In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data. You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp;amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature. Search as you type Elasticsearch gives this specific mapping type which you can simply set to a specific field where you want to perform this kind of search.</description>
+      <guid>http://localhost:1313/blogs/search-as-you-type/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data.
+You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp;amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature.
+Search as you type
+Elasticsearch gives this specific mapping type which you can simply set to a specific field where you want to perform this kind of search.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data.
 You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature.
@@ -1964,8 +2464,7 @@ Elasticsearch gives this specific mapping type which you can simply set to a spe
 </span></span></code></pre></div><h2 id="how-is-data-indexed-">How is data indexed ?</h2>
 <p><code>search_as_you_type</code> mapping creates 4 types of fields in the backend.</p>
 <h3 id="field-1-description">Field 1: <code>description</code></h3>
-<p>It will produce the terms according to the default analyzer if no analyzer is defined i.e. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-analyzer.html" target="_blank" rel="noopener">standard analyzer</a>
-.</p>
+<p>It will produce the terms according to the default analyzer if no analyzer is defined i.e. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-analyzer.html">standard analyzer</a>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging&#34;</span>,
@@ -1974,10 +2473,8 @@ Elasticsearch gives this specific mapping type which you can simply set to a spe
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men&#34;</span>
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><h3 id="field-2-description_2gram">Field 2: <code>description._2gram</code></h3>
-<p>This will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html" target="_blank" rel="noopener">shingle token filter</a>
- and produce the terms with shingle size 2.
-This means a shingle token filter produces the token by concatenating the adjacent token. You can find more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html" target="_blank" rel="noopener">here</a>
-.</p>
+<p>This will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">shingle token filter</a> and produce the terms with shingle size 2.
+This means a shingle token filter produces the token by concatenating the adjacent token. You can find more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">here</a>.</p>
 <p>This operation will perform on all the terms which are created on the <code>description</code> field and it will produce the below terms.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[ 
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging&#34;</span>,
@@ -1993,8 +2490,7 @@ This means a shingle token filter produces the token by concatenating the adjace
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for men&#34;</span>
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><h3 id="field-4-description_index_prefix">Field 4: <code>description._index_prefix</code></h3>
-<p>This will apply an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html" target="_blank" rel="noopener">edge n gram token filter</a>
- on the field <code>description._3gram</code> which means it will split terms (words) of <code>description._3gram</code> to a small substring that will start from the edge.
+<p>This will apply an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html">edge n gram token filter</a> on the field <code>description._3gram</code> which means it will split terms (words) of <code>description._3gram</code> to a small substring that will start from the edge.
 You can have a look at the terms below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;b&#34;</span>,
@@ -2062,8 +2558,7 @@ You can have a look at the terms below.</p>
 </span></span></code></pre></div><p>As you noticed the token limit is up to 3 words only because <code>description._3gram</code> has generated 3 word tokens only.</p>
 <h1 id="search-query">Search Query</h1>
 <h2 id="multi_match"><code>multi_match</code></h2>
-<p>We will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html" target="_blank" rel="noopener">multi_match</a>
- query here. Because we want to look up on each subfield for a perfect match.</p>
+<p>We will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html">multi_match</a> query here. Because we want to look up on each subfield for a perfect match.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
@@ -2138,8 +2633,7 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The result is empty. Because there is no term created with the name <strong><code>jog</code></strong> if you closely look at the above generated tokens on respective fields.</p>
-<p>To solve this we need to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-bool-prefix-query.html" target="_blank" rel="noopener">bool_prefix</a>
- query.</p>
+<p>To solve this we need to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-bool-prefix-query.html">bool_prefix</a> query.</p>
 <p><code>bool_prefix</code> analyze the input and constructs the bool query from the terms. But it puts the last term in the prefix query. For example, input is given as <code>men jogging s</code>, So it will produce terms like <code>[&quot;men&quot;,&quot;jogging&quot;,&quot;s&quot;]</code> but it will always perform a prefix query on the last term which is <code>&quot;s&quot;</code>. So documents will return where terms will match with <code>&quot;men&quot;</code> or <code>&quot;jogging&quot;</code> or any term which is starting with <code>&quot;s&quot;</code>.</p>
 <p>Below is the query which will give you the desired output.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
@@ -2183,15 +2677,13 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>    ]
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Here when we make a prefix query on the root field (<code>description</code>) or any subfields, It will rewrite the query as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html" target="_blank" rel="noopener">term</a>
- query on <code>description._index_prefix</code> field.</p>
+</span></span></code></pre></div><p>Here when we make a prefix query on the root field (<code>description</code>) or any subfields, It will rewrite the query as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html">term</a> query on <code>description._index_prefix</code> field.</p>
 <p>This matches more efficiently because prefixes up to 3 words are already created as the terms as shown in the above.</p>
 <blockquote>
 <p>Note: This query will search for terms irrespective of order. For example, if we search for <code>jogging men</code>, This will also give the result because it will search for both the terms <code>jogging</code> or <code>men</code>. In most of the cases this query (multi_match + bool_prefix) is recommended because the end user can search for any string like <code>shoes</code> or <code>shoes for men</code> or <code>jogging shoes</code> etc.</p>
 </blockquote>
 <h2 id="what-if-you-want-to-search-with-strict-prefix-order">What if you want to search with strict prefix order?</h2>
-<p>You can use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html" target="_blank" rel="noopener">match_phrase_prefix</a>
-, It will strictly match input from prefix in the same order only. So input like “men best” won’t return anything. Whereas you will get results with the previous one.</p>
+<p>You can use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html">match_phrase_prefix</a>, It will strictly match input from prefix in the same order only. So input like “men best” won’t return anything. Whereas you will get results with the previous one.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
@@ -2200,26 +2692,19 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>It will return documents where the term&rsquo;s prefix will be matched with “best jogging s”. Sometimes it can provide confusing results. You can check more about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-autocomplete" target="_blank" rel="noopener">match_phrase_prefix</a>
-.</p>
+</span></span></code></pre></div><p>It will return documents where the term&rsquo;s prefix will be matched with “best jogging s”. Sometimes it can provide confusing results. You can check more about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-autocomplete">match_phrase_prefix</a>.</p>
 <h1 id="demo">Demo</h1>
 <p>Let’s take a practical experience of how it is going to work.</p>
 <h1 id="search-as-you-type-elasticsearch">Search As You Type (Elasticsearch)</h1>
 <p>Demo code and sample employees data to implement the &ldquo;Search as you type&rdquo; feature on elasticsearch.</p>
-<p>Written the middleware API in <code>python</code> using <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank" rel="noopener">flask</a>
-. Used <a href="https://jquery.com/" target="_blank" rel="noopener">JQuery</a>
- for javascript operations.</p>
+<p>Written the middleware API in <code>python</code> using <a href="https://flask.palletsprojects.com/en/2.0.x/">flask</a>. Used <a href="https://jquery.com/">JQuery</a> for javascript operations.</p>
 <h2 id="installation">Installation</h2>
-<p>Assuming you have successfully installed <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">Elasticsearch</a>
- and <a href="https://www.elastic.co/guide/en/kibana/current/install.html" target="_blank" rel="noopener">Kibana</a>
- on your machine and it is working perfectly. Kindly refer respective installation document.</p>
+<p>Assuming you have successfully installed <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Elasticsearch</a> and <a href="https://www.elastic.co/guide/en/kibana/current/install.html">Kibana</a> on your machine and it is working perfectly. Kindly refer respective installation document.</p>
 <p>OR</p>
-<p>You can run <a href="https://cloud.elastic.co/registration" target="_blank" rel="noopener">Elasticsearch on the cloud</a>
- with a few clicks.</p>
+<p>You can run <a href="https://cloud.elastic.co/registration">Elasticsearch on the cloud</a> with a few clicks.</p>
 <h3 id="install-python3--pip3">Install Python3 &amp; pip3</h3>
 <ol>
-<li>Refer <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Document</a>
- to install <code>python3</code> &amp; <code>pip3</code> on your system.</li>
+<li>Refer <a href="https://www.python.org/downloads/">Document</a> to install <code>python3</code> &amp; <code>pip3</code> on your system.</li>
 <li>Install <code>flask</code></li>
 </ol>
 <pre tabindex="0"><code>pip3 install flask
@@ -2256,9 +2741,7 @@ cd search_as_you_type
   }
 }
 </code></pre><h4 id="load-sample-data">Load sample data</h4>
-<p>Sample <a href="https://github.com/ashishtiwari1993/search_as_you_type/blob/main/data.json" target="_blank" rel="noopener">data.json</a>
- file is given which need to load with the help of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html" target="_blank" rel="noopener">bulk API</a>
-.</p>
+<p>Sample <a href="https://github.com/ashishtiwari1993/search_as_you_type/blob/main/data.json">data.json</a> file is given which need to load with the help of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">bulk API</a>.</p>
 <pre tabindex="0"><code>curl -s -H &#34;Content-Type: application/x-ndjson&#34; -XPOST &#34;localhost:9200/_bulk&#34; --data-binary &#34;@data.json&#34;
 </code></pre><p>Do not forget to change the elasticsearch&rsquo;s endpoint.</p>
 <h3 id="run-apipy--test">Run <code>api.py</code> &amp; test</h3>
@@ -2272,18 +2755,17 @@ cd search_as_you_type
     </item>
     <item>
       <title>Parse custom logs in Elasticsearch using grok_pattern</title>
-      <link>https://ashish.one/talks/devops-conf-2022/</link>
+      <link>http://localhost:1313/talks/devops-conf-2022/</link>
       <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
-      <guid>https://ashish.one/talks/devops-conf-2022/</guid>
-      <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
-Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
-But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor .</description>
+      <guid>http://localhost:1313/talks/devops-conf-2022/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In the talk, Quickly showed how you can use the &lt;a href=&#34;https://www.elastic.co/beats/metricbeat&#34;&gt;metricbeat&lt;/a&gt; to check system health. With a few clicks, you can start monitoring your infra.&lt;/p&gt;
+&lt;p&gt;Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.&lt;/p&gt;
+&lt;p&gt;But if you have different requirement where you need to parse a different types of log format , You can parse using &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html&#34;&gt;Grok processor&lt;/a&gt;.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat" target="_blank" rel="noopener">metricbeat</a>
- to check system health. With a few clicks, you can start monitoring your infra.</p>
+<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat">metricbeat</a> to check system health. With a few clicks, you can start monitoring your infra.</p>
 <p>Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.</p>
-<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html" target="_blank" rel="noopener">Grok processor</a>
-.</p>
+<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html">Grok processor</a>.</p>
 <p>Also explained how you can read custom logs from log files in real time and ingest to Elasticsearch.</p>
 <h1 id="slides">Slides</h1>
 <div id="Container"
@@ -2297,26 +2779,30 @@ But if you have different requirement where you need to parse a different types 
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/owyv9sQE7q8?start=4856&amp;end=9427" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/owyv9sQE7q8?start=4856&end=9427?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
     <item>
       <title>Deploy Elasicsearch on Azure cloud</title>
-      <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
+      <link>http://localhost:1313/talks/deploy_elastic_on_azure/</link>
       <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
-      <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
-      <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
-Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co ).
-In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</description>
+      <guid>http://localhost:1313/talks/deploy_elastic_on_azure/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
+&lt;p&gt;The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.&lt;/p&gt;
+&lt;p&gt;Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (&lt;a href=&#34;https://cloud.elastic.co&#34;&gt;cloud.elastic.co&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>The purpose of the talk is to give a short overview of Elastic solutions &amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.</p>
-<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
-).</p>
+<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co">cloud.elastic.co</a>).</p>
 <p>In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</p>
 <h2 id="slides">Slides</h2>
 <div id="Container"
@@ -2330,20 +2816,27 @@ In the demo, Successfully shipped the metric data of the local system (my MacBoo
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/O2HdAA5o1i4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/O2HdAA5o1i4?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
     <item>
       <title>Shipping Golang logs with ELKB stack</title>
-      <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
+      <link>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
-      <description>Goal of this blog In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).
-Why ELKB stack ? Logs are very important for debugging, reporting, insights etc. In today&amp;rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too.</description>
+      <guid>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;goal-of-this-blog&#34;&gt;Goal of this blog&lt;/h2&gt;
+&lt;p&gt;In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).&lt;/p&gt;
+&lt;h2 id=&#34;why-elkb-stack-&#34;&gt;Why ELKB stack ?&lt;/h2&gt;
+&lt;p&gt;Logs are very important for debugging, reporting, insights etc. In today&amp;rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too. It is very difficult to go to each server and check all log files in case of debugging or to generate any insights or reporting.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/go-elk-logs/banner.png" alt="Go ship logs with ELK Banner"  />
 </p>
 <h2 id="goal-of-this-blog">Goal of this blog</h2>
@@ -2366,12 +2859,10 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>Filebeat version: filebeat version 7.7.1 <span style="color:#f92672">(</span>amd64<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>Kibana version: 7.7.1
 </span></span></code></pre></div><h2 id="1-write-json-logs-to-the-file-in-go">1. Write JSON logs to the file in Go</h2>
-<p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install" target="_blank" rel="noopener">here</a>
-.</p>
+<p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install">here</a>.</p>
 <h3 id="my-golang-version">My Golang version:</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go version go1.13 linux/amd64
-</span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus" target="_blank" rel="noopener">Logrus</a>
-</h3>
+</span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus">Logrus</a></h3>
 <p>This is a wonderful package available to write logs. Below is the short example of using logrus package:</p>
 <h4 id="1-install-logrus-package">1. Install Logrus package</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go install github.com/sirupsen/logru
@@ -2419,18 +2910,14 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;create_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;info&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is an info message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">10</span>}
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;delete_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;warning&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a warning message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">11</span>}
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;edit_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;fatal&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a critical message.&#34;</span>,<span style="color:#f92672">&#34;package&#34;</span>:<span style="color:#e6db74">&#34;main&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">13</span>}
-</span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus" target="_blank" rel="noopener">here</a>
-.</p>
+</span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus">here</a>.</p>
 <h2 id="2-shift-all-json-logs-on-elasticsearch">2. Shift All JSON logs on Elasticsearch</h2>
 <p>This part has no dependency on the above part. You can use any <code>JSON</code> log file irrespective of any language.</p>
 <p>Before start I am assuming you have installed Elasticsearch, Filebeat &amp; Kibana on your machine. If not then refer below link:</p>
 <ul>
-<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">Install Elasticsearch</a>
-</li>
-<li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html" target="_blank" rel="noopener">Install Filebeat</a>
-</li>
-<li><a href="https://www.elastic.co/guide/en/kibana/current/install.html" target="_blank" rel="noopener">Install Kibana</a>
-</li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Install Elasticsearch</a></li>
+<li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html">Install Filebeat</a></li>
+<li><a href="https://www.elastic.co/guide/en/kibana/current/install.html">Install Kibana</a></li>
 </ul>
 <blockquote>
 <p><strong>Note: In this part we are not going to use Logstash.</strong></p>
@@ -2474,10 +2961,8 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Array of hosts to connect to.</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: [<span style="color:#e6db74">&#34;localhost:9200&#34;</span>]
 </span></span></code></pre></div><p>You can check on below link to know more about filebeat log input &amp; JSON decoding</p>
-<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a>
-</p>
-<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json" target="_blank" rel="noopener">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a>
-</p>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a></p>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a></p>
 <h3 id="4-restart-filebeat">4. Restart Filebeat</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service filebeat restart
 </span></span></code></pre></div><h2 id="verify-if-data-indexed-on-elasticsearch">Verify If Data Indexed on Elasticsearch</h2>
@@ -2538,8 +3023,7 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Your data will be saved on the <code>json</code> key. Another is metadata which is added by filebeat. Filebeat provides lots of options, features &amp; settings. You can use it according to your requirements.</p>
 <h3 id="logs-on-kibana">Logs on Kibana</h3>
-<p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html" target="_blank" rel="noopener">here</a>
- for more details.</p>
+<p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html">here</a> for more details.</p>
 <p>Once you are done with defining the index pattern, Go to <code>Discover</code> section, Here you will see all your logs.</p>
 <p><img loading="lazy" src="/img/go-elk-logs/kibana.png" alt="Kibana-discover"  />
 </p>
@@ -2551,11 +3035,13 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
     </item>
     <item>
       <title>How to scale with massive update queries in Elasticsearch?</title>
-      <link>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
+      <link>http://localhost:1313/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
       <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
-      <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
-      <description>Introduction What this talk is all about? We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.
-We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.</description>
+      <guid>http://localhost:1313/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;h2 id=&#34;what-this-talk-is-all-about&#34;&gt;What this talk is all about?&lt;/h2&gt;
+&lt;p&gt;We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.&lt;/p&gt;
+&lt;p&gt;We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about">What this talk is all about?</h2>
 <p>We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.</p>
@@ -2574,9 +3060,12 @@ We also worked on Disk optimization by believing in the principle of &ldquo;Know
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/NSZXMv0va74" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/NSZXMv0va74?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <!-- raw HTML omitted -->
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
@@ -2584,13 +3073,15 @@ We also worked on Disk optimization by believing in the principle of &ldquo;Know
     </item>
     <item>
       <title>Elasticsearch Exceptions &amp; Challenges</title>
-      <link>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</link>
+      <link>http://localhost:1313/blogs/elasticsearch-exceptions-and-challenges/</link>
       <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
-      <guid>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</guid>
-      <description>Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.
-Every use case having different solutions. You can try accordingly.</description>
+      <guid>http://localhost:1313/blogs/elasticsearch-exceptions-and-challenges/</guid>
+      <description>&lt;p&gt;Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.&lt;/p&gt;
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js&#34;&gt;&lt;/script&gt;
+
+Every use case having different solutions. You can try accordingly.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>Below are some challenges &amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.</p>
-<p><script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js"></script>
+<p><script src="https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js"></script>
 
 Every use case having different solutions. You can try accordingly.</p>
 ]]></content:encoded>

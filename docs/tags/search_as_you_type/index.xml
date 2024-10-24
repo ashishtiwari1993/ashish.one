@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>search_as_you_type on ashish.one</title>
-    <link>https://ashish.one/tags/search_as_you_type/</link>
-    <description>Recent content in search_as_you_type on ashish.one</description>
+    <title>Search_as_you_type on ashish.one</title>
+    <link>http://localhost:1313/tags/search_as_you_type/</link>
+    <description>Recent content in Search_as_you_type on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/search_as_you_type/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/search_as_you_type/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Part -1] Search as you type</title>
-      <link>https://ashish.one/blogs/search-as-you-type/</link>
+      <link>http://localhost:1313/blogs/search-as-you-type/</link>
       <pubDate>Fri, 18 Mar 2022 01:24:55 +0530</pubDate>
-      <guid>https://ashish.one/blogs/search-as-you-type/</guid>
-      <description>Introduction In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data. You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp;amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature. Search as you type Elasticsearch gives this specific mapping type which you can simply set to a specific field where you want to perform this kind of search.</description>
+      <guid>http://localhost:1313/blogs/search-as-you-type/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data.
+You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp;amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature.
+Search as you type
+Elasticsearch gives this specific mapping type which you can simply set to a specific field where you want to perform this kind of search.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data.
 You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature.
@@ -46,8 +50,7 @@ Elasticsearch gives this specific mapping type which you can simply set to a spe
 </span></span></code></pre></div><h2 id="how-is-data-indexed-">How is data indexed ?</h2>
 <p><code>search_as_you_type</code> mapping creates 4 types of fields in the backend.</p>
 <h3 id="field-1-description">Field 1: <code>description</code></h3>
-<p>It will produce the terms according to the default analyzer if no analyzer is defined i.e. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-analyzer.html" target="_blank" rel="noopener">standard analyzer</a>
-.</p>
+<p>It will produce the terms according to the default analyzer if no analyzer is defined i.e. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-analyzer.html">standard analyzer</a>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jogging&#34;</span>,
@@ -56,10 +59,8 @@ Elasticsearch gives this specific mapping type which you can simply set to a spe
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;men&#34;</span>
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><h3 id="field-2-description_2gram">Field 2: <code>description._2gram</code></h3>
-<p>This will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html" target="_blank" rel="noopener">shingle token filter</a>
- and produce the terms with shingle size 2.
-This means a shingle token filter produces the token by concatenating the adjacent token. You can find more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html" target="_blank" rel="noopener">here</a>
-.</p>
+<p>This will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">shingle token filter</a> and produce the terms with shingle size 2.
+This means a shingle token filter produces the token by concatenating the adjacent token. You can find more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-shingle-tokenfilter.html">here</a>.</p>
 <p>This operation will perform on all the terms which are created on the <code>description</code> field and it will produce the below terms.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[ 
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;best jogging&#34;</span>,
@@ -75,8 +76,7 @@ This means a shingle token filter produces the token by concatenating the adjace
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;shoes for men&#34;</span>
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><h3 id="field-4-description_index_prefix">Field 4: <code>description._index_prefix</code></h3>
-<p>This will apply an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html" target="_blank" rel="noopener">edge n gram token filter</a>
- on the field <code>description._3gram</code> which means it will split terms (words) of <code>description._3gram</code> to a small substring that will start from the edge.
+<p>This will apply an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html">edge n gram token filter</a> on the field <code>description._3gram</code> which means it will split terms (words) of <code>description._3gram</code> to a small substring that will start from the edge.
 You can have a look at the terms below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;b&#34;</span>,
@@ -144,8 +144,7 @@ You can have a look at the terms below.</p>
 </span></span></code></pre></div><p>As you noticed the token limit is up to 3 words only because <code>description._3gram</code> has generated 3 word tokens only.</p>
 <h1 id="search-query">Search Query</h1>
 <h2 id="multi_match"><code>multi_match</code></h2>
-<p>We will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html" target="_blank" rel="noopener">multi_match</a>
- query here. Because we want to look up on each subfield for a perfect match.</p>
+<p>We will use a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html">multi_match</a> query here. Because we want to look up on each subfield for a perfect match.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
@@ -220,8 +219,7 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The result is empty. Because there is no term created with the name <strong><code>jog</code></strong> if you closely look at the above generated tokens on respective fields.</p>
-<p>To solve this we need to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-bool-prefix-query.html" target="_blank" rel="noopener">bool_prefix</a>
- query.</p>
+<p>To solve this we need to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-bool-prefix-query.html">bool_prefix</a> query.</p>
 <p><code>bool_prefix</code> analyze the input and constructs the bool query from the terms. But it puts the last term in the prefix query. For example, input is given as <code>men jogging s</code>, So it will produce terms like <code>[&quot;men&quot;,&quot;jogging&quot;,&quot;s&quot;]</code> but it will always perform a prefix query on the last term which is <code>&quot;s&quot;</code>. So documents will return where terms will match with <code>&quot;men&quot;</code> or <code>&quot;jogging&quot;</code> or any term which is starting with <code>&quot;s&quot;</code>.</p>
 <p>Below is the query which will give you the desired output.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
@@ -265,15 +263,13 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>    ]
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Here when we make a prefix query on the root field (<code>description</code>) or any subfields, It will rewrite the query as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html" target="_blank" rel="noopener">term</a>
- query on <code>description._index_prefix</code> field.</p>
+</span></span></code></pre></div><p>Here when we make a prefix query on the root field (<code>description</code>) or any subfields, It will rewrite the query as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html">term</a> query on <code>description._index_prefix</code> field.</p>
 <p>This matches more efficiently because prefixes up to 3 words are already created as the terms as shown in the above.</p>
 <blockquote>
 <p>Note: This query will search for terms irrespective of order. For example, if we search for <code>jogging men</code>, This will also give the result because it will search for both the terms <code>jogging</code> or <code>men</code>. In most of the cases this query (multi_match + bool_prefix) is recommended because the end user can search for any string like <code>shoes</code> or <code>shoes for men</code> or <code>jogging shoes</code> etc.</p>
 </blockquote>
 <h2 id="what-if-you-want-to-search-with-strict-prefix-order">What if you want to search with strict prefix order?</h2>
-<p>You can use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html" target="_blank" rel="noopener">match_phrase_prefix</a>
-, It will strictly match input from prefix in the same order only. So input like “men best” won’t return anything. Whereas you will get results with the previous one.</p>
+<p>You can use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html">match_phrase_prefix</a>, It will strictly match input from prefix in the same order only. So input like “men best” won’t return anything. Whereas you will get results with the previous one.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET products/_search
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#f92672">{</span>
@@ -282,26 +278,19 @@ You can have a look at the terms below.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>It will return documents where the term&rsquo;s prefix will be matched with “best jogging s”. Sometimes it can provide confusing results. You can check more about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-autocomplete" target="_blank" rel="noopener">match_phrase_prefix</a>
-.</p>
+</span></span></code></pre></div><p>It will return documents where the term&rsquo;s prefix will be matched with “best jogging s”. Sometimes it can provide confusing results. You can check more about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-autocomplete">match_phrase_prefix</a>.</p>
 <h1 id="demo">Demo</h1>
 <p>Let’s take a practical experience of how it is going to work.</p>
 <h1 id="search-as-you-type-elasticsearch">Search As You Type (Elasticsearch)</h1>
 <p>Demo code and sample employees data to implement the &ldquo;Search as you type&rdquo; feature on elasticsearch.</p>
-<p>Written the middleware API in <code>python</code> using <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank" rel="noopener">flask</a>
-. Used <a href="https://jquery.com/" target="_blank" rel="noopener">JQuery</a>
- for javascript operations.</p>
+<p>Written the middleware API in <code>python</code> using <a href="https://flask.palletsprojects.com/en/2.0.x/">flask</a>. Used <a href="https://jquery.com/">JQuery</a> for javascript operations.</p>
 <h2 id="installation">Installation</h2>
-<p>Assuming you have successfully installed <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">Elasticsearch</a>
- and <a href="https://www.elastic.co/guide/en/kibana/current/install.html" target="_blank" rel="noopener">Kibana</a>
- on your machine and it is working perfectly. Kindly refer respective installation document.</p>
+<p>Assuming you have successfully installed <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Elasticsearch</a> and <a href="https://www.elastic.co/guide/en/kibana/current/install.html">Kibana</a> on your machine and it is working perfectly. Kindly refer respective installation document.</p>
 <p>OR</p>
-<p>You can run <a href="https://cloud.elastic.co/registration" target="_blank" rel="noopener">Elasticsearch on the cloud</a>
- with a few clicks.</p>
+<p>You can run <a href="https://cloud.elastic.co/registration">Elasticsearch on the cloud</a> with a few clicks.</p>
 <h3 id="install-python3--pip3">Install Python3 &amp; pip3</h3>
 <ol>
-<li>Refer <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Document</a>
- to install <code>python3</code> &amp; <code>pip3</code> on your system.</li>
+<li>Refer <a href="https://www.python.org/downloads/">Document</a> to install <code>python3</code> &amp; <code>pip3</code> on your system.</li>
 <li>Install <code>flask</code></li>
 </ol>
 <pre tabindex="0"><code>pip3 install flask
@@ -338,9 +327,7 @@ cd search_as_you_type
   }
 }
 </code></pre><h4 id="load-sample-data">Load sample data</h4>
-<p>Sample <a href="https://github.com/ashishtiwari1993/search_as_you_type/blob/main/data.json" target="_blank" rel="noopener">data.json</a>
- file is given which need to load with the help of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html" target="_blank" rel="noopener">bulk API</a>
-.</p>
+<p>Sample <a href="https://github.com/ashishtiwari1993/search_as_you_type/blob/main/data.json">data.json</a> file is given which need to load with the help of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">bulk API</a>.</p>
 <pre tabindex="0"><code>curl -s -H &#34;Content-Type: application/x-ndjson&#34; -XPOST &#34;localhost:9200/_bulk&#34; --data-binary &#34;@data.json&#34;
 </code></pre><p>Do not forget to change the elasticsearch&rsquo;s endpoint.</p>
 <h3 id="run-apipy--test">Run <code>api.py</code> &amp; test</h3>

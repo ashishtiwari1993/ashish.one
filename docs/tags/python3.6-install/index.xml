@@ -1,27 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>python3.6 install on ashish.one</title>
-    <link>https://ashish.one/tags/python3.6-install/</link>
-    <description>Recent content in python3.6 install on ashish.one</description>
+    <title>Python3.6 Install on ashish.one</title>
+    <link>http://localhost:1313/tags/python3.6-install/</link>
+    <description>Recent content in Python3.6 Install on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Oct 2022 13:27:05 -0400</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/python3.6-install/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/python3.6-install/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</title>
-      <link>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
+      <link>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
       <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
-      <guid>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
-      <description>Prerequisite OS: Ubuntu 14.04 LTS
-Processor: 64 Bit
-RAM: 2 GB
-1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations $ sudo make install Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last): File &amp;#34;get-pip.</description>
+      <guid>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
+      <description>&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;OS:&lt;/strong&gt; Ubuntu 14.04 LTS&lt;br&gt;
+&lt;strong&gt;Processor:&lt;/strong&gt; 64 Bit&lt;br&gt;
+&lt;strong&gt;RAM:&lt;/strong&gt; 2 GB&lt;/p&gt;
+&lt;h2 id=&#34;1-install-python36-from-source&#34;&gt;1. Install python3.6 From source&lt;/h2&gt;
+&lt;h3 id=&#34;step-11-compile&#34;&gt;Step 1.1: Compile&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tar -xvf Python-3.6.3.tgz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd Python-3.6.3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo ./configure --enable-optimizations
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo make install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;step-12-check&#34;&gt;Step 1.2: Check&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ python3.6 --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-install-pip36&#34;&gt;2. Install &lt;code&gt;pip3.6&lt;/code&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;step-21-download-pip&#34;&gt;Step 2.1: Download pip&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://bootstrap.pypa.io/get-pip.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;step-22-execute&#34;&gt;Step 2.2: Execute&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo python3.6 get-pip.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;step-23-if-you-got-below-error&#34;&gt;Step 2.3: If you Got below error&lt;/h3&gt;
+&lt;h4 id=&#34;error--zlib-not-available&#34;&gt;Error  &lt;code&gt;zlib not available&lt;/code&gt;&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Traceback &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;most recent call last&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;get-pip.py&amp;#34;&lt;/span&gt;, line 22711, in &amp;lt;module&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    main&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;get-pip.py&amp;#34;&lt;/span&gt;, line 198, in main
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    bootstrap&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;tmpdir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tmpdir&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;get-pip.py&amp;#34;&lt;/span&gt;, line 82, in bootstrap
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    from pip._internal.cli.main import main as pip_entry_point
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zipimport.ZipImportError: can&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;t decompress data; zlib not available
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;step-231-install-zlib&#34;&gt;Step 2.3.1: Install &lt;code&gt;zlib&lt;/code&gt;:&lt;/h4&gt;
+&lt;h4 id=&#34;install-with-some-other-dependency&#34;&gt;Install with some other dependency&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OR&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="prerequisite">Prerequisite</h2>
 <p><strong>OS:</strong> Ubuntu 14.04 LTS<br>
 <strong>Processor:</strong> 64 Bit<br>

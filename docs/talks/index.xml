@@ -2,41 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Talks on ashish.one</title>
-    <link>https://ashish.one/talks/</link>
+    <link>http://localhost:1313/talks/</link>
     <description>Recent content in Talks on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Jun 2024 14:43:28 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/talks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/talks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Serverless Ahmedabad 2023: Monitoring serverless environment with Elastic observability</title>
-      <link>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</link>
+      <link>http://localhost:1313/talks/serverless-ahmedabad-2023-elastic-observability/</link>
       <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
-      <guid>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
-      <description>Introduction Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.
-For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.</description>
+      <guid>http://localhost:1313/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.&lt;/p&gt;
+&lt;p&gt;For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.</p>
 <p>For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.</p>
 <h2 id="talk-video">Talk video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/PCPAlMaqRFw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/PCPAlMaqRFw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>GIDS 2024 - Smart Search with RAG: Elasticsearch Meets Language Models</title>
-      <link>https://ashish.one/talks/gids-2024-rag/</link>
+      <link>http://localhost:1313/talks/gids-2024-rag/</link>
       <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
-      <guid>https://ashish.one/talks/gids-2024-rag/</guid>
-      <description>Introduction In today&amp;rsquo;s data-driven world, just having a search engine is not enough; the key is making it smart. Enter Elasticsearch Relevance Engine (ESRE) augmented with Retrieval Augmented Generation (RAG), a powerful solution that marries Elasticsearch’s superior search capabilities with Large Language Models (LLMs) like ChatGPT for precise, contextual querying over proprietary datasets. This session is a hands-on guide that will show you how to amplify the power of Elasticsearch with advanced LLMs.</description>
+      <guid>http://localhost:1313/talks/gids-2024-rag/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In today&amp;rsquo;s data-driven world, just having a search engine is not enough; the key is making it smart. Enter Elasticsearch Relevance Engine (ESRE) augmented with Retrieval Augmented Generation (RAG), a powerful solution
+that marries Elasticsearch’s superior search capabilities with Large Language Models (LLMs) like ChatGPT for precise, contextual querying over proprietary datasets. This session is a hands-on guide that will show you how to amplify the power of Elasticsearch with advanced LLMs.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In today&rsquo;s data-driven world, just having a search engine is not enough; the key is making it smart. Enter Elasticsearch Relevance Engine (ESRE) augmented with Retrieval Augmented Generation (RAG), a powerful solution
 that marries Elasticsearch’s superior search capabilities with Large Language Models (LLMs) like ChatGPT for precise, contextual querying over proprietary datasets. This session is a hands-on guide that will show you how to amplify the power of Elasticsearch with advanced LLMs.</p>
@@ -50,21 +56,32 @@ that marries Elasticsearch’s superior search capabilities with Large Language 
 <p>This talk is for you if you&rsquo;re grappling with search relevance issues and are looking for innovative ways to make your search smarter and more efficient. Whether you&rsquo;re a software developer, data engineer, or ML enthusiast, this session will equip you with the skills you need to build next-generation search capabilities.</p>
 <h2 id="talk-video">Talk video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/r1jO4TglsEg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/r1jO4TglsEg?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Setup &amp; Observe Kubernetes cluster</title>
-      <link>https://ashish.one/talks/setup_and_observe_kubernetes/</link>
+      <link>http://localhost:1313/talks/setup_and_observe_kubernetes/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/setup_and_observe_kubernetes/</guid>
-      <description>Introduction In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.
-Setup K8s cluster Cluster architecture 3 Node cluster
-Machine - Centos7, 4GB RAM
-kube1.local - Control plane node kube2.local - worker node kube3.local - worker node Here I am setting hostname kube1.local, kube2.local, kube3.local. Login into all of the servers and perform below command on all three nodes.</description>
+      <guid>http://localhost:1313/talks/setup_and_observe_kubernetes/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.&lt;/p&gt;
+&lt;h1 id=&#34;setup-k8s-cluster&#34;&gt;Setup K8s cluster&lt;/h1&gt;
+&lt;h2 id=&#34;cluster-architecture&#34;&gt;Cluster architecture&lt;/h2&gt;
+&lt;p&gt;3 Node cluster&lt;/p&gt;
+&lt;p&gt;Machine - Centos7, 4GB RAM&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;kube1.local  - Control plane node&lt;/li&gt;
+&lt;li&gt;kube2.local - worker node&lt;/li&gt;
+&lt;li&gt;kube3.local - worker node&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here I am setting hostname &lt;code&gt;kube1.local&lt;/code&gt;, &lt;code&gt;kube2.local&lt;/code&gt;, &lt;code&gt;kube3.local&lt;/code&gt;.  Login into all of the servers and perform below command on all three nodes.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.</p>
 <h1 id="setup-k8s-cluster">Setup K8s cluster</h1>
@@ -80,14 +97,12 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 <h2 id="swap-off">Swap off</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo swapoff -a
 </span></span></code></pre></div><h2 id="install-docker">Install docker</h2>
-<p>You can refer <a href="https://docs.docker.com/engine/install/centos/" target="_blank" rel="noopener">docker documentation</a>
- but here are the quick steps:</p>
+<p>You can refer <a href="https://docs.docker.com/engine/install/centos/">docker documentation</a> but here are the quick steps:</p>
 <h2 id="contanerd-runtime">Contanerd runtime</h2>
 <p>kubeadm automatically tries to detect an installed container runtime by scanning through a list of known endpoints.</p>
 <p>Verify if containerd is running or not</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ps -ef | grep containerd
-</span></span></code></pre></div><p>In my system containerd was running. <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank" rel="noopener">Install containerd</a>
- if it is not installed.</p>
+</span></span></code></pre></div><p>In my system containerd was running. <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md">Install containerd</a> if it is not installed.</p>
 <p>Change below cofing to remove <code>cri</code> from <code>disable_plugins</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo vim /etc/containerd/config.toml
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#disabled_plugins = [&#34;cri&#34;]</span>
@@ -195,41 +210,38 @@ kube1.local - Control plane node kube2.local - worker node kube3.local - worker 
 </span></span><span style="display:flex;"><span>curl localhost:8080/metrics
 </span></span></code></pre></div><p>It should return all metrics.</p>
 <h2 id="monitoring-using-elastic-cloud">Monitoring using Elastic cloud</h2>
-<p>You can follow detailed doc - <a href="https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters" target="_blank" rel="noopener">https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters</a>
-</p>
-<p>Blog - <a href="https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring" target="_blank" rel="noopener">https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring</a>
-</p>
+<p>You can follow detailed doc - <a href="https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters">https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters</a></p>
+<p>Blog - <a href="https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring">https://www.elastic.co/blog/kubernetes-cluster-metrics-logs-monitoring</a></p>
 <h1 id="reference-talk">Reference talk</h1>
 <p>Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/8qOt_gYjwcw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Elasticsearch Query Language (ES|QL)</title>
-      <link>https://ashish.one/talks/esql/</link>
+      <link>http://localhost:1313/talks/esql/</link>
       <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
-      <guid>https://ashish.one/talks/esql/</guid>
-      <description>Introduction ES|QL is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.
-It is a piped separated langugage with a combination of source commands and process commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion.</description>
+      <guid>http://localhost:1313/talks/esql/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html&#34;&gt;ES|QL&lt;/a&gt; is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.&lt;/p&gt;
+&lt;p&gt;It is a piped separated langugage with a combination of &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands&#34;&gt;source commands&lt;/a&gt; and &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands&#34;&gt;process&lt;/a&gt; commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
-<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html" target="_blank" rel="noopener">ES|QL</a>
- is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.</p>
-<p>It is a piped separated langugage with a combination of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands" target="_blank" rel="noopener">source commands</a>
- and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands" target="_blank" rel="noopener">process</a>
- commands. The Elasticsearch Query Language (ES|QL) makes use of &ldquo;pipes&rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.</p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html">ES|QL</a> is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.</p>
+<p>It is a piped separated langugage with a combination of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands">source commands</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands">process</a> commands. The Elasticsearch Query Language (ES|QL) makes use of &ldquo;pipes&rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.</p>
 <p>ES|QL is more than langugage. The execution engine is developed by considering performance in mind. Here ES|QL is not going to convert into Query DSL instead it will be directly executed within Elasticsearch. It operates on blocks at a time instead of per row, targets vectorization and cache locality, and embraces specialization and multi-threading.</p>
 <blockquote>
 <p>ES|QL - Filter, Transform and Analyze</p>
 </blockquote>
 <h2 id="example">Example</h2>
-<p>Below is a few examples of ES|QL. I am considering you have an Elasticsearch and kibana is <a href="https://www.elastic.co/search-labs/tutorials/install-elasticsearch" target="_blank" rel="noopener">installed</a>
- and running. Please <a href="https://www.elastic.co/guide/en/kibana/current/get-started.html#gs-get-data-into-kibana" target="_blank" rel="noopener">import the sample dataset (Sample web logs)</a>
- from kibana. Navigate in side menu  -&gt; <code>Management</code> -&gt; <code>Dev Tools</code>  to perform the below query.</p>
+<p>Below is a few examples of ES|QL. I am considering you have an Elasticsearch and kibana is <a href="https://www.elastic.co/search-labs/tutorials/install-elasticsearch">installed</a> and running. Please <a href="https://www.elastic.co/guide/en/kibana/current/get-started.html#gs-get-data-into-kibana">import the sample dataset (Sample web logs)</a> from kibana. Navigate in side menu  -&gt; <code>Management</code> -&gt; <code>Dev Tools</code>  to perform the below query.</p>
 <h3 id="source-commands">Source commands</h3>
 <h4 id="from">FROM</h4>
 <pre tabindex="0"><code># Format
@@ -324,8 +336,7 @@ POST _query?format=txt
     | keep lt, browser, version, t, l
   &#34;&#34;&#34;
 }
-</code></pre><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions" target="_blank" rel="noopener">string functions</a>
-.</p>
+</code></pre><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions">string functions</a>.</p>
 <h4 id="data-enrichment-enrich">Data enrichment (ENRICH)</h4>
 <pre tabindex="0"><code>
 # Create mappings
@@ -412,12 +423,19 @@ POST _query?format=txt
     </item>
     <item>
       <title>Elasticsearch: Vector and Hybrid Search</title>
-      <link>https://ashish.one/talks/vector-hybrid-search/</link>
+      <link>http://localhost:1313/talks/vector-hybrid-search/</link>
       <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/vector-hybrid-search/</guid>
-      <description>Introduction Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.
-This talk gives an overview of:
-Classic search and its limitations. What is a model and how can you use it. How to use vector search or hybrid search in Elasticsearch. Where OpenAI&amp;rsquo;s ChatGPT or similar LLMs come into play to with Elastic. Check how to leverage Leverage ChatGPT with Elasticsearch .</description>
+      <guid>http://localhost:1313/talks/vector-hybrid-search/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.&lt;/p&gt;
+&lt;p&gt;This talk gives an overview of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Classic&lt;/strong&gt; search and its limitations.&lt;/li&gt;
+&lt;li&gt;What is a model and how can you use it.&lt;/li&gt;
+&lt;li&gt;How to use vector search or hybrid search in Elasticsearch.&lt;/li&gt;
+&lt;li&gt;Where OpenAI&amp;rsquo;s ChatGPT or similar LLMs come into play to with Elastic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check how to leverage &lt;a href=&#34;https://ashish.one/talks/chatgpt-elasticsearch/&#34;&gt;Leverage ChatGPT with Elasticsearch&lt;/a&gt;.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.</p>
 <p>This talk gives an overview of:</p>
@@ -427,38 +445,51 @@ Classic search and its limitations. What is a model and how can you use it. How 
 <li>How to use vector search or hybrid search in Elasticsearch.</li>
 <li>Where OpenAI&rsquo;s ChatGPT or similar LLMs come into play to with Elastic.</li>
 </ul>
-<p>Check how to leverage <a href="https://ashish.one/talks/chatgpt-elasticsearch/" target="_blank" rel="noopener">Leverage ChatGPT with Elasticsearch</a>
-.</p>
+<p>Check how to leverage <a href="https://ashish.one/talks/chatgpt-elasticsearch/">Leverage ChatGPT with Elasticsearch</a>.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/AljarsLZRW0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/AljarsLZRW0?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Monitor Kubernetes cluster with Elastic</title>
-      <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>
+      <link>http://localhost:1313/talks/monitor_k8_elastic_observability/</link>
       <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/monitor_k8_elastic_observability/</guid>
-      <description>Introduction Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.
-Talk Video </description>
+      <guid>http://localhost:1313/talks/monitor_k8_elastic_observability/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.&lt;/p&gt;
+&lt;h2 id=&#34;talk-video&#34;&gt;Talk Video&lt;/h2&gt;
+
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/8qOt_gYjwcw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Workshop - Leverage ChatGPT with Elasticsearch</title>
-      <link>https://ashish.one/talks/chatgpt-elasticsearch/</link>
+      <link>http://localhost:1313/talks/chatgpt-elasticsearch/</link>
       <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
-      <guid>https://ashish.one/talks/chatgpt-elasticsearch/</guid>
+      <guid>http://localhost:1313/talks/chatgpt-elasticsearch/</guid>
       <description>Connect ChatGPT to proprietary data stores using Elasticsearch</description>
       <content:encoded><![CDATA[<h1 id="objective">Objective</h1>
 <p>In this hands-on workshop, We will learn how to connect ChatGPT to proprietary data stores using Elasticsearch and build question/answer capabilities for your data. In a demo, We will quickly convert your website, FAQ, or any documentation into prompt chat where your user can directly ask a question on your data.</p>
@@ -477,31 +508,25 @@ Talk Video </description>
 <p>System + Internet connection</p>
 </li>
 <li>
-<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">https://platform.openai.com/account/api-keys</a>
-. Make sure it having <a href="https://platform.openai.com/account/usage" target="_blank" rel="noopener">free credits</a>
-.</p>
+<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>. Make sure it having <a href="https://platform.openai.com/account/usage">free credits</a>.</p>
 </li>
 </ol>
 <h2 id="without-local-setup">Without local setup</h2>
 <ol>
 <li>
-<p>Google account to use <a href="https://colab.research.google.com/" target="_blank" rel="noopener">google Colab</a>
-.</p>
+<p>Google account to use <a href="https://colab.research.google.com/">google Colab</a>.</p>
 </li>
 <li>
-<p><a href="https://render.com/" target="_blank" rel="noopener">Render</a>
- account.</p>
+<p><a href="https://render.com/">Render</a> account.</p>
 </li>
 </ol>
 <h2 id="local-setup">Local setup</h2>
 <ol>
 <li>
-<p>Git - Install it from <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a>
-</p>
+<p>Git - Install it from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
 </li>
 <li>
-<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">https://docs.docker.com/engine/install/</a>
-.</p>
+<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</p>
 </li>
 <li>
 <p>Having basic python knowledge will be good.</p>
@@ -511,8 +536,7 @@ Talk Video </description>
 <h1 id="1-setup-cluster">1. Setup cluster</h1>
 <ol>
 <li>
-<p>Visit <a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
- and signup.</p>
+<p>Visit <a href="https://cloud.elastic.co">cloud.elastic.co</a> and signup.</p>
 </li>
 <li>
 <p>Click on <em><strong>Create deployment</strong></em>. In the pop-up, you can change the settings or leave it default.</p>
@@ -544,23 +568,19 @@ Talk Video </description>
 <li>Click <em><strong>Start</strong></em>.</li>
 </ol>
 <h2 id="third-party-model">Third party model</h2>
-<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">all-distilroberta-v1</a>
- model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
+<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1">all-distilroberta-v1</a> model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
 <p><strong>Get your credentials ready</strong></p>
 <ul>
-<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
-</strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: <code>elastic</code></li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be <code>elastic</code> only)</li>
-<li><code>hf_model_id</code>: <code>sentence-transformers/all-distilroberta-v1</code> (Go to model <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">page</a>
- on huggingface &amp; copy the ID <code>sentence-transformers/all-distilroberta-v1</code>)</li>
+<li><code>hf_model_id</code>: <code>sentence-transformers/all-distilroberta-v1</code> (Go to model <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1">page</a> on huggingface &amp; copy the ID <code>sentence-transformers/all-distilroberta-v1</code>)</li>
 </ul>
 <p>Now there is two way, You can upload the model using <code>docker</code> as well as <code>Google colab</code>.</p>
 <h3 id="using-google-colab-recommended">Using Google Colab (Recommended)</h3>
 <p>Simply click on below link. It will open ready made notebook. You just need to click on <code>play</code> button to run notebood.</p>
-<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb" target="_blank" rel="noopener"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
-</a>
-</p>
+<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
+</a></p>
 <h3 id="using-docker">Using Docker</h3>
 <ol start="2">
 <li>
@@ -634,20 +654,17 @@ Talk Video </description>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>Paste above query in <code>cosole</code> and hit on play button.</p>
 <ol start="13">
-<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one" target="_blank" rel="noopener">https://ashish.one</a>
-. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
+<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one">https://ashish.one</a>. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
 <li>If everything is fine, simply click on “<em><strong>Add domain</strong></em>” and start crawling by click on <em><strong>Crawl -&gt; Crawl all domains on this index</strong></em>.</li>
 <li>Go to <em><strong>Enterprise Search -&gt; Indices</strong></em>. You should see your index name.</li>
 </ol>
 <h1 id="4-setup-interface">4. Setup Interface</h1>
 <p>** Get your credentials ready **</p>
 <ol>
-<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
-</strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: elastic</li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be elastic)</li>
-<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">https://platform.openai.com/account/api-keys</a>
-.</li>
+<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>.</li>
 <li><code>es_index</code>: Index name which we created in step 3.3. (search-ashish.one)</li>
 <li><code>vector_field</code>: The field which we&rsquo;ve set for destination at step 3.9. i.e. <strong>title-vector</strong></li>
 </ol>
@@ -676,14 +693,11 @@ Talk Video </description>
 <li>Run</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker run -p 8501:8501 es-gpt
-</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a>
-</p>
-<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/" target="_blank" rel="noopener">Render</a>
- with Docker</h2>
+</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a></p>
+<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/">Render</a> with Docker</h2>
 <ol>
 <li>
-<p>Signup on <a href="https://render.com" target="_blank" rel="noopener">https://render.com</a>
-.</p>
+<p>Signup on <a href="https://render.com">https://render.com</a>.</p>
 </li>
 <li>
 <p>Create <strong>Web Service</strong>.</p>
@@ -716,34 +730,132 @@ Talk Video </description>
 <p><img loading="lazy" src="/img/talks/elasticsearch-chatgpt/ashish_one_gpt.gif" alt="ashish.one ChatGPT"  />
 </p>
 <h1 id="reference">Reference</h1>
-<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data" target="_blank" rel="noopener">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a>
-</p>
+<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a></p>
 ]]></content:encoded>
     </item>
     <item>
       <title>Getting started with Elastic stack</title>
-      <link>https://ashish.one/talks/getting_started_elastic_stack/</link>
+      <link>http://localhost:1313/talks/getting_started_elastic_stack/</link>
       <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
-      <guid>https://ashish.one/talks/getting_started_elastic_stack/</guid>
-      <description>What this talk is all about ? Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.
-Talk Video Feel free to comment below, If you have any doubts or suggestion about this talk.</description>
+      <guid>http://localhost:1313/talks/getting_started_elastic_stack/</guid>
+      <description>&lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
+&lt;p&gt;Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.&lt;/p&gt;
+&lt;h2 id=&#34;talk-video&#34;&gt;Talk Video&lt;/h2&gt;
+
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/hJoorF6zxBA?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h4 id=&#34;feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk&#34;&gt;Feel free to comment below, If you have any doubts or suggestion about this talk.&lt;/h4&gt;</description>
       <content:encoded><![CDATA[<h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/hJoorF6zxBA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hJoorF6zxBA?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
     <item>
       <title>Getting started with Elasticsearch</title>
-      <link>https://ashish.one/talks/ws-es/</link>
+      <link>http://localhost:1313/talks/ws-es/</link>
       <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
-      <guid>https://ashish.one/talks/ws-es/</guid>
-      <description>Sample Queries for Elasticsearch Workshop CRUD # Insert POST meetup/_doc/ { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # Insert with id POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34; } # Search GET meetup/_search # Update POST meetup/_doc/1 { &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;, &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;, &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;, &amp;#34;skills&amp;#34;:{ &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;], &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;], &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34; } } # search with query GET meetup/_search { &amp;#34;query&amp;#34;: { &amp;#34;match&amp;#34;: { &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34; } } } # delete DELETE meetup BULK POST _bulk {&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}} {&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.</description>
+      <guid>http://localhost:1313/talks/ws-es/</guid>
+      <description>&lt;h1 id=&#34;sample-queries-for-elasticsearch-workshop&#34;&gt;Sample Queries for Elasticsearch Workshop&lt;/h1&gt;
+&lt;h2 id=&#34;crud&#34;&gt;CRUD&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
+# Insert
+
+POST meetup/_doc/
+{
+  &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34;
+}
+
+# Insert with id
+
+POST meetup/_doc/1
+{
+  &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34;
+}
+
+# Search
+
+GET meetup/_search
+
+# Update
+
+POST meetup/_doc/1
+{
+  &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;,
+  &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;,
+  &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;,
+  &amp;#34;skills&amp;#34;:{
+    &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;],
+    &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;],
+    &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34;
+  }
+}
+
+# search with query
+
+GET meetup/_search
+{
+  &amp;#34;query&amp;#34;: {
+    &amp;#34;match&amp;#34;: {
+      &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34;
+    }
+  }
+}
+
+# delete
+
+DELETE meetup
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;bulk&#34;&gt;BULK&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;POST _bulk
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.221.25.110&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Flashset&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:2,&amp;#34;first_name&amp;#34;:&amp;#34;Immanuel&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Philbrick&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;iphilbrick1@wunderground.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;01 Bunting Pass&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;9.20.164.27&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Babblestorm&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:3,&amp;#34;first_name&amp;#34;:&amp;#34;Clotilda&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Danelut&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;cdanelut2@deliciousdays.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Agender&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;0 Crowley Trail&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;158.94.144.140&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Riffpedia&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:4,&amp;#34;first_name&amp;#34;:&amp;#34;Nahum&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Attfield&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;nattfield3@blog.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;7 Garrison Court&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;225.144.148.44&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Chatterpoint&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:5,&amp;#34;first_name&amp;#34;:&amp;#34;Vaughan&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Middis&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;vmiddis4@ted.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;7 Cody Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;66.198.31.108&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Mynte&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:6,&amp;#34;first_name&amp;#34;:&amp;#34;Nolie&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Alessandrucci&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;nalessandrucci5@networksolutions.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;826 Brown Hill&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;96.77.221.95&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Feedfish&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:7,&amp;#34;first_name&amp;#34;:&amp;#34;Beverlie&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Ovitts&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bovitts6@tripod.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;6 Sycamore Pass&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;102.24.117.107&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Zazio&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:8,&amp;#34;first_name&amp;#34;:&amp;#34;Graeme&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Dopson&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;gdopson7@free.fr&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;26 Dunning Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;198.33.215.93&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Flashset&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:9,&amp;#34;first_name&amp;#34;:&amp;#34;Mellisa&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Hurich&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;mhurich8@nbcnews.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;6371 Browning Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;66.0.3.199&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Divanoodle&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:10,&amp;#34;first_name&amp;#34;:&amp;#34;Dyan&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Loude&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;dloude9@berkeley.edu&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;9818 Reindahl Road&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;16.56.137.54&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Agivu&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:11,&amp;#34;first_name&amp;#34;:&amp;#34;Becky&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Shank&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bshanka@tinypic.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;1206 Warrior Terrace&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;90.63.35.111&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Izio&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:12,&amp;#34;first_name&amp;#34;:&amp;#34;Bar&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Bedburrow&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bbedburrowb@vistaprint.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;75 Onsgard Crossing&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;85.122.33.250&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Zoombox&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:13,&amp;#34;first_name&amp;#34;:&amp;#34;Dorey&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Isenor&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;disenorc@privacy.gov.au&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;53682 Parkside Crossing&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;150.158.150.213&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Rhyzio&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:14,&amp;#34;first_name&amp;#34;:&amp;#34;Torrin&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Rangall&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;trangalld@buzzfeed.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;24247 Old Shore Plaza&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;40.151.17.2&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Devpoint&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:15,&amp;#34;first_name&amp;#34;:&amp;#34;Genvieve&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Beslier&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;gbesliere@yolasite.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;96214 Miller Trail&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;115.143.68.208&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Oyonder&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:16,&amp;#34;first_name&amp;#34;:&amp;#34;Arden&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Ramas&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;aramasf@whitehouse.gov&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Polygender&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;390 Gulseth Alley&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;36.83.126.154&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Youbridge&amp;#34;}
+{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
+{&amp;#34;user_id&amp;#34;:17,&amp;#34;first_name&amp;#34;:&amp;#34;Alyosha&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Domm&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;adommg@washingtonpost.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;32 Oxford Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;174.71.176.45&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Wikizz&amp;#34;}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;upload-sample-json-data-from-kibana&#34;&gt;Upload sample json data from kibana&lt;/h2&gt;
+&lt;p&gt;Download &lt;a href=&#34;http://localhost:1313/data/movies.json&#34;&gt;movies.json&lt;/a&gt; and insert into elasticsearch by using below command:&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="sample-queries-for-elasticsearch-workshop">Sample Queries for Elasticsearch Workshop</h1>
 <h2 id="crud">CRUD</h2>
 <pre tabindex="0"><code>
@@ -830,8 +942,7 @@ DELETE meetup
 {&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
 {&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
 </code></pre><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
-<p>Download <a href="/data/movies.json">movies.json</a>
- and insert into elasticsearch by using below command:</p>
+<p>Download <a href="/data/movies.json">movies.json</a> and insert into elasticsearch by using below command:</p>
 <p><em>Open Kibana -&gt; Menu -&gt; Home -&gt; Upload a file</em></p>
 <h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Stack Management -&gt; Data Views (Kibana)</em></p>
@@ -992,8 +1103,7 @@ GET _analyze
   }
 }
 </code></pre><h3 id="insert-data">Insert data</h3>
-<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE" target="_blank" rel="noopener">विकिपीडिया-श्रीमद्भगवद्गीता</a>
-</p>
+<p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE">विकिपीडिया-श्रीमद्भगवद्गीता</a></p>
 <p>Lets insert some data like below:</p>
 <pre tabindex="0"><code>POST geetyantra/_doc
 {
@@ -1147,24 +1257,22 @@ GET geetyantra/_search
   }
 }
 </code></pre><h2 id="search-as-you-type">Search as you type</h2>
-<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/" target="_blank" rel="noopener">Search as you type</a>
-.</p>
+<p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/">Search as you type</a>.</p>
 ]]></content:encoded>
     </item>
     <item>
       <title>Parse custom logs in Elasticsearch using grok_pattern</title>
-      <link>https://ashish.one/talks/devops-conf-2022/</link>
+      <link>http://localhost:1313/talks/devops-conf-2022/</link>
       <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
-      <guid>https://ashish.one/talks/devops-conf-2022/</guid>
-      <description>Introduction In the talk, Quickly showed how you can use the metricbeat to check system health. With a few clicks, you can start monitoring your infra.
-Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.
-But if you have different requirement where you need to parse a different types of log format , You can parse using Grok processor .</description>
+      <guid>http://localhost:1313/talks/devops-conf-2022/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In the talk, Quickly showed how you can use the &lt;a href=&#34;https://www.elastic.co/beats/metricbeat&#34;&gt;metricbeat&lt;/a&gt; to check system health. With a few clicks, you can start monitoring your infra.&lt;/p&gt;
+&lt;p&gt;Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.&lt;/p&gt;
+&lt;p&gt;But if you have different requirement where you need to parse a different types of log format , You can parse using &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html&#34;&gt;Grok processor&lt;/a&gt;.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat" target="_blank" rel="noopener">metricbeat</a>
- to check system health. With a few clicks, you can start monitoring your infra.</p>
+<p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat">metricbeat</a> to check system health. With a few clicks, you can start monitoring your infra.</p>
 <p>Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.</p>
-<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html" target="_blank" rel="noopener">Grok processor</a>
-.</p>
+<p>But if you have different requirement where you need to parse a different types of log format , You can parse using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html">Grok processor</a>.</p>
 <p>Also explained how you can read custom logs from log files in real time and ingest to Elasticsearch.</p>
 <h1 id="slides">Slides</h1>
 <div id="Container"
@@ -1178,26 +1286,30 @@ But if you have different requirement where you need to parse a different types 
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/owyv9sQE7q8?start=4856&amp;end=9427" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/owyv9sQE7q8?start=4856&end=9427?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
     <item>
       <title>Deploy Elasicsearch on Azure cloud</title>
-      <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
+      <link>http://localhost:1313/talks/deploy_elastic_on_azure/</link>
       <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
-      <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
-      <description>Introduction What this talk is all about ? The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.
-Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (cloud.elastic.co ).
-In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</description>
+      <guid>http://localhost:1313/talks/deploy_elastic_on_azure/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
+&lt;p&gt;The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.&lt;/p&gt;
+&lt;p&gt;Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (&lt;a href=&#34;https://cloud.elastic.co&#34;&gt;cloud.elastic.co&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>The purpose of the talk is to give a short overview of Elastic solutions &amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.</p>
-<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
-).</p>
+<p>Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (<a href="https://cloud.elastic.co">cloud.elastic.co</a>).</p>
 <p>In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.</p>
 <h2 id="slides">Slides</h2>
 <div id="Container"
@@ -1211,21 +1323,25 @@ In the demo, Successfully shipped the metric data of the local system (my MacBoo
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/O2HdAA5o1i4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/O2HdAA5o1i4?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
     <item>
       <title>Golang basics &amp; Handling 100k hourly webhooks with golang @MimePost</title>
-      <link>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
+      <link>http://localhost:1313/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
       <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
-      <guid>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
-      <description>What this talk about? I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.
-Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?
-I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).</description>
+      <guid>http://localhost:1313/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
+      <description>&lt;h2 id=&#34;what-this-talk-about&#34;&gt;What this talk about?&lt;/h2&gt;
+&lt;p&gt;I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.&lt;/p&gt;
+&lt;p&gt;Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?&lt;/p&gt;
+&lt;p&gt;I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="what-this-talk-about">What this talk about?</h2>
 <p>I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.</p>
 <p>Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?</p>
@@ -1244,30 +1360,34 @@ I have explained the Webhook architecture of MimePost And how we sending 100k Re
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/ZjOcwoCkkog" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ZjOcwoCkkog?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h2 id="demo---1">Demo - 1</h2>
 <p>This code will make 100% CPU utilization and <code>forever()</code> function not going to share any single CPU time with <code>anotherGoroutine()</code></p>
-<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/00b2a56ac8f5b39d3229d723e58815bc.js"></script>
+<script src="https://gist.github.com/ashishtiwari1993/00b2a56ac8f5b39d3229d723e58815bc.js"></script>
 
 <h2 id="demo---2">Demo - 2</h2>
 <p>Reproduce Golang &ldquo;fatal error: concurrent map writes&rdquo; &amp; Solution. To reproduce comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
-<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
+<script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
-<p>Find more details on this <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/" target="_blank" rel="noopener">blog</a>
-.</p>
+<p>Find more details on this <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/">blog</a>.</p>
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
     <item>
       <title>How to scale with massive update queries in Elasticsearch?</title>
-      <link>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
+      <link>http://localhost:1313/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
       <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
-      <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
-      <description>Introduction What this talk is all about? We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.
-We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.</description>
+      <guid>http://localhost:1313/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;h2 id=&#34;what-this-talk-is-all-about&#34;&gt;What this talk is all about?&lt;/h2&gt;
+&lt;p&gt;We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.&lt;/p&gt;
+&lt;p&gt;We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about">What this talk is all about?</h2>
 <p>We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.</p>
@@ -1286,9 +1406,12 @@ We also worked on Disk optimization by believing in the principle of &ldquo;Know
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/NSZXMv0va74" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/NSZXMv0va74?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <!-- raw HTML omitted -->
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>

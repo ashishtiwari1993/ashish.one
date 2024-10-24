@@ -2,26 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>LEMP on ashish.one</title>
-    <link>https://ashish.one/tags/lemp/</link>
+    <link>http://localhost:1313/tags/lemp/</link>
     <description>Recent content in LEMP on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/lemp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/lemp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
-      <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
+      <link>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
       <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
-      <description>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.
-In this blog, We are going to setup PHP and Nginx.
-Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
-Docker makes the installation process very smooth and it gives your isolated environment as the container.</description>
+      <guid>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
+      <description>&lt;p&gt;Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.&lt;/p&gt;
+&lt;p&gt;In this blog, We are going to setup PHP and Nginx.&lt;/p&gt;
+&lt;h3 id=&#34;why-docker&#34;&gt;Why Docker?&lt;/h3&gt;
+&lt;p&gt;I will not go too much deep, You can find more resources over the internet about the docker.&lt;/p&gt;
+&lt;p&gt;Docker makes the installation process very smooth and it gives your isolated environment as the container.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.</p>
 <p>In this blog, We are going to setup PHP and Nginx.</p>
 <h3 id="why-docker">Why Docker?</h3>
@@ -95,8 +96,7 @@ Docker makes the installation process very smooth and it gives your isolated env
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>networks:
 </span></span><span style="display:flex;"><span> nginx-php:
-</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks" target="_blank" rel="noopener">here</a>
-.</p>
+</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks">here</a>.</p>
 <p>You can set <code>volumes</code> path according to your requirement.</p>
 <h3 id="step-4-lets-up-the-containers">Step 4: Let&rsquo;s Up the containers</h3>
 <p>Create container:</p>
@@ -123,8 +123,7 @@ Docker makes the installation process very smooth and it gives your isolated env
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">phpinfo</span>();
 </span></span></code></pre></div><h3 id="step-6-run-testphp">Step 6: Run <code>test.php</code></h3>
-<p>Visit <a href="http://localhost/test.php" target="_blank" rel="noopener">http://localhost/test.php</a>
-.</p>
+<p>Visit <a href="http://localhost/test.php">http://localhost/test.php</a>.</p>
 <p>Output:</p>
 <p><img loading="lazy" src="/img/lemp-docker/phpinfo.png" alt="phpinfo"  />
 </p>

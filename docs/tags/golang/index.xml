@@ -2,50 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Golang on ashish.one</title>
-    <link>https://ashish.one/tags/golang/</link>
+    <link>http://localhost:1313/tags/golang/</link>
     <description>Recent content in Golang on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jun 2022 18:22:32 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SPF Lookup in Go</title>
-      <link>https://ashish.one/blogs/spf-lookup-in-go/</link>
+      <link>http://localhost:1313/blogs/spf-lookup-in-go/</link>
       <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
-      <guid>https://ashish.one/blogs/spf-lookup-in-go/</guid>
-      <description>In this gist, We will check how we can extract SPF records in Go.
-Prerequisite Go version $ go version go version go1.13 linux/amd64 Dependency DNS Library(https://github.com/miekg/dns) Install dependency $ go get github.com/miekg/dns spfLookup.go Here you can change nameserver according to your requirement. I have specified here google&amp;rsquo;s name server (8.8.8.8). You can also use cloudflare&amp;rsquo;s nameserver (1.1.1.1) Conclusion You can make any DNS query with miekg/dns library. In the above script, we have looked up TXT Records and then we have searched for a string containing v=spf1.</description>
+      <guid>http://localhost:1313/blogs/spf-lookup-in-go/</guid>
+      <description>&lt;p&gt;In this gist, We will check how we can extract SPF records in Go.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
+&lt;h3 id=&#34;go-version&#34;&gt;Go version&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ go version
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go version go1.13 linux/amd64
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;dependency&#34;&gt;Dependency&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/miekg/dns&#34;&gt;DNS Library(https://github.com/miekg/dns)&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;install-dependency&#34;&gt;Install dependency&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ go get github.com/miekg/dns 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;spflookupgo&#34;&gt;spfLookup.go&lt;/h2&gt;
+&lt;script src=&#34;https://gist.github.com/ashishtiwari1993/ea5da5581ae2c56f3e25f8509155bd37.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Here you can change &lt;code&gt;nameserver&lt;/code&gt; according to your requirement. I have specified here google&amp;rsquo;s name server (&lt;code&gt;8.8.8.8&lt;/code&gt;). You can also use cloudflare&amp;rsquo;s nameserver &lt;a href=&#34;https://1.1.1.1&#34;&gt;(1.1.1.1)&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;You can make any DNS query with &lt;code&gt;miekg/dns&lt;/code&gt; library. In the above script, we have looked up &lt;code&gt;TXT&lt;/code&gt; Records and then we have searched for a string containing &lt;code&gt;v=spf1&lt;/code&gt;.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>In this gist, We will check how we can extract SPF records in Go.</p>
 <h2 id="prerequisite">Prerequisite</h2>
 <h3 id="go-version">Go version</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go version
 </span></span><span style="display:flex;"><span>go version go1.13 linux/amd64
 </span></span></code></pre></div><h3 id="dependency">Dependency</h3>
-<p><a href="https://github.com/miekg/dns" target="_blank" rel="noopener">DNS Library(https://github.com/miekg/dns)</a>
-</p>
+<p><a href="https://github.com/miekg/dns">DNS Library(https://github.com/miekg/dns)</a></p>
 <h2 id="install-dependency">Install dependency</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get github.com/miekg/dns 
 </span></span></code></pre></div><h2 id="spflookupgo">spfLookup.go</h2>
-<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/ea5da5581ae2c56f3e25f8509155bd37.js"></script>
+<script src="https://gist.github.com/ashishtiwari1993/ea5da5581ae2c56f3e25f8509155bd37.js"></script>
 
-<p>Here you can change <code>nameserver</code> according to your requirement. I have specified here google&rsquo;s name server (<code>8.8.8.8</code>). You can also use cloudflare&rsquo;s nameserver <a href="https://1.1.1.1" target="_blank" rel="noopener">(1.1.1.1)</a>
-</p>
+<p>Here you can change <code>nameserver</code> according to your requirement. I have specified here google&rsquo;s name server (<code>8.8.8.8</code>). You can also use cloudflare&rsquo;s nameserver <a href="https://1.1.1.1">(1.1.1.1)</a></p>
 <h2 id="conclusion">Conclusion</h2>
 <p>You can make any DNS query with <code>miekg/dns</code> library. In the above script, we have looked up <code>TXT</code> Records and then we have searched for a string containing <code>v=spf1</code>.</p>
 ]]></content:encoded>
     </item>
     <item>
       <title>Shipping Golang logs with ELKB stack</title>
-      <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
+      <link>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
-      <description>Goal of this blog In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).
-Why ELKB stack ? Logs are very important for debugging, reporting, insights etc. In today&amp;rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too.</description>
+      <guid>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;goal-of-this-blog&#34;&gt;Goal of this blog&lt;/h2&gt;
+&lt;p&gt;In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).&lt;/p&gt;
+&lt;h2 id=&#34;why-elkb-stack-&#34;&gt;Why ELKB stack ?&lt;/h2&gt;
+&lt;p&gt;Logs are very important for debugging, reporting, insights etc. In today&amp;rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too. It is very difficult to go to each server and check all log files in case of debugging or to generate any insights or reporting.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/go-elk-logs/banner.png" alt="Go ship logs with ELK Banner"  />
 </p>
 <h2 id="goal-of-this-blog">Goal of this blog</h2>
@@ -68,12 +83,10 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>Filebeat version: filebeat version 7.7.1 <span style="color:#f92672">(</span>amd64<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>Kibana version: 7.7.1
 </span></span></code></pre></div><h2 id="1-write-json-logs-to-the-file-in-go">1. Write JSON logs to the file in Go</h2>
-<p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install" target="_blank" rel="noopener">here</a>
-.</p>
+<p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install">here</a>.</p>
 <h3 id="my-golang-version">My Golang version:</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go version go1.13 linux/amd64
-</span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus" target="_blank" rel="noopener">Logrus</a>
-</h3>
+</span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus">Logrus</a></h3>
 <p>This is a wonderful package available to write logs. Below is the short example of using logrus package:</p>
 <h4 id="1-install-logrus-package">1. Install Logrus package</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go install github.com/sirupsen/logru
@@ -121,18 +134,14 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;create_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;info&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is an info message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">10</span>}
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;delete_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;warning&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a warning message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">11</span>}
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;edit_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;fatal&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a critical message.&#34;</span>,<span style="color:#f92672">&#34;package&#34;</span>:<span style="color:#e6db74">&#34;main&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">13</span>}
-</span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus" target="_blank" rel="noopener">here</a>
-.</p>
+</span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus">here</a>.</p>
 <h2 id="2-shift-all-json-logs-on-elasticsearch">2. Shift All JSON logs on Elasticsearch</h2>
 <p>This part has no dependency on the above part. You can use any <code>JSON</code> log file irrespective of any language.</p>
 <p>Before start I am assuming you have installed Elasticsearch, Filebeat &amp; Kibana on your machine. If not then refer below link:</p>
 <ul>
-<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html" target="_blank" rel="noopener">Install Elasticsearch</a>
-</li>
-<li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html" target="_blank" rel="noopener">Install Filebeat</a>
-</li>
-<li><a href="https://www.elastic.co/guide/en/kibana/current/install.html" target="_blank" rel="noopener">Install Kibana</a>
-</li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">Install Elasticsearch</a></li>
+<li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html">Install Filebeat</a></li>
+<li><a href="https://www.elastic.co/guide/en/kibana/current/install.html">Install Kibana</a></li>
 </ul>
 <blockquote>
 <p><strong>Note: In this part we are not going to use Logstash.</strong></p>
@@ -176,10 +185,8 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Array of hosts to connect to.</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: [<span style="color:#e6db74">&#34;localhost:9200&#34;</span>]
 </span></span></code></pre></div><p>You can check on below link to know more about filebeat log input &amp; JSON decoding</p>
-<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a>
-</p>
-<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json" target="_blank" rel="noopener">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a>
-</p>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a></p>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a></p>
 <h3 id="4-restart-filebeat">4. Restart Filebeat</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service filebeat restart
 </span></span></code></pre></div><h2 id="verify-if-data-indexed-on-elasticsearch">Verify If Data Indexed on Elasticsearch</h2>
@@ -240,8 +247,7 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Your data will be saved on the <code>json</code> key. Another is metadata which is added by filebeat. Filebeat provides lots of options, features &amp; settings. You can use it according to your requirements.</p>
 <h3 id="logs-on-kibana">Logs on Kibana</h3>
-<p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html" target="_blank" rel="noopener">here</a>
- for more details.</p>
+<p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html">here</a> for more details.</p>
 <p>Once you are done with defining the index pattern, Go to <code>Discover</code> section, Here you will see all your logs.</p>
 <p><img loading="lazy" src="/img/go-elk-logs/kibana.png" alt="Kibana-discover"  />
 </p>
@@ -253,12 +259,13 @@ Why ELKB stack ? Logs are very important for debugging, reporting, insights etc.
     </item>
     <item>
       <title>Golang basics &amp; Handling 100k hourly webhooks with golang @MimePost</title>
-      <link>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
+      <link>http://localhost:1313/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
       <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
-      <guid>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
-      <description>What this talk about? I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.
-Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?
-I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).</description>
+      <guid>http://localhost:1313/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
+      <description>&lt;h2 id=&#34;what-this-talk-about&#34;&gt;What this talk about?&lt;/h2&gt;
+&lt;p&gt;I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.&lt;/p&gt;
+&lt;p&gt;Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?&lt;/p&gt;
+&lt;p&gt;I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="what-this-talk-about">What this talk about?</h2>
 <p>I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.</p>
 <p>Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?</p>
@@ -277,30 +284,72 @@ I have explained the Webhook architecture of MimePost And how we sending 100k Re
 
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/ZjOcwoCkkog" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ZjOcwoCkkog?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <h2 id="demo---1">Demo - 1</h2>
 <p>This code will make 100% CPU utilization and <code>forever()</code> function not going to share any single CPU time with <code>anotherGoroutine()</code></p>
-<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/00b2a56ac8f5b39d3229d723e58815bc.js"></script>
+<script src="https://gist.github.com/ashishtiwari1993/00b2a56ac8f5b39d3229d723e58815bc.js"></script>
 
 <h2 id="demo---2">Demo - 2</h2>
 <p>Reproduce Golang &ldquo;fatal error: concurrent map writes&rdquo; &amp; Solution. To reproduce comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
-<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
+<script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
-<p>Find more details on this <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/" target="_blank" rel="noopener">blog</a>
-.</p>
+<p>Find more details on this <a href="https://ashish.one/blogs/fatal-error-concurrent-map-writes/">blog</a>.</p>
 <h4 id="feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk">Feel free to comment below, If you have any doubts or suggestion about this talk.</h4>
 ]]></content:encoded>
     </item>
     <item>
       <title>[SOLVED] Golang fatal error: concurrent map writes</title>
-      <link>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</link>
+      <link>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</link>
       <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
-      <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
-      <description>The Problem: Suddenly got below errors which killed my daemon:
-fatal error: concurrent map writes goroutine 646 [running]: runtime.throw(0x75fd38, 0x15) /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e) goroutine 1 [sleep]: runtime.goparkunlock(...) /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200) /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager() goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0) /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b) /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...) /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0) /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8 net.(*netFD).accept(0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0) /usr/local/go/src/net/fd_unix.</description>
+      <guid>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/golang/concurrent_map_writes.jpg&#34; alt=&#34;concurrent_map_writes&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem:&lt;/h2&gt;
+&lt;p&gt;Suddenly got below errors which killed my daemon:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fatal error: concurrent map writes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;goroutine &lt;span style=&#34;color:#ae81ff&#34;&gt;646&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;running&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;runtime.throw&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x75fd38, 0x15&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/panic.go:774 +0x72 fp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0xc000315e60 sp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0xc000315e30 pc&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0x42ecf2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;runtime.mapdelete_fast64&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x6f0800, 0xc00008ad50, 0x2b3e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;goroutine &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;sleep&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;runtime.goparkunlock&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/proc.go:310
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;time.Sleep&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x12a05f200&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/time.go:105 +0x157
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;webhook/worker.Manager&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;goroutine &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;IO wait&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.runtime_pollWait&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x7fc308de6f08, 0x72, 0x0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/netpoll.go:184 +0x55
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*pollDesc&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.wait&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000110018, 0x72, 0x0, 0x0, 0x75b00b&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*pollDesc&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.waitRead&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*FD&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.Accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*netFD&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/fd_unix.go:238 +0x42
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*TCPListener&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000126000, 0xc000050d80, 0x40dd08, 0x30&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*TCPListener&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.Accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000126000, 0x72f560, 0xc0000f0180, 0x6f4f20, 0x9c00c0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/tcpsock.go:261 +0x47
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net/http.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*Server&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.Serve&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc0000f4000, 0x7ccbe0, 0xc000126000, 0x0, 0x0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/http/server.go:2896 +0x286
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net/http.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*Server&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.ListenAndServe&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc0000f4000, 0xc0000f4000, 0x8&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/http/server.go:2825 +0xb7
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net/http.ListenAndServe&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/http/server.go:3080
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;webhook/handler.HandleRequest&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;expected-behaviour&#34;&gt;Expected behaviour&lt;/h3&gt;
+&lt;p&gt;In starting for a few seconds it was working smoothly.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/golang/concurrent_map_writes.jpg" alt="concurrent_map_writes"  />
 </p>
 <h2 id="the-problem">The Problem:</h2>
@@ -389,15 +438,12 @@ It is as simple as below:</p>
 </span></span></code></pre></div><p>This is how we successfully fix this problem.</p>
 <h2 id="code-to-reproduce">Code to Reproduce</h2>
 <p>To reproduce, Comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
-<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
+<script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
 <h2 id="references">References:</h2>
-<p><a href="https://blog.golang.org/go-maps-in-action" target="_blank" rel="noopener">https://blog.golang.org/go-maps-in-action</a>
-<br>
-<a href="https://golang.org/doc/faq#atomic_maps" target="_blank" rel="noopener">https://golang.org/doc/faq#atomic_maps</a>
-<br>
-<a href="https://gobyexample.com/mutexes" target="_blank" rel="noopener">https://gobyexample.com/mutexes</a>
-</p>
+<p><a href="https://blog.golang.org/go-maps-in-action">https://blog.golang.org/go-maps-in-action</a><br>
+<a href="https://golang.org/doc/faq#atomic_maps">https://golang.org/doc/faq#atomic_maps</a><br>
+<a href="https://gobyexample.com/mutexes">https://gobyexample.com/mutexes</a></p>
 ]]></content:encoded>
     </item>
   </channel>

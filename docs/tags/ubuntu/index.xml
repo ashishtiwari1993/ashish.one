@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>ubuntu on ashish.one</title>
-    <link>https://ashish.one/tags/ubuntu/</link>
-    <description>Recent content in ubuntu on ashish.one</description>
+    <title>Ubuntu on ashish.one</title>
+    <link>http://localhost:1313/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Oct 2022 13:27:05 -0400</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Challenges in linuxfromscratch</title>
-      <link>https://ashish.one/blogs/challenges-in-linuxfromscratch/</link>
+      <link>http://localhost:1313/blogs/challenges-in-linuxfromscratch/</link>
       <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
-      <guid>https://ashish.one/blogs/challenges-in-linuxfromscratch/</guid>
-      <description>Successfully built custom #Linux system by referring https://t.co/lyrdKkfXo9 .
-Listed my challenges here https://t.co/gU2SoAxly2@nixcraft#linux #lfs #linuxfromscratch pic.twitter.com/XlWchVHy26
-&amp;mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) April 27, 2020 I have started with www.linuxfromscratch.org , I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.
-Before we get start You need some basic linux command knowledge to use linuxfromscratch guide.</description>
+      <guid>http://localhost:1313/blogs/challenges-in-linuxfromscratch/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&amp;amp;name=large&#34; alt=&#34;lfs_screen&#34;  /&gt;
+&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Successfully built custom &lt;a href=&#34;https://twitter.com/hashtag/Linux?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Linux&lt;/a&gt; system by referring &lt;a href=&#34;https://t.co/lyrdKkfXo9&#34;&gt;https://t.co/lyrdKkfXo9&lt;/a&gt; .&lt;br&gt;&lt;br&gt;Listed my challenges here &lt;a href=&#34;https://t.co/gU2SoAxly2&#34;&gt;https://t.co/gU2SoAxly2&lt;/a&gt;&lt;a href=&#34;https://twitter.com/nixcraft?ref_src=twsrc%5Etfw&#34;&gt;@nixcraft&lt;/a&gt;&lt;a href=&#34;https://twitter.com/hashtag/linux?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#linux&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/lfs?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#lfs&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/linuxfromscratch?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#linuxfromscratch&lt;/a&gt; &lt;a href=&#34;https://t.co/XlWchVHy26&#34;&gt;pic.twitter.com/XlWchVHy26&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) &lt;a href=&#34;https://twitter.com/_ashish_tiwari/status/1254719517491511296?ref_src=twsrc%5Etfw&#34;&gt;April 27, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I have started with &lt;a href=&#34;https://www.linuxfromscratch.org&#34;&gt;www.linuxfromscratch.org&lt;/a&gt;, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.&lt;/p&gt;
+&lt;h2 id=&#34;before-we-get-start&#34;&gt;Before we get start&lt;/h2&gt;
+&lt;p&gt;You need some basic linux command knowledge to use linuxfromscratch guide. I am going to build LFS on my local machine. If your machine has a different OS or different configuration, Then some solution will not work.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&amp;name=large" alt="lfs_screen"  />
 </p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Successfully built custom <a href="https://twitter.com/hashtag/Linux?src=hash&amp;ref_src=twsrc%5Etfw">#Linux</a> system by referring <a href="https://t.co/lyrdKkfXo9">https://t.co/lyrdKkfXo9</a> .<br><br>Listed my challenges here <a href="https://t.co/gU2SoAxly2">https://t.co/gU2SoAxly2</a><a href="https://twitter.com/nixcraft?ref_src=twsrc%5Etfw">@nixcraft</a><a href="https://twitter.com/hashtag/linux?src=hash&amp;ref_src=twsrc%5Etfw">#linux</a> <a href="https://twitter.com/hashtag/lfs?src=hash&amp;ref_src=twsrc%5Etfw">#lfs</a> <a href="https://twitter.com/hashtag/linuxfromscratch?src=hash&amp;ref_src=twsrc%5Etfw">#linuxfromscratch</a> <a href="https://t.co/XlWchVHy26">pic.twitter.com/XlWchVHy26</a></p>&mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) <a href="https://twitter.com/_ashish_tiwari/status/1254719517491511296?ref_src=twsrc%5Etfw">April 27, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-<p>I have started with <a href="https://www.linuxfromscratch.org" target="_blank" rel="noopener">www.linuxfromscratch.org</a>
-, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.</p>
+<p>I have started with <a href="https://www.linuxfromscratch.org">www.linuxfromscratch.org</a>, I am facing some challenges and problems which I am going to share with you in this blog. I will keep updating this blog as well as I move forward.</p>
 <h2 id="before-we-get-start">Before we get start</h2>
 <p>You need some basic linux command knowledge to use linuxfromscratch guide. I am going to build LFS on my local machine. If your machine has a different OS or different configuration, Then some solution will not work.</p>
 <p>I am going to use the same chapter title as mentioned in linuxfromscratch. I will skip those sections where I haven&rsquo;t faced any difficulties.</p>
@@ -43,8 +47,7 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 </span></span><span style="display:flex;"><span>LFS doc:http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html
 </span></span></code></pre></div><h2 id="challenges">Challenges</h2>
 <h2 id="22-host-system-requirements">2.2. Host System Requirements</h2>
-<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs" target="_blank" rel="noopener">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs</a>
-</p>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-hostreqs</a></p>
 <h3 id="version-check">Version check</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat &gt; version-check.sh &lt;&lt; <span style="color:#e6db74">&#34;EOF&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
@@ -152,14 +155,12 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 </span></span><span style="display:flex;"><span>xz <span style="color:#f92672">(</span>XZ Utils<span style="color:#f92672">)</span> 5.1.0alpha
 </span></span><span style="display:flex;"><span>g++ compilation OK
 </span></span></code></pre></div><h2 id="25-creating-a-file-system-on-the-partition">2.5. Creating a File System on the Partition</h2>
-<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem" target="_blank" rel="noopener">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem</a>
-</p>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-partitioning-creatingfilesystem</a></p>
 <p>I had only one partition. I need to create new <strong>physical</strong> partition for LFS.</p>
 <blockquote>
 <p>It is recommended to use Physical partition only not logical.</p>
 </blockquote>
-<p>I have reinstall my OS with new partition which is long way. You can use <a href="https://www.howtogeek.com/114503/how-to-resize-your-ubuntu-partitions/" target="_blank" rel="noopener">GParted</a>
- to make partitions. Remember you can create only 4 Physical partition. Give 1 physical partition dedicated to LFS. Below is my partition view.</p>
+<p>I have reinstall my OS with new partition which is long way. You can use <a href="https://www.howtogeek.com/114503/how-to-resize-your-ubuntu-partitions/">GParted</a> to make partitions. Remember you can create only 4 Physical partition. Give 1 physical partition dedicated to LFS. Below is my partition view.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ lsblk
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
@@ -187,12 +188,10 @@ Before we get start You need some basic linux command knowledge to use linuxfrom
 <li><code>errors=remount-ro</code>: It will mount as Read-Only, If you get any error on mounting.</li>
 </ul>
 <blockquote>
-<p>Make sure you have added <code>exec</code>, Otherwise you cannot execute any binaries from chapter <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1" target="_blank" rel="noopener">5.4. Binutils-2.34 - Pass 1</a>
-</p>
+<p>Make sure you have added <code>exec</code>, Otherwise you cannot execute any binaries from chapter <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1">5.4. Binutils-2.34 - Pass 1</a></p>
 </blockquote>
 <h2 id="54-binutils-234---pass-1">5.4. Binutils-2.34 - Pass 1</h2>
-<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1" target="_blank" rel="noopener">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1</a>
-</p>
+<p>Doc link: <a href="http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1">http://www.linuxfromscratch.org/lfs/downloads/9.1/LFS-BOOK-9.1-NOCHUNKS.html#ch-tools-binutils-pass1</a></p>
 <h3 id="error-1-1">Error 1:</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bash: ../configure: No such file or directory
 </span></span></code></pre></div><p>As I mentioned on above Section, Make sure you have added <code>exec</code> in your <code>/etc/fstab</code> entry OR Make sure your partition <code>/lfs</code> has Read, Write &amp; Execute permission. Below <code>/etc/fstab</code> entry worked for me:</p>
@@ -256,8 +255,7 @@ compute_powtab.c:296:15: note: previous definition of &#39;pn&#39; was here
                ^
 compute_powtab.c:308:3: error: &#39;for&#39; loop initial declarations are only allowed in C99 mode
    for (long i = n_pows - 2; i &gt;= 0; i--)
-</code></pre><p>As per (<a href="https://stackoverflow.com/a/29338269%29[https://stackoverflow.com/a/29338269]" target="_blank" rel="noopener">https://stackoverflow.com/a/29338269)[https://stackoverflow.com/a/29338269]</a>
-,</p>
+</code></pre><p>As per (<a href="https://stackoverflow.com/a/29338269)%5Bhttps://stackoverflow.com/a/29338269%5D">https://stackoverflow.com/a/29338269)[https://stackoverflow.com/a/29338269]</a>,</p>
 <blockquote>
 <p><strong>This happens because declaring variables inside a for loop wasn&rsquo;t valid C until C99(which is the standard of C published in 1999).</strong></p>
 </blockquote>
@@ -274,8 +272,7 @@ compute_powtab.c:308:3: error: &#39;for&#39; loop initial declarations are only 
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span>
 </span></span></code></pre></div><p>Just declare <code>long pi;</code> outside the loop. Similarly you can solve above all errors.</p>
 <p><strong>OR</strong></p>
-<p>You can download my edited version of <a href="/download/compute_powtab.c">compute_powtab.c</a>
-, Place in <code>$LFS/sources/gcc-9.2.0/build/gmp/mpn/</code>.</p>
+<p>You can download my edited version of <a href="/download/compute_powtab.c">compute_powtab.c</a>, Place in <code>$LFS/sources/gcc-9.2.0/build/gmp/mpn/</code>.</p>
 <p>Hit</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>make
 </span></span></code></pre></div><p>Now it should works :)</p>
@@ -299,8 +296,7 @@ compute_powtab.c:308:3: error: &#39;for&#39; loop initial declarations are only 
 </span></span><span style="display:flex;"><span>PARTICULAR PURPOSE.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>This program built <span style="color:#66d9ef">for</span> x86_64-pc-linux-gnu
-</span></span></code></pre></div><p>As per (<a href="https://stackoverflow.com/a/31915313%29[https://stackoverflow.com/a/31915313]" target="_blank" rel="noopener">https://stackoverflow.com/a/31915313)[https://stackoverflow.com/a/31915313]</a>
-</p>
+</span></span></code></pre></div><p>As per (<a href="https://stackoverflow.com/a/31915313)%5Bhttps://stackoverflow.com/a/31915313%5D">https://stackoverflow.com/a/31915313)[https://stackoverflow.com/a/31915313]</a></p>
 <blockquote>
 <p><strong>Due to a long-standing unresolved Debian bug report, GNU Make remained the age-old 3.81 in Debian for a very long time, and as a consequence, in Debian-based distributions such as Ubuntu and Mint.</strong></p>
 </blockquote>
@@ -354,8 +350,7 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
 </span></span><span style="display:flex;"><span>cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 </span></span><span style="display:flex;"><span>readelf -l a.out | grep <span style="color:#e6db74">&#39;: /lib&#39;</span>
-</span></span></code></pre></div><p>Performed below steps as mentioned on this link <a href="https://stackoverflow.com/a/48289145" target="_blank" rel="noopener">https://stackoverflow.com/a/48289145</a>
-:</p>
+</span></span></code></pre></div><p>Performed below steps as mentioned on this link <a href="https://stackoverflow.com/a/48289145">https://stackoverflow.com/a/48289145</a>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gcc -dumpspecs | sed -e <span style="color:#e6db74">&#39;s@/tools@@g&#39;</span> &gt; <span style="color:#e6db74">`</span>dirname <span style="color:#66d9ef">$(</span>gcc --print-libgcc-file-name<span style="color:#66d9ef">)</span><span style="color:#e6db74">`</span>/specs
 </span></span></code></pre></div><p>Again perform above command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;int main(){}&#39;</span> &gt; dummy.c
@@ -369,8 +364,7 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/usr/bin/ld: perlio.o:perlio.c:(.text+0x44e4): more undefined references to `pthread_getspecific&#39;</span> follow
 </span></span><span style="display:flex;"><span>collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
 </span></span><span style="display:flex;"><span>make: *** <span style="color:#f92672">[</span>makefile:364: lib/buildcustomize.pl<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>Solution which suggested here <a href="https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/" target="_blank" rel="noopener">https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/</a>
- It worked for me.</p>
+</span></span></code></pre></div><p>Solution which suggested here <a href="https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/">https://www.linuxquestions.org/questions/linux-from-scratch-13/errors-with-6-40-perl-5-28-0-a-4175642138/</a> It worked for me.</p>
 <p>it&rsquo;s due to not having deleted the extracted Perl-5.28.0 directory after Chapter 5. I deleted the folder. Again untar the file.</p>
 <h2 id="84-using-grub-to-set-up-the-boot-process">8.4. Using GRUB to Set Up the Boot Process</h2>
 <p><strong>NOTE</strong>: I have not performed this section, Becuase I am going to use my host system&rsquo;s (Ubuntu 14.04) GRUB bootloader. Just go to another terminal of host system and hit below command.</p>
@@ -382,13 +376,41 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
     </item>
     <item>
       <title>Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</title>
-      <link>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
+      <link>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
       <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
-      <guid>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
-      <description>Prerequisite OS: Ubuntu 14.04 LTS
-Processor: 64 Bit
-RAM: 2 GB
-1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations $ sudo make install Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last): File &amp;#34;get-pip.</description>
+      <guid>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
+      <description>&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;OS:&lt;/strong&gt; Ubuntu 14.04 LTS&lt;br&gt;
+&lt;strong&gt;Processor:&lt;/strong&gt; 64 Bit&lt;br&gt;
+&lt;strong&gt;RAM:&lt;/strong&gt; 2 GB&lt;/p&gt;
+&lt;h2 id=&#34;1-install-python36-from-source&#34;&gt;1. Install python3.6 From source&lt;/h2&gt;
+&lt;h3 id=&#34;step-11-compile&#34;&gt;Step 1.1: Compile&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tar -xvf Python-3.6.3.tgz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd Python-3.6.3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo ./configure --enable-optimizations
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo make install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;step-12-check&#34;&gt;Step 1.2: Check&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ python3.6 --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-install-pip36&#34;&gt;2. Install &lt;code&gt;pip3.6&lt;/code&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;step-21-download-pip&#34;&gt;Step 2.1: Download pip&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://bootstrap.pypa.io/get-pip.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;step-22-execute&#34;&gt;Step 2.2: Execute&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo python3.6 get-pip.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;step-23-if-you-got-below-error&#34;&gt;Step 2.3: If you Got below error&lt;/h3&gt;
+&lt;h4 id=&#34;error--zlib-not-available&#34;&gt;Error  &lt;code&gt;zlib not available&lt;/code&gt;&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Traceback &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;most recent call last&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;get-pip.py&amp;#34;&lt;/span&gt;, line 22711, in &amp;lt;module&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    main&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;get-pip.py&amp;#34;&lt;/span&gt;, line 198, in main
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    bootstrap&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;tmpdir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tmpdir&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;get-pip.py&amp;#34;&lt;/span&gt;, line 82, in bootstrap
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    from pip._internal.cli.main import main as pip_entry_point
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zipimport.ZipImportError: can&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;t decompress data; zlib not available
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;step-231-install-zlib&#34;&gt;Step 2.3.1: Install &lt;code&gt;zlib&lt;/code&gt;:&lt;/h4&gt;
+&lt;h4 id=&#34;install-with-some-other-dependency&#34;&gt;Install with some other dependency&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OR&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="prerequisite">Prerequisite</h2>
 <p><strong>OS:</strong> Ubuntu 14.04 LTS<br>
 <strong>Processor:</strong> 64 Bit<br>

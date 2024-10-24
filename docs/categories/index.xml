@@ -2,64 +2,64 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on ashish.one</title>
-    <link>https://ashish.one/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jun 2024 14:43:28 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Oct 2024 20:29:51 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elastic</title>
-      <link>https://ashish.one/categories/elastic/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/categories/elastic/</guid>
+      <link>http://localhost:1313/categories/elastic/</link>
+      <pubDate>Wed, 23 Oct 2024 20:29:51 +0530</pubDate>
+      <guid>http://localhost:1313/categories/elastic/</guid>
       <description></description>
     </item>
     <item>
       <title>Kubernetes</title>
-      <link>https://ashish.one/categories/kubernetes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/categories/kubernetes/</guid>
+      <link>http://localhost:1313/categories/kubernetes/</link>
+      <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
+      <guid>http://localhost:1313/categories/kubernetes/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>https://ashish.one/categories/hugo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/categories/hugo/</guid>
+      <link>http://localhost:1313/categories/hugo/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      <guid>http://localhost:1313/categories/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>https://ashish.one/categories/linux/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/categories/linux/</guid>
+      <link>http://localhost:1313/categories/linux/</link>
+      <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
+      <guid>http://localhost:1313/categories/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Misc</title>
-      <link>https://ashish.one/categories/misc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/categories/misc/</guid>
+      <link>http://localhost:1313/categories/misc/</link>
+      <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
+      <guid>http://localhost:1313/categories/misc/</guid>
       <description></description>
     </item>
     <item>
       <title>Golang</title>
-      <link>https://ashish.one/categories/golang/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/categories/golang/</guid>
+      <link>http://localhost:1313/categories/golang/</link>
+      <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
+      <guid>http://localhost:1313/categories/golang/</guid>
       <description></description>
     </item>
     <item>
       <title>Prometheus</title>
-      <link>https://ashish.one/categories/prometheus/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/categories/prometheus/</guid>
+      <link>http://localhost:1313/categories/prometheus/</link>
+      <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
+      <guid>http://localhost:1313/categories/prometheus/</guid>
       <description></description>
     </item>
   </channel>

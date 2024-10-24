@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>grafana-dashboard on ashish.one</title>
-    <link>https://ashish.one/tags/grafana-dashboard/</link>
-    <description>Recent content in grafana-dashboard on ashish.one</description>
+    <title>Grafana-Dashboard on ashish.one</title>
+    <link>http://localhost:1313/tags/grafana-dashboard/</link>
+    <description>Recent content in Grafana-Dashboard on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/grafana-dashboard/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/grafana-dashboard/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Part 4] Setup Grafana With Prometheus</title>
-      <link>https://ashish.one/blogs/setup-grafana-with-prometheus/</link>
+      <link>http://localhost:1313/blogs/setup-grafana-with-prometheus/</link>
       <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
-      <guid>https://ashish.one/blogs/setup-grafana-with-prometheus/</guid>
-      <description>As you know Prometheus already having UI (localhost:9090). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.
-What is Grafana? As grafana.com says
-”Grafana is the open-source analytics and monitoring solution for every database.”
-This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc.</description>
+      <guid>http://localhost:1313/blogs/setup-grafana-with-prometheus/</guid>
+      <description>&lt;p&gt;As you know Prometheus already having UI (&lt;code&gt;localhost:9090&lt;/code&gt;). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-grafana&#34;&gt;What is Grafana?&lt;/h2&gt;
+&lt;p&gt;As &lt;a href=&#34;https://grafana.com&#34;&gt;grafana.com&lt;/a&gt; says&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;”Grafana is the open-source analytics and monitoring solution for every database.”&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc. So you can visualize different data points from the different databases on one screen. This is the flexibility and power Grafana provides.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>As you know Prometheus already having UI (<code>localhost:9090</code>). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.</p>
 <h2 id="what-is-grafana">What is Grafana?</h2>
-<p>As <a href="https://grafana.com" target="_blank" rel="noopener">grafana.com</a>
- says</p>
+<p>As <a href="https://grafana.com">grafana.com</a> says</p>
 <blockquote>
 <p><strong>”Grafana is the open-source analytics and monitoring solution for every database.”</strong></p>
 </blockquote>
 <p>This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc. So you can visualize different data points from the different databases on one screen. This is the flexibility and power Grafana provides.</p>
-<p>Grafana works on TSDB(Time Series Database) or Your data should be save in time series manner. Check explaination <a href="https://grafana.com/docs/grafana/latest/guides/timeseries/" target="_blank" rel="noopener">here</a>
-.</p>
+<p>Grafana works on TSDB(Time Series Database) or Your data should be save in time series manner. Check explaination <a href="https://grafana.com/docs/grafana/latest/guides/timeseries/">here</a>.</p>
 <p>It has an alert system. You can configure an alert on Grafana itself for any Metric.</p>
 <h2 id="why-grafana">Why Grafana?</h2>
 <ol>
@@ -46,8 +47,7 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 <li>8GB RAM</li>
 <li>Ubuntu 18.04 LTS</li>
 </ul>
-<p>You can check <a href="https://grafana.com/docs/grafana/latest/installation/requirements/" target="_blank" rel="noopener">here</a>
- your system requirement according to your Operating System. Also, They explained different ways to install Grafana for different OS.</p>
+<p>You can check <a href="https://grafana.com/docs/grafana/latest/installation/requirements/">here</a> your system requirement according to your Operating System. Also, They explained different ways to install Grafana for different OS.</p>
 <h2 id="setup-grafana">Setup Grafana</h2>
 <h3 id="installation">Installation</h3>
 <p>Grafana has two types of Software:</p>
@@ -89,12 +89,10 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 </code></pre><p>visit <code>localhost:3000</code>.</p>
 <p>We have successfully installed Grafana. Let&rsquo;s configure with Prometheus.</p>
 <h2 id="configure-with-prometheus">Configure with Prometheus</h2>
-<p>We already setup Prometheus in <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/" target="_blank" rel="noopener">part 1</a>
-. Now I am considering your Prometheus and Node exporter are running on port <code>9090</code> &amp; <code>9100</code> respectively.</p>
+<p>We already setup Prometheus in <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">part 1</a>. Now I am considering your Prometheus and Node exporter are running on port <code>9090</code> &amp; <code>9100</code> respectively.</p>
 <h3 id="setup-grafana----prometheus">Setup Grafana &lt;&ndash;&gt; Prometheus</h3>
 <h4 id="step-1-login-on-grafana">Step 1: Login on Grafana</h4>
-<p>Visit <code>localhost:3000</code>. 3000 is the default port of Grafana, However, you can run on any port. To change the port see the <a href="https://grafana.com/docs/grafana/latest/installation/configuration/" target="_blank" rel="noopener">configuration</a>
-.</p>
+<p>Visit <code>localhost:3000</code>. 3000 is the default port of Grafana, However, you can run on any port. To change the port see the <a href="https://grafana.com/docs/grafana/latest/installation/configuration/">configuration</a>.</p>
 <p>Login into Grafana with default Credentials:</p>
 <p><strong>Username</strong>:<code>admin</code><br>
 <strong>Password</strong>:<code>admin</code></p>
@@ -121,10 +119,8 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 <li><strong><em>Import any pre-build Dashboard</em></strong></li>
 </ol>
 <p>We will go with the second option because that is the beauty of community :) People already build a dashboard for various stacks.</p>
-<p>You can search for Dashboard from <a href="https://grafana.com/grafana/dashboards" target="_blank" rel="noopener">https://grafana.com/grafana/dashboards</a>
- as per your requirement.</p>
-<p>Here is the link for Node exporter dashboard: <a href="https://grafana.com/grafana/dashboards/1860" target="_blank" rel="noopener">https://grafana.com/grafana/dashboards/1860</a>
-</p>
+<p>You can search for Dashboard from <a href="https://grafana.com/grafana/dashboards">https://grafana.com/grafana/dashboards</a> as per your requirement.</p>
+<p>Here is the link for Node exporter dashboard: <a href="https://grafana.com/grafana/dashboards/1860">https://grafana.com/grafana/dashboards/1860</a></p>
 <p>Here Dashboard ID is <code>1860</code>. Every dashboard which contributed in Grafana has unique ID. You can just import any dashboard by inserting the ID.</p>
 <p><img loading="lazy" src="/img/grafana-setup/node-exporter-dashboard.png" alt="node-exporter-dashboard"  />
 </p>
@@ -141,8 +137,7 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 <p><img loading="lazy" src="/img/grafana-setup/node-dashboard.png" alt="node-dashboard"  />
 </p>
 <p>Here we have successfully integrated the Grafana with Prometheus. You can explore more features of Grafana like Alerts, Users, etc.</p>
-<p>For the alerting system, I prefer Prometheus Alertmanager only. You can check more details on the Alertmanager in <a href="https://ashish.one/blogs/setup-alertmanager/" target="_blank" rel="noopener">part 2</a>
-. It gives you more control and advanced feature.</p>
+<p>For the alerting system, I prefer Prometheus Alertmanager only. You can check more details on the Alertmanager in <a href="https://ashish.one/blogs/setup-alertmanager/">part 2</a>. It gives you more control and advanced feature.</p>
 <p>But every tool has use cases and built for special purposes. You can choose according to your requirements.</p>
 <p><strong>In case of any confusion or issues leave comments below :)</strong></p>
 ]]></content:encoded>

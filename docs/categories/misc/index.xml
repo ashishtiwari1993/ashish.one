@@ -2,25 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Misc on ashish.one</title>
-    <link>https://ashish.one/categories/misc/</link>
+    <link>http://localhost:1313/categories/misc/</link>
     <description>Recent content in Misc on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Oct 2022 13:27:05 -0400</lastBuildDate>
-    <atom:link href="https://ashish.one/categories/misc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/misc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Get start with BugBounty, Pentest and Security Researcher</title>
-      <link>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</link>
+      <link>http://localhost:1313/blogs/get-start-with-bugbounty-pentest-security-researcher/</link>
       <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
-      <guid>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</guid>
-      <description>I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.
-The Fact The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.
-There is no defined way to become a security researcher.</description>
+      <guid>http://localhost:1313/blogs/get-start-with-bugbounty-pentest-security-researcher/</guid>
+      <description>&lt;p&gt;I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.&lt;/p&gt;
+&lt;h2 id=&#34;the-fact&#34;&gt;The Fact&lt;/h2&gt;
+&lt;p&gt;The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There is no defined way to become a security researcher.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.</p>
 <h2 id="the-fact">The Fact</h2>
 <p>The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.</p>
@@ -38,54 +40,42 @@ There is no defined way to become a security researcher.</description>
 <h2 id="some-resources-to-get-start">Some resources to get start</h2>
 <ul>
 <li>
-<p><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters" target="_blank" rel="noopener">https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters</a>
-</p>
+<p><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters">https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters</a></p>
 </li>
 <li>
-<p><a href="https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/" target="_blank" rel="noopener">https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/</a>
-</p>
+<p><a href="https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/">https://whoami.securitybreached.org/2019/06/03/guide-getting-started-in-bug-bounty-hunting/</a></p>
 </li>
 <li>
-<p><a href="https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115" target="_blank" rel="noopener">https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115</a>
-</p>
+<p><a href="https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115">https://infosecwriteups.com/guide-to-basic-recon-bug-bounties-recon-728c5242a115</a></p>
 </li>
 <li>
 <p>Pentesting for n00bs is ELI5 hacking, designed for beginners who have never walked through a hack before. All 10 episodes:</p>
 </li>
 </ul>
-<p>Ep 1 - Legacy: <a href="https://youtu.be/JZN3JhoAdWo" target="_blank" rel="noopener">https://youtu.be/JZN3JhoAdWo</a>
-</p>
-<p>Ep 2 - Lame: <a href="https://youtu.be/ntBkyid_u8Y" target="_blank" rel="noopener">https://youtu.be/ntBkyid_u8Y</a>
-</p>
-<p>Ep 3 - Blue: <a href="https://youtu.be/xLI7OialKk4" target="_blank" rel="noopener">https://youtu.be/xLI7OialKk4</a>
-</p>
-<p>Ep 4 - Devel: <a href="https://youtu.be/ODUDau7BPSY" target="_blank" rel="noopener">https://youtu.be/ODUDau7BPSY</a>
-</p>
-<p>Ep. 5 - Jerry: <a href="https://youtu.be/nF14K2VAVtw" target="_blank" rel="noopener">https://youtu.be/nF14K2VAVtw</a>
-</p>
-<p>Ep. 6 - Nibbles: <a href="https://youtu.be/8ulnQVFHcOE" target="_blank" rel="noopener">https://youtu.be/8ulnQVFHcOE</a>
-</p>
-<p>Ep. 7 - Optimum: <a href="https://youtu.be/bTxnobhJ_b8" target="_blank" rel="noopener">https://youtu.be/bTxnobhJ_b8</a>
-</p>
-<p>Ep. 8 - Bashed: <a href="https://youtu.be/5406MfOfXBc" target="_blank" rel="noopener">https://youtu.be/5406MfOfXBc</a>
-</p>
-<p>Ep. 9 - Grandpa: <a href="https://youtu.be/3aASluoJ-iM" target="_blank" rel="noopener">https://youtu.be/3aASluoJ-iM</a>
-</p>
-<p>Ep. 10 - Netmon: <a href="https://youtu.be/8k-8aVwS0fk" target="_blank" rel="noopener">https://youtu.be/8k-8aVwS0fk</a>
-</p>
-<p>Please feel free to post your doubt or suggestions below 🙂</p>
+<p>Ep 1 - Legacy: <a href="https://youtu.be/JZN3JhoAdWo">https://youtu.be/JZN3JhoAdWo</a></p>
+<p>Ep 2 - Lame: <a href="https://youtu.be/ntBkyid_u8Y">https://youtu.be/ntBkyid_u8Y</a></p>
+<p>Ep 3 - Blue: <a href="https://youtu.be/xLI7OialKk4">https://youtu.be/xLI7OialKk4</a></p>
+<p>Ep 4 - Devel: <a href="https://youtu.be/ODUDau7BPSY">https://youtu.be/ODUDau7BPSY</a></p>
+<p>Ep. 5 - Jerry: <a href="https://youtu.be/nF14K2VAVtw">https://youtu.be/nF14K2VAVtw</a></p>
+<p>Ep. 6 - Nibbles: <a href="https://youtu.be/8ulnQVFHcOE">https://youtu.be/8ulnQVFHcOE</a></p>
+<p>Ep. 7 - Optimum: <a href="https://youtu.be/bTxnobhJ_b8">https://youtu.be/bTxnobhJ_b8</a></p>
+<p>Ep. 8 - Bashed: <a href="https://youtu.be/5406MfOfXBc">https://youtu.be/5406MfOfXBc</a></p>
+<p>Ep. 9 - Grandpa: <a href="https://youtu.be/3aASluoJ-iM">https://youtu.be/3aASluoJ-iM</a></p>
+<p>Ep. 10 - Netmon: <a href="https://youtu.be/8k-8aVwS0fk">https://youtu.be/8k-8aVwS0fk</a></p>
+<p>Please feel free to post your doubt or suggestions below :slight_smile:</p>
 <p>Thanks</p>
 ]]></content:encoded>
     </item>
     <item>
       <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
-      <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
+      <link>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
       <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
-      <description>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.
-In this blog, We are going to setup PHP and Nginx.
-Why Docker? I will not go too much deep, You can find more resources over the internet about the docker.
-Docker makes the installation process very smooth and it gives your isolated environment as the container.</description>
+      <guid>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
+      <description>&lt;p&gt;Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.&lt;/p&gt;
+&lt;p&gt;In this blog, We are going to setup PHP and Nginx.&lt;/p&gt;
+&lt;h3 id=&#34;why-docker&#34;&gt;Why Docker?&lt;/h3&gt;
+&lt;p&gt;I will not go too much deep, You can find more resources over the internet about the docker.&lt;/p&gt;
+&lt;p&gt;Docker makes the installation process very smooth and it gives your isolated environment as the container.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp; How it works.</p>
 <p>In this blog, We are going to setup PHP and Nginx.</p>
 <h3 id="why-docker">Why Docker?</h3>
@@ -159,8 +149,7 @@ Docker makes the installation process very smooth and it gives your isolated env
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>networks:
 </span></span><span style="display:flex;"><span> nginx-php:
-</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks" target="_blank" rel="noopener">here</a>
-.</p>
+</span></span></code></pre></div><p>Here we have created the network with the name <code>nginx-php</code>. You can check more about the networks <a href="https://docs.docker.com/compose/networking/#specify-custom-networks">here</a>.</p>
 <p>You can set <code>volumes</code> path according to your requirement.</p>
 <h3 id="step-4-lets-up-the-containers">Step 4: Let&rsquo;s Up the containers</h3>
 <p>Create container:</p>
@@ -187,8 +176,7 @@ Docker makes the installation process very smooth and it gives your isolated env
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">phpinfo</span>();
 </span></span></code></pre></div><h3 id="step-6-run-testphp">Step 6: Run <code>test.php</code></h3>
-<p>Visit <a href="http://localhost/test.php" target="_blank" rel="noopener">http://localhost/test.php</a>
-.</p>
+<p>Visit <a href="http://localhost/test.php">http://localhost/test.php</a>.</p>
 <p>Output:</p>
 <p><img loading="lazy" src="/img/lemp-docker/phpinfo.png" alt="phpinfo"  />
 </p>
@@ -198,13 +186,41 @@ Docker makes the installation process very smooth and it gives your isolated env
     </item>
     <item>
       <title>Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</title>
-      <link>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
+      <link>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
       <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
-      <guid>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
-      <description>Prerequisite OS: Ubuntu 14.04 LTS
-Processor: 64 Bit
-RAM: 2 GB
-1. Install python3.6 From source Step 1.1: Compile $ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz $ tar -xvf Python-3.6.3.tgz $ cd Python-3.6.3 $ sudo ./configure --enable-optimizations $ sudo make install Step 1.2: Check $ python3.6 --version 2. Install pip3.6 Step 2.1: Download pip $ wget https://bootstrap.pypa.io/get-pip.py Step 2.2: Execute $ sudo python3.6 get-pip.py Step 2.3: If you Got below error Error zlib not available Traceback (most recent call last): File &amp;#34;get-pip.</description>
+      <guid>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
+      <description>&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;OS:&lt;/strong&gt; Ubuntu 14.04 LTS&lt;br&gt;
+&lt;strong&gt;Processor:&lt;/strong&gt; 64 Bit&lt;br&gt;
+&lt;strong&gt;RAM:&lt;/strong&gt; 2 GB&lt;/p&gt;
+&lt;h2 id=&#34;1-install-python36-from-source&#34;&gt;1. Install python3.6 From source&lt;/h2&gt;
+&lt;h3 id=&#34;step-11-compile&#34;&gt;Step 1.1: Compile&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tar -xvf Python-3.6.3.tgz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd Python-3.6.3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo ./configure --enable-optimizations
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo make install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;step-12-check&#34;&gt;Step 1.2: Check&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ python3.6 --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-install-pip36&#34;&gt;2. Install &lt;code&gt;pip3.6&lt;/code&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;step-21-download-pip&#34;&gt;Step 2.1: Download pip&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://bootstrap.pypa.io/get-pip.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;step-22-execute&#34;&gt;Step 2.2: Execute&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo python3.6 get-pip.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;step-23-if-you-got-below-error&#34;&gt;Step 2.3: If you Got below error&lt;/h3&gt;
+&lt;h4 id=&#34;error--zlib-not-available&#34;&gt;Error  &lt;code&gt;zlib not available&lt;/code&gt;&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Traceback &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;most recent call last&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;get-pip.py&amp;#34;&lt;/span&gt;, line 22711, in &amp;lt;module&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    main&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;get-pip.py&amp;#34;&lt;/span&gt;, line 198, in main
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    bootstrap&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;tmpdir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tmpdir&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;get-pip.py&amp;#34;&lt;/span&gt;, line 82, in bootstrap
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    from pip._internal.cli.main import main as pip_entry_point
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zipimport.ZipImportError: can&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;t decompress data; zlib not available
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;step-231-install-zlib&#34;&gt;Step 2.3.1: Install &lt;code&gt;zlib&lt;/code&gt;:&lt;/h4&gt;
+&lt;h4 id=&#34;install-with-some-other-dependency&#34;&gt;Install with some other dependency&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OR&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="prerequisite">Prerequisite</h2>
 <p><strong>OS:</strong> Ubuntu 14.04 LTS<br>
 <strong>Processor:</strong> 64 Bit<br>
@@ -261,11 +277,37 @@ RAM: 2 GB
     </item>
     <item>
       <title>Covid19 Data Source for India &amp; Global</title>
-      <link>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</link>
+      <link>http://localhost:1313/blogs/covid19-data-source-and-endpoints-india-global/</link>
       <pubDate>Fri, 27 Mar 2020 20:04:13 +0530</pubDate>
-      <guid>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</guid>
-      <description>Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.
-APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-covid19-in APIs available: Statewise Data StateWise StateWise History Medica Hospital Stats Bed Stats Contacts HelpLines Contacts Patient Tracing History Sources The source is both types of official &amp;amp; Unofficial.</description>
+      <guid>http://localhost:1313/blogs/covid19-data-source-and-endpoints-india-global/</guid>
+      <description>&lt;p&gt;Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.&lt;/p&gt;
+&lt;h2 id=&#34;apis&#34;&gt;APIs&lt;/h2&gt;
+&lt;h3 id=&#34;1-github-amodmapi-covid19-in-india&#34;&gt;1. Github: amodm/api-covid19-in (India)&lt;/h3&gt;
+&lt;h4 id=&#34;repo&#34;&gt;Repo:&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://github.com/amodm/api-covid19-in
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;apis-available&#34;&gt;APIs available:&lt;/h4&gt;
+&lt;h5 id=&#34;statewise-data&#34;&gt;Statewise Data&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;StateWise&lt;/li&gt;
+&lt;li&gt;StateWise History&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;medica&#34;&gt;Medica&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Hospital Stats&lt;/li&gt;
+&lt;li&gt;Bed Stats&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;contacts&#34;&gt;Contacts&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;HelpLines&lt;/li&gt;
+&lt;li&gt;Contacts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;patient&#34;&gt;Patient&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Tracing&lt;/li&gt;
+&lt;li&gt;History&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;sources&#34;&gt;Sources&lt;/h4&gt;
+&lt;p&gt;The source is both types of official &amp;amp; Unofficial.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>Hi Guys, I am trying to listing all data source &amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.</p>
 <h2 id="apis">APIs</h2>
 <h3 id="1-github-amodmapi-covid19-in-india">1. Github: amodm/api-covid19-in (India)</h3>
@@ -296,27 +338,19 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
 <p>The source is both types of official &amp; Unofficial.</p>
 <h5 id="official">Official</h5>
 <ul>
-<li>Post Mar 15, data is from <a href="https://www.mohfw.gov.in/" target="_blank" rel="noopener">The Ministry of Health &amp; Family Welfare</a>
-</li>
-<li>Pre  Mar 15, data is sourced from <a href="https://github.com/datameet/covid19/tree/eb1cc65657929abe12ca59f0e754bef4bc562d7a/mohfw-backup" target="_blank" rel="noopener">datameet/covid19</a>
-</li>
-<li>Hospital &amp; bed data: <a href="https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity" target="_blank" rel="noopener">https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity</a>
-</li>
-<li>ICMR testing stats API: <a href="https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData" target="_blank" rel="noopener">https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData</a>
-</li>
+<li>Post Mar 15, data is from <a href="https://www.mohfw.gov.in/">The Ministry of Health &amp; Family Welfare</a></li>
+<li>Pre  Mar 15, data is sourced from <a href="https://github.com/datameet/covid19/tree/eb1cc65657929abe12ca59f0e754bef4bc562d7a/mohfw-backup">datameet/covid19</a></li>
+<li>Hospital &amp; bed data: <a href="https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity">https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity</a></li>
+<li>ICMR testing stats API: <a href="https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData">https://api.steinhq.com/v1/storages/5e6e3e9fb88d3d04ae08158c/ICMRTestData</a></li>
 </ul>
 <h5 id="unofficial">Unofficial</h5>
 <ul>
-<li>The awesome volunteer driven patient tracing data <a href="https://www.covid19india.org/" target="_blank" rel="noopener">covid19india.org</a>
-</li>
-<li>API (NLP): <a href="http://coronatravelhistory.pythonanywhere.com/" target="_blank" rel="noopener">http://coronatravelhistory.pythonanywhere.com/</a>
-</li>
-<li>API (Travel history): <a href="https://api.covid19india.org/travel_history.json" target="_blank" rel="noopener">https://api.covid19india.org/travel_history.json</a>
-</li>
+<li>The awesome volunteer driven patient tracing data <a href="https://www.covid19india.org/">covid19india.org</a></li>
+<li>API (NLP): <a href="http://coronatravelhistory.pythonanywhere.com/">http://coronatravelhistory.pythonanywhere.com/</a></li>
+<li>API (Travel history): <a href="https://api.covid19india.org/travel_history.json">https://api.covid19india.org/travel_history.json</a></li>
 </ul>
 <h3 id="2-github-ashishtiwari1993india_mohfwgovin_scrape_covid19_statewise_status-india">2. Github: ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status (India)</h3>
-<p>Scraping <a href="https://mohfw.gov.in" target="_blank" rel="noopener">https://mohfw.gov.in</a>
- to extract the statewise data.</p>
+<p>Scraping <a href="https://mohfw.gov.in">https://mohfw.gov.in</a> to extract the statewise data.</p>
 <h4 id="repo-1">Repo:</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://github.com/ashishtiwari1993/india_mohfw.gov.in_scrape_covid19_statewise_status
 </span></span></code></pre></div><h4 id="apis-available-1">APIs available:</h4>
@@ -335,8 +369,7 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
 <p>It is global data source. You will get all information for any country.</p>
 <h4 id="sources-2">Sources</h4>
 <ul>
-<li><a href="https://www.worldometers.info/coronavirus/" target="_blank" rel="noopener">Worldometers</a>
-</li>
+<li><a href="https://www.worldometers.info/coronavirus/">Worldometers</a></li>
 </ul>
 <h3 id="4-github-cssegisanddatacovid-19-global">4. Github: CSSEGISandData/COVID-19 (Global)</h3>
 <p>This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).</p>
@@ -346,52 +379,44 @@ APIs 1. Github: amodm/api-covid19-in (India) Repo: https://github.com/amodm/api-
 <p>CSVs are available in time series manner. Information is available about all country.</p>
 <h2 id="sources-3">Sources</h2>
 <ul>
-<li>World Health Organization (WHO): <a href="https://www.who.int/" target="_blank" rel="noopener">https://www.who.int/</a>
-</li>
-<li>DXY.cn. Pneumonia. 2020. <a href="http://3g.dxy.cn/newh5/view/pneumonia" target="_blank" rel="noopener">http://3g.dxy.cn/newh5/view/pneumonia</a>
-.</li>
-<li>BNO News: <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/" target="_blank" rel="noopener">https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/</a>
-</li>
+<li>World Health Organization (WHO): <a href="https://www.who.int/">https://www.who.int/</a></li>
+<li>DXY.cn. Pneumonia. 2020. <a href="http://3g.dxy.cn/newh5/view/pneumonia">http://3g.dxy.cn/newh5/view/pneumonia</a>.</li>
+<li>BNO News: <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/">https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/</a></li>
 <li>National Health Commission of the People’s Republic of China (NHC):
-<a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml" target="_blank" rel="noopener">http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml</a>
-</li>
-<li>China CDC (CCDC): <a href="http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm" target="_blank" rel="noopener">http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm</a>
-</li>
-<li>Hong Kong Department of Health: <a href="https://www.chp.gov.hk/en/features/102465.html" target="_blank" rel="noopener">https://www.chp.gov.hk/en/features/102465.html</a>
-</li>
-<li>Macau Government: <a href="https://www.ssm.gov.mo/portal/" target="_blank" rel="noopener">https://www.ssm.gov.mo/portal/</a>
-</li>
-<li>Taiwan CDC: <a href="https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0" target="_blank" rel="noopener">https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0</a>
-</li>
-<li>US CDC: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" target="_blank" rel="noopener">https://www.cdc.gov/coronavirus/2019-ncov/index.html</a>
-</li>
-<li>Government of Canada: <a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus.html" target="_blank" rel="noopener">https://www.canada.ca/en/public-health/services/diseases/coronavirus.html</a>
-</li>
-<li>Australia Government Department of Health: <a href="https://www.health.gov.au/news/coronavirus-update-at-a-glance" target="_blank" rel="noopener">https://www.health.gov.au/news/coronavirus-update-at-a-glance</a>
-</li>
-<li>European Centre for Disease Prevention and Control (ECDC): <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases" target="_blank" rel="noopener">https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases</a>
-</li>
-<li>Ministry of Health Singapore (MOH): <a href="https://www.moh.gov.sg/covid-19" target="_blank" rel="noopener">https://www.moh.gov.sg/covid-19</a>
-</li>
-<li>Italy Ministry of Health: <a href="http://www.salute.gov.it/nuovocoronavirus" target="_blank" rel="noopener">http://www.salute.gov.it/nuovocoronavirus</a>
-</li>
-<li>1Point3Arces: <a href="https://coronavirus.1point3acres.com/en" target="_blank" rel="noopener">https://coronavirus.1point3acres.com/en</a>
-</li>
-<li>WorldoMeters: <a href="https://www.worldometers.info/coronavirus/" target="_blank" rel="noopener">https://www.worldometers.info/coronavirus/</a>
-</li>
+<a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml</a></li>
+<li>China CDC (CCDC): <a href="http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm">http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm</a></li>
+<li>Hong Kong Department of Health: <a href="https://www.chp.gov.hk/en/features/102465.html">https://www.chp.gov.hk/en/features/102465.html</a></li>
+<li>Macau Government: <a href="https://www.ssm.gov.mo/portal/">https://www.ssm.gov.mo/portal/</a></li>
+<li>Taiwan CDC: <a href="https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0">https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0</a></li>
+<li>US CDC: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">https://www.cdc.gov/coronavirus/2019-ncov/index.html</a></li>
+<li>Government of Canada: <a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus.html">https://www.canada.ca/en/public-health/services/diseases/coronavirus.html</a></li>
+<li>Australia Government Department of Health: <a href="https://www.health.gov.au/news/coronavirus-update-at-a-glance">https://www.health.gov.au/news/coronavirus-update-at-a-glance</a></li>
+<li>European Centre for Disease Prevention and Control (ECDC): <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases</a></li>
+<li>Ministry of Health Singapore (MOH): <a href="https://www.moh.gov.sg/covid-19">https://www.moh.gov.sg/covid-19</a></li>
+<li>Italy Ministry of Health: <a href="http://www.salute.gov.it/nuovocoronavirus">http://www.salute.gov.it/nuovocoronavirus</a></li>
+<li>1Point3Arces: <a href="https://coronavirus.1point3acres.com/en">https://coronavirus.1point3acres.com/en</a></li>
+<li>WorldoMeters: <a href="https://www.worldometers.info/coronavirus/">https://www.worldometers.info/coronavirus/</a></li>
 </ul>
 ]]></content:encoded>
     </item>
     <item>
       <title>How to reset 1-Click Installed WordPress on DigitalOcean?</title>
-      <link>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
+      <link>http://localhost:1313/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
       <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
-      <guid>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
-      <description>The Requirement Need to install fresh wordpress with same version on wordpress droplet of digitalocean.
-The Problem My setup (wordpress droplet) was suddenly stop working. I started debugging.
-Debug Checked apache2 and mysql service:
-service mysql status service apache2 status Both services was active. Then I checked the apache2 processes with below command:
-$ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked.</description>
+      <guid>http://localhost:1313/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
+      <description>&lt;h2 id=&#34;the-requirement&#34;&gt;The Requirement&lt;/h2&gt;
+&lt;p&gt;Need to install fresh wordpress with same version on wordpress droplet of digitalocean.&lt;/p&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;My setup (wordpress droplet) was suddenly stop working. I started debugging.&lt;/p&gt;
+&lt;h2 id=&#34;debug&#34;&gt;Debug&lt;/h2&gt;
+&lt;p&gt;Checked &lt;code&gt;apache2&lt;/code&gt; and &lt;code&gt;mysql&lt;/code&gt; service:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;service mysql status
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;service apache2 status
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Both services was active. Then I checked the &lt;code&gt;apache2&lt;/code&gt; processes with below command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ps -ef | grep apache2 | wc -l
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;151&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Lots of apache child process has been forked. Which was not good.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="the-requirement">The Requirement</h2>
 <p>Need to install fresh wordpress with same version on wordpress droplet of digitalocean.</p>
 <h2 id="the-problem">The Problem</h2>
@@ -432,8 +457,7 @@ $ ps -ef | grep apache2 | wc -l 151 Lots of apache child process has been forked
 <code>$wp_version = '5.2.4';</code></p>
 <p>Version can be different.</p>
 <h3 id="step-4-download-wordpress-zip-file">Step 4: Download WordPress zip file</h3>
-<p>Go to <a href="https://wordpress.org/download/releases/" target="_blank" rel="noopener">Wordpress Releases page</a>
-. Check for your version and download with below command:</p>
+<p>Go to <a href="https://wordpress.org/download/releases/">Wordpress Releases page</a>. Check for your version and download with below command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget https://wordpress.org/wordpress-5.2.4.zip
 </span></span></code></pre></div><p>Unzip it:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>unzip wordpress-5.2.4.zip

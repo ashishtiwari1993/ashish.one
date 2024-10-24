@@ -2,820 +2,841 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on ashish.one</title>
-    <link>https://ashish.one/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Jun 2024 04:12:44 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Oct 2024 20:29:51 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>aws</title>
-      <link>https://ashish.one/tags/aws/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/aws/</guid>
+      <title>Elasticsearch</title>
+      <link>http://localhost:1313/tags/elasticsearch/</link>
+      <pubDate>Wed, 23 Oct 2024 20:29:51 +0530</pubDate>
+      <guid>http://localhost:1313/tags/elasticsearch/</guid>
       <description></description>
     </item>
     <item>
-      <title>elasticsearch</title>
-      <link>https://ashish.one/tags/elasticsearch/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/elasticsearch/</guid>
+      <title>Security</title>
+      <link>http://localhost:1313/tags/security/</link>
+      <pubDate>Wed, 23 Oct 2024 20:29:51 +0530</pubDate>
+      <guid>http://localhost:1313/tags/security/</guid>
       <description></description>
     </item>
     <item>
-      <title>monitoring</title>
-      <link>https://ashish.one/tags/monitoring/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/monitoring/</guid>
+      <title>Ssl</title>
+      <link>http://localhost:1313/tags/ssl/</link>
+      <pubDate>Wed, 23 Oct 2024 20:29:51 +0530</pubDate>
+      <guid>http://localhost:1313/tags/ssl/</guid>
       <description></description>
     </item>
     <item>
-      <title>observability</title>
-      <link>https://ashish.one/tags/observability/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/observability/</guid>
+      <title>Tls</title>
+      <link>http://localhost:1313/tags/tls/</link>
+      <pubDate>Wed, 23 Oct 2024 20:29:51 +0530</pubDate>
+      <guid>http://localhost:1313/tags/tls/</guid>
       <description></description>
     </item>
     <item>
-      <title>serverless</title>
-      <link>https://ashish.one/tags/serverless/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/serverless/</guid>
+      <title>Aws</title>
+      <link>http://localhost:1313/tags/aws/</link>
+      <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/aws/</guid>
       <description></description>
     </item>
     <item>
-      <title>genai</title>
-      <link>https://ashish.one/tags/genai/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/genai/</guid>
+      <title>Monitoring</title>
+      <link>http://localhost:1313/tags/monitoring/</link>
+      <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Observability</title>
+      <link>http://localhost:1313/tags/observability/</link>
+      <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/observability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Serverless</title>
+      <link>http://localhost:1313/tags/serverless/</link>
+      <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/serverless/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Genai</title>
+      <link>http://localhost:1313/tags/genai/</link>
+      <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/genai/</guid>
       <description></description>
     </item>
     <item>
       <title>LLMs</title>
-      <link>https://ashish.one/tags/llms/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/llms/</guid>
+      <link>http://localhost:1313/tags/llms/</link>
+      <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/llms/</guid>
       <description></description>
     </item>
     <item>
       <title>RAG</title>
-      <link>https://ashish.one/tags/rag/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/rag/</guid>
+      <link>http://localhost:1313/tags/rag/</link>
+      <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/rag/</guid>
       <description></description>
     </item>
     <item>
-      <title>semantic-search</title>
-      <link>https://ashish.one/tags/semantic-search/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/semantic-search/</guid>
+      <title>Semantic-Search</title>
+      <link>http://localhost:1313/tags/semantic-search/</link>
+      <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/semantic-search/</guid>
       <description></description>
     </item>
     <item>
-      <title>vector-search</title>
-      <link>https://ashish.one/tags/vector-search/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/vector-search/</guid>
+      <title>Vector-Search</title>
+      <link>http://localhost:1313/tags/vector-search/</link>
+      <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/vector-search/</guid>
       <description></description>
     </item>
     <item>
-      <title>JSON</title>
-      <link>https://ashish.one/tags/json/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/json/</guid>
+      <title>Json</title>
+      <link>http://localhost:1313/tags/json/</link>
+      <pubDate>Fri, 29 Mar 2024 20:29:51 +0530</pubDate>
+      <guid>http://localhost:1313/tags/json/</guid>
       <description></description>
     </item>
     <item>
-      <title>ndjson</title>
-      <link>https://ashish.one/tags/ndjson/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/ndjson/</guid>
+      <title>Ndjson</title>
+      <link>http://localhost:1313/tags/ndjson/</link>
+      <pubDate>Fri, 29 Mar 2024 20:29:51 +0530</pubDate>
+      <guid>http://localhost:1313/tags/ndjson/</guid>
       <description></description>
     </item>
     <item>
       <title>Elastic</title>
-      <link>https://ashish.one/tags/elastic/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/elastic/</guid>
+      <link>http://localhost:1313/tags/elastic/</link>
+      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/elastic/</guid>
       <description></description>
     </item>
     <item>
-      <title>k8s</title>
-      <link>https://ashish.one/tags/k8s/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/k8s/</guid>
+      <title>K8s</title>
+      <link>http://localhost:1313/tags/k8s/</link>
+      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/k8s/</guid>
       <description></description>
     </item>
     <item>
-      <title>kubernetes</title>
-      <link>https://ashish.one/tags/kubernetes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/kubernetes/</guid>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/tags/kubernetes/</link>
+      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/kubernetes/</guid>
       <description></description>
     </item>
     <item>
-      <title>esql</title>
-      <link>https://ashish.one/tags/esql/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/esql/</guid>
+      <title>Esql</title>
+      <link>http://localhost:1313/tags/esql/</link>
+      <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
+      <guid>http://localhost:1313/tags/esql/</guid>
       <description></description>
     </item>
     <item>
-      <title>grok</title>
-      <link>https://ashish.one/tags/grok/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/grok/</guid>
+      <title>Grok</title>
+      <link>http://localhost:1313/tags/grok/</link>
+      <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
+      <guid>http://localhost:1313/tags/grok/</guid>
       <description></description>
     </item>
     <item>
-      <title>kibana</title>
-      <link>https://ashish.one/tags/kibana/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/kibana/</guid>
+      <title>Kibana</title>
+      <link>http://localhost:1313/tags/kibana/</link>
+      <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
+      <guid>http://localhost:1313/tags/kibana/</guid>
       <description></description>
     </item>
     <item>
-      <title>query</title>
-      <link>https://ashish.one/tags/query/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/query/</guid>
+      <title>Query</title>
+      <link>http://localhost:1313/tags/query/</link>
+      <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
+      <guid>http://localhost:1313/tags/query/</guid>
       <description></description>
     </item>
     <item>
-      <title>embeddings</title>
-      <link>https://ashish.one/tags/embeddings/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/embeddings/</guid>
+      <title>Embeddings</title>
+      <link>http://localhost:1313/tags/embeddings/</link>
+      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/embeddings/</guid>
       <description></description>
     </item>
     <item>
-      <title>hybrid-search</title>
-      <link>https://ashish.one/tags/hybrid-search/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/hybrid-search/</guid>
+      <title>Hybrid-Search</title>
+      <link>http://localhost:1313/tags/hybrid-search/</link>
+      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/hybrid-search/</guid>
       <description></description>
     </item>
     <item>
-      <title>LLM</title>
-      <link>https://ashish.one/tags/llm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/llm/</guid>
+      <title>Llm</title>
+      <link>http://localhost:1313/tags/llm/</link>
+      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/llm/</guid>
       <description></description>
     </item>
     <item>
-      <title>chatgpt</title>
-      <link>https://ashish.one/tags/chatgpt/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/chatgpt/</guid>
+      <title>Chatgpt</title>
+      <link>http://localhost:1313/tags/chatgpt/</link>
+      <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/chatgpt/</guid>
       <description></description>
     </item>
     <item>
-      <title>knn</title>
-      <link>https://ashish.one/tags/knn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/knn/</guid>
+      <title>Knn</title>
+      <link>http://localhost:1313/tags/knn/</link>
+      <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/knn/</guid>
       <description></description>
     </item>
     <item>
-      <title>http-plugin</title>
-      <link>https://ashish.one/tags/http-plugin/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/http-plugin/</guid>
+      <title>Http-Plugin</title>
+      <link>http://localhost:1313/tags/http-plugin/</link>
+      <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
+      <guid>http://localhost:1313/tags/http-plugin/</guid>
       <description></description>
     </item>
     <item>
-      <title>logstash</title>
-      <link>https://ashish.one/tags/logstash/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/logstash/</guid>
+      <title>Logstash</title>
+      <link>http://localhost:1313/tags/logstash/</link>
+      <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
+      <guid>http://localhost:1313/tags/logstash/</guid>
       <description></description>
     </item>
     <item>
-      <title>webhook-elk</title>
-      <link>https://ashish.one/tags/webhook-elk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/webhook-elk/</guid>
+      <title>Webhook-Elk</title>
+      <link>http://localhost:1313/tags/webhook-elk/</link>
+      <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
+      <guid>http://localhost:1313/tags/webhook-elk/</guid>
       <description></description>
     </item>
     <item>
-      <title>errors</title>
-      <link>https://ashish.one/tags/errors/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/errors/</guid>
+      <title>Errors</title>
+      <link>http://localhost:1313/tags/errors/</link>
+      <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
+      <guid>http://localhost:1313/tags/errors/</guid>
       <description></description>
     </item>
     <item>
-      <title>generic-errors</title>
-      <link>https://ashish.one/tags/generic-errors/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/generic-errors/</guid>
+      <title>Generic-Errors</title>
+      <link>http://localhost:1313/tags/generic-errors/</link>
+      <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
+      <guid>http://localhost:1313/tags/generic-errors/</guid>
       <description></description>
     </item>
     <item>
-      <title>k8s-errors</title>
-      <link>https://ashish.one/tags/k8s-errors/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/k8s-errors/</guid>
+      <title>K8s-Errors</title>
+      <link>http://localhost:1313/tags/k8s-errors/</link>
+      <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
+      <guid>http://localhost:1313/tags/k8s-errors/</guid>
       <description></description>
     </item>
     <item>
-      <title>beats</title>
-      <link>https://ashish.one/tags/beats/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/beats/</guid>
+      <title>Beats</title>
+      <link>http://localhost:1313/tags/beats/</link>
+      <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
+      <guid>http://localhost:1313/tags/beats/</guid>
       <description></description>
     </item>
     <item>
       <title>Metricbeat</title>
-      <link>https://ashish.one/tags/metricbeat/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/metricbeat/</guid>
+      <link>http://localhost:1313/tags/metricbeat/</link>
+      <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
+      <guid>http://localhost:1313/tags/metricbeat/</guid>
       <description></description>
     </item>
     <item>
-      <title>analyzer</title>
-      <link>https://ashish.one/tags/analyzer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/analyzer/</guid>
+      <title>Analyzer</title>
+      <link>http://localhost:1313/tags/analyzer/</link>
+      <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
+      <guid>http://localhost:1313/tags/analyzer/</guid>
       <description></description>
     </item>
     <item>
       <title>BULK</title>
-      <link>https://ashish.one/tags/bulk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/bulk/</guid>
+      <link>http://localhost:1313/tags/bulk/</link>
+      <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
+      <guid>http://localhost:1313/tags/bulk/</guid>
       <description></description>
     </item>
     <item>
       <title>CRUD</title>
-      <link>https://ashish.one/tags/crud/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/crud/</guid>
+      <link>http://localhost:1313/tags/crud/</link>
+      <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
+      <guid>http://localhost:1313/tags/crud/</guid>
       <description></description>
     </item>
     <item>
-      <title>conf</title>
-      <link>https://ashish.one/tags/conf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/conf/</guid>
+      <title>Conf</title>
+      <link>http://localhost:1313/tags/conf/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      <guid>http://localhost:1313/tags/conf/</guid>
       <description></description>
     </item>
     <item>
-      <title>developer</title>
-      <link>https://ashish.one/tags/developer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/developer/</guid>
+      <title>Developer</title>
+      <link>http://localhost:1313/tags/developer/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      <guid>http://localhost:1313/tags/developer/</guid>
       <description></description>
     </item>
     <item>
-      <title>gohugo</title>
-      <link>https://ashish.one/tags/gohugo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/gohugo/</guid>
+      <title>Gohugo</title>
+      <link>http://localhost:1313/tags/gohugo/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      <guid>http://localhost:1313/tags/gohugo/</guid>
       <description></description>
     </item>
     <item>
-      <title>hugo</title>
-      <link>https://ashish.one/tags/hugo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/hugo/</guid>
+      <title>Hugo</title>
+      <link>http://localhost:1313/tags/hugo/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      <guid>http://localhost:1313/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
-      <title>hugoconf2022</title>
-      <link>https://ashish.one/tags/hugoconf2022/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/hugoconf2022/</guid>
+      <title>Hugoconf2022</title>
+      <link>http://localhost:1313/tags/hugoconf2022/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      <guid>http://localhost:1313/tags/hugoconf2022/</guid>
       <description></description>
     </item>
     <item>
-      <title>profile</title>
-      <link>https://ashish.one/tags/profile/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/profile/</guid>
+      <title>Profile</title>
+      <link>http://localhost:1313/tags/profile/</link>
+      <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
+      <guid>http://localhost:1313/tags/profile/</guid>
       <description></description>
     </item>
     <item>
-      <title>apm-server</title>
-      <link>https://ashish.one/tags/apm-server/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/apm-server/</guid>
+      <title>Apm-Server</title>
+      <link>http://localhost:1313/tags/apm-server/</link>
+      <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
+      <guid>http://localhost:1313/tags/apm-server/</guid>
       <description></description>
     </item>
     <item>
-      <title>docker</title>
-      <link>https://ashish.one/tags/docker/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/docker/</guid>
+      <title>Docker</title>
+      <link>http://localhost:1313/tags/docker/</link>
+      <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
+      <guid>http://localhost:1313/tags/docker/</guid>
       <description></description>
     </item>
     <item>
-      <title>elastic-apm</title>
-      <link>https://ashish.one/tags/elastic-apm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/elastic-apm/</guid>
+      <title>Elastic-Apm</title>
+      <link>http://localhost:1313/tags/elastic-apm/</link>
+      <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
+      <guid>http://localhost:1313/tags/elastic-apm/</guid>
       <description></description>
     </item>
     <item>
-      <title>elastic-stacks</title>
-      <link>https://ashish.one/tags/elastic-stacks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/elastic-stacks/</guid>
+      <title>Elastic-Stacks</title>
+      <link>http://localhost:1313/tags/elastic-stacks/</link>
+      <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
+      <guid>http://localhost:1313/tags/elastic-stacks/</guid>
       <description></description>
     </item>
     <item>
-      <title>elastic-stacks-docker</title>
-      <link>https://ashish.one/tags/elastic-stacks-docker/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/elastic-stacks-docker/</guid>
+      <title>Elastic-Stacks-Docker</title>
+      <link>http://localhost:1313/tags/elastic-stacks-docker/</link>
+      <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
+      <guid>http://localhost:1313/tags/elastic-stacks-docker/</guid>
       <description></description>
     </item>
     <item>
-      <title>grok-pattern</title>
-      <link>https://ashish.one/tags/grok-pattern/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/grok-pattern/</guid>
+      <title>Grok-Pattern</title>
+      <link>http://localhost:1313/tags/grok-pattern/</link>
+      <pubDate>Fri, 29 Apr 2022 01:24:55 +0530</pubDate>
+      <guid>http://localhost:1313/tags/grok-pattern/</guid>
       <description></description>
     </item>
     <item>
-      <title>grok-processor</title>
-      <link>https://ashish.one/tags/grok-processor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/grok-processor/</guid>
+      <title>Grok-Processor</title>
+      <link>http://localhost:1313/tags/grok-processor/</link>
+      <pubDate>Fri, 29 Apr 2022 01:24:55 +0530</pubDate>
+      <guid>http://localhost:1313/tags/grok-processor/</guid>
       <description></description>
     </item>
     <item>
-      <title>ingest-pipeline</title>
-      <link>https://ashish.one/tags/ingest-pipeline/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/ingest-pipeline/</guid>
+      <title>Ingest-Pipeline</title>
+      <link>http://localhost:1313/tags/ingest-pipeline/</link>
+      <pubDate>Fri, 29 Apr 2022 01:24:55 +0530</pubDate>
+      <guid>http://localhost:1313/tags/ingest-pipeline/</guid>
       <description></description>
     </item>
     <item>
-      <title>search_as_you_type</title>
-      <link>https://ashish.one/tags/search_as_you_type/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/search_as_you_type/</guid>
+      <title>Search_as_you_type</title>
+      <link>http://localhost:1313/tags/search_as_you_type/</link>
+      <pubDate>Fri, 18 Mar 2022 01:24:55 +0530</pubDate>
+      <guid>http://localhost:1313/tags/search_as_you_type/</guid>
       <description></description>
     </item>
     <item>
-      <title>grok_pattern</title>
-      <link>https://ashish.one/tags/grok_pattern/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/grok_pattern/</guid>
+      <title>Grok_pattern</title>
+      <link>http://localhost:1313/tags/grok_pattern/</link>
+      <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
+      <guid>http://localhost:1313/tags/grok_pattern/</guid>
       <description></description>
     </item>
     <item>
-      <title>log_parse</title>
-      <link>https://ashish.one/tags/log_parse/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/log_parse/</guid>
+      <title>Log_parse</title>
+      <link>http://localhost:1313/tags/log_parse/</link>
+      <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
+      <guid>http://localhost:1313/tags/log_parse/</guid>
       <description></description>
     </item>
     <item>
-      <title>azure</title>
-      <link>https://ashish.one/tags/azure/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/azure/</guid>
+      <title>Azure</title>
+      <link>http://localhost:1313/tags/azure/</link>
+      <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
+      <guid>http://localhost:1313/tags/azure/</guid>
       <description></description>
     </item>
     <item>
-      <title>arch</title>
-      <link>https://ashish.one/tags/arch/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/arch/</guid>
+      <title>Arch</title>
+      <link>http://localhost:1313/tags/arch/</link>
+      <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
+      <guid>http://localhost:1313/tags/arch/</guid>
       <description></description>
     </item>
     <item>
-      <title>arch-installation</title>
-      <link>https://ashish.one/tags/arch-installation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/arch-installation/</guid>
+      <title>Arch-Installation</title>
+      <link>http://localhost:1313/tags/arch-installation/</link>
+      <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
+      <guid>http://localhost:1313/tags/arch-installation/</guid>
       <description></description>
     </item>
     <item>
-      <title>linux</title>
-      <link>https://ashish.one/tags/linux/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/linux/</guid>
+      <title>Linux</title>
+      <link>http://localhost:1313/tags/linux/</link>
+      <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
+      <guid>http://localhost:1313/tags/linux/</guid>
       <description></description>
     </item>
     <item>
-      <title>bugbounty</title>
-      <link>https://ashish.one/tags/bugbounty/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/bugbounty/</guid>
+      <title>Bugbounty</title>
+      <link>http://localhost:1313/tags/bugbounty/</link>
+      <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
+      <guid>http://localhost:1313/tags/bugbounty/</guid>
       <description></description>
     </item>
     <item>
-      <title>pentest</title>
-      <link>https://ashish.one/tags/pentest/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/pentest/</guid>
+      <title>Pentest</title>
+      <link>http://localhost:1313/tags/pentest/</link>
+      <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
+      <guid>http://localhost:1313/tags/pentest/</guid>
       <description></description>
     </item>
     <item>
-      <title>researcher</title>
-      <link>https://ashish.one/tags/researcher/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/researcher/</guid>
+      <title>Researcher</title>
+      <link>http://localhost:1313/tags/researcher/</link>
+      <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
+      <guid>http://localhost:1313/tags/researcher/</guid>
       <description></description>
     </item>
     <item>
       <title>Go</title>
-      <link>https://ashish.one/tags/go/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/go/</guid>
+      <link>http://localhost:1313/tags/go/</link>
+      <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
+      <guid>http://localhost:1313/tags/go/</guid>
       <description></description>
     </item>
     <item>
       <title>Golang</title>
-      <link>https://ashish.one/tags/golang/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/golang/</guid>
+      <link>http://localhost:1313/tags/golang/</link>
+      <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
+      <guid>http://localhost:1313/tags/golang/</guid>
       <description></description>
     </item>
     <item>
-      <title>spf</title>
-      <link>https://ashish.one/tags/spf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/spf/</guid>
+      <title>Spf</title>
+      <link>http://localhost:1313/tags/spf/</link>
+      <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
+      <guid>http://localhost:1313/tags/spf/</guid>
       <description></description>
     </item>
     <item>
-      <title>spflookup</title>
-      <link>https://ashish.one/tags/spflookup/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/spflookup/</guid>
+      <title>Spflookup</title>
+      <link>http://localhost:1313/tags/spflookup/</link>
+      <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
+      <guid>http://localhost:1313/tags/spflookup/</guid>
       <description></description>
     </item>
     <item>
       <title>ELK</title>
-      <link>https://ashish.one/tags/elk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/elk/</guid>
+      <link>http://localhost:1313/tags/elk/</link>
+      <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/elk/</guid>
       <description></description>
     </item>
     <item>
       <title>ELKB</title>
-      <link>https://ashish.one/tags/elkb/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/elkb/</guid>
+      <link>http://localhost:1313/tags/elkb/</link>
+      <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/elkb/</guid>
       <description></description>
     </item>
     <item>
       <title>Logrus</title>
-      <link>https://ashish.one/tags/logrus/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/logrus/</guid>
+      <link>http://localhost:1313/tags/logrus/</link>
+      <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/logrus/</guid>
       <description></description>
     </item>
     <item>
       <title>Logs</title>
-      <link>https://ashish.one/tags/logs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/logs/</guid>
+      <link>http://localhost:1313/tags/logs/</link>
+      <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/logs/</guid>
       <description></description>
     </item>
     <item>
-      <title>slides</title>
-      <link>https://ashish.one/tags/slides/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/slides/</guid>
+      <title>Slides</title>
+      <link>http://localhost:1313/tags/slides/</link>
+      <pubDate>Tue, 19 May 2020 17:27:32 +0530</pubDate>
+      <guid>http://localhost:1313/tags/slides/</guid>
       <description></description>
     </item>
     <item>
-      <title>docker-compose</title>
-      <link>https://ashish.one/tags/docker-compose/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/docker-compose/</guid>
+      <title>Docker-Compose</title>
+      <link>http://localhost:1313/tags/docker-compose/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      <guid>http://localhost:1313/tags/docker-compose/</guid>
       <description></description>
     </item>
     <item>
       <title>LEMP</title>
-      <link>https://ashish.one/tags/lemp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/lemp/</guid>
+      <link>http://localhost:1313/tags/lemp/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      <guid>http://localhost:1313/tags/lemp/</guid>
       <description></description>
     </item>
     <item>
-      <title>MySQL</title>
-      <link>https://ashish.one/tags/mysql/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/mysql/</guid>
+      <title>Mysql</title>
+      <link>http://localhost:1313/tags/mysql/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      <guid>http://localhost:1313/tags/mysql/</guid>
       <description></description>
     </item>
     <item>
       <title>Nginx</title>
-      <link>https://ashish.one/tags/nginx/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/nginx/</guid>
+      <link>http://localhost:1313/tags/nginx/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      <guid>http://localhost:1313/tags/nginx/</guid>
       <description></description>
     </item>
     <item>
       <title>PHP</title>
-      <link>https://ashish.one/tags/php/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/php/</guid>
+      <link>http://localhost:1313/tags/php/</link>
+      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
+      <guid>http://localhost:1313/tags/php/</guid>
       <description></description>
     </item>
     <item>
-      <title>google slides</title>
-      <link>https://ashish.one/tags/google-slides/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/google-slides/</guid>
+      <title>Google Slides</title>
+      <link>http://localhost:1313/tags/google-slides/</link>
+      <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
+      <guid>http://localhost:1313/tags/google-slides/</guid>
       <description></description>
     </item>
     <item>
-      <title>gslides</title>
-      <link>https://ashish.one/tags/gslides/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/gslides/</guid>
+      <title>Gslides</title>
+      <link>http://localhost:1313/tags/gslides/</link>
+      <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
+      <guid>http://localhost:1313/tags/gslides/</guid>
       <description></description>
     </item>
     <item>
-      <title>responsive</title>
-      <link>https://ashish.one/tags/responsive/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/responsive/</guid>
+      <title>Responsive</title>
+      <link>http://localhost:1313/tags/responsive/</link>
+      <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
+      <guid>http://localhost:1313/tags/responsive/</guid>
       <description></description>
     </item>
     <item>
-      <title>shortcode</title>
-      <link>https://ashish.one/tags/shortcode/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/shortcode/</guid>
+      <title>Shortcode</title>
+      <link>http://localhost:1313/tags/shortcode/</link>
+      <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
+      <guid>http://localhost:1313/tags/shortcode/</guid>
       <description></description>
     </item>
     <item>
       <title>LFS</title>
-      <link>https://ashish.one/tags/lfs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/lfs/</guid>
+      <link>http://localhost:1313/tags/lfs/</link>
+      <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
+      <guid>http://localhost:1313/tags/lfs/</guid>
       <description></description>
     </item>
     <item>
-      <title>linuxfromscratch</title>
-      <link>https://ashish.one/tags/linuxfromscratch/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/linuxfromscratch/</guid>
+      <title>Linuxfromscratch</title>
+      <link>http://localhost:1313/tags/linuxfromscratch/</link>
+      <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
+      <guid>http://localhost:1313/tags/linuxfromscratch/</guid>
       <description></description>
     </item>
     <item>
-      <title>linuxfromscratch.org</title>
-      <link>https://ashish.one/tags/linuxfromscratch.org/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/linuxfromscratch.org/</guid>
+      <title>Linuxfromscratch.org</title>
+      <link>http://localhost:1313/tags/linuxfromscratch.org/</link>
+      <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
+      <guid>http://localhost:1313/tags/linuxfromscratch.org/</guid>
       <description></description>
     </item>
     <item>
-      <title>ubuntu</title>
-      <link>https://ashish.one/tags/ubuntu/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/ubuntu/</guid>
+      <title>Ubuntu</title>
+      <link>http://localhost:1313/tags/ubuntu/</link>
+      <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
+      <guid>http://localhost:1313/tags/ubuntu/</guid>
       <description></description>
     </item>
     <item>
-      <title>alertmanager</title>
-      <link>https://ashish.one/tags/alertmanager/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/alertmanager/</guid>
+      <title>Alertmanager</title>
+      <link>http://localhost:1313/tags/alertmanager/</link>
+      <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
+      <guid>http://localhost:1313/tags/alertmanager/</guid>
       <description></description>
     </item>
     <item>
-      <title>dashboard</title>
-      <link>https://ashish.one/tags/dashboard/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/dashboard/</guid>
+      <title>Dashboard</title>
+      <link>http://localhost:1313/tags/dashboard/</link>
+      <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
+      <guid>http://localhost:1313/tags/dashboard/</guid>
       <description></description>
     </item>
     <item>
-      <title>grafana</title>
-      <link>https://ashish.one/tags/grafana/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/grafana/</guid>
+      <title>Grafana</title>
+      <link>http://localhost:1313/tags/grafana/</link>
+      <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
+      <guid>http://localhost:1313/tags/grafana/</guid>
       <description></description>
     </item>
     <item>
-      <title>grafana-dashboard</title>
-      <link>https://ashish.one/tags/grafana-dashboard/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/grafana-dashboard/</guid>
+      <title>Grafana-Dashboard</title>
+      <link>http://localhost:1313/tags/grafana-dashboard/</link>
+      <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
+      <guid>http://localhost:1313/tags/grafana-dashboard/</guid>
       <description></description>
     </item>
     <item>
-      <title>node-exporter</title>
-      <link>https://ashish.one/tags/node-exporter/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/node-exporter/</guid>
+      <title>Node-Exporter</title>
+      <link>http://localhost:1313/tags/node-exporter/</link>
+      <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
+      <guid>http://localhost:1313/tags/node-exporter/</guid>
       <description></description>
     </item>
     <item>
-      <title>prometheus</title>
-      <link>https://ashish.one/tags/prometheus/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/prometheus/</guid>
+      <title>Prometheus</title>
+      <link>http://localhost:1313/tags/prometheus/</link>
+      <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
+      <guid>http://localhost:1313/tags/prometheus/</guid>
       <description></description>
     </item>
     <item>
-      <title>pip3.6</title>
-      <link>https://ashish.one/tags/pip3.6/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/pip3.6/</guid>
+      <title>Pip3.6</title>
+      <link>http://localhost:1313/tags/pip3.6/</link>
+      <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
+      <guid>http://localhost:1313/tags/pip3.6/</guid>
       <description></description>
     </item>
     <item>
-      <title>pipenv</title>
-      <link>https://ashish.one/tags/pipenv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/pipenv/</guid>
+      <title>Pipenv</title>
+      <link>http://localhost:1313/tags/pipenv/</link>
+      <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
+      <guid>http://localhost:1313/tags/pipenv/</guid>
       <description></description>
     </item>
     <item>
-      <title>python3.6</title>
-      <link>https://ashish.one/tags/python3.6/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/python3.6/</guid>
+      <title>Python3.6</title>
+      <link>http://localhost:1313/tags/python3.6/</link>
+      <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
+      <guid>http://localhost:1313/tags/python3.6/</guid>
       <description></description>
     </item>
     <item>
-      <title>python3.6 install</title>
-      <link>https://ashish.one/tags/python3.6-install/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/python3.6-install/</guid>
+      <title>Python3.6 Install</title>
+      <link>http://localhost:1313/tags/python3.6-install/</link>
+      <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
+      <guid>http://localhost:1313/tags/python3.6-install/</guid>
       <description></description>
     </item>
     <item>
-      <title>ubuntu14.04</title>
-      <link>https://ashish.one/tags/ubuntu14.04/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/ubuntu14.04/</guid>
+      <title>Ubuntu14.04</title>
+      <link>http://localhost:1313/tags/ubuntu14.04/</link>
+      <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
+      <guid>http://localhost:1313/tags/ubuntu14.04/</guid>
       <description></description>
     </item>
     <item>
-      <title>covid19</title>
-      <link>https://ashish.one/tags/covid19/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/covid19/</guid>
+      <title>Covid19</title>
+      <link>http://localhost:1313/tags/covid19/</link>
+      <pubDate>Fri, 27 Mar 2020 20:04:13 +0530</pubDate>
+      <guid>http://localhost:1313/tags/covid19/</guid>
       <description></description>
     </item>
     <item>
-      <title>covid19India</title>
-      <link>https://ashish.one/tags/covid19india/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/covid19india/</guid>
+      <title>Covid19India</title>
+      <link>http://localhost:1313/tags/covid19india/</link>
+      <pubDate>Fri, 27 Mar 2020 20:04:13 +0530</pubDate>
+      <guid>http://localhost:1313/tags/covid19india/</guid>
       <description></description>
     </item>
     <item>
-      <title>concurrency</title>
-      <link>https://ashish.one/tags/concurrency/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/concurrency/</guid>
+      <title>Concurrency</title>
+      <link>http://localhost:1313/tags/concurrency/</link>
+      <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
+      <guid>http://localhost:1313/tags/concurrency/</guid>
       <description></description>
     </item>
     <item>
-      <title>talk</title>
-      <link>https://ashish.one/tags/talk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/talk/</guid>
+      <title>Talk</title>
+      <link>http://localhost:1313/tags/talk/</link>
+      <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
+      <guid>http://localhost:1313/tags/talk/</guid>
       <description></description>
     </item>
     <item>
-      <title>concurrent</title>
-      <link>https://ashish.one/tags/concurrent/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/concurrent/</guid>
+      <title>Concurrent</title>
+      <link>http://localhost:1313/tags/concurrent/</link>
+      <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/concurrent/</guid>
       <description></description>
     </item>
     <item>
-      <title>concurrent map writes</title>
-      <link>https://ashish.one/tags/concurrent-map-writes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/concurrent-map-writes/</guid>
+      <title>Concurrent Map Writes</title>
+      <link>http://localhost:1313/tags/concurrent-map-writes/</link>
+      <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/concurrent-map-writes/</guid>
       <description></description>
     </item>
     <item>
-      <title>error</title>
-      <link>https://ashish.one/tags/error/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/error/</guid>
+      <title>Error</title>
+      <link>http://localhost:1313/tags/error/</link>
+      <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/error/</guid>
       <description></description>
     </item>
     <item>
-      <title>fatal</title>
-      <link>https://ashish.one/tags/fatal/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/fatal/</guid>
+      <title>Fatal</title>
+      <link>http://localhost:1313/tags/fatal/</link>
+      <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/fatal/</guid>
       <description></description>
     </item>
     <item>
-      <title>map</title>
-      <link>https://ashish.one/tags/map/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/map/</guid>
+      <title>Map</title>
+      <link>http://localhost:1313/tags/map/</link>
+      <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
+      <guid>http://localhost:1313/tags/map/</guid>
       <description></description>
     </item>
     <item>
-      <title>scale</title>
-      <link>https://ashish.one/tags/scale/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/scale/</guid>
+      <title>Scale</title>
+      <link>http://localhost:1313/tags/scale/</link>
+      <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/scale/</guid>
       <description></description>
     </item>
     <item>
-      <title>update</title>
-      <link>https://ashish.one/tags/update/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/update/</guid>
+      <title>Update</title>
+      <link>http://localhost:1313/tags/update/</link>
+      <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
+      <guid>http://localhost:1313/tags/update/</guid>
       <description></description>
     </item>
     <item>
-      <title>exceptions</title>
-      <link>https://ashish.one/tags/exceptions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/exceptions/</guid>
+      <title>Exceptions</title>
+      <link>http://localhost:1313/tags/exceptions/</link>
+      <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
+      <guid>http://localhost:1313/tags/exceptions/</guid>
       <description></description>
     </item>
     <item>
       <title>1-Click</title>
-      <link>https://ashish.one/tags/1-click/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/1-click/</guid>
+      <link>http://localhost:1313/tags/1-click/</link>
+      <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
+      <guid>http://localhost:1313/tags/1-click/</guid>
       <description></description>
     </item>
     <item>
       <title>Digitalocean</title>
-      <link>https://ashish.one/tags/digitalocean/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/digitalocean/</guid>
+      <link>http://localhost:1313/tags/digitalocean/</link>
+      <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
+      <guid>http://localhost:1313/tags/digitalocean/</guid>
       <description></description>
     </item>
     <item>
       <title>Installation</title>
-      <link>https://ashish.one/tags/installation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/installation/</guid>
+      <link>http://localhost:1313/tags/installation/</link>
+      <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
+      <guid>http://localhost:1313/tags/installation/</guid>
       <description></description>
     </item>
     <item>
       <title>WordPress</title>
-      <link>https://ashish.one/tags/wordpress/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/wordpress/</guid>
+      <link>http://localhost:1313/tags/wordpress/</link>
+      <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
+      <guid>http://localhost:1313/tags/wordpress/</guid>
       <description></description>
     </item>
     <item>
-      <title>custom</title>
-      <link>https://ashish.one/tags/custom/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/custom/</guid>
+      <title>Custom</title>
+      <link>http://localhost:1313/tags/custom/</link>
+      <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
+      <guid>http://localhost:1313/tags/custom/</guid>
       <description></description>
     </item>
     <item>
-      <title>custom-exporter</title>
-      <link>https://ashish.one/tags/custom-exporter/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/custom-exporter/</guid>
+      <title>Custom-Exporter</title>
+      <link>http://localhost:1313/tags/custom-exporter/</link>
+      <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
+      <guid>http://localhost:1313/tags/custom-exporter/</guid>
       <description></description>
     </item>
     <item>
-      <title>exporter</title>
-      <link>https://ashish.one/tags/exporter/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/exporter/</guid>
+      <title>Exporter</title>
+      <link>http://localhost:1313/tags/exporter/</link>
+      <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
+      <guid>http://localhost:1313/tags/exporter/</guid>
       <description></description>
     </item>
     <item>
-      <title>elasticsearach</title>
-      <link>https://ashish.one/tags/elasticsearach/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/elasticsearach/</guid>
+      <title>Elasticsearach</title>
+      <link>http://localhost:1313/tags/elasticsearach/</link>
+      <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
+      <guid>http://localhost:1313/tags/elasticsearach/</guid>
       <description></description>
     </item>
     <item>
-      <title>max_gram</title>
-      <link>https://ashish.one/tags/max_gram/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/max_gram/</guid>
+      <title>Max_gram</title>
+      <link>http://localhost:1313/tags/max_gram/</link>
+      <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
+      <guid>http://localhost:1313/tags/max_gram/</guid>
       <description></description>
     </item>
     <item>
-      <title>min_gram</title>
-      <link>https://ashish.one/tags/min_gram/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/min_gram/</guid>
+      <title>Min_gram</title>
+      <link>http://localhost:1313/tags/min_gram/</link>
+      <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
+      <guid>http://localhost:1313/tags/min_gram/</guid>
       <description></description>
     </item>
     <item>
-      <title>tokenizer</title>
-      <link>https://ashish.one/tags/tokenizer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ashish.one/tags/tokenizer/</guid>
+      <title>Tokenizer</title>
+      <link>http://localhost:1313/tags/tokenizer/</link>
+      <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
+      <guid>http://localhost:1313/tags/tokenizer/</guid>
       <description></description>
     </item>
   </channel>

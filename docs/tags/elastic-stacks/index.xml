@@ -1,33 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>elastic-stacks on ashish.one</title>
-    <link>https://ashish.one/tags/elastic-stacks/</link>
-    <description>Recent content in elastic-stacks on ashish.one</description>
+    <title>Elastic-Stacks on ashish.one</title>
+    <link>http://localhost:1313/tags/elastic-stacks/</link>
+    <description>Recent content in Elastic-Stacks on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Jan 2023 14:11:57 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/elastic-stacks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/elastic-stacks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
-      <link>https://ashish.one/blogs/elastic-docker-compose/</link>
+      <link>http://localhost:1313/blogs/elastic-docker-compose/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
-      <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
-      <description>Introduction In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use docker-compose . You can learn more about Docker &amp;amp; Docker Compose , Which will help you to understand the flow.
-Prerequisite Tested on the below configuration.
-docker:Docker version 20.10.16, build aa7e414 docker-compose:Docker version 20.10.16, build aa7e414 Cluster This setup will include
-Elasticsearch Kibana Logstash APM Setup Clone repo:
-git clone https://github.</description>
+      <guid>http://localhost:1313/blogs/elastic-docker-compose/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;. You can learn more about &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Docker Compose&lt;/a&gt;, Which will help you to understand the flow.&lt;/p&gt;
+&lt;h1 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h1&gt;
+&lt;p&gt;Tested on the below configuration.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;docker:&lt;code&gt;Docker version 20.10.16, build aa7e414&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;docker-compose:&lt;code&gt;Docker version 20.10.16, build aa7e414&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;cluster&#34;&gt;Cluster&lt;/h1&gt;
+&lt;p&gt;This setup will include&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Elasticsearch&lt;/li&gt;
+&lt;li&gt;Kibana&lt;/li&gt;
+&lt;li&gt;Logstash&lt;/li&gt;
+&lt;li&gt;APM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
+&lt;p&gt;Clone repo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/ashishtiwari1993/elastic-docker.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd elastic-docker
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Make changes in &lt;code&gt;.env&lt;/code&gt; file.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/" target="_blank" rel="noopener">docker-compose</a>
-. You can learn more about <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a>
- &amp; <a href="https://docs.docker.com/compose/" target="_blank" rel="noopener">Docker Compose</a>
-, Which will help you to understand the flow.</p>
+<p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/">docker-compose</a>. You can learn more about <a href="https://www.docker.com/">Docker</a> &amp; <a href="https://docs.docker.com/compose/">Docker Compose</a>, Which will help you to understand the flow.</p>
 <h1 id="prerequisite">Prerequisite</h1>
 <p>Tested on the below configuration.</p>
 <ul>

@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>prometheus on ashish.one</title>
-    <link>https://ashish.one/tags/prometheus/</link>
-    <description>Recent content in prometheus on ashish.one</description>
+    <title>Prometheus on ashish.one</title>
+    <link>http://localhost:1313/tags/prometheus/</link>
+    <description>Recent content in Prometheus on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Part 4] Setup Grafana With Prometheus</title>
-      <link>https://ashish.one/blogs/setup-grafana-with-prometheus/</link>
+      <link>http://localhost:1313/blogs/setup-grafana-with-prometheus/</link>
       <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
-      <guid>https://ashish.one/blogs/setup-grafana-with-prometheus/</guid>
-      <description>As you know Prometheus already having UI (localhost:9090). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.
-What is Grafana? As grafana.com says
-”Grafana is the open-source analytics and monitoring solution for every database.”
-This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc.</description>
+      <guid>http://localhost:1313/blogs/setup-grafana-with-prometheus/</guid>
+      <description>&lt;p&gt;As you know Prometheus already having UI (&lt;code&gt;localhost:9090&lt;/code&gt;). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-grafana&#34;&gt;What is Grafana?&lt;/h2&gt;
+&lt;p&gt;As &lt;a href=&#34;https://grafana.com&#34;&gt;grafana.com&lt;/a&gt; says&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;”Grafana is the open-source analytics and monitoring solution for every database.”&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc. So you can visualize different data points from the different databases on one screen. This is the flexibility and power Grafana provides.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>As you know Prometheus already having UI (<code>localhost:9090</code>). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.</p>
 <h2 id="what-is-grafana">What is Grafana?</h2>
-<p>As <a href="https://grafana.com" target="_blank" rel="noopener">grafana.com</a>
- says</p>
+<p>As <a href="https://grafana.com">grafana.com</a> says</p>
 <blockquote>
 <p><strong>”Grafana is the open-source analytics and monitoring solution for every database.”</strong></p>
 </blockquote>
 <p>This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc. So you can visualize different data points from the different databases on one screen. This is the flexibility and power Grafana provides.</p>
-<p>Grafana works on TSDB(Time Series Database) or Your data should be save in time series manner. Check explaination <a href="https://grafana.com/docs/grafana/latest/guides/timeseries/" target="_blank" rel="noopener">here</a>
-.</p>
+<p>Grafana works on TSDB(Time Series Database) or Your data should be save in time series manner. Check explaination <a href="https://grafana.com/docs/grafana/latest/guides/timeseries/">here</a>.</p>
 <p>It has an alert system. You can configure an alert on Grafana itself for any Metric.</p>
 <h2 id="why-grafana">Why Grafana?</h2>
 <ol>
@@ -46,8 +47,7 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 <li>8GB RAM</li>
 <li>Ubuntu 18.04 LTS</li>
 </ul>
-<p>You can check <a href="https://grafana.com/docs/grafana/latest/installation/requirements/" target="_blank" rel="noopener">here</a>
- your system requirement according to your Operating System. Also, They explained different ways to install Grafana for different OS.</p>
+<p>You can check <a href="https://grafana.com/docs/grafana/latest/installation/requirements/">here</a> your system requirement according to your Operating System. Also, They explained different ways to install Grafana for different OS.</p>
 <h2 id="setup-grafana">Setup Grafana</h2>
 <h3 id="installation">Installation</h3>
 <p>Grafana has two types of Software:</p>
@@ -89,12 +89,10 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 </code></pre><p>visit <code>localhost:3000</code>.</p>
 <p>We have successfully installed Grafana. Let&rsquo;s configure with Prometheus.</p>
 <h2 id="configure-with-prometheus">Configure with Prometheus</h2>
-<p>We already setup Prometheus in <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/" target="_blank" rel="noopener">part 1</a>
-. Now I am considering your Prometheus and Node exporter are running on port <code>9090</code> &amp; <code>9100</code> respectively.</p>
+<p>We already setup Prometheus in <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">part 1</a>. Now I am considering your Prometheus and Node exporter are running on port <code>9090</code> &amp; <code>9100</code> respectively.</p>
 <h3 id="setup-grafana----prometheus">Setup Grafana &lt;&ndash;&gt; Prometheus</h3>
 <h4 id="step-1-login-on-grafana">Step 1: Login on Grafana</h4>
-<p>Visit <code>localhost:3000</code>. 3000 is the default port of Grafana, However, you can run on any port. To change the port see the <a href="https://grafana.com/docs/grafana/latest/installation/configuration/" target="_blank" rel="noopener">configuration</a>
-.</p>
+<p>Visit <code>localhost:3000</code>. 3000 is the default port of Grafana, However, you can run on any port. To change the port see the <a href="https://grafana.com/docs/grafana/latest/installation/configuration/">configuration</a>.</p>
 <p>Login into Grafana with default Credentials:</p>
 <p><strong>Username</strong>:<code>admin</code><br>
 <strong>Password</strong>:<code>admin</code></p>
@@ -121,10 +119,8 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 <li><strong><em>Import any pre-build Dashboard</em></strong></li>
 </ol>
 <p>We will go with the second option because that is the beauty of community :) People already build a dashboard for various stacks.</p>
-<p>You can search for Dashboard from <a href="https://grafana.com/grafana/dashboards" target="_blank" rel="noopener">https://grafana.com/grafana/dashboards</a>
- as per your requirement.</p>
-<p>Here is the link for Node exporter dashboard: <a href="https://grafana.com/grafana/dashboards/1860" target="_blank" rel="noopener">https://grafana.com/grafana/dashboards/1860</a>
-</p>
+<p>You can search for Dashboard from <a href="https://grafana.com/grafana/dashboards">https://grafana.com/grafana/dashboards</a> as per your requirement.</p>
+<p>Here is the link for Node exporter dashboard: <a href="https://grafana.com/grafana/dashboards/1860">https://grafana.com/grafana/dashboards/1860</a></p>
 <p>Here Dashboard ID is <code>1860</code>. Every dashboard which contributed in Grafana has unique ID. You can just import any dashboard by inserting the ID.</p>
 <p><img loading="lazy" src="/img/grafana-setup/node-exporter-dashboard.png" alt="node-exporter-dashboard"  />
 </p>
@@ -141,24 +137,24 @@ This means Grafana is an independent tool for analytics and monitor which gives 
 <p><img loading="lazy" src="/img/grafana-setup/node-dashboard.png" alt="node-dashboard"  />
 </p>
 <p>Here we have successfully integrated the Grafana with Prometheus. You can explore more features of Grafana like Alerts, Users, etc.</p>
-<p>For the alerting system, I prefer Prometheus Alertmanager only. You can check more details on the Alertmanager in <a href="https://ashish.one/blogs/setup-alertmanager/" target="_blank" rel="noopener">part 2</a>
-. It gives you more control and advanced feature.</p>
+<p>For the alerting system, I prefer Prometheus Alertmanager only. You can check more details on the Alertmanager in <a href="https://ashish.one/blogs/setup-alertmanager/">part 2</a>. It gives you more control and advanced feature.</p>
 <p>But every tool has use cases and built for special purposes. You can choose according to your requirements.</p>
 <p><strong>In case of any confusion or issues leave comments below :)</strong></p>
 ]]></content:encoded>
     </item>
     <item>
       <title>[Part 3] How to write custom prometheus exporter?</title>
-      <link>https://ashish.one/blogs/write-custom-exporters-prometheus/</link>
+      <link>http://localhost:1313/blogs/write-custom-exporters-prometheus/</link>
       <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
-      <guid>https://ashish.one/blogs/write-custom-exporters-prometheus/</guid>
-      <description>Introduction In PART-1 and PART-2 , We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.
-But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.
-There is two way to exporting the data on prometheus: 1.</description>
+      <guid>http://localhost:1313/blogs/write-custom-exporters-prometheus/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://ashish.one/blogs/setup-prometheus-and-exporters/&#34;&gt;PART-1&lt;/a&gt; and &lt;a href=&#34;https://ashish.one/blogs/setup-alertmanager/&#34;&gt;PART-2&lt;/a&gt;, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.&lt;/p&gt;
+&lt;p&gt;But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.&lt;/p&gt;
+&lt;h2 id=&#34;there-is-two-way-to-exporting-the-data-on-prometheus&#34;&gt;There is two way to exporting the data on prometheus:&lt;/h2&gt;
+&lt;h3 id=&#34;1-exporting-to-a-pushgateway&#34;&gt;1. Exporting to a Pushgateway&lt;/h3&gt;
+&lt;p&gt;Here we metrics are getting the push to prometheus server. It not exposed over any URL or port. Internally it directly calls to Prometheus host and pushes the metrics to that.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/" target="_blank" rel="noopener">PART-1</a>
- and <a href="https://ashish.one/blogs/setup-alertmanager/" target="_blank" rel="noopener">PART-2</a>
-, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.</p>
+<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART-1</a> and <a href="https://ashish.one/blogs/setup-alertmanager/">PART-2</a>, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.</p>
 <p>But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.</p>
 <h2 id="there-is-two-way-to-exporting-the-data-on-prometheus">There is two way to exporting the data on prometheus:</h2>
 <h3 id="1-exporting-to-a-pushgateway">1. Exporting to a Pushgateway</h3>
@@ -175,20 +171,17 @@ There is two way to exporting the data on prometheus: 1.</description>
 <h2 id="writing-exporter">Writing Exporter</h2>
 <p>We are going to use the Second option (Exposing over HTTP).</p>
 <h3 id="step-1">Step 1</h3>
-<p>We going to use <a href="https://github.com/prometheus/client_python" target="_blank" rel="noopener">python_client</a>
-. Just install it with below <code>pip</code> command:</p>
+<p>We going to use <a href="https://github.com/prometheus/client_python">python_client</a>. Just install it with below <code>pip</code> command:</p>
 <p><code>pip install prometheus_client</code></p>
 <h3 id="step-2">Step 2</h3>
-<p>We need webserver gateway, For which we are going to use <a href="https://www.python.org/dev/peps/pep-0333/" target="_blank" rel="noopener">WSGI</a>
-.</p>
+<p>We need webserver gateway, For which we are going to use <a href="https://www.python.org/dev/peps/pep-0333/">WSGI</a>.</p>
 <h3 id="step-3">Step 3</h3>
-<p>Whenever we are writing exporters, We need to take care of metric type storage. Prometheus offered four types of metrics: Counter, Gauge, Summary, and Histogram. You can explore more <a href="https://github.com/prometheus/client_python#instrumenting" target="_blank" rel="noopener">here</a>
-. Decide your metric type before pushing data.</p>
+<p>Whenever we are writing exporters, We need to take care of metric type storage. Prometheus offered four types of metrics: Counter, Gauge, Summary, and Histogram. You can explore more <a href="https://github.com/prometheus/client_python#instrumenting">here</a>. Decide your metric type before pushing data.</p>
 <h3 id="step-4">Step 4</h3>
 <p>We are going to run a webserver on <code>8000</code> port and exposing the result on <code>/metrics</code> path. So to access metrics just hit <code>http://myurl.com:8000/metrics</code>.</p>
 <h3 id="step-5">Step 5</h3>
 <p>Complet sample code from my gist:</p>
-<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/7fca576c55cce93b8b980cdfcc420744.js"></script>
+<script src="https://gist.github.com/ashishtiwari1993/7fca576c55cce93b8b980cdfcc420744.js"></script>
 
 <h3 id="step-6">Step 6</h3>
 <p>Add config in <code>prometheus.yml</code></p>
@@ -204,29 +197,26 @@ There is two way to exporting the data on prometheus: 1.</description>
 <blockquote>
 <p>This is just a very basic example. It is a simple script to understand the way of writing exporters. You can write your custom exporters according to your use case.</p>
 </blockquote>
-<p>Here we have successfully write exporter which will expose the metrics. To know more about pushgateway or HTTP expoorter visit <a href="https://github.com/prometheus/client_python#instrumenting" target="_blank" rel="noopener">here</a>
-</p>
-<p>In <a href="https://ashish.one/blogs/setup-grafana-with-prometheus/" target="_blank" rel="noopener">part - 4</a>
-, I have explained how you can integrate Grafana with Prometheus.</p>
+<p>Here we have successfully write exporter which will expose the metrics. To know more about pushgateway or HTTP expoorter visit <a href="https://github.com/prometheus/client_python#instrumenting">here</a></p>
+<p>In <a href="https://ashish.one/blogs/setup-grafana-with-prometheus/">part - 4</a>, I have explained how you can integrate Grafana with Prometheus.</p>
 <p>Share you comments below :)</p>
 ]]></content:encoded>
     </item>
     <item>
       <title>[Part 2] How to setup alertmanager and send alerts ?</title>
-      <link>https://ashish.one/blogs/setup-alertmanager/</link>
+      <link>http://localhost:1313/blogs/setup-alertmanager/</link>
       <pubDate>Wed, 23 Oct 2019 15:24:26 +0530</pubDate>
-      <guid>https://ashish.one/blogs/setup-alertmanager/</guid>
-      <description>Introduction In PART - 1 , We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.
-Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.</description>
+      <guid>http://localhost:1313/blogs/setup-alertmanager/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In &lt;a href=&#34;https://ashish.one/blogs/setup-prometheus-and-exporters/&#34;&gt;PART - 1&lt;/a&gt;, We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.&lt;/p&gt;
+&lt;p&gt;Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/" target="_blank" rel="noopener">PART - 1</a>
-, We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.</p>
+<p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART - 1</a>, We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.</p>
 <p>Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.</p>
 <p>Let&rsquo;s setup alertmanage: )</p>
 <h1 id="setup-alertmanager">Setup Alertmanager</h1>
 <h2 id="installation">Installation:</h2>
-<p>Prerequisites will be the same as <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/" target="_blank" rel="noopener">PART - 1</a>
- . We will download the precompiled binary of alertmanager. Although there is a docker image also available which you can use.</p>
+<p>Prerequisites will be the same as <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART - 1</a> . We will download the precompiled binary of alertmanager. Although there is a docker image also available which you can use.</p>
 <h3 id="step-1-download-alertmanager">Step 1: Download alertmanager</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget https://github.com/prometheus/prometheus/releases/download/v2.13.1/prometheus-2.13.1.linux-amd64.tar.gz
 </span></span></code></pre></div><p><img loading="lazy" src="/img/alertmanager-setup/download_alertmanager.png" alt="alertmanager binary download"  />
@@ -376,15 +366,13 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 <li>If memory utilization is exceeded than 80% then it will trigger an email.</li>
 <li>If any disk partition usage exceeded than 95% then it will trigger an email.</li>
 </ol>
-<p>You will get more insights on defining alerting rules <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/" target="_blank" rel="noopener">here</a>
-.</p>
+<p>You will get more insights on defining alerting rules <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/">here</a>.</p>
 <p>Now you might be wondering what is <code>node_filesystem_size_bytes</code> or <code>node_memory_MemTotal_bytes</code> ?</p>
 <p>If we recall part - 1 when we set up the node exporter and visited on <code>localhost:9100/metrics</code>, It has shown some metric. In that will get the above variable name. If you want to put any alert rules irrespective of any exporters, You have to make <code>expr</code> using these variables.</p>
 <p>You can compile your alert rule file :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ promtool check rules alert.rules.yml
 </span></span></code></pre></div><p><code>promtool</code> is binary which we got in prometheus folder when we extracted it.</p>
-<p>You can explore some sample rules <a href="https://awesome-prometheus-alerts.grep.to/rules.html" target="_blank" rel="noopener">here</a>
-.</p>
+<p>You can explore some sample rules <a href="https://awesome-prometheus-alerts.grep.to/rules.html">here</a>.</p>
 <h3 id="step-4-create-alertmanageryml">Step 4: Create alertmanager.yml</h3>
 <p>Create <code>~/alertmanager/alertmanager.yml</code> file and paste below code:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>global:
@@ -426,7 +414,7 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 </span></span><span style="display:flex;"><span>        text:
 </span></span><span style="display:flex;"><span>         &gt;-
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">{{</span> range .Alerts <span style="color:#f92672">}}</span>
-</span></span><span style="display:flex;"><span>           *Alert:* <span style="color:#f92672">{{</span> .Annotations.summary <span style="color:#f92672">}}</span> - <span style="color:#e6db74">`</span><span style="color:#f92672">{{</span> .Labels.severity <span style="color:#f92672">}}</span><span style="color:#e6db74">`</span>📊
+</span></span><span style="display:flex;"><span>           *Alert:* <span style="color:#f92672">{{</span> .Annotations.summary <span style="color:#f92672">}}</span> - <span style="color:#e6db74">`</span><span style="color:#f92672">{{</span> .Labels.severity <span style="color:#f92672">}}</span><span style="color:#e6db74">`</span>:bar_chart:
 </span></span><span style="display:flex;"><span>           *Description:* <span style="color:#f92672">{{</span> .Annotations.description <span style="color:#f92672">}}</span>
 </span></span><span style="display:flex;"><span>           *Details:*
 </span></span><span style="display:flex;"><span>           <span style="color:#f92672">{{</span> range .Labels.SortedPairs <span style="color:#f92672">}}</span> • *<span style="color:#f92672">{{</span> .Name <span style="color:#f92672">}}</span>:* <span style="color:#e6db74">`</span><span style="color:#f92672">{{</span> .Value <span style="color:#f92672">}}</span><span style="color:#e6db74">`</span>
@@ -449,10 +437,8 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 <ul>
 <li><code>global</code>: Here we can define any global variable like we defined <code>slack_api_url</code>.</li>
 <li><code>route</code>: It is a routing block. I am playing routing on <code>severity</code>. Similarly, it is your choice on which variable you want to route your alerts. So here if <code>severity == ‘info’</code>, Alert will go from slack or if <code>severity == ‘critical’</code>, Alert will go via an email.</li>
-<li><code>receivers</code>: Here we can define the channel by which alert will go. For now, I have defined only email &amp; slack. You can explore more receivers <a href="https://prometheus.io/docs/alerting/configuration/#receiver" target="_blank" rel="noopener">here</a>
-.</li>
-<li><code>templates</code>: It is an alert template where I have defined the HTML template for an email alert. It is not restricted to email. You can define a template for any channel. Explore more details about templates <a href="https://prometheus.io/docs/alerting/notification_examples/" target="_blank" rel="noopener">here</a>
-.</li>
+<li><code>receivers</code>: Here we can define the channel by which alert will go. For now, I have defined only email &amp; slack. You can explore more receivers <a href="https://prometheus.io/docs/alerting/configuration/#receiver">here</a>.</li>
+<li><code>templates</code>: It is an alert template where I have defined the HTML template for an email alert. It is not restricted to email. You can define a template for any channel. Explore more details about templates <a href="https://prometheus.io/docs/alerting/notification_examples/">here</a>.</li>
 </ul>
 <h3 id="step-5-sample-template">Step 5: Sample template</h3>
 <p>Create and Paste below code in <code>~/prometheus/alert.tmpl</code></p>
@@ -519,17 +505,15 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 <p>If everything is set up correctly and alert rule getting true then it will trigger an alert. You can enable the log of alertmanager for debugging purposes.</p>
 <p>If you want to test alert, Then simply make threshold to very less 0% or 1% after 30s it should trigger the alert.</p>
 <p>Visit <code>localhost:9093</code>. If there is some alert you will get the list on the dashboard.</p>
-<p>So we successfully setup alert using alertmanager. In <a href="https://ashish.one/blogs/write-custom-exporters-prometheus/" target="_blank" rel="noopener">part - 3</a>
- I have explained how you can write your own custom exporters &amp; You can check <a href="https://ashish.one/blogs/setup-grafana-with-prometheus/" target="_blank" rel="noopener">part - 4</a>
- to integrate Grafana with Prometheus.</p>
+<p>So we successfully setup alert using alertmanager. In <a href="https://ashish.one/blogs/write-custom-exporters-prometheus/">part - 3</a> I have explained how you can write your own custom exporters &amp; You can check <a href="https://ashish.one/blogs/setup-grafana-with-prometheus/">part - 4</a> to integrate Grafana with Prometheus.</p>
 ]]></content:encoded>
     </item>
     <item>
       <title>[Part 1] How To Setup Prometheus And Exporters For Alerts And Monitoring?</title>
-      <link>https://ashish.one/blogs/setup-prometheus-and-exporters/</link>
+      <link>http://localhost:1313/blogs/setup-prometheus-and-exporters/</link>
       <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
-      <guid>https://ashish.one/blogs/setup-prometheus-and-exporters/</guid>
-      <description>As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday&amp;rsquo;s life.</description>
+      <guid>http://localhost:1313/blogs/setup-prometheus-and-exporters/</guid>
+      <description>&lt;p&gt;As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday&amp;rsquo;s life.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday&rsquo;s life.</p>
 <blockquote>
 <p><strong>“Never send a human to do a machine&rsquo;s job”</strong></p>
@@ -537,21 +521,17 @@ Alertmanager is software that is maintained by the prometheus and it is written 
 <p>At some time, deploying humans to check all these and that too for 24 * 7 can be a real pain.</p>
 <p>That&rsquo;s exactly the purpose of writing this tutorial series around monitoring and alerting. In this tutorial, you will learn how to setup Prometheus as a universal monitoring system and how to use its exporter to define and fetch the metrics which are really important to track.</p>
 <h2 id="what-is-prometheus">What is Prometheus?</h2>
-<p>Prometheus is an open-source system for monitoring and alerting. It developed in the GO language. It is currently a standalone open source project and maintained independently by any organization. You can check more details <a href="https://prometheus.io/docs/introduction/overview/#what-is-prometheus" target="_blank" rel="noopener">here</a>
-.</p>
+<p>Prometheus is an open-source system for monitoring and alerting. It developed in the GO language. It is currently a standalone open source project and maintained independently by any organization. You can check more details <a href="https://prometheus.io/docs/introduction/overview/#what-is-prometheus">here</a>.</p>
 <h2 id="why-prometheus">Why Prometheus?</h2>
 <ol>
 <li>Open-source and of course freely available :)</li>
-<li>It is constantly contributed by the community. It is stable and used by many good brands.  Check <a href="https://stackshare.io/prometheus" target="_blank" rel="noopener">Stackshare</a>
-.</li>
+<li>It is constantly contributed by the community. It is stable and used by many good brands.  Check <a href="https://stackshare.io/prometheus">Stackshare</a>.</li>
 <li>Good community support and well documented.</li>
 <li>You do not need any big infrastructure to get started. It can be started with 1 GB RAM.</li>
 <li>It has its own UI to check any metrics. But, many prefer Grafana with Prometheus which gives you better visualization on your Prometheus metrics.</li>
 <li>Lots of pre-build Grafana dashboard and exporters already written. You have to just reuse those exporters.
-You can check the list of Prometheus features <a href="https://prometheus.io/docs/introduction/overview/#features" target="_blank" rel="noopener">here</a>
-.</li>
-<li>You can check the list of Prometheus features <a href="https://prometheus.io/docs/introduction/overview/#features" target="_blank" rel="noopener">here</a>
-.</li>
+You can check the list of Prometheus features <a href="https://prometheus.io/docs/introduction/overview/#features">here</a>.</li>
+<li>You can check the list of Prometheus features <a href="https://prometheus.io/docs/introduction/overview/#features">here</a>.</li>
 </ol>
 <h2 id="prerequisites-for-setting-up-prometheus">Prerequisites for setting up Prometheus</h2>
 <p>Here Is This Tutorial, Prometheus Is Installed And Tested On A Test Server With Minimum Configuration:</p>
@@ -566,8 +546,7 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
 <p>There are multiple ways to install Prometheus. You can use docker image or use any of the available configuration management systems like Ansible, chef, puppet and salt stack. For more information on installation, visit the official installation guide here.</p>
 <p>It also has pre-compiled binaries available. I am going to use this binary for installation because it is easy to set up and easy to understand because of we already familiar with the utilization of binary files.</p>
 <h4 id="step-1-download-the-prometheus-binary">Step 1: Download the Prometheus binary</h4>
-<p>Visit <a href="https://prometheus.io/download/" target="_blank" rel="noopener">Prometheus</a>
- download page. It will give you a list of pre-compiled binaries for drawins, linux, and windows. You can download according to your OS. Below, the installation is explained for Linux OS.</p>
+<p>Visit <a href="https://prometheus.io/download/">Prometheus</a> download page. It will give you a list of pre-compiled binaries for drawins, linux, and windows. You can download according to your OS. Below, the installation is explained for Linux OS.</p>
 <p>OR</p>
 <p>You can simply fire below command in your Linux terminal:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget https://github.com/prometheus/prometheus/releases/download/v2.11.1/prometheus-2.11.1.linux-amd64.tar.gz
@@ -598,9 +577,7 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
 <p>Now get all metric list by hitting the URL to <code>localhost:9090/metrics</code></p>
 <p><img loading="lazy" src="/img/prometheus-setup/metrics.png" alt="Prometheus metrics"  />
 </p>
-<p>Prometheus stores data on disk in time series, with its custom format.  Behind the scenes, it uses <a href="https://github.com/google/leveldb" target="_blank" rel="noopener">leveldb</a>
-. You can check more <a href="https://prometheus.io/docs/prometheus/latest/storage/" target="_blank" rel="noopener">details</a>
- on storage.</p>
+<p>Prometheus stores data on disk in time series, with its custom format.  Behind the scenes, it uses <a href="https://github.com/google/leveldb">leveldb</a>. You can check more <a href="https://prometheus.io/docs/prometheus/latest/storage/">details</a> on storage.</p>
 <p>Here is a sample production command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ~/prometheus/prometheus --storage.tsdb.path<span style="color:#f92672">=</span>/var/lib/prometheus/data/ --web.external-url<span style="color:#f92672">=</span>http://myurl.com:9090
 </span></span></code></pre></div><p><code>--storage.tsdb.path</code>: Specify the path where you want to save Prometheus data.<br>
@@ -655,8 +632,7 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
 </li>
 </ol>
 <p>You can use both methods but usually, people prefer the first one to fetch metrics.</p>
-<p>So now we are going to setup <a href="https://github.com/prometheus/node_exporter" target="_blank" rel="noopener">node exporter</a>
-. It will fetch your server metrics which will be RAM/DISK/CPU utilization, network, io etc.</p>
+<p>So now we are going to setup <a href="https://github.com/prometheus/node_exporter">node exporter</a>. It will fetch your server metrics which will be RAM/DISK/CPU utilization, network, io etc.</p>
 <h3 id="node-exporter-setup">Node Exporter Setup</h3>
 <h4 id="step-1-download-the-binary-file-and-start-node-exporter">Step 1: Download The Binary File And Start Node Exporter:</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
@@ -752,20 +728,16 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
 </span></span></code></pre></div><p>The rest of option will remain same as i explained in above parts.</p>
 <h1 id="at-the-end">At the end</h1>
 <p>Like this, you can explore each metrics like memory, CPU, etc.</p>
-<p>There are already lots of exporters is available on the internet like Nginx exporter, MongoDB exporter, MySQL server exporter, etc. Just download them and start using it. You can check more info about exporter <a href="https://prometheus.io/docs/instrumenting/exporters/" target="_blank" rel="noopener">here</a>
-.</p>
+<p>There are already lots of exporters is available on the internet like Nginx exporter, MongoDB exporter, MySQL server exporter, etc. Just download them and start using it. You can check more info about exporter <a href="https://prometheus.io/docs/instrumenting/exporters/">here</a>.</p>
 <p><strong>You have now successfully installed Prometheus and node exporters.</strong></p>
-<p>If you see this <a href="https://prometheus.io/docs/introduction/overview/#architecture" target="_blank" rel="noopener">official architecture diagram</a>
-, we have successfully set up the <strong>Prometheus</strong>, <strong>Pushgateway/Exporters</strong>, and <strong>Prometheus UI</strong>.</p>
-<p>In the <a href="https://ashish.one/blogs/setup-alertmanager/" target="_blank" rel="noopener">Part 2</a>
-, we will see how we can set up an alert manager and how to setup alert over the metrics.</p>
+<p>If you see this <a href="https://prometheus.io/docs/introduction/overview/#architecture">official architecture diagram</a>, we have successfully set up the <strong>Prometheus</strong>, <strong>Pushgateway/Exporters</strong>, and <strong>Prometheus UI</strong>.</p>
+<p>In the <a href="https://ashish.one/blogs/setup-alertmanager/">Part 2</a>, we will see how we can set up an alert manager and how to setup alert over the metrics.</p>
 <p>Stay tuned for the new updates.</p>
 <blockquote>
 <p><strong>“NOTE: PROMETHEUS IS METRIC STORAGE SYSTEM. DON’T TRY TO STORE ANY KIND OF LOGS. IT IS NOT RECOMMENDED.”</strong></p>
 </blockquote>
 <p><strong>In case of any confusion or issues leave comments below :)</strong></p>
-<p>Article partially posted on <a href="https://pepipost.com/tutorials/setup-prometheus-and-exporters/" target="_blank" rel="noopener">Pepipost tutorial</a>
- by me.</p>
+<p>Article partially posted on <a href="https://pepipost.com/tutorials/setup-prometheus-and-exporters/">Pepipost tutorial</a> by me.</p>
 ]]></content:encoded>
     </item>
   </channel>

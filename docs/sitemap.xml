@@ -2,513 +2,525 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ashish.one/</loc>
-    <lastmod>2024-06-11T04:12:44+05:30</lastmod>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-10-23T20:29:51+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/aws/</loc>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-10-23T20:29:51+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/elastic/</loc>
+    <lastmod>2024-10-23T20:29:51+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/elasticsearch/</loc>
+    <lastmod>2024-10-23T20:29:51+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/gist/</loc>
+    <lastmod>2024-10-23T20:29:51+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/security/</loc>
+    <lastmod>2024-10-23T20:29:51+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/gist/setup-tls-elasticsearch/</loc>
+    <lastmod>2024-10-23T20:29:51+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ssl/</loc>
+    <lastmod>2024-10-23T20:29:51+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-10-23T20:29:51+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/tls/</loc>
+    <lastmod>2024-10-23T20:29:51+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/aws/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/</loc>
+    <loc>http://localhost:1313/tags/monitoring/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/elastic/</loc>
+    <loc>http://localhost:1313/tags/observability/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/elasticsearch/</loc>
+    <loc>http://localhost:1313/tags/serverless/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/monitoring/</loc>
+    <loc>http://localhost:1313/talks/serverless-ahmedabad-2023-elastic-observability/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/observability/</loc>
+    <loc>http://localhost:1313/talks/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/serverless/</loc>
+    <loc>http://localhost:1313/tags/genai/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</loc>
+    <loc>http://localhost:1313/talks/gids-2024-rag/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/</loc>
-    <lastmod>2024-06-11T04:12:44+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/talks/</loc>
+    <loc>http://localhost:1313/tags/llms/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/genai/</loc>
+    <loc>http://localhost:1313/tags/rag/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/gids-2024-rag/</loc>
+    <loc>http://localhost:1313/tags/semantic-search/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/llms/</loc>
+    <loc>http://localhost:1313/tags/vector-search/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/rag/</loc>
-    <lastmod>2024-06-03T14:43:28+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/semantic-search/</loc>
-    <lastmod>2024-06-03T14:43:28+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/vector-search/</loc>
-    <lastmod>2024-06-03T14:43:28+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/gist/json-to-ndjson-elasticsearch/</loc>
+    <loc>http://localhost:1313/gist/json-to-ndjson-elasticsearch/</loc>
     <lastmod>2024-03-29T20:39:59+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/gist/</loc>
+    <loc>http://localhost:1313/tags/json/</loc>
     <lastmod>2024-03-29T20:39:59+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/json/</loc>
+    <loc>http://localhost:1313/tags/ndjson/</loc>
     <lastmod>2024-03-29T20:39:59+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/ndjson/</loc>
-    <lastmod>2024-03-29T20:39:59+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/elastic/</loc>
+    <loc>http://localhost:1313/tags/elastic/</loc>
     <lastmod>2024-03-29T20:26:29+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/k8s/</loc>
+    <loc>http://localhost:1313/tags/k8s/</loc>
     <lastmod>2024-03-29T20:26:29+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/kubernetes/</loc>
+    <loc>http://localhost:1313/tags/kubernetes/</loc>
     <lastmod>2024-03-29T20:26:29+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/setup_and_observe_kubernetes/</loc>
+    <loc>http://localhost:1313/talks/setup_and_observe_kubernetes/</loc>
     <lastmod>2024-03-29T20:26:29+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/esql/</loc>
+    <loc>http://localhost:1313/talks/esql/</loc>
     <lastmod>2024-02-03T02:56:16+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/esql/</loc>
+    <loc>http://localhost:1313/tags/esql/</loc>
     <lastmod>2024-02-03T02:56:16+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/grok/</loc>
+    <loc>http://localhost:1313/tags/grok/</loc>
     <lastmod>2024-02-03T02:56:16+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/kibana/</loc>
+    <loc>http://localhost:1313/tags/kibana/</loc>
     <lastmod>2024-02-03T02:56:16+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/query/</loc>
+    <loc>http://localhost:1313/tags/query/</loc>
     <lastmod>2024-02-03T02:56:16+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/vector-hybrid-search/</loc>
+    <loc>http://localhost:1313/talks/vector-hybrid-search/</loc>
     <lastmod>2024-01-03T23:08:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/embeddings/</loc>
+    <loc>http://localhost:1313/tags/embeddings/</loc>
     <lastmod>2024-01-03T23:08:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/hybrid-search/</loc>
+    <loc>http://localhost:1313/tags/hybrid-search/</loc>
     <lastmod>2024-01-03T23:08:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/llm/</loc>
+    <loc>http://localhost:1313/tags/llm/</loc>
     <lastmod>2024-01-03T23:08:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/monitor_k8_elastic_observability/</loc>
+    <loc>http://localhost:1313/talks/monitor_k8_elastic_observability/</loc>
     <lastmod>2023-07-28T21:59:42+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/chatgpt/</loc>
+    <loc>http://localhost:1313/tags/chatgpt/</loc>
     <lastmod>2023-08-04T19:38:41+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/knn/</loc>
+    <loc>http://localhost:1313/tags/knn/</loc>
     <lastmod>2023-08-04T19:38:41+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/chatgpt-elasticsearch/</loc>
+    <loc>http://localhost:1313/talks/chatgpt-elasticsearch/</loc>
     <lastmod>2023-08-04T19:38:41+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/</loc>
+    <loc>http://localhost:1313/blogs/</loc>
     <lastmod>2023-01-25T11:52:17+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/http-plugin/</loc>
+    <loc>http://localhost:1313/tags/http-plugin/</loc>
     <lastmod>2023-01-25T11:52:17+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/logstash/</loc>
+    <loc>http://localhost:1313/tags/logstash/</loc>
     <lastmod>2023-08-09T20:10:27+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</loc>
+    <loc>http://localhost:1313/blogs/elastic/receive-webhook-requests-using-elk/</loc>
     <lastmod>2023-01-25T11:52:17+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/webhook-elk/</loc>
+    <loc>http://localhost:1313/tags/webhook-elk/</loc>
     <lastmod>2023-01-25T11:52:17+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/errors/</loc>
+    <loc>http://localhost:1313/tags/errors/</loc>
     <lastmod>2023-01-07T23:49:15+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/generic-errors/</loc>
+    <loc>http://localhost:1313/tags/generic-errors/</loc>
     <lastmod>2023-01-07T23:49:15+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/k8s-errors/</loc>
+    <loc>http://localhost:1313/tags/k8s-errors/</loc>
     <lastmod>2023-01-07T23:49:15+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/kubernetes/</loc>
+    <loc>http://localhost:1313/categories/kubernetes/</loc>
     <lastmod>2023-01-07T23:49:15+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/k8s/k8s-generic-errors/</loc>
+    <loc>http://localhost:1313/blogs/k8s/k8s-generic-errors/</loc>
     <lastmod>2023-01-07T23:49:15+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/beats/</loc>
+    <loc>http://localhost:1313/tags/beats/</loc>
     <lastmod>2023-08-09T20:10:27+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/getting_started_elastic_stack/</loc>
+    <loc>http://localhost:1313/talks/getting_started_elastic_stack/</loc>
     <lastmod>2023-08-09T20:10:27+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/metricbeat/</loc>
+    <loc>http://localhost:1313/tags/metricbeat/</loc>
     <lastmod>2023-08-09T20:10:27+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/analyzer/</loc>
+    <loc>http://localhost:1313/tags/analyzer/</loc>
     <lastmod>2022-12-16T18:13:46+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/bulk/</loc>
+    <loc>http://localhost:1313/tags/bulk/</loc>
     <lastmod>2022-12-16T18:13:46+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/crud/</loc>
+    <loc>http://localhost:1313/tags/crud/</loc>
     <lastmod>2022-12-16T18:13:46+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/ws-es/</loc>
+    <loc>http://localhost:1313/talks/ws-es/</loc>
     <lastmod>2022-12-16T18:13:46+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/conf/</loc>
+    <loc>http://localhost:1313/tags/conf/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/developer/</loc>
+    <loc>http://localhost:1313/tags/developer/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/gohugo/</loc>
+    <loc>http://localhost:1313/tags/gohugo/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/build-developer-profile/</loc>
+    <loc>http://localhost:1313/blogs/build-developer-profile/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/hugo/</loc>
+    <loc>http://localhost:1313/tags/hugo/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/hugo/</loc>
+    <loc>http://localhost:1313/categories/hugo/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/hugoconf2022/</loc>
+    <loc>http://localhost:1313/tags/hugoconf2022/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/profile/</loc>
+    <loc>http://localhost:1313/tags/profile/</loc>
     <lastmod>2022-07-14T23:36:30+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/apm-server/</loc>
+    <loc>http://localhost:1313/tags/apm-server/</loc>
     <lastmod>2023-01-23T14:11:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/docker/</loc>
+    <loc>http://localhost:1313/tags/docker/</loc>
     <lastmod>2023-01-23T14:11:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/elastic-apm/</loc>
+    <loc>http://localhost:1313/tags/elastic-apm/</loc>
     <lastmod>2023-01-23T14:11:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/elastic-stacks/</loc>
+    <loc>http://localhost:1313/tags/elastic-stacks/</loc>
     <lastmod>2023-01-23T14:11:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/elastic-stacks-docker/</loc>
+    <loc>http://localhost:1313/tags/elastic-stacks-docker/</loc>
     <lastmod>2023-01-23T14:11:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/elastic-docker-compose/</loc>
+    <loc>http://localhost:1313/blogs/elastic-docker-compose/</loc>
     <lastmod>2023-01-23T14:11:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/grok-pattern/</loc>
+    <loc>http://localhost:1313/tags/grok-pattern/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/grok-processor/</loc>
+    <loc>http://localhost:1313/tags/grok-processor/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/ingest-pipeline/</loc>
+    <loc>http://localhost:1313/tags/ingest-pipeline/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</loc>
+    <loc>http://localhost:1313/blogs/parsing-custom-log-format-to-the-elasticsearch/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/search-as-you-type/</loc>
+    <loc>http://localhost:1313/blogs/search-as-you-type/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/search_as_you_type/</loc>
+    <loc>http://localhost:1313/tags/search_as_you_type/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/grok_pattern/</loc>
+    <loc>http://localhost:1313/tags/grok_pattern/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/log_parse/</loc>
+    <loc>http://localhost:1313/tags/log_parse/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/devops-conf-2022/</loc>
+    <loc>http://localhost:1313/talks/devops-conf-2022/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/azure/</loc>
+    <loc>http://localhost:1313/tags/azure/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/deploy_elastic_on_azure/</loc>
+    <loc>http://localhost:1313/talks/deploy_elastic_on_azure/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/arch/</loc>
+    <loc>http://localhost:1313/tags/arch/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/arch-linux-installation-challenges/</loc>
+    <loc>http://localhost:1313/blogs/arch-linux-installation-challenges/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/arch-installation/</loc>
+    <loc>http://localhost:1313/tags/arch-installation/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/linux/</loc>
+    <loc>http://localhost:1313/tags/linux/</loc>
     <lastmod>2022-05-11T14:47:26+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/linux/</loc>
+    <loc>http://localhost:1313/categories/linux/</loc>
     <lastmod>2022-05-11T14:47:26+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/bugbounty/</loc>
+    <loc>http://localhost:1313/tags/bugbounty/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</loc>
+    <loc>http://localhost:1313/blogs/get-start-with-bugbounty-pentest-security-researcher/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/misc/</loc>
+    <loc>http://localhost:1313/categories/misc/</loc>
     <lastmod>2022-10-05T13:27:05-04:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/pentest/</loc>
+    <loc>http://localhost:1313/tags/pentest/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/researcher/</loc>
+    <loc>http://localhost:1313/tags/researcher/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/go/</loc>
+    <loc>http://localhost:1313/tags/go/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/golang/</loc>
+    <loc>http://localhost:1313/tags/golang/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/golang/</loc>
+    <loc>http://localhost:1313/categories/golang/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/spf/</loc>
+    <loc>http://localhost:1313/tags/spf/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/spf-lookup-in-go/</loc>
+    <loc>http://localhost:1313/blogs/spf-lookup-in-go/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/spflookup/</loc>
+    <loc>http://localhost:1313/tags/spflookup/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/elk/</loc>
+    <loc>http://localhost:1313/tags/elk/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/elkb/</loc>
+    <loc>http://localhost:1313/tags/elkb/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/logrus/</loc>
+    <loc>http://localhost:1313/tags/logrus/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/logs/</loc>
+    <loc>http://localhost:1313/tags/logs/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</loc>
+    <loc>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/slides/</loc>
+    <loc>http://localhost:1313/tags/slides/</loc>
     <lastmod>2024-06-11T04:12:44+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/slides/</loc>
+    <loc>http://localhost:1313/slides/</loc>
     <lastmod>2024-06-11T04:12:44+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</loc>
+    <loc>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/docker-compose/</loc>
+    <loc>http://localhost:1313/tags/docker-compose/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/lemp/</loc>
+    <loc>http://localhost:1313/tags/lemp/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/mysql/</loc>
+    <loc>http://localhost:1313/tags/mysql/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/nginx/</loc>
+    <loc>http://localhost:1313/tags/nginx/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/php/</loc>
+    <loc>http://localhost:1313/tags/php/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</loc>
+    <loc>http://localhost:1313/blogs/add-responsive-google-slides-on-hugo/</loc>
     <lastmod>2022-06-29T13:58:34+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/google-slides/</loc>
+    <loc>http://localhost:1313/tags/google-slides/</loc>
     <lastmod>2022-06-29T13:58:34+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/gslides/</loc>
+    <loc>http://localhost:1313/tags/gslides/</loc>
     <lastmod>2022-06-29T13:58:34+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/responsive/</loc>
+    <loc>http://localhost:1313/tags/responsive/</loc>
     <lastmod>2022-06-29T13:58:34+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/shortcode/</loc>
+    <loc>http://localhost:1313/tags/shortcode/</loc>
     <lastmod>2022-06-29T13:58:34+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/challenges-in-linuxfromscratch/</loc>
+    <loc>http://localhost:1313/blogs/challenges-in-linuxfromscratch/</loc>
     <lastmod>2022-05-11T14:47:26+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/lfs/</loc>
+    <loc>http://localhost:1313/tags/lfs/</loc>
     <lastmod>2022-05-11T14:47:26+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/linuxfromscratch/</loc>
+    <loc>http://localhost:1313/tags/linuxfromscratch/</loc>
     <lastmod>2022-05-11T14:47:26+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/linuxfromscratch.org/</loc>
+    <loc>http://localhost:1313/tags/linuxfromscratch.org/</loc>
     <lastmod>2022-05-11T14:47:26+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/ubuntu/</loc>
+    <loc>http://localhost:1313/tags/ubuntu/</loc>
     <lastmod>2022-10-05T13:27:05-04:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/setup-grafana-with-prometheus/</loc>
+    <loc>http://localhost:1313/blogs/setup-grafana-with-prometheus/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/alertmanager/</loc>
+    <loc>http://localhost:1313/tags/alertmanager/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/dashboard/</loc>
+    <loc>http://localhost:1313/tags/dashboard/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/grafana/</loc>
+    <loc>http://localhost:1313/tags/grafana/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/grafana-dashboard/</loc>
+    <loc>http://localhost:1313/tags/grafana-dashboard/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/node-exporter/</loc>
+    <loc>http://localhost:1313/tags/node-exporter/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/prometheus/</loc>
+    <loc>http://localhost:1313/tags/prometheus/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/categories/prometheus/</loc>
+    <loc>http://localhost:1313/categories/prometheus/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</loc>
+    <loc>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</loc>
     <lastmod>2022-10-05T13:27:05-04:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/pip3.6/</loc>
+    <loc>http://localhost:1313/tags/pip3.6/</loc>
     <lastmod>2022-10-05T13:27:05-04:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/pipenv/</loc>
+    <loc>http://localhost:1313/tags/pipenv/</loc>
     <lastmod>2022-10-05T13:27:05-04:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/python3.6/</loc>
+    <loc>http://localhost:1313/tags/python3.6/</loc>
     <lastmod>2022-10-05T13:27:05-04:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/python3.6-install/</loc>
+    <loc>http://localhost:1313/tags/python3.6-install/</loc>
     <lastmod>2022-10-05T13:27:05-04:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/ubuntu14.04/</loc>
+    <loc>http://localhost:1313/tags/ubuntu14.04/</loc>
     <lastmod>2022-10-05T13:27:05-04:00</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/covid19/</loc>
+    <loc>http://localhost:1313/tags/covid19/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</loc>
+    <loc>http://localhost:1313/blogs/covid19-data-source-and-endpoints-india-global/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/covid19india/</loc>
+    <loc>http://localhost:1313/tags/covid19india/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/concurrency/</loc>
+    <loc>http://localhost:1313/tags/concurrency/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</loc>
+    <loc>http://localhost:1313/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/talk/</loc>
+    <loc>http://localhost:1313/tags/talk/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</loc>
+    <loc>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/concurrent/</loc>
+    <loc>http://localhost:1313/tags/concurrent/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/concurrent-map-writes/</loc>
+    <loc>http://localhost:1313/tags/concurrent-map-writes/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/error/</loc>
+    <loc>http://localhost:1313/tags/error/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/fatal/</loc>
+    <loc>http://localhost:1313/tags/fatal/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/map/</loc>
+    <loc>http://localhost:1313/tags/map/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</loc>
+    <loc>http://localhost:1313/talks/scale-with-massive-updates-queries-in-elasticsearch/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/scale/</loc>
+    <loc>http://localhost:1313/tags/scale/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/update/</loc>
+    <loc>http://localhost:1313/tags/update/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</loc>
+    <loc>http://localhost:1313/blogs/elasticsearch-exceptions-and-challenges/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/exceptions/</loc>
+    <loc>http://localhost:1313/tags/exceptions/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/1-click/</loc>
+    <loc>http://localhost:1313/tags/1-click/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/digitalocean/</loc>
+    <loc>http://localhost:1313/tags/digitalocean/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</loc>
+    <loc>http://localhost:1313/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/installation/</loc>
+    <loc>http://localhost:1313/tags/installation/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/wordpress/</loc>
+    <loc>http://localhost:1313/tags/wordpress/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/write-custom-exporters-prometheus/</loc>
+    <loc>http://localhost:1313/blogs/write-custom-exporters-prometheus/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/custom/</loc>
+    <loc>http://localhost:1313/tags/custom/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/custom-exporter/</loc>
+    <loc>http://localhost:1313/tags/custom-exporter/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/exporter/</loc>
+    <loc>http://localhost:1313/tags/exporter/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/setup-alertmanager/</loc>
+    <loc>http://localhost:1313/blogs/setup-alertmanager/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/setup-prometheus-and-exporters/</loc>
+    <loc>http://localhost:1313/blogs/setup-prometheus-and-exporters/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/elasticsearach/</loc>
+    <loc>http://localhost:1313/tags/elasticsearach/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/max_gram/</loc>
+    <loc>http://localhost:1313/tags/max_gram/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/min_gram/</loc>
+    <loc>http://localhost:1313/tags/min_gram/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/tokenizer/</loc>
+    <loc>http://localhost:1313/tags/tokenizer/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</loc>
+    <loc>http://localhost:1313/blogs/min-gram-and-max-gram-elasticsearch/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/about/</loc>
-    <lastmod>2022-05-06T08:59:41+05:30</lastmod>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2024-07-01T13:53:54+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/archives/</loc>
+    <loc>http://localhost:1313/archives/</loc>
     <lastmod>2022-06-23T18:22:32+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/search/</loc>
+    <loc>http://localhost:1313/search/</loc>
     <lastmod>2022-06-29T13:58:34+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/series/</loc>
+    <loc>http://localhost:1313/series/</loc>
   </url>
 </urlset>

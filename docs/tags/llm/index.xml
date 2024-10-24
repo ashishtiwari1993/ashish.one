@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>LLM on ashish.one</title>
-    <link>https://ashish.one/tags/llm/</link>
-    <description>Recent content in LLM on ashish.one</description>
+    <title>Llm on ashish.one</title>
+    <link>http://localhost:1313/tags/llm/</link>
+    <description>Recent content in Llm on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 03 Jan 2024 23:08:57 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elasticsearch: Vector and Hybrid Search</title>
-      <link>https://ashish.one/talks/vector-hybrid-search/</link>
+      <link>http://localhost:1313/talks/vector-hybrid-search/</link>
       <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/talks/vector-hybrid-search/</guid>
-      <description>Introduction Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.
-This talk gives an overview of:
-Classic search and its limitations. What is a model and how can you use it. How to use vector search or hybrid search in Elasticsearch. Where OpenAI&amp;rsquo;s ChatGPT or similar LLMs come into play to with Elastic. Check how to leverage Leverage ChatGPT with Elasticsearch .</description>
+      <guid>http://localhost:1313/talks/vector-hybrid-search/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.&lt;/p&gt;
+&lt;p&gt;This talk gives an overview of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Classic&lt;/strong&gt; search and its limitations.&lt;/li&gt;
+&lt;li&gt;What is a model and how can you use it.&lt;/li&gt;
+&lt;li&gt;How to use vector search or hybrid search in Elasticsearch.&lt;/li&gt;
+&lt;li&gt;Where OpenAI&amp;rsquo;s ChatGPT or similar LLMs come into play to with Elastic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check how to leverage &lt;a href=&#34;https://ashish.one/talks/chatgpt-elasticsearch/&#34;&gt;Leverage ChatGPT with Elasticsearch&lt;/a&gt;.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.</p>
 <p>This talk gives an overview of:</p>
@@ -30,21 +37,23 @@ Classic search and its limitations. What is a model and how can you use it. How 
 <li>How to use vector search or hybrid search in Elasticsearch.</li>
 <li>Where OpenAI&rsquo;s ChatGPT or similar LLMs come into play to with Elastic.</li>
 </ul>
-<p>Check how to leverage <a href="https://ashish.one/talks/chatgpt-elasticsearch/" target="_blank" rel="noopener">Leverage ChatGPT with Elasticsearch</a>
-.</p>
+<p>Check how to leverage <a href="https://ashish.one/talks/chatgpt-elasticsearch/">Leverage ChatGPT with Elasticsearch</a>.</p>
 <h2 id="talk-video">Talk Video</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/AljarsLZRW0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/AljarsLZRW0?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 ]]></content:encoded>
     </item>
     <item>
       <title>Workshop - Leverage ChatGPT with Elasticsearch</title>
-      <link>https://ashish.one/talks/chatgpt-elasticsearch/</link>
+      <link>http://localhost:1313/talks/chatgpt-elasticsearch/</link>
       <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
-      <guid>https://ashish.one/talks/chatgpt-elasticsearch/</guid>
+      <guid>http://localhost:1313/talks/chatgpt-elasticsearch/</guid>
       <description>Connect ChatGPT to proprietary data stores using Elasticsearch</description>
       <content:encoded><![CDATA[<h1 id="objective">Objective</h1>
 <p>In this hands-on workshop, We will learn how to connect ChatGPT to proprietary data stores using Elasticsearch and build question/answer capabilities for your data. In a demo, We will quickly convert your website, FAQ, or any documentation into prompt chat where your user can directly ask a question on your data.</p>
@@ -63,31 +72,25 @@ Classic search and its limitations. What is a model and how can you use it. How 
 <p>System + Internet connection</p>
 </li>
 <li>
-<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">https://platform.openai.com/account/api-keys</a>
-. Make sure it having <a href="https://platform.openai.com/account/usage" target="_blank" rel="noopener">free credits</a>
-.</p>
+<p>OpenAI account with API key - Create new one from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>. Make sure it having <a href="https://platform.openai.com/account/usage">free credits</a>.</p>
 </li>
 </ol>
 <h2 id="without-local-setup">Without local setup</h2>
 <ol>
 <li>
-<p>Google account to use <a href="https://colab.research.google.com/" target="_blank" rel="noopener">google Colab</a>
-.</p>
+<p>Google account to use <a href="https://colab.research.google.com/">google Colab</a>.</p>
 </li>
 <li>
-<p><a href="https://render.com/" target="_blank" rel="noopener">Render</a>
- account.</p>
+<p><a href="https://render.com/">Render</a> account.</p>
 </li>
 </ol>
 <h2 id="local-setup">Local setup</h2>
 <ol>
 <li>
-<p>Git - Install it from <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a>
-</p>
+<p>Git - Install it from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
 </li>
 <li>
-<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">https://docs.docker.com/engine/install/</a>
-.</p>
+<p>Docker - Good to have. Install it from <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</p>
 </li>
 <li>
 <p>Having basic python knowledge will be good.</p>
@@ -97,8 +100,7 @@ Classic search and its limitations. What is a model and how can you use it. How 
 <h1 id="1-setup-cluster">1. Setup cluster</h1>
 <ol>
 <li>
-<p>Visit <a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
- and signup.</p>
+<p>Visit <a href="https://cloud.elastic.co">cloud.elastic.co</a> and signup.</p>
 </li>
 <li>
 <p>Click on <em><strong>Create deployment</strong></em>. In the pop-up, you can change the settings or leave it default.</p>
@@ -130,23 +132,19 @@ Classic search and its limitations. What is a model and how can you use it. How 
 <li>Click <em><strong>Start</strong></em>.</li>
 </ol>
 <h2 id="third-party-model">Third party model</h2>
-<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">all-distilroberta-v1</a>
- model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
+<p>We are going to use <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1">all-distilroberta-v1</a> model hosted on a hugging face. Lets import on an elastic cluster using eland.</p>
 <p><strong>Get your credentials ready</strong></p>
 <ul>
-<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
-</strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: <code>elastic</code></li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be <code>elastic</code> only)</li>
-<li><code>hf_model_id</code>: <code>sentence-transformers/all-distilroberta-v1</code> (Go to model <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1" target="_blank" rel="noopener">page</a>
- on huggingface &amp; copy the ID <code>sentence-transformers/all-distilroberta-v1</code>)</li>
+<li><code>hf_model_id</code>: <code>sentence-transformers/all-distilroberta-v1</code> (Go to model <a href="https://huggingface.co/sentence-transformers/all-distilroberta-v1">page</a> on huggingface &amp; copy the ID <code>sentence-transformers/all-distilroberta-v1</code>)</li>
 </ul>
 <p>Now there is two way, You can upload the model using <code>docker</code> as well as <code>Google colab</code>.</p>
 <h3 id="using-google-colab-recommended">Using Google Colab (Recommended)</h3>
 <p>Simply click on below link. It will open ready made notebook. You just need to click on <code>play</code> button to run notebood.</p>
-<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb" target="_blank" rel="noopener"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
-</a>
-</p>
+<p><a href="https://colab.research.google.com/github/ashishtiwari1993/elasticsearch-chatgpt/blob/main/load_model_eland.ipynb"><img loading="lazy" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"  />
+</a></p>
 <h3 id="using-docker">Using Docker</h3>
 <ol start="2">
 <li>
@@ -220,20 +218,17 @@ Classic search and its limitations. What is a model and how can you use it. How 
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>Paste above query in <code>cosole</code> and hit on play button.</p>
 <ol start="13">
-<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one" target="_blank" rel="noopener">https://ashish.one</a>
-. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
+<li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one">https://ashish.one</a>. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
 <li>If everything is fine, simply click on “<em><strong>Add domain</strong></em>” and start crawling by click on <em><strong>Crawl -&gt; Crawl all domains on this index</strong></em>.</li>
 <li>Go to <em><strong>Enterprise Search -&gt; Indices</strong></em>. You should see your index name.</li>
 </ol>
 <h1 id="4-setup-interface">4. Setup Interface</h1>
 <p>** Get your credentials ready **</p>
 <ol>
-<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co" target="_blank" rel="noopener">cloud.elastic.co</a>
-</strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
+<li><code>cloud_id</code> : Visit “<em><strong><a href="https://cloud.elastic.co">cloud.elastic.co</a></strong></em>” -&gt; Navigate to your deployment and click on “<em><strong>manage</strong></em>”. Simply copy Cloud ID and save it.</li>
 <li><code>cloud_user</code>: elastic</li>
 <li><code>cloud_password</code>: You will get it from step 1.6. If you forget to save, Simply click on <em><strong>“Action” -&gt; “Reset password”</strong></em>. (Username will be elastic)</li>
-<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">https://platform.openai.com/account/api-keys</a>
-.</li>
+<li><code>openai_api</code>: Create open ai api key from <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>.</li>
 <li><code>es_index</code>: Index name which we created in step 3.3. (search-ashish.one)</li>
 <li><code>vector_field</code>: The field which we&rsquo;ve set for destination at step 3.9. i.e. <strong>title-vector</strong></li>
 </ol>
@@ -262,14 +257,11 @@ Classic search and its limitations. What is a model and how can you use it. How 
 <li>Run</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker run -p 8501:8501 es-gpt
-</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a>
-</p>
-<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/" target="_blank" rel="noopener">Render</a>
- with Docker</h2>
+</span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a></p>
+<h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/">Render</a> with Docker</h2>
 <ol>
 <li>
-<p>Signup on <a href="https://render.com" target="_blank" rel="noopener">https://render.com</a>
-.</p>
+<p>Signup on <a href="https://render.com">https://render.com</a>.</p>
 </li>
 <li>
 <p>Create <strong>Web Service</strong>.</p>
@@ -302,8 +294,7 @@ Classic search and its limitations. What is a model and how can you use it. How 
 <p><img loading="lazy" src="/img/talks/elasticsearch-chatgpt/ashish_one_gpt.gif" alt="ashish.one ChatGPT"  />
 </p>
 <h1 id="reference">Reference</h1>
-<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data" target="_blank" rel="noopener">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a>
-</p>
+<p><a href="https://www.elastic.co/blog/chatgpt-elasticsearch-openai-meets-private-data">Blog - ChatGPT and Elasticsearch: OpenAI meets private data</a></p>
 ]]></content:encoded>
     </item>
   </channel>

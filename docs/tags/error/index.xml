@@ -1,25 +1,65 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>error on ashish.one</title>
-    <link>https://ashish.one/tags/error/</link>
-    <description>Recent content in error on ashish.one</description>
+    <title>Error on ashish.one</title>
+    <link>http://localhost:1313/tags/error/</link>
+    <description>Recent content in Error on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/error/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/error/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[SOLVED] Golang fatal error: concurrent map writes</title>
-      <link>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</link>
+      <link>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</link>
       <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
-      <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
-      <description>The Problem: Suddenly got below errors which killed my daemon:
-fatal error: concurrent map writes goroutine 646 [running]: runtime.throw(0x75fd38, 0x15) /usr/local/go/src/runtime/panic.go:774 +0x72 fp=0xc000315e60 sp=0xc000315e30 pc=0x42ecf2 runtime.mapdelete_fast64(0x6f0800, 0xc00008ad50, 0x2b3e) goroutine 1 [sleep]: runtime.goparkunlock(...) /usr/local/go/src/runtime/proc.go:310 time.Sleep(0x12a05f200) /usr/local/go/src/runtime/time.go:105 +0x157 webhook/worker.Manager() goroutine 6 [IO wait]: internal/poll.runtime_pollWait(0x7fc308de6f08, 0x72, 0x0) /usr/local/go/src/runtime/netpoll.go:184 +0x55 internal/poll.(*pollDesc).wait(0xc000110018, 0x72, 0x0, 0x0, 0x75b00b) /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45 internal/poll.(*pollDesc).waitRead(...) /usr/local/go/src/internal/poll/fd_poll_runtime.go:92 internal/poll.(*FD).Accept(0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0) /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8 net.(*netFD).accept(0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0) /usr/local/go/src/net/fd_unix.</description>
+      <guid>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/golang/concurrent_map_writes.jpg&#34; alt=&#34;concurrent_map_writes&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem:&lt;/h2&gt;
+&lt;p&gt;Suddenly got below errors which killed my daemon:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fatal error: concurrent map writes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;goroutine &lt;span style=&#34;color:#ae81ff&#34;&gt;646&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;running&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;runtime.throw&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x75fd38, 0x15&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/panic.go:774 +0x72 fp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0xc000315e60 sp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0xc000315e30 pc&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0x42ecf2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;runtime.mapdelete_fast64&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x6f0800, 0xc00008ad50, 0x2b3e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;goroutine &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;sleep&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;runtime.goparkunlock&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/proc.go:310
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;time.Sleep&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x12a05f200&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/time.go:105 +0x157
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;webhook/worker.Manager&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;goroutine &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;IO wait&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.runtime_pollWait&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x7fc308de6f08, 0x72, 0x0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/netpoll.go:184 +0x55
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*pollDesc&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.wait&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000110018, 0x72, 0x0, 0x0, 0x75b00b&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*pollDesc&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.waitRead&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*FD&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.Accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*netFD&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/fd_unix.go:238 +0x42
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*TCPListener&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000126000, 0xc000050d80, 0x40dd08, 0x30&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*TCPListener&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.Accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000126000, 0x72f560, 0xc0000f0180, 0x6f4f20, 0x9c00c0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/tcpsock.go:261 +0x47
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net/http.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*Server&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.Serve&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc0000f4000, 0x7ccbe0, 0xc000126000, 0x0, 0x0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/http/server.go:2896 +0x286
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net/http.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*Server&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.ListenAndServe&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc0000f4000, 0xc0000f4000, 0x8&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/http/server.go:2825 +0xb7
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net/http.ListenAndServe&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/http/server.go:3080
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;webhook/handler.HandleRequest&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;expected-behaviour&#34;&gt;Expected behaviour&lt;/h3&gt;
+&lt;p&gt;In starting for a few seconds it was working smoothly.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/golang/concurrent_map_writes.jpg" alt="concurrent_map_writes"  />
 </p>
 <h2 id="the-problem">The Problem:</h2>
@@ -108,15 +148,12 @@ It is as simple as below:</p>
 </span></span></code></pre></div><p>This is how we successfully fix this problem.</p>
 <h2 id="code-to-reproduce">Code to Reproduce</h2>
 <p>To reproduce, Comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>
-<script type="application/javascript" src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
+<script src="https://gist.github.com/ashishtiwari1993/d494b71ac264184ba46ced1bf2114c30.js"></script>
 
 <h2 id="references">References:</h2>
-<p><a href="https://blog.golang.org/go-maps-in-action" target="_blank" rel="noopener">https://blog.golang.org/go-maps-in-action</a>
-<br>
-<a href="https://golang.org/doc/faq#atomic_maps" target="_blank" rel="noopener">https://golang.org/doc/faq#atomic_maps</a>
-<br>
-<a href="https://gobyexample.com/mutexes" target="_blank" rel="noopener">https://gobyexample.com/mutexes</a>
-</p>
+<p><a href="https://blog.golang.org/go-maps-in-action">https://blog.golang.org/go-maps-in-action</a><br>
+<a href="https://golang.org/doc/faq#atomic_maps">https://golang.org/doc/faq#atomic_maps</a><br>
+<a href="https://gobyexample.com/mutexes">https://gobyexample.com/mutexes</a></p>
 ]]></content:encoded>
     </item>
   </channel>

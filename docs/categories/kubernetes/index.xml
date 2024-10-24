@@ -2,25 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Kubernetes on ashish.one</title>
-    <link>https://ashish.one/categories/kubernetes/</link>
+    <link>http://localhost:1313/categories/kubernetes/</link>
     <description>Recent content in Kubernetes on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Jan 2023 23:49:15 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes generic errors</title>
-      <link>https://ashish.one/blogs/k8s/k8s-generic-errors/</link>
+      <link>http://localhost:1313/blogs/k8s/k8s-generic-errors/</link>
       <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
-      <guid>https://ashish.one/blogs/k8s/k8s-generic-errors/</guid>
-      <description>1. unknown service runtime.v1alpha2.ImageService Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService
-System configuration centos 9 / 2GB RAM / 2CPU Master Node Same issue on master node.
-Command [root@kube-master-1 ~]# kubeadm config images pull failed to pull image &amp;#34;registry.k8s.io/kube-apiserver:v1.26.0&amp;#34;: output: E0107 14:52:09.997544 4134 remote_image.go:222] &amp;#34;PullImage from image service failed&amp;#34; err=&amp;#34;rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&amp;#34; image=&amp;#34;registry.k8s.io/kube-apiserver:v1.26.0&amp;#34; time=&amp;#34;2023-01-07T14:52:09Z&amp;#34; level=fatal msg=&amp;#34;pulling image: rpc error: code = Unimplemented desc = unknown service runtime.</description>
+      <guid>http://localhost:1313/blogs/k8s/k8s-generic-errors/</guid>
+      <description>&lt;h2 id=&#34;1-unknown-service-runtimev1alpha2imageservice&#34;&gt;1. unknown service runtime.v1alpha2.ImageService&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;system-configuration&#34;&gt;System configuration&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;centos 9 / 2GB RAM / 2CPU
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;master-node&#34;&gt;Master Node&lt;/h3&gt;
+&lt;p&gt;Same issue on master node.&lt;/p&gt;
+&lt;h4 id=&#34;command&#34;&gt;Command&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;root@kube-master-1 ~&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# kubeadm config images pull&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;failed to pull image &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;registry.k8s.io/kube-apiserver:v1.26.0&amp;#34;&lt;/span&gt;: output: E0107 14:52:09.997544    &lt;span style=&#34;color:#ae81ff&#34;&gt;4134&lt;/span&gt; remote_image.go:222&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PullImage from image service failed&amp;#34;&lt;/span&gt; err&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&amp;#34;&lt;/span&gt; image&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;registry.k8s.io/kube-apiserver:v1.26.0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2023-01-07T14:52:09Z&amp;#34;&lt;/span&gt; level&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;fatal msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;, error: exit status &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;To see the stack trace of this error execute with --v&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; or higher
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;-solved&#34;&gt;✅ Solved&lt;/h4&gt;
+&lt;p&gt;Remove below file:&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="1-unknown-service-runtimev1alpha2imageservice">1. unknown service runtime.v1alpha2.ImageService</h2>
 <blockquote>
 <p>Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService</p>

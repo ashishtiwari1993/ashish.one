@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>slides on ashish.one</title>
-    <link>https://ashish.one/tags/slides/</link>
-    <description>Recent content in slides on ashish.one</description>
+    <title>Slides on ashish.one</title>
+    <link>http://localhost:1313/tags/slides/</link>
+    <description>Recent content in Slides on ashish.one</description>
     <image>
       <title>ashish.one</title>
-      <url>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</url>
-      <link>https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200</link>
+      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
     </image>
-    <generator>Hugo -- 0.115.4</generator>
+    <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 11 Jun 2024 04:12:44 +0530</lastBuildDate>
-    <atom:link href="https://ashish.one/tags/slides/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/slides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Slides</title>
-      <link>https://ashish.one/slides/</link>
+      <link>http://localhost:1313/slides/</link>
       <pubDate>Tue, 19 May 2020 17:27:32 +0530</pubDate>
-      <guid>https://ashish.one/slides/</guid>
-      <description> Opentelemetry with Elastic Function calling </description>
+      <guid>http://localhost:1313/slides/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.ashish.one/otel&#34;&gt;Opentelemetry with Elastic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.ashish.one/function-calling&#34;&gt;Function calling&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
       <content:encoded><![CDATA[<ul>
-<li><a href="https://slides.ashish.one/otel" target="_blank" rel="noopener">Opentelemetry with Elastic</a>
-</li>
-<li><a href="https://slides.ashish.one/function-calling" target="_blank" rel="noopener">Function calling</a>
-</li>
+<li><a href="https://slides.ashish.one/otel">Opentelemetry with Elastic</a></li>
+<li><a href="https://slides.ashish.one/function-calling">Function calling</a></li>
 </ul>
 ]]></content:encoded>
     </item>
