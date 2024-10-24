@@ -9,8 +9,6 @@ slug: "setup-tls-elasticsearch"
 categories: ["Elastic"]
 ---
 
-# Setup TLS on public IP or Domain with Elasticsearch
-
 This is a quick gist to demonstrate how you can run Elasticsearch securely with TLS on a public IP or domain. Sometimes, we need to spin up Elasticsearch for a development environment. In that case, you can follow these quick steps.
 
 > Note - This gist is not recommended for production multinode cluster. As I only tested on single node cluster. If you have a multi-node cluster please follow the official [guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/manually-configure-security.html).
@@ -39,6 +37,8 @@ In my case it was
 ```sh
 cd elasticsearch-8.15.3/
 ```
+
+---
 
 # Default TLS setup
 
@@ -106,6 +106,8 @@ It is giving an error because the certificate is not valid for the IP / Domain. 
 ```
 curl -k --cacert $ES_HOME/config/certs/http_ca.crt -u elastic:pass https://x.x.x.x:9200
 ```
+
+---
 
 # Generate TLS certificate for the Public IP / Domain
 

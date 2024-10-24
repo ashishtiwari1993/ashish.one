@@ -11,19 +11,17 @@
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Oct 2024 13:39:48 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 25 Oct 2024 01:35:22 +0530</lastBuildDate>
     <atom:link href="https://ashish.one/categories/elastic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Set Up TLS for Elasticsearch on Public IP / Domain</title>
       <link>https://ashish.one/gist/setup-tls-elasticsearch/</link>
       <pubDate>Wed, 23 Oct 2024 20:29:51 +0530</pubDate>
       <guid>https://ashish.one/gist/setup-tls-elasticsearch/</guid>
-      <description>&lt;h1 id=&#34;setup-tls-on-public-ip-or-domain-with-elasticsearch&#34;&gt;Setup TLS on public IP or Domain with Elasticsearch&lt;/h1&gt;
-&lt;p&gt;This is a quick gist to demonstrate how you can run Elasticsearch securely with TLS on a public IP or domain. Sometimes, we need to spin up Elasticsearch for a development environment. In that case, you can follow these quick steps.&lt;/p&gt;
+      <description>&lt;p&gt;This is a quick gist to demonstrate how you can run Elasticsearch securely with TLS on a public IP or domain. Sometimes, we need to spin up Elasticsearch for a development environment. In that case, you can follow these quick steps.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Note - This gist is not recommended for production multinode cluster. As I only tested on single node cluster. If you have a multi-node cluster please follow the official &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/manually-configure-security.html&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;</description>
-      <content:encoded><![CDATA[<h1 id="setup-tls-on-public-ip-or-domain-with-elasticsearch">Setup TLS on public IP or Domain with Elasticsearch</h1>
-<p>This is a quick gist to demonstrate how you can run Elasticsearch securely with TLS on a public IP or domain. Sometimes, we need to spin up Elasticsearch for a development environment. In that case, you can follow these quick steps.</p>
+      <content:encoded><![CDATA[<p>This is a quick gist to demonstrate how you can run Elasticsearch securely with TLS on a public IP or domain. Sometimes, we need to spin up Elasticsearch for a development environment. In that case, you can follow these quick steps.</p>
 <blockquote>
 <p>Note - This gist is not recommended for production multinode cluster. As I only tested on single node cluster. If you have a multi-node cluster please follow the official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/manually-configure-security.html">guide</a>.</p>
 </blockquote>
@@ -47,7 +45,8 @@ Configuration: <code>4 CPU, 16 GB RAM</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd elasticsearch-<span style="color:#f92672">{</span>version<span style="color:#f92672">}</span>/
 </span></span></code></pre></div><p>In my case it was</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd elasticsearch-8.15.3/
-</span></span></code></pre></div><h1 id="default-tls-setup">Default TLS setup</h1>
+</span></span></code></pre></div><hr>
+<h1 id="default-tls-setup">Default TLS setup</h1>
 <p>When you install Elasticsearch, By default it will generate a TLS certificate for the host <code>localhost</code> and IP <code>127.0.0.1</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls config/certs/
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>http.p12  http_ca.crt  transport.p12
@@ -83,7 +82,8 @@ establish a secure connection to it. To learn more about this situation and
 how to fix it, please visit the web page mentioned above.
 </code></pre><p>It is giving an error because the certificate is not valid for the IP / Domain. However, you can call insecurely by adding <code>-k</code> which is not recommended for production use.</p>
 <pre tabindex="0"><code>curl -k --cacert $ES_HOME/config/certs/http_ca.crt -u elastic:pass https://x.x.x.x:9200
-</code></pre><h1 id="generate-tls-certificate-for-the-public-ip--domain">Generate TLS certificate for the Public IP / Domain</h1>
+</code></pre><hr>
+<h1 id="generate-tls-certificate-for-the-public-ip--domain">Generate TLS certificate for the Public IP / Domain</h1>
 <h2 id="1-lets-generate-the-new-local-certificate-authority-ca">1. Let&rsquo;s generate the new local certificate authority CA)</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./bin/elasticsearch-certutil ca
 </span></span></code></pre></div><pre tabindex="0"><code>This tool assists you in the generation of X.509 certificates and certificate
