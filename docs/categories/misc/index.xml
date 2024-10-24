@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Misc on ashish.one</title>
-    <link>http://localhost:1313/categories/misc/</link>
+    <link>https://ashish.one/categories/misc/</link>
     <description>Recent content in Misc on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Oct 2022 13:27:05 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/misc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/categories/misc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Get start with BugBounty, Pentest and Security Researcher</title>
-      <link>http://localhost:1313/blogs/get-start-with-bugbounty-pentest-security-researcher/</link>
+      <link>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</link>
       <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/get-start-with-bugbounty-pentest-security-researcher/</guid>
+      <guid>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</guid>
       <description>&lt;p&gt;I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.&lt;/p&gt;
 &lt;h2 id=&#34;the-fact&#34;&gt;The Fact&lt;/h2&gt;
 &lt;p&gt;The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.&lt;/p&gt;
@@ -68,9 +68,9 @@
     </item>
     <item>
       <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
-      <link>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
+      <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
       <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
+      <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
       <description>&lt;p&gt;Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.&lt;/p&gt;
 &lt;p&gt;In this blog, We are going to setup PHP and Nginx.&lt;/p&gt;
 &lt;h3 id=&#34;why-docker&#34;&gt;Why Docker?&lt;/h3&gt;
@@ -186,9 +186,9 @@
     </item>
     <item>
       <title>Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</title>
-      <link>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
+      <link>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
       <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
+      <guid>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
       <description>&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;OS:&lt;/strong&gt; Ubuntu 14.04 LTS&lt;br&gt;
 &lt;strong&gt;Processor:&lt;/strong&gt; 64 Bit&lt;br&gt;
@@ -277,9 +277,9 @@
     </item>
     <item>
       <title>Covid19 Data Source for India &amp; Global</title>
-      <link>http://localhost:1313/blogs/covid19-data-source-and-endpoints-india-global/</link>
+      <link>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</link>
       <pubDate>Fri, 27 Mar 2020 20:04:13 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/covid19-data-source-and-endpoints-india-global/</guid>
+      <guid>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</guid>
       <description>&lt;p&gt;Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.&lt;/p&gt;
 &lt;h2 id=&#34;apis&#34;&gt;APIs&lt;/h2&gt;
 &lt;h3 id=&#34;1-github-amodmapi-covid19-in-india&#34;&gt;1. Github: amodm/api-covid19-in (India)&lt;/h3&gt;
@@ -401,9 +401,9 @@
     </item>
     <item>
       <title>How to reset 1-Click Installed WordPress on DigitalOcean?</title>
-      <link>http://localhost:1313/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
+      <link>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
       <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
+      <guid>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
       <description>&lt;h2 id=&#34;the-requirement&#34;&gt;The Requirement&lt;/h2&gt;
 &lt;p&gt;Need to install fresh wordpress with same version on wordpress droplet of digitalocean.&lt;/p&gt;
 &lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;

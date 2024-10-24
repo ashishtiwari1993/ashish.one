@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Elasticsearach on ashish.one</title>
-    <link>http://localhost:1313/tags/elasticsearach/</link>
+    <link>https://ashish.one/tags/elasticsearach/</link>
     <description>Recent content in Elasticsearach on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/elasticsearach/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/elasticsearach/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What should be the value of max_gram and min_gram in Elasticsearch?</title>
-      <link>http://localhost:1313/blogs/min-gram-and-max-gram-elasticsearch/</link>
+      <link>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</link>
       <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/min-gram-and-max-gram-elasticsearch/</guid>
+      <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
       <description>&lt;p&gt;I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html&#34;&gt;ngram token filter&lt;/a&gt; for like query. It was quickly implemented on local and works exactly i want.&lt;/p&gt;
 &lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
 &lt;p&gt;To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.&lt;/p&gt;</description>

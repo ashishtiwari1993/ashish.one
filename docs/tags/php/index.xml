@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>PHP on ashish.one</title>
-    <link>http://localhost:1313/tags/php/</link>
+    <link>https://ashish.one/tags/php/</link>
     <description>Recent content in PHP on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
-      <link>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
+      <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
       <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
+      <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
       <description>&lt;p&gt;Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.&lt;/p&gt;
 &lt;p&gt;In this blog, We are going to setup PHP and Nginx.&lt;/p&gt;
 &lt;h3 id=&#34;why-docker&#34;&gt;Why Docker?&lt;/h3&gt;

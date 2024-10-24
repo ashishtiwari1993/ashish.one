@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Scale on ashish.one</title>
-    <link>http://localhost:1313/tags/scale/</link>
+    <link>https://ashish.one/tags/scale/</link>
     <description>Recent content in Scale on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/scale/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/scale/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to scale with massive update queries in Elasticsearch?</title>
-      <link>http://localhost:1313/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
+      <link>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
       <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
-      <guid>http://localhost:1313/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
+      <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;h2 id=&#34;what-this-talk-is-all-about&#34;&gt;What this talk is all about?&lt;/h2&gt;
 &lt;p&gt;We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.&lt;/p&gt;

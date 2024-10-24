@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Exporter on ashish.one</title>
-    <link>http://localhost:1313/tags/exporter/</link>
+    <link>https://ashish.one/tags/exporter/</link>
     <description>Recent content in Exporter on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/exporter/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/exporter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Part 3] How to write custom prometheus exporter?</title>
-      <link>http://localhost:1313/blogs/write-custom-exporters-prometheus/</link>
+      <link>https://ashish.one/blogs/write-custom-exporters-prometheus/</link>
       <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/write-custom-exporters-prometheus/</guid>
+      <guid>https://ashish.one/blogs/write-custom-exporters-prometheus/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In &lt;a href=&#34;https://ashish.one/blogs/setup-prometheus-and-exporters/&#34;&gt;PART-1&lt;/a&gt; and &lt;a href=&#34;https://ashish.one/blogs/setup-alertmanager/&#34;&gt;PART-2&lt;/a&gt;, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.&lt;/p&gt;
 &lt;p&gt;But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.&lt;/p&gt;

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Azure on ashish.one</title>
-    <link>http://localhost:1313/tags/azure/</link>
+    <link>https://ashish.one/tags/azure/</link>
     <description>Recent content in Azure on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/azure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploy Elasicsearch on Azure cloud</title>
-      <link>http://localhost:1313/talks/deploy_elastic_on_azure/</link>
+      <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
       <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
-      <guid>http://localhost:1313/talks/deploy_elastic_on_azure/</guid>
+      <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
 &lt;p&gt;The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.&lt;/p&gt;

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Logs on ashish.one</title>
-    <link>http://localhost:1313/tags/logs/</link>
+    <link>https://ashish.one/tags/logs/</link>
     <description>Recent content in Logs on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,13 +12,13 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/logs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/logs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shipping Golang logs with ELKB stack</title>
-      <link>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</link>
+      <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
+      <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;goal-of-this-blog&#34;&gt;Goal of this blog&lt;/h2&gt;
 &lt;p&gt;In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).&lt;/p&gt;

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Golang on ashish.one</title>
-    <link>http://localhost:1313/categories/golang/</link>
+    <link>https://ashish.one/categories/golang/</link>
     <description>Recent content in Golang on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jun 2022 18:22:32 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SPF Lookup in Go</title>
-      <link>http://localhost:1313/blogs/spf-lookup-in-go/</link>
+      <link>https://ashish.one/blogs/spf-lookup-in-go/</link>
       <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/spf-lookup-in-go/</guid>
+      <guid>https://ashish.one/blogs/spf-lookup-in-go/</guid>
       <description>&lt;p&gt;In this gist, We will check how we can extract SPF records in Go.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 &lt;h3 id=&#34;go-version&#34;&gt;Go version&lt;/h3&gt;
@@ -52,9 +52,9 @@
     </item>
     <item>
       <title>Golang basics &amp; Handling 100k hourly webhooks with golang @MimePost</title>
-      <link>http://localhost:1313/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
+      <link>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
       <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
-      <guid>http://localhost:1313/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
+      <guid>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
       <description>&lt;h2 id=&#34;what-this-talk-about&#34;&gt;What this talk about?&lt;/h2&gt;
 &lt;p&gt;I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.&lt;/p&gt;
 &lt;p&gt;Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?&lt;/p&gt;
@@ -98,10 +98,10 @@
     </item>
     <item>
       <title>[SOLVED] Golang fatal error: concurrent map writes</title>
-      <link>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</link>
+      <link>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</link>
       <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/golang/concurrent_map_writes.jpg&#34; alt=&#34;concurrent_map_writes&#34;  /&gt;
+      <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/golang/concurrent_map_writes.jpg&#34; alt=&#34;concurrent_map_writes&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;the-problem&#34;&gt;The Problem:&lt;/h2&gt;
 &lt;p&gt;Suddenly got below errors which killed my daemon:&lt;/p&gt;

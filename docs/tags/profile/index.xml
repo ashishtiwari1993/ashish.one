@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Profile on ashish.one</title>
-    <link>http://localhost:1313/tags/profile/</link>
+    <link>https://ashish.one/tags/profile/</link>
     <description>Recent content in Profile on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 14 Jul 2022 23:36:30 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/profile/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/profile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to build a Developer Profile - HugoConf2022</title>
-      <link>http://localhost:1313/blogs/build-developer-profile/</link>
+      <link>https://ashish.one/blogs/build-developer-profile/</link>
       <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/build-developer-profile/</guid>
+      <guid>https://ashish.one/blogs/build-developer-profile/</guid>
       <description>&lt;h1 id=&#34;just-a-thought-thought_balloon--&#34;&gt;Just a thought &amp;#x1f4ad;  &amp;hellip;&lt;/h1&gt;
 &lt;p&gt;As a Developer, we keep learning &amp;amp; developing stuff. Sometimes we also find the solutions. Our stuff is distributed the same as our System architecture. We maintain different platforms like GitHub for projects, Medium for blogs, LinkedIn for profile, etc.&lt;/p&gt;
 &lt;p&gt;All this stuff we want to share on a single platform but as a tech, I am lazy if you ask me to install some CMS and maintain all stuff over there. it is hard to switch from a black terminal &amp;#x1f4bb;  window to some UI &amp;#x1f605;&lt;/p&gt;</description>

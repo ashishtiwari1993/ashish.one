@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Grafana-Dashboard on ashish.one</title>
-    <link>http://localhost:1313/tags/grafana-dashboard/</link>
+    <link>https://ashish.one/tags/grafana-dashboard/</link>
     <description>Recent content in Grafana-Dashboard on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/grafana-dashboard/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/grafana-dashboard/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Part 4] Setup Grafana With Prometheus</title>
-      <link>http://localhost:1313/blogs/setup-grafana-with-prometheus/</link>
+      <link>https://ashish.one/blogs/setup-grafana-with-prometheus/</link>
       <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/setup-grafana-with-prometheus/</guid>
+      <guid>https://ashish.one/blogs/setup-grafana-with-prometheus/</guid>
       <description>&lt;p&gt;As you know Prometheus already having UI (&lt;code&gt;localhost:9090&lt;/code&gt;). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.&lt;/p&gt;
 &lt;h2 id=&#34;what-is-grafana&#34;&gt;What is Grafana?&lt;/h2&gt;
 &lt;p&gt;As &lt;a href=&#34;https://grafana.com&#34;&gt;grafana.com&lt;/a&gt; says&lt;/p&gt;

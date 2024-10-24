@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Serverless on ashish.one</title>
-    <link>http://localhost:1313/tags/serverless/</link>
+    <link>https://ashish.one/tags/serverless/</link>
     <description>Recent content in Serverless on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Jun 2024 14:43:28 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Serverless Ahmedabad 2023: Monitoring serverless environment with Elastic observability</title>
-      <link>http://localhost:1313/talks/serverless-ahmedabad-2023-elastic-observability/</link>
+      <link>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</link>
       <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
-      <guid>http://localhost:1313/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
+      <guid>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.&lt;/p&gt;
 &lt;p&gt;For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.&lt;/p&gt;</description>

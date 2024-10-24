@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Spf on ashish.one</title>
-    <link>http://localhost:1313/tags/spf/</link>
+    <link>https://ashish.one/tags/spf/</link>
     <description>Recent content in Spf on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jun 2022 18:22:32 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/spf/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/spf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SPF Lookup in Go</title>
-      <link>http://localhost:1313/blogs/spf-lookup-in-go/</link>
+      <link>https://ashish.one/blogs/spf-lookup-in-go/</link>
       <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/spf-lookup-in-go/</guid>
+      <guid>https://ashish.one/blogs/spf-lookup-in-go/</guid>
       <description>&lt;p&gt;In this gist, We will check how we can extract SPF records in Go.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 &lt;h3 id=&#34;go-version&#34;&gt;Go version&lt;/h3&gt;

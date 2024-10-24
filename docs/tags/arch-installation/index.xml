@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Arch-Installation on ashish.one</title>
-    <link>http://localhost:1313/tags/arch-installation/</link>
+    <link>https://ashish.one/tags/arch-installation/</link>
     <description>Recent content in Arch-Installation on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/arch-installation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/arch-installation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Linux Installation Challenges</title>
-      <link>http://localhost:1313/blogs/arch-linux-installation-challenges/</link>
+      <link>https://ashish.one/blogs/arch-linux-installation-challenges/</link>
       <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/arch-linux-installation-challenges/</guid>
+      <guid>https://ashish.one/blogs/arch-linux-installation-challenges/</guid>
       <description>Arch linux installation challenges</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/arch-linux-installation/arch-linux.jpeg" alt="arch linux login screen"  />
 </p>

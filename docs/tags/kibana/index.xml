@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Kibana on ashish.one</title>
-    <link>http://localhost:1313/tags/kibana/</link>
+    <link>https://ashish.one/tags/kibana/</link>
     <description>Recent content in Kibana on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 03 Feb 2024 02:56:16 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/kibana/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/kibana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elasticsearch Query Language (ES|QL)</title>
-      <link>http://localhost:1313/talks/esql/</link>
+      <link>https://ashish.one/talks/esql/</link>
       <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
-      <guid>http://localhost:1313/talks/esql/</guid>
+      <guid>https://ashish.one/talks/esql/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html&#34;&gt;ES|QL&lt;/a&gt; is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.&lt;/p&gt;
 &lt;p&gt;It is a piped separated langugage with a combination of &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands&#34;&gt;source commands&lt;/a&gt; and &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands&#34;&gt;process&lt;/a&gt; commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.&lt;/p&gt;</description>
@@ -211,9 +211,9 @@ POST _query?format=txt
     </item>
     <item>
       <title>Receive Webhook Requests Using ELK</title>
-      <link>http://localhost:1313/blogs/elastic/receive-webhook-requests-using-elk/</link>
+      <link>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</link>
       <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/elastic/receive-webhook-requests-using-elk/</guid>
+      <guid>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</guid>
       <description>&lt;p&gt;In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case.
 Elastic provides Search, Observability &amp;amp; Security you can check more on this with &lt;a href=&#34;https://www.elastic.co/guide/index.html&#34;&gt;official documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;what-is-webhook-&#34;&gt;What is Webhook ?&lt;/h1&gt;
@@ -410,9 +410,9 @@ Visualise data from kibana.</p>
     </item>
     <item>
       <title>Getting started with Elasticsearch</title>
-      <link>http://localhost:1313/talks/ws-es/</link>
+      <link>https://ashish.one/talks/ws-es/</link>
       <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
-      <guid>http://localhost:1313/talks/ws-es/</guid>
+      <guid>https://ashish.one/talks/ws-es/</guid>
       <description>&lt;h1 id=&#34;sample-queries-for-elasticsearch-workshop&#34;&gt;Sample Queries for Elasticsearch Workshop&lt;/h1&gt;
 &lt;h2 id=&#34;crud&#34;&gt;CRUD&lt;/h2&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
@@ -499,7 +499,7 @@ DELETE meetup
 {&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
 {&amp;#34;user_id&amp;#34;:17,&amp;#34;first_name&amp;#34;:&amp;#34;Alyosha&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Domm&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;adommg@washingtonpost.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;32 Oxford Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;174.71.176.45&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Wikizz&amp;#34;}
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;upload-sample-json-data-from-kibana&#34;&gt;Upload sample json data from kibana&lt;/h2&gt;
-&lt;p&gt;Download &lt;a href=&#34;http://localhost:1313/data/movies.json&#34;&gt;movies.json&lt;/a&gt; and insert into elasticsearch by using below command:&lt;/p&gt;</description>
+&lt;p&gt;Download &lt;a href=&#34;https://ashish.one/data/movies.json&#34;&gt;movies.json&lt;/a&gt; and insert into elasticsearch by using below command:&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="sample-queries-for-elasticsearch-workshop">Sample Queries for Elasticsearch Workshop</h1>
 <h2 id="crud">CRUD</h2>
 <pre tabindex="0"><code>
@@ -906,9 +906,9 @@ GET geetyantra/_search
     </item>
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
-      <link>http://localhost:1313/blogs/elastic-docker-compose/</link>
+      <link>https://ashish.one/blogs/elastic-docker-compose/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/elastic-docker-compose/</guid>
+      <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;. You can learn more about &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Docker Compose&lt;/a&gt;, Which will help you to understand the flow.&lt;/p&gt;
 &lt;h1 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h1&gt;
@@ -978,10 +978,10 @@ GET geetyantra/_search
     </item>
     <item>
       <title>Shipping Golang logs with ELKB stack</title>
-      <link>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</link>
+      <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
+      <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;goal-of-this-blog&#34;&gt;Goal of this blog&lt;/h2&gt;
 &lt;p&gt;In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).&lt;/p&gt;

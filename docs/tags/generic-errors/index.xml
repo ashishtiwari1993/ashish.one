@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Generic-Errors on ashish.one</title>
-    <link>http://localhost:1313/tags/generic-errors/</link>
+    <link>https://ashish.one/tags/generic-errors/</link>
     <description>Recent content in Generic-Errors on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Jan 2023 23:49:15 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/generic-errors/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/generic-errors/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes generic errors</title>
-      <link>http://localhost:1313/blogs/k8s/k8s-generic-errors/</link>
+      <link>https://ashish.one/blogs/k8s/k8s-generic-errors/</link>
       <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/k8s/k8s-generic-errors/</guid>
+      <guid>https://ashish.one/blogs/k8s/k8s-generic-errors/</guid>
       <description>&lt;h2 id=&#34;1-unknown-service-runtimev1alpha2imageservice&#34;&gt;1. unknown service runtime.v1alpha2.ImageService&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&lt;/p&gt;

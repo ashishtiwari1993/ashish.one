@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Docker on ashish.one</title>
-    <link>http://localhost:1313/tags/docker/</link>
+    <link>https://ashish.one/tags/docker/</link>
     <description>Recent content in Docker on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Jan 2023 14:11:57 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
-      <link>http://localhost:1313/blogs/elastic-docker-compose/</link>
+      <link>https://ashish.one/blogs/elastic-docker-compose/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/elastic-docker-compose/</guid>
+      <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;. You can learn more about &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Docker Compose&lt;/a&gt;, Which will help you to understand the flow.&lt;/p&gt;
 &lt;h1 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h1&gt;
@@ -87,9 +87,9 @@
     </item>
     <item>
       <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
-      <link>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
+      <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
       <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
+      <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
       <description>&lt;p&gt;Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.&lt;/p&gt;
 &lt;p&gt;In this blog, We are going to setup PHP and Nginx.&lt;/p&gt;
 &lt;h3 id=&#34;why-docker&#34;&gt;Why Docker?&lt;/h3&gt;

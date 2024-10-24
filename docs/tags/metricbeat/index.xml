@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Metricbeat on ashish.one</title>
-    <link>http://localhost:1313/tags/metricbeat/</link>
+    <link>https://ashish.one/tags/metricbeat/</link>
     <description>Recent content in Metricbeat on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 09 Aug 2023 20:10:27 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/metricbeat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/metricbeat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting started with Elastic stack</title>
-      <link>http://localhost:1313/talks/getting_started_elastic_stack/</link>
+      <link>https://ashish.one/talks/getting_started_elastic_stack/</link>
       <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
-      <guid>http://localhost:1313/talks/getting_started_elastic_stack/</guid>
+      <guid>https://ashish.one/talks/getting_started_elastic_stack/</guid>
       <description>&lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
 &lt;p&gt;Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.&lt;/p&gt;
 &lt;h2 id=&#34;talk-video&#34;&gt;Talk Video&lt;/h2&gt;

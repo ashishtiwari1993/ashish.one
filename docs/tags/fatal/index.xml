@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Fatal on ashish.one</title>
-    <link>http://localhost:1313/tags/fatal/</link>
+    <link>https://ashish.one/tags/fatal/</link>
     <description>Recent content in Fatal on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,13 +12,13 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/fatal/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/fatal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[SOLVED] Golang fatal error: concurrent map writes</title>
-      <link>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</link>
+      <link>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</link>
       <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/golang/concurrent_map_writes.jpg&#34; alt=&#34;concurrent_map_writes&#34;  /&gt;
+      <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/golang/concurrent_map_writes.jpg&#34; alt=&#34;concurrent_map_writes&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;the-problem&#34;&gt;The Problem:&lt;/h2&gt;
 &lt;p&gt;Suddenly got below errors which killed my daemon:&lt;/p&gt;

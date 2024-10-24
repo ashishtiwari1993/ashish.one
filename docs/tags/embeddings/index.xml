@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Embeddings on ashish.one</title>
-    <link>http://localhost:1313/tags/embeddings/</link>
+    <link>https://ashish.one/tags/embeddings/</link>
     <description>Recent content in Embeddings on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 03 Jan 2024 23:08:57 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/embeddings/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/embeddings/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elasticsearch: Vector and Hybrid Search</title>
-      <link>http://localhost:1313/talks/vector-hybrid-search/</link>
+      <link>https://ashish.one/talks/vector-hybrid-search/</link>
       <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
-      <guid>http://localhost:1313/talks/vector-hybrid-search/</guid>
+      <guid>https://ashish.one/talks/vector-hybrid-search/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.&lt;/p&gt;
 &lt;p&gt;This talk gives an overview of:&lt;/p&gt;

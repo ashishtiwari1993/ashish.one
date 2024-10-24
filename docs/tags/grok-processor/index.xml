@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Grok-Processor on ashish.one</title>
-    <link>http://localhost:1313/tags/grok-processor/</link>
+    <link>https://ashish.one/tags/grok-processor/</link>
     <description>Recent content in Grok-Processor on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/grok-processor/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/grok-processor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Parsing Custom log format to the Elasticsearch</title>
-      <link>http://localhost:1313/blogs/parsing-custom-log-format-to-the-elasticsearch/</link>
+      <link>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</link>
       <pubDate>Fri, 29 Apr 2022 01:24:55 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/parsing-custom-log-format-to-the-elasticsearch/</guid>
+      <guid>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;As a developer, you need to log everything it may be info, error or debug logs, etc. There are multiple types of log formats like Common log, JSON log, etc. and there are already solutions available in an elastic stack like filebeat to read JSON logs and push them to elasticsearch.&lt;/p&gt;
 &lt;p&gt;There can be cases where you need to log the data according to your convenience which will not be any standard log format. Or sometimes you just need to dump the log in an unstructured way but you need to have it in a structured format if you want to analyze those.&lt;/p&gt;</description>

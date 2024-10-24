@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Covid19India on ashish.one</title>
-    <link>http://localhost:1313/tags/covid19india/</link>
+    <link>https://ashish.one/tags/covid19india/</link>
     <description>Recent content in Covid19India on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 13:39:05 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/covid19india/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/covid19india/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Covid19 Data Source for India &amp; Global</title>
-      <link>http://localhost:1313/blogs/covid19-data-source-and-endpoints-india-global/</link>
+      <link>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</link>
       <pubDate>Fri, 27 Mar 2020 20:04:13 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/covid19-data-source-and-endpoints-india-global/</guid>
+      <guid>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</guid>
       <description>&lt;p&gt;Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.&lt;/p&gt;
 &lt;h2 id=&#34;apis&#34;&gt;APIs&lt;/h2&gt;
 &lt;h3 id=&#34;1-github-amodmapi-covid19-in-india&#34;&gt;1. Github: amodm/api-covid19-in (India)&lt;/h3&gt;

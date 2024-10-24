@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Analyzer on ashish.one</title>
-    <link>http://localhost:1313/tags/analyzer/</link>
+    <link>https://ashish.one/tags/analyzer/</link>
     <description>Recent content in Analyzer on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 16 Dec 2022 18:13:46 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/analyzer/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/analyzer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting started with Elasticsearch</title>
-      <link>http://localhost:1313/talks/ws-es/</link>
+      <link>https://ashish.one/talks/ws-es/</link>
       <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
-      <guid>http://localhost:1313/talks/ws-es/</guid>
+      <guid>https://ashish.one/talks/ws-es/</guid>
       <description>&lt;h1 id=&#34;sample-queries-for-elasticsearch-workshop&#34;&gt;Sample Queries for Elasticsearch Workshop&lt;/h1&gt;
 &lt;h2 id=&#34;crud&#34;&gt;CRUD&lt;/h2&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
@@ -104,7 +104,7 @@ DELETE meetup
 {&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
 {&amp;#34;user_id&amp;#34;:17,&amp;#34;first_name&amp;#34;:&amp;#34;Alyosha&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Domm&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;adommg@washingtonpost.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;32 Oxford Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;174.71.176.45&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Wikizz&amp;#34;}
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;upload-sample-json-data-from-kibana&#34;&gt;Upload sample json data from kibana&lt;/h2&gt;
-&lt;p&gt;Download &lt;a href=&#34;http://localhost:1313/data/movies.json&#34;&gt;movies.json&lt;/a&gt; and insert into elasticsearch by using below command:&lt;/p&gt;</description>
+&lt;p&gt;Download &lt;a href=&#34;https://ashish.one/data/movies.json&#34;&gt;movies.json&lt;/a&gt; and insert into elasticsearch by using below command:&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h1 id="sample-queries-for-elasticsearch-workshop">Sample Queries for Elasticsearch Workshop</h1>
 <h2 id="crud">CRUD</h2>
 <pre tabindex="0"><code>

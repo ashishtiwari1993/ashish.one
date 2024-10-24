@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Grok on ashish.one</title>
-    <link>http://localhost:1313/tags/grok/</link>
+    <link>https://ashish.one/tags/grok/</link>
     <description>Recent content in Grok on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 03 Feb 2024 02:56:16 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/grok/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/grok/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elasticsearch Query Language (ES|QL)</title>
-      <link>http://localhost:1313/talks/esql/</link>
+      <link>https://ashish.one/talks/esql/</link>
       <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
-      <guid>http://localhost:1313/talks/esql/</guid>
+      <guid>https://ashish.one/talks/esql/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html&#34;&gt;ES|QL&lt;/a&gt; is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.&lt;/p&gt;
 &lt;p&gt;It is a piped separated langugage with a combination of &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands&#34;&gt;source commands&lt;/a&gt; and &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands&#34;&gt;process&lt;/a&gt; commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.&lt;/p&gt;</description>

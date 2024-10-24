@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Chatgpt on ashish.one</title>
-    <link>http://localhost:1313/tags/chatgpt/</link>
+    <link>https://ashish.one/tags/chatgpt/</link>
     <description>Recent content in Chatgpt on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 Aug 2023 19:38:41 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Workshop - Leverage ChatGPT with Elasticsearch</title>
-      <link>http://localhost:1313/talks/chatgpt-elasticsearch/</link>
+      <link>https://ashish.one/talks/chatgpt-elasticsearch/</link>
       <pubDate>Fri, 21 Jul 2023 15:52:06 +0530</pubDate>
-      <guid>http://localhost:1313/talks/chatgpt-elasticsearch/</guid>
+      <guid>https://ashish.one/talks/chatgpt-elasticsearch/</guid>
       <description>Connect ChatGPT to proprietary data stores using Elasticsearch</description>
       <content:encoded><![CDATA[<h1 id="objective">Objective</h1>
 <p>In this hands-on workshop, We will learn how to connect ChatGPT to proprietary data stores using Elasticsearch and build question/answer capabilities for your data. In a demo, We will quickly convert your website, FAQ, or any documentation into prompt chat where your user can directly ask a question on your data.</p>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on ashish.one</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://ashish.one/categories/</link>
     <description>Recent content in Categories on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -11,55 +11,55 @@
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Oct 2024 20:29:51 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Oct 2024 13:39:48 +0530</lastBuildDate>
+    <atom:link href="https://ashish.one/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elastic</title>
-      <link>http://localhost:1313/categories/elastic/</link>
+      <link>https://ashish.one/categories/elastic/</link>
       <pubDate>Wed, 23 Oct 2024 20:29:51 +0530</pubDate>
-      <guid>http://localhost:1313/categories/elastic/</guid>
+      <guid>https://ashish.one/categories/elastic/</guid>
       <description></description>
     </item>
     <item>
       <title>Kubernetes</title>
-      <link>http://localhost:1313/categories/kubernetes/</link>
+      <link>https://ashish.one/categories/kubernetes/</link>
       <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
-      <guid>http://localhost:1313/categories/kubernetes/</guid>
+      <guid>https://ashish.one/categories/kubernetes/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>http://localhost:1313/categories/hugo/</link>
+      <link>https://ashish.one/categories/hugo/</link>
       <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
-      <guid>http://localhost:1313/categories/hugo/</guid>
+      <guid>https://ashish.one/categories/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>http://localhost:1313/categories/linux/</link>
+      <link>https://ashish.one/categories/linux/</link>
       <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
-      <guid>http://localhost:1313/categories/linux/</guid>
+      <guid>https://ashish.one/categories/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Misc</title>
-      <link>http://localhost:1313/categories/misc/</link>
+      <link>https://ashish.one/categories/misc/</link>
       <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
-      <guid>http://localhost:1313/categories/misc/</guid>
+      <guid>https://ashish.one/categories/misc/</guid>
       <description></description>
     </item>
     <item>
       <title>Golang</title>
-      <link>http://localhost:1313/categories/golang/</link>
+      <link>https://ashish.one/categories/golang/</link>
       <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
-      <guid>http://localhost:1313/categories/golang/</guid>
+      <guid>https://ashish.one/categories/golang/</guid>
       <description></description>
     </item>
     <item>
       <title>Prometheus</title>
-      <link>http://localhost:1313/categories/prometheus/</link>
+      <link>https://ashish.one/categories/prometheus/</link>
       <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
-      <guid>http://localhost:1313/categories/prometheus/</guid>
+      <guid>https://ashish.one/categories/prometheus/</guid>
       <description></description>
     </item>
   </channel>

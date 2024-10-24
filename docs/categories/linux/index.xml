@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Linux on ashish.one</title>
-    <link>http://localhost:1313/categories/linux/</link>
+    <link>https://ashish.one/categories/linux/</link>
     <description>Recent content in Linux on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 14:47:26 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Linux Installation Challenges</title>
-      <link>http://localhost:1313/blogs/arch-linux-installation-challenges/</link>
+      <link>https://ashish.one/blogs/arch-linux-installation-challenges/</link>
       <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/arch-linux-installation-challenges/</guid>
+      <guid>https://ashish.one/blogs/arch-linux-installation-challenges/</guid>
       <description>Arch linux installation challenges</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/arch-linux-installation/arch-linux.jpeg" alt="arch linux login screen"  />
 </p>
@@ -160,9 +160,9 @@ Boot Mode: <code>UEFI</code></p>
     </item>
     <item>
       <title>Challenges in linuxfromscratch</title>
-      <link>http://localhost:1313/blogs/challenges-in-linuxfromscratch/</link>
+      <link>https://ashish.one/blogs/challenges-in-linuxfromscratch/</link>
       <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/challenges-in-linuxfromscratch/</guid>
+      <guid>https://ashish.one/blogs/challenges-in-linuxfromscratch/</guid>
       <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&amp;amp;name=large&#34; alt=&#34;lfs_screen&#34;  /&gt;
 &lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Successfully built custom &lt;a href=&#34;https://twitter.com/hashtag/Linux?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Linux&lt;/a&gt; system by referring &lt;a href=&#34;https://t.co/lyrdKkfXo9&#34;&gt;https://t.co/lyrdKkfXo9&lt;/a&gt; .&lt;br&gt;&lt;br&gt;Listed my challenges here &lt;a href=&#34;https://t.co/gU2SoAxly2&#34;&gt;https://t.co/gU2SoAxly2&lt;/a&gt;&lt;a href=&#34;https://twitter.com/nixcraft?ref_src=twsrc%5Etfw&#34;&gt;@nixcraft&lt;/a&gt;&lt;a href=&#34;https://twitter.com/hashtag/linux?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#linux&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/lfs?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#lfs&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/linuxfromscratch?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#linuxfromscratch&lt;/a&gt; &lt;a href=&#34;https://t.co/XlWchVHy26&#34;&gt;pic.twitter.com/XlWchVHy26&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) &lt;a href=&#34;https://twitter.com/_ashish_tiwari/status/1254719517491511296?ref_src=twsrc%5Etfw&#34;&gt;April 27, 2020&lt;/a&gt;&lt;/blockquote&gt;

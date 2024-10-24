@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Semantic-Search on ashish.one</title>
-    <link>http://localhost:1313/tags/semantic-search/</link>
+    <link>https://ashish.one/tags/semantic-search/</link>
     <description>Recent content in Semantic-Search on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Jun 2024 14:43:28 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/semantic-search/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/semantic-search/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GIDS 2024 - Smart Search with RAG: Elasticsearch Meets Language Models</title>
-      <link>http://localhost:1313/talks/gids-2024-rag/</link>
+      <link>https://ashish.one/talks/gids-2024-rag/</link>
       <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
-      <guid>http://localhost:1313/talks/gids-2024-rag/</guid>
+      <guid>https://ashish.one/talks/gids-2024-rag/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In today&amp;rsquo;s data-driven world, just having a search engine is not enough; the key is making it smart. Enter Elasticsearch Relevance Engine (ESRE) augmented with Retrieval Augmented Generation (RAG), a powerful solution
 that marries Elasticsearch’s superior search capabilities with Large Language Models (LLMs) like ChatGPT for precise, contextual querying over proprietary datasets. This session is a hands-on guide that will show you how to amplify the power of Elasticsearch with advanced LLMs.&lt;/p&gt;</description>

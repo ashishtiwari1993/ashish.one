@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blogs on ashish.one</title>
-    <link>http://localhost:1313/blogs/</link>
+    <link>https://ashish.one/blogs/</link>
     <description>Recent content in Blogs on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 25 Jan 2023 11:52:17 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Receive Webhook Requests Using ELK</title>
-      <link>http://localhost:1313/blogs/elastic/receive-webhook-requests-using-elk/</link>
+      <link>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</link>
       <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/elastic/receive-webhook-requests-using-elk/</guid>
+      <guid>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</guid>
       <description>&lt;p&gt;In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case.
 Elastic provides Search, Observability &amp;amp; Security you can check more on this with &lt;a href=&#34;https://www.elastic.co/guide/index.html&#34;&gt;official documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;what-is-webhook-&#34;&gt;What is Webhook ?&lt;/h1&gt;
@@ -214,9 +214,9 @@ Visualise data from kibana.</p>
     </item>
     <item>
       <title>Kubernetes generic errors</title>
-      <link>http://localhost:1313/blogs/k8s/k8s-generic-errors/</link>
+      <link>https://ashish.one/blogs/k8s/k8s-generic-errors/</link>
       <pubDate>Sat, 07 Jan 2023 22:41:02 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/k8s/k8s-generic-errors/</guid>
+      <guid>https://ashish.one/blogs/k8s/k8s-generic-errors/</guid>
       <description>&lt;h2 id=&#34;1-unknown-service-runtimev1alpha2imageservice&#34;&gt;1. unknown service runtime.v1alpha2.ImageService&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Error: pulling image: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.ImageService&lt;/p&gt;
@@ -270,9 +270,9 @@ Visualise data from kibana.</p>
     </item>
     <item>
       <title>How to build a Developer Profile - HugoConf2022</title>
-      <link>http://localhost:1313/blogs/build-developer-profile/</link>
+      <link>https://ashish.one/blogs/build-developer-profile/</link>
       <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/build-developer-profile/</guid>
+      <guid>https://ashish.one/blogs/build-developer-profile/</guid>
       <description>&lt;h1 id=&#34;just-a-thought-thought_balloon--&#34;&gt;Just a thought &amp;#x1f4ad;  &amp;hellip;&lt;/h1&gt;
 &lt;p&gt;As a Developer, we keep learning &amp;amp; developing stuff. Sometimes we also find the solutions. Our stuff is distributed the same as our System architecture. We maintain different platforms like GitHub for projects, Medium for blogs, LinkedIn for profile, etc.&lt;/p&gt;
 &lt;p&gt;All this stuff we want to share on a single platform but as a tech, I am lazy if you ask me to install some CMS and maintain all stuff over there. it is hard to switch from a black terminal &amp;#x1f4bb;  window to some UI &amp;#x1f605;&lt;/p&gt;</description>
@@ -352,9 +352,9 @@ Visualise data from kibana.</p>
     </item>
     <item>
       <title>Start a single node elastic cluster with Docker Compose</title>
-      <link>http://localhost:1313/blogs/elastic-docker-compose/</link>
+      <link>https://ashish.one/blogs/elastic-docker-compose/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/elastic-docker-compose/</guid>
+      <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;. You can learn more about &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Docker Compose&lt;/a&gt;, Which will help you to understand the flow.&lt;/p&gt;
 &lt;h1 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h1&gt;
@@ -424,9 +424,9 @@ Visualise data from kibana.</p>
     </item>
     <item>
       <title>Parsing Custom log format to the Elasticsearch</title>
-      <link>http://localhost:1313/blogs/parsing-custom-log-format-to-the-elasticsearch/</link>
+      <link>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</link>
       <pubDate>Fri, 29 Apr 2022 01:24:55 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/parsing-custom-log-format-to-the-elasticsearch/</guid>
+      <guid>https://ashish.one/blogs/parsing-custom-log-format-to-the-elasticsearch/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;As a developer, you need to log everything it may be info, error or debug logs, etc. There are multiple types of log formats like Common log, JSON log, etc. and there are already solutions available in an elastic stack like filebeat to read JSON logs and push them to elasticsearch.&lt;/p&gt;
 &lt;p&gt;There can be cases where you need to log the data according to your convenience which will not be any standard log format. Or sometimes you just need to dump the log in an unstructured way but you need to have it in a structured format if you want to analyze those.&lt;/p&gt;</description>
@@ -708,9 +708,9 @@ user not found = %{GREEDYDATA:message}
     </item>
     <item>
       <title>[Part -1] Search as you type</title>
-      <link>http://localhost:1313/blogs/search-as-you-type/</link>
+      <link>https://ashish.one/blogs/search-as-you-type/</link>
       <pubDate>Fri, 18 Mar 2022 01:24:55 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/search-as-you-type/</guid>
+      <guid>https://ashish.one/blogs/search-as-you-type/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In this blog, we will try to understand how “Search as you type” works and Quickly setup one demo using some sample data.
 You must have seen various websites like eCommerce, food apps, etc. where you just start typing &amp;amp; simultaneously relevant options start displaying as suggestions and autocomplete. We will try to achieve somewhat the same feature.
@@ -1034,9 +1034,9 @@ cd search_as_you_type
     </item>
     <item>
       <title>Arch Linux Installation Challenges</title>
-      <link>http://localhost:1313/blogs/arch-linux-installation-challenges/</link>
+      <link>https://ashish.one/blogs/arch-linux-installation-challenges/</link>
       <pubDate>Fri, 07 Jan 2022 07:20:29 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/arch-linux-installation-challenges/</guid>
+      <guid>https://ashish.one/blogs/arch-linux-installation-challenges/</guid>
       <description>Arch linux installation challenges</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/arch-linux-installation/arch-linux.jpeg" alt="arch linux login screen"  />
 </p>
@@ -1179,9 +1179,9 @@ Boot Mode: <code>UEFI</code></p>
     </item>
     <item>
       <title>Get start with BugBounty, Pentest and Security Researcher</title>
-      <link>http://localhost:1313/blogs/get-start-with-bugbounty-pentest-security-researcher/</link>
+      <link>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</link>
       <pubDate>Sun, 20 Jun 2021 13:53:50 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/get-start-with-bugbounty-pentest-security-researcher/</guid>
+      <guid>https://ashish.one/blogs/get-start-with-bugbounty-pentest-security-researcher/</guid>
       <description>&lt;p&gt;I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.&lt;/p&gt;
 &lt;h2 id=&#34;the-fact&#34;&gt;The Fact&lt;/h2&gt;
 &lt;p&gt;The fact is there is no hard and fast rule or there is no standard course by following which you will get the tag of a security expert.&lt;/p&gt;
@@ -1232,9 +1232,9 @@ Boot Mode: <code>UEFI</code></p>
     </item>
     <item>
       <title>SPF Lookup in Go</title>
-      <link>http://localhost:1313/blogs/spf-lookup-in-go/</link>
+      <link>https://ashish.one/blogs/spf-lookup-in-go/</link>
       <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/spf-lookup-in-go/</guid>
+      <guid>https://ashish.one/blogs/spf-lookup-in-go/</guid>
       <description>&lt;p&gt;In this gist, We will check how we can extract SPF records in Go.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 &lt;h3 id=&#34;go-version&#34;&gt;Go version&lt;/h3&gt;
@@ -1269,10 +1269,10 @@ Boot Mode: <code>UEFI</code></p>
     </item>
     <item>
       <title>Shipping Golang logs with ELKB stack</title>
-      <link>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</link>
+      <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
+      <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;goal-of-this-blog&#34;&gt;Goal of this blog&lt;/h2&gt;
 &lt;p&gt;In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).&lt;/p&gt;
@@ -1476,9 +1476,9 @@ Boot Mode: <code>UEFI</code></p>
     </item>
     <item>
       <title>[Part 1] Setup LEMP environment with Docker - Setup Nginx and PHP</title>
-      <link>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
+      <link>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</link>
       <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
+      <guid>https://ashish.one/blogs/part-1-setup-lemp-environment-with-docker-setup-nginx-and-php/</guid>
       <description>&lt;p&gt;Hi guys, In this series, we are going to setup LEMP Stack (Linux, Nginx, MySQL, PHP). Mainly it is used by web developers. I am assuming you have a basic idea about Docker &amp;amp; How it works.&lt;/p&gt;
 &lt;p&gt;In this blog, We are going to setup PHP and Nginx.&lt;/p&gt;
 &lt;h3 id=&#34;why-docker&#34;&gt;Why Docker?&lt;/h3&gt;
@@ -1594,9 +1594,9 @@ Boot Mode: <code>UEFI</code></p>
     </item>
     <item>
       <title>Add Responsive Google Slides on Hugo</title>
-      <link>http://localhost:1313/blogs/add-responsive-google-slides-on-hugo/</link>
+      <link>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</link>
       <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/add-responsive-google-slides-on-hugo/</guid>
+      <guid>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</guid>
       <description>&lt;p&gt;Steps to add Responsive google slides iframe with Hugo:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Hugo version:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hugo version
@@ -1645,9 +1645,9 @@ Boot Mode: <code>UEFI</code></p>
     </item>
     <item>
       <title>Challenges in linuxfromscratch</title>
-      <link>http://localhost:1313/blogs/challenges-in-linuxfromscratch/</link>
+      <link>https://ashish.one/blogs/challenges-in-linuxfromscratch/</link>
       <pubDate>Sat, 11 Apr 2020 13:55:52 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/challenges-in-linuxfromscratch/</guid>
+      <guid>https://ashish.one/blogs/challenges-in-linuxfromscratch/</guid>
       <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&amp;amp;name=large&#34; alt=&#34;lfs_screen&#34;  /&gt;
 &lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Successfully built custom &lt;a href=&#34;https://twitter.com/hashtag/Linux?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Linux&lt;/a&gt; system by referring &lt;a href=&#34;https://t.co/lyrdKkfXo9&#34;&gt;https://t.co/lyrdKkfXo9&lt;/a&gt; .&lt;br&gt;&lt;br&gt;Listed my challenges here &lt;a href=&#34;https://t.co/gU2SoAxly2&#34;&gt;https://t.co/gU2SoAxly2&lt;/a&gt;&lt;a href=&#34;https://twitter.com/nixcraft?ref_src=twsrc%5Etfw&#34;&gt;@nixcraft&lt;/a&gt;&lt;a href=&#34;https://twitter.com/hashtag/linux?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#linux&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/lfs?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#lfs&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/linuxfromscratch?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#linuxfromscratch&lt;/a&gt; &lt;a href=&#34;https://t.co/XlWchVHy26&#34;&gt;pic.twitter.com/XlWchVHy26&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ashish Tiwari 🇮🇳 (@_ashish_tiwari) &lt;a href=&#34;https://twitter.com/_ashish_tiwari/status/1254719517491511296?ref_src=twsrc%5Etfw&#34;&gt;April 27, 2020&lt;/a&gt;&lt;/blockquote&gt;
@@ -2006,9 +2006,9 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
     </item>
     <item>
       <title>[Part 4] Setup Grafana With Prometheus</title>
-      <link>http://localhost:1313/blogs/setup-grafana-with-prometheus/</link>
+      <link>https://ashish.one/blogs/setup-grafana-with-prometheus/</link>
       <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/setup-grafana-with-prometheus/</guid>
+      <guid>https://ashish.one/blogs/setup-grafana-with-prometheus/</guid>
       <description>&lt;p&gt;As you know Prometheus already having UI (&lt;code&gt;localhost:9090&lt;/code&gt;). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.&lt;/p&gt;
 &lt;h2 id=&#34;what-is-grafana&#34;&gt;What is Grafana?&lt;/h2&gt;
 &lt;p&gt;As &lt;a href=&#34;https://grafana.com&#34;&gt;grafana.com&lt;/a&gt; says&lt;/p&gt;
@@ -2135,9 +2135,9 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
     </item>
     <item>
       <title>Install python3.6, pip3.6, pipenv on  Ubuntu 14.04 LTS</title>
-      <link>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
+      <link>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</link>
       <pubDate>Thu, 02 Apr 2020 17:52:19 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
+      <guid>https://ashish.one/blogs/install-python3.6-pip3.6-pipenv-on-ubuntu14.04/</guid>
       <description>&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;OS:&lt;/strong&gt; Ubuntu 14.04 LTS&lt;br&gt;
 &lt;strong&gt;Processor:&lt;/strong&gt; 64 Bit&lt;br&gt;
@@ -2226,9 +2226,9 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
     </item>
     <item>
       <title>Covid19 Data Source for India &amp; Global</title>
-      <link>http://localhost:1313/blogs/covid19-data-source-and-endpoints-india-global/</link>
+      <link>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</link>
       <pubDate>Fri, 27 Mar 2020 20:04:13 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/covid19-data-source-and-endpoints-india-global/</guid>
+      <guid>https://ashish.one/blogs/covid19-data-source-and-endpoints-india-global/</guid>
       <description>&lt;p&gt;Hi Guys, I am trying to listing all data source &amp;amp; endpoints for COVID19 - India as well as Global. It can contains offical or unofficial APIs. Anyone is working on any COVID19 project for India, Can use these sources.&lt;/p&gt;
 &lt;h2 id=&#34;apis&#34;&gt;APIs&lt;/h2&gt;
 &lt;h3 id=&#34;1-github-amodmapi-covid19-in-india&#34;&gt;1. Github: amodm/api-covid19-in (India)&lt;/h3&gt;
@@ -2350,10 +2350,10 @@ Again run <code>make -f Makefile-libbz2_so</code>.</p>
     </item>
     <item>
       <title>[SOLVED] Golang fatal error: concurrent map writes</title>
-      <link>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</link>
+      <link>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</link>
       <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/fatal-error-concurrent-map-writes/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/golang/concurrent_map_writes.jpg&#34; alt=&#34;concurrent_map_writes&#34;  /&gt;
+      <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/golang/concurrent_map_writes.jpg&#34; alt=&#34;concurrent_map_writes&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;the-problem&#34;&gt;The Problem:&lt;/h2&gt;
 &lt;p&gt;Suddenly got below errors which killed my daemon:&lt;/p&gt;
@@ -2493,9 +2493,9 @@ It is as simple as below:</p>
     </item>
     <item>
       <title>Elasticsearch Exceptions &amp; Challenges</title>
-      <link>http://localhost:1313/blogs/elasticsearch-exceptions-and-challenges/</link>
+      <link>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</link>
       <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/elasticsearch-exceptions-and-challenges/</guid>
+      <guid>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</guid>
       <description>&lt;p&gt;Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.&lt;/p&gt;
 &lt;p&gt;&lt;script src=&#34;https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js&#34;&gt;&lt;/script&gt;
 
@@ -2508,9 +2508,9 @@ Every use case having different solutions. You can try accordingly.</p>
     </item>
     <item>
       <title>How to reset 1-Click Installed WordPress on DigitalOcean?</title>
-      <link>http://localhost:1313/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
+      <link>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
       <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
+      <guid>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
       <description>&lt;h2 id=&#34;the-requirement&#34;&gt;The Requirement&lt;/h2&gt;
 &lt;p&gt;Need to install fresh wordpress with same version on wordpress droplet of digitalocean.&lt;/p&gt;
 &lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
@@ -2621,9 +2621,9 @@ Every use case having different solutions. You can try accordingly.</p>
     </item>
     <item>
       <title>[Part 3] How to write custom prometheus exporter?</title>
-      <link>http://localhost:1313/blogs/write-custom-exporters-prometheus/</link>
+      <link>https://ashish.one/blogs/write-custom-exporters-prometheus/</link>
       <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/write-custom-exporters-prometheus/</guid>
+      <guid>https://ashish.one/blogs/write-custom-exporters-prometheus/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In &lt;a href=&#34;https://ashish.one/blogs/setup-prometheus-and-exporters/&#34;&gt;PART-1&lt;/a&gt; and &lt;a href=&#34;https://ashish.one/blogs/setup-alertmanager/&#34;&gt;PART-2&lt;/a&gt;, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.&lt;/p&gt;
 &lt;p&gt;But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.&lt;/p&gt;
@@ -2681,9 +2681,9 @@ Every use case having different solutions. You can try accordingly.</p>
     </item>
     <item>
       <title>[Part 2] How to setup alertmanager and send alerts ?</title>
-      <link>http://localhost:1313/blogs/setup-alertmanager/</link>
+      <link>https://ashish.one/blogs/setup-alertmanager/</link>
       <pubDate>Wed, 23 Oct 2019 15:24:26 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/setup-alertmanager/</guid>
+      <guid>https://ashish.one/blogs/setup-alertmanager/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In &lt;a href=&#34;https://ashish.one/blogs/setup-prometheus-and-exporters/&#34;&gt;PART - 1&lt;/a&gt;, We have successfully setup Prometheus and exporters. In this part, we are going to setup alertmanager and will send our first alert.&lt;/p&gt;
 &lt;p&gt;Alertmanager is software that is maintained by the prometheus and it is written in Go. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.&lt;/p&gt;</description>
@@ -2987,9 +2987,9 @@ Every use case having different solutions. You can try accordingly.</p>
     </item>
     <item>
       <title>[Part 1] How To Setup Prometheus And Exporters For Alerts And Monitoring?</title>
-      <link>http://localhost:1313/blogs/setup-prometheus-and-exporters/</link>
+      <link>https://ashish.one/blogs/setup-prometheus-and-exporters/</link>
       <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/setup-prometheus-and-exporters/</guid>
+      <guid>https://ashish.one/blogs/setup-prometheus-and-exporters/</guid>
       <description>&lt;p&gt;As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday&amp;rsquo;s life.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>As a developer, many times you would have worried, whether your services are up and running or not. Not only that, sometimes as an infrastructure guy you might be also worried about your server’s health too. What is the current RAM or disk utilization? or whether they are going to be fully occupied which in turn can completely bring the system down. These are just the basics and in fact there are tons of more such things which need to be monitored and fixed in everyday&rsquo;s life.</p>
 <blockquote>
@@ -3219,9 +3219,9 @@ You can check the list of Prometheus features <a href="https://prometheus.io/doc
     </item>
     <item>
       <title>What should be the value of max_gram and min_gram in Elasticsearch?</title>
-      <link>http://localhost:1313/blogs/min-gram-and-max-gram-elasticsearch/</link>
+      <link>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</link>
       <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/min-gram-and-max-gram-elasticsearch/</guid>
+      <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
       <description>&lt;p&gt;I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html&#34;&gt;ngram token filter&lt;/a&gt; for like query. It was quickly implemented on local and works exactly i want.&lt;/p&gt;
 &lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
 &lt;p&gt;To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.&lt;/p&gt;</description>

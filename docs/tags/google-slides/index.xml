@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Google Slides on ashish.one</title>
-    <link>http://localhost:1313/tags/google-slides/</link>
+    <link>https://ashish.one/tags/google-slides/</link>
     <description>Recent content in Google Slides on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Jun 2022 13:58:34 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/google-slides/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/google-slides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Responsive Google Slides on Hugo</title>
-      <link>http://localhost:1313/blogs/add-responsive-google-slides-on-hugo/</link>
+      <link>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</link>
       <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/add-responsive-google-slides-on-hugo/</guid>
+      <guid>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</guid>
       <description>&lt;p&gt;Steps to add Responsive google slides iframe with Hugo:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Hugo version:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hugo version

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Json on ashish.one</title>
-    <link>http://localhost:1313/tags/json/</link>
+    <link>https://ashish.one/tags/json/</link>
     <description>Recent content in Json on ashish.one</description>
     <image>
       <title>ashish.one</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Mar 2024 20:39:59 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashish.one/tags/json/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Convert json to nd-json for elasticsearch</title>
-      <link>http://localhost:1313/gist/json-to-ndjson-elasticsearch/</link>
+      <link>https://ashish.one/gist/json-to-ndjson-elasticsearch/</link>
       <pubDate>Fri, 29 Mar 2024 20:29:51 +0530</pubDate>
-      <guid>http://localhost:1313/gist/json-to-ndjson-elasticsearch/</guid>
+      <guid>https://ashish.one/gist/json-to-ndjson-elasticsearch/</guid>
       <description>&lt;p&gt;Convert JSON to nd-json for bulk indexing into Elasticsearch.&lt;/p&gt;
 &lt;h3 id=&#34;moviesjson&#34;&gt;movies.json&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[
@@ -435,10 +435,10 @@
     </item>
     <item>
       <title>Shipping Golang logs with ELKB stack</title>
-      <link>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</link>
+      <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/shipping-golang-logs-with-elkb-stack/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
+      <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;goal-of-this-blog&#34;&gt;Goal of this blog&lt;/h2&gt;
 &lt;p&gt;In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).&lt;/p&gt;
