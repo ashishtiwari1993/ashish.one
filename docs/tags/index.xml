@@ -11,13 +11,104 @@
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Oct 2024 01:35:22 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 25 Aug 2025 12:09:27 +0530</lastBuildDate>
     <atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elasticsearch</title>
       <link>https://ashish.one/tags/elasticsearch/</link>
-      <pubDate>Wed, 23 Oct 2024 20:29:51 +0530</pubDate>
+      <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
       <guid>https://ashish.one/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hybrid-Search</title>
+      <link>https://ashish.one/tags/hybrid-search/</link>
+      <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
+      <guid>https://ashish.one/tags/hybrid-search/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Information Retrieval</title>
+      <link>https://ashish.one/tags/information-retrieval/</link>
+      <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
+      <guid>https://ashish.one/tags/information-retrieval/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>https://ashish.one/tags/llm/</link>
+      <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
+      <guid>https://ashish.one/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Search Relevancy</title>
+      <link>https://ashish.one/tags/search-relevancy/</link>
+      <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
+      <guid>https://ashish.one/tags/search-relevancy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Semantic-Search</title>
+      <link>https://ashish.one/tags/semantic-search/</link>
+      <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
+      <guid>https://ashish.one/tags/semantic-search/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vector-Search</title>
+      <link>https://ashish.one/tags/vector-search/</link>
+      <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
+      <guid>https://ashish.one/tags/vector-search/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Genai</title>
+      <link>https://ashish.one/tags/genai/</link>
+      <pubDate>Mon, 25 Aug 2025 11:29:16 +0530</pubDate>
+      <guid>https://ashish.one/tags/genai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Laravel</title>
+      <link>https://ashish.one/tags/laravel/</link>
+      <pubDate>Mon, 25 Aug 2025 11:29:16 +0530</pubDate>
+      <guid>https://ashish.one/tags/laravel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLMs</title>
+      <link>https://ashish.one/tags/llms/</link>
+      <pubDate>Mon, 25 Aug 2025 11:29:16 +0530</pubDate>
+      <guid>https://ashish.one/tags/llms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PHP</title>
+      <link>https://ashish.one/tags/php/</link>
+      <pubDate>Mon, 25 Aug 2025 11:29:16 +0530</pubDate>
+      <guid>https://ashish.one/tags/php/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RAG</title>
+      <link>https://ashish.one/tags/rag/</link>
+      <pubDate>Mon, 25 Aug 2025 11:29:16 +0530</pubDate>
+      <guid>https://ashish.one/tags/rag/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws</title>
+      <link>https://ashish.one/tags/aws/</link>
+      <pubDate>Mon, 25 Aug 2025 10:18:25 +0530</pubDate>
+      <guid>https://ashish.one/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bedrock</title>
+      <link>https://ashish.one/tags/bedrock/</link>
+      <pubDate>Mon, 25 Aug 2025 10:18:25 +0530</pubDate>
+      <guid>https://ashish.one/tags/bedrock/</guid>
       <description></description>
     </item>
     <item>
@@ -42,13 +133,6 @@
       <description></description>
     </item>
     <item>
-      <title>Aws</title>
-      <link>https://ashish.one/tags/aws/</link>
-      <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
-      <guid>https://ashish.one/tags/aws/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Monitoring</title>
       <link>https://ashish.one/tags/monitoring/</link>
       <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
@@ -67,41 +151,6 @@
       <link>https://ashish.one/tags/serverless/</link>
       <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
       <guid>https://ashish.one/tags/serverless/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Genai</title>
-      <link>https://ashish.one/tags/genai/</link>
-      <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
-      <guid>https://ashish.one/tags/genai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>LLMs</title>
-      <link>https://ashish.one/tags/llms/</link>
-      <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
-      <guid>https://ashish.one/tags/llms/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>RAG</title>
-      <link>https://ashish.one/tags/rag/</link>
-      <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
-      <guid>https://ashish.one/tags/rag/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Semantic-Search</title>
-      <link>https://ashish.one/tags/semantic-search/</link>
-      <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
-      <guid>https://ashish.one/tags/semantic-search/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vector-Search</title>
-      <link>https://ashish.one/tags/vector-search/</link>
-      <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
-      <guid>https://ashish.one/tags/vector-search/</guid>
       <description></description>
     </item>
     <item>
@@ -172,20 +221,6 @@
       <link>https://ashish.one/tags/embeddings/</link>
       <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
       <guid>https://ashish.one/tags/embeddings/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hybrid-Search</title>
-      <link>https://ashish.one/tags/hybrid-search/</link>
-      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/tags/hybrid-search/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Llm</title>
-      <link>https://ashish.one/tags/llm/</link>
-      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/tags/llm/</guid>
       <description></description>
     </item>
     <item>
@@ -536,13 +571,6 @@
       <link>https://ashish.one/tags/nginx/</link>
       <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
       <guid>https://ashish.one/tags/nginx/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>PHP</title>
-      <link>https://ashish.one/tags/php/</link>
-      <pubDate>Sat, 16 May 2020 17:01:47 +0530</pubDate>
-      <guid>https://ashish.one/tags/php/</guid>
       <description></description>
     </item>
     <item>

@@ -11,8 +11,497 @@
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Oct 2024 01:35:22 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 25 Aug 2025 12:09:27 +0530</lastBuildDate>
     <atom:link href="https://ashish.one/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hybrid Search Done Right: Stop Calling Metadata Filters &#34;Hybrid&#34;</title>
+      <link>https://ashish.one/blogs/elastic/true-hybrid-search/</link>
+      <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
+      <guid>https://ashish.one/blogs/elastic/true-hybrid-search/</guid>
+      <description>&lt;h1 id=&#34;hybrid-search-done-right-stop-calling-metadata-filters-hybrid&#34;&gt;Hybrid Search Done Right: Stop Calling Metadata Filters &amp;ldquo;Hybrid&amp;rdquo;&lt;/h1&gt;
+&lt;p&gt;Everyone’s talking about &lt;strong&gt;hybrid search&lt;/strong&gt; right now.
+But here’s the uncomfortable truth:&lt;/p&gt;
+&lt;p&gt;👉 Just because you glued vector search onto your database and added metadata filters doesn’t mean you’ve built &lt;em&gt;true&lt;/em&gt; hybrid search.&lt;/p&gt;
+&lt;p&gt;That’s like duct-taping a spoiler on a hatchback and calling it a race car. 🚗💨&lt;/p&gt;
+&lt;p&gt;Hybrid search is more than just “keyword + vector + filter.”
+It’s about &lt;strong&gt;field-level design, reranking, scoring, and scale&lt;/strong&gt;.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h1 id="hybrid-search-done-right-stop-calling-metadata-filters-hybrid">Hybrid Search Done Right: Stop Calling Metadata Filters &ldquo;Hybrid&rdquo;</h1>
+<p>Everyone’s talking about <strong>hybrid search</strong> right now.
+But here’s the uncomfortable truth:</p>
+<p>👉 Just because you glued vector search onto your database and added metadata filters doesn’t mean you’ve built <em>true</em> hybrid search.</p>
+<p>That’s like duct-taping a spoiler on a hatchback and calling it a race car. 🚗💨</p>
+<p>Hybrid search is more than just “keyword + vector + filter.”
+It’s about <strong>field-level design, reranking, scoring, and scale</strong>.</p>
+<p>Let’s break this down.</p>
+<hr>
+<h2 id="field-level-truth-not-every-field-deserves-semantic-search">Field-Level Truth: Not Every Field Deserves Semantic Search</h2>
+<p>The biggest mistake I see:
+Teams running semantic + lexical search on <em>every</em> field in their JSON docs.</p>
+<p>That’s how you kill relevance.</p>
+<h3 id="lexical-only-fields">Lexical-Only Fields</h3>
+<p>These work best with exact match:</p>
+<ul>
+<li><code>title</code></li>
+<li><code>name</code></li>
+<li><code>issue_id</code></li>
+<li><code>category</code></li>
+<li><code>tags</code></li>
+</ul>
+<p>If I search for <code>issue_id: 1245</code>, I want <strong>1245</strong> — not “similar looking IDs.”</p>
+<h3 id="semantic-only-fields">Semantic-Only Fields</h3>
+<p>These benefit from embeddings:</p>
+<ul>
+<li><code>product_description</code></li>
+<li><code>movie_storyline</code></li>
+<li><code>customer_feedback</code></li>
+<li><code>reviews</code></li>
+</ul>
+<p>This is where meaning &gt; keywords.
+“Battery dies too quickly” should match with “poor battery life.”</p>
+<h3 id="the-formula-that-works">The Formula That Works</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Final Score = RRF(
+</span></span><span style="display:flex;"><span>   Lexical(title, name, category) +
+</span></span><span style="display:flex;"><span>   Semantic(description, feedback, reviews)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Hybrid works when <strong>each field is treated for what it is</strong>.</p>
+<h3 id="quick-reference-table">Quick Reference Table</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Field Type</th>
+          <th>Example Fields</th>
+          <th>Best Search Method</th>
+          <th>Why?</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Metadata / Identifiers</td>
+          <td><code>id</code>, <code>issue_id</code>, <code>category</code></td>
+          <td>Lexical</td>
+          <td>Needs exact matching, filtering</td>
+      </tr>
+      <tr>
+          <td>Structured Short Text</td>
+          <td><code>title</code>, <code>name</code>, <code>tags</code></td>
+          <td>Lexical</td>
+          <td>Precision &gt; meaning</td>
+      </tr>
+      <tr>
+          <td>Unstructured Text</td>
+          <td><code>description</code>, <code>reviews</code></td>
+          <td>Semantic</td>
+          <td>Context + meaning matter</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="metadata-filters-keep-them-lexical">Metadata Filters: Keep Them Lexical</h2>
+<p>One of the biggest anti-patterns: vectorizing filters.</p>
+<p>Filters are not semantic. They should remain <strong>exact</strong>.</p>
+<ul>
+<li>Price → numeric filters</li>
+<li>Stock availability → boolean</li>
+<li>Categories, IDs → keyword</li>
+<li>Timestamps, geo → structured fields</li>
+</ul>
+<p>Search is about <em>precision here</em>. If you fuzzy up filters with embeddings, you’ll tank user trust.</p>
+<hr>
+<h2 id="hybrid--metadata-filters--vectors">Hybrid ≠ Metadata Filters + Vectors</h2>
+<p>Here’s the thing. Some vector DBs shout <em>“we support keyword search now!”</em>
+But if you look closer, it’s often:</p>
+<ul>
+<li>A bolted-on library</li>
+<li>Or patched-in metadata filters</li>
+</ul>
+<p>Yeah, technically it works.
+But <strong>that’s not hybrid</strong>.</p>
+<p>Search is not just filters.</p>
+<hr>
+<h2 id="what-real-hybrid-search-looks-like">What Real Hybrid Search Looks Like</h2>
+<p>Let’s talk the real stuff beyond filters + vectors:</p>
+<ul>
+<li><strong>Autocomplete</strong> — search-as-you-type, phrase suggesters, boosting, user-friendly completion.</li>
+<li><strong>Facets</strong> — powerful aggregations: geo boundaries, date histograms, bucketing. Not just string counts.</li>
+<li><strong>Native rescoring</strong> — query rescorer, rank features, boosting for freshness, popularity, personalization.</li>
+<li><strong>Rich documents</strong> — nested JSON, arrays, geo points, IPs. Search isn’t flat.</li>
+<li><strong>Geo Search</strong> — aggregations, polygons, proximity scoring. Beyond just “in radius.”</li>
+<li><strong>Access control</strong> — index → document → field level security. For lexical <strong>and</strong> vector fields.</li>
+<li><strong>Data enrichment pipelines</strong> — entity extraction, tagging, embeddings, LLM-based enrichment.</li>
+<li><strong>Scalability</strong> — petabytes of data, tiered storage, lifecycle management. Search doesn’t stop at 10M docs.</li>
+</ul>
+<p>This is hybrid.</p>
+<hr>
+<h2 id="vectors-ask-the-hard-questions">Vectors: Ask the Hard Questions</h2>
+<p>Not all vector support is equal. Check:</p>
+<ul>
+<li>Is vector search <strong>native to the engine</strong> or bolted on?</li>
+<li>Query types: KNN, ANN, hybrid filtering?</li>
+<li>Can it run at scale with good recall + low latency?</li>
+<li>Quantization: int4, int8, binary, advanced methods like <strong>BBQ (Better Binary Quantization)</strong>?</li>
+<li>Filters on HNSW: is it pre-filtering or filter-aware indexing (like ACORN)?</li>
+<li>Can it blend semantic + lexical scoring at query time?
+<ul>
+<li>RRF (Reciprocal Rank Fusion)</li>
+<li>Linear retrievers</li>
+<li>Semantic reranking with LLMs</li>
+</ul>
+</li>
+</ul>
+<p>If your engine can’t do these, it’s not serious about hybrid.</p>
+<hr>
+<h2 id="implementation-note-one-query-should-do-it">Implementation Note: One Query Should Do It</h2>
+<p>If you need to stitch 3–4 services together just to get:</p>
+<ul>
+<li>Facets</li>
+<li>Filters</li>
+<li>Semantic results</li>
+<li>Lexical results</li>
+<li>Reranking</li>
+</ul>
+<p>…you’re adding <strong>latency + complexity</strong>.</p>
+<p>A true hybrid engine should give you everything in <strong>one structured query</strong>.</p>
+<hr>
+<h2 id="practical-takeaways">Practical Takeaways</h2>
+<ol>
+<li><strong>Not all fields deserve semantic.</strong> Treat fields differently.</li>
+<li><strong>Filters are lexical.</strong> Stop semantic-izing metadata.</li>
+<li><strong>Hybrid = lexical + semantic + rescoring + scale.</strong> Not just bolted-on keyword support.</li>
+<li><strong>Evaluate vectors deeply.</strong> Native support, quantization, filtering, reranking.</li>
+<li><strong>One query &gt; stitched services.</strong> Hybrid done right = clean pipeline, low latency.</li>
+</ol>
+<hr>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+<p>Hybrid search is not a checkbox.
+It’s about designing for <strong>relevance + scale + control</strong>.</p>
+<p>If your “hybrid” is just vectors + filters, you’ve built a demo — not a real search engine.</p>
+<p>True hybrid is <strong>Lexical + Semantic + Scoring + Access + Scale + Control</strong>.
+That’s when search feels natural, accurate, and production-ready.</p>
+<hr>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Laracon 2024</title>
+      <link>https://ashish.one/talks/laracon-2024/</link>
+      <pubDate>Mon, 25 Aug 2025 11:29:16 +0530</pubDate>
+      <guid>https://ashish.one/talks/laracon-2024/</guid>
+      <description>&lt;h1 id=&#34;-talk-summary-no-code-rag-chatbot-with-php-llms--elasticsearch&#34;&gt;🎤 Talk Summary: No-Code RAG Chatbot with PHP, LLMs &amp;amp; Elasticsearch&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Speaker:&lt;/strong&gt; Ashish Diwali (Senior Developer Advocate, Elastic)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-introduction&#34;&gt;🔑 Introduction&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Topic: Integrating &lt;strong&gt;Generative AI (LLMs)&lt;/strong&gt; with &lt;strong&gt;PHP&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Goal: Show how to build &lt;strong&gt;chat assistants, semantic search, and vector search&lt;/strong&gt; without heavy ML expertise.&lt;/li&gt;
+&lt;li&gt;Demo focus: Using &lt;strong&gt;Elasticsearch + PHP + LLM (LLaMA 3.1)&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-core-concepts&#34;&gt;🧩 Core Concepts&lt;/h2&gt;
+&lt;h3 id=&#34;1-prompt-engineering&#34;&gt;1. Prompt Engineering&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;LLMs generate responses based on prompts → predicting next words.&lt;/li&gt;
+&lt;li&gt;Techniques:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Zero-shot inference&lt;/strong&gt; → direct classification or tagging.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;One-shot inference&lt;/strong&gt; → provide one example in the prompt.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Few-shot inference&lt;/strong&gt; → multiple examples → useful for structured outputs (SQL, JSON, XML).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Iteration + context = &lt;strong&gt;In-context learning (ICL)&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-llm-limitations&#34;&gt;2. LLM Limitations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;❌ Hallucinations (wrong answers).&lt;/li&gt;
+&lt;li&gt;❌ Complex to build/train from scratch.&lt;/li&gt;
+&lt;li&gt;❌ No real-time / private data access.&lt;/li&gt;
+&lt;li&gt;❌ Privacy &amp;amp; security concerns (especially in banking, public sector).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-rag-retrieval-augmented-generation&#34;&gt;3. RAG (Retrieval-Augmented Generation)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Solution to limitations.&lt;/li&gt;
+&lt;li&gt;Workflow:
+&lt;ol&gt;
+&lt;li&gt;User query → hits database/vector DB (e.g., Elasticsearch).&lt;/li&gt;
+&lt;li&gt;Retrieve &lt;strong&gt;top 5–10 relevant docs&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Pass as context window → LLM generates accurate answer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Benefits:
+&lt;ul&gt;
+&lt;li&gt;Grounded responses.&lt;/li&gt;
+&lt;li&gt;Works with private data.&lt;/li&gt;
+&lt;li&gt;Avoids retraining large models.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-semantic--vector-search&#34;&gt;🔍 Semantic &amp;amp; Vector Search&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Semantic Search:&lt;/strong&gt; Understands meaning, not just keywords.
+&lt;ul&gt;
+&lt;li&gt;Example: “best city” ↔ “beautiful city.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vector Search:&lt;/strong&gt; Text, images, and audio converted into embeddings (arrays of floats).
+&lt;ul&gt;
+&lt;li&gt;Enables image search, recommendation systems, music search (via humming).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Similarity algorithms:&lt;/strong&gt; cosine similarity, dot product, nearest neighbors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-tools--demo&#34;&gt;🛠️ Tools &amp;amp; Demo&lt;/h2&gt;
+&lt;h3 id=&#34;elephant-library-php&#34;&gt;Elephant Library (PHP)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Open-source PHP library for GenAI apps.&lt;/li&gt;
+&lt;li&gt;Supports:
+&lt;ul&gt;
+&lt;li&gt;LLMs: OpenAI, Mistral, Anthropic, LLaMA.&lt;/li&gt;
+&lt;li&gt;Vector DBs: Elasticsearch, Pinecone, Chroma, etc.&lt;/li&gt;
+&lt;li&gt;Features: document chunking, embedding generation, semantic retrieval, Q&amp;amp;A (RAG).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;demo-flow&#34;&gt;Demo Flow&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Ingestion&lt;/strong&gt;:&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h1 id="-talk-summary-no-code-rag-chatbot-with-php-llms--elasticsearch">🎤 Talk Summary: No-Code RAG Chatbot with PHP, LLMs &amp; Elasticsearch</h1>
+<p><strong>Speaker:</strong> Ashish Diwali (Senior Developer Advocate, Elastic)</p>
+<hr>
+<h2 id="-introduction">🔑 Introduction</h2>
+<ul>
+<li>Topic: Integrating <strong>Generative AI (LLMs)</strong> with <strong>PHP</strong>.</li>
+<li>Goal: Show how to build <strong>chat assistants, semantic search, and vector search</strong> without heavy ML expertise.</li>
+<li>Demo focus: Using <strong>Elasticsearch + PHP + LLM (LLaMA 3.1)</strong>.</li>
+</ul>
+<hr>
+<h2 id="-core-concepts">🧩 Core Concepts</h2>
+<h3 id="1-prompt-engineering">1. Prompt Engineering</h3>
+<ul>
+<li>LLMs generate responses based on prompts → predicting next words.</li>
+<li>Techniques:
+<ul>
+<li><strong>Zero-shot inference</strong> → direct classification or tagging.</li>
+<li><strong>One-shot inference</strong> → provide one example in the prompt.</li>
+<li><strong>Few-shot inference</strong> → multiple examples → useful for structured outputs (SQL, JSON, XML).</li>
+</ul>
+</li>
+<li>Iteration + context = <strong>In-context learning (ICL)</strong>.</li>
+</ul>
+<h3 id="2-llm-limitations">2. LLM Limitations</h3>
+<ul>
+<li>❌ Hallucinations (wrong answers).</li>
+<li>❌ Complex to build/train from scratch.</li>
+<li>❌ No real-time / private data access.</li>
+<li>❌ Privacy &amp; security concerns (especially in banking, public sector).</li>
+</ul>
+<h3 id="3-rag-retrieval-augmented-generation">3. RAG (Retrieval-Augmented Generation)</h3>
+<ul>
+<li>Solution to limitations.</li>
+<li>Workflow:
+<ol>
+<li>User query → hits database/vector DB (e.g., Elasticsearch).</li>
+<li>Retrieve <strong>top 5–10 relevant docs</strong>.</li>
+<li>Pass as context window → LLM generates accurate answer.</li>
+</ol>
+</li>
+<li>Benefits:
+<ul>
+<li>Grounded responses.</li>
+<li>Works with private data.</li>
+<li>Avoids retraining large models.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="-semantic--vector-search">🔍 Semantic &amp; Vector Search</h2>
+<ul>
+<li><strong>Semantic Search:</strong> Understands meaning, not just keywords.
+<ul>
+<li>Example: “best city” ↔ “beautiful city.”</li>
+</ul>
+</li>
+<li><strong>Vector Search:</strong> Text, images, and audio converted into embeddings (arrays of floats).
+<ul>
+<li>Enables image search, recommendation systems, music search (via humming).</li>
+</ul>
+</li>
+<li><strong>Similarity algorithms:</strong> cosine similarity, dot product, nearest neighbors.</li>
+</ul>
+<hr>
+<h2 id="-tools--demo">🛠️ Tools &amp; Demo</h2>
+<h3 id="elephant-library-php">Elephant Library (PHP)</h3>
+<ul>
+<li>Open-source PHP library for GenAI apps.</li>
+<li>Supports:
+<ul>
+<li>LLMs: OpenAI, Mistral, Anthropic, LLaMA.</li>
+<li>Vector DBs: Elasticsearch, Pinecone, Chroma, etc.</li>
+<li>Features: document chunking, embedding generation, semantic retrieval, Q&amp;A (RAG).</li>
+</ul>
+</li>
+</ul>
+<h3 id="demo-flow">Demo Flow</h3>
+<ol>
+<li>
+<p><strong>Ingestion</strong>:</p>
+<ul>
+<li>Chunk PDF into smaller pieces (800 chars).</li>
+<li>Generate embeddings with LLaMA.</li>
+<li>Store text + vectors in Elasticsearch.</li>
+</ul>
+</li>
+<li>
+<p><strong>Querying</strong>:</p>
+<ul>
+<li>User question → hits Elasticsearch.</li>
+<li>Retrieve top 10 docs.</li>
+<li>Send docs + query → LLaMA → response.</li>
+</ul>
+</li>
+<li>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><em>“Who won the Nobel Prize in Physics 2024?”</em> → Retrieved correct answer from PDF context.</li>
+<li><em>“How do brain neural networks work?”</em> → Summarized based on provided docs.</li>
+<li><em>“Who won ICC Championship 2025?”</em> → No irrelevant hallucination (kept within context).</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="-key-takeaways">🎯 Key Takeaways</h2>
+<ul>
+<li><strong>Don’t train your own LLM</strong> → use <strong>RAG + search</strong> to build assistants on private data.</li>
+<li><strong>Elasticsearch</strong> is a powerful vector DB for semantic + hybrid search.</li>
+<li><strong>PHP + Elephant</strong> makes building RAG chatbots accessible for web developers.</li>
+<li>RAG powers most modern chat assistants today.</li>
+</ul>
+<hr>
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/qDFct7oeRss?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+
+]]></content:encoded>
+    </item>
+    <item>
+      <title>AWS Community Day Mumbai 2024</title>
+      <link>https://ashish.one/talks/aws-communtiy-day-mumbai-2024/</link>
+      <pubDate>Mon, 25 Aug 2025 10:18:25 +0530</pubDate>
+      <guid>https://ashish.one/talks/aws-communtiy-day-mumbai-2024/</guid>
+      <description>&lt;h1 id=&#34;-no-code-chatbot-with-elasticsearch--aws-bedrock-talk-summary&#34;&gt;🚀 No-Code Chatbot with Elasticsearch + AWS Bedrock (Talk Summary)&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Speaker:&lt;/strong&gt; Ashish (Senior Developer Advocate, Elastic)&lt;br&gt;
+&lt;strong&gt;Event:&lt;/strong&gt; AWS Community Day Mumbai 2024&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-why-search-still-matters-with-llms&#34;&gt;🔑 Why Search Still Matters with LLMs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;LLMs (like ChatGPT) are powerful but face:
+&lt;ul&gt;
+&lt;li&gt;❌ Hallucinations&lt;/li&gt;
+&lt;li&gt;💰 High cost per query&lt;/li&gt;
+&lt;li&gt;🔒 No access to private / real-time data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;✅ Search grounds LLMs in &lt;strong&gt;reliable, domain-specific info&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-elasticsearch-capabilities&#34;&gt;⚡ Elasticsearch Capabilities&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Traditional &lt;strong&gt;keyword search&lt;/strong&gt; + modern &lt;strong&gt;vector search&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Real-world use cases:
+&lt;ul&gt;
+&lt;li&gt;📍 Geospatial queries (ride-sharing, food delivery)&lt;/li&gt;
+&lt;li&gt;❤️ Matchmaking&lt;/li&gt;
+&lt;li&gt;📊 Observability dashboards&lt;/li&gt;
+&lt;li&gt;📝 Centralized logging (Elastic Stack: Elasticsearch, Kibana, Beats, Logstash)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-retrieval-augmented-generation-rag&#34;&gt;🤖 Retrieval-Augmented Generation (RAG)&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Workflow:&lt;/strong&gt;&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h1 id="-no-code-chatbot-with-elasticsearch--aws-bedrock-talk-summary">🚀 No-Code Chatbot with Elasticsearch + AWS Bedrock (Talk Summary)</h1>
+<p><strong>Speaker:</strong> Ashish (Senior Developer Advocate, Elastic)<br>
+<strong>Event:</strong> AWS Community Day Mumbai 2024</p>
+<hr>
+<h2 id="-why-search-still-matters-with-llms">🔑 Why Search Still Matters with LLMs</h2>
+<ul>
+<li>LLMs (like ChatGPT) are powerful but face:
+<ul>
+<li>❌ Hallucinations</li>
+<li>💰 High cost per query</li>
+<li>🔒 No access to private / real-time data</li>
+</ul>
+</li>
+<li>✅ Search grounds LLMs in <strong>reliable, domain-specific info</strong>.</li>
+</ul>
+<hr>
+<h2 id="-elasticsearch-capabilities">⚡ Elasticsearch Capabilities</h2>
+<ul>
+<li>Traditional <strong>keyword search</strong> + modern <strong>vector search</strong>.</li>
+<li>Real-world use cases:
+<ul>
+<li>📍 Geospatial queries (ride-sharing, food delivery)</li>
+<li>❤️ Matchmaking</li>
+<li>📊 Observability dashboards</li>
+<li>📝 Centralized logging (Elastic Stack: Elasticsearch, Kibana, Beats, Logstash)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="-retrieval-augmented-generation-rag">🤖 Retrieval-Augmented Generation (RAG)</h2>
+<p><strong>Workflow:</strong></p>
+<ol>
+<li>User query →</li>
+<li>Elasticsearch retrieves relevant documents →</li>
+<li>Context passed to AWS Bedrock LLM →</li>
+<li>LLM generates grounded answers</li>
+</ol>
+<p>👉 Reduces hallucination, enables <strong>chatbots on private data</strong>.</p>
+<hr>
+<h2 id="-demo-stack">🛠️ Demo Stack</h2>
+<ul>
+<li><strong>Flowise AI</strong> → No-code, drag &amp; drop RAG builder</li>
+<li><strong>Steps:</strong>
+<ol>
+<li>Ingest data (JSON, PDFs, web crawl)</li>
+<li>Chunk text</li>
+<li>Generate embeddings (Amazon Titan)</li>
+<li>Store embeddings + text in Elasticsearch</li>
+<li>Connect Bedrock LLM for Q&amp;A</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="-extensions">🌐 Extensions</h2>
+<ul>
+<li>Text search ✅</li>
+<li>Image search 🖼️</li>
+<li>Audio search (e.g., humming a tune) 🎵</li>
+<li>Multimodal experiences 🤝</li>
+</ul>
+<hr>
+<h2 id="-key-takeaway">🎯 Key Takeaway</h2>
+<p>With <strong>Elasticsearch + AWS Bedrock + Flowise AI</strong>, developers can build <strong>domain-specific, no-code RAG chatbots</strong> that combine:</p>
+<ul>
+<li>The <strong>precision of search</strong> 🔍</li>
+<li>The <strong>fluency of LLMs</strong> 💬</li>
+</ul>
+<hr>
+<h1 id="talk-video">Talk video</h1>
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ODy_xZIKU-s?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+
+]]></content:encoded>
+    </item>
     <item>
       <title>Set Up TLS for Elasticsearch on Public IP / Domain</title>
       <link>https://ashish.one/gist/setup-tls-elasticsearch/</link>

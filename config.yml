@@ -72,7 +72,7 @@ params:
     enabled: false
     imageUrl: 'https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200'
   homeInfoParams:
-    Title: "Bio  \U0001F44B"
+    Title: "Bio"
     Content:  >
       👋 Hi, I’m Ashish
 
@@ -80,13 +80,13 @@ params:
       🇮🇳 From India
 
 
-      🧑‍💼 Developer Advocate India, Elastic
+      🧑‍💼 Principal Solutions Architect - Search Specialist, Elastic
 
 
-      🧑‍💻 Developer, Coder, Programmer, Tech
+      &#x1F440; Developer, Search Engineer (latest interest - Generative AI, vector databases, RAG, agents ...)
 
 
-      🧑‍🤝‍🧑 Community lover, Speaker, Open source lover
+      🧑‍🤝‍🧑 Community lover, Speaker, OSS
 
 
       [More](https://ashish.one/about)

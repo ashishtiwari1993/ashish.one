@@ -11,8 +11,123 @@
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jun 2024 14:43:28 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 25 Aug 2025 10:18:25 +0530</lastBuildDate>
     <atom:link href="https://ashish.one/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Community Day Mumbai 2024</title>
+      <link>https://ashish.one/talks/aws-communtiy-day-mumbai-2024/</link>
+      <pubDate>Mon, 25 Aug 2025 10:18:25 +0530</pubDate>
+      <guid>https://ashish.one/talks/aws-communtiy-day-mumbai-2024/</guid>
+      <description>&lt;h1 id=&#34;-no-code-chatbot-with-elasticsearch--aws-bedrock-talk-summary&#34;&gt;🚀 No-Code Chatbot with Elasticsearch + AWS Bedrock (Talk Summary)&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Speaker:&lt;/strong&gt; Ashish (Senior Developer Advocate, Elastic)&lt;br&gt;
+&lt;strong&gt;Event:&lt;/strong&gt; AWS Community Day Mumbai 2024&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-why-search-still-matters-with-llms&#34;&gt;🔑 Why Search Still Matters with LLMs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;LLMs (like ChatGPT) are powerful but face:
+&lt;ul&gt;
+&lt;li&gt;❌ Hallucinations&lt;/li&gt;
+&lt;li&gt;💰 High cost per query&lt;/li&gt;
+&lt;li&gt;🔒 No access to private / real-time data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;✅ Search grounds LLMs in &lt;strong&gt;reliable, domain-specific info&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-elasticsearch-capabilities&#34;&gt;⚡ Elasticsearch Capabilities&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Traditional &lt;strong&gt;keyword search&lt;/strong&gt; + modern &lt;strong&gt;vector search&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Real-world use cases:
+&lt;ul&gt;
+&lt;li&gt;📍 Geospatial queries (ride-sharing, food delivery)&lt;/li&gt;
+&lt;li&gt;❤️ Matchmaking&lt;/li&gt;
+&lt;li&gt;📊 Observability dashboards&lt;/li&gt;
+&lt;li&gt;📝 Centralized logging (Elastic Stack: Elasticsearch, Kibana, Beats, Logstash)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-retrieval-augmented-generation-rag&#34;&gt;🤖 Retrieval-Augmented Generation (RAG)&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Workflow:&lt;/strong&gt;&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h1 id="-no-code-chatbot-with-elasticsearch--aws-bedrock-talk-summary">🚀 No-Code Chatbot with Elasticsearch + AWS Bedrock (Talk Summary)</h1>
+<p><strong>Speaker:</strong> Ashish (Senior Developer Advocate, Elastic)<br>
+<strong>Event:</strong> AWS Community Day Mumbai 2024</p>
+<hr>
+<h2 id="-why-search-still-matters-with-llms">🔑 Why Search Still Matters with LLMs</h2>
+<ul>
+<li>LLMs (like ChatGPT) are powerful but face:
+<ul>
+<li>❌ Hallucinations</li>
+<li>💰 High cost per query</li>
+<li>🔒 No access to private / real-time data</li>
+</ul>
+</li>
+<li>✅ Search grounds LLMs in <strong>reliable, domain-specific info</strong>.</li>
+</ul>
+<hr>
+<h2 id="-elasticsearch-capabilities">⚡ Elasticsearch Capabilities</h2>
+<ul>
+<li>Traditional <strong>keyword search</strong> + modern <strong>vector search</strong>.</li>
+<li>Real-world use cases:
+<ul>
+<li>📍 Geospatial queries (ride-sharing, food delivery)</li>
+<li>❤️ Matchmaking</li>
+<li>📊 Observability dashboards</li>
+<li>📝 Centralized logging (Elastic Stack: Elasticsearch, Kibana, Beats, Logstash)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="-retrieval-augmented-generation-rag">🤖 Retrieval-Augmented Generation (RAG)</h2>
+<p><strong>Workflow:</strong></p>
+<ol>
+<li>User query →</li>
+<li>Elasticsearch retrieves relevant documents →</li>
+<li>Context passed to AWS Bedrock LLM →</li>
+<li>LLM generates grounded answers</li>
+</ol>
+<p>👉 Reduces hallucination, enables <strong>chatbots on private data</strong>.</p>
+<hr>
+<h2 id="-demo-stack">🛠️ Demo Stack</h2>
+<ul>
+<li><strong>Flowise AI</strong> → No-code, drag &amp; drop RAG builder</li>
+<li><strong>Steps:</strong>
+<ol>
+<li>Ingest data (JSON, PDFs, web crawl)</li>
+<li>Chunk text</li>
+<li>Generate embeddings (Amazon Titan)</li>
+<li>Store embeddings + text in Elasticsearch</li>
+<li>Connect Bedrock LLM for Q&amp;A</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="-extensions">🌐 Extensions</h2>
+<ul>
+<li>Text search ✅</li>
+<li>Image search 🖼️</li>
+<li>Audio search (e.g., humming a tune) 🎵</li>
+<li>Multimodal experiences 🤝</li>
+</ul>
+<hr>
+<h2 id="-key-takeaway">🎯 Key Takeaway</h2>
+<p>With <strong>Elasticsearch + AWS Bedrock + Flowise AI</strong>, developers can build <strong>domain-specific, no-code RAG chatbots</strong> that combine:</p>
+<ul>
+<li>The <strong>precision of search</strong> 🔍</li>
+<li>The <strong>fluency of LLMs</strong> 💬</li>
+</ul>
+<hr>
+<h1 id="talk-video">Talk video</h1>
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ODy_xZIKU-s?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+
+]]></content:encoded>
+    </item>
     <item>
       <title>Serverless Ahmedabad 2023: Monitoring serverless environment with Elastic observability</title>
       <link>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</link>

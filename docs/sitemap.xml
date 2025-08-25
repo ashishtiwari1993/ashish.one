@@ -3,37 +3,88 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ashish.one/</loc>
-    <lastmod>2024-10-25T01:35:22+05:30</lastmod>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/blogs/</loc>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/categories/</loc>
-    <lastmod>2024-10-25T01:35:22+05:30</lastmod>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/categories/elastic/</loc>
-    <lastmod>2024-10-25T01:35:22+05:30</lastmod>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/elasticsearch/</loc>
-    <lastmod>2024-10-25T01:35:22+05:30</lastmod>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/gist/</loc>
-    <lastmod>2024-10-25T01:35:22+05:30</lastmod>
+    <loc>https://ashish.one/blogs/elastic/true-hybrid-search/</loc>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/security/</loc>
-    <lastmod>2024-10-25T01:35:22+05:30</lastmod>
+    <loc>https://ashish.one/tags/hybrid-search/</loc>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/gist/setup-tls-elasticsearch/</loc>
-    <lastmod>2024-10-25T01:35:22+05:30</lastmod>
+    <loc>https://ashish.one/tags/information-retrieval/</loc>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/ssl/</loc>
-    <lastmod>2024-10-25T01:35:22+05:30</lastmod>
+    <loc>https://ashish.one/tags/llm/</loc>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/search-relevancy/</loc>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/semantic-search/</loc>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/</loc>
-    <lastmod>2024-10-25T01:35:22+05:30</lastmod>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/tls/</loc>
-    <lastmod>2024-10-25T01:35:22+05:30</lastmod>
+    <loc>https://ashish.one/tags/vector-search/</loc>
+    <lastmod>2025-08-25T12:09:27+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/genai/</loc>
+    <lastmod>2025-08-25T11:29:16+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/talks/laracon-2024/</loc>
+    <lastmod>2025-08-25T11:29:16+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/laravel/</loc>
+    <lastmod>2025-08-25T11:29:16+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/llms/</loc>
+    <lastmod>2025-08-25T11:29:16+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/php/</loc>
+    <lastmod>2025-08-25T11:29:16+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/rag/</loc>
+    <lastmod>2025-08-25T11:29:16+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/talks/</loc>
+    <lastmod>2025-08-25T11:29:16+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/aws/</loc>
-    <lastmod>2024-06-03T14:43:28+05:30</lastmod>
+    <lastmod>2025-08-25T10:18:25+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/talks/aws-communtiy-day-mumbai-2024/</loc>
+    <lastmod>2025-08-25T10:18:25+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/bedrock/</loc>
+    <lastmod>2025-08-25T10:18:25+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/gist/</loc>
+    <lastmod>2024-10-25T01:47:11+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/security/</loc>
+    <lastmod>2024-10-25T01:47:11+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/gist/setup-tls-elasticsearch/</loc>
+    <lastmod>2024-10-25T01:47:11+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/ssl/</loc>
+    <lastmod>2024-10-25T01:47:11+05:30</lastmod>
+  </url><url>
+    <loc>https://ashish.one/tags/tls/</loc>
+    <lastmod>2024-10-25T01:47:11+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/monitoring/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
@@ -47,25 +98,7 @@
     <loc>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/talks/</loc>
-    <lastmod>2024-06-03T14:43:28+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/genai/</loc>
-    <lastmod>2024-06-03T14:43:28+05:30</lastmod>
-  </url><url>
     <loc>https://ashish.one/talks/gids-2024-rag/</loc>
-    <lastmod>2024-06-03T14:43:28+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/llms/</loc>
-    <lastmod>2024-06-03T14:43:28+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/rag/</loc>
-    <lastmod>2024-06-03T14:43:28+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/semantic-search/</loc>
-    <lastmod>2024-06-03T14:43:28+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/vector-search/</loc>
     <lastmod>2024-06-03T14:43:28+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/gist/json-to-ndjson-elasticsearch/</loc>
@@ -110,12 +143,6 @@
     <loc>https://ashish.one/tags/embeddings/</loc>
     <lastmod>2024-01-03T23:08:57+05:30</lastmod>
   </url><url>
-    <loc>https://ashish.one/tags/hybrid-search/</loc>
-    <lastmod>2024-01-03T23:08:57+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/llm/</loc>
-    <lastmod>2024-01-03T23:08:57+05:30</lastmod>
-  </url><url>
     <loc>https://ashish.one/talks/monitor_k8_elastic_observability/</loc>
     <lastmod>2023-07-28T21:59:42+05:30</lastmod>
   </url><url>
@@ -127,9 +154,6 @@
   </url><url>
     <loc>https://ashish.one/talks/chatgpt-elasticsearch/</loc>
     <lastmod>2023-08-04T19:38:41+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/blogs/</loc>
-    <lastmod>2023-01-25T11:52:17+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/http-plugin/</loc>
     <lastmod>2023-01-25T11:52:17+05:30</lastmod>
@@ -336,9 +360,6 @@
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/tags/nginx/</loc>
-    <lastmod>2022-05-11T13:39:05+05:30</lastmod>
-  </url><url>
-    <loc>https://ashish.one/tags/php/</loc>
     <lastmod>2022-05-11T13:39:05+05:30</lastmod>
   </url><url>
     <loc>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</loc>
