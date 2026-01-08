@@ -11,13 +11,55 @@
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Aug 2025 12:09:27 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 08 Jan 2026 21:21:21 +0530</lastBuildDate>
     <atom:link href="https://ashish.one/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai</title>
+      <link>https://ashish.one/tags/ai/</link>
+      <pubDate>Thu, 08 Jan 2026 21:21:21 +0530</pubDate>
+      <guid>https://ashish.one/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://ashish.one/tags/docker/</link>
+      <pubDate>Thu, 08 Jan 2026 21:21:21 +0530</pubDate>
+      <guid>https://ashish.one/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elastic</title>
+      <link>https://ashish.one/tags/elastic/</link>
+      <pubDate>Thu, 08 Jan 2026 21:21:21 +0530</pubDate>
+      <guid>https://ashish.one/tags/elastic/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Elasticsearch</title>
       <link>https://ashish.one/tags/elasticsearch/</link>
-      <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
+      <pubDate>Thu, 08 Jan 2026 21:21:21 +0530</pubDate>
       <guid>https://ashish.one/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Embeddings</title>
+      <link>https://ashish.one/tags/embeddings/</link>
+      <pubDate>Thu, 08 Jan 2026 21:21:21 +0530</pubDate>
+      <guid>https://ashish.one/tags/embeddings/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Litellm</title>
+      <link>https://ashish.one/tags/litellm/</link>
+      <pubDate>Thu, 08 Jan 2026 21:21:21 +0530</pubDate>
+      <guid>https://ashish.one/tags/litellm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vector-Search</title>
+      <link>https://ashish.one/tags/vector-search/</link>
+      <pubDate>Thu, 08 Jan 2026 21:21:21 +0530</pubDate>
+      <guid>https://ashish.one/tags/vector-search/</guid>
       <description></description>
     </item>
     <item>
@@ -53,13 +95,6 @@
       <link>https://ashish.one/tags/semantic-search/</link>
       <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
       <guid>https://ashish.one/tags/semantic-search/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vector-Search</title>
-      <link>https://ashish.one/tags/vector-search/</link>
-      <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
-      <guid>https://ashish.one/tags/vector-search/</guid>
       <description></description>
     </item>
     <item>
@@ -168,13 +203,6 @@
       <description></description>
     </item>
     <item>
-      <title>Elastic</title>
-      <link>https://ashish.one/tags/elastic/</link>
-      <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/tags/elastic/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>K8s</title>
       <link>https://ashish.one/tags/k8s/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
@@ -214,13 +242,6 @@
       <link>https://ashish.one/tags/query/</link>
       <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
       <guid>https://ashish.one/tags/query/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Embeddings</title>
-      <link>https://ashish.one/tags/embeddings/</link>
-      <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
-      <guid>https://ashish.one/tags/embeddings/</guid>
       <description></description>
     </item>
     <item>
@@ -361,13 +382,6 @@
       <link>https://ashish.one/tags/apm-server/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
       <guid>https://ashish.one/tags/apm-server/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Docker</title>
-      <link>https://ashish.one/tags/docker/</link>
-      <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
-      <guid>https://ashish.one/tags/docker/</guid>
       <description></description>
     </item>
     <item>

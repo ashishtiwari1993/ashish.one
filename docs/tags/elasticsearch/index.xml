@@ -11,8 +11,154 @@
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Aug 2025 12:09:27 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 08 Jan 2026 21:21:21 +0530</lastBuildDate>
     <atom:link href="https://ashish.one/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Streamlining Vector Search with private model: Unifying Embedding Models with LiteLLM and Elasticsearch</title>
+      <link>https://ashish.one/blogs/vector-search-with-litellm-elasticsearch/</link>
+      <pubDate>Thu, 08 Jan 2026 21:21:21 +0530</pubDate>
+      <guid>https://ashish.one/blogs/vector-search-with-litellm-elasticsearch/</guid>
+      <description>Learn how to host an embedding model using LiteLLM proxy on Docker and consume it directly from Elasticsearch for seamless vector search.</description>
+      <content:encoded><![CDATA[<p>In the rapidly evolving landscape of AI, managing the &ldquo;plumbing&rdquo; between your embedding models and your search engine is often a challenge. Developers frequently struggle with switching providers, managing API keys, and maintaining consistent API specifications.</p>
+<p><strong>LiteLLM</strong> solves the model management problem by acting as a universal proxy, while <strong>Elasticsearch</strong> delivers high-performance Vector Search. By combining them, you can build a search architecture that is both flexible and powerful.</p>
+<p>In this guide, we will walk through hosting an OpenAI-compatible embedding model using LiteLLM on Docker and consuming it directly from Elasticsearch to perform seamless vector search.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li><strong>OS:</strong> Ubuntu 24.04.3 LTS (or similar Linux environment)</li>
+<li><strong>Docker:</strong> Ensure Docker is installed and running.</li>
+<li><strong>Elasticsearch:</strong> An Elastic Cloud instance or a self-managed cluster.</li>
+</ul>
+<hr>
+<h3 id="step-1-configure-and-run-litellm">Step 1: Configure and Run LiteLLM</h3>
+<p>First, we need to configure LiteLLM. This tool will act as our gateway, proxying requests to various models (like GPT-4 or specific embedding models) while presenting a unified OpenAI-compatible API to the outside world.</p>
+<p><strong>1. Create the <code>config.yaml</code> file:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">model_list</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">model_name</span>: <span style="color:#ae81ff">gpt-4o</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">litellm_params</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">model</span>: <span style="color:#ae81ff">openai/gpt-4o</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">api_key</span>: <span style="color:#ae81ff">os.environ/OPENAI_API_KEY</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">model_name</span>: <span style="color:#ae81ff">gpt-3.5-turbo</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">litellm_params</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">model</span>: <span style="color:#ae81ff">openai/gpt-3.5-turbo</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">api_key</span>: <span style="color:#ae81ff">os.environ/OPENAI_API_KEY</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">model_name</span>: <span style="color:#ae81ff">text-embedding-3-small</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">litellm_params</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">model</span>: <span style="color:#ae81ff">openai/text-embedding-3-small</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">api_key</span>: <span style="color:#ae81ff">os.environ/OPENAI_API_KEY</span>
+</span></span></code></pre></div><p><strong>2. Run LiteLLM with Docker:</strong></p>
+<p>We will run the container with the config mounted. We also define a <code>LITELLM_MASTER_KEY</code> (<code>sk-my-admin-key-123</code>), which will serve as the static API key for our internal services to authenticate against this proxy.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 4000:4000 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>/config.yaml:/app/config.yaml <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e OPENAI_API_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;enter your openai api key&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e LITELLM_MASTER_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sk-my-admin-key-123&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  docker.litellm.ai/berriai/litellm:main-latest <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --config /app/config.yaml --detailed_debug
+</span></span></code></pre></div><hr>
+<h3 id="step-2-verify-the-proxy">Step 2: Verify the Proxy</h3>
+<p>Before we involve the search engine, let’s ensure our LiteLLM proxy is correctly handling requests.</p>
+<p><strong>Test Chat Completion:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#f92672">[</span>http://0.0.0.0:4000/v1/chat/completions<span style="color:#f92672">](</span>http://0.0.0.0:4000/v1/chat/completions<span style="color:#f92672">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer sk-my-admin-key-123&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;model&#34;: &#34;gpt-4o&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;messages&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      { &#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;Hello from LiteLLM Docker!&#34; }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span></code></pre></div><p><strong>Test Embedding Generation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#f92672">[</span>http://0.0.0.0:4000/v1/embeddings<span style="color:#f92672">](</span>http://0.0.0.0:4000/v1/embeddings<span style="color:#f92672">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer sk-my-admin-key-123&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;model&#34;: &#34;text-embedding-3-small&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;input&#34;: &#34;LiteLLM makes proxying easy.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span></code></pre></div><hr>
+<h3 id="step-3-configure-elasticsearch-inference">Step 3: Configure Elasticsearch Inference</h3>
+<p>Now we connect the two pieces. Since LiteLLM provides an OpenAI-compatible interface, we can use the standard OpenAI connector in Elasticsearch but point it to our custom LiteLLM URL.</p>
+<p><em>For more details on configuring these connectors, refer to the <a href="https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-openai">API doc</a></em></p>
+<p><strong>Create the Inference Endpoint</strong></p>
+<p>Run the following in your Kibana Dev Tools. Note that the <code>url</code> points to our container and the <code>api_key</code> matches our LiteLLM master key.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">PUT</span> <span style="color:#960050;background-color:#1e0010">_inference/text_embedding/litellm-embeddings</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;service&#34;</span>: <span style="color:#e6db74">&#34;openai&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;service_settings&#34;</span>: {
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&#34;api_key&#34;</span>: <span style="color:#e6db74">&#34;sk-my-admin-key-123&#34;</span>,
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&#34;model_id&#34;</span>: <span style="color:#e6db74">&#34;text-embedding-3-small&#34;</span>,
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;http://litellm_endpoint:4000/v1/embeddings&#34;</span>,
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&#34;dimensions&#34;</span>: <span style="color:#ae81ff">128</span>
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Test the Inference Endpoint</strong></p>
+<p>Let&rsquo;s verify that Elasticsearch can generate embeddings via LiteLLM:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">POST</span> <span style="color:#960050;background-color:#1e0010">_inference/text_embedding/litellm-embeddings</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;The sky above the port was the color of television tuned to a dead channel.&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;text_embedding&#34;</span>: [
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;embedding&#34;</span>: [
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">-0.023704717</span>,
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">-0.016358491</span>,
+</span></span><span style="display:flex;"><span>       <span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">0.12764767</span>
+</span></span><span style="display:flex;"><span>     ]
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span> ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h3 id="step-4-end-to-end-vector-search">Step 4: End-to-End Vector Search</h3>
+<p>Now that the pipeline is ready, we can perform <strong>Semantic Search</strong>. We will use the <code>semantic_text</code> field type, which abstracts the embedding generation process—Elasticsearch calls LiteLLM automatically during data ingestion and query time.</p>
+<p><strong>1. Create the Index</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">PUT</span> <span style="color:#960050;background-color:#1e0010">/litellm-test-index</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;mappings&#34;</span>: {
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;content&#34;</span>: {
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;semantic_text&#34;</span>,
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&#34;inference_id&#34;</span>: <span style="color:#e6db74">&#34;litellm-embeddings&#34;</span>
+</span></span><span style="display:flex;"><span>     },
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;category&#34;</span>: {
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;keyword&#34;</span>
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>2. Ingest Data</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">POST</span> <span style="color:#960050;background-color:#1e0010">/litellm-test-index/_bulk</span>
+</span></span><span style="display:flex;"><span>{ <span style="color:#f92672">&#34;index&#34;</span>: {} }
+</span></span><span style="display:flex;"><span>{ <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;The quick brown fox jumps over the lazy dog.&#34;</span>, <span style="color:#f92672">&#34;category&#34;</span>: <span style="color:#e6db74">&#34;animals&#34;</span> }
+</span></span><span style="display:flex;"><span>{ <span style="color:#f92672">&#34;index&#34;</span>: {} }
+</span></span><span style="display:flex;"><span>{ <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;Artificial intelligence is transforming software development.&#34;</span>, <span style="color:#f92672">&#34;category&#34;</span>: <span style="color:#e6db74">&#34;tech&#34;</span> }
+</span></span><span style="display:flex;"><span>{ <span style="color:#f92672">&#34;index&#34;</span>: {} }
+</span></span><span style="display:flex;"><span>{ <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;Docker containers make deployment consistent and easy.&#34;</span>, <span style="color:#f92672">&#34;category&#34;</span>: <span style="color:#e6db74">&#34;tech&#34;</span> }
+</span></span></code></pre></div><p><strong>3. Verify Data</strong></p>
+<p>You can now search the index.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">GET</span> <span style="color:#960050;background-color:#1e0010">litellm-test-index/_search</span>
+</span></span></code></pre></div><p><em>Note: You will not see the embedding vectors in the <code>_source</code> output. This is by design to save storage space. To learn more about this behavior, check out the <a href="https://www.elastic.co/search-labs/blog/elasticsearch-exclude-vectors-from-source">Elastic Search Labs blog on excluding vectors from source</a>.</em></p>
+<p><strong>4. Perform Semantic Query</strong></p>
+<p>Finally, let&rsquo;s run a natural language search. The query &ldquo;tools for deploying software&rdquo; does not exist in our text, but the vector search identifies the semantic relationship with &ldquo;Docker containers.&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">GET</span> <span style="color:#960050;background-color:#1e0010">/litellm-test-index/_search</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;query&#34;</span>: {
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;semantic&#34;</span>: {
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;field&#34;</span>: <span style="color:#e6db74">&#34;content&#34;</span>,
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;query&#34;</span>: <span style="color:#e6db74">&#34;tools for deploying software&#34;</span>
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="conclusion">Conclusion</h3>
+<p>This architecture demonstrates the power of decoupling your model provider from your search engine. By using <strong>LiteLLM</strong> as a standardized proxy, you gain the flexibility to swap underlying models without breaking your application. Simultaneously, <strong>Elasticsearch&rsquo;s Vector Search</strong> leverages these embeddings to provide deep semantic understanding.</p>
+<p>Together, LiteLLM and Elasticsearch create a robust, future-proof foundation for building intelligent search applications that go far beyond simple keyword matching.</p>
+<p>Happy searching!</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>Hybrid Search Done Right: Stop Calling Metadata Filters &#34;Hybrid&#34;</title>
       <link>https://ashish.one/blogs/elastic/true-hybrid-search/</link>
