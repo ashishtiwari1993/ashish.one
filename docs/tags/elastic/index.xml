@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jan 2026 21:21:21 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 08 Jan 2026 21:38:15 +0530</lastBuildDate>
     <atom:link href="https://ashish.one/tags/elastic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Streamlining Vector Search with private model: Unifying Embedding Models with LiteLLM and Elasticsearch</title>
@@ -58,9 +58,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --config /app/config.yaml --detailed_debug
 </span></span></code></pre></div><hr>
 <h3 id="step-2-verify-the-proxy">Step 2: Verify the Proxy</h3>
-<p>Before we involve the search engine, let’s ensure our LiteLLM proxy is correctly handling requests.</p>
+<p>let’s ensure our LiteLLM proxy is correctly handling requests.</p>
 <p><strong>Test Chat Completion:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#f92672">[</span>http://0.0.0.0:4000/v1/chat/completions<span style="color:#f92672">](</span>http://0.0.0.0:4000/v1/chat/completions<span style="color:#f92672">)</span> <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl http://0.0.0.0:4000/v1/chat/completions <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer sk-my-admin-key-123&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{
@@ -70,7 +70,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ]
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
 </span></span></code></pre></div><p><strong>Test Embedding Generation:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#f92672">[</span>http://0.0.0.0:4000/v1/embeddings<span style="color:#f92672">](</span>http://0.0.0.0:4000/v1/embeddings<span style="color:#f92672">)</span> <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl http://0.0.0.0:4000/v1/embeddings <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer sk-my-admin-key-123&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{
@@ -79,10 +79,11 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
 </span></span></code></pre></div><hr>
 <h3 id="step-3-configure-elasticsearch-inference">Step 3: Configure Elasticsearch Inference</h3>
-<p>Now we connect the two pieces. Since LiteLLM provides an OpenAI-compatible interface, we can use the standard OpenAI connector in Elasticsearch but point it to our custom LiteLLM URL.</p>
+<p>Now we connect the two pieces. Let&rsquo;s <a href="https://www.elastic.co/docs/deploy-manage/deploy/elastic-cloud/create-an-elastic-cloud-hosted-deployment">create elatic deployment</a> instance from Elastic cloud.</p>
+<p>Since LiteLLM provides an OpenAI-compatible interface, we can use the standard OpenAI inference in Elasticsearch but point it to our custom LiteLLM URL.</p>
 <p><em>For more details on configuring these connectors, refer to the <a href="https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-inference-put-openai">API doc</a></em></p>
 <p><strong>Create the Inference Endpoint</strong></p>
-<p>Run the following in your Kibana Dev Tools. Note that the <code>url</code> points to our container and the <code>api_key</code> matches our LiteLLM master key.</p>
+<p>Run the following in your Kibana Dev Tools. Note that the <code>url</code> points to our LiteLLM endpoint and the <code>api_key</code> matches our LiteLLM master key.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">PUT</span> <span style="color:#960050;background-color:#1e0010">_inference/text_embedding/litellm-embeddings</span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;service&#34;</span>: <span style="color:#e6db74">&#34;openai&#34;</span>,
@@ -93,6 +94,26 @@
 </span></span><span style="display:flex;"><span>       <span style="color:#f92672">&#34;dimensions&#34;</span>: <span style="color:#ae81ff">128</span>
 </span></span><span style="display:flex;"><span>   }
 </span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><em>Output</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;inference_id&#34;</span>: <span style="color:#e6db74">&#34;litellm-embeddings&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;task_type&#34;</span>: <span style="color:#e6db74">&#34;text_embedding&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;service&#34;</span>: <span style="color:#e6db74">&#34;openai&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;service_settings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;model_id&#34;</span>: <span style="color:#e6db74">&#34;text-embedding-3-small&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;http://litellm_endpoint:4000/v1/embeddings&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;similarity&#34;</span>: <span style="color:#e6db74">&#34;dot_product&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dimensions&#34;</span>: <span style="color:#ae81ff">128</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;rate_limit&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;requests_per_minute&#34;</span>: <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;chunking_settings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;strategy&#34;</span>: <span style="color:#e6db74">&#34;sentence&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;max_chunk_size&#34;</span>: <span style="color:#ae81ff">250</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;sentence_overlap&#34;</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><strong>Test the Inference Endpoint</strong></p>
 <p>Let&rsquo;s verify that Elasticsearch can generate embeddings via LiteLLM:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">POST</span> <span style="color:#960050;background-color:#1e0010">_inference/text_embedding/litellm-embeddings</span>
@@ -101,20 +122,144 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><strong>Output:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;text_embedding&#34;</span>: [
-</span></span><span style="display:flex;"><span>   {
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;embedding&#34;</span>: [
-</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">-0.023704717</span>,
-</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">-0.016358491</span>,
-</span></span><span style="display:flex;"><span>       <span style="color:#960050;background-color:#1e0010">...</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">0.12764767</span>
-</span></span><span style="display:flex;"><span>     ]
-</span></span><span style="display:flex;"><span>   }
-</span></span><span style="display:flex;"><span> ]
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;text_embedding&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;embedding&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.02372423</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.016345346</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.269933</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.038996283</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.06547082</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.04299877</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.059388835</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.13049445</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.019900626</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.09131928</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.024954043</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.08608698</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.072268344</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.09623853</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.06260871</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.0264969</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.21161744</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.00086855615</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.2389864</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.07410188</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.00018866465</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.0704348</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.08724971</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.14078017</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.121192575</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.011660873</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.07177641</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.070211194</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.01770932</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.13067332</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.02551305</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.16734414</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.0144000035</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.033562742</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.12226587</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.097311825</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.08868077</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.011236028</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.08631058</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.13541369</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.007585716</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.08742859</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.19337147</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.072447225</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.025155285</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.07025592</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.0071552815</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.03591057</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.118509345</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.028598765</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.094628595</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.051115543</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.03497144</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.053888213</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.046196286</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.091945365</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.013449693</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.025759013</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.13764973</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.046554048</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.08841244</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.05460374</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.025826093</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.030611187</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.012197519</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.1722634</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.02372423</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.0021340067</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.025222367</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.06158014</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.09740127</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.010352798</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.05701865</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.06381617</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.0127341645</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.042149078</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.034144107</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.012432301</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.1711901</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.13112053</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.0789317</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.12879506</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.14677271</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.02915777</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.0157528</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.007390064</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.04659877</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.10473543</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.04152299</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.16662861</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.017060874</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.12333916</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.06256399</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.09167704</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.023120502</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.03872796</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.17852427</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.020314291</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.023232304</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.050578896</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.05983604</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.020470813</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.14417891</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.0002360055</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.0051400634</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.07334163</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.12655903</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.0008245344</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.057644736</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.067080766</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.02989566</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.04223852</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.14838265</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.1329988</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.009531058</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.038638517</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.08076524</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.0014939444</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.24846715</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.012711804</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.003342858</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.014411184</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.077232316</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.033629823</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.082598776</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-0.020850938</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.08376151</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.12772177</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><hr>
 <h3 id="step-4-end-to-end-vector-search">Step 4: End-to-End Vector Search</h3>
-<p>Now that the pipeline is ready, we can perform <strong>Semantic Search</strong>. We will use the <code>semantic_text</code> field type, which abstracts the embedding generation process—Elasticsearch calls LiteLLM automatically during data ingestion and query time.</p>
+<p>Now that the pipeline is ready, we can perform <strong>Semantic Search</strong>. We will use the (semantic_text)[https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/semantic-text] field type, which abstracts the embedding generation process—Elasticsearch calls LiteLLM automatically during data ingestion and query time.</p>
 <p><strong>1. Create the Index</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">PUT</span> <span style="color:#960050;background-color:#1e0010">/litellm-test-index</span>
 </span></span><span style="display:flex;"><span>{
@@ -152,6 +297,53 @@
 </span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;query&#34;</span>: <span style="color:#e6db74">&#34;tools for deploying software&#34;</span>
 </span></span><span style="display:flex;"><span>   }
 </span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><em>Output</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;took&#34;</span>: <span style="color:#ae81ff">501</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timed_out&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_shards&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span>: <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;successful&#34;</span>: <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipped&#34;</span>: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;failed&#34;</span>: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hits&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;relation&#34;</span>: <span style="color:#e6db74">&#34;eq&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;max_score&#34;</span>: <span style="color:#ae81ff">0.7422092</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hits&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span>: <span style="color:#e6db74">&#34;litellm-test-index&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span>: <span style="color:#e6db74">&#34;UZR4pJsBGjew_vztklFP&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span>: <span style="color:#ae81ff">0.7422092</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;Docker containers make deployment consistent and easy.&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;category&#34;</span>: <span style="color:#e6db74">&#34;tech&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span>: <span style="color:#e6db74">&#34;litellm-test-index&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span>: <span style="color:#e6db74">&#34;UJR4pJsBGjew_vztklFP&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span>: <span style="color:#ae81ff">0.68897665</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;Artificial intelligence is transforming software development.&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;category&#34;</span>: <span style="color:#e6db74">&#34;tech&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span>: <span style="color:#e6db74">&#34;litellm-test-index&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span>: <span style="color:#e6db74">&#34;T5R4pJsBGjew_vztklFP&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span>: <span style="color:#ae81ff">0.5035514</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;The quick brown fox jumps over the lazy dog.&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;category&#34;</span>: <span style="color:#e6db74">&#34;animals&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="conclusion">Conclusion</h3>
 <p>This architecture demonstrates the power of decoupling your model provider from your search engine. By using <strong>LiteLLM</strong> as a standardized proxy, you gain the flexibility to swap underlying models without breaking your application. Simultaneously, <strong>Elasticsearch&rsquo;s Vector Search</strong> leverages these embeddings to provide deep semantic understanding.</p>
