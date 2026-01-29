@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jan 2026 21:38:15 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jan 2026 02:07:01 +0530</lastBuildDate>
     <atom:link href="https://ashish.one/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Streamlining Vector Search with private model: Unifying Embedding Models with LiteLLM and Elasticsearch</title>
@@ -6160,11 +6160,11 @@ ngram-test  459483245   329.5gb
       <guid>https://ashish.one/about/</guid>
       <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/speaker-pic/ashish.jpg&#34; alt=&#34;Ashish Tiwari&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;I’m a Principal Solutions Architect – Search Specialist, passionate about building and scaling search and GenAI-driven solutions. My journey started as a Software Engineer, and over the years I’ve worked across diverse stacks, databases, and programming languages—solving real-world problems and learning from some of the best minds in the industry.&lt;/p&gt;
+&lt;p&gt;I’m a &lt;strong&gt;Principal Solutions Architect – Search &amp;amp; GenAI Specialist&lt;/strong&gt;, passionate about building and scaling search and GenAI-driven solutions. My journey started as a Software Engineer, and over the years I’ve worked across diverse stacks, databases, and programming languages—solving real-world problems and learning from some of the best minds in the industry.&lt;/p&gt;
 &lt;p&gt;Having worn multiple hats in startups, I’ve gained hands-on experience in system design, architecture, scaling, coding, maintenance, customer support, marketing, and community engagement. Lately, my focus has been on Generative AI, vector search, embeddings, and Retrieval-Augmented Generation (RAG)—helping bridge the gap between unstructured data and intelligent search experiences.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/speaker-pic/ashish.jpg" alt="Ashish Tiwari"  />
 </p>
-<p>I’m a Principal Solutions Architect – Search Specialist, passionate about building and scaling search and GenAI-driven solutions. My journey started as a Software Engineer, and over the years I’ve worked across diverse stacks, databases, and programming languages—solving real-world problems and learning from some of the best minds in the industry.</p>
+<p>I’m a <strong>Principal Solutions Architect – Search &amp; GenAI Specialist</strong>, passionate about building and scaling search and GenAI-driven solutions. My journey started as a Software Engineer, and over the years I’ve worked across diverse stacks, databases, and programming languages—solving real-world problems and learning from some of the best minds in the industry.</p>
 <p>Having worn multiple hats in startups, I’ve gained hands-on experience in system design, architecture, scaling, coding, maintenance, customer support, marketing, and community engagement. Lately, my focus has been on Generative AI, vector search, embeddings, and Retrieval-Augmented Generation (RAG)—helping bridge the gap between unstructured data and intelligent search experiences.</p>
 <p>I’m an open-source enthusiast who loves contributing back and sharing knowledge through blogs, talks, and community initiatives. Outside of work, I spend time experimenting with new technologies, writing, and engaging with the community.</p>
 <p>Based in Mumbai, India, this space is where I share my thoughts, learnings, and findings around the evolving world of Search and GenAI.</p>
