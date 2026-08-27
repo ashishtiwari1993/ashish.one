@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["elasticsearch","search_as_you_type","Elastic"]
 slug: "search-as-you-type"
 categories: ["Elastic"]
+description: "How to implement search-as-you-type autocomplete in Elasticsearch using the search_as_you_type field mapping type."
 cover:
     image: "/img/misc/search_as_you_type.gif"
     alt: "Searcy As You Type"

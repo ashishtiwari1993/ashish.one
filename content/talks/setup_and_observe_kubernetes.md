@@ -5,6 +5,7 @@ draft: false
 type: "post"
 tags: ["elasticsearch","kubernetes","Elastic","observability","k8s"]
 categories: ["Elastic"]
+description: "Hands-on session on setting up a Kubernetes cluster and observing it with the Elastic Stack — logs, metrics, and APM."
 cover:
     #image: "/img/misc/k8s_monitoring.jpg" # image path/url
     alt: "Monitor kubernetes cluster with Elastic Observability" # alt text

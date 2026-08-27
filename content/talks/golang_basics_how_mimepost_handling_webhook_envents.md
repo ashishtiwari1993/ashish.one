@@ -7,6 +7,7 @@ tags: ["golang","talk","concurrency"]
 slug: "golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost"
 categories: "Golang"
 type: "post"
+description: "Talk on Golang fundamentals and how MimePost handled 100,000 hourly webhook events using Go concurrency patterns."
 ---
 
 ## What this talk about?

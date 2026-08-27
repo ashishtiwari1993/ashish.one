@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["elasticsearch","grok-processor","grok-pattern","ingest-pipeline","Elastic"]
 slug: "parsing-custom-log-format-to-the-elasticsearch"
 categories: ["Elastic"]
+description: "How to use Elasticsearch's Grok processor and ingest pipelines to parse and structure custom, unstructured log formats."
 cover:
     image: "/img/misc/parse-custom-log.png"
     alt: "Parsing Custom log format to the Elasticsearch"

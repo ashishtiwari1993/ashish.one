@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>BULK on ashish.one</title>
+    <title>BULK on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/bulk/</link>
-    <description>Recent content in BULK on ashish.one</description>
+    <description>Recent content in BULK on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,179 +18,93 @@
       <link>https://ashish.one/talks/ws-es/</link>
       <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
       <guid>https://ashish.one/talks/ws-es/</guid>
-      <description>&lt;h1 id=&#34;sample-queries-for-elasticsearch-workshop&#34;&gt;Sample Queries for Elasticsearch Workshop&lt;/h1&gt;
-&lt;h2 id=&#34;crud&#34;&gt;CRUD&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
-# Insert
-
-POST meetup/_doc/
-{
-  &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34;
-}
-
-# Insert with id
-
-POST meetup/_doc/1
-{
-  &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34;
-}
-
-# Search
-
-GET meetup/_search
-
-# Update
-
-POST meetup/_doc/1
-{
-  &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;,
-  &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;,
-  &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;,
-  &amp;#34;skills&amp;#34;:{
-    &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;],
-    &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;],
-    &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34;
-  }
-}
-
-# search with query
-
-GET meetup/_search
-{
-  &amp;#34;query&amp;#34;: {
-    &amp;#34;match&amp;#34;: {
-      &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34;
-    }
-  }
-}
-
-# delete
-
-DELETE meetup
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;bulk&#34;&gt;BULK&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;POST _bulk
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.221.25.110&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Flashset&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:2,&amp;#34;first_name&amp;#34;:&amp;#34;Immanuel&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Philbrick&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;iphilbrick1@wunderground.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;01 Bunting Pass&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;9.20.164.27&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Babblestorm&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:3,&amp;#34;first_name&amp;#34;:&amp;#34;Clotilda&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Danelut&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;cdanelut2@deliciousdays.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Agender&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;0 Crowley Trail&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;158.94.144.140&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Riffpedia&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:4,&amp;#34;first_name&amp;#34;:&amp;#34;Nahum&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Attfield&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;nattfield3@blog.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;7 Garrison Court&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;225.144.148.44&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Chatterpoint&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:5,&amp;#34;first_name&amp;#34;:&amp;#34;Vaughan&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Middis&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;vmiddis4@ted.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;7 Cody Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;66.198.31.108&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Mynte&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:6,&amp;#34;first_name&amp;#34;:&amp;#34;Nolie&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Alessandrucci&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;nalessandrucci5@networksolutions.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;826 Brown Hill&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;96.77.221.95&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Feedfish&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:7,&amp;#34;first_name&amp;#34;:&amp;#34;Beverlie&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Ovitts&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bovitts6@tripod.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;6 Sycamore Pass&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;102.24.117.107&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Zazio&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:8,&amp;#34;first_name&amp;#34;:&amp;#34;Graeme&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Dopson&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;gdopson7@free.fr&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;26 Dunning Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;198.33.215.93&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Flashset&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:9,&amp;#34;first_name&amp;#34;:&amp;#34;Mellisa&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Hurich&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;mhurich8@nbcnews.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;6371 Browning Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;66.0.3.199&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Divanoodle&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:10,&amp;#34;first_name&amp;#34;:&amp;#34;Dyan&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Loude&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;dloude9@berkeley.edu&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;9818 Reindahl Road&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;16.56.137.54&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Agivu&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:11,&amp;#34;first_name&amp;#34;:&amp;#34;Becky&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Shank&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bshanka@tinypic.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;1206 Warrior Terrace&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;90.63.35.111&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Izio&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:12,&amp;#34;first_name&amp;#34;:&amp;#34;Bar&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Bedburrow&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bbedburrowb@vistaprint.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;75 Onsgard Crossing&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;85.122.33.250&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Zoombox&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:13,&amp;#34;first_name&amp;#34;:&amp;#34;Dorey&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Isenor&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;disenorc@privacy.gov.au&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;53682 Parkside Crossing&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;150.158.150.213&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Rhyzio&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:14,&amp;#34;first_name&amp;#34;:&amp;#34;Torrin&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Rangall&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;trangalld@buzzfeed.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;24247 Old Shore Plaza&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;40.151.17.2&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Devpoint&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:15,&amp;#34;first_name&amp;#34;:&amp;#34;Genvieve&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Beslier&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;gbesliere@yolasite.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;96214 Miller Trail&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;115.143.68.208&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Oyonder&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:16,&amp;#34;first_name&amp;#34;:&amp;#34;Arden&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Ramas&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;aramasf@whitehouse.gov&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Polygender&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;390 Gulseth Alley&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;36.83.126.154&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Youbridge&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:17,&amp;#34;first_name&amp;#34;:&amp;#34;Alyosha&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Domm&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;adommg@washingtonpost.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;32 Oxford Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;174.71.176.45&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Wikizz&amp;#34;}
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;upload-sample-json-data-from-kibana&#34;&gt;Upload sample json data from kibana&lt;/h2&gt;
-&lt;p&gt;Download &lt;a href=&#34;https://ashish.one/data/movies.json&#34;&gt;movies.json&lt;/a&gt; and insert into elasticsearch by using below command:&lt;/p&gt;</description>
+      <description>Workshop on getting started with Elasticsearch covering CRUD operations, bulk indexing, analyzers, and basic queries.</description>
       <content:encoded><![CDATA[<h1 id="sample-queries-for-elasticsearch-workshop">Sample Queries for Elasticsearch Workshop</h1>
 <h2 id="crud">CRUD</h2>
-<pre tabindex="0"><code>
-# Insert
-
-POST meetup/_doc/
-{
-  &#34;name&#34;:&#34;Ashish Tiwari&#34;
-}
-
-# Insert with id
-
-POST meetup/_doc/1
-{
-  &#34;name&#34;:&#34;Ashish Tiwari&#34;
-}
-
-# Search
-
-GET meetup/_search
-
-# Update
-
-POST meetup/_doc/1
-{
-  &#34;name&#34;:&#34;Ashish&#34;,
-  &#34;company&#34;:&#34;elastic&#34;,
-  &#34;address&#34;:&#34;Navi Mumbai kharghar&#34;,
-  &#34;skills&#34;:{
-    &#34;language&#34;:[&#34;php&#34;,&#34;java&#34;,&#34;node&#34;],
-    &#34;database&#34;:[&#34;mysql&#34;,&#34;mongodb&#34;],
-    &#34;search&#34;:&#34;elasticsearch&#34;
-  }
-}
-
-# search with query
-
-GET meetup/_search
-{
-  &#34;query&#34;: {
-    &#34;match&#34;: {
-      &#34;address&#34;: &#34;navi&#34;
-    }
-  }
-}
-
-# delete
-
-DELETE meetup
-</code></pre><h2 id="bulk">BULK</h2>
-<pre tabindex="0"><code>POST _bulk
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:1,&#34;first_name&#34;:&#34;Yvonne&#34;,&#34;last_name&#34;:&#34;Willmott&#34;,&#34;email&#34;:&#34;ywillmott0@live.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;38 Helena Avenue&#34;,&#34;ip_address&#34;:&#34;104.221.25.110&#34;,&#34;company&#34;:&#34;Flashset&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:2,&#34;first_name&#34;:&#34;Immanuel&#34;,&#34;last_name&#34;:&#34;Philbrick&#34;,&#34;email&#34;:&#34;iphilbrick1@wunderground.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;01 Bunting Pass&#34;,&#34;ip_address&#34;:&#34;9.20.164.27&#34;,&#34;company&#34;:&#34;Babblestorm&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:3,&#34;first_name&#34;:&#34;Clotilda&#34;,&#34;last_name&#34;:&#34;Danelut&#34;,&#34;email&#34;:&#34;cdanelut2@deliciousdays.com&#34;,&#34;gender&#34;:&#34;Agender&#34;,&#34;street_address&#34;:&#34;0 Crowley Trail&#34;,&#34;ip_address&#34;:&#34;158.94.144.140&#34;,&#34;company&#34;:&#34;Riffpedia&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:4,&#34;first_name&#34;:&#34;Nahum&#34;,&#34;last_name&#34;:&#34;Attfield&#34;,&#34;email&#34;:&#34;nattfield3@blog.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Garrison Court&#34;,&#34;ip_address&#34;:&#34;225.144.148.44&#34;,&#34;company&#34;:&#34;Chatterpoint&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:5,&#34;first_name&#34;:&#34;Vaughan&#34;,&#34;last_name&#34;:&#34;Middis&#34;,&#34;email&#34;:&#34;vmiddis4@ted.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Cody Way&#34;,&#34;ip_address&#34;:&#34;66.198.31.108&#34;,&#34;company&#34;:&#34;Mynte&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:6,&#34;first_name&#34;:&#34;Nolie&#34;,&#34;last_name&#34;:&#34;Alessandrucci&#34;,&#34;email&#34;:&#34;nalessandrucci5@networksolutions.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;826 Brown Hill&#34;,&#34;ip_address&#34;:&#34;96.77.221.95&#34;,&#34;company&#34;:&#34;Feedfish&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:7,&#34;first_name&#34;:&#34;Beverlie&#34;,&#34;last_name&#34;:&#34;Ovitts&#34;,&#34;email&#34;:&#34;bovitts6@tripod.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6 Sycamore Pass&#34;,&#34;ip_address&#34;:&#34;102.24.117.107&#34;,&#34;company&#34;:&#34;Zazio&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:8,&#34;first_name&#34;:&#34;Graeme&#34;,&#34;last_name&#34;:&#34;Dopson&#34;,&#34;email&#34;:&#34;gdopson7@free.fr&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;26 Dunning Avenue&#34;,&#34;ip_address&#34;:&#34;198.33.215.93&#34;,&#34;company&#34;:&#34;Flashset&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:9,&#34;first_name&#34;:&#34;Mellisa&#34;,&#34;last_name&#34;:&#34;Hurich&#34;,&#34;email&#34;:&#34;mhurich8@nbcnews.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6371 Browning Way&#34;,&#34;ip_address&#34;:&#34;66.0.3.199&#34;,&#34;company&#34;:&#34;Divanoodle&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:10,&#34;first_name&#34;:&#34;Dyan&#34;,&#34;last_name&#34;:&#34;Loude&#34;,&#34;email&#34;:&#34;dloude9@berkeley.edu&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;9818 Reindahl Road&#34;,&#34;ip_address&#34;:&#34;16.56.137.54&#34;,&#34;company&#34;:&#34;Agivu&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:11,&#34;first_name&#34;:&#34;Becky&#34;,&#34;last_name&#34;:&#34;Shank&#34;,&#34;email&#34;:&#34;bshanka@tinypic.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;1206 Warrior Terrace&#34;,&#34;ip_address&#34;:&#34;90.63.35.111&#34;,&#34;company&#34;:&#34;Izio&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:12,&#34;first_name&#34;:&#34;Bar&#34;,&#34;last_name&#34;:&#34;Bedburrow&#34;,&#34;email&#34;:&#34;bbedburrowb@vistaprint.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;75 Onsgard Crossing&#34;,&#34;ip_address&#34;:&#34;85.122.33.250&#34;,&#34;company&#34;:&#34;Zoombox&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:13,&#34;first_name&#34;:&#34;Dorey&#34;,&#34;last_name&#34;:&#34;Isenor&#34;,&#34;email&#34;:&#34;disenorc@privacy.gov.au&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;53682 Parkside Crossing&#34;,&#34;ip_address&#34;:&#34;150.158.150.213&#34;,&#34;company&#34;:&#34;Rhyzio&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:14,&#34;first_name&#34;:&#34;Torrin&#34;,&#34;last_name&#34;:&#34;Rangall&#34;,&#34;email&#34;:&#34;trangalld@buzzfeed.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;24247 Old Shore Plaza&#34;,&#34;ip_address&#34;:&#34;40.151.17.2&#34;,&#34;company&#34;:&#34;Devpoint&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:15,&#34;first_name&#34;:&#34;Genvieve&#34;,&#34;last_name&#34;:&#34;Beslier&#34;,&#34;email&#34;:&#34;gbesliere@yolasite.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;96214 Miller Trail&#34;,&#34;ip_address&#34;:&#34;115.143.68.208&#34;,&#34;company&#34;:&#34;Oyonder&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:16,&#34;first_name&#34;:&#34;Arden&#34;,&#34;last_name&#34;:&#34;Ramas&#34;,&#34;email&#34;:&#34;aramasf@whitehouse.gov&#34;,&#34;gender&#34;:&#34;Polygender&#34;,&#34;street_address&#34;:&#34;390 Gulseth Alley&#34;,&#34;ip_address&#34;:&#34;36.83.126.154&#34;,&#34;company&#34;:&#34;Youbridge&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
-</code></pre><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Insert
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST meetup/_doc/
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Ashish Tiwari&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Insert with id
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST meetup/_doc/1
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Ashish Tiwari&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Search
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET meetup/_search
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST meetup/_doc/1
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Ashish&#34;,
+</span></span><span class="line"><span class="cl">  &#34;company&#34;:&#34;elastic&#34;,
+</span></span><span class="line"><span class="cl">  &#34;address&#34;:&#34;Navi Mumbai kharghar&#34;,
+</span></span><span class="line"><span class="cl">  &#34;skills&#34;:{
+</span></span><span class="line"><span class="cl">    &#34;language&#34;:[&#34;php&#34;,&#34;java&#34;,&#34;node&#34;],
+</span></span><span class="line"><span class="cl">    &#34;database&#34;:[&#34;mysql&#34;,&#34;mongodb&#34;],
+</span></span><span class="line"><span class="cl">    &#34;search&#34;:&#34;elasticsearch&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># search with query
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET meetup/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;address&#34;: &#34;navi&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># delete
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DELETE meetup
+</span></span></code></pre></div><h2 id="bulk">BULK</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _bulk
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:1,&#34;first_name&#34;:&#34;Yvonne&#34;,&#34;last_name&#34;:&#34;Willmott&#34;,&#34;email&#34;:&#34;ywillmott0@live.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;38 Helena Avenue&#34;,&#34;ip_address&#34;:&#34;104.221.25.110&#34;,&#34;company&#34;:&#34;Flashset&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:2,&#34;first_name&#34;:&#34;Immanuel&#34;,&#34;last_name&#34;:&#34;Philbrick&#34;,&#34;email&#34;:&#34;iphilbrick1@wunderground.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;01 Bunting Pass&#34;,&#34;ip_address&#34;:&#34;9.20.164.27&#34;,&#34;company&#34;:&#34;Babblestorm&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:3,&#34;first_name&#34;:&#34;Clotilda&#34;,&#34;last_name&#34;:&#34;Danelut&#34;,&#34;email&#34;:&#34;cdanelut2@deliciousdays.com&#34;,&#34;gender&#34;:&#34;Agender&#34;,&#34;street_address&#34;:&#34;0 Crowley Trail&#34;,&#34;ip_address&#34;:&#34;158.94.144.140&#34;,&#34;company&#34;:&#34;Riffpedia&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:4,&#34;first_name&#34;:&#34;Nahum&#34;,&#34;last_name&#34;:&#34;Attfield&#34;,&#34;email&#34;:&#34;nattfield3@blog.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Garrison Court&#34;,&#34;ip_address&#34;:&#34;225.144.148.44&#34;,&#34;company&#34;:&#34;Chatterpoint&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:5,&#34;first_name&#34;:&#34;Vaughan&#34;,&#34;last_name&#34;:&#34;Middis&#34;,&#34;email&#34;:&#34;vmiddis4@ted.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Cody Way&#34;,&#34;ip_address&#34;:&#34;66.198.31.108&#34;,&#34;company&#34;:&#34;Mynte&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:6,&#34;first_name&#34;:&#34;Nolie&#34;,&#34;last_name&#34;:&#34;Alessandrucci&#34;,&#34;email&#34;:&#34;nalessandrucci5@networksolutions.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;826 Brown Hill&#34;,&#34;ip_address&#34;:&#34;96.77.221.95&#34;,&#34;company&#34;:&#34;Feedfish&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:7,&#34;first_name&#34;:&#34;Beverlie&#34;,&#34;last_name&#34;:&#34;Ovitts&#34;,&#34;email&#34;:&#34;bovitts6@tripod.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6 Sycamore Pass&#34;,&#34;ip_address&#34;:&#34;102.24.117.107&#34;,&#34;company&#34;:&#34;Zazio&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:8,&#34;first_name&#34;:&#34;Graeme&#34;,&#34;last_name&#34;:&#34;Dopson&#34;,&#34;email&#34;:&#34;gdopson7@free.fr&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;26 Dunning Avenue&#34;,&#34;ip_address&#34;:&#34;198.33.215.93&#34;,&#34;company&#34;:&#34;Flashset&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:9,&#34;first_name&#34;:&#34;Mellisa&#34;,&#34;last_name&#34;:&#34;Hurich&#34;,&#34;email&#34;:&#34;mhurich8@nbcnews.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6371 Browning Way&#34;,&#34;ip_address&#34;:&#34;66.0.3.199&#34;,&#34;company&#34;:&#34;Divanoodle&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:10,&#34;first_name&#34;:&#34;Dyan&#34;,&#34;last_name&#34;:&#34;Loude&#34;,&#34;email&#34;:&#34;dloude9@berkeley.edu&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;9818 Reindahl Road&#34;,&#34;ip_address&#34;:&#34;16.56.137.54&#34;,&#34;company&#34;:&#34;Agivu&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:11,&#34;first_name&#34;:&#34;Becky&#34;,&#34;last_name&#34;:&#34;Shank&#34;,&#34;email&#34;:&#34;bshanka@tinypic.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;1206 Warrior Terrace&#34;,&#34;ip_address&#34;:&#34;90.63.35.111&#34;,&#34;company&#34;:&#34;Izio&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:12,&#34;first_name&#34;:&#34;Bar&#34;,&#34;last_name&#34;:&#34;Bedburrow&#34;,&#34;email&#34;:&#34;bbedburrowb@vistaprint.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;75 Onsgard Crossing&#34;,&#34;ip_address&#34;:&#34;85.122.33.250&#34;,&#34;company&#34;:&#34;Zoombox&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:13,&#34;first_name&#34;:&#34;Dorey&#34;,&#34;last_name&#34;:&#34;Isenor&#34;,&#34;email&#34;:&#34;disenorc@privacy.gov.au&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;53682 Parkside Crossing&#34;,&#34;ip_address&#34;:&#34;150.158.150.213&#34;,&#34;company&#34;:&#34;Rhyzio&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:14,&#34;first_name&#34;:&#34;Torrin&#34;,&#34;last_name&#34;:&#34;Rangall&#34;,&#34;email&#34;:&#34;trangalld@buzzfeed.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;24247 Old Shore Plaza&#34;,&#34;ip_address&#34;:&#34;40.151.17.2&#34;,&#34;company&#34;:&#34;Devpoint&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:15,&#34;first_name&#34;:&#34;Genvieve&#34;,&#34;last_name&#34;:&#34;Beslier&#34;,&#34;email&#34;:&#34;gbesliere@yolasite.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;96214 Miller Trail&#34;,&#34;ip_address&#34;:&#34;115.143.68.208&#34;,&#34;company&#34;:&#34;Oyonder&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:16,&#34;first_name&#34;:&#34;Arden&#34;,&#34;last_name&#34;:&#34;Ramas&#34;,&#34;email&#34;:&#34;aramasf@whitehouse.gov&#34;,&#34;gender&#34;:&#34;Polygender&#34;,&#34;street_address&#34;:&#34;390 Gulseth Alley&#34;,&#34;ip_address&#34;:&#34;36.83.126.154&#34;,&#34;company&#34;:&#34;Youbridge&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
+</span></span></code></pre></div><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
 <p>Download <a href="/data/movies.json">movies.json</a> and insert into elasticsearch by using below command:</p>
 <p><em>Open Kibana -&gt; Menu -&gt; Home -&gt; Upload a file</em></p>
 <h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
@@ -198,314 +112,314 @@ DELETE meetup
 <h2 id="create-dashboard">Create Dashboard</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Analytics -&gt; Dashboard</em></p>
 <h2 id="create-mapping">Create mapping</h2>
-<pre tabindex="0"><code>PUT /devfest-raipur
-{
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;age&#34;:    { &#34;type&#34;: &#34;integer&#34; },  
-      &#34;email&#34;:  { &#34;type&#34;: &#34;keyword&#34;  }, 
-      &#34;name&#34;:   { &#34;type&#34;: &#34;text&#34;  }     
-    }
-  }
-}
-</code></pre><h2 id="analyze">Analyze</h2>
-<pre tabindex="0"><code># analyze
-
-GET /_analyze?pretty
-{
-  &#34;text&#34; : &#34;Quick Brown Foxes!&#34;
-}
-
-# Whitespace
-
-GET _analyze
-{
-  &#34;analyzer&#34;: &#34;whitespace&#34;,
-  &#34;text&#34;: &#34;The 2 QUICK Brown-Foxes jumped over the lazy dog\u0027s bone.&#34;
-}
-</code></pre><h3 id="what-is-an-analyzer">What is an analyzer?</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PUT /devfest-raipur
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;age&#34;:    { &#34;type&#34;: &#34;integer&#34; },  
+</span></span><span class="line"><span class="cl">      &#34;email&#34;:  { &#34;type&#34;: &#34;keyword&#34;  }, 
+</span></span><span class="line"><span class="cl">      &#34;name&#34;:   { &#34;type&#34;: &#34;text&#34;  }     
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="analyze">Analyze</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># analyze
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET /_analyze?pretty
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;text&#34; : &#34;Quick Brown Foxes!&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Whitespace
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;analyzer&#34;: &#34;whitespace&#34;,
+</span></span><span class="line"><span class="cl">  &#34;text&#34;: &#34;The 2 QUICK Brown-Foxes jumped over the lazy dog\u0027s bone.&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="what-is-an-analyzer">What is an analyzer?</h3>
 <p>An analyzer is made of character filters, tokenizer and token filters.</p>
 <p>Let&rsquo;s build one</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [], 
-  &#34;text&#34;: [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p>Let&rsquo;s remove the html code.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [], 
-  &#34;text&#34;: [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p>Some words don&rsquo;t bring us any value. Let&rsquo;s skip them.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;]
-    }
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p>We can also remove &ldquo;I&rdquo;, &ldquo;when&rdquo; and &ldquo;over&rdquo;.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;ignore_case&#34;:true, 
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
-    }
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p><code>DOGS</code> and <code>dogs</code> should match.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;ignore_case&#34;:true, 
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
-    },
-    &#34;lowercase&#34;
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p><code>dog</code>, <code>dogs</code> and <code>fox</code>, <code>foxes</code> and <code>jump</code>, <code>jumps</code>, <code>jumping</code>, <code>jumped</code> should match. Let&rsquo;s use a <code>stemmer</code>.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;ignore_case&#34;:true, 
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
-    },
-    &#34;lowercase&#34;,
-    {
-      &#34;type&#34;:       &#34;stemmer&#34;,
-      &#34;language&#34;:   &#34;english&#34; 
-    }
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;jumping jumps jump jumped&#34;,
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><h1 id="language-analyzer">Language analyzer</h1>
-<pre tabindex="0"><code>GET /_analyze?pretty
-{
-  &#34;analyzer&#34;: &#34;hindi&#34;, 
-  &#34;text&#34; : &#34;चाणक्य ने चंद्रगुप्त और बिंदूसार दोनों के लिए प्रधानमंत्री और राजनयिक सलाहकार के रूप में काम किया।&#34;
-}
-</code></pre><h2 id="lets-create-hindi-search-engine-गतयतर">Let&rsquo;s create Hindi search engine (गीतयंत्र)</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;: [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Let&rsquo;s remove the html code.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;: [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Some words don&rsquo;t bring us any value. Let&rsquo;s skip them.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;]
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>We can also remove &ldquo;I&rdquo;, &ldquo;when&rdquo; and &ldquo;over&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;ignore_case&#34;:true, 
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><code>DOGS</code> and <code>dogs</code> should match.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;ignore_case&#34;:true, 
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;lowercase&#34;
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><code>dog</code>, <code>dogs</code> and <code>fox</code>, <code>foxes</code> and <code>jump</code>, <code>jumps</code>, <code>jumping</code>, <code>jumped</code> should match. Let&rsquo;s use a <code>stemmer</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;ignore_case&#34;:true, 
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;lowercase&#34;,
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stemmer&#34;,
+</span></span><span class="line"><span class="cl">      &#34;language&#34;:   &#34;english&#34; 
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;jumping jumps jump jumped&#34;,
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h1 id="language-analyzer">Language analyzer</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GET /_analyze?pretty
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;analyzer&#34;: &#34;hindi&#34;, 
+</span></span><span class="line"><span class="cl">  &#34;text&#34; : &#34;चाणक्य ने चंद्रगुप्त और बिंदूसार दोनों के लिए प्रधानमंत्री और राजनयिक सलाहकार के रूप में काम किया।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="lets-create-hindi-search-engine-गतयतर">Let&rsquo;s create Hindi search engine (गीतयंत्र)</h2>
 <h3 id="create-mapping-1">Create mapping</h3>
-<pre tabindex="0"><code>PUT geetyantra
-{
-  &#34;settings&#34;: {
-    &#34;analysis&#34;: {
-      &#34;analyzer&#34;: {
-        &#34;geetyantra-analyzer&#34;:{
-          &#34;type&#34;:&#34;hindi&#34;
-        }
-      }
-    }
-  },
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;adhyay&#34;: {&#34;type&#34;: &#34;integer&#34;},
-      &#34;updesh&#34;: {&#34;type&#34;: &#34;text&#34;,&#34;analyzer&#34;: &#34;geetyantra-analyzer&#34;}
-    }
-  }
-}
-</code></pre><h3 id="insert-data">Insert data</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PUT geetyantra
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;settings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;analysis&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;analyzer&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;geetyantra-analyzer&#34;:{
+</span></span><span class="line"><span class="cl">          &#34;type&#34;:&#34;hindi&#34;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;adhyay&#34;: {&#34;type&#34;: &#34;integer&#34;},
+</span></span><span class="line"><span class="cl">      &#34;updesh&#34;: {&#34;type&#34;: &#34;text&#34;,&#34;analyzer&#34;: &#34;geetyantra-analyzer&#34;}
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="insert-data">Insert data</h3>
 <p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE">विकिपीडिया-श्रीमद्भगवद्गीता</a></p>
 <p>Lets insert some data like below:</p>
-<pre tabindex="0"><code>POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:1,
-  &#34;updesh&#34;:&#34;कृष्ण ने अर्जुन की वह स्थिति देखकर जान लिया कि अर्जुन का शरीर ठीक है किंतु युद्ध आरंभ होने से पहले ही उस अद्भुत क्षत्रिय का मनोबल टूट चुका है। बिना मन के यह शरीर खड़ा नहीं रह स।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:2,
-  &#34;updesh&#34;:&#34;दूसरे अध्याय का नाम सांख्ययोग है। इसमें जीवन की दो प्राचीन संमानित परंपराओं का तर्कों द्वारा वर्णन आया है। अर्जुन को उस कृपण स्थिति में रोते देखकर कृष्ण ने उनका ध्यान दिलाया है कि इस प्रकार का क्लैव्य और हृदय की क्षुद्र दुर्बलता अर्जुन जैसे वीर के लिए उचित नहीं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:3,
-  &#34;updesh&#34;:&#34;नित्य कर्म करने वाले की श्रेष्ठता&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:4,
-  &#34;updesh&#34;:&#34;चौथे अध्याय में, जिसका नाम ज्ञान-कर्म-संन्यास-योग है, यह बाताया गया है कि ज्ञान प्राप्त करके कर्म करते हुए भी कर्मसंन्यास का फल किस उपाय से प्राप्त किया जा सकता है।&#34;,
-  &#34;shloka&#34;:&#34;यदा यदा हि धर्मस्य ग्लानिर्भवति भारत,अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:5,
-  &#34;updesh&#34;:&#34;ज्ञानी महापुरुष विद्या-विनययुक्त ब्राह्मण में और चाण्डाल में तथा गाय, हाथी एवं कुत्ते में भी समरूप परमात्मा को देखने वाले होते हैं।&#34;,
-  &#34;shloka&#34;:&#34;विद्याविनयसंपन्ने ब्राह्मणे गवि हस्तिनि,शुनि चैव श्वपाके च पंडिता: समदर्शिन&#34;
-}
-
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:6,
-  &#34;updesh&#34;:&#34;छठा अध्याय आत्मसंयम योग है जिसका विषय नाम से ही प्रकट है। जितने विषय हैं उन सबसे इंद्रियों का संयम-यही कर्म और ज्ञान का निचोड़ है। सुख में और दुख में मन की समान स्थिति, इसे ही योग कहते हैं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:7,
-  &#34;updesh&#34;:&#34;पंचतत्व, मन, बुद्धि भी मैं हूँ| मैं ही संसार की उत्पत्ति करता हूँ और विनाश भी मैं ही करता हूँ। मेरे भक्त चाहे जिस प्रकार भजें परन्तु अंततः मुझे ही प्राप्त होते हैं। मैं योगमाया से अप्रकट रहता हूँ और मुर्ख मुझे केवल साधारण मनुष्य ही समझते हैं।&#34;,
-  &#34;shloka&#34;:&#34;यो यो यां यां तनुं भक्तः श्रद्धयार्चितुमिच्छति,तस्य तस्याचलां श्रद्धां तामेव विदधाम्यहम्&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:8,
-  &#34;updesh&#34;:&#34;की संज्ञा अक्षर ब्रह्मयोग है। उपनिषदों में अक्षर विद्या का विस्तार हुआ। गीता में उस अक्षरविद्या का सार कह दिया गया है-अक्षर ब्रह्म परमं, अर्थात् परब्रह्म की संज्ञा अक्षर है। मनुष्य, अर्थात् जीव और शरीर की संयुक्त रचना का ही नाम अध्यात्म है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:9,
-  &#34;updesh&#34;:&#34;को राजगुह्ययोग कहा गया है, अर्थात् यह अध्यात्म विद्या विद्याराज्ञी है और यह गुह्य ज्ञान सबमें श्रेष्ठ है। राजा शब्दका एक अर्थ मन भी था। अतएव मन की दिव्य शक्तिमयों को किस प्रकार ब्रह्ममय बनाया जाय, इसकी युक्ति ही राजविद्या है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:10,
-  &#34;updesh&#34;:&#34;दसवें अध्याय का नाम विभूतियोग है। इसका सार यह है कि लोक में जितने देवता हैं, सब एक ही भगवान, की विभूतियाँ हैं, मनुष्य के समस्त गुण और अवगुण भगवान की शक्ति के ही रूप हैं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:11,
-  &#34;updesh&#34;:&#34;का नाम विश्वरूपदर्शन योग है। इसमें अर्जुन ने भगवान का विश्वरूप देखा। विराट रूप का अर्थ है मानवीय धरातल और परिधि के ऊपर जो अनंत विश्व का प्राणवंत रचनाविधान है, उसका साक्षात दर्शन। विष्णु का जो चतुर्भुज रूप है, वह मानवीय धरातल पर सौम्यरूप है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:12,
-  &#34;updesh&#34;:&#34;का नाम भक्ति योग है। जो जानने योग्य है। जिसको जानकर मनुष्य परमानन्द को प्राप्त हो जाता है अर्थात वो परमात्मा ही सत्य है ।।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:13,
-  &#34;updesh&#34;:&#34;में एक सीधा विषय क्षेत्र और क्षेत्रज्ञ का विचार है। यह शरीर क्षेत्र है, उसका जाननेवाला जीवात्मा क्षेत्रज्ञ है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:14,
-  &#34;updesh&#34;:&#34;का नाम गुणत्रय विभाग योग है। यह विषय समस्त वैदिक, दार्शनिक और पौराणिक तत्वचिंतन का निचोड़ है-सत्व, रज, तम नामक तीन गुण-त्रिको की अनेक व्याख्याएँ हैं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:15,
-  &#34;updesh&#34;:&#34;का नाम पुरुषोत्तमयोग है। इसमें विश्व का अश्वत्थ के रूप में वर्णन किया गया है। यह अश्वत्थ रूपी संसार महान विस्तारवाला है। देश और काल में इसका कोई अंत नहीं है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:16,
-  &#34;updesh&#34;:&#34;में देवासुर संपत्ति का विभाग बताया गया है। आरंभ से ही ऋग्देव में सृष्टि की कल्पना दैवी और आसुरी शक्तियों के रूप में की गई है। &#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:17,
-  &#34;updesh&#34;:&#34;की संज्ञा श्रद्धात्रय विभाग योग है। इसका संबंध सत, रज और तम, इन तीन गुणों से ही है, अर्थात् जिसमें जिस गुण का प्रादुर्भाव होता है, उसकी श्रद्धा या जीवन की निष्ठा वैसी ही बन जाती है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:18,
-  &#34;updesh&#34;:&#34;की संज्ञा मोक्षसंन्यास योग है। इसमें गीता के समस्त उपदेशों का सार एवं उपसंहार है। यहाँ पुन: बलपूर्वक मानव जीवन के लिए तीन गुणों का महत्व कहा गया है। पृथ्वी के मानवों में और स्वर्ग के देवताओं में कोई भी ऐसा नहीं जो प्रकृति के चलाए हुए इन तीन गुणों से बचा हो।&#34;
-}
-</code></pre><h3 id="search">Search</h3>
-<pre tabindex="0"><code>
-GET geetyantra/_search?size=20
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;match&#34;: {
-      &#34;updesh&#34;: &#34;अर्जुन&#34;
-    }
-  }
-}
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;match&#34;: {
-      &#34;shloka&#34;: &#34;धर्मस्य&#34;
-    }
-  }
-}
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;multi_match&#34;: {
-      &#34;query&#34;: &#34;श्रद्धा&#34;,
-      &#34;fields&#34;: [&#34;shloka&#34;,&#34;updesh&#34;]
-    }
-  }
-}
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;match_phrase_prefix&#34;: {
-      &#34;updesh&#34;: &#34;चौथे अध्याय में&#34;
-    }
-  }
-}
-</code></pre><h2 id="search-as-you-type">Search as you type</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:1,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;कृष्ण ने अर्जुन की वह स्थिति देखकर जान लिया कि अर्जुन का शरीर ठीक है किंतु युद्ध आरंभ होने से पहले ही उस अद्भुत क्षत्रिय का मनोबल टूट चुका है। बिना मन के यह शरीर खड़ा नहीं रह स।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:2,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;दूसरे अध्याय का नाम सांख्ययोग है। इसमें जीवन की दो प्राचीन संमानित परंपराओं का तर्कों द्वारा वर्णन आया है। अर्जुन को उस कृपण स्थिति में रोते देखकर कृष्ण ने उनका ध्यान दिलाया है कि इस प्रकार का क्लैव्य और हृदय की क्षुद्र दुर्बलता अर्जुन जैसे वीर के लिए उचित नहीं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:3,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;नित्य कर्म करने वाले की श्रेष्ठता&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:4,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;चौथे अध्याय में, जिसका नाम ज्ञान-कर्म-संन्यास-योग है, यह बाताया गया है कि ज्ञान प्राप्त करके कर्म करते हुए भी कर्मसंन्यास का फल किस उपाय से प्राप्त किया जा सकता है।&#34;,
+</span></span><span class="line"><span class="cl">  &#34;shloka&#34;:&#34;यदा यदा हि धर्मस्य ग्लानिर्भवति भारत,अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:5,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;ज्ञानी महापुरुष विद्या-विनययुक्त ब्राह्मण में और चाण्डाल में तथा गाय, हाथी एवं कुत्ते में भी समरूप परमात्मा को देखने वाले होते हैं।&#34;,
+</span></span><span class="line"><span class="cl">  &#34;shloka&#34;:&#34;विद्याविनयसंपन्ने ब्राह्मणे गवि हस्तिनि,शुनि चैव श्वपाके च पंडिता: समदर्शिन&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:6,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;छठा अध्याय आत्मसंयम योग है जिसका विषय नाम से ही प्रकट है। जितने विषय हैं उन सबसे इंद्रियों का संयम-यही कर्म और ज्ञान का निचोड़ है। सुख में और दुख में मन की समान स्थिति, इसे ही योग कहते हैं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:7,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;पंचतत्व, मन, बुद्धि भी मैं हूँ| मैं ही संसार की उत्पत्ति करता हूँ और विनाश भी मैं ही करता हूँ। मेरे भक्त चाहे जिस प्रकार भजें परन्तु अंततः मुझे ही प्राप्त होते हैं। मैं योगमाया से अप्रकट रहता हूँ और मुर्ख मुझे केवल साधारण मनुष्य ही समझते हैं।&#34;,
+</span></span><span class="line"><span class="cl">  &#34;shloka&#34;:&#34;यो यो यां यां तनुं भक्तः श्रद्धयार्चितुमिच्छति,तस्य तस्याचलां श्रद्धां तामेव विदधाम्यहम्&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:8,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;की संज्ञा अक्षर ब्रह्मयोग है। उपनिषदों में अक्षर विद्या का विस्तार हुआ। गीता में उस अक्षरविद्या का सार कह दिया गया है-अक्षर ब्रह्म परमं, अर्थात् परब्रह्म की संज्ञा अक्षर है। मनुष्य, अर्थात् जीव और शरीर की संयुक्त रचना का ही नाम अध्यात्म है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:9,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;को राजगुह्ययोग कहा गया है, अर्थात् यह अध्यात्म विद्या विद्याराज्ञी है और यह गुह्य ज्ञान सबमें श्रेष्ठ है। राजा शब्दका एक अर्थ मन भी था। अतएव मन की दिव्य शक्तिमयों को किस प्रकार ब्रह्ममय बनाया जाय, इसकी युक्ति ही राजविद्या है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:10,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;दसवें अध्याय का नाम विभूतियोग है। इसका सार यह है कि लोक में जितने देवता हैं, सब एक ही भगवान, की विभूतियाँ हैं, मनुष्य के समस्त गुण और अवगुण भगवान की शक्ति के ही रूप हैं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:11,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम विश्वरूपदर्शन योग है। इसमें अर्जुन ने भगवान का विश्वरूप देखा। विराट रूप का अर्थ है मानवीय धरातल और परिधि के ऊपर जो अनंत विश्व का प्राणवंत रचनाविधान है, उसका साक्षात दर्शन। विष्णु का जो चतुर्भुज रूप है, वह मानवीय धरातल पर सौम्यरूप है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:12,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम भक्ति योग है। जो जानने योग्य है। जिसको जानकर मनुष्य परमानन्द को प्राप्त हो जाता है अर्थात वो परमात्मा ही सत्य है ।।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:13,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;में एक सीधा विषय क्षेत्र और क्षेत्रज्ञ का विचार है। यह शरीर क्षेत्र है, उसका जाननेवाला जीवात्मा क्षेत्रज्ञ है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:14,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम गुणत्रय विभाग योग है। यह विषय समस्त वैदिक, दार्शनिक और पौराणिक तत्वचिंतन का निचोड़ है-सत्व, रज, तम नामक तीन गुण-त्रिको की अनेक व्याख्याएँ हैं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:15,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम पुरुषोत्तमयोग है। इसमें विश्व का अश्वत्थ के रूप में वर्णन किया गया है। यह अश्वत्थ रूपी संसार महान विस्तारवाला है। देश और काल में इसका कोई अंत नहीं है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:16,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;में देवासुर संपत्ति का विभाग बताया गया है। आरंभ से ही ऋग्देव में सृष्टि की कल्पना दैवी और आसुरी शक्तियों के रूप में की गई है। &#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:17,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;की संज्ञा श्रद्धात्रय विभाग योग है। इसका संबंध सत, रज और तम, इन तीन गुणों से ही है, अर्थात् जिसमें जिस गुण का प्रादुर्भाव होता है, उसकी श्रद्धा या जीवन की निष्ठा वैसी ही बन जाती है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:18,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;की संज्ञा मोक्षसंन्यास योग है। इसमें गीता के समस्त उपदेशों का सार एवं उपसंहार है। यहाँ पुन: बलपूर्वक मानव जीवन के लिए तीन गुणों का महत्व कहा गया है। पृथ्वी के मानवों में और स्वर्ग के देवताओं में कोई भी ऐसा नहीं जो प्रकृति के चलाए हुए इन तीन गुणों से बचा हो।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="search">Search</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search?size=20
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;updesh&#34;: &#34;अर्जुन&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;shloka&#34;: &#34;धर्मस्य&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;multi_match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;query&#34;: &#34;श्रद्धा&#34;,
+</span></span><span class="line"><span class="cl">      &#34;fields&#34;: [&#34;shloka&#34;,&#34;updesh&#34;]
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match_phrase_prefix&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;updesh&#34;: &#34;चौथे अध्याय में&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="search-as-you-type">Search as you type</h2>
 <p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/">Search as you type</a>.</p>
 ]]></content:encoded>
     </item>

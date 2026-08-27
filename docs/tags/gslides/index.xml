@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Gslides on ashish.one</title>
+    <title>Gslides on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/gslides/</link>
-    <description>Recent content in Gslides on ashish.one</description>
+    <description>Recent content in Gslides on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,46 +18,28 @@
       <link>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</link>
       <pubDate>Mon, 13 Apr 2020 14:11:53 +0530</pubDate>
       <guid>https://ashish.one/blogs/add-responsive-google-slides-on-hugo/</guid>
-      <description>&lt;p&gt;Steps to add Responsive google slides iframe with Hugo:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Hugo version:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hugo version
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;step-1-create-shortcode&#34;&gt;Step 1: Create Shortcode&lt;/h2&gt;
-&lt;h3 id=&#34;create-gslideshtml-file&#34;&gt;Create &lt;code&gt;gslides.html&lt;/code&gt; file&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim layouts/shortcodes/gslides.html
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;step-2-add-below-code&#34;&gt;Step 2: Add below code:&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Container&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&amp;#34;&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;googleSlideIframe&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;100%&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;100%&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{{ .Get &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;}}&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;frameborder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allowfullscreen&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;position:absolute; top:0; left: 0&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;step-3-use-shortcode-gslides-in-your-blogpost-markdown-file&#34;&gt;Step 3: Use shortcode &amp;lsquo;gslides&amp;rsquo; in your Blog/Post Markdown file&lt;/h2&gt;
-&lt;p&gt;Simply place below snippet in your markdown file.&lt;/p&gt;</description>
+      <description>How to embed responsive Google Slides iframes into a Hugo static site using a custom shortcode.</description>
       <content:encoded><![CDATA[<p>Steps to add Responsive google slides iframe with Hugo:</p>
 <p><strong>Hugo version:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ hugo version
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ hugo version
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Hugo Static Site Generator v0.69.0-4205844B linux/amd64 BuildDate: 2020-04-10T09:12:34Z
 </span></span></code></pre></div><h2 id="step-1-create-shortcode">Step 1: Create Shortcode</h2>
 <h3 id="create-gslideshtml-file">Create <code>gslides.html</code> file</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vim layouts/shortcodes/gslides.html
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vim layouts/shortcodes/gslides.html
 </span></span></code></pre></div><h2 id="step-2-add-below-code">Step 2: Add below code:</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Container&#34;</span>
-</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&#34;</span>&gt;
-</span></span><span style="display:flex;"><span> &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;googleSlideIframe&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">src</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">allowfullscreen</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;position:absolute; top:0; left: 0&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;Container&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="na">style</span><span class="o">=</span><span class="s">&#34;padding-bottom:56.25%; position:relative; display:block; width: 100%&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;googleSlideIframe&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">width</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;100%&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ .Get &#34;</span><span class="na">src</span><span class="err">&#34;</span> <span class="err">}}&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">frameborder</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">allowfullscreen</span><span class="o">=</span><span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">style</span><span class="o">=</span><span class="s">&#34;position:absolute; top:0; left: 0&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h2 id="step-3-use-shortcode-gslides-in-your-blogpost-markdown-file">Step 3: Use shortcode &lsquo;gslides&rsquo; in your Blog/Post Markdown file</h2>
 <p>Simply place below snippet in your markdown file.</p>
 <p>Replace <code>src</code> value with your Google slide URL.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><code>{</code>{<code>&lt; gslides src="https://docs.google.com/presentation/d/e/2PACX-1vQExSl-gRPoA9hC6qXuqrjwiQVHAanDieZN_5GpV2Lw9cuxjsVFEN_wkTThqpQwZ36vJz4zwmTvV7cC/embed?start=false&loop=false&delayms=3000" ></code><code>}}</code>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><code>{</code>{<code>&lt; gslides src="https://docs.google.com/presentation/d/e/2PACX-1vQExSl-gRPoA9hC6qXuqrjwiQVHAanDieZN_5GpV2Lw9cuxjsVFEN_wkTThqpQwZ36vJz4zwmTvV7cC/embed?start=false&loop=false&delayms=3000" ></code><code>}}</code>
 
 </span></span></code></pre></div><blockquote>
 <p><strong>I have shown for google slides, Similarly, you can create or add any other document type like google sheets, doc, etc. OR you can place any iframe like this.</strong></p>

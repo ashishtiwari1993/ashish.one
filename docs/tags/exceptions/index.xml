@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Exceptions on ashish.one</title>
+    <title>Exceptions on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/exceptions/</link>
-    <description>Recent content in Exceptions on ashish.one</description>
+    <description>Recent content in Exceptions on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,10 +18,7 @@
       <link>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</link>
       <pubDate>Tue, 03 Dec 2019 02:47:28 +0530</pubDate>
       <guid>https://ashish.one/blogs/elasticsearch-exceptions-and-challenges/</guid>
-      <description>&lt;p&gt;Below are some challenges &amp;amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.&lt;/p&gt;
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js&#34;&gt;&lt;/script&gt;
-
-Every use case having different solutions. You can try accordingly.&lt;/p&gt;</description>
+      <description>Common Elasticsearch exceptions and challenges encountered during setup and operations, with solutions and workarounds.</description>
       <content:encoded><![CDATA[<p>Below are some challenges &amp; exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.</p>
 <p><script src="https://gist.github.com/ashishtiwari1993/004a19f4a44efc214403a7fc1ee27cda.js"></script>
 

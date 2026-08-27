@@ -6,6 +6,7 @@ type: "post"
 tags: ["elastic","elasticsearch","update","scale","mysql"]
 slug: "scale-with-massive-updates-queries-in-elasticsearch"
 categories: ["Elastic"]
+description: "Talk on scaling Elasticsearch to handle 200 million daily requests with heavy partial updates, scripted updates, and bulk indexing."
 ---
 # Introduction
 

@@ -6,6 +6,7 @@ type: "post"
 ogtype: "article"
 tags: ["elasticsearch","grok_pattern","log_parse","observability"]
 categories: ["Elastic"]
+description: "DevOps Conf 2022 talk on parsing custom unstructured logs into Elasticsearch using Grok processor and Filebeat."
 cover:
     image: "/img/misc/devops-conf-2022.jpeg"
     alt: "devops conf 2022 cover pic"

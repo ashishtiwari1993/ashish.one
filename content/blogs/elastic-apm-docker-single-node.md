@@ -7,7 +7,7 @@ ogtype: "article"
 tags: ["elasticsearch","kibana","elastic-apm","apm-server","docker","elastic-stacks","elastic-stacks-docker"]
 slug: "elastic-docker-compose"
 categories: ["Elastic"]
-
+description: "Step-by-step guide to spin up a single-node Elasticsearch cluster with Kibana and APM Server using Docker Compose."
 ---
 
 # Introduction

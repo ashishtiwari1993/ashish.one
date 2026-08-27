@@ -8,7 +8,7 @@ slug: "k8s-generic-errors"
 tags: ["k8s","kubernetes","errors","k8s-errors","generic-errors"]
 slug: "k8s-generic-errors"
 categories: ["Kubernetes"]
-
+description: "A collection of common Kubernetes errors and their fixes — from image service failures to node and pod-level issues."
 ---
 
 ## 1. unknown service runtime.v1alpha2.ImageService

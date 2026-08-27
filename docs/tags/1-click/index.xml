@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>1-Click on ashish.one</title>
+    <title>1-Click on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/1-click/</link>
-    <description>Recent content in 1-Click on ashish.one</description>
+    <description>Recent content in 1-Click on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,48 +18,36 @@
       <link>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</link>
       <pubDate>Tue, 03 Dec 2019 00:49:07 +0530</pubDate>
       <guid>https://ashish.one/blogs/how-to-reset-1-click-installed-wordpress-on-digitalocean/</guid>
-      <description>&lt;h2 id=&#34;the-requirement&#34;&gt;The Requirement&lt;/h2&gt;
-&lt;p&gt;Need to install fresh wordpress with same version on wordpress droplet of digitalocean.&lt;/p&gt;
-&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
-&lt;p&gt;My setup (wordpress droplet) was suddenly stop working. I started debugging.&lt;/p&gt;
-&lt;h2 id=&#34;debug&#34;&gt;Debug&lt;/h2&gt;
-&lt;p&gt;Checked &lt;code&gt;apache2&lt;/code&gt; and &lt;code&gt;mysql&lt;/code&gt; service:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;service mysql status
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;service apache2 status
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Both services was active. Then I checked the &lt;code&gt;apache2&lt;/code&gt; processes with below command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ps -ef | grep apache2 | wc -l
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;151&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Lots of apache child process has been forked. Which was not good.&lt;/p&gt;</description>
+      <description>How to reset a 1-Click WordPress installation on DigitalOcean when it stops working, with debug steps and a clean reinstall.</description>
       <content:encoded><![CDATA[<h2 id="the-requirement">The Requirement</h2>
 <p>Need to install fresh wordpress with same version on wordpress droplet of digitalocean.</p>
 <h2 id="the-problem">The Problem</h2>
 <p>My setup (wordpress droplet) was suddenly stop working. I started debugging.</p>
 <h2 id="debug">Debug</h2>
 <p>Checked <code>apache2</code> and <code>mysql</code> service:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>service mysql status
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>service apache2 status
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">service mysql status
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">service apache2 status
 </span></span></code></pre></div><p>Both services was active. Then I checked the <code>apache2</code> processes with below command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ps -ef | grep apache2 | wc -l
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">151</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ ps -ef <span class="p">|</span> grep apache2 <span class="p">|</span> wc -l
+</span></span><span class="line"><span class="cl"><span class="m">151</span>
 </span></span></code></pre></div><p>Lots of apache child process has been forked. Which was not good.</p>
 <p>checked apache&rsquo;s error log (<code>tail /var/log/apache2/error.log</code>), But not found anything.</p>
 <p>I took decision to setup new wordpress of same version. I was little sure that some plugin was causing this problem But i don&rsquo;t have so much time to go through all plugins.</p>
 <h2 id="droplet-configuration">Droplet configuration</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>OS : Ubuntu 18.04.3 LTS
-</span></span><span style="display:flex;"><span>Memory : 1GB
-</span></span><span style="display:flex;"><span>Disk : 25GB
-</span></span><span style="display:flex;"><span>Cost : $5/Monthly
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">OS : Ubuntu 18.04.3 LTS
+</span></span><span class="line"><span class="cl">Memory : 1GB
+</span></span><span class="line"><span class="cl">Disk : 25GB
+</span></span><span class="line"><span class="cl">Cost : <span class="nv">$5</span>/Monthly
 </span></span></code></pre></div><h2 id="process-to-install-wordpress">Process to install WordPress</h2>
 <h3 id="step-1-source-directory-backup">Step 1: Source directory backup</h3>
 <p>Take backup with <code>cp</code> command.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd
-</span></span><span style="display:flex;"><span>$ mkdir ~/backup_wp
-</span></span><span style="display:flex;"><span>$ cp -R /var/www/html ~/backup_wp/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">cd</span>
+</span></span><span class="line"><span class="cl">$ mkdir ~/backup_wp
+</span></span><span class="line"><span class="cl">$ cp -R /var/www/html ~/backup_wp/
 </span></span></code></pre></div><p>Digitalocean installs the wordpress in <code>/var/www/html/</code> path.</p>
 <h3 id="step-2-database-backup">Step 2: Database backup</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mysqldump -uroot -p wordpress &gt; ~/backup_wp/wp.sql
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mysqldump -uroot -p wordpress &gt; ~/backup_wp/wp.sql
 </span></span></code></pre></div><p>Here <code>wordpress</code> is the Database name.</p>
 <p>If you don&rsquo;t remember the password for MySQL, Get it from <code>wp-config.php</code>:</p>
 <p><code>vim /var/www/html/wp-config.php</code></p>
@@ -72,15 +60,15 @@
 <p>Version can be different.</p>
 <h3 id="step-4-download-wordpress-zip-file">Step 4: Download WordPress zip file</h3>
 <p>Go to <a href="https://wordpress.org/download/releases/">Wordpress Releases page</a>. Check for your version and download with below command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget https://wordpress.org/wordpress-5.2.4.zip
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://wordpress.org/wordpress-5.2.4.zip
 </span></span></code></pre></div><p>Unzip it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>unzip wordpress-5.2.4.zip
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">unzip wordpress-5.2.4.zip
 </span></span></code></pre></div><p>It will extract all files in <code>wordpress</code> folder.</p>
 <p>If <code>unzip</code> is not already installed, Please install it with below command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>apt install unzip
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apt install unzip
 </span></span></code></pre></div><h3 id="step-5-replace-source-of-html-with-wordpress">Step 5: Replace source of <code>/html</code> with <code>/wordpress</code></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rm -rf /var/www/html
-</span></span><span style="display:flex;"><span>mv wordpress /var/www/html
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rm -rf /var/www/html
+</span></span><span class="line"><span class="cl">mv wordpress /var/www/html
 </span></span></code></pre></div><h3 id="step-6-change-configuration">Step 6: Change configuration</h3>
 <ol>
 <li>
@@ -110,18 +98,18 @@
 </ol>
 <p>Now you can log in into your admin panel.</p>
 <h3 id="step-7-copy-important-files-from-backup">Step 7: Copy important files from backup</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cp -R ~/backup_wp/html/wp-content/plugins/ /var/www/html/wp-content/
-</span></span><span style="display:flex;"><span>cp -R ~/backup_wp/html/wp-content/themes/ /var/www/html/wp-content/
-</span></span><span style="display:flex;"><span>cp -R ~/backup_wp/html/wp-content/uploads/ /var/www/html/wp-content/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp -R ~/backup_wp/html/wp-content/plugins/ /var/www/html/wp-content/
+</span></span><span class="line"><span class="cl">cp -R ~/backup_wp/html/wp-content/themes/ /var/www/html/wp-content/
+</span></span><span class="line"><span class="cl">cp -R ~/backup_wp/html/wp-content/uploads/ /var/www/html/wp-content/
 </span></span></code></pre></div><p>This will copy all existing plugins, themes &amp; all media files. But be careful while copying it, Becuase if it is the cause of your bug it can bring your site down again.</p>
 <p><strong>Important Configuration</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cp ~/backup_wp/html/.htaccess /var/www/html/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp ~/backup_wp/html/.htaccess /var/www/html/
 </span></span></code></pre></div><p>Otherwise, your URL routing won&rsquo;t work.</p>
 <h3 id="step-8-wordpress-asking-for-ftp-details">Step 8: WordPress asking for FTP details</h3>
 <p>If WordPress asking for FTP details on the each option like Adding themes, Installing plugins etc. Then add below line in your <code>wp-config.php</code> file.</p>
 <p><code>vim /var/www/html/wp-config.php</code></p>
 <p>Add</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>define<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;FS_METHOD&#39;</span>,<span style="color:#e6db74">&#39;direct&#39;</span><span style="color:#f92672">)</span>;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">define<span class="o">(</span><span class="s1">&#39;FS_METHOD&#39;</span>,<span class="s1">&#39;direct&#39;</span><span class="o">)</span><span class="p">;</span>
 </span></span></code></pre></div><h2 id="test-complete-website">Test complete website</h2>
 <p>If everything went perfect, It will run smoothly. So we have successfully set up new Vanilla WordPress with exisiting database and without touching to apache configurations. If you feel any doubt or problem feel free to comment below and Also you can share your review in comments.</p>
 ]]></content:encoded>

@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["elasticsearch","tls","security","ssl"]
 slug: "setup-tls-elasticsearch"
 categories: ["Elastic"]
+description: "Quick guide to running Elasticsearch securely with TLS on a public IP or domain for a single-node development cluster."
 ---
 
 This is a quick gist to demonstrate how you can run Elasticsearch securely with TLS on a public IP or domain. Sometimes, we need to spin up Elasticsearch for a development environment. In that case, you can follow these quick steps.

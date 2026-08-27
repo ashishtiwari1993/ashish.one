@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Talk on ashish.one</title>
+    <title>Talk on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/talk/</link>
-    <description>Recent content in Talk on ashish.one</description>
+    <description>Recent content in Talk on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,10 +18,7 @@
       <link>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
       <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
       <guid>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
-      <description>&lt;h2 id=&#34;what-this-talk-about&#34;&gt;What this talk about?&lt;/h2&gt;
-&lt;p&gt;I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.&lt;/p&gt;
-&lt;p&gt;Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?&lt;/p&gt;
-&lt;p&gt;I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).&lt;/p&gt;</description>
+      <description>Talk on Golang fundamentals and how MimePost handled 100,000 hourly webhook events using Go concurrency patterns.</description>
       <content:encoded><![CDATA[<h2 id="what-this-talk-about">What this talk about?</h2>
 <p>I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.</p>
 <p>Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?</p>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Talks on ashish.one</title>
+    <title>Talks on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/talks/</link>
-    <description>Recent content in Talks on ashish.one</description>
+    <description>Recent content in Talks on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,86 +18,7 @@
       <link>https://ashish.one/talks/laracon-2024/</link>
       <pubDate>Mon, 25 Aug 2025 11:29:16 +0530</pubDate>
       <guid>https://ashish.one/talks/laracon-2024/</guid>
-      <description>&lt;h1 id=&#34;-talk-summary-no-code-rag-chatbot-with-php-llms--elasticsearch&#34;&gt;🎤 Talk Summary: No-Code RAG Chatbot with PHP, LLMs &amp;amp; Elasticsearch&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;Speaker:&lt;/strong&gt; Ashish Diwali (Senior Developer Advocate, Elastic)&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-introduction&#34;&gt;🔑 Introduction&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Topic: Integrating &lt;strong&gt;Generative AI (LLMs)&lt;/strong&gt; with &lt;strong&gt;PHP&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Goal: Show how to build &lt;strong&gt;chat assistants, semantic search, and vector search&lt;/strong&gt; without heavy ML expertise.&lt;/li&gt;
-&lt;li&gt;Demo focus: Using &lt;strong&gt;Elasticsearch + PHP + LLM (LLaMA 3.1)&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-core-concepts&#34;&gt;🧩 Core Concepts&lt;/h2&gt;
-&lt;h3 id=&#34;1-prompt-engineering&#34;&gt;1. Prompt Engineering&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;LLMs generate responses based on prompts → predicting next words.&lt;/li&gt;
-&lt;li&gt;Techniques:
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Zero-shot inference&lt;/strong&gt; → direct classification or tagging.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;One-shot inference&lt;/strong&gt; → provide one example in the prompt.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Few-shot inference&lt;/strong&gt; → multiple examples → useful for structured outputs (SQL, JSON, XML).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Iteration + context = &lt;strong&gt;In-context learning (ICL)&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;2-llm-limitations&#34;&gt;2. LLM Limitations&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;❌ Hallucinations (wrong answers).&lt;/li&gt;
-&lt;li&gt;❌ Complex to build/train from scratch.&lt;/li&gt;
-&lt;li&gt;❌ No real-time / private data access.&lt;/li&gt;
-&lt;li&gt;❌ Privacy &amp;amp; security concerns (especially in banking, public sector).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;3-rag-retrieval-augmented-generation&#34;&gt;3. RAG (Retrieval-Augmented Generation)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Solution to limitations.&lt;/li&gt;
-&lt;li&gt;Workflow:
-&lt;ol&gt;
-&lt;li&gt;User query → hits database/vector DB (e.g., Elasticsearch).&lt;/li&gt;
-&lt;li&gt;Retrieve &lt;strong&gt;top 5–10 relevant docs&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Pass as context window → LLM generates accurate answer.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;Benefits:
-&lt;ul&gt;
-&lt;li&gt;Grounded responses.&lt;/li&gt;
-&lt;li&gt;Works with private data.&lt;/li&gt;
-&lt;li&gt;Avoids retraining large models.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-semantic--vector-search&#34;&gt;🔍 Semantic &amp;amp; Vector Search&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Semantic Search:&lt;/strong&gt; Understands meaning, not just keywords.
-&lt;ul&gt;
-&lt;li&gt;Example: “best city” ↔ “beautiful city.”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Vector Search:&lt;/strong&gt; Text, images, and audio converted into embeddings (arrays of floats).
-&lt;ul&gt;
-&lt;li&gt;Enables image search, recommendation systems, music search (via humming).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Similarity algorithms:&lt;/strong&gt; cosine similarity, dot product, nearest neighbors.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-tools--demo&#34;&gt;🛠️ Tools &amp;amp; Demo&lt;/h2&gt;
-&lt;h3 id=&#34;elephant-library-php&#34;&gt;Elephant Library (PHP)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Open-source PHP library for GenAI apps.&lt;/li&gt;
-&lt;li&gt;Supports:
-&lt;ul&gt;
-&lt;li&gt;LLMs: OpenAI, Mistral, Anthropic, LLaMA.&lt;/li&gt;
-&lt;li&gt;Vector DBs: Elasticsearch, Pinecone, Chroma, etc.&lt;/li&gt;
-&lt;li&gt;Features: document chunking, embedding generation, semantic retrieval, Q&amp;amp;A (RAG).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;demo-flow&#34;&gt;Demo Flow&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Ingestion&lt;/strong&gt;:&lt;/p&gt;</description>
+      <description>Laracon India 2024 talk on building no-code RAG chatbots with PHP, LLMs, and Elasticsearch using the Elephant PHP library.</description>
       <content:encoded><![CDATA[<h1 id="-talk-summary-no-code-rag-chatbot-with-php-llms--elasticsearch">🎤 Talk Summary: No-Code RAG Chatbot with PHP, LLMs &amp; Elasticsearch</h1>
 <p><strong>Speaker:</strong> Ashish Diwali (Senior Developer Advocate, Elastic)</p>
 <hr>
@@ -225,37 +146,7 @@
       <link>https://ashish.one/talks/aws-communtiy-day-mumbai-2024/</link>
       <pubDate>Mon, 25 Aug 2025 10:18:25 +0530</pubDate>
       <guid>https://ashish.one/talks/aws-communtiy-day-mumbai-2024/</guid>
-      <description>&lt;h1 id=&#34;-no-code-chatbot-with-elasticsearch--aws-bedrock-talk-summary&#34;&gt;🚀 No-Code Chatbot with Elasticsearch + AWS Bedrock (Talk Summary)&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;Speaker:&lt;/strong&gt; Ashish (Senior Developer Advocate, Elastic)&lt;br&gt;
-&lt;strong&gt;Event:&lt;/strong&gt; AWS Community Day Mumbai 2024&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-why-search-still-matters-with-llms&#34;&gt;🔑 Why Search Still Matters with LLMs&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;LLMs (like ChatGPT) are powerful but face:
-&lt;ul&gt;
-&lt;li&gt;❌ Hallucinations&lt;/li&gt;
-&lt;li&gt;💰 High cost per query&lt;/li&gt;
-&lt;li&gt;🔒 No access to private / real-time data&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;✅ Search grounds LLMs in &lt;strong&gt;reliable, domain-specific info&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-elasticsearch-capabilities&#34;&gt;⚡ Elasticsearch Capabilities&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Traditional &lt;strong&gt;keyword search&lt;/strong&gt; + modern &lt;strong&gt;vector search&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Real-world use cases:
-&lt;ul&gt;
-&lt;li&gt;📍 Geospatial queries (ride-sharing, food delivery)&lt;/li&gt;
-&lt;li&gt;❤️ Matchmaking&lt;/li&gt;
-&lt;li&gt;📊 Observability dashboards&lt;/li&gt;
-&lt;li&gt;📝 Centralized logging (Elastic Stack: Elasticsearch, Kibana, Beats, Logstash)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-retrieval-augmented-generation-rag&#34;&gt;🤖 Retrieval-Augmented Generation (RAG)&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Workflow:&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>AWS Community Day Mumbai 2024 talk on building no-code chat assistants using Elasticsearch and Amazon Bedrock.</description>
       <content:encoded><![CDATA[<h1 id="-no-code-chatbot-with-elasticsearch--aws-bedrock-talk-summary">🚀 No-Code Chatbot with Elasticsearch + AWS Bedrock (Talk Summary)</h1>
 <p><strong>Speaker:</strong> Ashish (Senior Developer Advocate, Elastic)<br>
 <strong>Event:</strong> AWS Community Day Mumbai 2024</p>
@@ -340,9 +231,7 @@
       <link>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</link>
       <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
       <guid>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.&lt;/p&gt;
-&lt;p&gt;For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.&lt;/p&gt;</description>
+      <description>Serverless Ahmedabad 2023 talk on monitoring serverless AWS environments using Elastic Observability.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.</p>
 <p>For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.</p>
@@ -362,9 +251,7 @@
       <link>https://ashish.one/talks/gids-2024-rag/</link>
       <pubDate>Mon, 03 Jun 2024 12:12:06 +0530</pubDate>
       <guid>https://ashish.one/talks/gids-2024-rag/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;In today&amp;rsquo;s data-driven world, just having a search engine is not enough; the key is making it smart. Enter Elasticsearch Relevance Engine (ESRE) augmented with Retrieval Augmented Generation (RAG), a powerful solution
-that marries Elasticsearch’s superior search capabilities with Large Language Models (LLMs) like ChatGPT for precise, contextual querying over proprietary datasets. This session is a hands-on guide that will show you how to amplify the power of Elasticsearch with advanced LLMs.&lt;/p&gt;</description>
+      <description>GIDS 2024 talk on building smart search systems with RAG using Elasticsearch and large language models.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In today&rsquo;s data-driven world, just having a search engine is not enough; the key is making it smart. Enter Elasticsearch Relevance Engine (ESRE) augmented with Retrieval Augmented Generation (RAG), a powerful solution
 that marries Elasticsearch’s superior search capabilities with Large Language Models (LLMs) like ChatGPT for precise, contextual querying over proprietary datasets. This session is a hands-on guide that will show you how to amplify the power of Elasticsearch with advanced LLMs.</p>
@@ -392,18 +279,7 @@ that marries Elasticsearch’s superior search capabilities with Large Language 
       <link>https://ashish.one/talks/setup_and_observe_kubernetes/</link>
       <pubDate>Thu, 28 Mar 2024 21:41:03 +0530</pubDate>
       <guid>https://ashish.one/talks/setup_and_observe_kubernetes/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.&lt;/p&gt;
-&lt;h1 id=&#34;setup-k8s-cluster&#34;&gt;Setup K8s cluster&lt;/h1&gt;
-&lt;h2 id=&#34;cluster-architecture&#34;&gt;Cluster architecture&lt;/h2&gt;
-&lt;p&gt;3 Node cluster&lt;/p&gt;
-&lt;p&gt;Machine - Centos7, 4GB RAM&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;kube1.local  - Control plane node&lt;/li&gt;
-&lt;li&gt;kube2.local - worker node&lt;/li&gt;
-&lt;li&gt;kube3.local - worker node&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Here I am setting hostname &lt;code&gt;kube1.local&lt;/code&gt;, &lt;code&gt;kube2.local&lt;/code&gt;, &lt;code&gt;kube3.local&lt;/code&gt;.  Login into all of the servers and perform below command on all three nodes.&lt;/p&gt;</description>
+      <description>Hands-on session on setting up a Kubernetes cluster and observing it with the Elastic Stack — logs, metrics, and APM.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this gist we will quickly spin a sample Kubernetes cluster and deploying the nginx pod. Additionally, we will implement monitoring using Elastic.</p>
 <h1 id="setup-k8s-cluster">Setup K8s cluster</h1>
@@ -417,40 +293,40 @@ that marries Elasticsearch’s superior search capabilities with Large Language 
 </ol>
 <p>Here I am setting hostname <code>kube1.local</code>, <code>kube2.local</code>, <code>kube3.local</code>.  Login into all of the servers and perform below command on all three nodes.</p>
 <h2 id="swap-off">Swap off</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo swapoff -a
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo swapoff -a
 </span></span></code></pre></div><h2 id="install-docker">Install docker</h2>
 <p>You can refer <a href="https://docs.docker.com/engine/install/centos/">docker documentation</a> but here are the quick steps:</p>
 <h2 id="contanerd-runtime">Contanerd runtime</h2>
 <p>kubeadm automatically tries to detect an installed container runtime by scanning through a list of known endpoints.</p>
 <p>Verify if containerd is running or not</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ps -ef | grep containerd
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ps -ef <span class="p">|</span> grep containerd
 </span></span></code></pre></div><p>In my system containerd was running. <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md">Install containerd</a> if it is not installed.</p>
 <p>Change below cofing to remove <code>cri</code> from <code>disable_plugins</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo vim /etc/containerd/config.toml
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#disabled_plugins = [&#34;cri&#34;]</span>
-</span></span><span style="display:flex;"><span>disabled_plugins <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sudo systemctl restart containerd
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo vim /etc/containerd/config.toml
+</span></span><span class="line"><span class="cl"><span class="c1">#disabled_plugins = [&#34;cri&#34;]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">disabled_plugins</span> <span class="o">=</span> <span class="o">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo systemctl restart containerd
 </span></span></code></pre></div><h2 id="install-kubeadm-kubelet--kubectl">Install kubeadm, kubelet &amp; kubectl</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[kubernetes]
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">name=Kubernetes
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">baseurl=https://pkgs.k8s.io/core:/stable:/v1.28/rpm/
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">enabled=1
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">gpgcheck=1
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">gpgkey=https://pkgs.k8s.io/core:/stable:/v1.28/rpm/repodata/repomd.xml.key
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set SELinux in permissive mode (effectively disabling it)</span>
-</span></span><span style="display:flex;"><span>sudo setenforce <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#39;s/^SELINUX=enforcing$/SELINUX=permissive/&#39;</span> /etc/selinux/config
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sudo yum install -y kubelet kubeadm kubectl --disableexcludes<span style="color:#f92672">=</span>kubernetes
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sudo systemctl enable --now kubelet
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+</span></span></span><span class="line"><span class="cl"><span class="s">[kubernetes]
+</span></span></span><span class="line"><span class="cl"><span class="s">name=Kubernetes
+</span></span></span><span class="line"><span class="cl"><span class="s">baseurl=https://pkgs.k8s.io/core:/stable:/v1.28/rpm/
+</span></span></span><span class="line"><span class="cl"><span class="s">enabled=1
+</span></span></span><span class="line"><span class="cl"><span class="s">gpgcheck=1
+</span></span></span><span class="line"><span class="cl"><span class="s">gpgkey=https://pkgs.k8s.io/core:/stable:/v1.28/rpm/repodata/repomd.xml.key
+</span></span></span><span class="line"><span class="cl"><span class="s">exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Set SELinux in permissive mode (effectively disabling it)</span>
+</span></span><span class="line"><span class="cl">sudo setenforce <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo sed -i <span class="s1">&#39;s/^SELINUX=enforcing$/SELINUX=permissive/&#39;</span> /etc/selinux/config
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo yum install -y kubelet kubeadm kubectl --disableexcludes<span class="o">=</span>kubernetes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> --now kubelet
 </span></span></code></pre></div><p>Make sure you install same version on all of the nodes. In my case i am installing <code>v1.28</code>.</p>
 <p>Need to install all three packages on all nodes</p>
 <p><strong>Kubeadm</strong> - Use to bootstrap the cluster</p>
@@ -458,78 +334,78 @@ that marries Elasticsearch’s superior search capabilities with Large Language 
 <p><strong>Kubectl</strong> - command line utility to talk with kubernetes APIs</p>
 <h2 id="on-control-plane-node-only-kube1local">On control plane node only (kube1.local)</h2>
 <p>Initialise kubeadm</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubeadm init
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm init
 </span></span></code></pre></div><p>On success, It will print the below <code>join</code> command, which we will use to join any machine in the cluster.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubeadm join control_plane_ip:6443 --token tlif0t.jq7r1nvdmltre7m3 --discovery-token-ca-cert-hash sha256:02eb1a7f249b2f2a2b8db2b8fef9b5564ac3db9d42da39db71c23c06df5cecb8
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm join control_plane_ip:6443 --token tlif0t.jq7r1nvdmltre7m3 --discovery-token-ca-cert-hash sha256:02eb1a7f249b2f2a2b8db2b8fef9b5564ac3db9d42da39db71c23c06df5cecb8
 </span></span></code></pre></div><p>Save this command. We need to execute this command on every worker node to join the cluster.</p>
 <h2 id="on-worker-node-only-kube2local-kube3local">On worker node only (kube2.local, kube3.local)</h2>
 <p>Perform join command.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubeadm join control_plane_ip:6443 --token tlif0t.jq7r1nvdmltre7m3 --discovery-token-ca-cert-hash sha256:02eb1a7f249b2f2a2b8db2b8fef9b5564ac3db9d42da39db71c23c06df5cecb8
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm join control_plane_ip:6443 --token tlif0t.jq7r1nvdmltre7m3 --discovery-token-ca-cert-hash sha256:02eb1a7f249b2f2a2b8db2b8fef9b5564ac3db9d42da39db71c23c06df5cecb8
 </span></span></code></pre></div><p>You should see the message - “This node has joined the cluster” with addition details.</p>
 <h2 id="verify-cluster-kube1local">Verify cluster (kube1.local)</h2>
 <p>Enable <code>kubectl</code> to run from non root user.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir -p $HOME/.kube
-</span></span><span style="display:flex;"><span>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-</span></span><span style="display:flex;"><span>sudo chown <span style="color:#66d9ef">$(</span>id -u<span style="color:#66d9ef">)</span>:<span style="color:#66d9ef">$(</span>id -g<span style="color:#66d9ef">)</span> $HOME/.kube/config
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir -p <span class="nv">$HOME</span>/.kube
+</span></span><span class="line"><span class="cl">sudo cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
+</span></span><span class="line"><span class="cl">sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
 </span></span></code></pre></div><p>List nodes</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl get nodes
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>NAME          STATUS   ROLES           AGE     VERSION
-</span></span><span style="display:flex;"><span>kube1.local   Ready    control-plane   199d    v1.28.1
-</span></span><span style="display:flex;"><span>kube2.local   Ready    &lt;none&gt;          8m22s   v1.28.8
-</span></span><span style="display:flex;"><span>kube3.local   Ready    &lt;none&gt;          199d    v1.28.1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl get nodes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME          STATUS   ROLES           AGE     VERSION
+</span></span><span class="line"><span class="cl">kube1.local   Ready    control-plane   199d    v1.28.1
+</span></span><span class="line"><span class="cl">kube2.local   Ready    &lt;none&gt;          8m22s   v1.28.8
+</span></span><span class="line"><span class="cl">kube3.local   Ready    &lt;none&gt;          199d    v1.28.1
 </span></span></code></pre></div><p>Our cluster is up and running.</p>
 <h1 id="deploy-nginx-kube1local">Deploy Nginx (kube1.local)</h1>
 <p>Create Nginx deployment</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF | kubectl apply -f -
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: apps/v1
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Deployment
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: nginx-deployment
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  selector:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    matchLabels:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      app: nginx
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  replicas: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  template:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    metadata:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      labels:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        app: nginx
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    spec:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      containers:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: nginx
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        image: nginx:latest
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ports:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        - containerPort: 80
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | kubectl apply -f -
+</span></span></span><span class="line"><span class="cl"><span class="s">apiVersion: apps/v1
+</span></span></span><span class="line"><span class="cl"><span class="s">kind: Deployment
+</span></span></span><span class="line"><span class="cl"><span class="s">metadata:
+</span></span></span><span class="line"><span class="cl"><span class="s">  name: nginx-deployment
+</span></span></span><span class="line"><span class="cl"><span class="s">spec:
+</span></span></span><span class="line"><span class="cl"><span class="s">  selector:
+</span></span></span><span class="line"><span class="cl"><span class="s">    matchLabels:
+</span></span></span><span class="line"><span class="cl"><span class="s">      app: nginx
+</span></span></span><span class="line"><span class="cl"><span class="s">  replicas: 2
+</span></span></span><span class="line"><span class="cl"><span class="s">  template:
+</span></span></span><span class="line"><span class="cl"><span class="s">    metadata:
+</span></span></span><span class="line"><span class="cl"><span class="s">      labels:
+</span></span></span><span class="line"><span class="cl"><span class="s">        app: nginx
+</span></span></span><span class="line"><span class="cl"><span class="s">    spec:
+</span></span></span><span class="line"><span class="cl"><span class="s">      containers:
+</span></span></span><span class="line"><span class="cl"><span class="s">      - name: nginx
+</span></span></span><span class="line"><span class="cl"><span class="s">        image: nginx:latest
+</span></span></span><span class="line"><span class="cl"><span class="s">        ports:
+</span></span></span><span class="line"><span class="cl"><span class="s">        - containerPort: 80
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div><p>Expose the Nginx deployment on a NodePort 32000</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF | kubectl apply -f -
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: v1
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Service
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: nginx-service
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  selector:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    app: nginx
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  type: NodePort
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ports:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - port: 80
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      targetPort: 80
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      nodePort: 32000
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | kubectl apply -f -
+</span></span></span><span class="line"><span class="cl"><span class="s">apiVersion: v1
+</span></span></span><span class="line"><span class="cl"><span class="s">kind: Service
+</span></span></span><span class="line"><span class="cl"><span class="s">metadata:
+</span></span></span><span class="line"><span class="cl"><span class="s">  name: nginx-service
+</span></span></span><span class="line"><span class="cl"><span class="s">spec:
+</span></span></span><span class="line"><span class="cl"><span class="s">  selector:
+</span></span></span><span class="line"><span class="cl"><span class="s">    app: nginx
+</span></span></span><span class="line"><span class="cl"><span class="s">  type: NodePort
+</span></span></span><span class="line"><span class="cl"><span class="s">  ports:
+</span></span></span><span class="line"><span class="cl"><span class="s">    - port: 80
+</span></span></span><span class="line"><span class="cl"><span class="s">      targetPort: 80
+</span></span></span><span class="line"><span class="cl"><span class="s">      nodePort: 32000
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div><p>Verify pod is running</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Kubectl get pods
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Kubectl get pods
 </span></span></code></pre></div><p>Just visit on browser - http://external_id:32000.</p>
 <p>You should able to see the nginx’s default page.</p>
 <h1 id="setup-observability-with-elastic">Setup Observability with Elastic</h1>
 <h2 id="enable-kube-state-matrics-kube1local">Enable kube-state-matrics (kube1.local)</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/kubernetes/kube-state-metrics
-</span></span><span style="display:flex;"><span>kubectl apply -f kube-state-metrics/examples/standard/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://github.com/kubernetes/kube-state-metrics
+</span></span><span class="line"><span class="cl">kubectl apply -f kube-state-metrics/examples/standard/
 </span></span></code></pre></div><h2 id="verify-endpoint">Verify endpoint</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl port-forward svc/kube-state-metrics -n kube-system 8080:8080
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#login to anoter tab and hit</span>
-</span></span><span style="display:flex;"><span>curl localhost:8080/metrics
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl port-forward svc/kube-state-metrics -n kube-system 8080:8080
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#login to anoter tab and hit</span>
+</span></span><span class="line"><span class="cl">curl localhost:8080/metrics
 </span></span></code></pre></div><p>It should return all metrics.</p>
 <h2 id="monitoring-using-elastic-cloud">Monitoring using Elastic cloud</h2>
 <p>You can follow detailed doc - <a href="https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters">https://www.elastic.co/getting-started/observability/monitor-kubernetes-clusters</a></p>
@@ -552,9 +428,7 @@ that marries Elasticsearch’s superior search capabilities with Large Language 
       <link>https://ashish.one/talks/esql/</link>
       <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
       <guid>https://ashish.one/talks/esql/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html&#34;&gt;ES|QL&lt;/a&gt; is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.&lt;/p&gt;
-&lt;p&gt;It is a piped separated langugage with a combination of &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands&#34;&gt;source commands&lt;/a&gt; and &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands&#34;&gt;process&lt;/a&gt; commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.&lt;/p&gt;</description>
+      <description>Workshop and talk on ES|QL — Elasticsearch&amp;#39;s new unified query language for search, aggregations, and log analysis.</description>
       <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
 <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html">ES|QL</a> is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.</p>
 <p>It is a piped separated langugage with a combination of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands">source commands</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands">process</a> commands. The Elasticsearch Query Language (ES|QL) makes use of &ldquo;pipes&rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.</p>
@@ -566,198 +440,189 @@ that marries Elasticsearch’s superior search capabilities with Large Language 
 <p>Below is a few examples of ES|QL. I am considering you have an Elasticsearch and kibana is <a href="https://www.elastic.co/search-labs/tutorials/install-elasticsearch">installed</a> and running. Please <a href="https://www.elastic.co/guide/en/kibana/current/get-started.html#gs-get-data-into-kibana">import the sample dataset (Sample web logs)</a> from kibana. Navigate in side menu  -&gt; <code>Management</code> -&gt; <code>Dev Tools</code>  to perform the below query.</p>
 <h3 id="source-commands">Source commands</h3>
 <h4 id="from">FROM</h4>
-<pre tabindex="0"><code># Format
-
-POST /_query?format=csv
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="row">ROW</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    row a = &#34;Mozilla/5.0 (X11; Linux x86_64; rv:6.0a1) Gecko/20110421 Firefox/6.0a1&#34;
-    | dissect a &#34;%{browser}/%{version}&#34;
-    | keep browser
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="show">SHOW</h4>
-<pre tabindex="0"><code>POST /_query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    show info
-  &#34;&#34;&#34;
-}
-</code></pre><h3 id="processing-commands">Processing commands</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Format
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST /_query?format=csv
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="row">ROW</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    row a = &#34;Mozilla/5.0 (X11; Linux x86_64; rv:6.0a1) Gecko/20110421 Firefox/6.0a1&#34;
+</span></span><span class="line"><span class="cl">    | dissect a &#34;%{browser}/%{version}&#34;
+</span></span><span class="line"><span class="cl">    | keep browser
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="show">SHOW</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST /_query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    show info
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="processing-commands">Processing commands</h3>
 <h4 id="keep">keep</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | keep @timestamp, clientip, host, tags, bytes
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="where-limit-sort">where, limit, sort</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | keep @timestamp, clientip, host, tags, bytes
-    | where bytes &gt; 1000
-    | sort bytes desc
-    | limit 5
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="like">like</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    FROM sample_data
-    | where message like &#34;*error*&#34;
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="grok-statsby">GROK, STATS&hellip;BY</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
-    | keep browser, version, @timestamp
-  &#34;&#34;&#34;
-}
-
-POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
-    | keep browser, version, @timestamp
-    | stats count(*) by version
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="dissect">DISSECT</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs 
-    | dissect message &#34;%{ip} - - %{time} %{web_call} &#34;
-    | keep ip, time, web_call
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="eval">EVAL</h4>
-<pre tabindex="0"><code>POST /_query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | eval t = replace(agent, &#34;Mozilla&#34;, &#34;Chrome&#34;)
-    | eval l = length(agent)
-    | dissect agent &#34;%{browser}/%{version} &#34;
-    | eval lt = left(t, 6)
-    | keep lt, browser, version, t, l
-  &#34;&#34;&#34;
-}
-</code></pre><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions">string functions</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | keep @timestamp, clientip, host, tags, bytes
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="where-limit-sort">where, limit, sort</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | keep @timestamp, clientip, host, tags, bytes
+</span></span><span class="line"><span class="cl">    | where bytes &gt; 1000
+</span></span><span class="line"><span class="cl">    | sort bytes desc
+</span></span><span class="line"><span class="cl">    | limit 5
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="like">like</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    FROM sample_data
+</span></span><span class="line"><span class="cl">    | where message like &#34;*error*&#34;
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="grok-statsby">GROK, STATS&hellip;BY</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
+</span></span><span class="line"><span class="cl">    | keep browser, version, @timestamp
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
+</span></span><span class="line"><span class="cl">    | keep browser, version, @timestamp
+</span></span><span class="line"><span class="cl">    | stats count(*) by version
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="dissect">DISSECT</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs 
+</span></span><span class="line"><span class="cl">    | dissect message &#34;%{ip} - - %{time} %{web_call} &#34;
+</span></span><span class="line"><span class="cl">    | keep ip, time, web_call
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="eval">EVAL</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST /_query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | eval t = replace(agent, &#34;Mozilla&#34;, &#34;Chrome&#34;)
+</span></span><span class="line"><span class="cl">    | eval l = length(agent)
+</span></span><span class="line"><span class="cl">    | dissect agent &#34;%{browser}/%{version} &#34;
+</span></span><span class="line"><span class="cl">    | eval lt = left(t, 6)
+</span></span><span class="line"><span class="cl">    | keep lt, browser, version, t, l
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions">string functions</a>.</p>
 <h4 id="data-enrichment-enrich">Data enrichment (ENRICH)</h4>
-<pre tabindex="0"><code>
-# Create mappings
-
-PUT lang
-{
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;lang_id&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      },
-      &#34;name&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      }
-    }
-  }
-}
-
-PUT devs
-{
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;lang_id&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      },
-      &#34;name&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      }
-    }
-  }
-}
-
-# Create index &#34;lang&#34;
-
-PUT lang/_bulk
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;name&#34;: &#34;java&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;name&#34;: &#34;php&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;name&#34;: &#34;node&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;name&#34;: &#34;python&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;name&#34;: &#34;ruby&#34; }
-
-# create index &#34;devs&#34;
-
-PUT devs/_bulk
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;developer&#34;: &#34;bob&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;developer&#34;: &#34;mark&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;developer&#34;: &#34;max&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;developer&#34;: &#34;david&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;developer&#34;: &#34;ashish&#34; }
-
-
-# Create enrich policy
-
-PUT /_enrich/policy/dev_lang
-{
-  &#34;match&#34;: {
-    &#34;indices&#34;: &#34;lang&#34;,
-    &#34;match_field&#34;: &#34;lang_id&#34;,
-    &#34;enrich_fields&#34;: [&#34;name&#34;]
-  }
-}
-
-PUT /_enrich/policy/dev_lang/_execute?wait_for_completion=true
-
-POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from devs
-    | keep lang_id, name, developer
-    | enrich dev_lang on lang_id with name
-  &#34;&#34;&#34;
-}
-</code></pre>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Create mappings
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT lang
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;lang_id&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT devs
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;lang_id&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Create index &#34;lang&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT lang/_bulk
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;name&#34;: &#34;java&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;name&#34;: &#34;php&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;name&#34;: &#34;node&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;name&#34;: &#34;python&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;name&#34;: &#34;ruby&#34; }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># create index &#34;devs&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT devs/_bulk
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;developer&#34;: &#34;bob&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;developer&#34;: &#34;mark&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;developer&#34;: &#34;max&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;developer&#34;: &#34;david&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;developer&#34;: &#34;ashish&#34; }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Create enrich policy
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT /_enrich/policy/dev_lang
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;indices&#34;: &#34;lang&#34;,
+</span></span><span class="line"><span class="cl">    &#34;match_field&#34;: &#34;lang_id&#34;,
+</span></span><span class="line"><span class="cl">    &#34;enrich_fields&#34;: [&#34;name&#34;]
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT /_enrich/policy/dev_lang/_execute?wait_for_completion=true
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from devs
+</span></span><span class="line"><span class="cl">    | keep lang_id, name, developer
+</span></span><span class="line"><span class="cl">    | enrich dev_lang on lang_id with name
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>]]></content:encoded>
     </item>
     <item>
       <title>Elasticsearch: Vector and Hybrid Search</title>
       <link>https://ashish.one/talks/vector-hybrid-search/</link>
       <pubDate>Tue, 29 Aug 2023 21:41:03 +0530</pubDate>
       <guid>https://ashish.one/talks/vector-hybrid-search/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.&lt;/p&gt;
-&lt;p&gt;This talk gives an overview of:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Classic&lt;/strong&gt; search and its limitations.&lt;/li&gt;
-&lt;li&gt;What is a model and how can you use it.&lt;/li&gt;
-&lt;li&gt;How to use vector search or hybrid search in Elasticsearch.&lt;/li&gt;
-&lt;li&gt;Where OpenAI&amp;rsquo;s ChatGPT or similar LLMs come into play to with Elastic.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Check how to leverage &lt;a href=&#34;https://ashish.one/talks/chatgpt-elasticsearch/&#34;&gt;Leverage ChatGPT with Elasticsearch&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>Talk on implementing vector search and hybrid search in Elasticsearch using dense vector fields and kNN — with live demos.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Search is not just traditional TF/IDF any more but the current trend of machine learning and models has opened another dimension for search.</p>
 <p>This talk gives an overview of:</p>
@@ -784,16 +649,7 @@ POST _query?format=txt
       <link>https://ashish.one/talks/monitor_k8_elastic_observability/</link>
       <pubDate>Fri, 28 Jul 2023 21:41:03 +0530</pubDate>
       <guid>https://ashish.one/talks/monitor_k8_elastic_observability/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.&lt;/p&gt;
-&lt;h2 id=&#34;talk-video&#34;&gt;Talk Video&lt;/h2&gt;
-
-
-    
-    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/8qOt_gYjwcw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
-      &gt;&lt;/iframe&gt;
-    &lt;/div&gt;</description>
+      <description>Talk on monitoring a Kubernetes cluster end-to-end with Elastic Observability — covering logs, metrics, and traces.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Bring logs, metrics, and traces from your Kubernetes cluster and the workloads running on it into a single, unified solution. Elastic observability gives better visibility on your kubernetes ecosystem where you can monitor your pods, services, workload etc. Use a centrally managed Elastic Agent to gain visibility into your Kubernetes deployments on EKS, AKS, GKE or self-managed clusters.</p>
 <h2 id="talk-video">Talk Video</h2>
@@ -909,26 +765,26 @@ POST _query?format=txt
 <p>We’re going to use docker for import model to the elastic cluster</p>
 <ol>
 <li>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> git clone https://github.com/elastic/eland.git 
-</span></span><span style="display:flex;"><span> cd eland
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> git clone https://github.com/elastic/eland.git 
+</span></span><span class="line"><span class="cl"> <span class="nb">cd</span> eland
 </span></span></code></pre></div></li>
 <li>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> docker build -t elastic/eland .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> docker build -t elastic/eland .
 </span></span></code></pre></div></li>
 <li>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> docker run -it --rm elastic/eland eland_import_hub_model <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --cloud-id &lt;cloud_id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     -u elastic -p &lt;elastic_cloud_password&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --hub-model-id sentence-transformers/all-distilroberta-v1 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --task-type text_embedding <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --start
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> docker run -it --rm elastic/eland eland_import_hub_model <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --cloud-id &lt;cloud_id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -u elastic -p &lt;elastic_cloud_password&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --hub-model-id sentence-transformers/all-distilroberta-v1 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --task-type text_embedding <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --start
 </span></span></code></pre></div></li>
 <li>
 <p>Let&rsquo;s wait till the model gets uploaded without any error.</p>
 </li>
 <li>
 <p>Exit from <code>eland</code> folder.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd ..
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> ..
 </span></span></code></pre></div></li>
 </ol>
 </li>
@@ -951,29 +807,29 @@ POST _query?format=txt
 <li>At the Review stage let&rsquo;s click on “<em><strong>Create pipeline</strong></em>”.</li>
 <li>(Skip this for <em><strong>ELSER</strong></em>) Go to <em><strong>Menu -&gt; Management -&gt; Dev Tools</strong></em>. Let&rsquo;s create a mapping</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST &lt;index_name&gt;/_mapping
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;properties&#34;</span>: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&lt;vector_field_name&gt;&#34;</span>: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;dense_vector&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;dims&#34;</span>: 768,
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;index&#34;</span>: true,
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;similarity&#34;</span>: <span style="color:#e6db74">&#34;dot_product&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">POST &lt;index_name&gt;/_mapping
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;properties&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&lt;vector_field_name&gt;&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;dense_vector&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;dims&#34;</span>: 768,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;index&#34;</span>: true,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;similarity&#34;</span>: <span class="s2">&#34;dot_product&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><p>In my case mapping will be:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST search-ashish.one/_mapping
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;properties&#34;</span>: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;title-vector&#34;</span>: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;dense_vector&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;dims&#34;</span>: 768,
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;index&#34;</span>: true,
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;similarity&#34;</span>: <span style="color:#e6db74">&#34;dot_product&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">POST search-ashish.one/_mapping
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;properties&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;title-vector&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;dense_vector&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;dims&#34;</span>: 768,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;index&#34;</span>: true,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;similarity&#34;</span>: <span class="s2">&#34;dot_product&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><p>Paste above query in <code>cosole</code> and hit on play button.</p>
 <ol start="13">
 <li>Go to <em><strong>Enterprise search -&gt; indices -&gt; your_index_name -&gt; Manage Domains</strong></em>. Enter the domain (e.g. <a href="https://ashish.one">https://ashish.one</a>. You can add your own domain) to crawl and hit “<em><strong>Validate Domain</strong></em>”.</li>
@@ -994,27 +850,27 @@ POST _query?format=txt
 <ol>
 <li>Clone</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/ashishtiwari1993/elasticsearch-chatgpt.git
-</span></span><span style="display:flex;"><span>cd elasticsearch-chatgpt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://github.com/ashishtiwari1993/elasticsearch-chatgpt.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> elasticsearch-chatgpt
 </span></span></code></pre></div><ol start="2">
 <li>Replace credentials in <code>Dockerfile</code></li>
 </ol>
 <p>Open <code>Dockerfile</code> and change below creds</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ENV openai_api<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;open_api_key&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>ENV cloud_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elastic cloud id&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>ENV cloud_user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;elastic&#34;</span>
-</span></span><span style="display:flex;"><span>ENV cloud_pass<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elastic_cloud_password&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>ENV es_index<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elasticsearch_index_name&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>ENV chat_title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;Any title for your page e.g. ashish.one GPT&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>ENV vector_field<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt; specify vector field where embedding will be save. e.g. title-vector&gt;&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ENV <span class="nv">openai_api</span><span class="o">=</span><span class="s2">&#34;&lt;open_api_key&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">ENV <span class="nv">cloud_id</span><span class="o">=</span><span class="s2">&#34;&lt;elastic cloud id&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">ENV <span class="nv">cloud_user</span><span class="o">=</span><span class="s2">&#34;elastic&#34;</span>
+</span></span><span class="line"><span class="cl">ENV <span class="nv">cloud_pass</span><span class="o">=</span><span class="s2">&#34;&lt;elastic_cloud_password&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">ENV <span class="nv">es_index</span><span class="o">=</span><span class="s2">&#34;&lt;elasticsearch_index_name&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">ENV <span class="nv">chat_title</span><span class="o">=</span><span class="s2">&#34;&lt;Any title for your page e.g. ashish.one GPT&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">ENV <span class="nv">vector_field</span><span class="o">=</span><span class="s2">&#34;&lt; specify vector field where embedding will be save. e.g. title-vector&gt;&#34;</span>
 </span></span></code></pre></div><ol start="3">
 <li>Build</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker build -t es-gpt .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker build -t es-gpt .
 </span></span></code></pre></div><ol start="4">
 <li>Run</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker run -p 8501:8501 es-gpt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -p 8501:8501 es-gpt
 </span></span></code></pre></div><p>Simply visit on <a href="!http://localhost:8501">localhost:8501</a></p>
 <h2 id="setup-on-renderhttpsrendercom-with-docker">Setup on <a href="https://render.com/">Render</a> with Docker</h2>
 <ol>
@@ -1028,7 +884,7 @@ POST _query?format=txt
 <p>Go to <strong>Public Git repository</strong> section and add below repo url</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://github.com/ashishtiwari1993/elasticsearch-chatgpt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">https://github.com/ashishtiwari1993/elasticsearch-chatgpt
 </span></span></code></pre></div><p>Hit on <strong>Continue</strong>.</p>
 <ol start="4">
 <li>
@@ -1038,13 +894,13 @@ POST _query?format=txt
 <p>Click on <strong>Advanced</strong> and <strong>Add Environment Variable</strong></p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>openai_api<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;open_api_key&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>cloud_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elastic cloud id&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>cloud_user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;elastic&#34;</span>
-</span></span><span style="display:flex;"><span>cloud_pass<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elastic_cloud_password&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>es_index<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;elasticsearch_index_name&gt;&#34;</span>                                                 
-</span></span><span style="display:flex;"><span>chat_title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;Any title for your page e.g. ashish.one GPT&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>vector_field<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt; specify vector field where embedding will be save. e.g. title-vector&gt;&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">openai_api</span><span class="o">=</span><span class="s2">&#34;&lt;open_api_key&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">cloud_id</span><span class="o">=</span><span class="s2">&#34;&lt;elastic cloud id&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">cloud_user</span><span class="o">=</span><span class="s2">&#34;elastic&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">cloud_pass</span><span class="o">=</span><span class="s2">&#34;&lt;elastic_cloud_password&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">es_index</span><span class="o">=</span><span class="s2">&#34;&lt;elasticsearch_index_name&gt;&#34;</span>                                                 
+</span></span><span class="line"><span class="cl"><span class="nv">chat_title</span><span class="o">=</span><span class="s2">&#34;&lt;Any title for your page e.g. ashish.one GPT&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">vector_field</span><span class="o">=</span><span class="s2">&#34;&lt; specify vector field where embedding will be save. e.g. title-vector&gt;&#34;</span>
 </span></span></code></pre></div><ol start="6">
 <li>Finally click on <strong>Create Web Service</strong></li>
 </ol>
@@ -1060,18 +916,7 @@ POST _query?format=txt
       <link>https://ashish.one/talks/getting_started_elastic_stack/</link>
       <pubDate>Sat, 17 Sep 2022 19:24:45 +0000</pubDate>
       <guid>https://ashish.one/talks/getting_started_elastic_stack/</guid>
-      <description>&lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
-&lt;p&gt;Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&amp;hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.&lt;/p&gt;
-&lt;h2 id=&#34;talk-video&#34;&gt;Talk Video&lt;/h2&gt;
-
-
-    
-    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/hJoorF6zxBA?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
-      &gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-
-&lt;h4 id=&#34;feel-free-to-comment-below-if-you-have-any-doubts-or-suggestion-about-this-talk&#34;&gt;Feel free to comment below, If you have any doubts or suggestion about this talk.&lt;/h4&gt;</description>
+      <description>Virtual session covering the fundamentals of the Elastic Stack — Elasticsearch, Kibana, Beats, and Logstash — for beginners.</description>
       <content:encoded><![CDATA[<h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>Elastic Stack (Elasticsearch, Logstash, Kibana and Beats) is such a platform which is built for scalability, performance and “You know&hellip; for Search”. When you have a system which scales to the horizons of your data, helps you in your data quest, shows you insights - imagine what you can do with it.</p>
 <h2 id="talk-video">Talk Video</h2>
@@ -1091,179 +936,93 @@ POST _query?format=txt
       <link>https://ashish.one/talks/ws-es/</link>
       <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
       <guid>https://ashish.one/talks/ws-es/</guid>
-      <description>&lt;h1 id=&#34;sample-queries-for-elasticsearch-workshop&#34;&gt;Sample Queries for Elasticsearch Workshop&lt;/h1&gt;
-&lt;h2 id=&#34;crud&#34;&gt;CRUD&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
-# Insert
-
-POST meetup/_doc/
-{
-  &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34;
-}
-
-# Insert with id
-
-POST meetup/_doc/1
-{
-  &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34;
-}
-
-# Search
-
-GET meetup/_search
-
-# Update
-
-POST meetup/_doc/1
-{
-  &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;,
-  &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;,
-  &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;,
-  &amp;#34;skills&amp;#34;:{
-    &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;],
-    &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;],
-    &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34;
-  }
-}
-
-# search with query
-
-GET meetup/_search
-{
-  &amp;#34;query&amp;#34;: {
-    &amp;#34;match&amp;#34;: {
-      &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34;
-    }
-  }
-}
-
-# delete
-
-DELETE meetup
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;bulk&#34;&gt;BULK&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;POST _bulk
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.221.25.110&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Flashset&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:2,&amp;#34;first_name&amp;#34;:&amp;#34;Immanuel&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Philbrick&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;iphilbrick1@wunderground.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;01 Bunting Pass&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;9.20.164.27&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Babblestorm&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:3,&amp;#34;first_name&amp;#34;:&amp;#34;Clotilda&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Danelut&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;cdanelut2@deliciousdays.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Agender&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;0 Crowley Trail&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;158.94.144.140&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Riffpedia&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:4,&amp;#34;first_name&amp;#34;:&amp;#34;Nahum&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Attfield&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;nattfield3@blog.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;7 Garrison Court&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;225.144.148.44&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Chatterpoint&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:5,&amp;#34;first_name&amp;#34;:&amp;#34;Vaughan&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Middis&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;vmiddis4@ted.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;7 Cody Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;66.198.31.108&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Mynte&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:6,&amp;#34;first_name&amp;#34;:&amp;#34;Nolie&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Alessandrucci&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;nalessandrucci5@networksolutions.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;826 Brown Hill&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;96.77.221.95&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Feedfish&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:7,&amp;#34;first_name&amp;#34;:&amp;#34;Beverlie&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Ovitts&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bovitts6@tripod.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;6 Sycamore Pass&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;102.24.117.107&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Zazio&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:8,&amp;#34;first_name&amp;#34;:&amp;#34;Graeme&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Dopson&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;gdopson7@free.fr&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;26 Dunning Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;198.33.215.93&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Flashset&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:9,&amp;#34;first_name&amp;#34;:&amp;#34;Mellisa&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Hurich&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;mhurich8@nbcnews.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;6371 Browning Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;66.0.3.199&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Divanoodle&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:10,&amp;#34;first_name&amp;#34;:&amp;#34;Dyan&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Loude&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;dloude9@berkeley.edu&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;9818 Reindahl Road&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;16.56.137.54&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Agivu&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:11,&amp;#34;first_name&amp;#34;:&amp;#34;Becky&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Shank&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bshanka@tinypic.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;1206 Warrior Terrace&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;90.63.35.111&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Izio&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:12,&amp;#34;first_name&amp;#34;:&amp;#34;Bar&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Bedburrow&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bbedburrowb@vistaprint.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;75 Onsgard Crossing&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;85.122.33.250&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Zoombox&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:13,&amp;#34;first_name&amp;#34;:&amp;#34;Dorey&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Isenor&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;disenorc@privacy.gov.au&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;53682 Parkside Crossing&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;150.158.150.213&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Rhyzio&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:14,&amp;#34;first_name&amp;#34;:&amp;#34;Torrin&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Rangall&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;trangalld@buzzfeed.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;24247 Old Shore Plaza&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;40.151.17.2&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Devpoint&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:15,&amp;#34;first_name&amp;#34;:&amp;#34;Genvieve&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Beslier&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;gbesliere@yolasite.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;96214 Miller Trail&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;115.143.68.208&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Oyonder&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:16,&amp;#34;first_name&amp;#34;:&amp;#34;Arden&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Ramas&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;aramasf@whitehouse.gov&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Polygender&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;390 Gulseth Alley&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;36.83.126.154&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Youbridge&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:17,&amp;#34;first_name&amp;#34;:&amp;#34;Alyosha&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Domm&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;adommg@washingtonpost.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;32 Oxford Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;174.71.176.45&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Wikizz&amp;#34;}
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;upload-sample-json-data-from-kibana&#34;&gt;Upload sample json data from kibana&lt;/h2&gt;
-&lt;p&gt;Download &lt;a href=&#34;https://ashish.one/data/movies.json&#34;&gt;movies.json&lt;/a&gt; and insert into elasticsearch by using below command:&lt;/p&gt;</description>
+      <description>Workshop on getting started with Elasticsearch covering CRUD operations, bulk indexing, analyzers, and basic queries.</description>
       <content:encoded><![CDATA[<h1 id="sample-queries-for-elasticsearch-workshop">Sample Queries for Elasticsearch Workshop</h1>
 <h2 id="crud">CRUD</h2>
-<pre tabindex="0"><code>
-# Insert
-
-POST meetup/_doc/
-{
-  &#34;name&#34;:&#34;Ashish Tiwari&#34;
-}
-
-# Insert with id
-
-POST meetup/_doc/1
-{
-  &#34;name&#34;:&#34;Ashish Tiwari&#34;
-}
-
-# Search
-
-GET meetup/_search
-
-# Update
-
-POST meetup/_doc/1
-{
-  &#34;name&#34;:&#34;Ashish&#34;,
-  &#34;company&#34;:&#34;elastic&#34;,
-  &#34;address&#34;:&#34;Navi Mumbai kharghar&#34;,
-  &#34;skills&#34;:{
-    &#34;language&#34;:[&#34;php&#34;,&#34;java&#34;,&#34;node&#34;],
-    &#34;database&#34;:[&#34;mysql&#34;,&#34;mongodb&#34;],
-    &#34;search&#34;:&#34;elasticsearch&#34;
-  }
-}
-
-# search with query
-
-GET meetup/_search
-{
-  &#34;query&#34;: {
-    &#34;match&#34;: {
-      &#34;address&#34;: &#34;navi&#34;
-    }
-  }
-}
-
-# delete
-
-DELETE meetup
-</code></pre><h2 id="bulk">BULK</h2>
-<pre tabindex="0"><code>POST _bulk
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:1,&#34;first_name&#34;:&#34;Yvonne&#34;,&#34;last_name&#34;:&#34;Willmott&#34;,&#34;email&#34;:&#34;ywillmott0@live.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;38 Helena Avenue&#34;,&#34;ip_address&#34;:&#34;104.221.25.110&#34;,&#34;company&#34;:&#34;Flashset&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:2,&#34;first_name&#34;:&#34;Immanuel&#34;,&#34;last_name&#34;:&#34;Philbrick&#34;,&#34;email&#34;:&#34;iphilbrick1@wunderground.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;01 Bunting Pass&#34;,&#34;ip_address&#34;:&#34;9.20.164.27&#34;,&#34;company&#34;:&#34;Babblestorm&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:3,&#34;first_name&#34;:&#34;Clotilda&#34;,&#34;last_name&#34;:&#34;Danelut&#34;,&#34;email&#34;:&#34;cdanelut2@deliciousdays.com&#34;,&#34;gender&#34;:&#34;Agender&#34;,&#34;street_address&#34;:&#34;0 Crowley Trail&#34;,&#34;ip_address&#34;:&#34;158.94.144.140&#34;,&#34;company&#34;:&#34;Riffpedia&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:4,&#34;first_name&#34;:&#34;Nahum&#34;,&#34;last_name&#34;:&#34;Attfield&#34;,&#34;email&#34;:&#34;nattfield3@blog.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Garrison Court&#34;,&#34;ip_address&#34;:&#34;225.144.148.44&#34;,&#34;company&#34;:&#34;Chatterpoint&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:5,&#34;first_name&#34;:&#34;Vaughan&#34;,&#34;last_name&#34;:&#34;Middis&#34;,&#34;email&#34;:&#34;vmiddis4@ted.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Cody Way&#34;,&#34;ip_address&#34;:&#34;66.198.31.108&#34;,&#34;company&#34;:&#34;Mynte&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:6,&#34;first_name&#34;:&#34;Nolie&#34;,&#34;last_name&#34;:&#34;Alessandrucci&#34;,&#34;email&#34;:&#34;nalessandrucci5@networksolutions.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;826 Brown Hill&#34;,&#34;ip_address&#34;:&#34;96.77.221.95&#34;,&#34;company&#34;:&#34;Feedfish&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:7,&#34;first_name&#34;:&#34;Beverlie&#34;,&#34;last_name&#34;:&#34;Ovitts&#34;,&#34;email&#34;:&#34;bovitts6@tripod.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6 Sycamore Pass&#34;,&#34;ip_address&#34;:&#34;102.24.117.107&#34;,&#34;company&#34;:&#34;Zazio&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:8,&#34;first_name&#34;:&#34;Graeme&#34;,&#34;last_name&#34;:&#34;Dopson&#34;,&#34;email&#34;:&#34;gdopson7@free.fr&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;26 Dunning Avenue&#34;,&#34;ip_address&#34;:&#34;198.33.215.93&#34;,&#34;company&#34;:&#34;Flashset&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:9,&#34;first_name&#34;:&#34;Mellisa&#34;,&#34;last_name&#34;:&#34;Hurich&#34;,&#34;email&#34;:&#34;mhurich8@nbcnews.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6371 Browning Way&#34;,&#34;ip_address&#34;:&#34;66.0.3.199&#34;,&#34;company&#34;:&#34;Divanoodle&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:10,&#34;first_name&#34;:&#34;Dyan&#34;,&#34;last_name&#34;:&#34;Loude&#34;,&#34;email&#34;:&#34;dloude9@berkeley.edu&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;9818 Reindahl Road&#34;,&#34;ip_address&#34;:&#34;16.56.137.54&#34;,&#34;company&#34;:&#34;Agivu&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:11,&#34;first_name&#34;:&#34;Becky&#34;,&#34;last_name&#34;:&#34;Shank&#34;,&#34;email&#34;:&#34;bshanka@tinypic.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;1206 Warrior Terrace&#34;,&#34;ip_address&#34;:&#34;90.63.35.111&#34;,&#34;company&#34;:&#34;Izio&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:12,&#34;first_name&#34;:&#34;Bar&#34;,&#34;last_name&#34;:&#34;Bedburrow&#34;,&#34;email&#34;:&#34;bbedburrowb@vistaprint.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;75 Onsgard Crossing&#34;,&#34;ip_address&#34;:&#34;85.122.33.250&#34;,&#34;company&#34;:&#34;Zoombox&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:13,&#34;first_name&#34;:&#34;Dorey&#34;,&#34;last_name&#34;:&#34;Isenor&#34;,&#34;email&#34;:&#34;disenorc@privacy.gov.au&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;53682 Parkside Crossing&#34;,&#34;ip_address&#34;:&#34;150.158.150.213&#34;,&#34;company&#34;:&#34;Rhyzio&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:14,&#34;first_name&#34;:&#34;Torrin&#34;,&#34;last_name&#34;:&#34;Rangall&#34;,&#34;email&#34;:&#34;trangalld@buzzfeed.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;24247 Old Shore Plaza&#34;,&#34;ip_address&#34;:&#34;40.151.17.2&#34;,&#34;company&#34;:&#34;Devpoint&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:15,&#34;first_name&#34;:&#34;Genvieve&#34;,&#34;last_name&#34;:&#34;Beslier&#34;,&#34;email&#34;:&#34;gbesliere@yolasite.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;96214 Miller Trail&#34;,&#34;ip_address&#34;:&#34;115.143.68.208&#34;,&#34;company&#34;:&#34;Oyonder&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:16,&#34;first_name&#34;:&#34;Arden&#34;,&#34;last_name&#34;:&#34;Ramas&#34;,&#34;email&#34;:&#34;aramasf@whitehouse.gov&#34;,&#34;gender&#34;:&#34;Polygender&#34;,&#34;street_address&#34;:&#34;390 Gulseth Alley&#34;,&#34;ip_address&#34;:&#34;36.83.126.154&#34;,&#34;company&#34;:&#34;Youbridge&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
-</code></pre><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Insert
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST meetup/_doc/
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Ashish Tiwari&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Insert with id
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST meetup/_doc/1
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Ashish Tiwari&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Search
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET meetup/_search
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST meetup/_doc/1
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Ashish&#34;,
+</span></span><span class="line"><span class="cl">  &#34;company&#34;:&#34;elastic&#34;,
+</span></span><span class="line"><span class="cl">  &#34;address&#34;:&#34;Navi Mumbai kharghar&#34;,
+</span></span><span class="line"><span class="cl">  &#34;skills&#34;:{
+</span></span><span class="line"><span class="cl">    &#34;language&#34;:[&#34;php&#34;,&#34;java&#34;,&#34;node&#34;],
+</span></span><span class="line"><span class="cl">    &#34;database&#34;:[&#34;mysql&#34;,&#34;mongodb&#34;],
+</span></span><span class="line"><span class="cl">    &#34;search&#34;:&#34;elasticsearch&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># search with query
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET meetup/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;address&#34;: &#34;navi&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># delete
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DELETE meetup
+</span></span></code></pre></div><h2 id="bulk">BULK</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _bulk
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:1,&#34;first_name&#34;:&#34;Yvonne&#34;,&#34;last_name&#34;:&#34;Willmott&#34;,&#34;email&#34;:&#34;ywillmott0@live.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;38 Helena Avenue&#34;,&#34;ip_address&#34;:&#34;104.221.25.110&#34;,&#34;company&#34;:&#34;Flashset&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:2,&#34;first_name&#34;:&#34;Immanuel&#34;,&#34;last_name&#34;:&#34;Philbrick&#34;,&#34;email&#34;:&#34;iphilbrick1@wunderground.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;01 Bunting Pass&#34;,&#34;ip_address&#34;:&#34;9.20.164.27&#34;,&#34;company&#34;:&#34;Babblestorm&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:3,&#34;first_name&#34;:&#34;Clotilda&#34;,&#34;last_name&#34;:&#34;Danelut&#34;,&#34;email&#34;:&#34;cdanelut2@deliciousdays.com&#34;,&#34;gender&#34;:&#34;Agender&#34;,&#34;street_address&#34;:&#34;0 Crowley Trail&#34;,&#34;ip_address&#34;:&#34;158.94.144.140&#34;,&#34;company&#34;:&#34;Riffpedia&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:4,&#34;first_name&#34;:&#34;Nahum&#34;,&#34;last_name&#34;:&#34;Attfield&#34;,&#34;email&#34;:&#34;nattfield3@blog.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Garrison Court&#34;,&#34;ip_address&#34;:&#34;225.144.148.44&#34;,&#34;company&#34;:&#34;Chatterpoint&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:5,&#34;first_name&#34;:&#34;Vaughan&#34;,&#34;last_name&#34;:&#34;Middis&#34;,&#34;email&#34;:&#34;vmiddis4@ted.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Cody Way&#34;,&#34;ip_address&#34;:&#34;66.198.31.108&#34;,&#34;company&#34;:&#34;Mynte&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:6,&#34;first_name&#34;:&#34;Nolie&#34;,&#34;last_name&#34;:&#34;Alessandrucci&#34;,&#34;email&#34;:&#34;nalessandrucci5@networksolutions.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;826 Brown Hill&#34;,&#34;ip_address&#34;:&#34;96.77.221.95&#34;,&#34;company&#34;:&#34;Feedfish&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:7,&#34;first_name&#34;:&#34;Beverlie&#34;,&#34;last_name&#34;:&#34;Ovitts&#34;,&#34;email&#34;:&#34;bovitts6@tripod.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6 Sycamore Pass&#34;,&#34;ip_address&#34;:&#34;102.24.117.107&#34;,&#34;company&#34;:&#34;Zazio&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:8,&#34;first_name&#34;:&#34;Graeme&#34;,&#34;last_name&#34;:&#34;Dopson&#34;,&#34;email&#34;:&#34;gdopson7@free.fr&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;26 Dunning Avenue&#34;,&#34;ip_address&#34;:&#34;198.33.215.93&#34;,&#34;company&#34;:&#34;Flashset&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:9,&#34;first_name&#34;:&#34;Mellisa&#34;,&#34;last_name&#34;:&#34;Hurich&#34;,&#34;email&#34;:&#34;mhurich8@nbcnews.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6371 Browning Way&#34;,&#34;ip_address&#34;:&#34;66.0.3.199&#34;,&#34;company&#34;:&#34;Divanoodle&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:10,&#34;first_name&#34;:&#34;Dyan&#34;,&#34;last_name&#34;:&#34;Loude&#34;,&#34;email&#34;:&#34;dloude9@berkeley.edu&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;9818 Reindahl Road&#34;,&#34;ip_address&#34;:&#34;16.56.137.54&#34;,&#34;company&#34;:&#34;Agivu&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:11,&#34;first_name&#34;:&#34;Becky&#34;,&#34;last_name&#34;:&#34;Shank&#34;,&#34;email&#34;:&#34;bshanka@tinypic.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;1206 Warrior Terrace&#34;,&#34;ip_address&#34;:&#34;90.63.35.111&#34;,&#34;company&#34;:&#34;Izio&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:12,&#34;first_name&#34;:&#34;Bar&#34;,&#34;last_name&#34;:&#34;Bedburrow&#34;,&#34;email&#34;:&#34;bbedburrowb@vistaprint.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;75 Onsgard Crossing&#34;,&#34;ip_address&#34;:&#34;85.122.33.250&#34;,&#34;company&#34;:&#34;Zoombox&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:13,&#34;first_name&#34;:&#34;Dorey&#34;,&#34;last_name&#34;:&#34;Isenor&#34;,&#34;email&#34;:&#34;disenorc@privacy.gov.au&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;53682 Parkside Crossing&#34;,&#34;ip_address&#34;:&#34;150.158.150.213&#34;,&#34;company&#34;:&#34;Rhyzio&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:14,&#34;first_name&#34;:&#34;Torrin&#34;,&#34;last_name&#34;:&#34;Rangall&#34;,&#34;email&#34;:&#34;trangalld@buzzfeed.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;24247 Old Shore Plaza&#34;,&#34;ip_address&#34;:&#34;40.151.17.2&#34;,&#34;company&#34;:&#34;Devpoint&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:15,&#34;first_name&#34;:&#34;Genvieve&#34;,&#34;last_name&#34;:&#34;Beslier&#34;,&#34;email&#34;:&#34;gbesliere@yolasite.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;96214 Miller Trail&#34;,&#34;ip_address&#34;:&#34;115.143.68.208&#34;,&#34;company&#34;:&#34;Oyonder&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:16,&#34;first_name&#34;:&#34;Arden&#34;,&#34;last_name&#34;:&#34;Ramas&#34;,&#34;email&#34;:&#34;aramasf@whitehouse.gov&#34;,&#34;gender&#34;:&#34;Polygender&#34;,&#34;street_address&#34;:&#34;390 Gulseth Alley&#34;,&#34;ip_address&#34;:&#34;36.83.126.154&#34;,&#34;company&#34;:&#34;Youbridge&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
+</span></span></code></pre></div><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
 <p>Download <a href="/data/movies.json">movies.json</a> and insert into elasticsearch by using below command:</p>
 <p><em>Open Kibana -&gt; Menu -&gt; Home -&gt; Upload a file</em></p>
 <h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
@@ -1271,314 +1030,314 @@ DELETE meetup
 <h2 id="create-dashboard">Create Dashboard</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Analytics -&gt; Dashboard</em></p>
 <h2 id="create-mapping">Create mapping</h2>
-<pre tabindex="0"><code>PUT /devfest-raipur
-{
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;age&#34;:    { &#34;type&#34;: &#34;integer&#34; },  
-      &#34;email&#34;:  { &#34;type&#34;: &#34;keyword&#34;  }, 
-      &#34;name&#34;:   { &#34;type&#34;: &#34;text&#34;  }     
-    }
-  }
-}
-</code></pre><h2 id="analyze">Analyze</h2>
-<pre tabindex="0"><code># analyze
-
-GET /_analyze?pretty
-{
-  &#34;text&#34; : &#34;Quick Brown Foxes!&#34;
-}
-
-# Whitespace
-
-GET _analyze
-{
-  &#34;analyzer&#34;: &#34;whitespace&#34;,
-  &#34;text&#34;: &#34;The 2 QUICK Brown-Foxes jumped over the lazy dog\u0027s bone.&#34;
-}
-</code></pre><h3 id="what-is-an-analyzer">What is an analyzer?</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PUT /devfest-raipur
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;age&#34;:    { &#34;type&#34;: &#34;integer&#34; },  
+</span></span><span class="line"><span class="cl">      &#34;email&#34;:  { &#34;type&#34;: &#34;keyword&#34;  }, 
+</span></span><span class="line"><span class="cl">      &#34;name&#34;:   { &#34;type&#34;: &#34;text&#34;  }     
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="analyze">Analyze</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># analyze
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET /_analyze?pretty
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;text&#34; : &#34;Quick Brown Foxes!&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Whitespace
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;analyzer&#34;: &#34;whitespace&#34;,
+</span></span><span class="line"><span class="cl">  &#34;text&#34;: &#34;The 2 QUICK Brown-Foxes jumped over the lazy dog\u0027s bone.&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="what-is-an-analyzer">What is an analyzer?</h3>
 <p>An analyzer is made of character filters, tokenizer and token filters.</p>
 <p>Let&rsquo;s build one</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [], 
-  &#34;text&#34;: [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p>Let&rsquo;s remove the html code.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [], 
-  &#34;text&#34;: [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p>Some words don&rsquo;t bring us any value. Let&rsquo;s skip them.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;]
-    }
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p>We can also remove &ldquo;I&rdquo;, &ldquo;when&rdquo; and &ldquo;over&rdquo;.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;ignore_case&#34;:true, 
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
-    }
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p><code>DOGS</code> and <code>dogs</code> should match.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;ignore_case&#34;:true, 
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
-    },
-    &#34;lowercase&#34;
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p><code>dog</code>, <code>dogs</code> and <code>fox</code>, <code>foxes</code> and <code>jump</code>, <code>jumps</code>, <code>jumping</code>, <code>jumped</code> should match. Let&rsquo;s use a <code>stemmer</code>.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;ignore_case&#34;:true, 
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
-    },
-    &#34;lowercase&#34;,
-    {
-      &#34;type&#34;:       &#34;stemmer&#34;,
-      &#34;language&#34;:   &#34;english&#34; 
-    }
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;jumping jumps jump jumped&#34;,
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><h1 id="language-analyzer">Language analyzer</h1>
-<pre tabindex="0"><code>GET /_analyze?pretty
-{
-  &#34;analyzer&#34;: &#34;hindi&#34;, 
-  &#34;text&#34; : &#34;चाणक्य ने चंद्रगुप्त और बिंदूसार दोनों के लिए प्रधानमंत्री और राजनयिक सलाहकार के रूप में काम किया।&#34;
-}
-</code></pre><h2 id="lets-create-hindi-search-engine-गतयतर">Let&rsquo;s create Hindi search engine (गीतयंत्र)</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;: [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Let&rsquo;s remove the html code.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;: [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Some words don&rsquo;t bring us any value. Let&rsquo;s skip them.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;]
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>We can also remove &ldquo;I&rdquo;, &ldquo;when&rdquo; and &ldquo;over&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;ignore_case&#34;:true, 
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><code>DOGS</code> and <code>dogs</code> should match.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;ignore_case&#34;:true, 
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;lowercase&#34;
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><code>dog</code>, <code>dogs</code> and <code>fox</code>, <code>foxes</code> and <code>jump</code>, <code>jumps</code>, <code>jumping</code>, <code>jumped</code> should match. Let&rsquo;s use a <code>stemmer</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;ignore_case&#34;:true, 
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;lowercase&#34;,
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stemmer&#34;,
+</span></span><span class="line"><span class="cl">      &#34;language&#34;:   &#34;english&#34; 
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;jumping jumps jump jumped&#34;,
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h1 id="language-analyzer">Language analyzer</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GET /_analyze?pretty
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;analyzer&#34;: &#34;hindi&#34;, 
+</span></span><span class="line"><span class="cl">  &#34;text&#34; : &#34;चाणक्य ने चंद्रगुप्त और बिंदूसार दोनों के लिए प्रधानमंत्री और राजनयिक सलाहकार के रूप में काम किया।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="lets-create-hindi-search-engine-गतयतर">Let&rsquo;s create Hindi search engine (गीतयंत्र)</h2>
 <h3 id="create-mapping-1">Create mapping</h3>
-<pre tabindex="0"><code>PUT geetyantra
-{
-  &#34;settings&#34;: {
-    &#34;analysis&#34;: {
-      &#34;analyzer&#34;: {
-        &#34;geetyantra-analyzer&#34;:{
-          &#34;type&#34;:&#34;hindi&#34;
-        }
-      }
-    }
-  },
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;adhyay&#34;: {&#34;type&#34;: &#34;integer&#34;},
-      &#34;updesh&#34;: {&#34;type&#34;: &#34;text&#34;,&#34;analyzer&#34;: &#34;geetyantra-analyzer&#34;}
-    }
-  }
-}
-</code></pre><h3 id="insert-data">Insert data</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PUT geetyantra
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;settings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;analysis&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;analyzer&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;geetyantra-analyzer&#34;:{
+</span></span><span class="line"><span class="cl">          &#34;type&#34;:&#34;hindi&#34;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;adhyay&#34;: {&#34;type&#34;: &#34;integer&#34;},
+</span></span><span class="line"><span class="cl">      &#34;updesh&#34;: {&#34;type&#34;: &#34;text&#34;,&#34;analyzer&#34;: &#34;geetyantra-analyzer&#34;}
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="insert-data">Insert data</h3>
 <p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE">विकिपीडिया-श्रीमद्भगवद्गीता</a></p>
 <p>Lets insert some data like below:</p>
-<pre tabindex="0"><code>POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:1,
-  &#34;updesh&#34;:&#34;कृष्ण ने अर्जुन की वह स्थिति देखकर जान लिया कि अर्जुन का शरीर ठीक है किंतु युद्ध आरंभ होने से पहले ही उस अद्भुत क्षत्रिय का मनोबल टूट चुका है। बिना मन के यह शरीर खड़ा नहीं रह स।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:2,
-  &#34;updesh&#34;:&#34;दूसरे अध्याय का नाम सांख्ययोग है। इसमें जीवन की दो प्राचीन संमानित परंपराओं का तर्कों द्वारा वर्णन आया है। अर्जुन को उस कृपण स्थिति में रोते देखकर कृष्ण ने उनका ध्यान दिलाया है कि इस प्रकार का क्लैव्य और हृदय की क्षुद्र दुर्बलता अर्जुन जैसे वीर के लिए उचित नहीं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:3,
-  &#34;updesh&#34;:&#34;नित्य कर्म करने वाले की श्रेष्ठता&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:4,
-  &#34;updesh&#34;:&#34;चौथे अध्याय में, जिसका नाम ज्ञान-कर्म-संन्यास-योग है, यह बाताया गया है कि ज्ञान प्राप्त करके कर्म करते हुए भी कर्मसंन्यास का फल किस उपाय से प्राप्त किया जा सकता है।&#34;,
-  &#34;shloka&#34;:&#34;यदा यदा हि धर्मस्य ग्लानिर्भवति भारत,अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:5,
-  &#34;updesh&#34;:&#34;ज्ञानी महापुरुष विद्या-विनययुक्त ब्राह्मण में और चाण्डाल में तथा गाय, हाथी एवं कुत्ते में भी समरूप परमात्मा को देखने वाले होते हैं।&#34;,
-  &#34;shloka&#34;:&#34;विद्याविनयसंपन्ने ब्राह्मणे गवि हस्तिनि,शुनि चैव श्वपाके च पंडिता: समदर्शिन&#34;
-}
-
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:6,
-  &#34;updesh&#34;:&#34;छठा अध्याय आत्मसंयम योग है जिसका विषय नाम से ही प्रकट है। जितने विषय हैं उन सबसे इंद्रियों का संयम-यही कर्म और ज्ञान का निचोड़ है। सुख में और दुख में मन की समान स्थिति, इसे ही योग कहते हैं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:7,
-  &#34;updesh&#34;:&#34;पंचतत्व, मन, बुद्धि भी मैं हूँ| मैं ही संसार की उत्पत्ति करता हूँ और विनाश भी मैं ही करता हूँ। मेरे भक्त चाहे जिस प्रकार भजें परन्तु अंततः मुझे ही प्राप्त होते हैं। मैं योगमाया से अप्रकट रहता हूँ और मुर्ख मुझे केवल साधारण मनुष्य ही समझते हैं।&#34;,
-  &#34;shloka&#34;:&#34;यो यो यां यां तनुं भक्तः श्रद्धयार्चितुमिच्छति,तस्य तस्याचलां श्रद्धां तामेव विदधाम्यहम्&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:8,
-  &#34;updesh&#34;:&#34;की संज्ञा अक्षर ब्रह्मयोग है। उपनिषदों में अक्षर विद्या का विस्तार हुआ। गीता में उस अक्षरविद्या का सार कह दिया गया है-अक्षर ब्रह्म परमं, अर्थात् परब्रह्म की संज्ञा अक्षर है। मनुष्य, अर्थात् जीव और शरीर की संयुक्त रचना का ही नाम अध्यात्म है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:9,
-  &#34;updesh&#34;:&#34;को राजगुह्ययोग कहा गया है, अर्थात् यह अध्यात्म विद्या विद्याराज्ञी है और यह गुह्य ज्ञान सबमें श्रेष्ठ है। राजा शब्दका एक अर्थ मन भी था। अतएव मन की दिव्य शक्तिमयों को किस प्रकार ब्रह्ममय बनाया जाय, इसकी युक्ति ही राजविद्या है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:10,
-  &#34;updesh&#34;:&#34;दसवें अध्याय का नाम विभूतियोग है। इसका सार यह है कि लोक में जितने देवता हैं, सब एक ही भगवान, की विभूतियाँ हैं, मनुष्य के समस्त गुण और अवगुण भगवान की शक्ति के ही रूप हैं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:11,
-  &#34;updesh&#34;:&#34;का नाम विश्वरूपदर्शन योग है। इसमें अर्जुन ने भगवान का विश्वरूप देखा। विराट रूप का अर्थ है मानवीय धरातल और परिधि के ऊपर जो अनंत विश्व का प्राणवंत रचनाविधान है, उसका साक्षात दर्शन। विष्णु का जो चतुर्भुज रूप है, वह मानवीय धरातल पर सौम्यरूप है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:12,
-  &#34;updesh&#34;:&#34;का नाम भक्ति योग है। जो जानने योग्य है। जिसको जानकर मनुष्य परमानन्द को प्राप्त हो जाता है अर्थात वो परमात्मा ही सत्य है ।।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:13,
-  &#34;updesh&#34;:&#34;में एक सीधा विषय क्षेत्र और क्षेत्रज्ञ का विचार है। यह शरीर क्षेत्र है, उसका जाननेवाला जीवात्मा क्षेत्रज्ञ है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:14,
-  &#34;updesh&#34;:&#34;का नाम गुणत्रय विभाग योग है। यह विषय समस्त वैदिक, दार्शनिक और पौराणिक तत्वचिंतन का निचोड़ है-सत्व, रज, तम नामक तीन गुण-त्रिको की अनेक व्याख्याएँ हैं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:15,
-  &#34;updesh&#34;:&#34;का नाम पुरुषोत्तमयोग है। इसमें विश्व का अश्वत्थ के रूप में वर्णन किया गया है। यह अश्वत्थ रूपी संसार महान विस्तारवाला है। देश और काल में इसका कोई अंत नहीं है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:16,
-  &#34;updesh&#34;:&#34;में देवासुर संपत्ति का विभाग बताया गया है। आरंभ से ही ऋग्देव में सृष्टि की कल्पना दैवी और आसुरी शक्तियों के रूप में की गई है। &#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:17,
-  &#34;updesh&#34;:&#34;की संज्ञा श्रद्धात्रय विभाग योग है। इसका संबंध सत, रज और तम, इन तीन गुणों से ही है, अर्थात् जिसमें जिस गुण का प्रादुर्भाव होता है, उसकी श्रद्धा या जीवन की निष्ठा वैसी ही बन जाती है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:18,
-  &#34;updesh&#34;:&#34;की संज्ञा मोक्षसंन्यास योग है। इसमें गीता के समस्त उपदेशों का सार एवं उपसंहार है। यहाँ पुन: बलपूर्वक मानव जीवन के लिए तीन गुणों का महत्व कहा गया है। पृथ्वी के मानवों में और स्वर्ग के देवताओं में कोई भी ऐसा नहीं जो प्रकृति के चलाए हुए इन तीन गुणों से बचा हो।&#34;
-}
-</code></pre><h3 id="search">Search</h3>
-<pre tabindex="0"><code>
-GET geetyantra/_search?size=20
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;match&#34;: {
-      &#34;updesh&#34;: &#34;अर्जुन&#34;
-    }
-  }
-}
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;match&#34;: {
-      &#34;shloka&#34;: &#34;धर्मस्य&#34;
-    }
-  }
-}
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;multi_match&#34;: {
-      &#34;query&#34;: &#34;श्रद्धा&#34;,
-      &#34;fields&#34;: [&#34;shloka&#34;,&#34;updesh&#34;]
-    }
-  }
-}
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;match_phrase_prefix&#34;: {
-      &#34;updesh&#34;: &#34;चौथे अध्याय में&#34;
-    }
-  }
-}
-</code></pre><h2 id="search-as-you-type">Search as you type</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:1,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;कृष्ण ने अर्जुन की वह स्थिति देखकर जान लिया कि अर्जुन का शरीर ठीक है किंतु युद्ध आरंभ होने से पहले ही उस अद्भुत क्षत्रिय का मनोबल टूट चुका है। बिना मन के यह शरीर खड़ा नहीं रह स।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:2,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;दूसरे अध्याय का नाम सांख्ययोग है। इसमें जीवन की दो प्राचीन संमानित परंपराओं का तर्कों द्वारा वर्णन आया है। अर्जुन को उस कृपण स्थिति में रोते देखकर कृष्ण ने उनका ध्यान दिलाया है कि इस प्रकार का क्लैव्य और हृदय की क्षुद्र दुर्बलता अर्जुन जैसे वीर के लिए उचित नहीं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:3,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;नित्य कर्म करने वाले की श्रेष्ठता&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:4,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;चौथे अध्याय में, जिसका नाम ज्ञान-कर्म-संन्यास-योग है, यह बाताया गया है कि ज्ञान प्राप्त करके कर्म करते हुए भी कर्मसंन्यास का फल किस उपाय से प्राप्त किया जा सकता है।&#34;,
+</span></span><span class="line"><span class="cl">  &#34;shloka&#34;:&#34;यदा यदा हि धर्मस्य ग्लानिर्भवति भारत,अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:5,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;ज्ञानी महापुरुष विद्या-विनययुक्त ब्राह्मण में और चाण्डाल में तथा गाय, हाथी एवं कुत्ते में भी समरूप परमात्मा को देखने वाले होते हैं।&#34;,
+</span></span><span class="line"><span class="cl">  &#34;shloka&#34;:&#34;विद्याविनयसंपन्ने ब्राह्मणे गवि हस्तिनि,शुनि चैव श्वपाके च पंडिता: समदर्शिन&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:6,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;छठा अध्याय आत्मसंयम योग है जिसका विषय नाम से ही प्रकट है। जितने विषय हैं उन सबसे इंद्रियों का संयम-यही कर्म और ज्ञान का निचोड़ है। सुख में और दुख में मन की समान स्थिति, इसे ही योग कहते हैं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:7,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;पंचतत्व, मन, बुद्धि भी मैं हूँ| मैं ही संसार की उत्पत्ति करता हूँ और विनाश भी मैं ही करता हूँ। मेरे भक्त चाहे जिस प्रकार भजें परन्तु अंततः मुझे ही प्राप्त होते हैं। मैं योगमाया से अप्रकट रहता हूँ और मुर्ख मुझे केवल साधारण मनुष्य ही समझते हैं।&#34;,
+</span></span><span class="line"><span class="cl">  &#34;shloka&#34;:&#34;यो यो यां यां तनुं भक्तः श्रद्धयार्चितुमिच्छति,तस्य तस्याचलां श्रद्धां तामेव विदधाम्यहम्&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:8,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;की संज्ञा अक्षर ब्रह्मयोग है। उपनिषदों में अक्षर विद्या का विस्तार हुआ। गीता में उस अक्षरविद्या का सार कह दिया गया है-अक्षर ब्रह्म परमं, अर्थात् परब्रह्म की संज्ञा अक्षर है। मनुष्य, अर्थात् जीव और शरीर की संयुक्त रचना का ही नाम अध्यात्म है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:9,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;को राजगुह्ययोग कहा गया है, अर्थात् यह अध्यात्म विद्या विद्याराज्ञी है और यह गुह्य ज्ञान सबमें श्रेष्ठ है। राजा शब्दका एक अर्थ मन भी था। अतएव मन की दिव्य शक्तिमयों को किस प्रकार ब्रह्ममय बनाया जाय, इसकी युक्ति ही राजविद्या है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:10,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;दसवें अध्याय का नाम विभूतियोग है। इसका सार यह है कि लोक में जितने देवता हैं, सब एक ही भगवान, की विभूतियाँ हैं, मनुष्य के समस्त गुण और अवगुण भगवान की शक्ति के ही रूप हैं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:11,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम विश्वरूपदर्शन योग है। इसमें अर्जुन ने भगवान का विश्वरूप देखा। विराट रूप का अर्थ है मानवीय धरातल और परिधि के ऊपर जो अनंत विश्व का प्राणवंत रचनाविधान है, उसका साक्षात दर्शन। विष्णु का जो चतुर्भुज रूप है, वह मानवीय धरातल पर सौम्यरूप है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:12,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम भक्ति योग है। जो जानने योग्य है। जिसको जानकर मनुष्य परमानन्द को प्राप्त हो जाता है अर्थात वो परमात्मा ही सत्य है ।।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:13,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;में एक सीधा विषय क्षेत्र और क्षेत्रज्ञ का विचार है। यह शरीर क्षेत्र है, उसका जाननेवाला जीवात्मा क्षेत्रज्ञ है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:14,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम गुणत्रय विभाग योग है। यह विषय समस्त वैदिक, दार्शनिक और पौराणिक तत्वचिंतन का निचोड़ है-सत्व, रज, तम नामक तीन गुण-त्रिको की अनेक व्याख्याएँ हैं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:15,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम पुरुषोत्तमयोग है। इसमें विश्व का अश्वत्थ के रूप में वर्णन किया गया है। यह अश्वत्थ रूपी संसार महान विस्तारवाला है। देश और काल में इसका कोई अंत नहीं है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:16,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;में देवासुर संपत्ति का विभाग बताया गया है। आरंभ से ही ऋग्देव में सृष्टि की कल्पना दैवी और आसुरी शक्तियों के रूप में की गई है। &#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:17,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;की संज्ञा श्रद्धात्रय विभाग योग है। इसका संबंध सत, रज और तम, इन तीन गुणों से ही है, अर्थात् जिसमें जिस गुण का प्रादुर्भाव होता है, उसकी श्रद्धा या जीवन की निष्ठा वैसी ही बन जाती है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:18,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;की संज्ञा मोक्षसंन्यास योग है। इसमें गीता के समस्त उपदेशों का सार एवं उपसंहार है। यहाँ पुन: बलपूर्वक मानव जीवन के लिए तीन गुणों का महत्व कहा गया है। पृथ्वी के मानवों में और स्वर्ग के देवताओं में कोई भी ऐसा नहीं जो प्रकृति के चलाए हुए इन तीन गुणों से बचा हो।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="search">Search</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search?size=20
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;updesh&#34;: &#34;अर्जुन&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;shloka&#34;: &#34;धर्मस्य&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;multi_match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;query&#34;: &#34;श्रद्धा&#34;,
+</span></span><span class="line"><span class="cl">      &#34;fields&#34;: [&#34;shloka&#34;,&#34;updesh&#34;]
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match_phrase_prefix&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;updesh&#34;: &#34;चौथे अध्याय में&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="search-as-you-type">Search as you type</h2>
 <p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/">Search as you type</a>.</p>
 ]]></content:encoded>
     </item>
@@ -1587,10 +1346,7 @@ GET geetyantra/_search
       <link>https://ashish.one/talks/devops-conf-2022/</link>
       <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
       <guid>https://ashish.one/talks/devops-conf-2022/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;In the talk, Quickly showed how you can use the &lt;a href=&#34;https://www.elastic.co/beats/metricbeat&#34;&gt;metricbeat&lt;/a&gt; to check system health. With a few clicks, you can start monitoring your infra.&lt;/p&gt;
-&lt;p&gt;Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.&lt;/p&gt;
-&lt;p&gt;But if you have different requirement where you need to parse a different types of log format , You can parse using &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html&#34;&gt;Grok processor&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>DevOps Conf 2022 talk on parsing custom unstructured logs into Elasticsearch using Grok processor and Filebeat.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat">metricbeat</a> to check system health. With a few clicks, you can start monitoring your infra.</p>
 <p>Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.</p>
@@ -1623,11 +1379,7 @@ GET geetyantra/_search
       <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
       <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
       <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
-&lt;p&gt;The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.&lt;/p&gt;
-&lt;p&gt;Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (&lt;a href=&#34;https://cloud.elastic.co&#34;&gt;cloud.elastic.co&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.&lt;/p&gt;</description>
+      <description>Talk on deploying Elasticsearch on Microsoft Azure and managing it with Elastic Cloud, with a live metric monitoring demo.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>The purpose of the talk is to give a short overview of Elastic solutions &amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.</p>
@@ -1660,10 +1412,7 @@ GET geetyantra/_search
       <link>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
       <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
       <guid>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
-      <description>&lt;h2 id=&#34;what-this-talk-about&#34;&gt;What this talk about?&lt;/h2&gt;
-&lt;p&gt;I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.&lt;/p&gt;
-&lt;p&gt;Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?&lt;/p&gt;
-&lt;p&gt;I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).&lt;/p&gt;</description>
+      <description>Talk on Golang fundamentals and how MimePost handled 100,000 hourly webhook events using Go concurrency patterns.</description>
       <content:encoded><![CDATA[<h2 id="what-this-talk-about">What this talk about?</h2>
 <p>I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.</p>
 <p>Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?</p>
@@ -1706,10 +1455,7 @@ GET geetyantra/_search
       <link>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
       <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
       <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;h2 id=&#34;what-this-talk-is-all-about&#34;&gt;What this talk is all about?&lt;/h2&gt;
-&lt;p&gt;We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.&lt;/p&gt;
-&lt;p&gt;We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.&lt;/p&gt;</description>
+      <description>Talk on scaling Elasticsearch to handle 200 million daily requests with heavy partial updates, scripted updates, and bulk indexing.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about">What this talk is all about?</h2>
 <p>We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.</p>

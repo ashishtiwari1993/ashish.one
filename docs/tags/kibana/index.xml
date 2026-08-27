@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Kibana on ashish.one</title>
+    <title>Kibana on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/kibana/</link>
-    <description>Recent content in Kibana on ashish.one</description>
+    <description>Recent content in Kibana on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,9 +18,7 @@
       <link>https://ashish.one/talks/esql/</link>
       <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
       <guid>https://ashish.one/talks/esql/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html&#34;&gt;ES|QL&lt;/a&gt; is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.&lt;/p&gt;
-&lt;p&gt;It is a piped separated langugage with a combination of &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands&#34;&gt;source commands&lt;/a&gt; and &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands&#34;&gt;process&lt;/a&gt; commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.&lt;/p&gt;</description>
+      <description>Workshop and talk on ES|QL — Elasticsearch&amp;#39;s new unified query language for search, aggregations, and log analysis.</description>
       <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
 <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html">ES|QL</a> is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.</p>
 <p>It is a piped separated langugage with a combination of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands">source commands</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands">process</a> commands. The Elasticsearch Query Language (ES|QL) makes use of &ldquo;pipes&rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.</p>
@@ -32,201 +30,196 @@
 <p>Below is a few examples of ES|QL. I am considering you have an Elasticsearch and kibana is <a href="https://www.elastic.co/search-labs/tutorials/install-elasticsearch">installed</a> and running. Please <a href="https://www.elastic.co/guide/en/kibana/current/get-started.html#gs-get-data-into-kibana">import the sample dataset (Sample web logs)</a> from kibana. Navigate in side menu  -&gt; <code>Management</code> -&gt; <code>Dev Tools</code>  to perform the below query.</p>
 <h3 id="source-commands">Source commands</h3>
 <h4 id="from">FROM</h4>
-<pre tabindex="0"><code># Format
-
-POST /_query?format=csv
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="row">ROW</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    row a = &#34;Mozilla/5.0 (X11; Linux x86_64; rv:6.0a1) Gecko/20110421 Firefox/6.0a1&#34;
-    | dissect a &#34;%{browser}/%{version}&#34;
-    | keep browser
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="show">SHOW</h4>
-<pre tabindex="0"><code>POST /_query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    show info
-  &#34;&#34;&#34;
-}
-</code></pre><h3 id="processing-commands">Processing commands</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Format
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST /_query?format=csv
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="row">ROW</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    row a = &#34;Mozilla/5.0 (X11; Linux x86_64; rv:6.0a1) Gecko/20110421 Firefox/6.0a1&#34;
+</span></span><span class="line"><span class="cl">    | dissect a &#34;%{browser}/%{version}&#34;
+</span></span><span class="line"><span class="cl">    | keep browser
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="show">SHOW</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST /_query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    show info
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="processing-commands">Processing commands</h3>
 <h4 id="keep">keep</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | keep @timestamp, clientip, host, tags, bytes
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="where-limit-sort">where, limit, sort</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | keep @timestamp, clientip, host, tags, bytes
-    | where bytes &gt; 1000
-    | sort bytes desc
-    | limit 5
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="like">like</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    FROM sample_data
-    | where message like &#34;*error*&#34;
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="grok-statsby">GROK, STATS&hellip;BY</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
-    | keep browser, version, @timestamp
-  &#34;&#34;&#34;
-}
-
-POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
-    | keep browser, version, @timestamp
-    | stats count(*) by version
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="dissect">DISSECT</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs 
-    | dissect message &#34;%{ip} - - %{time} %{web_call} &#34;
-    | keep ip, time, web_call
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="eval">EVAL</h4>
-<pre tabindex="0"><code>POST /_query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | eval t = replace(agent, &#34;Mozilla&#34;, &#34;Chrome&#34;)
-    | eval l = length(agent)
-    | dissect agent &#34;%{browser}/%{version} &#34;
-    | eval lt = left(t, 6)
-    | keep lt, browser, version, t, l
-  &#34;&#34;&#34;
-}
-</code></pre><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions">string functions</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | keep @timestamp, clientip, host, tags, bytes
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="where-limit-sort">where, limit, sort</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | keep @timestamp, clientip, host, tags, bytes
+</span></span><span class="line"><span class="cl">    | where bytes &gt; 1000
+</span></span><span class="line"><span class="cl">    | sort bytes desc
+</span></span><span class="line"><span class="cl">    | limit 5
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="like">like</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    FROM sample_data
+</span></span><span class="line"><span class="cl">    | where message like &#34;*error*&#34;
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="grok-statsby">GROK, STATS&hellip;BY</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
+</span></span><span class="line"><span class="cl">    | keep browser, version, @timestamp
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
+</span></span><span class="line"><span class="cl">    | keep browser, version, @timestamp
+</span></span><span class="line"><span class="cl">    | stats count(*) by version
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="dissect">DISSECT</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs 
+</span></span><span class="line"><span class="cl">    | dissect message &#34;%{ip} - - %{time} %{web_call} &#34;
+</span></span><span class="line"><span class="cl">    | keep ip, time, web_call
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="eval">EVAL</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST /_query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | eval t = replace(agent, &#34;Mozilla&#34;, &#34;Chrome&#34;)
+</span></span><span class="line"><span class="cl">    | eval l = length(agent)
+</span></span><span class="line"><span class="cl">    | dissect agent &#34;%{browser}/%{version} &#34;
+</span></span><span class="line"><span class="cl">    | eval lt = left(t, 6)
+</span></span><span class="line"><span class="cl">    | keep lt, browser, version, t, l
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions">string functions</a>.</p>
 <h4 id="data-enrichment-enrich">Data enrichment (ENRICH)</h4>
-<pre tabindex="0"><code>
-# Create mappings
-
-PUT lang
-{
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;lang_id&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      },
-      &#34;name&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      }
-    }
-  }
-}
-
-PUT devs
-{
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;lang_id&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      },
-      &#34;name&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      }
-    }
-  }
-}
-
-# Create index &#34;lang&#34;
-
-PUT lang/_bulk
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;name&#34;: &#34;java&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;name&#34;: &#34;php&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;name&#34;: &#34;node&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;name&#34;: &#34;python&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;name&#34;: &#34;ruby&#34; }
-
-# create index &#34;devs&#34;
-
-PUT devs/_bulk
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;developer&#34;: &#34;bob&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;developer&#34;: &#34;mark&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;developer&#34;: &#34;max&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;developer&#34;: &#34;david&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;developer&#34;: &#34;ashish&#34; }
-
-
-# Create enrich policy
-
-PUT /_enrich/policy/dev_lang
-{
-  &#34;match&#34;: {
-    &#34;indices&#34;: &#34;lang&#34;,
-    &#34;match_field&#34;: &#34;lang_id&#34;,
-    &#34;enrich_fields&#34;: [&#34;name&#34;]
-  }
-}
-
-PUT /_enrich/policy/dev_lang/_execute?wait_for_completion=true
-
-POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from devs
-    | keep lang_id, name, developer
-    | enrich dev_lang on lang_id with name
-  &#34;&#34;&#34;
-}
-</code></pre>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Create mappings
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT lang
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;lang_id&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT devs
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;lang_id&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Create index &#34;lang&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT lang/_bulk
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;name&#34;: &#34;java&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;name&#34;: &#34;php&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;name&#34;: &#34;node&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;name&#34;: &#34;python&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;name&#34;: &#34;ruby&#34; }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># create index &#34;devs&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT devs/_bulk
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;developer&#34;: &#34;bob&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;developer&#34;: &#34;mark&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;developer&#34;: &#34;max&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;developer&#34;: &#34;david&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;developer&#34;: &#34;ashish&#34; }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Create enrich policy
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT /_enrich/policy/dev_lang
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;indices&#34;: &#34;lang&#34;,
+</span></span><span class="line"><span class="cl">    &#34;match_field&#34;: &#34;lang_id&#34;,
+</span></span><span class="line"><span class="cl">    &#34;enrich_fields&#34;: [&#34;name&#34;]
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT /_enrich/policy/dev_lang/_execute?wait_for_completion=true
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from devs
+</span></span><span class="line"><span class="cl">    | keep lang_id, name, developer
+</span></span><span class="line"><span class="cl">    | enrich dev_lang on lang_id with name
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>]]></content:encoded>
     </item>
     <item>
       <title>Receive Webhook Requests Using ELK</title>
       <link>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</link>
       <pubDate>Mon, 23 Jan 2023 13:00:09 +0530</pubDate>
       <guid>https://ashish.one/blogs/elastic/receive-webhook-requests-using-elk/</guid>
-      <description>&lt;p&gt;In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case.
-Elastic provides Search, Observability &amp;amp; Security you can check more on this with &lt;a href=&#34;https://www.elastic.co/guide/index.html&#34;&gt;official documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;h1 id=&#34;what-is-webhook-&#34;&gt;What is Webhook ?&lt;/h1&gt;
-&lt;p&gt;Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks. Now in the modern tech world it is also known as Reverse API, Push API etc.
-Mostly it is used to send small amounts of data from source to destination. It is a one way data transfer procedure. It works over the HTTP protocol using REST API. It is simple like client and server communication.
-Most of the saas allow you to integrate their product with your system with the help of APIs and Webhook only. E.g. Slack and discord allows you to push messages with the help of webhooks. To accept the webhook event, You need to expose one HTTP endpoint lets say&lt;/p&gt;</description>
+      <description>How to receive and store webhook requests in Elasticsearch using Logstash&amp;#39;s HTTP input plugin and visualize them in Kibana.</description>
       <content:encoded><![CDATA[<p>In this blog, we will see how you can quickly setup ELK (Elasticsearch, Logstash, Kibana) stack to receive the HTTP webhook. Mostly ELK stack is known for logging purposes. But Elastic stacks are much more beyond the logging use case.
 Elastic provides Search, Observability &amp; Security you can check more on this with <a href="https://www.elastic.co/guide/index.html">official documentation</a>.</p>
 <h1 id="what-is-webhook-">What is Webhook ?</h1>
 <p>Webhook enables the two programs to communicate or transfer the data with the help of callback functions / hooks. Now in the modern tech world it is also known as Reverse API, Push API etc.
 Mostly it is used to send small amounts of data from source to destination. It is a one way data transfer procedure. It works over the HTTP protocol using REST API. It is simple like client and server communication.
 Most of the saas allow you to integrate their product with your system with the help of APIs and Webhook only. E.g. Slack and discord allows you to push messages with the help of webhooks. To accept the webhook event, You need to expose one HTTP endpoint lets say</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>POST /message
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">POST /message
 </span></span></code></pre></div><p>In the above example, your system will accept messages from a third party system. Here you can setup authentication, Method, required parameters etc. and convey to users who are going to use this webhook.</p>
 <p>So I have to use the <code>POST</code> method, and send data on the above endpoint. You can hit this Endpoint using curl, postman or any programming language.</p>
 <h1 id="what-is-elk-">What is ELK ?</h1>
@@ -260,141 +253,141 @@ Visualise data from kibana.</p>
 <p>Lets verify everything is up and running properly.</p>
 <h3 id="elasticsearch">Elasticsearch</h3>
 <p>Hit below curl command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --cacert path/to/ca.crt -u elastic:pass@123 https://localhost:9200
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl --cacert path/to/ca.crt -u elastic:pass@123 https://localhost:9200
 </span></span></code></pre></div><p><strong>Response</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;es01&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;cluster_name&#34;</span> : <span style="color:#e6db74">&#34;docker-cluster&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;cluster_uuid&#34;</span> : <span style="color:#e6db74">&#34;_CDp3XgbQUKTuQxZWVLh6A&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;version&#34;</span> : {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;number&#34;</span> : <span style="color:#e6db74">&#34;8.6.0&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build_flavor&#34;</span> : <span style="color:#e6db74">&#34;default&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build_type&#34;</span> : <span style="color:#e6db74">&#34;docker&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build_hash&#34;</span> : <span style="color:#e6db74">&#34;f67ef2df40237445caa70e2fef79471cc608d70d&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build_date&#34;</span> : <span style="color:#e6db74">&#34;2023-01-04T09:35:21.782467981Z&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build_snapshot&#34;</span> : <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lucene_version&#34;</span> : <span style="color:#e6db74">&#34;9.4.2&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;minimum_wire_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;7.17.0&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;minimum_index_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;7.0.0&#34;</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;tagline&#34;</span> : <span style="color:#e6db74">&#34;You Know, for Search&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;es01&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;cluster_name&#34;</span> <span class="p">:</span> <span class="s2">&#34;docker-cluster&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;cluster_uuid&#34;</span> <span class="p">:</span> <span class="s2">&#34;_CDp3XgbQUKTuQxZWVLh6A&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;version&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;number&#34;</span> <span class="p">:</span> <span class="s2">&#34;8.6.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;build_flavor&#34;</span> <span class="p">:</span> <span class="s2">&#34;default&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;build_type&#34;</span> <span class="p">:</span> <span class="s2">&#34;docker&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;build_hash&#34;</span> <span class="p">:</span> <span class="s2">&#34;f67ef2df40237445caa70e2fef79471cc608d70d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;build_date&#34;</span> <span class="p">:</span> <span class="s2">&#34;2023-01-04T09:35:21.782467981Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;build_snapshot&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;lucene_version&#34;</span> <span class="p">:</span> <span class="s2">&#34;9.4.2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;minimum_wire_compatibility_version&#34;</span> <span class="p">:</span> <span class="s2">&#34;7.17.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;minimum_index_compatibility_version&#34;</span> <span class="p">:</span> <span class="s2">&#34;7.0.0&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tagline&#34;</span> <span class="p">:</span> <span class="s2">&#34;You Know, for Search&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="logstash">Logstash</h3>
 <p>Simply check the log file if there is any error.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tail -f logs/logstash-plain.log
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">tail -f logs/logstash-plain.log
 </span></span></code></pre></div><h3 id="kibana">Kibana</h3>
 <p>Simply visit <code>https://localhost:5601</code>. Try to login in kibana with credentials.</p>
 <p>Now the ELK stack is up and running. Lets create the logstash configuration file to receive the webhook request and push to elasticsearch.</p>
 <h2 id="logstash-pipeline">Logstash pipeline</h2>
 <p>Create file <code>webhook.conf</code> on the path which you have specified at <code>path.config</code> settings. You can set this setting at <code>config/logstash.yml</code> or <code>config/pipeline.yml</code>.</p>
 <h3 id="webhookconf"><code>webhook.conf</code></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>input <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  http <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    port <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">4000</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>filter <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  json <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    source <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#34;message&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>output <span style="color:#f92672">{</span>   
-</span></span><span style="display:flex;"><span>  elasticsearch <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    hosts <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;https://es01:9200&#34;</span><span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>    cacert <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;/usr/share/logstash/pipeline/certs/ca.crt&#39;</span>
-</span></span><span style="display:flex;"><span>    user <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;elastic&#39;</span>
-</span></span><span style="display:flex;"><span>    password <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;pass@123&#39;</span>
-</span></span><span style="display:flex;"><span>    index <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;webhook&#39;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">input <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  http <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">port</span> <span class="o">=</span>&gt; <span class="m">4000</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">filter <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  json <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">source</span> <span class="o">=</span>&gt; <span class="s2">&#34;message&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">output <span class="o">{</span>   
+</span></span><span class="line"><span class="cl">  elasticsearch <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">hosts</span> <span class="o">=</span>&gt; <span class="o">[</span><span class="s2">&#34;https://es01:9200&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">cacert</span> <span class="o">=</span>&gt; <span class="s1">&#39;/usr/share/logstash/pipeline/certs/ca.crt&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">user</span> <span class="o">=</span>&gt; <span class="s1">&#39;elastic&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">password</span> <span class="o">=</span>&gt; <span class="s1">&#39;pass@123&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">index</span> <span class="o">=</span>&gt; <span class="s1">&#39;webhook&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><p>We are configuring HTTP endpoint on port <code>4000</code>. So whenever anyone calls the webhook endpoint, they need to specify port like <code>http://mydomain.com:4000</code></p>
 <p>Here i am only defining the index but you can configure data stream as well. Check <a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">here</a> for more options.</p>
 <h3 id="test-configuration">Test configuration</h3>
 <p>Run pipeline with below command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./bin/logstash -f webhook-receiver.conf
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./bin/logstash -f webhook-receiver.conf
 </span></span></code></pre></div><p>Check if any errors are there.</p>
 <p>If everything seems fine, Let&rsquo;s start the logstash service.</p>
 <h2 id="test">Test</h2>
 <p>Push sample data</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl -XPOST -H <span style="color:#e6db74">&#39;Content-type:applicaton/json&#39;</span> http://localhost:4000 -d <span style="color:#e6db74">&#39;{&#34;test_key1&#34;:&#34;test_value1&#34;,&#34;info&#34;:{&#34;name&#34;:&#34;Ashish&#34;,&#34;last_name&#34;:&#34;Tiwari&#34;},&#34;my_list&#34;:[&#34;el1&#34;,&#34;el2&#34;]}&#39;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -XPOST -H <span class="s1">&#39;Content-type:applicaton/json&#39;</span> http://localhost:4000 -d <span class="s1">&#39;{&#34;test_key1&#34;:&#34;test_value1&#34;,&#34;info&#34;:{&#34;name&#34;:&#34;Ashish&#34;,&#34;last_name&#34;:&#34;Tiwari&#34;},&#34;my_list&#34;:[&#34;el1&#34;,&#34;el2&#34;]}&#39;</span>
 </span></span></code></pre></div><p><strong>Response</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ok%
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ok%
 </span></span></code></pre></div><p>Verify data in elasticsearch</p>
 <p>Login to kibana by visiting <code>localhost:5601</code>.</p>
 <p>Navigate to <strong><strong>Menu -&gt; Management -&gt; Dev Tools</strong></strong></p>
 <p>Lets see if Index is created or not.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET _cat/indices?v
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">GET _cat/indices?v
 </span></span></code></pre></div><p><strong>Response</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>health status index   uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-</span></span><span style="display:flex;"><span>yellow open   webhook LiXxWLy5QvKkpYpmLLbYsw   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">1</span>          <span style="color:#ae81ff">1</span>            <span style="color:#ae81ff">0</span>     12.5kb         12.5kb
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">health status index   uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+</span></span><span class="line"><span class="cl">yellow open   webhook LiXxWLy5QvKkpYpmLLbYsw   <span class="m">1</span>   <span class="m">1</span>          <span class="m">1</span>            <span class="m">0</span>     12.5kb         12.5kb
 </span></span></code></pre></div><p>I can see the index <code>webhook</code> has been created. Also the <code>docs.count</code> is 1 which means data has been inserted.</p>
 <p>Lets see the data.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GET webhook/_search
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">GET webhook/_search
 </span></span></code></pre></div><p><strong>Response</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;took&#34;</span>: <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timed_out&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_shards&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span>: <span style="color:#ae81ff">1</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;successful&#34;</span>: <span style="color:#ae81ff">1</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipped&#34;</span>: <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;failed&#34;</span>: <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hits&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#ae81ff">1</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;relation&#34;</span>: <span style="color:#e6db74">&#34;eq&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;max_score&#34;</span>: <span style="color:#ae81ff">1</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hits&#34;</span>: [
-</span></span><span style="display:flex;"><span>      {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_index&#34;</span>: <span style="color:#e6db74">&#34;webhook&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_id&#34;</span>: <span style="color:#e6db74">&#34;-ok63YUBrNdmvLyIE5Ue&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_score&#34;</span>: <span style="color:#ae81ff">1</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;_source&#34;</span>: {
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;host&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;ip&#34;</span>: <span style="color:#e6db74">&#34;192.168.192.1&#34;</span>
-</span></span><span style="display:flex;"><span>          },
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;my_list&#34;</span>: [
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;el1&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;el2&#34;</span>
-</span></span><span style="display:flex;"><span>          ],
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;&#34;&#34;{&#34;</span><span style="color:#960050;background-color:#1e0010">test_key</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34;:&#34;</span><span style="color:#960050;background-color:#1e0010">test_value</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34;,&#34;</span><span style="color:#960050;background-color:#1e0010">info</span><span style="color:#e6db74">&#34;:{&#34;</span><span style="color:#960050;background-color:#1e0010">name</span><span style="color:#e6db74">&#34;:&#34;</span><span style="color:#960050;background-color:#1e0010">Ashish</span><span style="color:#e6db74">&#34;,&#34;</span><span style="color:#960050;background-color:#1e0010">last_name</span><span style="color:#e6db74">&#34;:&#34;</span><span style="color:#960050;background-color:#1e0010">Tiwari</span><span style="color:#e6db74">&#34;},&#34;</span><span style="color:#960050;background-color:#1e0010">my_list</span><span style="color:#e6db74">&#34;:[&#34;</span><span style="color:#960050;background-color:#1e0010">el</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34;,&#34;</span><span style="color:#960050;background-color:#1e0010">el</span><span style="color:#ae81ff">2</span><span style="color:#e6db74">&#34;]}&#34;&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;event&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;original&#34;</span>: <span style="color:#e6db74">&#34;&#34;&#34;{&#34;</span><span style="color:#960050;background-color:#1e0010">test_key</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34;:&#34;</span><span style="color:#960050;background-color:#1e0010">test_value</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34;,&#34;</span><span style="color:#960050;background-color:#1e0010">info</span><span style="color:#e6db74">&#34;:{&#34;</span><span style="color:#960050;background-color:#1e0010">name</span><span style="color:#e6db74">&#34;:&#34;</span><span style="color:#960050;background-color:#1e0010">Ashish</span><span style="color:#e6db74">&#34;,&#34;</span><span style="color:#960050;background-color:#1e0010">last_name</span><span style="color:#e6db74">&#34;:&#34;</span><span style="color:#960050;background-color:#1e0010">Tiwari</span><span style="color:#e6db74">&#34;},&#34;</span><span style="color:#960050;background-color:#1e0010">my_list</span><span style="color:#e6db74">&#34;:[&#34;</span><span style="color:#960050;background-color:#1e0010">el</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34;,&#34;</span><span style="color:#960050;background-color:#1e0010">el</span><span style="color:#ae81ff">2</span><span style="color:#e6db74">&#34;]}&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>          },
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;@version&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;@timestamp&#34;</span>: <span style="color:#e6db74">&#34;2023-01-23T06:04:08.664398594Z&#34;</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;http&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;HTTP/1.1&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;method&#34;</span>: <span style="color:#e6db74">&#34;POST&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;request&#34;</span>: {
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;mime_type&#34;</span>: <span style="color:#e6db74">&#34;applicaton/json&#34;</span>,
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;body&#34;</span>: {
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;bytes&#34;</span>: <span style="color:#e6db74">&#34;97&#34;</span>
-</span></span><span style="display:flex;"><span>              }
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>          },
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;info&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;last_name&#34;</span>: <span style="color:#e6db74">&#34;Tiwari&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Ashish&#34;</span>
-</span></span><span style="display:flex;"><span>          },
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;user_agent&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;original&#34;</span>: <span style="color:#e6db74">&#34;curl/7.79.1&#34;</span>
-</span></span><span style="display:flex;"><span>          },
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;url&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;domain&#34;</span>: <span style="color:#e6db74">&#34;localhost&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">4000</span>
-</span></span><span style="display:flex;"><span>          },
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;test_key1&#34;</span>: <span style="color:#e6db74">&#34;test_value1&#34;</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    ]
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;took&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timed_out&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_shards&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;total&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;successful&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;skipped&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;failed&#34;</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;hits&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;total&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;relation&#34;</span><span class="p">:</span> <span class="s2">&#34;eq&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;max_score&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;hits&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;_index&#34;</span><span class="p">:</span> <span class="s2">&#34;webhook&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;_id&#34;</span><span class="p">:</span> <span class="s2">&#34;-ok63YUBrNdmvLyIE5Ue&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;_score&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;_source&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;ip&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.192.1&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;my_list&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;el1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;el2&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;&#34;{&#34;</span><span class="err">test_key</span><span class="mi">1</span><span class="s2">&#34;:&#34;</span><span class="err">test_value</span><span class="mi">1</span><span class="s2">&#34;,&#34;</span><span class="err">info</span><span class="s2">&#34;:{&#34;</span><span class="err">name</span><span class="s2">&#34;:&#34;</span><span class="err">Ashish</span><span class="s2">&#34;,&#34;</span><span class="err">last_name</span><span class="s2">&#34;:&#34;</span><span class="err">Tiwari</span><span class="s2">&#34;},&#34;</span><span class="err">my_list</span><span class="s2">&#34;:[&#34;</span><span class="err">el</span><span class="mi">1</span><span class="s2">&#34;,&#34;</span><span class="err">el</span><span class="mi">2</span><span class="s2">&#34;]}&#34;&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;event&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;original&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;&#34;{&#34;</span><span class="err">test_key</span><span class="mi">1</span><span class="s2">&#34;:&#34;</span><span class="err">test_value</span><span class="mi">1</span><span class="s2">&#34;,&#34;</span><span class="err">info</span><span class="s2">&#34;:{&#34;</span><span class="err">name</span><span class="s2">&#34;:&#34;</span><span class="err">Ashish</span><span class="s2">&#34;,&#34;</span><span class="err">last_name</span><span class="s2">&#34;:&#34;</span><span class="err">Tiwari</span><span class="s2">&#34;},&#34;</span><span class="err">my_list</span><span class="s2">&#34;:[&#34;</span><span class="err">el</span><span class="mi">1</span><span class="s2">&#34;,&#34;</span><span class="err">el</span><span class="mi">2</span><span class="s2">&#34;]}&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;@version&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;@timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-01-23T06:04:08.664398594Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;http&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;HTTP/1.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;method&#34;</span><span class="p">:</span> <span class="s2">&#34;POST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;mime_type&#34;</span><span class="p">:</span> <span class="s2">&#34;applicaton/json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;body&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;bytes&#34;</span><span class="p">:</span> <span class="s2">&#34;97&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;info&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;last_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Tiwari&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Ashish&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;user_agent&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;original&#34;</span><span class="p">:</span> <span class="s2">&#34;curl/7.79.1&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;domain&#34;</span><span class="p">:</span> <span class="s2">&#34;localhost&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">4000</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;test_key1&#34;</span><span class="p">:</span> <span class="s2">&#34;test_value1&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><img loading="lazy" src="/img/elastic/index-search.png" alt="index-search"  />
 </p>
 <p>If you are able to see data like above, Your webhook receiver is all set to accept requests.</p>
@@ -413,179 +406,93 @@ Visualise data from kibana.</p>
       <link>https://ashish.one/talks/ws-es/</link>
       <pubDate>Wed, 14 Sep 2022 17:44:43 +0530</pubDate>
       <guid>https://ashish.one/talks/ws-es/</guid>
-      <description>&lt;h1 id=&#34;sample-queries-for-elasticsearch-workshop&#34;&gt;Sample Queries for Elasticsearch Workshop&lt;/h1&gt;
-&lt;h2 id=&#34;crud&#34;&gt;CRUD&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
-# Insert
-
-POST meetup/_doc/
-{
-  &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34;
-}
-
-# Insert with id
-
-POST meetup/_doc/1
-{
-  &amp;#34;name&amp;#34;:&amp;#34;Ashish Tiwari&amp;#34;
-}
-
-# Search
-
-GET meetup/_search
-
-# Update
-
-POST meetup/_doc/1
-{
-  &amp;#34;name&amp;#34;:&amp;#34;Ashish&amp;#34;,
-  &amp;#34;company&amp;#34;:&amp;#34;elastic&amp;#34;,
-  &amp;#34;address&amp;#34;:&amp;#34;Navi Mumbai kharghar&amp;#34;,
-  &amp;#34;skills&amp;#34;:{
-    &amp;#34;language&amp;#34;:[&amp;#34;php&amp;#34;,&amp;#34;java&amp;#34;,&amp;#34;node&amp;#34;],
-    &amp;#34;database&amp;#34;:[&amp;#34;mysql&amp;#34;,&amp;#34;mongodb&amp;#34;],
-    &amp;#34;search&amp;#34;:&amp;#34;elasticsearch&amp;#34;
-  }
-}
-
-# search with query
-
-GET meetup/_search
-{
-  &amp;#34;query&amp;#34;: {
-    &amp;#34;match&amp;#34;: {
-      &amp;#34;address&amp;#34;: &amp;#34;navi&amp;#34;
-    }
-  }
-}
-
-# delete
-
-DELETE meetup
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;bulk&#34;&gt;BULK&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;POST _bulk
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:1,&amp;#34;first_name&amp;#34;:&amp;#34;Yvonne&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Willmott&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;ywillmott0@live.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;38 Helena Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;104.221.25.110&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Flashset&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:2,&amp;#34;first_name&amp;#34;:&amp;#34;Immanuel&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Philbrick&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;iphilbrick1@wunderground.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;01 Bunting Pass&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;9.20.164.27&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Babblestorm&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:3,&amp;#34;first_name&amp;#34;:&amp;#34;Clotilda&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Danelut&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;cdanelut2@deliciousdays.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Agender&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;0 Crowley Trail&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;158.94.144.140&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Riffpedia&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:4,&amp;#34;first_name&amp;#34;:&amp;#34;Nahum&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Attfield&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;nattfield3@blog.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;7 Garrison Court&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;225.144.148.44&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Chatterpoint&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:5,&amp;#34;first_name&amp;#34;:&amp;#34;Vaughan&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Middis&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;vmiddis4@ted.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;7 Cody Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;66.198.31.108&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Mynte&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:6,&amp;#34;first_name&amp;#34;:&amp;#34;Nolie&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Alessandrucci&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;nalessandrucci5@networksolutions.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;826 Brown Hill&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;96.77.221.95&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Feedfish&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:7,&amp;#34;first_name&amp;#34;:&amp;#34;Beverlie&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Ovitts&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bovitts6@tripod.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;6 Sycamore Pass&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;102.24.117.107&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Zazio&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:8,&amp;#34;first_name&amp;#34;:&amp;#34;Graeme&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Dopson&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;gdopson7@free.fr&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;26 Dunning Avenue&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;198.33.215.93&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Flashset&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:9,&amp;#34;first_name&amp;#34;:&amp;#34;Mellisa&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Hurich&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;mhurich8@nbcnews.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;6371 Browning Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;66.0.3.199&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Divanoodle&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:10,&amp;#34;first_name&amp;#34;:&amp;#34;Dyan&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Loude&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;dloude9@berkeley.edu&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;9818 Reindahl Road&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;16.56.137.54&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Agivu&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:11,&amp;#34;first_name&amp;#34;:&amp;#34;Becky&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Shank&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bshanka@tinypic.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;1206 Warrior Terrace&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;90.63.35.111&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Izio&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:12,&amp;#34;first_name&amp;#34;:&amp;#34;Bar&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Bedburrow&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;bbedburrowb@vistaprint.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;75 Onsgard Crossing&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;85.122.33.250&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Zoombox&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:13,&amp;#34;first_name&amp;#34;:&amp;#34;Dorey&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Isenor&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;disenorc@privacy.gov.au&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;53682 Parkside Crossing&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;150.158.150.213&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Rhyzio&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:14,&amp;#34;first_name&amp;#34;:&amp;#34;Torrin&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Rangall&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;trangalld@buzzfeed.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;24247 Old Shore Plaza&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;40.151.17.2&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Devpoint&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:15,&amp;#34;first_name&amp;#34;:&amp;#34;Genvieve&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Beslier&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;gbesliere@yolasite.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Male&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;96214 Miller Trail&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;115.143.68.208&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Oyonder&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:16,&amp;#34;first_name&amp;#34;:&amp;#34;Arden&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Ramas&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;aramasf@whitehouse.gov&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Polygender&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;390 Gulseth Alley&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;36.83.126.154&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Youbridge&amp;#34;}
-{&amp;#34;index&amp;#34;:{&amp;#34;_index&amp;#34;:&amp;#34;meetup&amp;#34;}}
-{&amp;#34;user_id&amp;#34;:17,&amp;#34;first_name&amp;#34;:&amp;#34;Alyosha&amp;#34;,&amp;#34;last_name&amp;#34;:&amp;#34;Domm&amp;#34;,&amp;#34;email&amp;#34;:&amp;#34;adommg@washingtonpost.com&amp;#34;,&amp;#34;gender&amp;#34;:&amp;#34;Female&amp;#34;,&amp;#34;street_address&amp;#34;:&amp;#34;32 Oxford Way&amp;#34;,&amp;#34;ip_address&amp;#34;:&amp;#34;174.71.176.45&amp;#34;,&amp;#34;company&amp;#34;:&amp;#34;Wikizz&amp;#34;}
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;upload-sample-json-data-from-kibana&#34;&gt;Upload sample json data from kibana&lt;/h2&gt;
-&lt;p&gt;Download &lt;a href=&#34;https://ashish.one/data/movies.json&#34;&gt;movies.json&lt;/a&gt; and insert into elasticsearch by using below command:&lt;/p&gt;</description>
+      <description>Workshop on getting started with Elasticsearch covering CRUD operations, bulk indexing, analyzers, and basic queries.</description>
       <content:encoded><![CDATA[<h1 id="sample-queries-for-elasticsearch-workshop">Sample Queries for Elasticsearch Workshop</h1>
 <h2 id="crud">CRUD</h2>
-<pre tabindex="0"><code>
-# Insert
-
-POST meetup/_doc/
-{
-  &#34;name&#34;:&#34;Ashish Tiwari&#34;
-}
-
-# Insert with id
-
-POST meetup/_doc/1
-{
-  &#34;name&#34;:&#34;Ashish Tiwari&#34;
-}
-
-# Search
-
-GET meetup/_search
-
-# Update
-
-POST meetup/_doc/1
-{
-  &#34;name&#34;:&#34;Ashish&#34;,
-  &#34;company&#34;:&#34;elastic&#34;,
-  &#34;address&#34;:&#34;Navi Mumbai kharghar&#34;,
-  &#34;skills&#34;:{
-    &#34;language&#34;:[&#34;php&#34;,&#34;java&#34;,&#34;node&#34;],
-    &#34;database&#34;:[&#34;mysql&#34;,&#34;mongodb&#34;],
-    &#34;search&#34;:&#34;elasticsearch&#34;
-  }
-}
-
-# search with query
-
-GET meetup/_search
-{
-  &#34;query&#34;: {
-    &#34;match&#34;: {
-      &#34;address&#34;: &#34;navi&#34;
-    }
-  }
-}
-
-# delete
-
-DELETE meetup
-</code></pre><h2 id="bulk">BULK</h2>
-<pre tabindex="0"><code>POST _bulk
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:1,&#34;first_name&#34;:&#34;Yvonne&#34;,&#34;last_name&#34;:&#34;Willmott&#34;,&#34;email&#34;:&#34;ywillmott0@live.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;38 Helena Avenue&#34;,&#34;ip_address&#34;:&#34;104.221.25.110&#34;,&#34;company&#34;:&#34;Flashset&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:2,&#34;first_name&#34;:&#34;Immanuel&#34;,&#34;last_name&#34;:&#34;Philbrick&#34;,&#34;email&#34;:&#34;iphilbrick1@wunderground.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;01 Bunting Pass&#34;,&#34;ip_address&#34;:&#34;9.20.164.27&#34;,&#34;company&#34;:&#34;Babblestorm&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:3,&#34;first_name&#34;:&#34;Clotilda&#34;,&#34;last_name&#34;:&#34;Danelut&#34;,&#34;email&#34;:&#34;cdanelut2@deliciousdays.com&#34;,&#34;gender&#34;:&#34;Agender&#34;,&#34;street_address&#34;:&#34;0 Crowley Trail&#34;,&#34;ip_address&#34;:&#34;158.94.144.140&#34;,&#34;company&#34;:&#34;Riffpedia&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:4,&#34;first_name&#34;:&#34;Nahum&#34;,&#34;last_name&#34;:&#34;Attfield&#34;,&#34;email&#34;:&#34;nattfield3@blog.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Garrison Court&#34;,&#34;ip_address&#34;:&#34;225.144.148.44&#34;,&#34;company&#34;:&#34;Chatterpoint&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:5,&#34;first_name&#34;:&#34;Vaughan&#34;,&#34;last_name&#34;:&#34;Middis&#34;,&#34;email&#34;:&#34;vmiddis4@ted.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Cody Way&#34;,&#34;ip_address&#34;:&#34;66.198.31.108&#34;,&#34;company&#34;:&#34;Mynte&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:6,&#34;first_name&#34;:&#34;Nolie&#34;,&#34;last_name&#34;:&#34;Alessandrucci&#34;,&#34;email&#34;:&#34;nalessandrucci5@networksolutions.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;826 Brown Hill&#34;,&#34;ip_address&#34;:&#34;96.77.221.95&#34;,&#34;company&#34;:&#34;Feedfish&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:7,&#34;first_name&#34;:&#34;Beverlie&#34;,&#34;last_name&#34;:&#34;Ovitts&#34;,&#34;email&#34;:&#34;bovitts6@tripod.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6 Sycamore Pass&#34;,&#34;ip_address&#34;:&#34;102.24.117.107&#34;,&#34;company&#34;:&#34;Zazio&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:8,&#34;first_name&#34;:&#34;Graeme&#34;,&#34;last_name&#34;:&#34;Dopson&#34;,&#34;email&#34;:&#34;gdopson7@free.fr&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;26 Dunning Avenue&#34;,&#34;ip_address&#34;:&#34;198.33.215.93&#34;,&#34;company&#34;:&#34;Flashset&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:9,&#34;first_name&#34;:&#34;Mellisa&#34;,&#34;last_name&#34;:&#34;Hurich&#34;,&#34;email&#34;:&#34;mhurich8@nbcnews.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6371 Browning Way&#34;,&#34;ip_address&#34;:&#34;66.0.3.199&#34;,&#34;company&#34;:&#34;Divanoodle&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:10,&#34;first_name&#34;:&#34;Dyan&#34;,&#34;last_name&#34;:&#34;Loude&#34;,&#34;email&#34;:&#34;dloude9@berkeley.edu&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;9818 Reindahl Road&#34;,&#34;ip_address&#34;:&#34;16.56.137.54&#34;,&#34;company&#34;:&#34;Agivu&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:11,&#34;first_name&#34;:&#34;Becky&#34;,&#34;last_name&#34;:&#34;Shank&#34;,&#34;email&#34;:&#34;bshanka@tinypic.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;1206 Warrior Terrace&#34;,&#34;ip_address&#34;:&#34;90.63.35.111&#34;,&#34;company&#34;:&#34;Izio&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:12,&#34;first_name&#34;:&#34;Bar&#34;,&#34;last_name&#34;:&#34;Bedburrow&#34;,&#34;email&#34;:&#34;bbedburrowb@vistaprint.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;75 Onsgard Crossing&#34;,&#34;ip_address&#34;:&#34;85.122.33.250&#34;,&#34;company&#34;:&#34;Zoombox&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:13,&#34;first_name&#34;:&#34;Dorey&#34;,&#34;last_name&#34;:&#34;Isenor&#34;,&#34;email&#34;:&#34;disenorc@privacy.gov.au&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;53682 Parkside Crossing&#34;,&#34;ip_address&#34;:&#34;150.158.150.213&#34;,&#34;company&#34;:&#34;Rhyzio&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:14,&#34;first_name&#34;:&#34;Torrin&#34;,&#34;last_name&#34;:&#34;Rangall&#34;,&#34;email&#34;:&#34;trangalld@buzzfeed.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;24247 Old Shore Plaza&#34;,&#34;ip_address&#34;:&#34;40.151.17.2&#34;,&#34;company&#34;:&#34;Devpoint&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:15,&#34;first_name&#34;:&#34;Genvieve&#34;,&#34;last_name&#34;:&#34;Beslier&#34;,&#34;email&#34;:&#34;gbesliere@yolasite.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;96214 Miller Trail&#34;,&#34;ip_address&#34;:&#34;115.143.68.208&#34;,&#34;company&#34;:&#34;Oyonder&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:16,&#34;first_name&#34;:&#34;Arden&#34;,&#34;last_name&#34;:&#34;Ramas&#34;,&#34;email&#34;:&#34;aramasf@whitehouse.gov&#34;,&#34;gender&#34;:&#34;Polygender&#34;,&#34;street_address&#34;:&#34;390 Gulseth Alley&#34;,&#34;ip_address&#34;:&#34;36.83.126.154&#34;,&#34;company&#34;:&#34;Youbridge&#34;}
-{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
-{&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
-</code></pre><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Insert
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST meetup/_doc/
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Ashish Tiwari&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Insert with id
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST meetup/_doc/1
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Ashish Tiwari&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Search
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET meetup/_search
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST meetup/_doc/1
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Ashish&#34;,
+</span></span><span class="line"><span class="cl">  &#34;company&#34;:&#34;elastic&#34;,
+</span></span><span class="line"><span class="cl">  &#34;address&#34;:&#34;Navi Mumbai kharghar&#34;,
+</span></span><span class="line"><span class="cl">  &#34;skills&#34;:{
+</span></span><span class="line"><span class="cl">    &#34;language&#34;:[&#34;php&#34;,&#34;java&#34;,&#34;node&#34;],
+</span></span><span class="line"><span class="cl">    &#34;database&#34;:[&#34;mysql&#34;,&#34;mongodb&#34;],
+</span></span><span class="line"><span class="cl">    &#34;search&#34;:&#34;elasticsearch&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># search with query
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET meetup/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;address&#34;: &#34;navi&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># delete
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DELETE meetup
+</span></span></code></pre></div><h2 id="bulk">BULK</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _bulk
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:1,&#34;first_name&#34;:&#34;Yvonne&#34;,&#34;last_name&#34;:&#34;Willmott&#34;,&#34;email&#34;:&#34;ywillmott0@live.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;38 Helena Avenue&#34;,&#34;ip_address&#34;:&#34;104.221.25.110&#34;,&#34;company&#34;:&#34;Flashset&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:2,&#34;first_name&#34;:&#34;Immanuel&#34;,&#34;last_name&#34;:&#34;Philbrick&#34;,&#34;email&#34;:&#34;iphilbrick1@wunderground.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;01 Bunting Pass&#34;,&#34;ip_address&#34;:&#34;9.20.164.27&#34;,&#34;company&#34;:&#34;Babblestorm&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:3,&#34;first_name&#34;:&#34;Clotilda&#34;,&#34;last_name&#34;:&#34;Danelut&#34;,&#34;email&#34;:&#34;cdanelut2@deliciousdays.com&#34;,&#34;gender&#34;:&#34;Agender&#34;,&#34;street_address&#34;:&#34;0 Crowley Trail&#34;,&#34;ip_address&#34;:&#34;158.94.144.140&#34;,&#34;company&#34;:&#34;Riffpedia&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:4,&#34;first_name&#34;:&#34;Nahum&#34;,&#34;last_name&#34;:&#34;Attfield&#34;,&#34;email&#34;:&#34;nattfield3@blog.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Garrison Court&#34;,&#34;ip_address&#34;:&#34;225.144.148.44&#34;,&#34;company&#34;:&#34;Chatterpoint&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:5,&#34;first_name&#34;:&#34;Vaughan&#34;,&#34;last_name&#34;:&#34;Middis&#34;,&#34;email&#34;:&#34;vmiddis4@ted.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;7 Cody Way&#34;,&#34;ip_address&#34;:&#34;66.198.31.108&#34;,&#34;company&#34;:&#34;Mynte&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:6,&#34;first_name&#34;:&#34;Nolie&#34;,&#34;last_name&#34;:&#34;Alessandrucci&#34;,&#34;email&#34;:&#34;nalessandrucci5@networksolutions.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;826 Brown Hill&#34;,&#34;ip_address&#34;:&#34;96.77.221.95&#34;,&#34;company&#34;:&#34;Feedfish&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:7,&#34;first_name&#34;:&#34;Beverlie&#34;,&#34;last_name&#34;:&#34;Ovitts&#34;,&#34;email&#34;:&#34;bovitts6@tripod.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6 Sycamore Pass&#34;,&#34;ip_address&#34;:&#34;102.24.117.107&#34;,&#34;company&#34;:&#34;Zazio&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:8,&#34;first_name&#34;:&#34;Graeme&#34;,&#34;last_name&#34;:&#34;Dopson&#34;,&#34;email&#34;:&#34;gdopson7@free.fr&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;26 Dunning Avenue&#34;,&#34;ip_address&#34;:&#34;198.33.215.93&#34;,&#34;company&#34;:&#34;Flashset&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:9,&#34;first_name&#34;:&#34;Mellisa&#34;,&#34;last_name&#34;:&#34;Hurich&#34;,&#34;email&#34;:&#34;mhurich8@nbcnews.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;6371 Browning Way&#34;,&#34;ip_address&#34;:&#34;66.0.3.199&#34;,&#34;company&#34;:&#34;Divanoodle&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:10,&#34;first_name&#34;:&#34;Dyan&#34;,&#34;last_name&#34;:&#34;Loude&#34;,&#34;email&#34;:&#34;dloude9@berkeley.edu&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;9818 Reindahl Road&#34;,&#34;ip_address&#34;:&#34;16.56.137.54&#34;,&#34;company&#34;:&#34;Agivu&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:11,&#34;first_name&#34;:&#34;Becky&#34;,&#34;last_name&#34;:&#34;Shank&#34;,&#34;email&#34;:&#34;bshanka@tinypic.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;1206 Warrior Terrace&#34;,&#34;ip_address&#34;:&#34;90.63.35.111&#34;,&#34;company&#34;:&#34;Izio&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:12,&#34;first_name&#34;:&#34;Bar&#34;,&#34;last_name&#34;:&#34;Bedburrow&#34;,&#34;email&#34;:&#34;bbedburrowb@vistaprint.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;75 Onsgard Crossing&#34;,&#34;ip_address&#34;:&#34;85.122.33.250&#34;,&#34;company&#34;:&#34;Zoombox&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:13,&#34;first_name&#34;:&#34;Dorey&#34;,&#34;last_name&#34;:&#34;Isenor&#34;,&#34;email&#34;:&#34;disenorc@privacy.gov.au&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;53682 Parkside Crossing&#34;,&#34;ip_address&#34;:&#34;150.158.150.213&#34;,&#34;company&#34;:&#34;Rhyzio&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:14,&#34;first_name&#34;:&#34;Torrin&#34;,&#34;last_name&#34;:&#34;Rangall&#34;,&#34;email&#34;:&#34;trangalld@buzzfeed.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;24247 Old Shore Plaza&#34;,&#34;ip_address&#34;:&#34;40.151.17.2&#34;,&#34;company&#34;:&#34;Devpoint&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:15,&#34;first_name&#34;:&#34;Genvieve&#34;,&#34;last_name&#34;:&#34;Beslier&#34;,&#34;email&#34;:&#34;gbesliere@yolasite.com&#34;,&#34;gender&#34;:&#34;Male&#34;,&#34;street_address&#34;:&#34;96214 Miller Trail&#34;,&#34;ip_address&#34;:&#34;115.143.68.208&#34;,&#34;company&#34;:&#34;Oyonder&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:16,&#34;first_name&#34;:&#34;Arden&#34;,&#34;last_name&#34;:&#34;Ramas&#34;,&#34;email&#34;:&#34;aramasf@whitehouse.gov&#34;,&#34;gender&#34;:&#34;Polygender&#34;,&#34;street_address&#34;:&#34;390 Gulseth Alley&#34;,&#34;ip_address&#34;:&#34;36.83.126.154&#34;,&#34;company&#34;:&#34;Youbridge&#34;}
+</span></span><span class="line"><span class="cl">{&#34;index&#34;:{&#34;_index&#34;:&#34;meetup&#34;}}
+</span></span><span class="line"><span class="cl">{&#34;user_id&#34;:17,&#34;first_name&#34;:&#34;Alyosha&#34;,&#34;last_name&#34;:&#34;Domm&#34;,&#34;email&#34;:&#34;adommg@washingtonpost.com&#34;,&#34;gender&#34;:&#34;Female&#34;,&#34;street_address&#34;:&#34;32 Oxford Way&#34;,&#34;ip_address&#34;:&#34;174.71.176.45&#34;,&#34;company&#34;:&#34;Wikizz&#34;}
+</span></span></code></pre></div><h2 id="upload-sample-json-data-from-kibana">Upload sample json data from kibana</h2>
 <p>Download <a href="/data/movies.json">movies.json</a> and insert into elasticsearch by using below command:</p>
 <p><em>Open Kibana -&gt; Menu -&gt; Home -&gt; Upload a file</em></p>
 <h2 id="create-data-view-in-kibana">Create Data view in Kibana</h2>
@@ -593,314 +500,314 @@ DELETE meetup
 <h2 id="create-dashboard">Create Dashboard</h2>
 <p><em>Open Kibana -&gt; Menu -&gt; Analytics -&gt; Dashboard</em></p>
 <h2 id="create-mapping">Create mapping</h2>
-<pre tabindex="0"><code>PUT /devfest-raipur
-{
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;age&#34;:    { &#34;type&#34;: &#34;integer&#34; },  
-      &#34;email&#34;:  { &#34;type&#34;: &#34;keyword&#34;  }, 
-      &#34;name&#34;:   { &#34;type&#34;: &#34;text&#34;  }     
-    }
-  }
-}
-</code></pre><h2 id="analyze">Analyze</h2>
-<pre tabindex="0"><code># analyze
-
-GET /_analyze?pretty
-{
-  &#34;text&#34; : &#34;Quick Brown Foxes!&#34;
-}
-
-# Whitespace
-
-GET _analyze
-{
-  &#34;analyzer&#34;: &#34;whitespace&#34;,
-  &#34;text&#34;: &#34;The 2 QUICK Brown-Foxes jumped over the lazy dog\u0027s bone.&#34;
-}
-</code></pre><h3 id="what-is-an-analyzer">What is an analyzer?</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PUT /devfest-raipur
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;age&#34;:    { &#34;type&#34;: &#34;integer&#34; },  
+</span></span><span class="line"><span class="cl">      &#34;email&#34;:  { &#34;type&#34;: &#34;keyword&#34;  }, 
+</span></span><span class="line"><span class="cl">      &#34;name&#34;:   { &#34;type&#34;: &#34;text&#34;  }     
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="analyze">Analyze</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># analyze
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET /_analyze?pretty
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;text&#34; : &#34;Quick Brown Foxes!&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Whitespace
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;analyzer&#34;: &#34;whitespace&#34;,
+</span></span><span class="line"><span class="cl">  &#34;text&#34;: &#34;The 2 QUICK Brown-Foxes jumped over the lazy dog\u0027s bone.&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="what-is-an-analyzer">What is an analyzer?</h3>
 <p>An analyzer is made of character filters, tokenizer and token filters.</p>
 <p>Let&rsquo;s build one</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [], 
-  &#34;text&#34;: [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p>Let&rsquo;s remove the html code.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [], 
-  &#34;text&#34;: [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p>Some words don&rsquo;t bring us any value. Let&rsquo;s skip them.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;]
-    }
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p>We can also remove &ldquo;I&rdquo;, &ldquo;when&rdquo; and &ldquo;over&rdquo;.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;ignore_case&#34;:true, 
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
-    }
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p><code>DOGS</code> and <code>dogs</code> should match.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;ignore_case&#34;:true, 
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
-    },
-    &#34;lowercase&#34;
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><p><code>dog</code>, <code>dogs</code> and <code>fox</code>, <code>foxes</code> and <code>jump</code>, <code>jumps</code>, <code>jumping</code>, <code>jumped</code> should match. Let&rsquo;s use a <code>stemmer</code>.</p>
-<pre tabindex="0"><code>POST _analyze
-{
-  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
-  &#34;tokenizer&#34;:   &#34;standard&#34;,
-  &#34;filter&#34;:      [
-    {
-      &#34;type&#34;:       &#34;stop&#34;,
-      &#34;ignore_case&#34;:true, 
-      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
-    },
-    &#34;lowercase&#34;,
-    {
-      &#34;type&#34;:       &#34;stemmer&#34;,
-      &#34;language&#34;:   &#34;english&#34; 
-    }
-  ], 
-  &#34;text&#34;:
-  [ 
-    &#34;jumping jumps jump jumped&#34;,
-    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
-    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
-  ]
-}
-</code></pre><h1 id="language-analyzer">Language analyzer</h1>
-<pre tabindex="0"><code>GET /_analyze?pretty
-{
-  &#34;analyzer&#34;: &#34;hindi&#34;, 
-  &#34;text&#34; : &#34;चाणक्य ने चंद्रगुप्त और बिंदूसार दोनों के लिए प्रधानमंत्री और राजनयिक सलाहकार के रूप में काम किया।&#34;
-}
-</code></pre><h2 id="lets-create-hindi-search-engine-गतयतर">Let&rsquo;s create Hindi search engine (गीतयंत्र)</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;: [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Let&rsquo;s remove the html code.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;: [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Some words don&rsquo;t bring us any value. Let&rsquo;s skip them.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;]
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>We can also remove &ldquo;I&rdquo;, &ldquo;when&rdquo; and &ldquo;over&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;ignore_case&#34;:true, 
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><code>DOGS</code> and <code>dogs</code> should match.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;ignore_case&#34;:true, 
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;lowercase&#34;
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><code>dog</code>, <code>dogs</code> and <code>fox</code>, <code>foxes</code> and <code>jump</code>, <code>jumps</code>, <code>jumping</code>, <code>jumped</code> should match. Let&rsquo;s use a <code>stemmer</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _analyze
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;char_filter&#34;: [&#34;html_strip&#34;], 
+</span></span><span class="line"><span class="cl">  &#34;tokenizer&#34;:   &#34;standard&#34;,
+</span></span><span class="line"><span class="cl">  &#34;filter&#34;:      [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stop&#34;,
+</span></span><span class="line"><span class="cl">      &#34;ignore_case&#34;:true, 
+</span></span><span class="line"><span class="cl">      &#34;stopwords&#34;:  [ &#34;_english_&#34;, &#34;I&#34;, &#34;when&#34;, &#34;over&#34;]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;lowercase&#34;,
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">      &#34;type&#34;:       &#34;stemmer&#34;,
+</span></span><span class="line"><span class="cl">      &#34;language&#34;:   &#34;english&#34; 
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  ], 
+</span></span><span class="line"><span class="cl">  &#34;text&#34;:
+</span></span><span class="line"><span class="cl">  [ 
+</span></span><span class="line"><span class="cl">    &#34;jumping jumps jump jumped&#34;,
+</span></span><span class="line"><span class="cl">    &#34;I like when the &lt;strong&gt;quick&lt;/strong&gt; foxes jumps over lazy DOGS!&#34;,
+</span></span><span class="line"><span class="cl">    &#34;and &lt;strong&gt;fast&lt;/strong&gt;&#34;
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h1 id="language-analyzer">Language analyzer</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GET /_analyze?pretty
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;analyzer&#34;: &#34;hindi&#34;, 
+</span></span><span class="line"><span class="cl">  &#34;text&#34; : &#34;चाणक्य ने चंद्रगुप्त और बिंदूसार दोनों के लिए प्रधानमंत्री और राजनयिक सलाहकार के रूप में काम किया।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="lets-create-hindi-search-engine-गतयतर">Let&rsquo;s create Hindi search engine (गीतयंत्र)</h2>
 <h3 id="create-mapping-1">Create mapping</h3>
-<pre tabindex="0"><code>PUT geetyantra
-{
-  &#34;settings&#34;: {
-    &#34;analysis&#34;: {
-      &#34;analyzer&#34;: {
-        &#34;geetyantra-analyzer&#34;:{
-          &#34;type&#34;:&#34;hindi&#34;
-        }
-      }
-    }
-  },
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;adhyay&#34;: {&#34;type&#34;: &#34;integer&#34;},
-      &#34;updesh&#34;: {&#34;type&#34;: &#34;text&#34;,&#34;analyzer&#34;: &#34;geetyantra-analyzer&#34;}
-    }
-  }
-}
-</code></pre><h3 id="insert-data">Insert data</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PUT geetyantra
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;settings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;analysis&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;analyzer&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;geetyantra-analyzer&#34;:{
+</span></span><span class="line"><span class="cl">          &#34;type&#34;:&#34;hindi&#34;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;adhyay&#34;: {&#34;type&#34;: &#34;integer&#34;},
+</span></span><span class="line"><span class="cl">      &#34;updesh&#34;: {&#34;type&#34;: &#34;text&#34;,&#34;analyzer&#34;: &#34;geetyantra-analyzer&#34;}
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="insert-data">Insert data</h3>
 <p>Taking data from 🙏<a href="https://hi.wikipedia.org/wiki/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AE%E0%A4%A6%E0%A5%8D%E0%A4%AD%E0%A4%97%E0%A4%B5%E0%A4%A6%E0%A5%8D%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE">विकिपीडिया-श्रीमद्भगवद्गीता</a></p>
 <p>Lets insert some data like below:</p>
-<pre tabindex="0"><code>POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:1,
-  &#34;updesh&#34;:&#34;कृष्ण ने अर्जुन की वह स्थिति देखकर जान लिया कि अर्जुन का शरीर ठीक है किंतु युद्ध आरंभ होने से पहले ही उस अद्भुत क्षत्रिय का मनोबल टूट चुका है। बिना मन के यह शरीर खड़ा नहीं रह स।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:2,
-  &#34;updesh&#34;:&#34;दूसरे अध्याय का नाम सांख्ययोग है। इसमें जीवन की दो प्राचीन संमानित परंपराओं का तर्कों द्वारा वर्णन आया है। अर्जुन को उस कृपण स्थिति में रोते देखकर कृष्ण ने उनका ध्यान दिलाया है कि इस प्रकार का क्लैव्य और हृदय की क्षुद्र दुर्बलता अर्जुन जैसे वीर के लिए उचित नहीं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:3,
-  &#34;updesh&#34;:&#34;नित्य कर्म करने वाले की श्रेष्ठता&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:4,
-  &#34;updesh&#34;:&#34;चौथे अध्याय में, जिसका नाम ज्ञान-कर्म-संन्यास-योग है, यह बाताया गया है कि ज्ञान प्राप्त करके कर्म करते हुए भी कर्मसंन्यास का फल किस उपाय से प्राप्त किया जा सकता है।&#34;,
-  &#34;shloka&#34;:&#34;यदा यदा हि धर्मस्य ग्लानिर्भवति भारत,अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:5,
-  &#34;updesh&#34;:&#34;ज्ञानी महापुरुष विद्या-विनययुक्त ब्राह्मण में और चाण्डाल में तथा गाय, हाथी एवं कुत्ते में भी समरूप परमात्मा को देखने वाले होते हैं।&#34;,
-  &#34;shloka&#34;:&#34;विद्याविनयसंपन्ने ब्राह्मणे गवि हस्तिनि,शुनि चैव श्वपाके च पंडिता: समदर्शिन&#34;
-}
-
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:6,
-  &#34;updesh&#34;:&#34;छठा अध्याय आत्मसंयम योग है जिसका विषय नाम से ही प्रकट है। जितने विषय हैं उन सबसे इंद्रियों का संयम-यही कर्म और ज्ञान का निचोड़ है। सुख में और दुख में मन की समान स्थिति, इसे ही योग कहते हैं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:7,
-  &#34;updesh&#34;:&#34;पंचतत्व, मन, बुद्धि भी मैं हूँ| मैं ही संसार की उत्पत्ति करता हूँ और विनाश भी मैं ही करता हूँ। मेरे भक्त चाहे जिस प्रकार भजें परन्तु अंततः मुझे ही प्राप्त होते हैं। मैं योगमाया से अप्रकट रहता हूँ और मुर्ख मुझे केवल साधारण मनुष्य ही समझते हैं।&#34;,
-  &#34;shloka&#34;:&#34;यो यो यां यां तनुं भक्तः श्रद्धयार्चितुमिच्छति,तस्य तस्याचलां श्रद्धां तामेव विदधाम्यहम्&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:8,
-  &#34;updesh&#34;:&#34;की संज्ञा अक्षर ब्रह्मयोग है। उपनिषदों में अक्षर विद्या का विस्तार हुआ। गीता में उस अक्षरविद्या का सार कह दिया गया है-अक्षर ब्रह्म परमं, अर्थात् परब्रह्म की संज्ञा अक्षर है। मनुष्य, अर्थात् जीव और शरीर की संयुक्त रचना का ही नाम अध्यात्म है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:9,
-  &#34;updesh&#34;:&#34;को राजगुह्ययोग कहा गया है, अर्थात् यह अध्यात्म विद्या विद्याराज्ञी है और यह गुह्य ज्ञान सबमें श्रेष्ठ है। राजा शब्दका एक अर्थ मन भी था। अतएव मन की दिव्य शक्तिमयों को किस प्रकार ब्रह्ममय बनाया जाय, इसकी युक्ति ही राजविद्या है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:10,
-  &#34;updesh&#34;:&#34;दसवें अध्याय का नाम विभूतियोग है। इसका सार यह है कि लोक में जितने देवता हैं, सब एक ही भगवान, की विभूतियाँ हैं, मनुष्य के समस्त गुण और अवगुण भगवान की शक्ति के ही रूप हैं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:11,
-  &#34;updesh&#34;:&#34;का नाम विश्वरूपदर्शन योग है। इसमें अर्जुन ने भगवान का विश्वरूप देखा। विराट रूप का अर्थ है मानवीय धरातल और परिधि के ऊपर जो अनंत विश्व का प्राणवंत रचनाविधान है, उसका साक्षात दर्शन। विष्णु का जो चतुर्भुज रूप है, वह मानवीय धरातल पर सौम्यरूप है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:12,
-  &#34;updesh&#34;:&#34;का नाम भक्ति योग है। जो जानने योग्य है। जिसको जानकर मनुष्य परमानन्द को प्राप्त हो जाता है अर्थात वो परमात्मा ही सत्य है ।।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:13,
-  &#34;updesh&#34;:&#34;में एक सीधा विषय क्षेत्र और क्षेत्रज्ञ का विचार है। यह शरीर क्षेत्र है, उसका जाननेवाला जीवात्मा क्षेत्रज्ञ है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:14,
-  &#34;updesh&#34;:&#34;का नाम गुणत्रय विभाग योग है। यह विषय समस्त वैदिक, दार्शनिक और पौराणिक तत्वचिंतन का निचोड़ है-सत्व, रज, तम नामक तीन गुण-त्रिको की अनेक व्याख्याएँ हैं।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:15,
-  &#34;updesh&#34;:&#34;का नाम पुरुषोत्तमयोग है। इसमें विश्व का अश्वत्थ के रूप में वर्णन किया गया है। यह अश्वत्थ रूपी संसार महान विस्तारवाला है। देश और काल में इसका कोई अंत नहीं है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:16,
-  &#34;updesh&#34;:&#34;में देवासुर संपत्ति का विभाग बताया गया है। आरंभ से ही ऋग्देव में सृष्टि की कल्पना दैवी और आसुरी शक्तियों के रूप में की गई है। &#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:17,
-  &#34;updesh&#34;:&#34;की संज्ञा श्रद्धात्रय विभाग योग है। इसका संबंध सत, रज और तम, इन तीन गुणों से ही है, अर्थात् जिसमें जिस गुण का प्रादुर्भाव होता है, उसकी श्रद्धा या जीवन की निष्ठा वैसी ही बन जाती है।&#34;
-}
-
-POST geetyantra/_doc
-{
-  &#34;adhyay&#34;:18,
-  &#34;updesh&#34;:&#34;की संज्ञा मोक्षसंन्यास योग है। इसमें गीता के समस्त उपदेशों का सार एवं उपसंहार है। यहाँ पुन: बलपूर्वक मानव जीवन के लिए तीन गुणों का महत्व कहा गया है। पृथ्वी के मानवों में और स्वर्ग के देवताओं में कोई भी ऐसा नहीं जो प्रकृति के चलाए हुए इन तीन गुणों से बचा हो।&#34;
-}
-</code></pre><h3 id="search">Search</h3>
-<pre tabindex="0"><code>
-GET geetyantra/_search?size=20
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;match&#34;: {
-      &#34;updesh&#34;: &#34;अर्जुन&#34;
-    }
-  }
-}
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;match&#34;: {
-      &#34;shloka&#34;: &#34;धर्मस्य&#34;
-    }
-  }
-}
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;multi_match&#34;: {
-      &#34;query&#34;: &#34;श्रद्धा&#34;,
-      &#34;fields&#34;: [&#34;shloka&#34;,&#34;updesh&#34;]
-    }
-  }
-}
-
-GET geetyantra/_search
-{
-  &#34;query&#34;: {
-    &#34;match_phrase_prefix&#34;: {
-      &#34;updesh&#34;: &#34;चौथे अध्याय में&#34;
-    }
-  }
-}
-</code></pre><h2 id="search-as-you-type">Search as you type</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:1,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;कृष्ण ने अर्जुन की वह स्थिति देखकर जान लिया कि अर्जुन का शरीर ठीक है किंतु युद्ध आरंभ होने से पहले ही उस अद्भुत क्षत्रिय का मनोबल टूट चुका है। बिना मन के यह शरीर खड़ा नहीं रह स।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:2,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;दूसरे अध्याय का नाम सांख्ययोग है। इसमें जीवन की दो प्राचीन संमानित परंपराओं का तर्कों द्वारा वर्णन आया है। अर्जुन को उस कृपण स्थिति में रोते देखकर कृष्ण ने उनका ध्यान दिलाया है कि इस प्रकार का क्लैव्य और हृदय की क्षुद्र दुर्बलता अर्जुन जैसे वीर के लिए उचित नहीं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:3,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;नित्य कर्म करने वाले की श्रेष्ठता&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:4,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;चौथे अध्याय में, जिसका नाम ज्ञान-कर्म-संन्यास-योग है, यह बाताया गया है कि ज्ञान प्राप्त करके कर्म करते हुए भी कर्मसंन्यास का फल किस उपाय से प्राप्त किया जा सकता है।&#34;,
+</span></span><span class="line"><span class="cl">  &#34;shloka&#34;:&#34;यदा यदा हि धर्मस्य ग्लानिर्भवति भारत,अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:5,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;ज्ञानी महापुरुष विद्या-विनययुक्त ब्राह्मण में और चाण्डाल में तथा गाय, हाथी एवं कुत्ते में भी समरूप परमात्मा को देखने वाले होते हैं।&#34;,
+</span></span><span class="line"><span class="cl">  &#34;shloka&#34;:&#34;विद्याविनयसंपन्ने ब्राह्मणे गवि हस्तिनि,शुनि चैव श्वपाके च पंडिता: समदर्शिन&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:6,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;छठा अध्याय आत्मसंयम योग है जिसका विषय नाम से ही प्रकट है। जितने विषय हैं उन सबसे इंद्रियों का संयम-यही कर्म और ज्ञान का निचोड़ है। सुख में और दुख में मन की समान स्थिति, इसे ही योग कहते हैं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:7,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;पंचतत्व, मन, बुद्धि भी मैं हूँ| मैं ही संसार की उत्पत्ति करता हूँ और विनाश भी मैं ही करता हूँ। मेरे भक्त चाहे जिस प्रकार भजें परन्तु अंततः मुझे ही प्राप्त होते हैं। मैं योगमाया से अप्रकट रहता हूँ और मुर्ख मुझे केवल साधारण मनुष्य ही समझते हैं।&#34;,
+</span></span><span class="line"><span class="cl">  &#34;shloka&#34;:&#34;यो यो यां यां तनुं भक्तः श्रद्धयार्चितुमिच्छति,तस्य तस्याचलां श्रद्धां तामेव विदधाम्यहम्&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:8,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;की संज्ञा अक्षर ब्रह्मयोग है। उपनिषदों में अक्षर विद्या का विस्तार हुआ। गीता में उस अक्षरविद्या का सार कह दिया गया है-अक्षर ब्रह्म परमं, अर्थात् परब्रह्म की संज्ञा अक्षर है। मनुष्य, अर्थात् जीव और शरीर की संयुक्त रचना का ही नाम अध्यात्म है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:9,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;को राजगुह्ययोग कहा गया है, अर्थात् यह अध्यात्म विद्या विद्याराज्ञी है और यह गुह्य ज्ञान सबमें श्रेष्ठ है। राजा शब्दका एक अर्थ मन भी था। अतएव मन की दिव्य शक्तिमयों को किस प्रकार ब्रह्ममय बनाया जाय, इसकी युक्ति ही राजविद्या है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:10,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;दसवें अध्याय का नाम विभूतियोग है। इसका सार यह है कि लोक में जितने देवता हैं, सब एक ही भगवान, की विभूतियाँ हैं, मनुष्य के समस्त गुण और अवगुण भगवान की शक्ति के ही रूप हैं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:11,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम विश्वरूपदर्शन योग है। इसमें अर्जुन ने भगवान का विश्वरूप देखा। विराट रूप का अर्थ है मानवीय धरातल और परिधि के ऊपर जो अनंत विश्व का प्राणवंत रचनाविधान है, उसका साक्षात दर्शन। विष्णु का जो चतुर्भुज रूप है, वह मानवीय धरातल पर सौम्यरूप है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:12,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम भक्ति योग है। जो जानने योग्य है। जिसको जानकर मनुष्य परमानन्द को प्राप्त हो जाता है अर्थात वो परमात्मा ही सत्य है ।।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:13,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;में एक सीधा विषय क्षेत्र और क्षेत्रज्ञ का विचार है। यह शरीर क्षेत्र है, उसका जाननेवाला जीवात्मा क्षेत्रज्ञ है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:14,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम गुणत्रय विभाग योग है। यह विषय समस्त वैदिक, दार्शनिक और पौराणिक तत्वचिंतन का निचोड़ है-सत्व, रज, तम नामक तीन गुण-त्रिको की अनेक व्याख्याएँ हैं।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:15,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;का नाम पुरुषोत्तमयोग है। इसमें विश्व का अश्वत्थ के रूप में वर्णन किया गया है। यह अश्वत्थ रूपी संसार महान विस्तारवाला है। देश और काल में इसका कोई अंत नहीं है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:16,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;में देवासुर संपत्ति का विभाग बताया गया है। आरंभ से ही ऋग्देव में सृष्टि की कल्पना दैवी और आसुरी शक्तियों के रूप में की गई है। &#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:17,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;की संज्ञा श्रद्धात्रय विभाग योग है। इसका संबंध सत, रज और तम, इन तीन गुणों से ही है, अर्थात् जिसमें जिस गुण का प्रादुर्भाव होता है, उसकी श्रद्धा या जीवन की निष्ठा वैसी ही बन जाती है।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST geetyantra/_doc
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;adhyay&#34;:18,
+</span></span><span class="line"><span class="cl">  &#34;updesh&#34;:&#34;की संज्ञा मोक्षसंन्यास योग है। इसमें गीता के समस्त उपदेशों का सार एवं उपसंहार है। यहाँ पुन: बलपूर्वक मानव जीवन के लिए तीन गुणों का महत्व कहा गया है। पृथ्वी के मानवों में और स्वर्ग के देवताओं में कोई भी ऐसा नहीं जो प्रकृति के चलाए हुए इन तीन गुणों से बचा हो।&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="search">Search</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search?size=20
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;updesh&#34;: &#34;अर्जुन&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;shloka&#34;: &#34;धर्मस्य&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;multi_match&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;query&#34;: &#34;श्रद्धा&#34;,
+</span></span><span class="line"><span class="cl">      &#34;fields&#34;: [&#34;shloka&#34;,&#34;updesh&#34;]
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET geetyantra/_search
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;match_phrase_prefix&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;updesh&#34;: &#34;चौथे अध्याय में&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="search-as-you-type">Search as you type</h2>
 <p>Refer article <a href="https://ashish.one/blogs/search-as-you-type/">Search as you type</a>.</p>
 ]]></content:encoded>
     </item>
@@ -909,27 +816,7 @@ GET geetyantra/_search
       <link>https://ashish.one/blogs/elastic-docker-compose/</link>
       <pubDate>Wed, 08 Jun 2022 13:25:09 +0530</pubDate>
       <guid>https://ashish.one/blogs/elastic-docker-compose/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;. You can learn more about &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Docker Compose&lt;/a&gt;, Which will help you to understand the flow.&lt;/p&gt;
-&lt;h1 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h1&gt;
-&lt;p&gt;Tested on the below configuration.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;docker:&lt;code&gt;Docker version 20.10.16, build aa7e414&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;docker-compose:&lt;code&gt;Docker version 20.10.16, build aa7e414&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;cluster&#34;&gt;Cluster&lt;/h1&gt;
-&lt;p&gt;This setup will include&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Elasticsearch&lt;/li&gt;
-&lt;li&gt;Kibana&lt;/li&gt;
-&lt;li&gt;Logstash&lt;/li&gt;
-&lt;li&gt;APM&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
-&lt;p&gt;Clone repo:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/ashishtiwari1993/elastic-docker.git
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd elastic-docker
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Make changes in &lt;code&gt;.env&lt;/code&gt; file.&lt;/p&gt;</description>
+      <description>Step-by-step guide to spin up a single-node Elasticsearch cluster with Kibana and APM Server using Docker Compose.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this gist, we will quickly try to spin Elastic stacks with Docker containers. We are going to use <a href="https://docs.docker.com/compose/">docker-compose</a>. You can learn more about <a href="https://www.docker.com/">Docker</a> &amp; <a href="https://docs.docker.com/compose/">Docker Compose</a>, Which will help you to understand the flow.</p>
 <h1 id="prerequisite">Prerequisite</h1>
@@ -948,24 +835,24 @@ GET geetyantra/_search
 </ul>
 <h1 id="setup">Setup</h1>
 <p>Clone repo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/ashishtiwari1993/elastic-docker.git
-</span></span><span style="display:flex;"><span>cd elastic-docker
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://github.com/ashishtiwari1993/elastic-docker.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> elastic-docker
 </span></span></code></pre></div><p>Make changes in <code>.env</code> file.</p>
 <h1 id="start-the-cluster">Start the cluster</h1>
 <h2 id="start">Start</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose up -d
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-compose up -d
 </span></span></code></pre></div><p>Just visit to <code>localhost:5601</code>. You should see a kibana login page.</p>
 <h2 id="stop">Stop</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose down
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-compose down
 </span></span></code></pre></div><h2 id="stop-with-deleting-network-containers-and-volumes">Stop with deleting network, containers and volumes</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker-compose down -v
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-compose down -v
 </span></span></code></pre></div><h1 id="access-stacks">Access stacks</h1>
 <h2 id="elasticsearch">Elasticsearch</h2>
 <h3 id="access-via-curl-from-host-machine">Access via <code>curl</code> from host machine</h3>
 <h4 id="copy-cacrt-file">Copy <code>ca.crt</code> file</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker cp elastic-docker_es01_1:/usr/share/elasticsearch/config/certs/ca/ca.crt /tmp/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker cp elastic-docker_es01_1:/usr/share/elasticsearch/config/certs/ca/ca.crt /tmp/
 </span></span></code></pre></div><h4 id="curl-command">Curl command</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --cacert /tmp/ca.crt -u elastic:pass@123 https://localhost:9200
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl --cacert /tmp/ca.crt -u elastic:pass@123 https://localhost:9200
 </span></span></code></pre></div><h2 id="logstash">Logstash</h2>
 <ol>
 <li>You need to have pipeline configuration files on <code>LOGSTASH_PIPELINE_PATH</code> location. If there will be no file, Logstash will throw an error and get exit.</li>
@@ -981,12 +868,7 @@ GET geetyantra/_search
       <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
       <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;goal-of-this-blog&#34;&gt;Goal of this blog&lt;/h2&gt;
-&lt;p&gt;In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).&lt;/p&gt;
-&lt;h2 id=&#34;why-elkb-stack-&#34;&gt;Why ELKB stack ?&lt;/h2&gt;
-&lt;p&gt;Logs are very important for debugging, reporting, insights etc. In today&amp;rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too. It is very difficult to go to each server and check all log files in case of debugging or to generate any insights or reporting.&lt;/p&gt;</description>
+      <description>Learn how to ship structured JSON logs from a Go application to the ELK stack using Logrus and Filebeat.</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/go-elk-logs/banner.png" alt="Go ship logs with ELK Banner"  />
 </p>
 <h2 id="goal-of-this-blog">Goal of this blog</h2>
@@ -1003,63 +885,63 @@ GET geetyantra/_search
 <li>Shift All JSON logs on Elasticsearch</li>
 </ol>
 <h2 id="my-configuration">My Configuration</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>OS: ubuntu 18.04
-</span></span><span style="display:flex;"><span>Go version: go version go1.13 linux/amd64
-</span></span><span style="display:flex;"><span>Elasticsearch version: 7.7.1
-</span></span><span style="display:flex;"><span>Filebeat version: filebeat version 7.7.1 <span style="color:#f92672">(</span>amd64<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>Kibana version: 7.7.1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">OS: ubuntu 18.04
+</span></span><span class="line"><span class="cl">Go version: go version go1.13 linux/amd64
+</span></span><span class="line"><span class="cl">Elasticsearch version: 7.7.1
+</span></span><span class="line"><span class="cl">Filebeat version: filebeat version 7.7.1 <span class="o">(</span>amd64<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Kibana version: 7.7.1
 </span></span></code></pre></div><h2 id="1-write-json-logs-to-the-file-in-go">1. Write JSON logs to the file in Go</h2>
 <p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install">here</a>.</p>
 <h3 id="my-golang-version">My Golang version:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go version go1.13 linux/amd64
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">go version go1.13 linux/amd64
 </span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus">Logrus</a></h3>
 <p>This is a wonderful package available to write logs. Below is the short example of using logrus package:</p>
 <h4 id="1-install-logrus-package">1. Install Logrus package</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go install github.com/sirupsen/logru
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">go install github.com/sirupsen/logru
 </span></span></code></pre></div><h4 id="2-create-loggo-and-paste-the-below-code">2. Create <code>log.go</code> and paste the below code</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;os&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span> <span style="color:#e6db74">&#34;github.com/sirupsen/logrus&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">f</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">OpenFile</span>(<span style="color:#e6db74">&#34;/tmp/go_logs/example.log&#34;</span>, <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">O_RDWR</span>|<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">O_CREATE</span>|<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">O_APPEND</span>, <span style="color:#ae81ff">0666</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">SetFormatter</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">JSONFormatter</span>{})
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">SetOutput</span>(<span style="color:#a6e22e">f</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">WithFields</span>(<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fields</span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;event&#34;</span>: <span style="color:#e6db74">&#34;create_profile&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_id&#34;</span>:   <span style="color:#ae81ff">10</span>,
-</span></span><span style="display:flex;"><span>  }).<span style="color:#a6e22e">Info</span>(<span style="color:#e6db74">&#34;This is an info message.&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">WithFields</span>(<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fields</span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;event&#34;</span>: <span style="color:#e6db74">&#34;delete_profile&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_id&#34;</span>: <span style="color:#ae81ff">11</span>,
-</span></span><span style="display:flex;"><span>  }).<span style="color:#a6e22e">Warn</span>(<span style="color:#e6db74">&#34;This is a warning message.&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">WithFields</span>(<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fields</span>{
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;event&#34;</span> : <span style="color:#e6db74">&#34;edit_profile&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_id&#34;</span>: <span style="color:#ae81ff">13</span>,
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;package&#34;</span> : <span style="color:#e6db74">&#34;main&#34;</span>,
-</span></span><span style="display:flex;"><span>  }).<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;This is a critical message.&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span> <span class="s">&#34;github.com/sirupsen/logrus&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">f</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">OpenFile</span><span class="p">(</span><span class="s">&#34;/tmp/go_logs/example.log&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">O_RDWR</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_CREATE</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_APPEND</span><span class="p">,</span> <span class="mo">0666</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">SetFormatter</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">log</span><span class="p">.</span><span class="nx">JSONFormatter</span><span class="p">{})</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">SetOutput</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">WithFields</span><span class="p">(</span><span class="nx">log</span><span class="p">.</span><span class="nx">Fields</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;event&#34;</span><span class="p">:</span> <span class="s">&#34;create_profile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;user_id&#34;</span><span class="p">:</span>   <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}).</span><span class="nf">Info</span><span class="p">(</span><span class="s">&#34;This is an info message.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">WithFields</span><span class="p">(</span><span class="nx">log</span><span class="p">.</span><span class="nx">Fields</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;event&#34;</span><span class="p">:</span> <span class="s">&#34;delete_profile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;user_id&#34;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}).</span><span class="nf">Warn</span><span class="p">(</span><span class="s">&#34;This is a warning message.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">WithFields</span><span class="p">(</span><span class="nx">log</span><span class="p">.</span><span class="nx">Fields</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;event&#34;</span> <span class="p">:</span> <span class="s">&#34;edit_profile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;user_id&#34;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;package&#34;</span> <span class="p">:</span> <span class="s">&#34;main&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}).</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;This is a critical message.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Here I have specified the log file /tmp/go_logs/example.log.  You can specify according to your need. We also specified the log format <code>JSON</code>.</p>
 <h4 id="3-lets-run-the-loggo">3. Lets run the <code>log.go</code></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go run log.go
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ go run log.go
 </span></span></code></pre></div><h4 id="4-check-log-file">4. Check log file:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cat /tmp/go_logs/example.log
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ cat /tmp/go_logs/example.log
 </span></span></code></pre></div><p>Output</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;create_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;info&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is an info message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">10</span>}
-</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;delete_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;warning&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a warning message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">11</span>}
-</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;edit_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;fatal&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a critical message.&#34;</span>,<span style="color:#f92672">&#34;package&#34;</span>:<span style="color:#e6db74">&#34;main&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">13</span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;event&#34;</span><span class="p">:</span><span class="s2">&#34;create_profile&#34;</span><span class="p">,</span><span class="nt">&#34;level&#34;</span><span class="p">:</span><span class="s2">&#34;info&#34;</span><span class="p">,</span><span class="nt">&#34;msg&#34;</span><span class="p">:</span><span class="s2">&#34;This is an info message.&#34;</span><span class="p">,</span><span class="nt">&#34;time&#34;</span><span class="p">:</span><span class="s2">&#34;2020-06-06T22:51:30+05:30&#34;</span><span class="p">,</span><span class="nt">&#34;user_id&#34;</span><span class="p">:</span><span class="mi">10</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;event&#34;</span><span class="p">:</span><span class="s2">&#34;delete_profile&#34;</span><span class="p">,</span><span class="nt">&#34;level&#34;</span><span class="p">:</span><span class="s2">&#34;warning&#34;</span><span class="p">,</span><span class="nt">&#34;msg&#34;</span><span class="p">:</span><span class="s2">&#34;This is a warning message.&#34;</span><span class="p">,</span><span class="nt">&#34;time&#34;</span><span class="p">:</span><span class="s2">&#34;2020-06-06T22:51:30+05:30&#34;</span><span class="p">,</span><span class="nt">&#34;user_id&#34;</span><span class="p">:</span><span class="mi">11</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;event&#34;</span><span class="p">:</span><span class="s2">&#34;edit_profile&#34;</span><span class="p">,</span><span class="nt">&#34;level&#34;</span><span class="p">:</span><span class="s2">&#34;fatal&#34;</span><span class="p">,</span><span class="nt">&#34;msg&#34;</span><span class="p">:</span><span class="s2">&#34;This is a critical message.&#34;</span><span class="p">,</span><span class="nt">&#34;package&#34;</span><span class="p">:</span><span class="s2">&#34;main&#34;</span><span class="p">,</span><span class="nt">&#34;time&#34;</span><span class="p">:</span><span class="s2">&#34;2020-06-06T22:51:30+05:30&#34;</span><span class="p">,</span><span class="nt">&#34;user_id&#34;</span><span class="p">:</span><span class="mi">13</span><span class="p">}</span>
 </span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus">here</a>.</p>
 <h2 id="2-shift-all-json-logs-on-elasticsearch">2. Shift All JSON logs on Elasticsearch</h2>
 <p>This part has no dependency on the above part. You can use any <code>JSON</code> log file irrespective of any language.</p>
@@ -1073,104 +955,104 @@ GET geetyantra/_search
 <p><strong>Note: In this part we are not going to use Logstash.</strong></p>
 </blockquote>
 <h3 id="1-start-elasticsearch-service">1. Start Elasticsearch Service</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service elasticsearch start
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ service elasticsearch start
 </span></span></code></pre></div><p>It will run on port 9200. You can verify with the below command or just hit <code>localhost:9200</code> on your browser.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ashish@ashish-laptop:~$ curl localhost:9200
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;753853fa62d1&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;cluster_name&#34;</span> : <span style="color:#e6db74">&#34;docker-cluster&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;cluster_uuid&#34;</span> : <span style="color:#e6db74">&#34;JLlH0Z0pQqWjGEHO8MQgZQ&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;version&#34;</span> : <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;number&#34;</span> : <span style="color:#e6db74">&#34;7.7.1&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_flavor&#34;</span> : <span style="color:#e6db74">&#34;default&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_type&#34;</span> : <span style="color:#e6db74">&#34;docker&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_hash&#34;</span> : <span style="color:#e6db74">&#34;ad56dce891c901a492bb1ee393f12dfff473a423&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_date&#34;</span> : <span style="color:#e6db74">&#34;2020-05-28T16:30:01.040088Z&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_snapshot&#34;</span> : false,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;lucene_version&#34;</span> : <span style="color:#e6db74">&#34;8.5.1&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;minimum_wire_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;6.8.0&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;minimum_index_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;6.0.0-beta1&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;tagline&#34;</span> : <span style="color:#e6db74">&#34;You Know, for Search&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ashish@ashish-laptop:~$ curl localhost:9200
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;name&#34;</span> : <span class="s2">&#34;753853fa62d1&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;cluster_name&#34;</span> : <span class="s2">&#34;docker-cluster&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;cluster_uuid&#34;</span> : <span class="s2">&#34;JLlH0Z0pQqWjGEHO8MQgZQ&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;version&#34;</span> : <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;number&#34;</span> : <span class="s2">&#34;7.7.1&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;build_flavor&#34;</span> : <span class="s2">&#34;default&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;build_type&#34;</span> : <span class="s2">&#34;docker&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;build_hash&#34;</span> : <span class="s2">&#34;ad56dce891c901a492bb1ee393f12dfff473a423&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;build_date&#34;</span> : <span class="s2">&#34;2020-05-28T16:30:01.040088Z&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;build_snapshot&#34;</span> : false,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;lucene_version&#34;</span> : <span class="s2">&#34;8.5.1&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;minimum_wire_compatibility_version&#34;</span> : <span class="s2">&#34;6.8.0&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;minimum_index_compatibility_version&#34;</span> : <span class="s2">&#34;6.0.0-beta1&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;tagline&#34;</span> : <span class="s2">&#34;You Know, for Search&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="2-start-kibana-service">2. Start Kibana service</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service kibana start
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ service kibana start
 </span></span></code></pre></div><p>It will run on port 5601. You can verify by visiting <code>localhost:5601</code> from your browser. You should see the kibana dashboard.</p>
 <h3 id="3-edit-filebeatyml">3. Edit <code>filebeat.yml</code></h3>
 <p>Open <code>filebeat.yml</code>. Add below snippet in <code>filebeat.inputs</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">filebeat.inputs</span>:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>- <span style="color:#f92672">type</span>: <span style="color:#ae81ff">log</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">paths</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/tmp/go_logs/*.log</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">json.add_error_key</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">output.elasticsearch</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Array of hosts to connect to.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: [<span style="color:#e6db74">&#34;localhost:9200&#34;</span>]
-</span></span></code></pre></div><p>You can check on below link to know more about filebeat log input &amp; JSON decoding</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">filebeat.inputs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">log</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">/tmp/go_logs/*.log</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">json.add_error_key</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">output.elasticsearch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Array of hosts to connect to.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;localhost:9200&#34;</span><span class="p">]</span><span class="w">
+</span></span></span></code></pre></div><p>You can check on below link to know more about filebeat log input &amp; JSON decoding</p>
 <p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a></p>
 <p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a></p>
 <h3 id="4-restart-filebeat">4. Restart Filebeat</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service filebeat restart
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ service filebeat restart
 </span></span></code></pre></div><h2 id="verify-if-data-indexed-on-elasticsearch">Verify If Data Indexed on Elasticsearch</h2>
 <h3 id="check-logs">Check Logs</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ tail -f /var/log/filebeat/filebeat
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ tail -f /var/log/filebeat/filebeat
 </span></span></code></pre></div><h3 id="check-indices">Check Indices:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl localhost:9200/_cat/indices?v
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ curl localhost:9200/_cat/indices?v
 </span></span></code></pre></div><p>Or you can simply visit <code>localhost:9200/_cat/indices?v</code> on your browser.</p>
 <p>Output:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>health status index                            uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-</span></span><span style="display:flex;"><span>green  open   .apm-custom-link                 xp0mitnBQtijaZ9tEgan_g   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>       208b           208b
-</span></span><span style="display:flex;"><span>green  open   .kibana_task_manager_1           7Q4mMTYxRhCB6sfnQ2ibmA   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">5</span>            <span style="color:#ae81ff">0</span>       34kb           34kb
-</span></span><span style="display:flex;"><span>green  open   .apm-agent-configuration         3piA79spTbGWAVItYL3PlQ   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>       208b           208b
-</span></span><span style="display:flex;"><span>yellow open   filebeat-7.7.1-2020.06.06-000001 nsFk7mOuTguIfaPSbeM3PA   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">1</span>         <span style="color:#ae81ff">19</span>            <span style="color:#ae81ff">0</span>     74.9kb         74.9kb
-</span></span><span style="display:flex;"><span>green  open   .kibana_1                        LBmzoJspR8a8HAcs9WGr8g   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">54</span>            <span style="color:#ae81ff">0</span>    171.6kb        171.6kb
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">health status index                            uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+</span></span><span class="line"><span class="cl">green  open   .apm-custom-link                 xp0mitnBQtijaZ9tEgan_g   <span class="m">1</span>   <span class="m">0</span>          <span class="m">0</span>            <span class="m">0</span>       208b           208b
+</span></span><span class="line"><span class="cl">green  open   .kibana_task_manager_1           7Q4mMTYxRhCB6sfnQ2ibmA   <span class="m">1</span>   <span class="m">0</span>          <span class="m">5</span>            <span class="m">0</span>       34kb           34kb
+</span></span><span class="line"><span class="cl">green  open   .apm-agent-configuration         3piA79spTbGWAVItYL3PlQ   <span class="m">1</span>   <span class="m">0</span>          <span class="m">0</span>            <span class="m">0</span>       208b           208b
+</span></span><span class="line"><span class="cl">yellow open   filebeat-7.7.1-2020.06.06-000001 nsFk7mOuTguIfaPSbeM3PA   <span class="m">1</span>   <span class="m">1</span>         <span class="m">19</span>            <span class="m">0</span>     74.9kb         74.9kb
+</span></span><span class="line"><span class="cl">green  open   .kibana_1                        LBmzoJspR8a8HAcs9WGr8g   <span class="m">1</span>   <span class="m">0</span>         <span class="m">54</span>            <span class="m">0</span>    171.6kb        171.6kb
 </span></span></code></pre></div><p>As you can see a new index is created by filebeat with the name <code>filebeat-7.7.1-2020.06.06-000001</code>. In your case index name can be different but it will start with <code>filebeat*</code>.</p>
 <p>Index lifecycle will be handled by filebeat. You don’t need to worry about that.</p>
 <h3 id="check-documents">Check Documents</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl localhost:9200/filebeat-7.7.1-2020.06.06-000001/_search?pretty
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ curl localhost:9200/filebeat-7.7.1-2020.06.06-000001/_search?pretty
 </span></span></code></pre></div><p>Sample Output:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;filebeat-7.7.1-2020.06.06-000001&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_type&#34;</span> : <span style="color:#e6db74">&#34;_doc&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;4qW3inIBVJJF9hMQm_yi&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_source&#34;</span> : {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@timestamp&#34;</span> : <span style="color:#e6db74">&#34;2020-06-06T17:39:47.208Z&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;log&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;offset&#34;</span> : <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;file&#34;</span> : {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;path&#34;</span> : <span style="color:#e6db74">&#34;/tmp/go_logs/ashish.log&#34;</span>
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;json&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;msg&#34;</span> : <span style="color:#e6db74">&#34;This is an info message.&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;time&#34;</span> : <span style="color:#e6db74">&#34;2020-06-06T23:09:26+05:30&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;user_id&#34;</span> : <span style="color:#ae81ff">10</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;event&#34;</span> : <span style="color:#e6db74">&#34;create_profile&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;level&#34;</span> : <span style="color:#e6db74">&#34;info&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;input&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;log&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;host&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;ashish-laptop&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;agent&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;version&#34;</span> : <span style="color:#e6db74">&#34;7.7.1&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;filebeat&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;ephemeral_id&#34;</span> : <span style="color:#e6db74">&#34;3f53f9c1-66a0-4e93-85fa-1532221c9670&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;hostname&#34;</span> : <span style="color:#e6db74">&#34;ashish-laptop&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;id&#34;</span> : <span style="color:#e6db74">&#34;72976284-d927-49d1-abcb-1d2a5be15176&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ecs&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;version&#34;</span> : <span style="color:#e6db74">&#34;1.5.0&#34;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_index&#34;</span> <span class="p">:</span> <span class="s2">&#34;filebeat-7.7.1-2020.06.06-000001&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_type&#34;</span> <span class="p">:</span> <span class="s2">&#34;_doc&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_id&#34;</span> <span class="p">:</span> <span class="s2">&#34;4qW3inIBVJJF9hMQm_yi&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_score&#34;</span> <span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_source&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;@timestamp&#34;</span> <span class="p">:</span> <span class="s2">&#34;2020-06-06T17:39:47.208Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;log&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;offset&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;file&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;path&#34;</span> <span class="p">:</span> <span class="s2">&#34;/tmp/go_logs/ashish.log&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;json&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;msg&#34;</span> <span class="p">:</span> <span class="s2">&#34;This is an info message.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;time&#34;</span> <span class="p">:</span> <span class="s2">&#34;2020-06-06T23:09:26+05:30&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;user_id&#34;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;event&#34;</span> <span class="p">:</span> <span class="s2">&#34;create_profile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;level&#34;</span> <span class="p">:</span> <span class="s2">&#34;info&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;input&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;log&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;host&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;ashish-laptop&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;agent&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;version&#34;</span> <span class="p">:</span> <span class="s2">&#34;7.7.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;filebeat&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;ephemeral_id&#34;</span> <span class="p">:</span> <span class="s2">&#34;3f53f9c1-66a0-4e93-85fa-1532221c9670&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;hostname&#34;</span> <span class="p">:</span> <span class="s2">&#34;ashish-laptop&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;72976284-d927-49d1-abcb-1d2a5be15176&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ecs&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;version&#34;</span> <span class="p">:</span> <span class="s2">&#34;1.5.0&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Your data will be saved on the <code>json</code> key. Another is metadata which is added by filebeat. Filebeat provides lots of options, features &amp; settings. You can use it according to your requirements.</p>
 <h3 id="logs-on-kibana">Logs on Kibana</h3>
 <p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html">here</a> for more details.</p>

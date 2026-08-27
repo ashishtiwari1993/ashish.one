@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Esql on ashish.one</title>
+    <title>Esql on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/esql/</link>
-    <description>Recent content in Esql on ashish.one</description>
+    <description>Recent content in Esql on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,9 +18,7 @@
       <link>https://ashish.one/talks/esql/</link>
       <pubDate>Thu, 01 Feb 2024 10:54:52 +0530</pubDate>
       <guid>https://ashish.one/talks/esql/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html&#34;&gt;ES|QL&lt;/a&gt; is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.&lt;/p&gt;
-&lt;p&gt;It is a piped separated langugage with a combination of &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands&#34;&gt;source commands&lt;/a&gt; and &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands&#34;&gt;process&lt;/a&gt; commands. The Elasticsearch Query Language (ES|QL) makes use of &amp;ldquo;pipes&amp;rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.&lt;/p&gt;</description>
+      <description>Workshop and talk on ES|QL — Elasticsearch&amp;#39;s new unified query language for search, aggregations, and log analysis.</description>
       <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
 <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html">ES|QL</a> is a new query language for Elasticsearch. It is the unified language for all kinds of use cases like simple queries, aggregations, performing correlations, finding logs, etc. It provides simple easy syntax to perform complex queries. If you come from SQL background, You going to find this very handy.</p>
 <p>It is a piped separated langugage with a combination of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-source-commands">source commands</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-commands.html#esql-processing-commands">process</a> commands. The Elasticsearch Query Language (ES|QL) makes use of &ldquo;pipes&rdquo; (|) to manipulate and transform data in a step-by-step fashion. This means output of the first step will go as an input for second step.</p>
@@ -32,182 +30,182 @@
 <p>Below is a few examples of ES|QL. I am considering you have an Elasticsearch and kibana is <a href="https://www.elastic.co/search-labs/tutorials/install-elasticsearch">installed</a> and running. Please <a href="https://www.elastic.co/guide/en/kibana/current/get-started.html#gs-get-data-into-kibana">import the sample dataset (Sample web logs)</a> from kibana. Navigate in side menu  -&gt; <code>Management</code> -&gt; <code>Dev Tools</code>  to perform the below query.</p>
 <h3 id="source-commands">Source commands</h3>
 <h4 id="from">FROM</h4>
-<pre tabindex="0"><code># Format
-
-POST /_query?format=csv
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="row">ROW</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    row a = &#34;Mozilla/5.0 (X11; Linux x86_64; rv:6.0a1) Gecko/20110421 Firefox/6.0a1&#34;
-    | dissect a &#34;%{browser}/%{version}&#34;
-    | keep browser
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="show">SHOW</h4>
-<pre tabindex="0"><code>POST /_query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    show info
-  &#34;&#34;&#34;
-}
-</code></pre><h3 id="processing-commands">Processing commands</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Format
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST /_query?format=csv
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="row">ROW</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    row a = &#34;Mozilla/5.0 (X11; Linux x86_64; rv:6.0a1) Gecko/20110421 Firefox/6.0a1&#34;
+</span></span><span class="line"><span class="cl">    | dissect a &#34;%{browser}/%{version}&#34;
+</span></span><span class="line"><span class="cl">    | keep browser
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="show">SHOW</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST /_query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    show info
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="processing-commands">Processing commands</h3>
 <h4 id="keep">keep</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | keep @timestamp, clientip, host, tags, bytes
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="where-limit-sort">where, limit, sort</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | keep @timestamp, clientip, host, tags, bytes
-    | where bytes &gt; 1000
-    | sort bytes desc
-    | limit 5
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="like">like</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    FROM sample_data
-    | where message like &#34;*error*&#34;
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="grok-statsby">GROK, STATS&hellip;BY</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
-    | keep browser, version, @timestamp
-  &#34;&#34;&#34;
-}
-
-POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
-    | keep browser, version, @timestamp
-    | stats count(*) by version
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="dissect">DISSECT</h4>
-<pre tabindex="0"><code>POST _query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs 
-    | dissect message &#34;%{ip} - - %{time} %{web_call} &#34;
-    | keep ip, time, web_call
-  &#34;&#34;&#34;
-}
-</code></pre><h4 id="eval">EVAL</h4>
-<pre tabindex="0"><code>POST /_query?format=txt
-{
-  &#34;query&#34;: &#34;&#34;&#34;
-    from kibana_sample_data_logs
-    | eval t = replace(agent, &#34;Mozilla&#34;, &#34;Chrome&#34;)
-    | eval l = length(agent)
-    | dissect agent &#34;%{browser}/%{version} &#34;
-    | eval lt = left(t, 6)
-    | keep lt, browser, version, t, l
-  &#34;&#34;&#34;
-}
-</code></pre><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions">string functions</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | keep @timestamp, clientip, host, tags, bytes
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="where-limit-sort">where, limit, sort</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | keep @timestamp, clientip, host, tags, bytes
+</span></span><span class="line"><span class="cl">    | where bytes &gt; 1000
+</span></span><span class="line"><span class="cl">    | sort bytes desc
+</span></span><span class="line"><span class="cl">    | limit 5
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="like">like</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    FROM sample_data
+</span></span><span class="line"><span class="cl">    | where message like &#34;*error*&#34;
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="grok-statsby">GROK, STATS&hellip;BY</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
+</span></span><span class="line"><span class="cl">    | keep browser, version, @timestamp
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | grok agent &#34;%{WORD:browser}/%{NUMBER:version}&#34;
+</span></span><span class="line"><span class="cl">    | keep browser, version, @timestamp
+</span></span><span class="line"><span class="cl">    | stats count(*) by version
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="dissect">DISSECT</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs 
+</span></span><span class="line"><span class="cl">    | dissect message &#34;%{ip} - - %{time} %{web_call} &#34;
+</span></span><span class="line"><span class="cl">    | keep ip, time, web_call
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h4 id="eval">EVAL</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">POST /_query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from kibana_sample_data_logs
+</span></span><span class="line"><span class="cl">    | eval t = replace(agent, &#34;Mozilla&#34;, &#34;Chrome&#34;)
+</span></span><span class="line"><span class="cl">    | eval l = length(agent)
+</span></span><span class="line"><span class="cl">    | dissect agent &#34;%{browser}/%{version} &#34;
+</span></span><span class="line"><span class="cl">    | eval lt = left(t, 6)
+</span></span><span class="line"><span class="cl">    | keep lt, browser, version, t, l
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>You can check more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-functions-operators.html#esql-string-functions">string functions</a>.</p>
 <h4 id="data-enrichment-enrich">Data enrichment (ENRICH)</h4>
-<pre tabindex="0"><code>
-# Create mappings
-
-PUT lang
-{
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;lang_id&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      },
-      &#34;name&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      }
-    }
-  }
-}
-
-PUT devs
-{
-  &#34;mappings&#34;: {
-    &#34;properties&#34;: {
-      &#34;lang_id&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      },
-      &#34;name&#34;: {
-        &#34;type&#34;: &#34;keyword&#34;
-      }
-    }
-  }
-}
-
-# Create index &#34;lang&#34;
-
-PUT lang/_bulk
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;name&#34;: &#34;java&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;name&#34;: &#34;php&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;name&#34;: &#34;node&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;name&#34;: &#34;python&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;name&#34;: &#34;ruby&#34; }
-
-# create index &#34;devs&#34;
-
-PUT devs/_bulk
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;developer&#34;: &#34;bob&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;developer&#34;: &#34;mark&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;developer&#34;: &#34;max&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;developer&#34;: &#34;david&#34; }
-{ &#34;index&#34; : {}}
-{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;developer&#34;: &#34;ashish&#34; }
-
-
-# Create enrich policy
-
-PUT /_enrich/policy/dev_lang
-{
-  &#34;match&#34;: {
-    &#34;indices&#34;: &#34;lang&#34;,
-    &#34;match_field&#34;: &#34;lang_id&#34;,
-    &#34;enrich_fields&#34;: [&#34;name&#34;]
-  }
-}
-
-PUT /_enrich/policy/dev_lang/_execute?wait_for_completion=true
-
-POST _query?format=txt
-{
-  &#34;query&#34;:&#34;&#34;&#34;
-    from devs
-    | keep lang_id, name, developer
-    | enrich dev_lang on lang_id with name
-  &#34;&#34;&#34;
-}
-</code></pre>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Create mappings
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT lang
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;lang_id&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT devs
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;properties&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;lang_id&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;type&#34;: &#34;keyword&#34;
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Create index &#34;lang&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT lang/_bulk
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;name&#34;: &#34;java&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;name&#34;: &#34;php&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;name&#34;: &#34;node&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;name&#34;: &#34;python&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;name&#34;: &#34;ruby&#34; }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># create index &#34;devs&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT devs/_bulk
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;5x&#34;, &#34;developer&#34;: &#34;bob&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;3x&#34;, &#34;developer&#34;: &#34;mark&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;1x&#34;, &#34;developer&#34;: &#34;max&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;2x&#34;, &#34;developer&#34;: &#34;david&#34; }
+</span></span><span class="line"><span class="cl">{ &#34;index&#34; : {}}
+</span></span><span class="line"><span class="cl">{ &#34;lang_id&#34;: &#34;4x&#34;, &#34;developer&#34;: &#34;ashish&#34; }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Create enrich policy
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT /_enrich/policy/dev_lang
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;match&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;indices&#34;: &#34;lang&#34;,
+</span></span><span class="line"><span class="cl">    &#34;match_field&#34;: &#34;lang_id&#34;,
+</span></span><span class="line"><span class="cl">    &#34;enrich_fields&#34;: [&#34;name&#34;]
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT /_enrich/policy/dev_lang/_execute?wait_for_completion=true
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST _query?format=txt
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;query&#34;:&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    from devs
+</span></span><span class="line"><span class="cl">    | keep lang_id, name, developer
+</span></span><span class="line"><span class="cl">    | enrich dev_lang on lang_id with name
+</span></span><span class="line"><span class="cl">  &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>]]></content:encoded>
     </item>
   </channel>
 </rss>

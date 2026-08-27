@@ -6,7 +6,8 @@ tags: ["elastic","elasticsearch","exceptions"]
 draft: false
 slug: "Elasticsearch-Exceptions-and-Challenges"
 categories: ["Elastic"]
-type: ""
+type: "post"
+description: "Common Elasticsearch exceptions and challenges encountered during setup and operations, with solutions and workarounds."
 ---
 
 Below are some challenges & exceptions faced while setting up Elasticsearch. I just shared my experience and learning. Please correct me, If you guys feel somewhere i got wrong OR You can contribute if you have any experiences . Will keep update this gist.

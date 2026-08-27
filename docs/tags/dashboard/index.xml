@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Dashboard on ashish.one</title>
+    <title>Dashboard on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/dashboard/</link>
-    <description>Recent content in Dashboard on ashish.one</description>
+    <description>Recent content in Dashboard on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,13 +18,7 @@
       <link>https://ashish.one/blogs/setup-grafana-with-prometheus/</link>
       <pubDate>Fri, 03 Apr 2020 21:32:48 +0530</pubDate>
       <guid>https://ashish.one/blogs/setup-grafana-with-prometheus/</guid>
-      <description>&lt;p&gt;As you know Prometheus already having UI (&lt;code&gt;localhost:9090&lt;/code&gt;). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.&lt;/p&gt;
-&lt;h2 id=&#34;what-is-grafana&#34;&gt;What is Grafana?&lt;/h2&gt;
-&lt;p&gt;As &lt;a href=&#34;https://grafana.com&#34;&gt;grafana.com&lt;/a&gt; says&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;”Grafana is the open-source analytics and monitoring solution for every database.”&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This means Grafana is an independent tool for analytics and monitor which gives your various types of Graphs. It is not restricted to Prometheus DB only, You can use mostly any Databases like MySQL, Elasticsearch, etc. So you can visualize different data points from the different databases on one screen. This is the flexibility and power Grafana provides.&lt;/p&gt;</description>
+      <description>Part 4: Connecting Grafana to Prometheus for rich dashboards and visualizations of your monitoring data.</description>
       <content:encoded><![CDATA[<p>As you know Prometheus already having UI (<code>localhost:9090</code>). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.</p>
 <h2 id="what-is-grafana">What is Grafana?</h2>
 <p>As <a href="https://grafana.com">grafana.com</a> says</p>
@@ -57,27 +51,27 @@
 </ol>
 <p>We are going to install OSS Release.</p>
 <h4 id="step-1-install-apt-transport-https">Step 1: Install <code>apt-transport-https</code></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apt-get install -y apt-transport-https
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo apt-get install -y apt-transport-https
 </span></span></code></pre></div><p><img loading="lazy" src="/img/grafana-setup/apt-transport-https.png" alt="apt-transport-https"  />
 </p>
 <h4 id="step-2-install-wget">Step 2: Install <code>wget</code></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apt-get install -y software-properties-common wget
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo apt-get install -y software-properties-common wget
 </span></span></code></pre></div><p><img loading="lazy" src="/img/grafana-setup/install-wget.png" alt="install-wget"  />
 </p>
 <h4 id="step-3-add-key">Step 3: Add key</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ wget -q -O - https://packages.grafana.com/gpg.key <span class="p">|</span> sudo apt-key add -
 </span></span></code></pre></div><h4 id="step-4-add-apt-repository">Step 4: Add <code>apt</code> Repository</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo add-apt-repository <span style="color:#e6db74">&#34;deb https://packages.grafana.com/oss/deb stable main&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>OK
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo add-apt-repository <span class="s2">&#34;deb https://packages.grafana.com/oss/deb stable main&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">OK
 </span></span></code></pre></div><h4 id="step-5-update--install">Step 5: Update &amp; Install</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apt-get update
-</span></span><span style="display:flex;"><span>$ sudo apt-get install grafana
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo apt-get update
+</span></span><span class="line"><span class="cl">$ sudo apt-get install grafana
 </span></span></code></pre></div><p><img loading="lazy" src="/img/grafana-setup/install-grafana.png" alt="install-grafana"  />
 </p>
 <h4 id="step-6-start-grafana-server">Step 6: Start <code>grafana-server</code></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo systemctl daemon-reload  
-</span></span><span style="display:flex;"><span>$ sudo systemctl start grafana-server  
-</span></span><span style="display:flex;"><span>$ sudo systemctl status grafana-server  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo systemctl daemon-reload  
+</span></span><span class="line"><span class="cl">$ sudo systemctl start grafana-server  
+</span></span><span class="line"><span class="cl">$ sudo systemctl status grafana-server  
 </span></span></code></pre></div><p><img loading="lazy" src="/img/grafana-setup/grafana-status.png" alt="grafana-status"  />
 </p>
 <h4 id="step-7-visit-localhost3000">Step 7: Visit <code>localhost:3000</code></h4>
@@ -85,8 +79,8 @@
 </p>
 <h3 id="install-with-docker">Install with Docker</h3>
 <p>Ignore this part if you not using docker.</p>
-<pre tabindex="0"><code>docker run -d -p 3000:3000 grafana/grafana
-</code></pre><p>visit <code>localhost:3000</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -d -p 3000:3000 grafana/grafana
+</span></span></code></pre></div><p>visit <code>localhost:3000</code>.</p>
 <p>We have successfully installed Grafana. Let&rsquo;s configure with Prometheus.</p>
 <h2 id="configure-with-prometheus">Configure with Prometheus</h2>
 <p>We already setup Prometheus in <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">part 1</a>. Now I am considering your Prometheus and Node exporter are running on port <code>9090</code> &amp; <code>9100</code> respectively.</p>

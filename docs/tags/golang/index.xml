@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Golang on ashish.one</title>
+    <title>Golang on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/golang/</link>
-    <description>Recent content in Golang on ashish.one</description>
+    <description>Recent content in Golang on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,30 +18,16 @@
       <link>https://ashish.one/blogs/spf-lookup-in-go/</link>
       <pubDate>Mon, 03 Aug 2020 00:38:53 +0530</pubDate>
       <guid>https://ashish.one/blogs/spf-lookup-in-go/</guid>
-      <description>&lt;p&gt;In this gist, We will check how we can extract SPF records in Go.&lt;/p&gt;
-&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
-&lt;h3 id=&#34;go-version&#34;&gt;Go version&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ go version
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go version go1.13 linux/amd64
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;dependency&#34;&gt;Dependency&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/miekg/dns&#34;&gt;DNS Library(https://github.com/miekg/dns)&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;install-dependency&#34;&gt;Install dependency&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ go get github.com/miekg/dns 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;spflookupgo&#34;&gt;spfLookup.go&lt;/h2&gt;
-&lt;script src=&#34;https://gist.github.com/ashishtiwari1993/ea5da5581ae2c56f3e25f8509155bd37.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;Here you can change &lt;code&gt;nameserver&lt;/code&gt; according to your requirement. I have specified here google&amp;rsquo;s name server (&lt;code&gt;8.8.8.8&lt;/code&gt;). You can also use cloudflare&amp;rsquo;s nameserver &lt;a href=&#34;https://1.1.1.1&#34;&gt;(1.1.1.1)&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;You can make any DNS query with &lt;code&gt;miekg/dns&lt;/code&gt; library. In the above script, we have looked up &lt;code&gt;TXT&lt;/code&gt; Records and then we have searched for a string containing &lt;code&gt;v=spf1&lt;/code&gt;.&lt;/p&gt;</description>
+      <description>How to perform SPF record DNS lookups programmatically in Go using the net package.</description>
       <content:encoded><![CDATA[<p>In this gist, We will check how we can extract SPF records in Go.</p>
 <h2 id="prerequisite">Prerequisite</h2>
 <h3 id="go-version">Go version</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go version
-</span></span><span style="display:flex;"><span>go version go1.13 linux/amd64
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ go version
+</span></span><span class="line"><span class="cl">go version go1.13 linux/amd64
 </span></span></code></pre></div><h3 id="dependency">Dependency</h3>
 <p><a href="https://github.com/miekg/dns">DNS Library(https://github.com/miekg/dns)</a></p>
 <h2 id="install-dependency">Install dependency</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get github.com/miekg/dns 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ go get github.com/miekg/dns 
 </span></span></code></pre></div><h2 id="spflookupgo">spfLookup.go</h2>
 <script src="https://gist.github.com/ashishtiwari1993/ea5da5581ae2c56f3e25f8509155bd37.js"></script>
 
@@ -55,12 +41,7 @@
       <link>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</link>
       <pubDate>Sat, 06 Jun 2020 23:31:33 +0530</pubDate>
       <guid>https://ashish.one/blogs/shipping-golang-logs-with-elkb-stack/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/go-elk-logs/banner.png&#34; alt=&#34;Go ship logs with ELK Banner&#34;  /&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;goal-of-this-blog&#34;&gt;Goal of this blog&lt;/h2&gt;
-&lt;p&gt;In this blog, I am going to show you how easily we can write logs to the files in Golang. As well as we are going  to store all logs on elasticsearch with EKB (Elasticsearch, Kibana, Beats).&lt;/p&gt;
-&lt;h2 id=&#34;why-elkb-stack-&#34;&gt;Why ELKB stack ?&lt;/h2&gt;
-&lt;p&gt;Logs are very important for debugging, reporting, insights etc. In today&amp;rsquo;s tech world, We uses multiple cloud servers, private servers etc. Which consist of lots of different applications, scripts, programs, daemons, services and they generate their logs too. It is very difficult to go to each server and check all log files in case of debugging or to generate any insights or reporting.&lt;/p&gt;</description>
+      <description>Learn how to ship structured JSON logs from a Go application to the ELK stack using Logrus and Filebeat.</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/go-elk-logs/banner.png" alt="Go ship logs with ELK Banner"  />
 </p>
 <h2 id="goal-of-this-blog">Goal of this blog</h2>
@@ -77,63 +58,63 @@
 <li>Shift All JSON logs on Elasticsearch</li>
 </ol>
 <h2 id="my-configuration">My Configuration</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>OS: ubuntu 18.04
-</span></span><span style="display:flex;"><span>Go version: go version go1.13 linux/amd64
-</span></span><span style="display:flex;"><span>Elasticsearch version: 7.7.1
-</span></span><span style="display:flex;"><span>Filebeat version: filebeat version 7.7.1 <span style="color:#f92672">(</span>amd64<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>Kibana version: 7.7.1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">OS: ubuntu 18.04
+</span></span><span class="line"><span class="cl">Go version: go version go1.13 linux/amd64
+</span></span><span class="line"><span class="cl">Elasticsearch version: 7.7.1
+</span></span><span class="line"><span class="cl">Filebeat version: filebeat version 7.7.1 <span class="o">(</span>amd64<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Kibana version: 7.7.1
 </span></span></code></pre></div><h2 id="1-write-json-logs-to-the-file-in-go">1. Write JSON logs to the file in Go</h2>
 <p>I am assuming you have already installed Go on your machine. If not then you can refer to the installation guide <a href="https://golang.org/doc/install">here</a>.</p>
 <h3 id="my-golang-version">My Golang version:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go version go1.13 linux/amd64
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">go version go1.13 linux/amd64
 </span></span></code></pre></div><h3 id="logrushttpsgodocorggithubcomsirupsenlogrus"><a href="https://godoc.org/github.com/sirupsen/logrus">Logrus</a></h3>
 <p>This is a wonderful package available to write logs. Below is the short example of using logrus package:</p>
 <h4 id="1-install-logrus-package">1. Install Logrus package</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go install github.com/sirupsen/logru
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">go install github.com/sirupsen/logru
 </span></span></code></pre></div><h4 id="2-create-loggo-and-paste-the-below-code">2. Create <code>log.go</code> and paste the below code</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;os&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span> <span style="color:#e6db74">&#34;github.com/sirupsen/logrus&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">f</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">OpenFile</span>(<span style="color:#e6db74">&#34;/tmp/go_logs/example.log&#34;</span>, <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">O_RDWR</span>|<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">O_CREATE</span>|<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">O_APPEND</span>, <span style="color:#ae81ff">0666</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">SetFormatter</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">JSONFormatter</span>{})
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">SetOutput</span>(<span style="color:#a6e22e">f</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">WithFields</span>(<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fields</span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;event&#34;</span>: <span style="color:#e6db74">&#34;create_profile&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_id&#34;</span>:   <span style="color:#ae81ff">10</span>,
-</span></span><span style="display:flex;"><span>  }).<span style="color:#a6e22e">Info</span>(<span style="color:#e6db74">&#34;This is an info message.&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">WithFields</span>(<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fields</span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;event&#34;</span>: <span style="color:#e6db74">&#34;delete_profile&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_id&#34;</span>: <span style="color:#ae81ff">11</span>,
-</span></span><span style="display:flex;"><span>  }).<span style="color:#a6e22e">Warn</span>(<span style="color:#e6db74">&#34;This is a warning message.&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">WithFields</span>(<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fields</span>{
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;event&#34;</span> : <span style="color:#e6db74">&#34;edit_profile&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_id&#34;</span>: <span style="color:#ae81ff">13</span>,
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;package&#34;</span> : <span style="color:#e6db74">&#34;main&#34;</span>,
-</span></span><span style="display:flex;"><span>  }).<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;This is a critical message.&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span> <span class="s">&#34;github.com/sirupsen/logrus&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">f</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">OpenFile</span><span class="p">(</span><span class="s">&#34;/tmp/go_logs/example.log&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">O_RDWR</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_CREATE</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_APPEND</span><span class="p">,</span> <span class="mo">0666</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">SetFormatter</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">log</span><span class="p">.</span><span class="nx">JSONFormatter</span><span class="p">{})</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">SetOutput</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">WithFields</span><span class="p">(</span><span class="nx">log</span><span class="p">.</span><span class="nx">Fields</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;event&#34;</span><span class="p">:</span> <span class="s">&#34;create_profile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;user_id&#34;</span><span class="p">:</span>   <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}).</span><span class="nf">Info</span><span class="p">(</span><span class="s">&#34;This is an info message.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">WithFields</span><span class="p">(</span><span class="nx">log</span><span class="p">.</span><span class="nx">Fields</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;event&#34;</span><span class="p">:</span> <span class="s">&#34;delete_profile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;user_id&#34;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}).</span><span class="nf">Warn</span><span class="p">(</span><span class="s">&#34;This is a warning message.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">WithFields</span><span class="p">(</span><span class="nx">log</span><span class="p">.</span><span class="nx">Fields</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;event&#34;</span> <span class="p">:</span> <span class="s">&#34;edit_profile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;user_id&#34;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;package&#34;</span> <span class="p">:</span> <span class="s">&#34;main&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}).</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;This is a critical message.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Here I have specified the log file /tmp/go_logs/example.log.  You can specify according to your need. We also specified the log format <code>JSON</code>.</p>
 <h4 id="3-lets-run-the-loggo">3. Lets run the <code>log.go</code></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go run log.go
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ go run log.go
 </span></span></code></pre></div><h4 id="4-check-log-file">4. Check log file:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cat /tmp/go_logs/example.log
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ cat /tmp/go_logs/example.log
 </span></span></code></pre></div><p>Output</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;create_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;info&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is an info message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">10</span>}
-</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;delete_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;warning&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a warning message.&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">11</span>}
-</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;event&#34;</span>:<span style="color:#e6db74">&#34;edit_profile&#34;</span>,<span style="color:#f92672">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;fatal&#34;</span>,<span style="color:#f92672">&#34;msg&#34;</span>:<span style="color:#e6db74">&#34;This is a critical message.&#34;</span>,<span style="color:#f92672">&#34;package&#34;</span>:<span style="color:#e6db74">&#34;main&#34;</span>,<span style="color:#f92672">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2020-06-06T22:51:30+05:30&#34;</span>,<span style="color:#f92672">&#34;user_id&#34;</span>:<span style="color:#ae81ff">13</span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;event&#34;</span><span class="p">:</span><span class="s2">&#34;create_profile&#34;</span><span class="p">,</span><span class="nt">&#34;level&#34;</span><span class="p">:</span><span class="s2">&#34;info&#34;</span><span class="p">,</span><span class="nt">&#34;msg&#34;</span><span class="p">:</span><span class="s2">&#34;This is an info message.&#34;</span><span class="p">,</span><span class="nt">&#34;time&#34;</span><span class="p">:</span><span class="s2">&#34;2020-06-06T22:51:30+05:30&#34;</span><span class="p">,</span><span class="nt">&#34;user_id&#34;</span><span class="p">:</span><span class="mi">10</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;event&#34;</span><span class="p">:</span><span class="s2">&#34;delete_profile&#34;</span><span class="p">,</span><span class="nt">&#34;level&#34;</span><span class="p">:</span><span class="s2">&#34;warning&#34;</span><span class="p">,</span><span class="nt">&#34;msg&#34;</span><span class="p">:</span><span class="s2">&#34;This is a warning message.&#34;</span><span class="p">,</span><span class="nt">&#34;time&#34;</span><span class="p">:</span><span class="s2">&#34;2020-06-06T22:51:30+05:30&#34;</span><span class="p">,</span><span class="nt">&#34;user_id&#34;</span><span class="p">:</span><span class="mi">11</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;event&#34;</span><span class="p">:</span><span class="s2">&#34;edit_profile&#34;</span><span class="p">,</span><span class="nt">&#34;level&#34;</span><span class="p">:</span><span class="s2">&#34;fatal&#34;</span><span class="p">,</span><span class="nt">&#34;msg&#34;</span><span class="p">:</span><span class="s2">&#34;This is a critical message.&#34;</span><span class="p">,</span><span class="nt">&#34;package&#34;</span><span class="p">:</span><span class="s2">&#34;main&#34;</span><span class="p">,</span><span class="nt">&#34;time&#34;</span><span class="p">:</span><span class="s2">&#34;2020-06-06T22:51:30+05:30&#34;</span><span class="p">,</span><span class="nt">&#34;user_id&#34;</span><span class="p">:</span><span class="mi">13</span><span class="p">}</span>
 </span></span></code></pre></div><p>Here I have used the log format <code>JSON</code>. Every log will be written in JSON format on the newline. You can check more features about logrus <a href="https://github.com/sirupsen/logrus">here</a>.</p>
 <h2 id="2-shift-all-json-logs-on-elasticsearch">2. Shift All JSON logs on Elasticsearch</h2>
 <p>This part has no dependency on the above part. You can use any <code>JSON</code> log file irrespective of any language.</p>
@@ -147,104 +128,104 @@
 <p><strong>Note: In this part we are not going to use Logstash.</strong></p>
 </blockquote>
 <h3 id="1-start-elasticsearch-service">1. Start Elasticsearch Service</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service elasticsearch start
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ service elasticsearch start
 </span></span></code></pre></div><p>It will run on port 9200. You can verify with the below command or just hit <code>localhost:9200</code> on your browser.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ashish@ashish-laptop:~$ curl localhost:9200
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;753853fa62d1&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;cluster_name&#34;</span> : <span style="color:#e6db74">&#34;docker-cluster&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;cluster_uuid&#34;</span> : <span style="color:#e6db74">&#34;JLlH0Z0pQqWjGEHO8MQgZQ&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;version&#34;</span> : <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;number&#34;</span> : <span style="color:#e6db74">&#34;7.7.1&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_flavor&#34;</span> : <span style="color:#e6db74">&#34;default&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_type&#34;</span> : <span style="color:#e6db74">&#34;docker&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_hash&#34;</span> : <span style="color:#e6db74">&#34;ad56dce891c901a492bb1ee393f12dfff473a423&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_date&#34;</span> : <span style="color:#e6db74">&#34;2020-05-28T16:30:01.040088Z&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;build_snapshot&#34;</span> : false,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;lucene_version&#34;</span> : <span style="color:#e6db74">&#34;8.5.1&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;minimum_wire_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;6.8.0&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;minimum_index_compatibility_version&#34;</span> : <span style="color:#e6db74">&#34;6.0.0-beta1&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;tagline&#34;</span> : <span style="color:#e6db74">&#34;You Know, for Search&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ashish@ashish-laptop:~$ curl localhost:9200
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;name&#34;</span> : <span class="s2">&#34;753853fa62d1&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;cluster_name&#34;</span> : <span class="s2">&#34;docker-cluster&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;cluster_uuid&#34;</span> : <span class="s2">&#34;JLlH0Z0pQqWjGEHO8MQgZQ&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;version&#34;</span> : <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;number&#34;</span> : <span class="s2">&#34;7.7.1&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;build_flavor&#34;</span> : <span class="s2">&#34;default&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;build_type&#34;</span> : <span class="s2">&#34;docker&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;build_hash&#34;</span> : <span class="s2">&#34;ad56dce891c901a492bb1ee393f12dfff473a423&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;build_date&#34;</span> : <span class="s2">&#34;2020-05-28T16:30:01.040088Z&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;build_snapshot&#34;</span> : false,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;lucene_version&#34;</span> : <span class="s2">&#34;8.5.1&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;minimum_wire_compatibility_version&#34;</span> : <span class="s2">&#34;6.8.0&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;minimum_index_compatibility_version&#34;</span> : <span class="s2">&#34;6.0.0-beta1&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;tagline&#34;</span> : <span class="s2">&#34;You Know, for Search&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="2-start-kibana-service">2. Start Kibana service</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service kibana start
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ service kibana start
 </span></span></code></pre></div><p>It will run on port 5601. You can verify by visiting <code>localhost:5601</code> from your browser. You should see the kibana dashboard.</p>
 <h3 id="3-edit-filebeatyml">3. Edit <code>filebeat.yml</code></h3>
 <p>Open <code>filebeat.yml</code>. Add below snippet in <code>filebeat.inputs</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">filebeat.inputs</span>:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>- <span style="color:#f92672">type</span>: <span style="color:#ae81ff">log</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">paths</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/tmp/go_logs/*.log</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">json.add_error_key</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">output.elasticsearch</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Array of hosts to connect to.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: [<span style="color:#e6db74">&#34;localhost:9200&#34;</span>]
-</span></span></code></pre></div><p>You can check on below link to know more about filebeat log input &amp; JSON decoding</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">filebeat.inputs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">log</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">/tmp/go_logs/*.log</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">json.add_error_key</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">output.elasticsearch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Array of hosts to connect to.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;localhost:9200&#34;</span><span class="p">]</span><span class="w">
+</span></span></span></code></pre></div><p>You can check on below link to know more about filebeat log input &amp; JSON decoding</p>
 <p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html</a></p>
 <p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json">https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html#filebeat-input-log-config-json</a></p>
 <h3 id="4-restart-filebeat">4. Restart Filebeat</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ service filebeat restart
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ service filebeat restart
 </span></span></code></pre></div><h2 id="verify-if-data-indexed-on-elasticsearch">Verify If Data Indexed on Elasticsearch</h2>
 <h3 id="check-logs">Check Logs</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ tail -f /var/log/filebeat/filebeat
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ tail -f /var/log/filebeat/filebeat
 </span></span></code></pre></div><h3 id="check-indices">Check Indices:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl localhost:9200/_cat/indices?v
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ curl localhost:9200/_cat/indices?v
 </span></span></code></pre></div><p>Or you can simply visit <code>localhost:9200/_cat/indices?v</code> on your browser.</p>
 <p>Output:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>health status index                            uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-</span></span><span style="display:flex;"><span>green  open   .apm-custom-link                 xp0mitnBQtijaZ9tEgan_g   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>       208b           208b
-</span></span><span style="display:flex;"><span>green  open   .kibana_task_manager_1           7Q4mMTYxRhCB6sfnQ2ibmA   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">5</span>            <span style="color:#ae81ff">0</span>       34kb           34kb
-</span></span><span style="display:flex;"><span>green  open   .apm-agent-configuration         3piA79spTbGWAVItYL3PlQ   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>       208b           208b
-</span></span><span style="display:flex;"><span>yellow open   filebeat-7.7.1-2020.06.06-000001 nsFk7mOuTguIfaPSbeM3PA   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">1</span>         <span style="color:#ae81ff">19</span>            <span style="color:#ae81ff">0</span>     74.9kb         74.9kb
-</span></span><span style="display:flex;"><span>green  open   .kibana_1                        LBmzoJspR8a8HAcs9WGr8g   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">54</span>            <span style="color:#ae81ff">0</span>    171.6kb        171.6kb
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">health status index                            uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+</span></span><span class="line"><span class="cl">green  open   .apm-custom-link                 xp0mitnBQtijaZ9tEgan_g   <span class="m">1</span>   <span class="m">0</span>          <span class="m">0</span>            <span class="m">0</span>       208b           208b
+</span></span><span class="line"><span class="cl">green  open   .kibana_task_manager_1           7Q4mMTYxRhCB6sfnQ2ibmA   <span class="m">1</span>   <span class="m">0</span>          <span class="m">5</span>            <span class="m">0</span>       34kb           34kb
+</span></span><span class="line"><span class="cl">green  open   .apm-agent-configuration         3piA79spTbGWAVItYL3PlQ   <span class="m">1</span>   <span class="m">0</span>          <span class="m">0</span>            <span class="m">0</span>       208b           208b
+</span></span><span class="line"><span class="cl">yellow open   filebeat-7.7.1-2020.06.06-000001 nsFk7mOuTguIfaPSbeM3PA   <span class="m">1</span>   <span class="m">1</span>         <span class="m">19</span>            <span class="m">0</span>     74.9kb         74.9kb
+</span></span><span class="line"><span class="cl">green  open   .kibana_1                        LBmzoJspR8a8HAcs9WGr8g   <span class="m">1</span>   <span class="m">0</span>         <span class="m">54</span>            <span class="m">0</span>    171.6kb        171.6kb
 </span></span></code></pre></div><p>As you can see a new index is created by filebeat with the name <code>filebeat-7.7.1-2020.06.06-000001</code>. In your case index name can be different but it will start with <code>filebeat*</code>.</p>
 <p>Index lifecycle will be handled by filebeat. You don’t need to worry about that.</p>
 <h3 id="check-documents">Check Documents</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl localhost:9200/filebeat-7.7.1-2020.06.06-000001/_search?pretty
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ curl localhost:9200/filebeat-7.7.1-2020.06.06-000001/_search?pretty
 </span></span></code></pre></div><p>Sample Output:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_index&#34;</span> : <span style="color:#e6db74">&#34;filebeat-7.7.1-2020.06.06-000001&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_type&#34;</span> : <span style="color:#e6db74">&#34;_doc&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_id&#34;</span> : <span style="color:#e6db74">&#34;4qW3inIBVJJF9hMQm_yi&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_score&#34;</span> : <span style="color:#ae81ff">1.0</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_source&#34;</span> : {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@timestamp&#34;</span> : <span style="color:#e6db74">&#34;2020-06-06T17:39:47.208Z&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;log&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;offset&#34;</span> : <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;file&#34;</span> : {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;path&#34;</span> : <span style="color:#e6db74">&#34;/tmp/go_logs/ashish.log&#34;</span>
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;json&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;msg&#34;</span> : <span style="color:#e6db74">&#34;This is an info message.&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;time&#34;</span> : <span style="color:#e6db74">&#34;2020-06-06T23:09:26+05:30&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;user_id&#34;</span> : <span style="color:#ae81ff">10</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;event&#34;</span> : <span style="color:#e6db74">&#34;create_profile&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;level&#34;</span> : <span style="color:#e6db74">&#34;info&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;input&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;log&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;host&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;ashish-laptop&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;agent&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;version&#34;</span> : <span style="color:#e6db74">&#34;7.7.1&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;filebeat&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;ephemeral_id&#34;</span> : <span style="color:#e6db74">&#34;3f53f9c1-66a0-4e93-85fa-1532221c9670&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;hostname&#34;</span> : <span style="color:#e6db74">&#34;ashish-laptop&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;id&#34;</span> : <span style="color:#e6db74">&#34;72976284-d927-49d1-abcb-1d2a5be15176&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ecs&#34;</span> : {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;version&#34;</span> : <span style="color:#e6db74">&#34;1.5.0&#34;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_index&#34;</span> <span class="p">:</span> <span class="s2">&#34;filebeat-7.7.1-2020.06.06-000001&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_type&#34;</span> <span class="p">:</span> <span class="s2">&#34;_doc&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_id&#34;</span> <span class="p">:</span> <span class="s2">&#34;4qW3inIBVJJF9hMQm_yi&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_score&#34;</span> <span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_source&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;@timestamp&#34;</span> <span class="p">:</span> <span class="s2">&#34;2020-06-06T17:39:47.208Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;log&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;offset&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;file&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;path&#34;</span> <span class="p">:</span> <span class="s2">&#34;/tmp/go_logs/ashish.log&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;json&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;msg&#34;</span> <span class="p">:</span> <span class="s2">&#34;This is an info message.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;time&#34;</span> <span class="p">:</span> <span class="s2">&#34;2020-06-06T23:09:26+05:30&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;user_id&#34;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;event&#34;</span> <span class="p">:</span> <span class="s2">&#34;create_profile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;level&#34;</span> <span class="p">:</span> <span class="s2">&#34;info&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;input&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;log&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;host&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;ashish-laptop&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;agent&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;version&#34;</span> <span class="p">:</span> <span class="s2">&#34;7.7.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;filebeat&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;ephemeral_id&#34;</span> <span class="p">:</span> <span class="s2">&#34;3f53f9c1-66a0-4e93-85fa-1532221c9670&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;hostname&#34;</span> <span class="p">:</span> <span class="s2">&#34;ashish-laptop&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;72976284-d927-49d1-abcb-1d2a5be15176&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ecs&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;version&#34;</span> <span class="p">:</span> <span class="s2">&#34;1.5.0&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Your data will be saved on the <code>json</code> key. Another is metadata which is added by filebeat. Filebeat provides lots of options, features &amp; settings. You can use it according to your requirements.</p>
 <h3 id="logs-on-kibana">Logs on Kibana</h3>
 <p>Visit on <code>localhost:5601</code> from your browser. Create index pattern with the pattern <code>filebeat*</code>. Check <a href="https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html">here</a> for more details.</p>
@@ -262,10 +243,7 @@
       <link>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</link>
       <pubDate>Wed, 11 Mar 2020 00:12:30 +0530</pubDate>
       <guid>https://ashish.one/talks/golang-basics-and-send-100k-hourly-webhooks-with-golang-mimepost/</guid>
-      <description>&lt;h2 id=&#34;what-this-talk-about&#34;&gt;What this talk about?&lt;/h2&gt;
-&lt;p&gt;I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.&lt;/p&gt;
-&lt;p&gt;Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?&lt;/p&gt;
-&lt;p&gt;I have explained the Webhook architecture of MimePost And how we sending 100k Request hourly( Though Benchmark proves we can scale up to 500k).&lt;/p&gt;</description>
+      <description>Talk on Golang fundamentals and how MimePost handled 100,000 hourly webhook events using Go concurrency patterns.</description>
       <content:encoded><![CDATA[<h2 id="what-this-talk-about">What this talk about?</h2>
 <p>I am working on Golang for the last 1 year from the published date. I have shared some basics of Golang.</p>
 <p>Also, shared What are the pain points developers face when they migrate from any other language (Especially from web language like PHP) to Golang?</p>
@@ -308,88 +286,47 @@
       <link>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</link>
       <pubDate>Tue, 04 Feb 2020 01:14:03 +0530</pubDate>
       <guid>https://ashish.one/blogs/fatal-error-concurrent-map-writes/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://ashish.one/img/golang/concurrent_map_writes.jpg&#34; alt=&#34;concurrent_map_writes&#34;  /&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;the-problem&#34;&gt;The Problem:&lt;/h2&gt;
-&lt;p&gt;Suddenly got below errors which killed my daemon:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fatal error: concurrent map writes
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;goroutine &lt;span style=&#34;color:#ae81ff&#34;&gt;646&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;running&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;runtime.throw&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x75fd38, 0x15&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/panic.go:774 +0x72 fp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0xc000315e60 sp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0xc000315e30 pc&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0x42ecf2
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;runtime.mapdelete_fast64&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x6f0800, 0xc00008ad50, 0x2b3e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;goroutine &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;sleep&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;runtime.goparkunlock&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/proc.go:310
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;time.Sleep&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x12a05f200&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/time.go:105 +0x157
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;webhook/worker.Manager&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;goroutine &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;IO wait&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.runtime_pollWait&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x7fc308de6f08, 0x72, 0x0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/runtime/netpoll.go:184 +0x55
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*pollDesc&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.wait&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000110018, 0x72, 0x0, 0x0, 0x75b00b&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*pollDesc&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.waitRead&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/internal/poll/fd_poll_runtime.go:92
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;internal/poll.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*FD&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.Accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*netFD&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/fd_unix.go:238 +0x42
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*TCPListener&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000126000, 0xc000050d80, 0x40dd08, 0x30&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/tcpsock_posix.go:139 +0x32
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*TCPListener&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.Accept&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc000126000, 0x72f560, 0xc0000f0180, 0x6f4f20, 0x9c00c0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/tcpsock.go:261 +0x47
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net/http.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*Server&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.Serve&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc0000f4000, 0x7ccbe0, 0xc000126000, 0x0, 0x0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/http/server.go:2896 +0x286
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net/http.&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;*Server&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.ListenAndServe&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0xc0000f4000, 0xc0000f4000, 0x8&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/http/server.go:2825 +0xb7
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;net/http.ListenAndServe&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /usr/local/go/src/net/http/server.go:3080
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;webhook/handler.HandleRequest&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;expected-behaviour&#34;&gt;Expected behaviour&lt;/h3&gt;
-&lt;p&gt;In starting for a few seconds it was working smoothly.&lt;/p&gt;</description>
+      <description>How to fix the Golang fatal error &amp;#39;concurrent map writes&amp;#39; using sync.Mutex to safely share maps across goroutines.</description>
       <content:encoded><![CDATA[<p><img loading="lazy" src="/img/golang/concurrent_map_writes.jpg" alt="concurrent_map_writes"  />
 </p>
 <h2 id="the-problem">The Problem:</h2>
 <p>Suddenly got below errors which killed my daemon:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>fatal error: concurrent map writes
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>goroutine <span style="color:#ae81ff">646</span> <span style="color:#f92672">[</span>running<span style="color:#f92672">]</span>:
-</span></span><span style="display:flex;"><span>runtime.throw<span style="color:#f92672">(</span>0x75fd38, 0x15<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/runtime/panic.go:774 +0x72 fp<span style="color:#f92672">=</span>0xc000315e60 sp<span style="color:#f92672">=</span>0xc000315e30 pc<span style="color:#f92672">=</span>0x42ecf2
-</span></span><span style="display:flex;"><span>runtime.mapdelete_fast64<span style="color:#f92672">(</span>0x6f0800, 0xc00008ad50, 0x2b3e<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>goroutine <span style="color:#ae81ff">1</span> <span style="color:#f92672">[</span>sleep<span style="color:#f92672">]</span>:
-</span></span><span style="display:flex;"><span>runtime.goparkunlock<span style="color:#f92672">(</span>...<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/runtime/proc.go:310
-</span></span><span style="display:flex;"><span>time.Sleep<span style="color:#f92672">(</span>0x12a05f200<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/runtime/time.go:105 +0x157
-</span></span><span style="display:flex;"><span>webhook/worker.Manager<span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>goroutine <span style="color:#ae81ff">6</span> <span style="color:#f92672">[</span>IO wait<span style="color:#f92672">]</span>:
-</span></span><span style="display:flex;"><span>internal/poll.runtime_pollWait<span style="color:#f92672">(</span>0x7fc308de6f08, 0x72, 0x0<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/runtime/netpoll.go:184 +0x55
-</span></span><span style="display:flex;"><span>internal/poll.<span style="color:#f92672">(</span>*pollDesc<span style="color:#f92672">)</span>.wait<span style="color:#f92672">(</span>0xc000110018, 0x72, 0x0, 0x0, 0x75b00b<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
-</span></span><span style="display:flex;"><span>internal/poll.<span style="color:#f92672">(</span>*pollDesc<span style="color:#f92672">)</span>.waitRead<span style="color:#f92672">(</span>...<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/internal/poll/fd_poll_runtime.go:92
-</span></span><span style="display:flex;"><span>internal/poll.<span style="color:#f92672">(</span>*FD<span style="color:#f92672">)</span>.Accept<span style="color:#f92672">(</span>0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8
-</span></span><span style="display:flex;"><span>net.<span style="color:#f92672">(</span>*netFD<span style="color:#f92672">)</span>.accept<span style="color:#f92672">(</span>0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/fd_unix.go:238 +0x42
-</span></span><span style="display:flex;"><span>net.<span style="color:#f92672">(</span>*TCPListener<span style="color:#f92672">)</span>.accept<span style="color:#f92672">(</span>0xc000126000, 0xc000050d80, 0x40dd08, 0x30<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/tcpsock_posix.go:139 +0x32
-</span></span><span style="display:flex;"><span>net.<span style="color:#f92672">(</span>*TCPListener<span style="color:#f92672">)</span>.Accept<span style="color:#f92672">(</span>0xc000126000, 0x72f560, 0xc0000f0180, 0x6f4f20, 0x9c00c0<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/tcpsock.go:261 +0x47
-</span></span><span style="display:flex;"><span>net/http.<span style="color:#f92672">(</span>*Server<span style="color:#f92672">)</span>.Serve<span style="color:#f92672">(</span>0xc0000f4000, 0x7ccbe0, 0xc000126000, 0x0, 0x0<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/http/server.go:2896 +0x286
-</span></span><span style="display:flex;"><span>net/http.<span style="color:#f92672">(</span>*Server<span style="color:#f92672">)</span>.ListenAndServe<span style="color:#f92672">(</span>0xc0000f4000, 0xc0000f4000, 0x8<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/http/server.go:2825 +0xb7
-</span></span><span style="display:flex;"><span>net/http.ListenAndServe<span style="color:#f92672">(</span>...<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        /usr/local/go/src/net/http/server.go:3080
-</span></span><span style="display:flex;"><span>webhook/handler.HandleRequest<span style="color:#f92672">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">fatal error: concurrent map writes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">goroutine <span class="m">646</span> <span class="o">[</span>running<span class="o">]</span>:
+</span></span><span class="line"><span class="cl">runtime.throw<span class="o">(</span>0x75fd38, 0x15<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/runtime/panic.go:774 +0x72 <span class="nv">fp</span><span class="o">=</span>0xc000315e60 <span class="nv">sp</span><span class="o">=</span>0xc000315e30 <span class="nv">pc</span><span class="o">=</span>0x42ecf2
+</span></span><span class="line"><span class="cl">runtime.mapdelete_fast64<span class="o">(</span>0x6f0800, 0xc00008ad50, 0x2b3e<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">goroutine <span class="m">1</span> <span class="o">[</span>sleep<span class="o">]</span>:
+</span></span><span class="line"><span class="cl">runtime.goparkunlock<span class="o">(</span>...<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/runtime/proc.go:310
+</span></span><span class="line"><span class="cl">time.Sleep<span class="o">(</span>0x12a05f200<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/runtime/time.go:105 +0x157
+</span></span><span class="line"><span class="cl">webhook/worker.Manager<span class="o">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">goroutine <span class="m">6</span> <span class="o">[</span>IO wait<span class="o">]</span>:
+</span></span><span class="line"><span class="cl">internal/poll.runtime_pollWait<span class="o">(</span>0x7fc308de6f08, 0x72, 0x0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/runtime/netpoll.go:184 +0x55
+</span></span><span class="line"><span class="cl">internal/poll.<span class="o">(</span>*pollDesc<span class="o">)</span>.wait<span class="o">(</span>0xc000110018, 0x72, 0x0, 0x0, 0x75b00b<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+</span></span><span class="line"><span class="cl">internal/poll.<span class="o">(</span>*pollDesc<span class="o">)</span>.waitRead<span class="o">(</span>...<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+</span></span><span class="line"><span class="cl">internal/poll.<span class="o">(</span>*FD<span class="o">)</span>.Accept<span class="o">(</span>0xc000110000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8
+</span></span><span class="line"><span class="cl">net.<span class="o">(</span>*netFD<span class="o">)</span>.accept<span class="o">(</span>0xc000110000, 0xc000050d50, 0xc000046700, 0x7fc308e426d0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/net/fd_unix.go:238 +0x42
+</span></span><span class="line"><span class="cl">net.<span class="o">(</span>*TCPListener<span class="o">)</span>.accept<span class="o">(</span>0xc000126000, 0xc000050d80, 0x40dd08, 0x30<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+</span></span><span class="line"><span class="cl">net.<span class="o">(</span>*TCPListener<span class="o">)</span>.Accept<span class="o">(</span>0xc000126000, 0x72f560, 0xc0000f0180, 0x6f4f20, 0x9c00c0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/net/tcpsock.go:261 +0x47
+</span></span><span class="line"><span class="cl">net/http.<span class="o">(</span>*Server<span class="o">)</span>.Serve<span class="o">(</span>0xc0000f4000, 0x7ccbe0, 0xc000126000, 0x0, 0x0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/net/http/server.go:2896 +0x286
+</span></span><span class="line"><span class="cl">net/http.<span class="o">(</span>*Server<span class="o">)</span>.ListenAndServe<span class="o">(</span>0xc0000f4000, 0xc0000f4000, 0x8<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/net/http/server.go:2825 +0xb7
+</span></span><span class="line"><span class="cl">net/http.ListenAndServe<span class="o">(</span>...<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        /usr/local/go/src/net/http/server.go:3080
+</span></span><span class="line"><span class="cl">webhook/handler.HandleRequest<span class="o">()</span>
 </span></span></code></pre></div><h3 id="expected-behaviour">Expected behaviour</h3>
 <p>In starting for a few seconds it was working smoothly.</p>
 <p><img loading="lazy" src="/img/golang/Go-Routines_race_condition.png" alt="goroutine_race_condition"  />
@@ -400,16 +337,16 @@
 </p>
 <h2 id="code-overview">Code Overview:</h2>
 <p>Initialized one global variable with the type &lsquo;map&rsquo;. Where the key is <code>int</code> and value is <code>channel</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>var ActiveInstances <span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>map<span style="color:#f92672">[</span>int<span style="color:#f92672">](</span>chan string<span style="color:#f92672">))</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">var <span class="nv">ActiveInstances</span> <span class="o">=</span> make<span class="o">(</span>map<span class="o">[</span>int<span class="o">](</span>chan string<span class="o">))</span>
 </span></span></code></pre></div><p>Having two functions</p>
 <ol>
 <li><code>go SetValue()</code></li>
 <li><code>go DeleteValue()</code></li>
 </ol>
 <h3 id="in-setvalue">In <code>SetValue()</code></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ActiveInstances<span style="color:#f92672">[</span>id<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>chan string, 5<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ActiveInstances<span class="o">[</span>id<span class="o">]</span> <span class="o">=</span> make<span class="o">(</span>chan string, 5<span class="o">)</span>
 </span></span></code></pre></div><h3 id="in-deletevalue">In <code>DeleteValue()</code></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>delete<span style="color:#f92672">(</span>ActiveInstances, id<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">delete<span class="o">(</span>ActiveInstances, id<span class="o">)</span>
 </span></span></code></pre></div><p>Both functions running in multiple goroutines.</p>
 <h2 id="observation">Observation:</h2>
 <p>The error itself says <code>concurrent map writes</code>, By which I got the idea that something is wrong with my map variable <code>ActiveInstances</code>. Both functions in multiple goroutines are trying to access the same variable(<code>ActiveInstances</code>) at the same time. Which created race condition. After exploring a few blogs &amp; documentation, I become to know that <strong><em>&ldquo;Maps are not safe for concurrent use&rdquo;</em></strong>.</p>
@@ -421,20 +358,20 @@
 <p>Here we need to access <code>ActiveInstances</code> synchronously. We want to make sure only one goroutine can access a variable at a time to avoid conflicts, This can be easily achieved by <code>sync.Mutex</code>. This concept is called mutual exclusion which provides methods <code>Lock</code> and <code>Unlock</code>.</p>
 <p>We can define a block of code to be executed in mutual exclusion by surrounding it with a call to <code>Lock</code> and <code>Unlock</code>
 It is as simple as below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>var mutex <span style="color:#f92672">=</span> &amp;sync.Mutex<span style="color:#f92672">{}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>mutex.Lock<span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>//my block of code
-</span></span><span style="display:flex;"><span>mutex.Unlock<span style="color:#f92672">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">var <span class="nv">mutex</span> <span class="o">=</span> <span class="p">&amp;</span>sync.Mutex<span class="o">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mutex.Lock<span class="o">()</span>
+</span></span><span class="line"><span class="cl">//my block of code
+</span></span><span class="line"><span class="cl">mutex.Unlock<span class="o">()</span>
 </span></span></code></pre></div><h2 id="code-modifications">Code Modifications:</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>var mutex <span style="color:#f92672">=</span> &amp;sync.Mutex<span style="color:#f92672">{}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>mutex.Lock<span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>ActiveInstances<span style="color:#f92672">[</span>i_id<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>chan string, 5<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>mutex.Unlock<span style="color:#f92672">()</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mutex.Lock<span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>delete<span style="color:#f92672">(</span>ActiveInstances, id<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>mutex.Unlock<span style="color:#f92672">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">var <span class="nv">mutex</span> <span class="o">=</span> <span class="p">&amp;</span>sync.Mutex<span class="o">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mutex.Lock<span class="o">()</span>
+</span></span><span class="line"><span class="cl">ActiveInstances<span class="o">[</span>i_id<span class="o">]</span> <span class="o">=</span> make<span class="o">(</span>chan string, 5<span class="o">)</span>
+</span></span><span class="line"><span class="cl">mutex.Unlock<span class="o">()</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mutex.Lock<span class="o">()</span>
+</span></span><span class="line"><span class="cl">delete<span class="o">(</span>ActiveInstances, id<span class="o">)</span>
+</span></span><span class="line"><span class="cl">mutex.Unlock<span class="o">()</span>
 </span></span></code></pre></div><p>This is how we successfully fix this problem.</p>
 <h2 id="code-to-reproduce">Code to Reproduce</h2>
 <p>To reproduce, Comment Mutex related all operation like line no. 12, 30, 32, 44, 46. Mutex is use to prevent race condition which generates this error.</p>

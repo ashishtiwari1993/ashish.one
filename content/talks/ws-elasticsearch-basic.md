@@ -7,7 +7,7 @@ ogtype: "article"
 tags: ["elasticsearch","kibana","analyzer","CRUD","BULK"]
 slug: "ws-es"
 categories: ["Elastic"]
-
+description: "Workshop on getting started with Elasticsearch covering CRUD operations, bulk indexing, analyzers, and basic queries."
 ---
 
 # Sample Queries for Elasticsearch Workshop

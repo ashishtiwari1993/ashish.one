@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["elasticsearch","json","ndjson"]
 slug: "json-to-ndjson-elasticsearch"
 categories: ["Elastic"]
+description: "How to convert a JSON array to newline-delimited JSON (NDJSON) format for Elasticsearch bulk indexing API."
 ---
 
 

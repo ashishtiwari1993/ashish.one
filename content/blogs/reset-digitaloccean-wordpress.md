@@ -6,6 +6,7 @@ ogtype: "article"
 tags: ["Digitalocean","WordPress","1-Click","Installation"]
 slug: "How-to-reset-1-Click-Installed-WordPress-on-DigitalOcean"
 categories: "Misc"
+description: "How to reset a 1-Click WordPress installation on DigitalOcean when it stops working, with debug steps and a clean reinstall."
 ---
 
 ## The Requirement

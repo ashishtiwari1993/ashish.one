@@ -5,6 +5,7 @@ draft: false
 type: "post"
 tags: ["elasticsearch","beats","Elastic","logstash","Observability","Metricbeat"]
 categories: ["Elastic"]
+description: "Virtual session covering the fundamentals of the Elastic Stack — Elasticsearch, Kibana, Beats, and Logstash — for beginners."
 cover:
     image: "/img/talks/getting_started_elastic_stack.jpg" # image path/url
     alt: "Virtual session on getting started with elastic stack" # alt text

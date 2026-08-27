@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Profile on ashish.one</title>
+    <title>Profile on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/profile/</link>
-    <description>Recent content in Profile on ashish.one</description>
+    <description>Recent content in Profile on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,9 +18,7 @@
       <link>https://ashish.one/blogs/build-developer-profile/</link>
       <pubDate>Mon, 27 Jun 2022 22:47:37 +0530</pubDate>
       <guid>https://ashish.one/blogs/build-developer-profile/</guid>
-      <description>&lt;h1 id=&#34;just-a-thought-thought_balloon--&#34;&gt;Just a thought &amp;#x1f4ad;  &amp;hellip;&lt;/h1&gt;
-&lt;p&gt;As a Developer, we keep learning &amp;amp; developing stuff. Sometimes we also find the solutions. Our stuff is distributed the same as our System architecture. We maintain different platforms like GitHub for projects, Medium for blogs, LinkedIn for profile, etc.&lt;/p&gt;
-&lt;p&gt;All this stuff we want to share on a single platform but as a tech, I am lazy if you ask me to install some CMS and maintain all stuff over there. it is hard to switch from a black terminal &amp;#x1f4bb;  window to some UI &amp;#x1f605;&lt;/p&gt;</description>
+      <description>HugoConf 2022 talk on building a developer portfolio and personal blog site using Hugo as a static site generator.</description>
       <content:encoded><![CDATA[<h1 id="just-a-thought-thought_balloon--">Just a thought &#x1f4ad;  &hellip;</h1>
 <p>As a Developer, we keep learning &amp; developing stuff. Sometimes we also find the solutions. Our stuff is distributed the same as our System architecture. We maintain different platforms like GitHub for projects, Medium for blogs, LinkedIn for profile, etc.</p>
 <p>All this stuff we want to share on a single platform but as a tech, I am lazy if you ask me to install some CMS and maintain all stuff over there. it is hard to switch from a black terminal &#x1f4bb;  window to some UI &#x1f605;</p>

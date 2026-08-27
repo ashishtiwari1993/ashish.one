@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Exporter on ashish.one</title>
+    <title>Exporter on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/exporter/</link>
-    <description>Recent content in Exporter on ashish.one</description>
+    <description>Recent content in Exporter on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,12 +18,7 @@
       <link>https://ashish.one/blogs/write-custom-exporters-prometheus/</link>
       <pubDate>Fri, 29 Nov 2019 22:51:27 +0530</pubDate>
       <guid>https://ashish.one/blogs/write-custom-exporters-prometheus/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In &lt;a href=&#34;https://ashish.one/blogs/setup-prometheus-and-exporters/&#34;&gt;PART-1&lt;/a&gt; and &lt;a href=&#34;https://ashish.one/blogs/setup-alertmanager/&#34;&gt;PART-2&lt;/a&gt;, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.&lt;/p&gt;
-&lt;p&gt;But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.&lt;/p&gt;
-&lt;h2 id=&#34;there-is-two-way-to-exporting-the-data-on-prometheus&#34;&gt;There is two way to exporting the data on prometheus:&lt;/h2&gt;
-&lt;h3 id=&#34;1-exporting-to-a-pushgateway&#34;&gt;1. Exporting to a Pushgateway&lt;/h3&gt;
-&lt;p&gt;Here we metrics are getting the push to prometheus server. It not exposed over any URL or port. Internally it directly calls to Prometheus host and pushes the metrics to that.&lt;/p&gt;</description>
+      <description>Part 3: How to write a custom Prometheus exporter in Go to expose application-specific metrics.</description>
       <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>In <a href="https://ashish.one/blogs/setup-prometheus-and-exporters/">PART-1</a> and <a href="https://ashish.one/blogs/setup-alertmanager/">PART-2</a>, We have seen how prometheus works and how to setup Prometheus and exporters. We have readymade exporters available on the internet.</p>
 <p>But sometime there is situation where you need to store your own custom metrics on prometheus. In such case you have to write your own exporters which will exporters the data into Prometheus.</p>
@@ -56,12 +51,12 @@
 
 <h3 id="step-6">Step 6</h3>
 <p>Add config in <code>prometheus.yml</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  - job_name: service_up_exporter
-</span></span><span style="display:flex;"><span>    scrape_interval: 2m
-</span></span><span style="display:flex;"><span>    scrape_timeout:  2m
-</span></span><span style="display:flex;"><span>    metrics_path: <span style="color:#e6db74">&#34;/metrics&#34;</span>
-</span></span><span style="display:flex;"><span>    static_configs:
-</span></span><span style="display:flex;"><span>    - targets: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;exporterurl.com:8000/metrics&#39;</span><span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  - job_name: service_up_exporter
+</span></span><span class="line"><span class="cl">    scrape_interval: 2m
+</span></span><span class="line"><span class="cl">    scrape_timeout:  2m
+</span></span><span class="line"><span class="cl">    metrics_path: <span class="s2">&#34;/metrics&#34;</span>
+</span></span><span class="line"><span class="cl">    static_configs:
+</span></span><span class="line"><span class="cl">    - targets: <span class="o">[</span><span class="s1">&#39;exporterurl.com:8000/metrics&#39;</span><span class="o">]</span>
 </span></span></code></pre></div><h3 id="step-7">Step 7</h3>
 <p>Restart prometheus service:</p>
 <p><code>sudo service prometheus restart</code></p>

@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["prometheus","grafana","grafana-dashboard","node-exporter","dashboard","alertmanager"]
 slug: "setup-grafana-with-prometheus"
 categories: "Prometheus"
+description: "Part 4: Connecting Grafana to Prometheus for rich dashboards and visualizations of your monitoring data."
 ---
 
 As you know Prometheus already having UI (`localhost:9090`). But it is not enough to give you better visualization on one screen. For better visualization and a graphical representation, we are going to use Grafana.

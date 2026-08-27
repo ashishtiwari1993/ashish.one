@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Information Retrieval on ashish.one</title>
+    <title>Information Retrieval on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/information-retrieval/</link>
-    <description>Recent content in Information Retrieval on ashish.one</description>
+    <description>Recent content in Information Retrieval on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,13 +18,7 @@
       <link>https://ashish.one/blogs/elastic/true-hybrid-search/</link>
       <pubDate>Mon, 25 Aug 2025 12:09:27 +0530</pubDate>
       <guid>https://ashish.one/blogs/elastic/true-hybrid-search/</guid>
-      <description>&lt;h1 id=&#34;hybrid-search-done-right-stop-calling-metadata-filters-hybrid&#34;&gt;Hybrid Search Done Right: Stop Calling Metadata Filters &amp;ldquo;Hybrid&amp;rdquo;&lt;/h1&gt;
-&lt;p&gt;Everyone’s talking about &lt;strong&gt;hybrid search&lt;/strong&gt; right now.
-But here’s the uncomfortable truth:&lt;/p&gt;
-&lt;p&gt;👉 Just because you glued vector search onto your database and added metadata filters doesn’t mean you’ve built &lt;em&gt;true&lt;/em&gt; hybrid search.&lt;/p&gt;
-&lt;p&gt;That’s like duct-taping a spoiler on a hatchback and calling it a race car. 🚗💨&lt;/p&gt;
-&lt;p&gt;Hybrid search is more than just “keyword + vector + filter.”
-It’s about &lt;strong&gt;field-level design, reranking, scoring, and scale&lt;/strong&gt;.&lt;/p&gt;</description>
+      <description>Why metadata filters don&amp;#39;t make hybrid search — and what true hybrid search with BM25, vector, and reranking actually looks like.</description>
       <content:encoded><![CDATA[<h1 id="hybrid-search-done-right-stop-calling-metadata-filters-hybrid">Hybrid Search Done Right: Stop Calling Metadata Filters &ldquo;Hybrid&rdquo;</h1>
 <p>Everyone’s talking about <strong>hybrid search</strong> right now.
 But here’s the uncomfortable truth:</p>
@@ -59,10 +53,10 @@ Teams running semantic + lexical search on <em>every</em> field in their JSON do
 <p>This is where meaning &gt; keywords.
 “Battery dies too quickly” should match with “poor battery life.”</p>
 <h3 id="the-formula-that-works">The Formula That Works</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Final Score = RRF(
-</span></span><span style="display:flex;"><span>   Lexical(title, name, category) +
-</span></span><span style="display:flex;"><span>   Semantic(description, feedback, reviews)
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Final Score = RRF(
+</span></span><span class="line"><span class="cl">   Lexical(title, name, category) +
+</span></span><span class="line"><span class="cl">   Semantic(description, feedback, reviews)
+</span></span><span class="line"><span class="cl">)
 </span></span></code></pre></div><p>Hybrid works when <strong>each field is treated for what it is</strong>.</p>
 <h3 id="quick-reference-table">Quick Reference Table</h3>
 <table>

@@ -5,6 +5,7 @@ draft: false
 type: "post"
 tags: ["elasticsearch","azure","Elastic"]
 categories: ["Elastic"]
+description: "Talk on deploying Elasticsearch on Microsoft Azure and managing it with Elastic Cloud, with a live metric monitoring demo."
 cover:
     image: "/img/misc/deploy_elastic_on_azure_cover.png" # image path/url
     alt: "azure conf cover pic" # alt text

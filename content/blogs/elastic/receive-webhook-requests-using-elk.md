@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["elasticsearch","kibana","elastic","webhook-elk","logstash","http-plugin"]
 slug: "receive-webhook-requests-using-elk"
 categories: ["Elastic"]
+description: "How to receive and store webhook requests in Elasticsearch using Logstash's HTTP input plugin and visualize them in Kibana."
 cover:
     image: "/img/elastic/sample-dashboard.png"
     alt: "Receive webhook requests using ELK"

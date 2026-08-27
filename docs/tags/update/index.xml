@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Update on ashish.one</title>
+    <title>Update on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/update/</link>
-    <description>Recent content in Update on ashish.one</description>
+    <description>Recent content in Update on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,10 +18,7 @@
       <link>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</link>
       <pubDate>Sun, 08 Dec 2019 20:26:06 +0530</pubDate>
       <guid>https://ashish.one/talks/scale-with-massive-updates-queries-in-elasticsearch/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;h2 id=&#34;what-this-talk-is-all-about&#34;&gt;What this talk is all about?&lt;/h2&gt;
-&lt;p&gt;We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.&lt;/p&gt;
-&lt;p&gt;We came up with unique use cases of heavy updates in Elasticsearch. That been challenging but yes currently Our Elaticsearch handling 200 million requests per day very efficiently. Our WRITE consist of the partial update, update with script conditions and of course simple indexing.&lt;/p&gt;</description>
+      <description>Talk on scaling Elasticsearch to handle 200 million daily requests with heavy partial updates, scripted updates, and bulk indexing.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about">What this talk is all about?</h2>
 <p>We recently moved from MySQL to Elasticsearch where we got a direct 10x - 15x boost in our performance.</p>

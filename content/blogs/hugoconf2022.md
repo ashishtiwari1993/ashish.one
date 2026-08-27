@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["hugo","gohugo","hugoconf2022","conf","developer","profile"]
 slug: "build-developer-profile"
 categories: ["Hugo"]
+description: "HugoConf 2022 talk on building a developer portfolio and personal blog site using Hugo as a static site generator."
 cover:
     image: "/img/misc/hugoconf2022.jpeg"
     alt: "Hugoconf2022 how to build a developer profile"

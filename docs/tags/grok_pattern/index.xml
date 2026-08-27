@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Grok_pattern on ashish.one</title>
+    <title>Grok_pattern on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/grok_pattern/</link>
-    <description>Recent content in Grok_pattern on ashish.one</description>
+    <description>Recent content in Grok_pattern on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,10 +18,7 @@
       <link>https://ashish.one/talks/devops-conf-2022/</link>
       <pubDate>Sun, 06 Mar 2022 14:30:32 +0530</pubDate>
       <guid>https://ashish.one/talks/devops-conf-2022/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;In the talk, Quickly showed how you can use the &lt;a href=&#34;https://www.elastic.co/beats/metricbeat&#34;&gt;metricbeat&lt;/a&gt; to check system health. With a few clicks, you can start monitoring your infra.&lt;/p&gt;
-&lt;p&gt;Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.&lt;/p&gt;
-&lt;p&gt;But if you have different requirement where you need to parse a different types of log format , You can parse using &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html&#34;&gt;Grok processor&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>DevOps Conf 2022 talk on parsing custom unstructured logs into Elasticsearch using Grok processor and Filebeat.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In the talk, Quickly showed how you can use the <a href="https://www.elastic.co/beats/metricbeat">metricbeat</a> to check system health. With a few clicks, you can start monitoring your infra.</p>
 <p>Another demo shows, How you can parse your custom unstructured logs to Elasticsearch. There is some utility already available for predefined logs format like json, apache, nginx and system logs etc.</p>

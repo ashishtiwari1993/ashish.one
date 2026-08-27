@@ -7,6 +7,7 @@ ogtype: "article"
 slug: "install-python3.6-pip3.6-pipenv-on-ubuntu14.04"
 tags: ["ubuntu","ubuntu14.04","python3.6","pip3.6","python3.6 install","pipenv"]
 categories: "Misc"
+description: "Step-by-step guide to install Python 3.6, pip3.6, and pipenv from source on Ubuntu 14.04 LTS."
 ---
 
 ## Prerequisite

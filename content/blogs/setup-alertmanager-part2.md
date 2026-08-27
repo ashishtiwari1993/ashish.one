@@ -7,6 +7,7 @@ tags: ["prometheus","alertmanager"]
 draft: false
 slug: "setup-alertmanager"
 categories: "Prometheus"
+description: "Part 2: Setting up Alertmanager with Prometheus and configuring your first alert with routing and notification receivers."
 ---
 
 # Introduction

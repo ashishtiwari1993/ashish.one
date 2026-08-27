@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["bugbounty","pentest","researcher"]
 slug: "get-start-with-bugbounty-pentest-security-researcher"
 categories: ["Misc"]
+description: "A beginner's guide to getting started with bug bounty hunting, penetration testing, and security research — plus curated resources."
 ---
 
 I have always been in confusion about how to get started with security or pentest or somehow with a bug bounty. There are tons of resources available on the internet.

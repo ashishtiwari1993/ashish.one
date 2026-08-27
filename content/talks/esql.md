@@ -7,7 +7,7 @@ ogtype: "article"
 tags: ["elasticsearch","kibana","esql","grok","query"]
 slug: "esql"
 categories: ["Elastic"]
-
+description: "Workshop and talk on ES|QL — Elasticsearch's new unified query language for search, aggregations, and log analysis."
 ---
 
 ## Introduction

@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["ELK","ELKB","Elasticsearch","Kibana","Logstash","Go","Golang","Logrus","Logs","JSON","Elastic"]
 slug: "Shipping-Golang-logs-with-ELKB-stack"
 categories: ["Elastic"]
+description: "Learn how to ship structured JSON logs from a Go application to the ELK stack using Logrus and Filebeat."
 cover:
     image: "/img/go-elk-logs/banner.png" # image path/url
     alt: "go ship logs to ELK flow" # alt text

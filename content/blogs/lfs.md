@@ -7,6 +7,7 @@ tags: ["linux","linuxfromscratch","lfs","LFS","linuxfromscratch.org","ubuntu"]
 ogtype: "article"
 slug: "challenges-in-linuxfromscratch"
 categories: ["Linux"]
+description: "Personal notes and challenges encountered while building Linux From Scratch (LFS), with solutions and lessons learned."
 cover:
     image: "https://pbs.twimg.com/media/EWmoua6UYAAjwgC?format=jpg&name=large" # image path/url
     alt: "Linux from scratch login screen" # alt text

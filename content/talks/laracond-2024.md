@@ -6,6 +6,7 @@ type: "post"
 slug: "laracon-2024"
 tags: ["elasticsearch","genai","RAG","vector-search","semantic-search","LLMs","PHP","Laravel"]
 categories: ["Elastic"]
+description: "Laracon India 2024 talk on building no-code RAG chatbots with PHP, LLMs, and Elasticsearch using the Elephant PHP library."
 cover:
     image: "/img/misc/laracon-2024.jpg" # image path/url
     alt: "Generative AI and LLM in PHP | Ashish Tiwari | Laracon India 2025" # alt text

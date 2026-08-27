@@ -5,6 +5,7 @@ draft: false
 type: "post"
 tags: ["elasticsearch","vector-search","hybrid-search","embeddings","llm"]
 categories: ["Elastic"]
+description: "Talk on implementing vector search and hybrid search in Elasticsearch using dense vector fields and kNN — with live demos."
 cover:
     image: "/img/misc/vector-hybrid-search.jpg" # image path/url
     alt: "Vector and hybrid search with Elasticsearch" # alt text

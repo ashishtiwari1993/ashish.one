@@ -7,6 +7,7 @@ tags: ["golang","map","fatal","error","concurrent map writes","concurrent"]
 draft: false
 slug: "fatal-error-concurrent-map-writes"
 categories: "Golang"
+description: "How to fix the Golang fatal error 'concurrent map writes' using sync.Mutex to safely share maps across goroutines."
 ---
 
 ![concurrent_map_writes](/img/golang/concurrent_map_writes.jpg)

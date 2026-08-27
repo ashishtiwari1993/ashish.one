@@ -8,6 +8,7 @@ tags: ["prometheus","alertmanager","exporter","custom","custom-exporter"]
 draft: false
 slug: "write-custom-exporters-prometheus"
 categories: "Prometheus"
+description: "Part 3: How to write a custom Prometheus exporter in Go to expose application-specific metrics."
 ---
 
 ## Introduction

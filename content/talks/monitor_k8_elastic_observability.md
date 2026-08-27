@@ -5,6 +5,7 @@ draft: false
 type: "post"
 tags: ["elasticsearch","kubernetes","Elastic","observability","k8s"]
 categories: ["Elastic"]
+description: "Talk on monitoring a Kubernetes cluster end-to-end with Elastic Observability — covering logs, metrics, and traces."
 cover:
     image: "/img/misc/k8s_monitoring.jpg" # image path/url
     alt: "Monitor kubernetes cluster with Elastic Observability" # alt text

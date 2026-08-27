@@ -7,6 +7,7 @@ ogtype: "article"
 tags: ["Search Relevancy","Hybrid Search","Semantic Search","Vector Search", "Elasticsearch","Information Retrieval","LLM"]
 slug: "true-hybrid-search"
 categories: ["Elastic"]
+description: "Why metadata filters don't make hybrid search — and what true hybrid search with BM25, vector, and reranking actually looks like."
 ---
 
 # Hybrid Search Done Right: Stop Calling Metadata Filters "Hybrid"

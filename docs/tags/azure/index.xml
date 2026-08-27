@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Azure on ashish.one</title>
+    <title>Azure on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/azure/</link>
-    <description>Recent content in Azure on ashish.one</description>
+    <description>Recent content in Azure on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,11 +18,7 @@
       <link>https://ashish.one/talks/deploy_elastic_on_azure/</link>
       <pubDate>Sat, 29 Jan 2022 19:24:45 +0000</pubDate>
       <guid>https://ashish.one/talks/deploy_elastic_on_azure/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;h2 id=&#34;what-this-talk-is-all-about-&#34;&gt;What this talk is all about ?&lt;/h2&gt;
-&lt;p&gt;The purpose of the talk is to give a short overview of Elastic solutions &amp;amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.&lt;/p&gt;
-&lt;p&gt;Also, it gives an idea to use the elastic cloud to manage the elasticsearch instance which deployed on the Azure cloud. You can also create deployment on elastic cloud (&lt;a href=&#34;https://cloud.elastic.co&#34;&gt;cloud.elastic.co&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;In the demo, Successfully shipped the metric data of the local system (my MacBook) to the newly deployed elasticsearch instance and explored the dashboard on kibana.&lt;/p&gt;</description>
+      <description>Talk on deploying Elasticsearch on Microsoft Azure and managing it with Elastic Cloud, with a live metric monitoring demo.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <h2 id="what-this-talk-is-all-about-">What this talk is all about ?</h2>
 <p>The purpose of the talk is to give a short overview of Elastic solutions &amp; Elastic stacks. In the demo shown, how you can deploy elasticsearch instance on Microsoft Azure.</p>

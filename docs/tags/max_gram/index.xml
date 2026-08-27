@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Max_gram on ashish.one</title>
+    <title>Max_gram on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/max_gram/</link>
-    <description>Recent content in Max_gram on ashish.one</description>
+    <description>Recent content in Max_gram on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,74 +18,72 @@
       <link>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</link>
       <pubDate>Sun, 22 Sep 2019 15:20:39 +0530</pubDate>
       <guid>https://ashish.one/blogs/min-gram-and-max-gram-elasticsearch/</guid>
-      <description>&lt;p&gt;I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html&#34;&gt;ngram token filter&lt;/a&gt; for like query. It was quickly implemented on local and works exactly i want.&lt;/p&gt;
-&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
-&lt;p&gt;To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.&lt;/p&gt;</description>
+      <description>A practical guide to choosing the right min_gram and max_gram values for the Elasticsearch ngram tokenizer to avoid storage bloat.</description>
       <content:encoded><![CDATA[<p>I was working on elasticsearch and the requirement was to implement like query “%text%” ( like mysql %like% ). We could use wildcard, regex or query string but those are slow. Hence i took decision to use <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/analysis-ngram-tokenfilter.html">ngram token filter</a> for like query. It was quickly implemented on local and works exactly i want.</p>
 <h2 id="the-problem">The problem</h2>
 <p>To know the actual behavior, I implemented the same on staging server. I found some problem while we start indexing on staging.</p>
 <ol>
 <li>Storage size was directly increase by 8x, Which was too risky. In my previous index the string type was “keyword”. Its took approx 43 gb to store the same data. I implemented a new schema for “like query” with ngram filter which took below storage to store same data.</li>
 </ol>
-<pre tabindex="0"><code>curl -XGET http://localhost:9200/_cat/indices?v
-
-index       docs.count  pri.store.size
-ngram-test  459483245   329.5gb
-</code></pre><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl -XGET http://localhost:9200/_cat/indices?v
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">index       docs.count  pri.store.size
+</span></span><span class="line"><span class="cl">ngram-test  459483245   329.5gb
+</span></span></code></pre></div><ol start="2">
 <li>Sometime like query was not behaving properly. Not getting exact output.</li>
 </ol>
 <h2 id="schema">Schema</h2>
-<pre tabindex="0"><code>curl -XPUT &#34;localhost:9200/ngram-test?pretty&#34; -H &#39;Content-Type: application/json&#39; -d&#39;
-{
-  &#34;settings&#34;:{
-    &#34;index&#34;:{
-      &#34;number_of_shards&#34;:5,
-      &#34;number_of_replicas&#34;:0,
-      &#34;codec&#34;: &#34;best_compression&#34;
-    },
-    &#34;analysis&#34;:{
-      &#34;filter&#34;:{
-        &#34;like_filter&#34;:{
-          &#34;type&#34;:&#34;ngram&#34;,
-          &#34;min_gram&#34;:3,
-          &#34;max_gram&#34;:10,
-          &#34;token_chars&#34;:[
-            &#34;letter&#34;,
-            &#34;digit&#34;,
-            &#34;symbol&#34;
-          ]
-        }
-      },
-      &#34;analyzer&#34;:{
-        &#34;like_analyzer&#34;:{
-          &#34;type&#34;:&#34;custom&#34;,
-          &#34;tokenizer&#34;:&#34;keyword&#34;,
-          &#34;filter&#34;:[
-            &#34;lowercase&#34;,
-            &#34;like_filter&#34;
-          ]
-        }
-      }
-    }
-  },
-  &#34;mappings&#34;:{
-    &#34;logs&#34;:{
-      &#34;properties&#34;:{
-        &#34;email&#34;:{
-          &#34;type&#34;:&#34;keyword&#34;,
-          &#34;fields&#34;:{
-            &#34;text&#34;:{
-              &#34;analyzer&#34;:&#34;like_analyzer&#34;,
-              &#34;search_analyzer&#34;:&#34;like_analyzer&#34;,
-              &#34;type&#34;:&#34;text&#34;
-            }
-          }
-        }
-      }
-    }
-  }
-}&#39;
-</code></pre><h2 id="analyzing-the-behavior-of-ngram-filter">Analyzing the behavior of ngram filter</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl -XPUT &#34;localhost:9200/ngram-test?pretty&#34; -H &#39;Content-Type: application/json&#39; -d&#39;
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;settings&#34;:{
+</span></span><span class="line"><span class="cl">    &#34;index&#34;:{
+</span></span><span class="line"><span class="cl">      &#34;number_of_shards&#34;:5,
+</span></span><span class="line"><span class="cl">      &#34;number_of_replicas&#34;:0,
+</span></span><span class="line"><span class="cl">      &#34;codec&#34;: &#34;best_compression&#34;
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;analysis&#34;:{
+</span></span><span class="line"><span class="cl">      &#34;filter&#34;:{
+</span></span><span class="line"><span class="cl">        &#34;like_filter&#34;:{
+</span></span><span class="line"><span class="cl">          &#34;type&#34;:&#34;ngram&#34;,
+</span></span><span class="line"><span class="cl">          &#34;min_gram&#34;:3,
+</span></span><span class="line"><span class="cl">          &#34;max_gram&#34;:10,
+</span></span><span class="line"><span class="cl">          &#34;token_chars&#34;:[
+</span></span><span class="line"><span class="cl">            &#34;letter&#34;,
+</span></span><span class="line"><span class="cl">            &#34;digit&#34;,
+</span></span><span class="line"><span class="cl">            &#34;symbol&#34;
+</span></span><span class="line"><span class="cl">          ]
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;analyzer&#34;:{
+</span></span><span class="line"><span class="cl">        &#34;like_analyzer&#34;:{
+</span></span><span class="line"><span class="cl">          &#34;type&#34;:&#34;custom&#34;,
+</span></span><span class="line"><span class="cl">          &#34;tokenizer&#34;:&#34;keyword&#34;,
+</span></span><span class="line"><span class="cl">          &#34;filter&#34;:[
+</span></span><span class="line"><span class="cl">            &#34;lowercase&#34;,
+</span></span><span class="line"><span class="cl">            &#34;like_filter&#34;
+</span></span><span class="line"><span class="cl">          ]
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  &#34;mappings&#34;:{
+</span></span><span class="line"><span class="cl">    &#34;logs&#34;:{
+</span></span><span class="line"><span class="cl">      &#34;properties&#34;:{
+</span></span><span class="line"><span class="cl">        &#34;email&#34;:{
+</span></span><span class="line"><span class="cl">          &#34;type&#34;:&#34;keyword&#34;,
+</span></span><span class="line"><span class="cl">          &#34;fields&#34;:{
+</span></span><span class="line"><span class="cl">            &#34;text&#34;:{
+</span></span><span class="line"><span class="cl">              &#34;analyzer&#34;:&#34;like_analyzer&#34;,
+</span></span><span class="line"><span class="cl">              &#34;search_analyzer&#34;:&#34;like_analyzer&#34;,
+</span></span><span class="line"><span class="cl">              &#34;type&#34;:&#34;text&#34;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}&#39;
+</span></span></code></pre></div><h2 id="analyzing-the-behavior-of-ngram-filter">Analyzing the behavior of ngram filter</h2>
 <p>We made one test index and start monitoring by inserting doc one by one.</p>
 <p><a href="https://medium.com/@ashishstiwari/what-should-be-the-value-of-max-gram-and-min-gram-in-elasticsearch-f091404c9a14">Continue Reading</a></p>
 ]]></content:encoded>

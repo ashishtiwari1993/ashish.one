@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Monitoring on ashish.one</title>
+    <title>Monitoring on Ashish Tiwari | Search &amp; GenAI Engineer</title>
     <link>https://ashish.one/tags/monitoring/</link>
-    <description>Recent content in Monitoring on ashish.one</description>
+    <description>Recent content in Monitoring on Ashish Tiwari | Search &amp; GenAI Engineer</description>
     <image>
-      <title>ashish.one</title>
-      <url>https://ashish.one/img/speaker-pic/ashish.png</url>
-      <link>https://ashish.one/img/speaker-pic/ashish.png</link>
+      <title>Ashish Tiwari | Search &amp; GenAI Engineer</title>
+      <url>https://ashish.one/img/speaker-pic/ashish.jpg</url>
+      <link>https://ashish.one/img/speaker-pic/ashish.jpg</link>
     </image>
     <generator>Hugo -- 0.136.4</generator>
     <language>en-us</language>
@@ -18,9 +18,7 @@
       <link>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</link>
       <pubDate>Mon, 03 Jun 2024 12:13:06 +0530</pubDate>
       <guid>https://ashish.one/talks/serverless-ahmedabad-2023-elastic-observability/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.&lt;/p&gt;
-&lt;p&gt;For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.&lt;/p&gt;</description>
+      <description>Serverless Ahmedabad 2023 talk on monitoring serverless AWS environments using Elastic Observability.</description>
       <content:encoded><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Serverless architectures take on-demand tasks to the next level with event-driven scheduling of workloads. Elastic Observability gives you the same insights into your serverless activities as the rest of your environment. Gather logs and metrics from your serverless invocations and tie them together with traces from your serverless functions.</p>
 <p>For example Identify AWS Lambda latency issues, cold starts, and other invocation issues. Logs are collected with the rest of your telemetry data, so you can look at all your data in context, in one place.</p>

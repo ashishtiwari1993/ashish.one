@@ -6,6 +6,7 @@ type: "post"
 slug: "serverless-ahmedabad-2023-elastic-observability"
 tags: ["elasticsearch","observability","serverless","aws","monitoring"]
 categories: ["Elastic"]
+description: "Serverless Ahmedabad 2023 talk on monitoring serverless AWS environments using Elastic Observability."
 cover:
     image: "/img/misc/serverless-amd-2023.jpeg" # image path/url
     alt: "Serverless Ahmedabad 2023: Monitoring serverless environment with Elastic observability" # alt text
