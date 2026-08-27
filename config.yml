@@ -1,16 +1,15 @@
 baseurl: 'https://ashish.one/'
 languageCode: en-us
-title: ashish.one
+title: "Ashish Tiwari | Search & GenAI Engineer"
 theme: paperMod
 publishDir: docs
 googleAnalytics: G-D2G6QZGNG1
 enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true
-canonifyURLs: true
 pagination:
   disableAliases: false
-  pagerSize: 5
+  pagerSize: 8
   path: page
 Taxonomies:
   tag: tags
@@ -19,41 +18,56 @@ Taxonomies:
 minify:
   disableXML: true
   minifyOutput: true
+markup:
+  highlight:
+    noClasses: false
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    style: dracula
 params:
   env: production
   mainSections:
     - post
+  description: "Ashish Tiwari — Principal Solutions Architect specializing in Search, GenAI, vector search, RAG, and Elasticsearch. Blogs, talks, and technical gists."
   author: Ashish Tiwari
-  title: ashish.one
-  keyword:
-    - Blogs
-    - Gists
+  title: "Ashish Tiwari | Search & GenAI Engineer"
+  keywords:
+    - Elasticsearch
+    - vector search
+    - GenAI
+    - RAG
+    - semantic search
+    - Search Engineer
+    - Ashish Tiwari
   images:
-    - 'https://ashish.one/img/speaker-pic/ashish.png'
+    - '/img/speaker-pic/ashish.jpg'
   DateFormat: 'January 2, 2006'
   defaultTheme: dark
   disableThemeToggle: false
   ShowFullTextinRSS: true
   ShowReadingTime: true
+  ShowWordCount: true
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
-  disableSpecial1stPost: false
+  ShowAllPagesInArchive: true
+  ShowRssButtonInSectionTermList: true
+  disableSpecial1stPost: true
   disableScrollToTop: false
   comments: true
   hidemeta: false
   hideSummary: false
   showtoc: true
   tocopen: true
-  copyright: ashish
+  UseHugoToc: true
+  copyright: "Ashish Tiwari"
   since: '2019'
-  highlightjs: true
-  highlightjsstyle: github
   UtterancesRepo: ashishtiwari1993/ashish.one
   UtterancesIssueTerm: title
   UtterancesTheme: github-light
-  toc: tocbot
   social:
     gravatar: atashish171@gmail.com
     twitter: _ashish_tiwari
@@ -65,32 +79,30 @@ params:
     favicon32x32: favicon.png
     apple_touch_icon: favicon.png
     safari_pinned_tab: favicon.png
+    disableHLJS: true
   label:
     text: Ashish Tiwari
     iconHeight: 35
   profileMode:
-    enabled: false
-    imageUrl: 'https://www.gravatar.com/avatar/dcb52889deff3e5017a18de40c57add8?s=200'
-  homeInfoParams:
-    Title: "Bio"
-    Content:  >
-      👋 Hi, I’m Ashish
-
-
-      🇮🇳 From India
-
-
-      🧑‍💼 Principal Solutions Architect - Search Specialist, Elastic
-
-
-      &#x1F440; Developer, Search Engineer (latest interest - Generative AI, vector databases, RAG, agents ...)
-
-
-      🧑‍🤝‍🧑 Community lover, Speaker, OSS
-
-
-      [More](https://ashish.one/about)
-      
+    enabled: true
+    title: "Ashish Tiwari"
+    subtitle: "Principal Solutions Architect · Search & GenAI @ Elastic"
+    imageUrl: "/img/speaker-pic/ashish-circle.png"
+    imageTitle: "Ashish Tiwari"
+    buttons:
+      - name: Blogs
+        url: /blogs/
+      - name: Talks
+        url: /talks/
+      - name: About
+        url: /about/
+  schema:
+    publisherType: Person
+    sameAs:
+      - "https://twitter.com/_ashish_tiwari"
+      - "https://github.com/ashishtiwari1993"
+      - "https://www.linkedin.com/in/ashishtiwari93/"
+      - "https://stackoverflow.com/users/6438430/ashish-tiwari"
   cover:
     linkFullImages: false
     hiddenInList: false
@@ -130,14 +142,20 @@ outputs:
     - JSON
 menu:
   main:
+    - name: Blogs
+      url: /blogs/
+      weight: -98
+    - name: Talks
+      url: /talks/
+      weight: -97
     - name: Categories
       url: /categories/
       weight: -96
+    - name: Tags
+      url: /tags/
+      weight: -95
     - name: Slides
       url: https://slides.ashish.one
-      weight: -95
-    - name: Talks
-      url: /talks/
       weight: -94
     - name: Search
       url: /search/
